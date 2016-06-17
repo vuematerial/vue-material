@@ -1,0 +1,96 @@
+/*  Apply the border-box box model to HTML and inheriting
+    to all children elements
+   ========================================================================== */
+
+html {
+  box-sizing: border-box;
+
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+}
+
+
+
+/*  Always hide an element when it has the `hidden` HTML attribute.
+   ========================================================================== */
+
+[hidden] {
+  display: none !important;
+}
+
+
+
+/*  Fluid Media
+   ========================================================================== */
+
+audio,
+img,
+svg,
+object,
+embed,
+canvas,
+video,
+iframe {
+  max-width: 100%;
+  height: auto;
+  font-style: italic;
+  vertical-align: middle;
+}
+
+
+
+/*  Remove figure extra margin
+   ========================================================================== */
+
+figure {
+  margin-right: auto;
+  margin-left: auto;
+
+  > img {
+    display: block;
+  }
+}
+
+
+
+/*  Remove outline from button
+   ========================================================================== */
+
+button:focus {
+  outline: none;
+}
+
+
+
+/*  Suppress the focus outline on links that cannot be accessed via keyboard.
+    This prevents an unwanted focus outline from appearing around elements
+    that might still respond to pointer events.
+   ========================================================================== */
+
+[tabindex="-1"]:focus {
+  outline: none !important;
+}
+
+
+
+/*  Remove extra vertical spacing when nesting lists
+   ========================================================================== */
+
+li {
+  > ul,
+  > ol {
+    margin-bottom: 0;
+  }
+}
+
+
+
+/*  Remove spacing between table cells
+   ========================================================================== */
+
+table {
+  empty-cells: show;
+}
