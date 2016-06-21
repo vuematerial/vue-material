@@ -16,11 +16,15 @@
 
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
     <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
-    <link href="assets/stylesheets/core.css" rel="stylesheet">
+    <link href="stylesheets/core.css" rel="stylesheet">
   </head>
 
   <body>
+    <div class="container" id="app" v-cloak>
+      <md-button class="md-primary" @click="clickAction">My first component</md-button>
+      <md-link-button class="md-primary md-raised" href="/" target="_blank">My second component</md-link-button>
+    </div>
 
-    <script src="assets/scripts/main.js"></script>
+    <script src="components/main.js"></script>
   </body>
 </html>

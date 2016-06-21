@@ -17,7 +17,7 @@ gulp.task('watch', ['browserSync'], () => {
     runSequence('eslint-gulp');
   });
 
-  watch(config.src.scripts, watchConfig, () => {
+  watch(config.src.components, watchConfig, () => {
     runSequence('eslint');
   });
 

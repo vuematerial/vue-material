@@ -4,7 +4,7 @@ import uglify from 'gulp-uglify';
 import config from '../config';
 
 gulp.task('uglify', () => {
-  return gulp.src(path.normalize(config.dest.path + '/assets/scripts/main.js'))
+  return gulp.src(path.normalize(config.dest.components))
     .pipe(uglify())
-    .pipe(gulp.dest(path.normalize(config.dest.path + '/assets/scripts')));
+    .pipe(gulp.dest(path.normalize(config.dest.path + '/components')));
 });

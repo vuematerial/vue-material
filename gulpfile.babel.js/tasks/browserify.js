@@ -16,7 +16,7 @@ import config from '../config';
 import browserSync from './browser-sync';
 
 let app = 'main.js';
-let entry = path.normalize(config.src.path + '/assets/scripts/' + app);
+let entry = path.normalize(config.src.path + '/components/' + app);
 
 gulp.task('browserify', () => {
   let b = watchify(browserify(xtend(watchify.args, {
@@ -57,7 +57,7 @@ gulp.task('browserify', () => {
       })
       .pipe(source(app))
       .pipe(buffer())
-      .pipe(gulp.dest(path.normalize(config.dest.path + '/assets/scripts')))
+      .pipe(gulp.dest(path.normalize(config.dest.path + '/components')))
       .pipe(browserSync.stream())
       .on('finish', () => {
         util.log('Browserify', util.colors.cyan(app), 'after', util.colors.magenta(prettyTime(process.hrtime(bundleTimer))));
@@ -83,7 +83,7 @@ gulp.task('browserify-build', () => {
     .pipe(source(app))
     .pipe(buffer())
     .pipe(uglify())
-    .pipe(gulp.dest(path.normalize(config.dest.path + '/assets/scripts')))
+    .pipe(gulp.dest(path.normalize(config.dest.path + '/components')))
     .on('finish', () => {
       util.log('Browserify', util.colors.cyan(app), 'after', util.colors.magenta(prettyTime(process.hrtime(bundleTimer))));
     });

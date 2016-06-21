@@ -17,7 +17,11 @@ gulp.task('browserSync', () => {
       forms: true
     },
     server: {
-      baseDir: [config.dest.path]
+      baseDir: [
+        'node_modules',
+        config.demo.path,
+        config.dest.path
+      ]
     },
     ui: {
       port: 9001,
