@@ -5,14 +5,14 @@ import config from '../config';
 
 gulp.task('eslint-all', () => {
   return gulp
-    .src(config.gulp.scripts.concat(config.src.scripts))
+    .src(config.gulp.scripts.concat(config.src.components))
     .pipe(eslint())
     .pipe(eslint.format());
 });
 
 gulp.task('eslint-gulp', () => {
   return gulp
-    .src(config.gulp.scripts)
+    .src(config.gulp.components)
     .pipe(changed())
     .pipe(eslint())
     .pipe(eslint.format());
@@ -20,7 +20,7 @@ gulp.task('eslint-gulp', () => {
 
 gulp.task('eslint', () => {
   return gulp
-    .src(config.src.scripts)
+    .src(config.src.components)
     .pipe(changed())
     .pipe(eslint())
     .pipe(eslint.format());
