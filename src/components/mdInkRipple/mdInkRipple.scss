@@ -1,0 +1,28 @@
+@import '../../stylesheets/variables.scss';
+
+.md-ink-ripple {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.md-ripple {
+  position: absolute;
+  transform: scale(0);
+  background: rgba(0, 0, 0, .26);
+  border-radius: 50%;
+
+  &.md-active {
+    animation: ripple 1.2s $swift-ease-out-timing-function;
+  }
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}

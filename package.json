@@ -49,6 +49,7 @@
     "xtend": "^4.0.1"
   },
   "dependencies": {
-    "vue": "^1.0.25"
+    "vue": "^1.0.25",
+    "vue-ripple": "^1.0.2"
   }
 }
