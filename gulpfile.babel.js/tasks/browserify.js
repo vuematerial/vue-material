@@ -22,11 +22,9 @@ gulp.task('browserify', () => {
   let b = watchify(browserify(xtend(watchify.args, {
     debug: true,
     watch: true,
-    fast: true,
     fullPaths: true,
     keepAlive: true,
     detectGlobals: false,
-    ignoreWatch: true,
     noparse: ['node_modules/**/*.js'],
     entries: entry,
     transform: [

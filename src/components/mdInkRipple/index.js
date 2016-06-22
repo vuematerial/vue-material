@@ -5,12 +5,23 @@ export default function install(Vue) {
   let rippleClass = 'md-ripple';
   let rippleActiveClass = 'md-active';
 
+  let registeredMouseFunction;
+
+  let unregisterMouseEvent = (element) => {
+    let ripple = element.querySelector('.' + rippleParentClass);
+
+    if (ripple) {
+      ripple.parentNode.removeChild(ripple);
+      element.removeEventListener('mousedown', registeredMouseFunction);
+    }
+  };
+
   let registerMouseEvent = (element) => {
     Vue.nextTick(() => {
       let rect = element.getBoundingClientRect();
       let ripple = element.querySelector('.' + rippleClass);
 
-      element.addEventListener('mousedown', function(event) {
+      registeredMouseFunction = function(event) {
         ripple.classList.remove(rippleActiveClass);
 
         let top = event.pageY - rect.top - ripple.offsetHeight / 2 - document.body.scrollTop;
@@ -20,7 +31,10 @@ export default function install(Vue) {
         ripple.style.left = left + 'px';
 
         ripple.classList.add(rippleActiveClass);
-      });
+      };
+
+      element.removeEventListener('mousedown', registeredMouseFunction);
+      element.addEventListener('mousedown', registeredMouseFunction);
     });
   };
 
@@ -53,7 +67,11 @@ export default function install(Vue) {
     }
   };
 
-  Vue.directive('mdInkRipple', function() {
-    createRipple(this.el);
+  Vue.directive('mdInkRipple', function(disabled) {
+    if (!disabled) {
+      createRipple(this.el);
+    } else {
+      unregisterMouseEvent(this.el);
+    }
   });
 }
