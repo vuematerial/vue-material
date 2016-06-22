@@ -1,0 +1,36 @@
+/*  Transitions
+   ========================================================================== */
+
+$swift-ease-out-duration: .4s !default;
+$swift-ease-out-timing-function: cubic-bezier(.25, .8, .25, 1) !default;
+$swift-ease-out: all $swift-ease-out-duration $swift-ease-out-timing-function !default;
+
+$swift-ease-in-duration: .3s !default;
+$swift-ease-in-timing-function: cubic-bezier(.55, 0, .55, .2) !default;
+$swift-ease-in: all $swift-ease-in-duration $swift-ease-in-timing-function !default;
+
+$swift-ease-in-out-duration: .5s !default;
+$swift-ease-in-out-timing-function: cubic-bezier(.35, 0, .25, 1) !default;
+$swift-ease-in-out: all $swift-ease-in-out-duration $swift-ease-in-out-timing-function !default;
+
+$swift-linear-duration: .08s !default;
+$swift-linear-timing-function: linear !default;
+$swift-linear: all $swift-linear-duration $swift-linear-timing-function !default;
+
+$material-enter-duration: .3s;
+$material-enter-timing-function: cubic-bezier(.0, .0, .2, 1);
+$material-enter: all $material-enter-duration $material-enter-timing-function;
+
+$material-leave-duration: .3s;
+$material-leave-timing-function: cubic-bezier(.4, .0, 1, 1);
+$material-leave: all $material-leave-duration $material-leave-timing-function;
+
+
+
+/*  Common
+   ========================================================================== */
+
+$material-shadow-z1: 0 2px 5px rgba(0, 0, 0, .26);
+$material-shadow-z2: 0 4px 8px rgba(0, 0, 0, .4);
+
+$font-roboto: Roboto, "Helvetica Neue", sans-serif;
