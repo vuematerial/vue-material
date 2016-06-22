@@ -21,8 +21,32 @@
 
   <body>
     <div class="container" id="app" v-cloak>
-      <md-button class="md-primary md-raised" @click="clickAction">My first component</md-button>
-      <md-link-button class="md-primary" href="/">My second component</md-link-button>
+      <md-button class="md-primary" @click="clickAction">Button</md-button>
+      <md-link-button class="md-primary" :disabled="disabled">Primary</md-link-button>
+      <md-link-button class="md-raised">Raised</md-link-button>
+      <md-link-button class="md-raised" :disabled="!disabled">Disabled</md-link-button>
+      <md-link-button class="md-raised md-dense">Dense</md-link-button>
+      <md-link-button class="md-icon-button">
+        <md-icon>menu</md-icon>
+      </md-link-button>
+
+      <div class="md-button-group">
+        <md-link-button class="md-icon-button">
+          <md-icon>format_align_left</md-icon>
+        </md-link-button>
+
+        <md-link-button class="md-icon-button">
+          <md-icon>format_align_center</md-icon>
+        </md-link-button>
+
+        <md-link-button class="md-icon-button">
+          <md-icon>format_align_right</md-icon>
+        </md-link-button>
+
+        <md-link-button class="md-icon-button">
+          <md-icon>format_align_justify</md-icon>
+        </md-link-button>
+      </div>
     </div>
 
     <script src="components/main.js"></script>

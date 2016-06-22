@@ -2,6 +2,9 @@
 
 $button-width: 88px;
 $button-height: 36px;
+$button-radius: 2px;
+
+$button-dense-height: 32px;
 
 $button-icon-size: 40px;
 
@@ -9,7 +12,7 @@ $button-icon-size: 40px;
   min-width: $button-width;
   min-height: $button-height;
   margin: 6px 8px;
-  padding: 0 6px;
+  padding: 0 16px;
   display: inline-block;
   position: relative;
   align-items: center;
@@ -19,9 +22,8 @@ $button-icon-size: 40px;
   outline: none;
   background: none;
   border: 0;
-  border-radius: 3px;
-  transition: box-shadow $swift-ease-out-duration $swift-ease-out-timing-function,
-              background-color $swift-ease-out-duration $swift-ease-out-timing-function;
+  border-radius: $button-radius;
+  transition: $swift-ease-out;
   color: currentColor;
   font-family: inherit;
   font-size: 14px;
@@ -39,18 +41,40 @@ $button-icon-size: 40px;
     outline: none;
   }
 
-  &:hover,
-  &:focus {
-    text-decoration: none;
+  &:hover {
+    &:not([disabled]) {
+      &:not(.md-raised) {
+        background-color: rgba(#999, .2);
+        text-decoration: none;
+      }
+
+      &.md-raised {
+        background-color: rgba(#000, .12);
+      }
+    }
   }
 
-  &.ng-hide,
-  &.ng-leave {
-    transition: none;
+  &:active:not([disabled]) {
+    background-color: rgba(#999, .4);
+  }
+
+  &[disabled] {
+    color: rgba(#000, .26);
+    cursor: default;
+
+    &.md-raised {
+      background-color: rgba(#000, .12);
+    }
   }
 
   &.md-raised:not([disabled]) {
-    box-shadow: $material-shadow-z1;
+    box-shadow: $material-shadow-2dp;
+  }
+
+  &.md-dense {
+    min-height: $button-dense-height;
+    line-height: $button-dense-height;
+    font-size: 13px;
   }
 
   &.md-icon-button {
@@ -61,18 +85,17 @@ $button-icon-size: 40px;
     padding: 8px;
     border-radius: 50%;
     line-height: 24px;
+
+    .md-ink-ripple {
+      border-radius: 50%;
+    }
+
+    .md-ripple.md-active {
+      animation-duration: .9s;
+    }
   }
 
 /*
-  &.md-cornered {
-    border-radius: 0;
-  }
-
-  &.md-icon {
-    padding: 0;
-    background: none;
-  }
-
   &.md-fab {
 
     // Include the top/left/bottom/right fab positions
@@ -107,28 +130,48 @@ $button-icon-size: 40px;
       width: $button-fab-mini-width;
       height: $button-fab-mini-height;
     }
-
-    &.ng-hide, &.ng-leave {
-      transition: none;
-    }
   }
-
-  &:not([disabled]) {
-    &.md-raised,
-    &.md-fab {
-      &.md-focused {
-        @include md-shadow-bottom-z-1();
-      }
-      &:active {
-        @include md-shadow-bottom-z-2();
-      }
-    }
-  } */
+ */
 
   .md-ink-ripple {
-    border-radius: 3px;
+    border-radius: $button-radius;
     background-clip: padding-box;
     overflow: hidden;
     -webkit-mask-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC');
+  }
+}
+
+.md-button-group {
+  width: auto;
+  display: flex;
+
+  > .md-button {
+    margin: 0;
+    overflow: hidden;
+    border-width: 1px 0 1px 1px;
+    border-radius: 0;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    &:first-child {
+      border-radius: 2px 0 0 2px;
+    }
+
+    &:last-child {
+      border-right-width: 1px;
+      border-radius: 0 2px 2px 0;
+    }
+
+    .md-ink-ripple {
+      border-radius: $button-radius;
+    }
+  }
+}
+
+.md-button.md-icon-button,
+.md-button.md-fab {
+  md-icon {
+    display: block;
   }
 }

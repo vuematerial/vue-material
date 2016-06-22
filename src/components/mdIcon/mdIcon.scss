@@ -1,0 +1,14 @@
+@import '../../stylesheets/variables.scss';
+
+$icon-size: 24px;
+
+md-icon {
+  width: $icon-size;
+  min-width: $icon-size;
+  height: $icon-size;
+  min-height: $icon-size;
+  margin: auto;
+  display: inline-block;
+  fill: currentColor;
+  vertical-align: middle;
+}
