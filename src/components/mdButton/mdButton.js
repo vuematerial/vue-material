@@ -4,4 +4,3 @@ export default {
     disabled: Boolean
   }
 };
-
