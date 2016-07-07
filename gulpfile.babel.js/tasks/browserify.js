@@ -24,22 +24,20 @@ gulp.task('browserify', () => {
     watch: true,
     fullPaths: true,
     keepAlive: true,
-    detectGlobals: false,
     noparse: ['node_modules/**/*.js'],
-    entries: entry,
-    transform: [
-      envify({
-        NODE_ENV: 'development'
-      }),
-      vueify,
-      babelify.configure()
-    ]
+    entries: entry
   })));
 
   let bundle = () => {
     let bundleTimer = process.hrtime();
 
-    return b.bundle()
+    return b
+      .transform(envify({
+        NODE_ENV: 'development'
+      }))
+      .transform(vueify)
+      .transform(babelify.configure())
+      .bundle()
       .on('error', (error) => {
         let dirname = path.join(__dirname, '..', '..', 'src') + '/';
 
