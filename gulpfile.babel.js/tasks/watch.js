@@ -9,7 +9,7 @@ let watchConfig = {
 };
 
 gulp.task('watch', ['browserSync'], () => {
-  watch(['.eslintrc', '.eslintignore'].concat(config.gulp.scripts, config.src.components), watchConfig, () => {
+  watch(['.eslintrc', '.eslintignore'], watchConfig, () => {
     runSequence('eslint-all');
   });
 

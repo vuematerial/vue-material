@@ -6,7 +6,6 @@ import watchify from 'watchify';
 import babelify from 'babelify';
 import envify from 'envify/custom';
 import vueify from 'vueify';
-import xtend from 'xtend';
 import prettyTime from 'pretty-hrtime';
 import browserify from 'browserify';
 import uglifyify from 'uglifyify';
@@ -19,19 +18,22 @@ let app = 'main.js';
 let entry = path.normalize(config.src.path + '/components/' + app);
 
 gulp.task('browserify', () => {
-  let b = watchify(browserify(xtend(watchify.args, {
+  let b = browserify({
+    cache: {},
+    packageCache: {},
     debug: true,
-    watch: true,
-    fullPaths: true,
-    keepAlive: true,
+    detectGlobals: false,
+    extensions: ['js', 'json', 'vue'],
+    ignoreWatch: true,
     noparse: ['node_modules/**/*.js'],
     entries: entry
-  })));
+  });
 
   let bundle = () => {
     let bundleTimer = process.hrtime();
 
     return b
+      .plugin(watchify)
       .transform(envify({
         NODE_ENV: 'development'
       }))
