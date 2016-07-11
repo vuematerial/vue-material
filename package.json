@@ -45,8 +45,7 @@
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "vueify": "^8.7.0",
-    "watchify": "^3.7.0",
-    "xtend": "^4.0.1"
+    "watchify": "^3.7.0"
   },
   "dependencies": {
     "vue": "^1.0.26"

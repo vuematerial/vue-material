@@ -23,7 +23,7 @@ gulp.task('browserify', () => {
     packageCache: {},
     debug: true,
     detectGlobals: false,
-    extensions: ['js', 'json', 'vue'],
+    extensions: ['.js', '.json', '.vue'],
     ignoreWatch: true,
     noparse: ['node_modules/**/*.js'],
     entries: entry
