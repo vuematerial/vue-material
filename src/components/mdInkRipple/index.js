@@ -73,12 +73,12 @@ export default function install(Vue) {
   };
 
   let createRipple = (element) => {
-    element = getParentWithPositionRelatve(element);
+    Vue.nextTick(() => {
+      element = getParentWithPositionRelatve(element);
 
-    let ripple = element.querySelector('.' + rippleClass);
+      let ripple = element.querySelector('.' + rippleClass);
 
-    if (!ripple) {
-      Vue.nextTick(() => {
+      if (!ripple) {
         let elementSize = Math.round(Math.max(element.offsetWidth, element.offsetHeight)) + 'px';
         let rippleParent = createElement(ripple, rippleParentClass);
         let rippleElement = createElement(ripple, rippleClass, elementSize);
@@ -87,8 +87,8 @@ export default function install(Vue) {
         element.appendChild(rippleParent);
 
         registerMouseEvent(element);
-      });
-    }
+      }
+    });
   };
 
   Vue.directive('mdInkRipple', function(disabled) {

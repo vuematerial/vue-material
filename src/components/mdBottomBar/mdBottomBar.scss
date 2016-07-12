@@ -21,7 +21,7 @@
   position: relative;
   border: none;
   background: transparent;
-  transition: .3s ease;
+  transition: $swift-ease-out;
   color: currentColor;
   font-size: 14px;
   line-height: 1em;
@@ -31,6 +31,11 @@
 
     .md-text {
       transform: scale(1) translate3d(0, 0, 0);
+    }
+
+    .md-text,
+    .md-icon {
+      color: currentColor;
     }
   }
 
@@ -58,13 +63,14 @@
   }
 
   .md-text {
+    color: #757575;
     transform: scale(.8571) translateY(2px);
-    transition: all $swift-ease-in-out-duration $swift-ease-in-out-timing-function,
+    transition: all $swift-ease-out-duration $swift-ease-out-timing-function,
                 opacity $swift-linear-duration $swift-linear-timing-function;
   }
 
   .md-icon {
-    color: currentColor;
-    transition: $swift-ease-in-out;
+    color: #757575;
+    transition: $swift-ease-out;
   }
 }
