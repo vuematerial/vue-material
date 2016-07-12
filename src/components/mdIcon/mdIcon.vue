@@ -1,5 +1,5 @@
 <template>
-  <i class="material-icons">
+  <i class="md-icon material-icons">
     <slot></slot>
   </i>
 </template>

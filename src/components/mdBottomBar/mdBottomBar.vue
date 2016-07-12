@@ -1,5 +1,5 @@
 <template>
-  <div class="md-bottom-bar">
+  <div class="md-bottom-bar" v-bind:class="classes">
     <slot></slot>
   </div>
 </template>

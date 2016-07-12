@@ -21,7 +21,7 @@ export default function install(Vue) {
       let rect = element.getBoundingClientRect();
       let ripple = element.querySelector('.' + rippleClass);
 
-      registeredMouseFunction = function(event) {
+      registeredMouseFunction = (event) => {
         ripple.classList.remove(rippleActiveClass);
 
         let top = event.pageY - rect.top - ripple.offsetHeight / 2 - document.body.scrollTop;
@@ -50,7 +50,31 @@ export default function install(Vue) {
     return ripple;
   };
 
+  let checkPositionRelative = (element) => {
+    return getComputedStyle(element).position === 'relative';
+  };
+
+  let getParentWithPositionRelatve = (element) => {
+    let found = false;
+
+    if (checkPositionRelative(element)) {
+      return element;
+    }
+
+    while (!found) {
+      let parent = element.parentNode;
+
+      if (parent && checkPositionRelative(parent)) {
+        found = parent;
+      }
+    }
+
+    return found;
+  };
+
   let createRipple = (element) => {
+    element = getParentWithPositionRelatve(element);
+
     let ripple = element.querySelector('.' + rippleClass);
 
     if (!ripple) {
@@ -68,10 +92,12 @@ export default function install(Vue) {
   };
 
   Vue.directive('mdInkRipple', function(disabled) {
-    if (!disabled) {
-      createRipple(this.el);
-    } else {
-      unregisterMouseEvent(this.el);
-    }
+    this.vm.$nextTick(() => {
+      if (!disabled) {
+        createRipple(this.el);
+      } else {
+        unregisterMouseEvent(this.el);
+      }
+    });
   });
 }
