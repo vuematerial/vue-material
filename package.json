@@ -11,6 +11,16 @@
   "authors": [
     "Marcos Moura <marcosvmmoura@gmail.com>"
   ],
+  "scripts": {
+    "watch": "watchify -vd -p browserify-hmr -e src/components/main.js -o dest/components/main.js"
+  },
+  "browserify": {
+    "transform": [
+      "envify",
+      "vueify",
+      "babelify"
+    ]
+  },
   "devDependencies": {
     "babel-core": "^6.10.4",
     "babel-eslint": "^6.1.2",

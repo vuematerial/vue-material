@@ -1,7 +1,70 @@
 @import '../../stylesheets/variables.scss';
 
 .md-bottom-bar {
-  height: 56px;
+  width: 100%;
+  min-width: 100%;
   position: relative;
   display: flex;
+  justify-content: center;
+}
+
+.md-bottom-bar-item {
+  max-width: 168px;
+  min-width: 80px;
+  height: 56px;
+  padding: 8px 12px 10px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+  position: relative;
+  border: none;
+  background: transparent;
+  transition: .3s ease;
+  color: currentColor;
+  font-size: 14px;
+  line-height: 1em;
+
+  &.md-active {
+    padding-top: 6px;
+
+    .md-text {
+      transform: scale(1) translate3d(0, 0, 0);
+    }
+  }
+
+  .md-bottom-bar.md-shift & {
+    min-width: 56px;
+    position: static;
+
+    .md-icon {
+      transform: translate3d(0, 6px, 0);
+    }
+
+    .md-text {
+      opacity: 0;
+      transform: scale(1) translate3d(0, 6px, 0);
+    }
+
+    &.md-active {
+      min-width: 96px;
+
+      .md-icon,
+      .md-text {
+        opacity: 1;
+      }
+    }
+  }
+
+  .md-text {
+    transform: scale(.8571) translateY(2px);
+    transition: all $swift-ease-in-out-duration $swift-ease-in-out-timing-function,
+                opacity $swift-linear-duration $swift-linear-timing-function;
+  }
+
+  .md-icon {
+    color: currentColor;
+    transition: $swift-ease-in-out;
+  }
 }

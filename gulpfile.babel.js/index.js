@@ -13,7 +13,7 @@ gulp.task('default', () => {
   runSequence(
     'clean',
     [
-      'browserify',
+      //'browserify',
       'eslint-all',
       'sass',
       'copy'

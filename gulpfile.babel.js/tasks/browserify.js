@@ -18,7 +18,7 @@ let app = 'main.js';
 let entry = path.normalize(config.src.path + '/components/' + app);
 
 gulp.task('browserify', () => {
-  let b = browserify({
+  let b = watchify(browserify({
     cache: {},
     packageCache: {},
     debug: true,
@@ -27,13 +27,12 @@ gulp.task('browserify', () => {
     ignoreWatch: true,
     noparse: ['node_modules/**/*.js'],
     entries: entry
-  });
+  }));
 
   let bundle = () => {
     let bundleTimer = process.hrtime();
 
     return b
-      .plugin(watchify)
       .transform(envify({
         NODE_ENV: 'development'
       }))

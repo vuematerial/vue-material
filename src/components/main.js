@@ -1,8 +1,8 @@
 import Vue from 'vue/dist/vue.min';
 import MdInkRipple from './mdInkRipple';
 import MdButton from './mdButton';
-import MdIcon from './MdIcon';
-import MdBottomBar from './MdBottomBar';
+import MdIcon from './mdIcon';
+import MdBottomBar from './mdBottomBar';
 
 Vue.use(MdInkRipple);
 Vue.use(MdButton);
@@ -15,7 +15,7 @@ new Vue({
     disabled: false
   },
   methods: {
-    clickAction: function() {
+    clickAction() {
       this.disabled = !this.disabled;
     }
   }
