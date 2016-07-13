@@ -28,6 +28,10 @@
     "arguments": true,
     "window": true
   },
+  root: true,
+  parserOptions: {
+    sourceType: 'module'
+  },
   "parser": "babel-eslint",
   "rules": {
     "arrow-parens": 2,
