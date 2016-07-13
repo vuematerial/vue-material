@@ -4,4 +4,4 @@
   </a>
 </template>
 
-<script src="mdLinkButton.js"></script>
+<script src="./mdLinkButton.js"></script>

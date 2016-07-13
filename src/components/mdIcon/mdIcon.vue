@@ -4,4 +4,4 @@
   </i>
 </template>
 
-<style lang="scss" src="mdIcon.scss"></style>
+<style lang="scss" src="./mdIcon.scss"></style>

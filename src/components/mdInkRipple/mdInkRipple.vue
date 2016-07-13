@@ -1,1 +1,1 @@
-<style lang="scss" src="mdInkRipple.scss"></style>
+<style lang="scss" src="./mdInkRipple.scss"></style>

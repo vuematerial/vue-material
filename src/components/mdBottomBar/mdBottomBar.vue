@@ -4,6 +4,6 @@
   </div>
 </template>
 
-<style lang="scss" src="mdBottomBar.scss"></style>
+<style lang="scss" src="./mdBottomBar.scss"></style>
 
-<script src="mdBottomBar.js"></script>
+<script src="./mdBottomBar.js"></script>
