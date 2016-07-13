@@ -8,4 +8,4 @@
   </button>
 </template>
 
-<script src="mdBottomBarItem.js"></script>
+<script src="./mdBottomBarItem.js"></script>
