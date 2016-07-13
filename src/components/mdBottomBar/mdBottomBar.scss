@@ -3,6 +3,7 @@
 .md-bottom-bar {
   width: 100%;
   min-width: 100%;
+  height: 56px;
   position: relative;
   display: flex;
   justify-content: center;
@@ -11,13 +12,12 @@
 .md-bottom-bar-item {
   max-width: 168px;
   min-width: 80px;
-  height: 56px;
+  height: 100%;
   padding: 8px 12px 10px;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
   justify-content: space-between;
-  flex: 1;
   position: relative;
   border: none;
   background: transparent;
