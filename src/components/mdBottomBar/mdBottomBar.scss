@@ -47,12 +47,12 @@
     position: static;
 
     .md-icon {
-      transform: translate3d(0, 6px, 0);
+      transform: translate3d(0, 8px, 0);
     }
 
     .md-text {
       opacity: 0;
-      transform: scale(1) translate3d(0, 10px, 0);
+      transform: scale(1) translate3d(0, 6px, 0);
     }
 
     &.md-active {
@@ -64,21 +64,23 @@
         opacity: 1;
       }
 
+      .md-icon {
+        transform: scale(1) translate3d(0, 0, 0);
+      }
+
       .md-text {
-        transform: scale(1) translate3d(0, 6px, 0);
+        transform: scale(1) translate3d(0, 2px, 0);
       }
     }
   }
 
   .md-text {
-    color: #757575;
     transform: scale(.8571) translateY(2px);
     transition: $swift-ease-out,
                 opacity $swift-linear-duration $swift-linear-timing-function;
   }
 
   .md-icon {
-    color: #757575;
     transition: $swift-ease-out;
   }
 }
