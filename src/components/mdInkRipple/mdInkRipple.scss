@@ -13,7 +13,8 @@
 .md-ripple {
   position: absolute;
   transform: scale(0);
-  background: rgba(0, 0, 0, .26);
+  background-color: currentColor;
+  opacity: .26;
   border-radius: 50%;
 
   &.md-active {
