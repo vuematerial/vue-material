@@ -18,6 +18,7 @@
   flex-flow: column nowrap;
   align-items: center;
   justify-content: space-between;
+  flex: 1;
   position: relative;
   border: none;
   background: transparent;
@@ -41,6 +42,7 @@
 
   .md-bottom-bar.md-shift & {
     min-width: 56px;
+    max-width: 96px;
     position: static;
 
     .md-icon {
@@ -49,15 +51,20 @@
 
     .md-text {
       opacity: 0;
-      transform: scale(1) translate3d(0, 6px, 0);
+      transform: scale(1) translate3d(0, 10px, 0);
     }
 
     &.md-active {
       min-width: 96px;
+      max-width: 168px;
 
       .md-icon,
       .md-text {
         opacity: 1;
+      }
+
+      .md-text {
+        transform: scale(1) translate3d(0, 6px, 0);
       }
     }
   }
@@ -65,7 +72,7 @@
   .md-text {
     color: #757575;
     transform: scale(.8571) translateY(2px);
-    transition: all $swift-ease-out-duration $swift-ease-out-timing-function,
+    transition: $swift-ease-out,
                 opacity $swift-linear-duration $swift-linear-timing-function;
   }
 

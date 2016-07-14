@@ -36,7 +36,7 @@
       proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
     </div>
 
-    <div style="width: 360px; height: 480px;" v-md-theme>
+    <div style="width: 720px; max-width: 100%; height: 480px;" v-md-theme>
       <md-bottom-bar md-shift>
         <md-bottom-bar-item md-icon="ondemand_video">Movies</md-bottom-bar-item>
         <md-bottom-bar-item md-icon="music_note">Music</md-bottom-bar-item>
