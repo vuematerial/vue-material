@@ -1,10 +1,6 @@
 export default {
   props: {
-    mdShift: Boolean,
-    mdActive: {
-      type: Number,
-      default: 1
-    }
+    mdShift: Boolean
   },
   computed: {
     classes() {

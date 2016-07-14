@@ -23,6 +23,7 @@
   border: none;
   background: transparent;
   transition: $swift-ease-out;
+  transform: translate3d(0, 0, 0);
   color: currentColor;
   font-size: 14px;
   line-height: 1em;
