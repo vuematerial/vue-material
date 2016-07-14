@@ -16,25 +16,27 @@ export default function install(Vue) {
     }
   };
 
-  let registerMouseEvent = (element) => {
+  let registerMouseEvent = (element, holder) => {
     Vue.nextTick(() => {
-      let rect = element.getBoundingClientRect();
-      let ripple = element.querySelector('.' + rippleClass);
+      let rect = holder.getBoundingClientRect();
+      let ripple = holder.querySelector('.' + rippleClass);
 
-      registeredMouseFunction = (event) => {
-        ripple.classList.remove(rippleActiveClass);
+      if (ripple) {
+        registeredMouseFunction = (event) => {
+          ripple.classList.remove(rippleActiveClass);
 
-        let top = event.pageY - rect.top - ripple.offsetHeight / 2 - document.body.scrollTop;
-        let left = event.pageX - rect.left - ripple.offsetWidth / 2 - document.body.scrollLeft;
+          let top = event.pageY - rect.top - ripple.offsetHeight / 2 - document.body.scrollTop;
+          let left = event.pageX - rect.left - ripple.offsetWidth / 2 - document.body.scrollLeft;
 
-        ripple.style.top = top + 'px';
-        ripple.style.left = left + 'px';
+          ripple.style.top = top + 'px';
+          ripple.style.left = left + 'px';
 
-        ripple.classList.add(rippleActiveClass);
-      };
+          ripple.classList.add(rippleActiveClass);
+        };
 
-      element.removeEventListener('mousedown', registeredMouseFunction);
-      element.addEventListener('mousedown', registeredMouseFunction);
+        element.removeEventListener('mousedown', registeredMouseFunction);
+        element.addEventListener('mousedown', registeredMouseFunction);
+      }
     });
   };
 
@@ -74,19 +76,22 @@ export default function install(Vue) {
 
   let createRipple = (element) => {
     Vue.nextTick(() => {
-      element = getParentWithPositionRelatve(element);
-
-      let ripple = element.querySelector('.' + rippleClass);
+      let holder = getParentWithPositionRelatve(element);
+      let ripple = holder.querySelector('.' + rippleClass);
 
       if (!ripple) {
-        let elementSize = Math.round(Math.max(element.offsetWidth, element.offsetHeight)) + 'px';
+        let elementSize = Math.round(Math.max(holder.offsetWidth, holder.offsetHeight)) + 'px';
         let rippleParent = createElement(ripple, rippleParentClass);
         let rippleElement = createElement(ripple, rippleClass, elementSize);
 
         rippleParent.appendChild(rippleElement);
-        element.appendChild(rippleParent);
+        holder.appendChild(rippleParent);
+      }
 
-        registerMouseEvent(element);
+      if (holder !== element) {
+        registerMouseEvent(element, holder);
+      } else if (!ripple) {
+        registerMouseEvent(element, holder);
       }
     });
   };
