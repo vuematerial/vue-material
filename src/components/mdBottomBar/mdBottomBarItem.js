@@ -1,7 +1,6 @@
 export default {
   props: {
-    mdIcon: String,
-    disabled: Boolean
+    mdIcon: String
   },
   data() {
     return {
@@ -14,6 +13,11 @@ export default {
         item.active = false;
       });
 
+      this.active = true;
+    }
+  },
+  ready() {
+    if (this.$el.classList.contains('md-active')) {
       this.active = true;
     }
   }

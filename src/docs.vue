@@ -37,18 +37,18 @@
     </div>
 
     <div style="width: 720px; max-width: 100%; height: 480px;" v-md-theme>
-      <md-bottom-bar md-shift>
+      <md-bottom-bar>
+        <md-bottom-bar-item md-icon="ondemand_video">Movies</md-bottom-bar-item>
+        <md-bottom-bar-item md-icon="music_note" class="md-active">Music</md-bottom-bar-item>
+        <md-bottom-bar-item md-icon="books">Books</md-bottom-bar-item>
+        <md-bottom-bar-item md-icon="shop">Shop</md-bottom-bar-item>
+      </md-bottom-bar>
+
+      <md-bottom-bar md-shift style="margin-top: 24px">
         <md-bottom-bar-item md-icon="ondemand_video">Movies</md-bottom-bar-item>
         <md-bottom-bar-item md-icon="music_note">Music</md-bottom-bar-item>
         <md-bottom-bar-item class="md-active" md-icon="books">Books</md-bottom-bar-item>
         <md-bottom-bar-item md-icon="photo">Pictures</md-bottom-bar-item>
-        <md-bottom-bar-item md-icon="shop">Shop</md-bottom-bar-item>
-      </md-bottom-bar>
-
-      <md-bottom-bar style="margin-top: 24px">
-        <md-bottom-bar-item md-icon="ondemand_video">Movies</md-bottom-bar-item>
-        <md-bottom-bar-item md-icon="music_note" class="md-active">Music</md-bottom-bar-item>
-        <md-bottom-bar-item md-icon="books">Books</md-bottom-bar-item>
         <md-bottom-bar-item md-icon="shop">Shop</md-bottom-bar-item>
       </md-bottom-bar>
     </div>
