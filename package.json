@@ -41,6 +41,7 @@
     "json-loader": "^0.5.4",
     "node-sass": "^3.8.0",
     "ora": "^0.2.3",
+    "raw-loader": "^0.5.1",
     "sass-loader": "^4.0.0",
     "shelljs": "^0.7.0",
     "url-loader": "^0.5.7",
