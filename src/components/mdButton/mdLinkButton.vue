@@ -4,4 +4,10 @@
   </a>
 </template>
 
-<script src="./mdLinkButton.js"></script>
+<script>
+  export default {
+    props: {
+      disabled: Boolean
+    }
+  };
+</script>

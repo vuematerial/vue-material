@@ -6,4 +6,15 @@
 
 <style lang="scss" src="./mdBottomBar.scss"></style>
 
-<script src="./mdBottomBar.js"></script>
+<script>
+  export default {
+    props: {
+      mdShift: Boolean
+    },
+    computed: {
+      classes() {
+        return this.mdShift && 'md-shift';
+      }
+    }
+  };
+</script>
