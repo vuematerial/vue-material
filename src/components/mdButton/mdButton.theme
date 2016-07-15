@@ -1,5 +1,5 @@
 .THEME_NAME {
-  .md-button {
+  .md-button:not([disabled]) {
     &.md-primary {
       background-color: PRIMARY;
 
