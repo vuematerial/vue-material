@@ -77,6 +77,7 @@
   .md-text {
     transform: scale(.8571) translateY(2px);
     transition: $swift-ease-out,
+                color $swift-linear-duration $swift-linear-timing-function,
                 opacity $swift-linear-duration $swift-linear-timing-function;
   }
 

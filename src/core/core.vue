@@ -1,3 +1,9 @@
+<script>
+  window.VueMaterial = {
+    styles: []
+  };
+</script>
+
 <style lang="sass">
   /* Common mixins */
   @import 'utils/mixins';

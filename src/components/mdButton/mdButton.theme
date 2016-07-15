@@ -1,0 +1,15 @@
+.THEME_NAME {
+  .md-button {
+    &.md-primary {
+      background-color: PRIMARY;
+
+      &:hover {
+        background-color: ACCENT;
+      }
+    }
+
+    &.md-accent {
+      background-color: ACCENT;
+    }
+  }
+}

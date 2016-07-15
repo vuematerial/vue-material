@@ -1,0 +1,18 @@
+.THEME_NAME {
+  .md-bottom-bar {
+    &:not(.md-shift) {
+      .md-active {
+        color: PRIMARY;
+      }
+    }
+
+    &.md-shift {
+      background-color: PRIMARY;
+      color: #fff;
+
+      &.md-accent {
+        background-color: ACCENT;
+      }
+    }
+  }
+}
