@@ -3,8 +3,9 @@
     <section>
       <h2 class="title">Buttons</h2>
 
-      <md-button class="md-primary" @click="clickAction">Button</md-button>
+      <md-button @click="clickAction">Button</md-button>
       <md-link-button class="md-primary" :disabled="disabled">Primary</md-link-button>
+      <md-link-button class="md-accent md-raised">Primary</md-link-button>
       <md-link-button class="md-raised">Raised</md-link-button>
       <md-link-button class="md-raised" :disabled="!disabled">Disabled</md-link-button>
       <md-link-button class="md-raised md-dense">Dense</md-link-button>
