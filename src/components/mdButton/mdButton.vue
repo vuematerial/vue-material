@@ -6,4 +6,11 @@
 
 <style lang="scss" src="./mdButton.scss"></style>
 
-<script src="./mdButton.js"></script>
+<script>
+  export default {
+    props: {
+      type: String,
+      disabled: Boolean
+    }
+  };
+</script>
