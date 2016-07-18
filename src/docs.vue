@@ -98,75 +98,75 @@
       <h2 class="title">Button Toggle</h2>
 
       <md-button-toggle class="md-button-group">
-        <md-link-button class="md-icon-button md-toggle">
+        <md-button class="md-icon-button md-toggle">
           <md-icon>format_bold</md-icon>
-        </md-link-button>
+        </md-button>
 
-        <md-link-button class="md-icon-button">
+        <md-button class="md-icon-button">
           <md-icon>format_italic</md-icon>
-        </md-link-button>
+        </md-button>
 
-        <md-link-button class="md-icon-button">
+        <md-button class="md-icon-button">
           <md-icon>strikethrough_s</md-icon>
-        </md-link-button>
+        </md-button>
 
-        <md-link-button class="md-icon-button md-toggle">
+        <md-button class="md-icon-button md-toggle">
           <md-icon>title</md-icon>
-        </md-link-button>
+        </md-button>
       </md-button-toggle>
 
-      <md-button-toggle class="md-button-group md-primary" style="margin-top: 24px">
-        <md-link-button class="md-icon-button md-toggle">
-          <md-icon>format_bold</md-icon>
-        </md-link-button>
+      <md-button-toggle type="radio" class="md-button-group md-primary" style="margin-top: 24px">
+        <md-button class="md-icon-button">
+          <md-icon>format_align_left</md-icon>
+        </md-button>
 
-        <md-link-button class="md-icon-button md-toggle">
-          <md-icon>format_italic</md-icon>
-        </md-link-button>
+        <md-button class="md-icon-button md-toggle">
+          <md-icon>format_align_center</md-icon>
+        </md-button>
 
-        <md-link-button class="md-icon-button">
-          <md-icon>strikethrough_s</md-icon>
-        </md-link-button>
+        <md-button class="md-icon-button">
+          <md-icon>format_align_right</md-icon>
+        </md-button>
 
-        <md-link-button class="md-icon-button">
-          <md-icon>title</md-icon>
-        </md-link-button>
+        <md-button class="md-icon-button">
+          <md-icon>format_align_justify</md-icon>
+        </md-button>
       </md-button-toggle>
 
       <md-button-toggle class="md-button-group md-warn" style="margin-top: 24px">
-        <md-link-button class="md-icon-button md-toggle">
+        <md-button class="md-icon-button md-toggle">
           <md-icon>format_bold</md-icon>
-        </md-link-button>
+        </md-button>
 
-        <md-link-button class="md-icon-button md-toggle">
+        <md-button class="md-icon-button md-toggle">
           <md-icon>format_italic</md-icon>
-        </md-link-button>
+        </md-button>
 
-        <md-link-button class="md-icon-button">
-          <md-icon>strikethrough_s</md-icon>
-        </md-link-button>
+        <md-button class="md-icon-button">
+          <md-icon>format_underline</md-icon>
+        </md-button>
 
-        <md-link-button class="md-icon-button">
+        <md-button class="md-icon-button">
           <md-icon>title</md-icon>
-        </md-link-button>
+        </md-button>
       </md-button-toggle>
 
       <md-button-toggle class="md-button-group md-accent" style="margin-top: 24px">
-        <md-link-button class="md-icon-button md-toggle">
+        <md-button class="md-icon-button md-toggle">
           <md-icon>format_bold</md-icon>
-        </md-link-button>
+        </md-button>
 
-        <md-link-button class="md-icon-button md-toggle">
+        <md-button class="md-icon-button md-toggle">
           <md-icon>format_italic</md-icon>
-        </md-link-button>
+        </md-button>
 
-        <md-link-button class="md-icon-button">
+        <md-button class="md-icon-button">
           <md-icon>strikethrough_s</md-icon>
-        </md-link-button>
+        </md-button>
 
-        <md-link-button class="md-icon-button">
+        <md-button class="md-icon-button">
           <md-icon>title</md-icon>
-        </md-link-button>
+        </md-button>
       </md-button-toggle>
     </section>
 
@@ -202,6 +202,32 @@
           <md-bottom-bar-item md-icon="photo">Pictures</md-bottom-bar-item>
         </md-bottom-bar>
       </div>
+    </section>
+
+    <section>
+      <h2 class="title">Toolbar</h2>
+
+      <md-toolbar class="md-extended">
+        <div class="md-toolbar-container">
+          <md-button class="md-icon-button">
+            <md-icon>menu</md-icon>
+          </md-button>
+
+          <span style="flex: 1;"></span>
+
+          <md-button class="md-icon-button">
+            <md-icon>search</md-icon>
+          </md-button>
+
+          <md-button class="md-icon-button">
+            <md-icon>filter_list</md-icon>
+          </md-button>
+        </div>
+
+        <div class="md-toolbar-container">
+          <h2 class="md-title">Vue Material</h2>
+        </div>
+      </md-toolbar>
     </section>
   </div>
 </template>

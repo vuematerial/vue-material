@@ -1,0 +1,53 @@
+@import '../../core/variables.scss';
+
+.md-toolbar {
+  min-height: 64px;
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+  flex-flow: row wrap;
+
+  &.md-dense {
+    min-height: 48px;
+
+    &.md-extended {
+      min-height: 96px;
+    }
+
+    .md-toolbar-container {
+      height: 48px;
+    }
+  }
+
+  &.md-extended {
+    min-height: 128px;
+
+    .md-toolbar-container:nth-child(2) {
+      .md-title:first-child {
+        margin-left: 72px;
+      }
+    }
+  }
+
+  .md-toolbar-container {
+    width: 100%;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    align-self: flex-start;
+
+    > .md-button:first-child {
+      margin-right: 24px;
+    }
+  }
+
+  > .md-button:first-child {
+    margin-right: 24px;
+  }
+
+  .md-title {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+  }
+}
