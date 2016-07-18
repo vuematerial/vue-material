@@ -9,6 +9,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   color: rgba(#000, .87);
-  font-size: 14px;
   font-family: $font-roboto;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: .010em;
+  line-height: 20px;
 }
