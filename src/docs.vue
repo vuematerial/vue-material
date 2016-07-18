@@ -10,8 +10,33 @@
       <md-link-button class="md-warn">Warn</md-link-button>
       <md-link-button class="md-raised md-primary" :disabled="!disabled">Disabled</md-link-button>
       <md-link-button class="md-raised md-dense md-accent">Dense</md-link-button>
+    </section>
+
+    <section>
+      <h2 class="title">Icon Button</h2>
+
       <md-link-button class="md-icon-button">
         <md-icon>menu</md-icon>
+      </md-link-button>
+
+      <md-link-button class="md-icon-button md-primary">
+        <md-icon>favorite</md-icon>
+      </md-link-button>
+
+      <md-link-button class="md-icon-button md-accent">
+        <md-icon>refresh</md-icon>
+      </md-link-button>
+
+      <md-link-button class="md-icon-button md-warn">
+        <md-icon>star</md-icon>
+      </md-link-button>
+
+      <md-link-button class="md-icon-button md-primary md-raised">
+        <md-icon>list</md-icon>
+      </md-link-button>
+
+      <md-link-button class="md-icon-button md-warn md-raised md-dense">
+        <md-icon>filter</md-icon>
       </md-link-button>
     </section>
 
@@ -62,7 +87,7 @@
       </div>
 
       <div class="cell-phone">
-        <md-bottom-bar md-shift style="margin-top: 24px">
+        <md-bottom-bar md-shift>
           <md-bottom-bar-item md-icon="ondemand_video">Movies</md-bottom-bar-item>
           <md-bottom-bar-item md-icon="music_note">Music</md-bottom-bar-item>
           <md-bottom-bar-item class="md-active" md-icon="books">Books</md-bottom-bar-item>
