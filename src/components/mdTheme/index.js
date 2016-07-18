@@ -29,8 +29,19 @@ const createNewStyleElement = (style, name) => {
 const parseStyle = (style, theme) => {
   VALID_THEME_TYPE.forEach((type) => {
     style = style.replace(RegExp('(' + type.toUpperCase() + ')-(COLOR|CONTRAST)-?(A?\\d\\.?\\d*)?', 'g'), (match, paletteType, colorType, hue) => {
-      let color = palette[theme[type]] || palette[DEFAULT_THEME_COLORS[type]];
+      let color;
       let colorVariant = hue || 500;
+
+      if (theme[type]) {
+        if (typeof theme[type] === 'string') {
+          color = palette[theme[type]];
+        } else {
+          color = palette[theme[type].color] || palette[DEFAULT_THEME_COLORS[type]];
+          colorVariant = hue || theme[type].hue;
+        }
+      } else {
+        color = palette[DEFAULT_THEME_COLORS[type]];
+      }
 
       if (colorType === 'COLOR') {
         let isDefault = palette[theme[type]];

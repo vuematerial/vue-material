@@ -12,13 +12,8 @@ Vue.use(MdButton);
 Vue.use(MdIcon);
 Vue.use(MdBottomBar);
 Vue.use(MdTheme, {
-  default: {
-    primary: 'blue',
-    accent: 'red'
-  },
   'bottom-bar': {
-    primary: 'teal',
-    accent: 'red'
+    primary: 'teal'
   }
 });
 

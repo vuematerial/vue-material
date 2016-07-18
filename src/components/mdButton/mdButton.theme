@@ -7,7 +7,7 @@
         background-color: BACKGROUND-COLOR-50;
 
         &:hover,
-        &:focus {
+       {
           background-color: BACKGROUND-COLOR-200;
         }
       }
@@ -21,8 +21,7 @@
       color: ACCENT-CONTRAST;
       background-color: ACCENT-COLOR;
 
-      &:hover,
-      &:focus {
+      &:hover {
         background-color: ACCENT-COLOR-A700;
       }
 
@@ -30,8 +29,7 @@
         color: BACKGROUND-COLOR-900;
         background-color: BACKGROUND-COLOR-50;
 
-        &:hover,
-        &:focus {
+        &:hover {
           background-color: BACKGROUND-COLOR-200;
         }
       }
@@ -47,8 +45,7 @@
         background-color: PRIMARY-COLOR;
         color: PRIMARY-CONTRAST;
 
-        &:hover,
-        &:focus {
+        &:hover {
           background-color: PRIMARY-COLOR-600;
         }
       }
@@ -67,8 +64,7 @@
         background-color: ACCENT-COLOR;
         color: ACCENT-CONTRAST;
 
-        &:hover,
-        &:focus {
+        &:hover {
           background-color: ACCENT-COLOR-A700;
         }
       }
@@ -88,8 +84,7 @@
         background-color: WARN-COLOR;
         color: WARN-CONTRAST;
 
-        &:hover,
-        &:focus {
+        &:hover {
           background-color: WARN-COLOR-600;
         }
       }
