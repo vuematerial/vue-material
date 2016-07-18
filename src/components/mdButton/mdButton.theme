@@ -6,8 +6,7 @@
         color: BACKGROUND-COLOR-900;
         background-color: BACKGROUND-COLOR-50;
 
-        &:hover,
-       {
+        &:hover {
           background-color: BACKGROUND-COLOR-200;
         }
       }
