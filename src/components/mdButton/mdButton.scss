@@ -71,7 +71,7 @@ $button-icon-size: 40px;
     box-shadow: $material-shadow-2dp;
   }
 
-  &.md-dense {
+  &.md-dense:not(.md-icon-button) {
     min-height: $button-dense-height;
     line-height: $button-dense-height;
     font-size: 13px;
