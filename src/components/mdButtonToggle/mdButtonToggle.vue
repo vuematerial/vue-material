@@ -10,14 +10,27 @@
   let onClickButton;
 
   export default {
+    props: {
+      type: String
+    },
     ready() {
       this.$children.forEach((child) => {
         let element = child.$el;
 
-        if (element && element.classList.contains('md-button')) {
-          element.addEventListener('click', onClickButton = () => {
+        onClickButton = () => {
+          if (this.type === 'radio') {
+            this.$children.forEach((child) => {
+              child.$el.classList.remove('md-toggle');
+            });
+
+            element.classList.add('md-toggle');
+          } else {
             element.classList.toggle('md-toggle');
-          });
+          }
+        };
+
+        if (element && element.classList.contains('md-button')) {
+          element.addEventListener('click', onClickButton);
         }
       });
     },
