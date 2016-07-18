@@ -70,14 +70,12 @@ $button-icon-size: 40px;
     }
   }
 
-  &.md-raised:not([disabled]) {
-    box-shadow: $material-shadow-2dp;
+  &:after {
+    transition: $swift-ease-out;
   }
 
-  &.md-dense:not(.md-icon-button) {
-    min-height: $button-dense-height;
-    line-height: $button-dense-height;
-    font-size: 13px;
+  &.md-raised:not([disabled]) {
+    box-shadow: $material-shadow-2dp;
   }
 
   &.md-icon-button {
@@ -95,6 +93,14 @@ $button-icon-size: 40px;
       }
     }
 
+    &.md-dense {
+      height: $button-dense-height;
+      min-height: $button-dense-height;
+      padding: 0;
+      line-height: $button-dense-height;
+      font-size: 13px;
+    }
+
     .md-ink-ripple {
       border-radius: 50%;
     }
@@ -102,6 +108,12 @@ $button-icon-size: 40px;
     .md-ripple.md-active {
       animation-duration: .9s;
     }
+  }
+
+  &.md-dense {
+    min-height: $button-dense-height;
+    line-height: $button-dense-height;
+    font-size: 13px;
   }
 
   &.md-fab {
