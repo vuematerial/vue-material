@@ -4,6 +4,9 @@ $button-width: 88px;
 $button-height: 36px;
 $button-radius: 2px;
 
+$button-fab-size: 56px;
+$button-fab-size-mini: 40px;
+
 $button-dense-height: 32px;
 
 $button-icon-size: 40px;
@@ -101,43 +104,61 @@ $button-icon-size: 40px;
     }
   }
 
-/*
   &.md-fab {
-
-    // Include the top/left/bottom/right fab positions
-    @include fab-all-positions();
-
-    z-index: $z-index-fab;
-
-    line-height: $button-fab-line-height;
-
+    width: $button-fab-size;
+    height: $button-fab-size;
     min-width: 0;
-    width: $button-fab-width;
-    height: $button-fab-height;
-    vertical-align: middle;
-
-    @include md-shadow-bottom-z-1();
-    border-radius: $button-fab-border-radius;
-    background-clip: padding-box;
+    padding: 0;
     overflow: hidden;
-
+    box-shadow: $material-shadow-2dp;
+    border-radius: $button-fab-size;
+    line-height: $button-fab-size;
+    vertical-align: middle;
+    background-clip: padding-box;
     transition: $swift-ease-in;
-    transition-property: background-color, box-shadow, transform;
-    .md-ripple-container {
-      border-radius: $button-fab-border-radius;
-      background-clip: padding-box;
-      overflow: hidden;
-      // The following hack causes Safari/Chrome to respect overflow hidden for ripples
-      -webkit-mask-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC');
+    transition-property: background-color,
+                         box-shadow,
+                         transform;
+
+    &:hover,
+    &:focus {
+      box-shadow: $material-shadow-5dp;
+    }
+
+    &.md-fab-top-right {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+    }
+
+    &.md-fab-top-left {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+    }
+
+    &.md-fab-bottom-right {
+      position: absolute;
+      right: 16px;
+      bottom: 16px;
+    }
+
+    &.md-fab-bottom-left {
+      position: absolute;
+      left: 16px;
+      bottom: 16px;
     }
 
     &.md-mini {
-      line-height: $button-fab-mini-line-height;
-      width: $button-fab-mini-width;
-      height: $button-fab-mini-height;
+      width: $button-fab-size-mini;
+      height: $button-fab-size-mini;
+      line-height: $button-fab-size-mini;
+    }
+
+    .md-ink-ripple {
+      border-radius: $button-fab-size;
     }
   }
- */
 
   .md-ink-ripple {
     border-radius: $button-radius;
