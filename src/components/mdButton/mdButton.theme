@@ -17,12 +17,33 @@
       }
     }
 
+    &.md-fab {
+      color: ACCENT-CONTRAST;
+      background-color: ACCENT-COLOR;
+
+      &:hover,
+      &:focus {
+        background-color: ACCENT-COLOR-A700;
+      }
+
+      &.md-fab-clean {
+        color: BACKGROUND-COLOR-900;
+        background-color: BACKGROUND-COLOR-50;
+
+        &:hover,
+        &:focus {
+          background-color: BACKGROUND-COLOR-200;
+        }
+      }
+    }
+
     &.md-primary {
       &:not(.md-icon-button) {
         color: PRIMARY-COLOR;
       }
 
-      &.md-raised {
+      &.md-raised,
+      &.md-fab {
         background-color: PRIMARY-COLOR;
         color: PRIMARY-CONTRAST;
 
@@ -62,7 +83,8 @@
         color: WARN-COLOR;
       }
 
-      &.md-raised {
+      &.md-raised,
+      &.md-fab {
         background-color: WARN-COLOR;
         color: WARN-CONTRAST;
 

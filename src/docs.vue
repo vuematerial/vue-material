@@ -6,10 +6,42 @@
       <md-button @click="clickAction">Button</md-button>
       <md-link-button class="md-primary" :disabled="disabled">Primary</md-link-button>
       <md-link-button class="md-primary md-raised">Raised</md-link-button>
-      <md-link-button class="md-accent md-raised">Accent</md-link-button>
+      <md-button class="md-accent md-raised">Accent</md-button>
       <md-link-button class="md-warn">Warn</md-link-button>
       <md-link-button class="md-raised md-primary" :disabled="!disabled">Disabled</md-link-button>
-      <md-link-button class="md-raised md-dense md-accent">Dense</md-link-button>
+      <md-button class="md-raised md-dense md-accent">Dense</md-button>
+    </section>
+
+    <section>
+      <h2 class="title">Floating action button</h2>
+
+      <md-button class="md-fab md-fab-clean">
+        <md-icon>my_location</md-icon>
+      </md-button>
+
+      <md-button class="md-fab">
+        <md-icon>add</md-icon>
+      </md-button>
+
+      <md-button class="md-fab md-primary">
+        <md-icon>edit</md-icon>
+      </md-button>
+
+      <md-button class="md-fab md-warn">
+        <md-icon>save</md-icon>
+      </md-button>
+
+      <md-button class="md-fab md-mini">
+        <md-icon>content_copy</md-icon>
+      </md-button>
+
+      <md-button class="md-fab md-mini md-primary">
+        <md-icon>content_paste</md-icon>
+      </md-button>
+
+      <md-button class="md-fab md-mini md-warn">
+        <md-icon>content_cut</md-icon>
+      </md-button>
     </section>
 
     <section>
