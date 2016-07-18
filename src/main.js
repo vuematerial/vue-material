@@ -14,13 +14,11 @@ Vue.use(MdBottomBar);
 Vue.use(MdTheme, {
   default: {
     primary: 'blue',
-    accent: 'red',
-    background: 'white'
+    accent: 'red'
   },
-  header: {
-    primary: 'white',
-    accent: 'blue',
-    background: 'white'
+  'bottom-bar': {
+    primary: 'teal',
+    accent: 'red'
   }
 });
 

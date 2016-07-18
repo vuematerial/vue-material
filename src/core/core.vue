@@ -1,6 +1,8 @@
 <script>
+  import CoreTheme from './core.theme';
+
   window.VueMaterial = {
-    styles: []
+    styles: [CoreTheme]
   };
 </script>
 
