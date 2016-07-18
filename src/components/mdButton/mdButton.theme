@@ -1,15 +1,80 @@
 .THEME_NAME {
-  .md-button:not([disabled]) {
-    &.md-primary {
-      background-color: PRIMARY;
+  .md-button:not([disabled]),
+  &.md-button:not([disabled]) {
+    &.md-raised {
+      &:not(.md-icon-button) {
+        color: BACKGROUND-COLOR-900;
+        background-color: BACKGROUND-COLOR-50;
 
-      &:hover {
-        background-color: ACCENT;
+        &:hover,
+        &:focus {
+          background-color: BACKGROUND-COLOR-200;
+        }
+      }
+
+      &.md-icon-button:not(.md-raised) {
+        color: BACKGROUND-COLOR;
+      }
+    }
+
+    &.md-primary {
+      &:not(.md-icon-button) {
+        color: PRIMARY-COLOR;
+      }
+
+      &.md-raised {
+        background-color: PRIMARY-COLOR;
+        color: PRIMARY-CONTRAST;
+
+        &:hover,
+        &:focus {
+          background-color: PRIMARY-COLOR-600;
+        }
+      }
+
+      &.md-icon-button:not(.md-raised) {
+        color: PRIMARY-COLOR;
       }
     }
 
     &.md-accent {
-      background-color: ACCENT;
+      &:not(.md-icon-button) {
+        color: ACCENT-COLOR;
+      }
+
+      &.md-raised {
+        background-color: ACCENT-COLOR;
+        color: ACCENT-CONTRAST;
+
+        &:hover,
+        &:focus {
+          background-color: ACCENT-COLOR-A700;
+        }
+      }
+
+      &.md-icon-button:not(.md-raised) {
+        color: ACCENT-COLOR;
+      }
+    }
+
+    &.md-warn {
+      &:not(.md-icon-button) {
+        color: WARN-COLOR;
+      }
+
+      &.md-raised {
+        background-color: WARN-COLOR;
+        color: WARN-CONTRAST;
+
+        &:hover,
+        &:focus {
+          background-color: WARN-COLOR-600;
+        }
+      }
+
+      &.md-icon-button:not(.md-raised) {
+        color: WARN-COLOR;
+      }
     }
   }
 }

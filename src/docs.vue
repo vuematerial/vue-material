@@ -1,14 +1,15 @@
 <template>
-  <div class="container">
+  <div class="container docs">
     <section>
       <h2 class="title">Buttons</h2>
 
       <md-button @click="clickAction">Button</md-button>
       <md-link-button class="md-primary" :disabled="disabled">Primary</md-link-button>
-      <md-link-button class="md-accent md-raised">Primary</md-link-button>
-      <md-link-button class="md-raised">Raised</md-link-button>
-      <md-link-button class="md-raised" :disabled="!disabled">Disabled</md-link-button>
-      <md-link-button class="md-raised md-dense">Dense</md-link-button>
+      <md-link-button class="md-primary md-raised">Raised</md-link-button>
+      <md-link-button class="md-accent md-raised">Accent</md-link-button>
+      <md-link-button class="md-warn">Warn</md-link-button>
+      <md-link-button class="md-raised md-primary" :disabled="!disabled">Disabled</md-link-button>
+      <md-link-button class="md-raised md-dense md-accent">Dense</md-link-button>
       <md-link-button class="md-icon-button">
         <md-icon>menu</md-icon>
       </md-link-button>
@@ -49,28 +50,30 @@
       </div>
     </section>
 
-    <section>
+    <section v-md-theme="'bottom-bar'">
       <h2 class="title">Bottom Bar</h2>
 
-      <div style="width: 720px; max-width: 100%; height: 480px;" v-md-theme>
+      <div class="cell-phone">
         <md-bottom-bar>
-          <md-bottom-bar-item md-icon="ondemand_video">Movies</md-bottom-bar-item>
-          <md-bottom-bar-item md-icon="music_note" class="md-active">Music</md-bottom-bar-item>
-          <md-bottom-bar-item md-icon="books">Books</md-bottom-bar-item>
-          <md-bottom-bar-item md-icon="shop">Shop</md-bottom-bar-item>
+          <md-bottom-bar-item md-icon="history">Recents</md-bottom-bar-item>
+          <md-bottom-bar-item md-icon="favorite" class="md-active">Favorites</md-bottom-bar-item>
+          <md-bottom-bar-item md-icon="near_me">Nearby</md-bottom-bar-item>
         </md-bottom-bar>
+      </div>
 
+      <div class="cell-phone">
         <md-bottom-bar md-shift style="margin-top: 24px">
           <md-bottom-bar-item md-icon="ondemand_video">Movies</md-bottom-bar-item>
           <md-bottom-bar-item md-icon="music_note">Music</md-bottom-bar-item>
           <md-bottom-bar-item class="md-active" md-icon="books">Books</md-bottom-bar-item>
           <md-bottom-bar-item md-icon="photo">Pictures</md-bottom-bar-item>
-          <md-bottom-bar-item md-icon="shop">Shop</md-bottom-bar-item>
         </md-bottom-bar>
       </div>
     </section>
   </div>
 </template>
+
+<style lang="scss" src="./docs.scss"></style>
 
 <script>
   export default {

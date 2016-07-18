@@ -86,6 +86,12 @@ $button-icon-size: 40px;
     border-radius: 50%;
     line-height: 24px;
 
+    &:not([disabled]) {
+      &:hover {
+        background: none;
+      }
+    }
+
     .md-ink-ripple {
       border-radius: 50%;
     }

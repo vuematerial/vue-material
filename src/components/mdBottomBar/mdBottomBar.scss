@@ -7,6 +7,8 @@
   position: relative;
   display: flex;
   justify-content: center;
+  box-shadow: $material-shadow-8dp;
+  border-top: 1px solid $shadow-key-penumbra-opacity;
 }
 
 .md-bottom-bar-item {
@@ -45,6 +47,7 @@
     min-width: 56px;
     max-width: 96px;
     position: static;
+    flex: 1 1 32px;
 
     .md-icon {
       transform: translate3d(0, 8px, 0);
@@ -58,6 +61,7 @@
     &.md-active {
       min-width: 96px;
       max-width: 168px;
+      flex: 1 1 72px;
 
       .md-icon,
       .md-text {

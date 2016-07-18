@@ -1,17 +1,24 @@
 .THEME_NAME {
-  .md-bottom-bar {
+  .md-bottom-bar,
+  &.md-bottom-bar {
     &:not(.md-shift) {
       .md-active {
-        color: PRIMARY;
+        color: PRIMARY-COLOR;
       }
     }
 
     &.md-shift {
-      background-color: PRIMARY;
-      color: #fff;
+      background-color: PRIMARY-COLOR;
+      color: PRIMARY-CONTRAST;
 
       &.md-accent {
-        background-color: ACCENT;
+        background-color: ACCENT-COLOR;
+        color: ACCENT-CONTRAST;
+      }
+
+      &.md-warn {
+        background-color: WARN-COLOR;
+        color: WARN-CONTRAST;
       }
     }
   }
