@@ -22,8 +22,6 @@ export default function install(Vue) {
       let rect = holder.getBoundingClientRect();
       let ripple = holder.querySelector(':scope > .' + rippleParentClass + '> .' + rippleClass);
 
-      window.a = holder;
-
       if (ripple) {
         registeredMouseFunction = (event) => {
           ripple.classList.remove(rippleActiveClass);
