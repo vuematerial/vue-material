@@ -1,3 +1,4 @@
+import 'scopedQuerySelectorShim/dist/scopedQuerySelectorShim';
 import './mdInkRipple.vue';
 
 export default function install(Vue) {
@@ -8,7 +9,7 @@ export default function install(Vue) {
   let registeredMouseFunction;
 
   let unregisterMouseEvent = (element) => {
-    let ripple = element.querySelector('.' + rippleParentClass);
+    let ripple = element.querySelector(':scope > .' + rippleParentClass);
 
     if (ripple) {
       ripple.parentNode.removeChild(ripple);
@@ -19,7 +20,9 @@ export default function install(Vue) {
   let registerMouseEvent = (element, holder) => {
     Vue.nextTick(() => {
       let rect = holder.getBoundingClientRect();
-      let ripple = holder.querySelector('.' + rippleClass);
+      let ripple = holder.querySelector(':scope > .' + rippleParentClass + '> .' + rippleClass);
+
+      window.a = holder;
 
       if (ripple) {
         registeredMouseFunction = (event) => {
@@ -77,7 +80,7 @@ export default function install(Vue) {
   let createRipple = (element) => {
     Vue.nextTick(() => {
       let holder = getParentWithPositionRelatve(element);
-      let ripple = holder.querySelector('.' + rippleClass);
+      let ripple = holder.querySelector(':scope > .' + rippleParentClass + '> .' + rippleClass);
 
       if (!ripple) {
         let elementSize = Math.round(Math.max(holder.offsetWidth, holder.offsetHeight)) + 'px';
