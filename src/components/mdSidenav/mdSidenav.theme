@@ -1,0 +1,9 @@
+.THEME_NAME {
+  .md-sidenav,
+  &.md-sidenav {
+    .md-sidenav-content {
+      background-color: BACKGROUND-COLOR-50;
+      color: BACKGROUND-CONTRAST;
+    }
+  }
+}
