@@ -231,18 +231,18 @@
     </section>
 
     <section>
-      <h2 class="title">Toolbar</h2>
+      <h2 class="title">Sidenav</h2>
 
       <div class="cell-phone">
         <md-toolbar>
-          <md-button class="md-icon-button" @click="toggleSidenav">
+          <md-button class="md-icon-button" @click="toggleLeftSidenav">
             <md-icon>menu</md-icon>
           </md-button>
 
-          <h2 class="md-title">Toggle Sidenav</h2>
+          <h2 class="md-title">Left Sidenav</h2>
         </md-toolbar>
 
-        <md-sidenav class="md-left md-fixed" :md-visible.sync="sidenavVisible">
+        <md-sidenav class="md-left md-fixed" :md-visible.sync="sidenavLeftVisible">
           <md-toolbar class="md-extended">
             <div class="md-toolbar-container">
               <h3 class="md-title">Sidenav content</h3>
@@ -251,6 +251,78 @@
 
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi cupiditate esse necessitatibus beatae nobis, deserunt ut est fugit, tempora deleniti, eligendi commodi doloribus. Nemo, assumenda possimus, impedit inventore perferendis iusto!</p>
         </md-sidenav>
+      </div>
+
+      <div class="cell-phone">
+        <md-toolbar>
+          <md-button class="md-icon-button" @click="toggleRightSidenav">
+            <md-icon>menu</md-icon>
+          </md-button>
+
+          <h2 class="md-title">Right Sidenav</h2>
+        </md-toolbar>
+
+        <md-sidenav class="md-right md-fixed" :md-visible.sync="sidenavRightVisible">
+          <md-toolbar class="md-extended">
+            <div class="md-toolbar-container">
+              <h3 class="md-title">Sidenav content</h3>
+            </div>
+          </md-toolbar>
+
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi cupiditate esse necessitatibus beatae nobis, deserunt ut est fugit, tempora deleniti, eligendi commodi doloribus. Nemo, assumenda possimus, impedit inventore perferendis iusto!</p>
+        </md-sidenav>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="title">Lists</h2>
+
+      <div class="cell-phone">
+        <md-list>
+          <md-list-item>
+            <md-icon>home</md-icon> <span>Home</span>
+          </md-list-item>
+
+          <md-list-item>
+            <md-icon>favorite</md-icon> <span>Favorites</span>
+          </md-list-item>
+
+          <md-list-item>
+            <md-icon>store</md-icon> <span>Store</span>
+          </md-list-item>
+        </md-list>
+      </div>
+
+      <div class="cell-phone">
+        <md-list>
+          <md-list-item href="http://google.com">
+            <md-avatar>
+              <img src="https://placeimg.com/40/40/people/1" alt="People">
+            </md-avatar>
+
+            <span>Home</span>
+          </md-list-item>
+
+          <md-list-item>
+            <md-avatar>
+              <img src="https://placeimg.com/40/40/people/5" alt="People">
+            </md-avatar>
+
+            <span>Favorites</span>
+
+            <md-button class="md-icon-button md-list-action">
+              <md-icon>file_download</md-icon>
+            </md-button>
+          </md-list-item>
+
+          <md-list-item>
+            <md-avatar>
+              <img src="https://placeimg.com/40/40/people/3" alt="People">
+            </md-avatar>
+
+            <span>Store</span>
+          </md-list-item>
+        </md-list>
       </div>
     </section>
   </div>
@@ -263,15 +335,19 @@
     data() {
       return {
         buttonDisabled: false,
-        sidenavVisible: false
+        sidenavLeftVisible: false,
+        sidenavRightVisible: false
       };
     },
     methods: {
       disableButton() {
         this.buttonDisabled = !this.buttonDisabled;
       },
-      toggleSidenav() {
-        this.sidenavVisible = !this.sidenavVisible;
+      toggleLeftSidenav() {
+        this.sidenavLeftVisible = !this.sidenavLeftVisible;
+      },
+      toggleRightSidenav() {
+        this.sidenavRightVisible = !this.sidenavRightVisible;
       }
     }
   };
