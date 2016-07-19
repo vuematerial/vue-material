@@ -22,7 +22,7 @@ const createNewStyleElement = (style, name) => {
     newTag.id = styleId;
     newTag.textContent = style;
 
-    document.head.appendChild(newTag);
+    head.appendChild(newTag);
   }
 };
 

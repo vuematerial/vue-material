@@ -3,12 +3,12 @@
     <section>
       <h2 class="title">Buttons</h2>
 
-      <md-button @click="clickAction">Button</md-button>
-      <md-link-button class="md-primary" :disabled="disabled">Primary</md-link-button>
+      <md-button @click="disableButton">Button</md-button>
+      <md-link-button class="md-primary" :disabled="buttonDisabled">Primary</md-link-button>
       <md-link-button class="md-primary md-raised">Raised</md-link-button>
       <md-button class="md-accent md-raised">Accent</md-button>
       <md-link-button class="md-warn">Warn</md-link-button>
-      <md-link-button class="md-raised md-primary" :disabled="!disabled">Disabled</md-link-button>
+      <md-link-button class="md-raised md-primary" :disabled="!buttonDisabled">Disabled</md-link-button>
       <md-button class="md-raised md-dense md-accent">Dense</md-button>
     </section>
 
@@ -229,6 +229,30 @@
         </div>
       </md-toolbar>
     </section>
+
+    <section>
+      <h2 class="title">Toolbar</h2>
+
+      <div class="cell-phone">
+        <md-toolbar>
+          <md-button class="md-icon-button" @click="toggleSidenav">
+            <md-icon>menu</md-icon>
+          </md-button>
+
+          <h2 class="md-title">Toggle Sidenav</h2>
+        </md-toolbar>
+
+        <md-sidenav class="md-left md-fixed" :md-visible.sync="sidenavVisible">
+          <md-toolbar class="md-extended">
+            <div class="md-toolbar-container">
+              <h3 class="md-title">Sidenav content</h3>
+            </div>
+          </md-toolbar>
+
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi cupiditate esse necessitatibus beatae nobis, deserunt ut est fugit, tempora deleniti, eligendi commodi doloribus. Nemo, assumenda possimus, impedit inventore perferendis iusto!</p>
+        </md-sidenav>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -238,12 +262,16 @@
   export default {
     data() {
       return {
-        disabled: false
+        buttonDisabled: false,
+        sidenavVisible: false
       };
     },
     methods: {
-      clickAction() {
-        this.disabled = !this.disabled;
+      disableButton() {
+        this.buttonDisabled = !this.buttonDisabled;
+      },
+      toggleSidenav() {
+        this.sidenavVisible = !this.sidenavVisible;
       }
     }
   };
