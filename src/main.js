@@ -9,6 +9,8 @@ import MdIcon from './components/mdIcon';
 import MdBottomBar from './components/mdBottomBar';
 import MdToolbar from './components/mdToolbar';
 import MdSidenav from './components/mdSidenav';
+import MdAvatar from './components/mdAvatar';
+import MdList from './components/mdList';
 
 Vue.use(MdInkRipple);
 Vue.use(MdButton);
@@ -17,6 +19,8 @@ Vue.use(MdIcon);
 Vue.use(MdBottomBar);
 Vue.use(MdToolbar);
 Vue.use(MdSidenav);
+Vue.use(MdAvatar);
+Vue.use(MdList);
 
 Vue.use(MdTheme, {
   'bottom-bar': {

@@ -1,0 +1,23 @@
+@import '../../core/variables.scss';
+
+$avatar-size: 40px;
+
+.md-avatar {
+  width: $avatar-size;
+  min-width: $avatar-size;
+  height: $avatar-size;
+  min-height: $avatar-size;
+  margin: auto;
+  display: inline-block;
+  overflow: hidden;
+  border-radius: $avatar-size;
+  vertical-align: middle;
+
+  &.md-avatar-icon {
+    background-color: rgba(#000, .2);
+  }
+
+  .md-icon {
+    margin: 8px;
+  }
+}

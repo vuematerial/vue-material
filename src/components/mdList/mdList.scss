@@ -1,0 +1,62 @@
+@import '../../core/variables.scss';
+
+.md-list {
+  margin: 0;
+  padding: 8px 0;
+  display: flex;
+  flex-flow: column nowrap;
+  position: relative;
+  list-style: none;
+
+  &.md-dense {
+    padding: 4px 0;
+
+    .md-list-item {
+      min-height: 40px;
+      padding: 4px 16px;
+      font-size: 13px;
+    }
+  }
+}
+
+.md-list-item {
+  min-height: 48px;
+  position: relative;
+  font-size: 16px;
+
+  .md-list-item-container {
+    width: 100%;
+    margin: 0;
+    padding: 8px 16px;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    border-radius: 0;
+    text-align: left;
+
+    > .md-ink-ripple {
+      border-radius: 0;
+    }
+
+    > .md-icon:first-child {
+      margin-right: 32px;
+    }
+
+    > .md-avatar:first-child {
+      margin-right: 16px;
+    }
+
+    > .md-list-action {
+      margin: 0 0 0 16px;
+    }
+  }
+
+  .md-icon,
+  .md-avatar {
+    margin: 0;
+
+    + * {
+      flex: 1;
+    }
+  }
+}

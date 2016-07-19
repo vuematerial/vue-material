@@ -1,0 +1,7 @@
+.THEME_NAME {
+  .md-list,
+  &.md-list {
+    background-color: BACKGROUND-COLOR-50;
+    color: BACKGROUND-CONTRAST;
+  }
+}
