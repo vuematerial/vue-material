@@ -15,6 +15,7 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
   },
   "dependencies": {
+    "scopedQuerySelectorShim": "github:lazd/scopedQuerySelectorShim",
     "vue": "^1.0.26"
   },
   "devDependencies": {
