@@ -11,6 +11,13 @@
     transform: translate3d(100%, 0, 0);
   }
 
+  &.md-fixed {
+    .md-sidenav-content,
+    .md-backdrop {
+      position: fixed;
+    }
+  }
+
   .md-sidenav-content {
     width: 304px;
     position: absolute;

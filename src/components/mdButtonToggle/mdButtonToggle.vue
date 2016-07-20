@@ -39,7 +39,7 @@
         let element = child.$el;
 
         if (element && element.classList.contains('md-button')) {
-          child.removeEventListener('click', onClickButton);
+          element.removeEventListener('click', onClickButton);
         }
       });
     }
