@@ -14,7 +14,10 @@
     .md-list-item {
       min-height: 40px;
       padding: 4px 16px;
-      font-size: 13px;
+
+      .md-list-item-container {
+        font-size: 13px;
+      }
     }
   }
 }
@@ -22,7 +25,6 @@
 .md-list-item {
   min-height: 48px;
   position: relative;
-  font-size: 16px;
 
   .md-list-item-container {
     width: 100%;
@@ -32,7 +34,9 @@
     flex-flow: row wrap;
     align-items: center;
     border-radius: 0;
+    font-size: 16px;
     text-align: left;
+    text-transform: none;
 
     > .md-ink-ripple {
       border-radius: 0;
