@@ -5,7 +5,9 @@ import Docs from './docs/index';
 
 Vue.use(VueRouter);
 
-let router = new VueRouter();
+let router = new VueRouter({
+  hashbang: false
+});
 let App = Vue.extend({
   data() {
     return {
@@ -21,33 +23,43 @@ let App = Vue.extend({
 
 router.map({
   '/avatar': {
+    name: 'avatar',
     component: Docs.Avatar
   },
   '/bottom-bar': {
+    name: 'bottomBar',
     component: Docs.BottomBar
   },
   '/button': {
+    name: 'button',
     component: Docs.Buttons
   },
   '/button-toggle': {
+    name: 'buttonToggle',
     component: Docs.ButtonToggle
   },
   '/icon': {
+    name: 'icon',
     component: Docs.Icon
   },
   '/ripple': {
+    name: 'ripple',
     component: Docs.Ripple
   },
   '/list': {
+    name: 'list',
     component: Docs.List
   },
   '/sidenav': {
+    name: 'sidenav',
     component: Docs.Sidenav
   },
   '/theme': {
+    name: 'theme',
     component: Docs.Theme
   },
   '/toolbar': {
+    name: 'toolbar',
     component: Docs.Toolbar
   }
 });

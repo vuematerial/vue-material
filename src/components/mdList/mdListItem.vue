@@ -1,6 +1,6 @@
 <template>
   <li class="md-list-item">
-    <md-link-button :title="title" :target="target" :href="href" class="md-list-item-container" v-if="href">
+    <md-link-button :title="title" :target="target" :href="href" v-link="vLink" class="md-list-item-container" v-if="href || vLink">
       <slot></slot>
     </md-link-button>
 
@@ -14,6 +14,7 @@
   export default {
     props: {
       href: String,
+      vLink: [String, Object],
       title: String,
       target: String
     }
