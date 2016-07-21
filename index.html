@@ -19,7 +19,7 @@
   </head>
 
   <body>
-    <div class="docs" id="app" v-cloak>
+    <div class="container" id="app" v-cloak>
       <md-toolbar>
         <md-button class="md-icon-button" @click="toggleSidenav">
           <md-icon>menu</md-icon>
@@ -43,7 +43,9 @@
         </md-list>
       </md-sidenav>
 
-      <router-view></router-view>
+      <div class="page-content">
+        <router-view></router-view>
+      </div>
     </div>
   </body>
 </html>
