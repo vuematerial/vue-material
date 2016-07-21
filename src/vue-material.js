@@ -1,4 +1,3 @@
-import Vue from 'vue';
 import './core/core';
 import MdTheme from './components/mdTheme';
 import MdInkRipple from './components/mdInkRipple';
@@ -11,18 +10,15 @@ import MdSidenav from './components/mdSidenav';
 import MdAvatar from './components/mdAvatar';
 import MdList from './components/mdList';
 
-Vue.use(MdInkRipple);
-Vue.use(MdButton);
-Vue.use(MdButtonToggle);
-Vue.use(MdIcon);
-Vue.use(MdBottomBar);
-Vue.use(MdToolbar);
-Vue.use(MdSidenav);
-Vue.use(MdAvatar);
-Vue.use(MdList);
-
-Vue.use(MdTheme, {
-  'bottom-bar': {
-    primary: 'teal'
-  }
-});
+export default {
+  MdAvatar,
+  MdBottomBar,
+  MdButton,
+  MdButtonToggle,
+  MdIcon,
+  MdInkRipple,
+  MdList,
+  MdSidenav,
+  MdToolbar,
+  MdTheme
+};

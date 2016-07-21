@@ -1,25 +1,27 @@
-import './docs.scss';
+/* Third Party */
+import Vue from 'vue';
 
-import Avatar from './Avatar';
-import BottomBar from './BottomBar';
-import Buttons from './Buttons';
-import ButtonToggle from './ButtonToggle';
-import Icon from './Icon';
-import Ripple from './Ripple';
-import List from './List';
-import Sidenav from './Sidenav';
-import Theme from './Theme';
-import Toolbar from './Toolbar';
+/* Configs */
+import './stylesheets/docs.scss';
+import './config.js';
+import router from './routes.js';
 
-export default {
-  Avatar,
-  BottomBar,
-  Buttons,
-  ButtonToggle,
-  Icon,
-  Ripple,
-  List,
-  Sidenav,
-  Theme,
-  Toolbar
-};
+let App = Vue.extend({
+  data() {
+    return {
+      showSidenav: false
+    };
+  },
+  methods: {
+    toggleSidenav() {
+      this.showSidenav = !this.showSidenav;
+    }
+  }
+});
+
+router.afterEach(function() {
+  router.app.toggleSidenav();
+});
+
+router.start(App, '#app');
+

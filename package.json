@@ -15,8 +15,7 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
   },
   "dependencies": {
-    "scopedQuerySelectorShim": "github:lazd/scopedQuerySelectorShim",
-    "vue": "^1.0.26"
+    "scopedQuerySelectorShim": "github:lazd/scopedQuerySelectorShim"
   },
   "devDependencies": {
     "babel-core": "^6.10.4",
@@ -46,9 +45,11 @@
     "sass-loader": "^4.0.0",
     "shelljs": "^0.7.0",
     "url-loader": "^0.5.7",
+    "vue": "^1.0.26",
     "vue-hot-reload-api": "^1.3.3",
     "vue-html-loader": "^1.2.3",
     "vue-loader": "^8.5.3",
+    "vue-router": "^0.7.13",
     "vue-style-loader": "^1.0.0",
     "webpack": "^1.13.1",
     "webpack-dev-middleware": "^1.6.1",
