@@ -6,7 +6,8 @@ import './stylesheets/docs.scss';
 import './config.js';
 import router from './routes.js';
 
-let App = Vue.extend({
+let App = Vue.component('app', {
+  name: 'app',
   data() {
     return {
       showSidenav: false
