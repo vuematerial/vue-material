@@ -3,6 +3,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 
 /* Pages */
+import Home from './pages/Home';
 import Avatar from './pages/Avatar';
 import BottomBar from './pages/BottomBar';
 import Buttons from './pages/Buttons';
@@ -13,6 +14,7 @@ import List from './pages/List';
 import Sidenav from './pages/Sidenav';
 import Theme from './pages/Theme';
 import Toolbar from './pages/Toolbar';
+import Whiteframe from './pages/Whiteframe';
 
 
 Vue.use(VueRouter);
@@ -22,6 +24,10 @@ let router = new VueRouter({
 });
 
 router.map({
+  '/': {
+    name: 'home',
+    component: Home
+  },
   '/avatar': {
     name: 'avatar',
     component: Avatar
@@ -61,6 +67,10 @@ router.map({
   '/toolbar': {
     name: 'toolbar',
     component: Toolbar
+  },
+  '/whiteframe': {
+    name: 'whiteframe',
+    component: Whiteframe
   }
 });
 

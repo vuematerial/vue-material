@@ -16,12 +16,15 @@ let App = Vue.component('app', {
   methods: {
     toggleSidenav() {
       this.showSidenav = !this.showSidenav;
+    },
+    hideSidenav() {
+      this.showSidenav = false;
     }
   }
 });
 
 router.afterEach(function() {
-  router.app.toggleSidenav();
+  router.app.hideSidenav();
 });
 
 router.start(App, '#app');
