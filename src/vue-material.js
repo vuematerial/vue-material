@@ -9,6 +9,7 @@ import MdToolbar from './components/mdToolbar';
 import MdSidenav from './components/mdSidenav';
 import MdAvatar from './components/mdAvatar';
 import MdList from './components/mdList';
+import MdWhiteframe from './components/mdWhiteframe';
 
 export default {
   MdAvatar,
@@ -20,5 +21,6 @@ export default {
   MdList,
   MdSidenav,
   MdToolbar,
+  MdWhiteframe,
   MdTheme
 };

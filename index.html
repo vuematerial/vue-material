@@ -20,13 +20,15 @@
 
   <body>
     <div class="container" id="app" v-cloak>
-      <md-toolbar>
-        <md-button class="md-icon-button" @click="toggleSidenav">
-          <md-icon>menu</md-icon>
-        </md-button>
+      <md-whiteframe md-elevation="3dp">
+        <md-toolbar>
+          <md-button class="md-icon-button" @click="toggleSidenav">
+            <md-icon>menu</md-icon>
+          </md-button>
 
-        <h2 class="md-title">Vue Material</h2>
-      </md-toolbar>
+          <h2 class="md-title">Vue Material</h2>
+        </md-toolbar>
+      </md-whiteframe>
 
       <md-sidenav class="md-left md-fixed" :md-visible.sync="showSidenav">
         <md-list>
