@@ -11,7 +11,7 @@ import MdAvatar from './components/mdAvatar';
 import MdList from './components/mdList';
 import MdWhiteframe from './components/mdWhiteframe';
 
-export default {
+let options = {
   MdAvatar,
   MdBottomBar,
   MdButton,
@@ -24,3 +24,13 @@ export default {
   MdWhiteframe,
   MdTheme
 };
+
+options.enableAll = (Vue) => {
+  for (let component in options) {
+    if (component !== 'MdTheme' && component !== 'enableAll') {
+      Vue.use(options[component]);
+    }
+  }
+};
+
+export default options;
