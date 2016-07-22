@@ -25,11 +25,9 @@
     bottom: 0;
     z-index: 2;
     pointer-events: none;
-    opacity: .7;
     transition: $swift-ease-out;
 
     &.md-active {
-      opacity: 1;
       pointer-events: auto;
       box-shadow: $material-shadow-16dp;
       transform: translate3d(0, 0, 0);
