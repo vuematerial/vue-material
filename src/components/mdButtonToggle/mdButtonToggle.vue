@@ -16,16 +16,17 @@
     ready() {
       this.$children.forEach((child) => {
         let element = child.$el;
+        let toggleClass = 'md-toggle';
 
         onClickButton = () => {
           if (this.type === 'radio') {
             this.$children.forEach((child) => {
-              child.$el.classList.remove('md-toggle');
+              child.$el.classList.remove(toggleClass);
             });
 
-            element.classList.add('md-toggle');
+            element.classList.add(toggleClass);
           } else {
-            element.classList.toggle('md-toggle');
+            element.classList.toggle(toggleClass);
           }
         };
 
