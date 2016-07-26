@@ -19,11 +19,14 @@ export default function install(Vue) {
 
   let registerMouseEvent = (element, holder) => {
     Vue.nextTick(() => {
-      let rect = holder.getBoundingClientRect();
       let ripple = holder.querySelector(':scope > .' + rippleParentClass + '> .' + rippleClass);
 
       if (ripple) {
         registeredMouseFunction = (event) => {
+          let rect = holder.getBoundingClientRect();
+
+          event.stopPropagation();
+
           ripple.classList.remove(rippleActiveClass);
 
           let top = event.pageY - rect.top - ripple.offsetHeight / 2 - document.body.scrollTop;
