@@ -19,7 +19,6 @@
       }
 
       .md-list-item-container {
-        padding: 2px 16px;
         font-size: 13px;
 
         .md-avatar:first-child {
@@ -101,6 +100,10 @@
       min-height: 88px;
     }
 
+    .md-avatar {
+      margin: 0;
+    }
+
     .md-list-item-container {
       align-items: flex-start;
     }
@@ -123,7 +126,7 @@
     width: 100%;
     min-height: 0;
     margin: 0;
-    padding: 6px 16px;
+    padding: 0 16px;
     display: flex;
     position: relative;
     flex: 1 1 auto;
@@ -156,6 +159,13 @@
     }
   }
 
+  .md-divider {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+  }
+
   .md-icon,
   .md-avatar {
     margin: 0;
@@ -163,6 +173,11 @@
     + * {
       flex: 1 1 auto;
     }
+  }
+
+  .md-avatar {
+    margin-top: 8px;
+    margin-bottom: 8px;
   }
 
   .md-icon {
