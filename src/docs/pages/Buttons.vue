@@ -10,6 +10,22 @@
     <md-link-button class="md-raised md-primary" :disabled="!buttonDisabled">Disabled</md-link-button>
     <md-button class="md-raised md-dense md-accent">Dense</md-button>
   </section>
+
+  <section>
+    <h2 class="title">FAB</h2>
+
+    <md-button class="md-fab">
+      <md-icon>add</md-icon>
+    </md-button>
+
+    <md-button class="md-fab md-primary">
+      <md-icon>edit</md-icon>
+    </md-button>
+
+    <md-button class="md-fab md-warn md-mini">
+      <md-icon>save</md-icon>
+    </md-button>
+  </section>
 </template>
 
 <script>
