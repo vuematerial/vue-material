@@ -25,6 +25,7 @@ let App = Vue.component('app', {
 
 router.afterEach(function() {
   router.app.hideSidenav();
+  document.querySelector('.main-content').scrollTop = 0;
 });
 
 router.start(App, '#app');
