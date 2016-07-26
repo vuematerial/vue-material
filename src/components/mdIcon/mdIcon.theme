@@ -1,0 +1,16 @@
+.THEME_NAME {
+  .md-icon,
+  &.md-icon {
+    &.md-primary {
+      color: PRIMARY-COLOR;
+    }
+
+    &.md-accent {
+      color: ACCENT-COLOR;
+    }
+
+    &.md-warn {
+      color: WARN-COLOR;
+    }
+  }
+}

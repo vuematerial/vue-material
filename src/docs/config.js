@@ -10,6 +10,12 @@ Vue.use(VueMaterial.MdTheme, {
       hue: 800
     }
   },
+  indigo: {
+    primary: 'indigo'
+  },
+  orange: {
+    primary: 'orange'
+  },
   'bottom-bar': {
     primary: 'teal'
   }

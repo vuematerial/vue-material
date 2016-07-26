@@ -20,3 +20,9 @@
     </div>
   </section>
 </template>
+
+<style lang="scss" scoped>
+  .cell-phone {
+    background-color: #eee;
+  }
+</style>
