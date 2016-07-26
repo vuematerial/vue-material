@@ -10,6 +10,7 @@ import Buttons from './pages/Buttons';
 import ButtonToggle from './pages/ButtonToggle';
 import Divider from './pages/Divider';
 import Icon from './pages/Icon';
+import Input from './pages/Input';
 import Ripple from './pages/Ripple';
 import List from './pages/List';
 import Sidenav from './pages/Sidenav';
@@ -48,6 +49,10 @@ router.map({
   '/icon': {
     name: 'icon',
     component: Icon
+  },
+  '/input': {
+    name: 'input',
+    component: Input
   },
   '/divider': {
     name: 'divider',

@@ -1,0 +1,22 @@
+.THEME_NAME {
+  .md-input-container,
+  &.md-input-container {
+    &.md-input-focused {
+      &:after {
+        height: 2px;
+        background-color: PRIMARY-COLOR;
+      }
+
+      input {
+        color: PRIMARY-COLOR;
+        text-shadow: 0 0 0 BACKGROUND-CONTRAST;
+        -webkit-text-fill-color: transparent;
+      }
+
+      label {
+        opacity: 1;
+        color: PRIMARY-COLOR;
+      }
+    }
+  }
+}

@@ -16,6 +16,9 @@ Vue.use(VueMaterial.MdTheme, {
   orange: {
     primary: 'orange'
   },
+  blue: {
+    primary: 'blue'
+  },
   'bottom-bar': {
     primary: 'teal'
   }
