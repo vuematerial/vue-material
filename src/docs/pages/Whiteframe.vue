@@ -25,8 +25,8 @@
   <md-whiteframe md-elevation="24"></md-whiteframe>
 </template>
 
-<style lang="scss">
-  .page-content .md-whiteframe {
+<style lang="scss" scoped>
+  .md-whiteframe {
     width: 100px;
     height: 100px;
     margin: 24px 12px 12px 24px;

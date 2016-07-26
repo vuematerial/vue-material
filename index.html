@@ -20,7 +20,7 @@
 
   <body>
     <div class="container" id="app" v-cloak>
-      <md-whiteframe md-elevation="3dp">
+      <md-whiteframe md-elevation="3dp" class="main-header">
         <md-toolbar>
           <md-button class="md-icon-button" @click="toggleSidenav">
             <md-icon>menu</md-icon>
@@ -30,7 +30,7 @@
         </md-toolbar>
       </md-whiteframe>
 
-      <md-sidenav class="md-left md-fixed" :md-visible.sync="showSidenav">
+      <md-sidenav class="main-sidebar md-left md-fixed" :md-visible.sync="showSidenav">
         <md-list>
           <md-list-item v-link="avatar">Avatar</md-list-item>
           <md-list-item v-link="bottom-bar">Bottom Bar</md-list-item>
@@ -46,7 +46,7 @@
         </md-list>
       </md-sidenav>
 
-      <div class="page-content">
+      <div class="main-content">
         <router-view></router-view>
       </div>
     </div>

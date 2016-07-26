@@ -10,15 +10,23 @@ $avatar-size: 40px;
   margin: auto;
   display: inline-block;
   overflow: hidden;
+  position: relative;
   border-radius: $avatar-size;
   vertical-align: middle;
 
   &.md-avatar-icon {
-    background-color: rgba(#000, .2);
+    background-color: rgba(#000, .38);
+
+    .md-icon {
+      color: #fff;
+    }
   }
 
   .md-icon {
-    margin: 8px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 
   img {

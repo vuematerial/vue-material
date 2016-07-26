@@ -1,14 +1,43 @@
-.container {
-  .cell-phone {
-    width: 360px;
-    height: 480px;
-    display: inline-block;
-    position: relative;
-    overflow: hidden;
-    background-color: #eee;
-  }
+html,
+body {
+  height: 100%;
+}
 
-  .md-bottom-bar {
-    margin-top: 424px;
-  }
+body {
+  display: flex;
+}
+
+.container {
+  min-height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 1;
+}
+
+.main-header {
+  position: relative;
+  z-index: 2;
+}
+
+.main-content {
+  flex: 1;
+  overflow: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.cell-phone {
+  width: 360px;
+  height: 480px;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+
+.scrollable {
+  overflow: auto;
+}
+
+.md-bottom-bar {
+  margin-top: 424px;
 }
