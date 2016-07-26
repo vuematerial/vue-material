@@ -25,6 +25,10 @@ body {
   position: relative;
 }
 
+.main-sidebar .md-sidenav-content {
+  overflow: auto;
+}
+
 .cell-phone {
   width: 360px;
   height: 480px;
