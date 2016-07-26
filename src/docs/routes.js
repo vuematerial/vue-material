@@ -8,6 +8,7 @@ import Avatar from './pages/Avatar';
 import BottomBar from './pages/BottomBar';
 import Buttons from './pages/Buttons';
 import ButtonToggle from './pages/ButtonToggle';
+import Divider from './pages/Divider';
 import Icon from './pages/Icon';
 import Ripple from './pages/Ripple';
 import List from './pages/List';
@@ -47,6 +48,10 @@ router.map({
   '/icon': {
     name: 'icon',
     component: Icon
+  },
+  '/divider': {
+    name: 'divider',
+    component: Divider
   },
   '/ripple': {
     name: 'ripple',

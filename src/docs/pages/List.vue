@@ -23,6 +23,8 @@
 
           <md-list-item>
             <md-icon>error</md-icon> <span>Spam</span>
+
+            <md-divider class="md-inset"></md-divider>
           </md-list-item>
 
           <md-list-item>
@@ -83,6 +85,8 @@
 
           <md-list-item>
             <md-icon>error</md-icon> <span>Spam</span>
+
+            <md-divider class="md-inset"></md-divider>
           </md-list-item>
 
           <md-list-item>
@@ -149,6 +153,8 @@
               <span>(650) 555-1234</span>
               <span>Mobile</span>
             </div>
+
+            <md-divider class="md-inset"></md-divider>
           </md-list-item>
 
           <md-list-item>
@@ -197,6 +203,8 @@
               <span>(650) 555-1234</span>
               <span>Mobile</span>
             </div>
+
+            <md-divider class="md-inset"></md-divider>
           </md-list-item>
 
           <md-list-item>
@@ -243,6 +251,8 @@
             <md-button class="md-icon-button md-list-action">
               <md-icon class="md-primary">star</md-icon>
             </md-button>
+
+            <md-divider></md-divider>
           </md-list-item>
 
           <md-list-item>
@@ -259,6 +269,8 @@
             <md-button class="md-icon-button md-list-action">
               <md-icon>star_border</md-icon>
             </md-button>
+
+            <md-divider></md-divider>
           </md-list-item>
 
           <md-list-item>
@@ -275,6 +287,8 @@
             <md-button class="md-icon-button md-list-action">
               <md-icon>star_border</md-icon>
             </md-button>
+
+            <md-divider></md-divider>
           </md-list-item>
 
           <md-list-item>
@@ -291,6 +305,8 @@
             <md-button class="md-icon-button md-list-action">
               <md-icon>star_border</md-icon>
             </md-button>
+
+            <md-divider></md-divider>
           </md-list-item>
         </md-list>
       </div>
@@ -315,6 +331,8 @@
             <md-button class="md-icon-button md-list-action">
               <md-icon class="md-primary">star</md-icon>
             </md-button>
+
+            <md-divider></md-divider>
           </md-list-item>
 
           <md-list-item>
@@ -331,6 +349,8 @@
             <md-button class="md-icon-button md-list-action">
               <md-icon>star_border</md-icon>
             </md-button>
+
+            <md-divider></md-divider>
           </md-list-item>
 
           <md-list-item>
@@ -347,6 +367,8 @@
             <md-button class="md-icon-button md-list-action">
               <md-icon>star_border</md-icon>
             </md-button>
+
+            <md-divider></md-divider>
           </md-list-item>
 
           <md-list-item>
@@ -363,6 +385,8 @@
             <md-button class="md-icon-button md-list-action">
               <md-icon>star_border</md-icon>
             </md-button>
+
+            <md-divider></md-divider>
           </md-list-item>
         </md-list>
       </div>
