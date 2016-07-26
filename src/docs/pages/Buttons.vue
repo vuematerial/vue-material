@@ -14,7 +14,7 @@
   <section>
     <h2 class="title">FAB</h2>
 
-    <md-button class="md-fab">
+    <md-button class="md-fab md-fab-bottom-right">
       <md-icon>add</md-icon>
     </md-button>
 
