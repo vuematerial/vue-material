@@ -5,6 +5,7 @@ import MdButton from './components/mdButton';
 import MdButtonToggle from './components/mdButtonToggle';
 import MdDivider from './components/mdDivider';
 import MdIcon from './components/mdIcon';
+import MdInputContainer from './components/mdInputContainer';
 import MdBottomBar from './components/mdBottomBar';
 import MdToolbar from './components/mdToolbar';
 import MdSidenav from './components/mdSidenav';
@@ -19,6 +20,7 @@ let options = {
   MdButtonToggle,
   MdDivider,
   MdIcon,
+  MdInputContainer,
   MdInkRipple,
   MdList,
   MdSidenav,

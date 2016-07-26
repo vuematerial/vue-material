@@ -1,0 +1,77 @@
+@import '../../core/variables.scss';
+
+$input-size: 32px;
+
+.md-input-container {
+  min-height: 48px;
+  margin: 16px 0 8px;
+  padding-top: 16px;
+  position: relative;
+
+  &:after {
+    height: 0;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: transparent;
+    transition: $swift-ease-out;
+    transition-duration: .2s;
+    content: " ";
+  }
+
+  label {
+    position: absolute;
+    top: 23px;
+    left: 2px;
+    pointer-events: none;
+    transition: $swift-ease-out;
+    transition-duration: .3s;
+    color: rgba(#000, .54);
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  input {
+    width: 100%;
+    height: $input-size;
+    display: block;
+    border: none;
+    background: none;
+    border-bottom: 1px solid rgba(#000, .12);
+    transition: .3s $swift-ease-out-timing-function;
+    transition-property: font-size, line-height;
+    color: rgba(#000, .54);
+    font-size: 0;
+    line-height: 0;
+
+    &:focus {
+      outline: none;
+    }
+
+    &::-webkit-input-placeholder {
+      position: relative;
+      top: 6px;
+      color: rgba(#000, .54);
+      font-size: 16px;
+      line-height: $input-size;
+      text-shadow: none;
+      -webkit-text-fill-color: initial;
+    }
+  }
+}
+
+.md-input-focused,
+.md-has-value {
+  input {
+    font-size: 16px;
+    line-height: $input-size;
+  }
+
+  label {
+    pointer-events: auto;
+    top: 0;
+    left: 0;
+    font-size: 12px;
+  }
+}
