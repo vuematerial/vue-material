@@ -376,6 +376,7 @@
       position: absolute;
       top: 8px;
       right: 16px;
+      pointer-events: auto;
       z-index: 2;
     }
 
