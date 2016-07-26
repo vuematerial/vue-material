@@ -14,7 +14,7 @@
     .md-list-item {
       min-height: 40px;
 
-      &.md-proxy .md-list-item-container {
+      &.md-inset .md-list-item-container {
         padding-left: 72px;
       }
 
@@ -113,7 +113,7 @@
   display: flex;
   position: relative;
 
-  &.md-proxy {
+  &.md-inset {
     .md-list-item-container {
       padding-left: 72px;
     }

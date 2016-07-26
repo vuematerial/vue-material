@@ -144,7 +144,7 @@
             </md-button>
           </md-list-item>
 
-          <md-list-item class="md-proxy">
+          <md-list-item class="md-inset">
             <div class="md-list-text-container">
               <span>(650) 555-1234</span>
               <span>Mobile</span>
@@ -164,7 +164,7 @@
             </md-button>
           </md-list-item>
 
-          <md-list-item class="md-proxy">
+          <md-list-item class="md-inset">
             <div class="md-list-text-container">
               <span>ali_connors@example.com</span>
               <span>Work</span>
@@ -192,7 +192,7 @@
             </md-button>
           </md-list-item>
 
-          <md-list-item class="md-proxy">
+          <md-list-item class="md-inset">
             <div class="md-list-text-container">
               <span>(650) 555-1234</span>
               <span>Mobile</span>
@@ -212,7 +212,7 @@
             </md-button>
           </md-list-item>
 
-          <md-list-item class="md-proxy">
+          <md-list-item class="md-inset">
             <div class="md-list-text-container">
               <span>ali_connors@example.com</span>
               <span>Work</span>
