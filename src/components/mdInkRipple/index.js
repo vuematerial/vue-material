@@ -39,7 +39,7 @@ export default function install(Vue) {
         };
 
         element.removeEventListener('mousedown', registeredMouseFunction);
-        element.addEventListener('mousedown', registeredMouseFunction);
+        element.addEventListener('mousedown', registeredMouseFunction, false);
       }
     });
   };

@@ -5,7 +5,7 @@ const VALID_THEME_TYPE = ['primary', 'accent', 'background', 'warn'];
 const DEFAULT_THEME_COLORS = {
   primary: 'indigo',
   accent: 'pink',
-  background: 'grey',
+  background: 'white',
   warn: 'deep-orange'
 };
 
