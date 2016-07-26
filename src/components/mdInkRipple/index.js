@@ -56,21 +56,23 @@ export default function install(Vue) {
     return ripple;
   };
 
-  let checkPositionRelative = (element) => {
-    return getComputedStyle(element).position === 'relative';
+  let checkPositionedParent = (element) => {
+    let availablePositions = ['relative', 'absolute', 'fixed'];
+
+    return availablePositions.indexOf(getComputedStyle(element).position) > -1;
   };
 
   let getParentWithPositionRelatve = (element) => {
     let found = false;
 
-    if (checkPositionRelative(element)) {
+    if (checkPositionedParent(element)) {
       return element;
     }
 
     while (!found) {
       let parent = element.parentNode;
 
-      if (parent && checkPositionRelative(parent)) {
+      if (parent && checkPositionedParent(parent)) {
         found = parent;
       }
     }
