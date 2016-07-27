@@ -81,6 +81,11 @@
 
       manageHasValueClass(this.input, container);
       manageDisabled(this.mdDisabled, this.input);
+    },
+    beforeDestroy() {
+      this.input.removeEventListener('focus', focusBindFunction);
+      this.input.removeEventListener('blur', blurBindFunction);
+      this.input.removeEventListener('input', inputBindFunction);
     }
   };
 </script>

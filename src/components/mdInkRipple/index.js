@@ -19,27 +19,29 @@ export default function install(Vue) {
 
   let registerMouseEvent = (element, holder) => {
     Vue.nextTick(() => {
-      let ripple = holder.querySelector(':scope > .' + rippleParentClass + '> .' + rippleClass);
+      if (holder) {
+        let ripple = holder.querySelector(':scope > .' + rippleParentClass + '> .' + rippleClass);
 
-      if (ripple) {
-        registeredMouseFunction = (event) => {
-          let rect = holder.getBoundingClientRect();
+        if (ripple) {
+          registeredMouseFunction = (event) => {
+            let rect = holder.getBoundingClientRect();
 
-          event.stopPropagation();
+            event.stopPropagation();
 
-          ripple.classList.remove(rippleActiveClass);
+            ripple.classList.remove(rippleActiveClass);
 
-          let top = event.pageY - rect.top - ripple.offsetHeight / 2 - document.body.scrollTop;
-          let left = event.pageX - rect.left - ripple.offsetWidth / 2 - document.body.scrollLeft;
+            let top = event.pageY - rect.top - ripple.offsetHeight / 2 - document.body.scrollTop;
+            let left = event.pageX - rect.left - ripple.offsetWidth / 2 - document.body.scrollLeft;
 
-          ripple.style.top = top + 'px';
-          ripple.style.left = left + 'px';
+            ripple.style.top = top + 'px';
+            ripple.style.left = left + 'px';
 
-          ripple.classList.add(rippleActiveClass);
-        };
+            ripple.classList.add(rippleActiveClass);
+          };
 
-        element.removeEventListener('mousedown', registeredMouseFunction);
-        element.addEventListener('mousedown', registeredMouseFunction, false);
+          element.removeEventListener('mousedown', registeredMouseFunction);
+          element.addEventListener('mousedown', registeredMouseFunction);
+        }
       }
     });
   };
@@ -56,23 +58,32 @@ export default function install(Vue) {
     return ripple;
   };
 
-  let checkPositionedParent = (element) => {
+  let checkAvailablePositions = (element) => {
     let availablePositions = ['relative', 'absolute', 'fixed'];
 
     return availablePositions.indexOf(getComputedStyle(element).position) > -1;
   };
 
-  let getParentWithPositionRelatve = (element) => {
+  let getClosestParent = (element) => {
     let found = false;
+    let parent = element;
 
-    if (checkPositionedParent(element)) {
+    if (!element) {
+      return false;
+    }
+
+    if (checkAvailablePositions(element)) {
       return element;
     }
 
     while (!found) {
-      let parent = element.parentNode;
+      parent = parent.parentNode;
 
-      if (parent && checkPositionedParent(parent)) {
+      if (parent.tagName.toLowerCase() === 'body') {
+        break;
+      }
+
+      if (parent && checkAvailablePositions(parent)) {
         found = parent;
       }
     }
@@ -82,22 +93,25 @@ export default function install(Vue) {
 
   let createRipple = (element) => {
     Vue.nextTick(() => {
-      let holder = getParentWithPositionRelatve(element);
-      let ripple = holder.querySelector(':scope > .' + rippleParentClass + '> .' + rippleClass);
+      let holder = getClosestParent(element);
 
-      if (!ripple) {
-        let elementSize = Math.round(Math.max(holder.offsetWidth, holder.offsetHeight)) + 'px';
-        let rippleParent = createElement(ripple, rippleParentClass);
-        let rippleElement = createElement(ripple, rippleClass, elementSize);
+      if (holder) {
+        let ripple = holder.querySelector(':scope > .' + rippleParentClass + '> .' + rippleClass);
 
-        rippleParent.appendChild(rippleElement);
-        holder.appendChild(rippleParent);
-      }
+        if (!ripple) {
+          let elementSize = Math.round(Math.max(holder.offsetWidth, holder.offsetHeight)) + 'px';
+          let rippleParent = createElement(ripple, rippleParentClass);
+          let rippleElement = createElement(ripple, rippleClass, elementSize);
 
-      if (holder !== element) {
-        registerMouseEvent(element, holder);
-      } else if (!ripple) {
-        registerMouseEvent(element, holder);
+          rippleParent.appendChild(rippleElement);
+          holder.appendChild(rippleParent);
+        }
+
+        if (holder !== element) {
+          registerMouseEvent(element, holder);
+        } else if (!ripple) {
+          registerMouseEvent(element, holder);
+        }
       }
     });
   };
