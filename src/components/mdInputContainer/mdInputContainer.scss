@@ -32,7 +32,8 @@ $input-size: 32px;
     line-height: 20px;
   }
 
-  input {
+  input,
+  textarea {
     width: 100%;
     height: $input-size;
     padding: 0;
@@ -50,6 +51,12 @@ $input-size: 32px;
       outline: none;
     }
   }
+
+  textarea {
+    height: auto;
+    min-height: 32px;
+    resize: none;
+  }
 }
 
 .md-input-focused,
@@ -60,14 +67,16 @@ $input-size: 32px;
     font-size: 12px;
   }
 
-  input {
+  input,
+  textarea {
     font-size: 16px;
     line-height: $input-size;
   }
 }
 
 .md-has-value {
-  input {
+  input,
+  textarea {
     color: rgba(#000, .87);
   }
 }
@@ -89,16 +98,32 @@ $input-size: 32px;
 
 .md-input-disabled {
   label,
-  input {
+  input,
+  textarea {
     color: rgba(#000, .38);
   }
 
-  input {
+  input,
+  textarea {
     color: rgba(#000, .38);
     border-bottom-color: transparent;
     background-image: linear-gradient(to right, rgba(#000, .38) 0%, rgba(#000, .38) 33%, transparent 0%);
     background-position: bottom -1px left 0;
     background-size: 4px 1px;
     background-repeat: repeat-x;
+  }
+}
+
+.md-has-password {
+  &.md-input-focused .md-toggle-password {
+    color: rgba(#000, .54);
+  }
+
+  .md-toggle-password {
+    margin: 0;
+    position: absolute;
+    right: 0;
+    bottom: -2px;
+    color: rgba(#000, .38);
   }
 }
