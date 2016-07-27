@@ -2,6 +2,12 @@
   .md-input-container,
   &.md-input-container {
     &.md-input-focused {
+      &.md-input-inline {
+        label {
+          color: rgba(#000, .54);
+        }
+      }
+
       &:after {
         height: 2px;
         background-color: PRIMARY-COLOR;
@@ -14,7 +20,6 @@
       }
 
       label {
-        opacity: 1;
         color: PRIMARY-COLOR;
       }
     }

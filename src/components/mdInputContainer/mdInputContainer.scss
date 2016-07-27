@@ -23,7 +23,7 @@ $input-size: 32px;
   label {
     position: absolute;
     top: 23px;
-    left: 2px;
+    left: 0;
     pointer-events: none;
     transition: $swift-ease-out;
     transition-duration: .3s;
@@ -35,11 +35,12 @@ $input-size: 32px;
   input {
     width: 100%;
     height: $input-size;
+    padding: 0;
     display: block;
     border: none;
     background: none;
     border-bottom: 1px solid rgba(#000, .12);
-    transition: .3s $swift-ease-out-timing-function;
+    transition: $swift-ease-out;
     transition-property: font-size, line-height;
     color: rgba(#000, .54);
     font-size: 0;
@@ -48,30 +49,56 @@ $input-size: 32px;
     &:focus {
       outline: none;
     }
-
-    &::-webkit-input-placeholder {
-      position: relative;
-      top: 6px;
-      color: rgba(#000, .54);
-      font-size: 16px;
-      line-height: $input-size;
-      text-shadow: none;
-      -webkit-text-fill-color: initial;
-    }
   }
 }
 
 .md-input-focused,
 .md-has-value {
+  label {
+    pointer-events: auto;
+    top: 0;
+    font-size: 12px;
+  }
+
   input {
     font-size: 16px;
     line-height: $input-size;
   }
+}
 
-  label {
-    pointer-events: auto;
-    top: 0;
-    left: 0;
-    font-size: 12px;
+.md-has-value {
+  input {
+    color: rgba(#000, .87);
+  }
+}
+
+.md-input-inline {
+  &.md-input-focused {
+    label {
+      top: 23px;
+      font-size: 16px;
+    }
+  }
+
+  &.md-has-value {
+    label {
+      opacity: 0;
+    }
+  }
+}
+
+.md-input-disabled {
+  label,
+  input {
+    color: rgba(#000, .38);
+  }
+
+  input {
+    color: rgba(#000, .38);
+    border-bottom-color: transparent;
+    background-image: linear-gradient(to right, rgba(#000, .38) 0%, rgba(#000, .38) 33%, transparent 0%);
+    background-position: bottom -1px left 0;
+    background-size: 4px 1px;
+    background-repeat: repeat-x;
   }
 }
