@@ -1,27 +1,29 @@
 <template>
   <section v-md-theme="'blue'">
     <md-input-container>
-      <label>Username</label>
+      <label>Initial value</label>
       <input type="text" value="test">
     </md-input-container>
 
     <md-input-container md-inline>
-      <label>Username</label>
+      <label>Inline field</label>
       <input type="text">
     </md-input-container>
 
-    <md-input-container :md-disabled="disabledInput">
-      <label>Username</label>
+    <md-input-container md-disabled>
+      <label>Disabled</label>
       <input type="text">
     </md-input-container>
 
-    <!-- <md-button class="md-icon-button" @click="togglePassword">
-      <md-icon>visibility</md-icon>
-    </md-button> -->
+    <md-input-container md-has-password>
+      <label>Passwords</label>
+      <input type="password">
+    </md-input-container>
 
-    <md-button class="md-icon-button" @click="toggleDisabled">
-      <md-icon>visibility_off</md-icon>
-    </md-button>
+    <md-input-container>
+      <label>Textarea</label>
+      <textarea></textarea>
+    </md-input-container>
   </section>
 </template>
 
@@ -30,28 +32,3 @@
     margin: 24px;
   }
 </style>
-
-<script>
-  export default {
-    data() {
-      return {
-        disabledInput: false
-      };
-    },
-    methods: {
-      toggleDisabled() {
-        this.disabledInput = !this.disabledInput;
-      },
-      togglePassword() {
-        let passwordField = document.querySelector('#password');
-        let type = passwordField.type;
-
-        if (type === 'password') {
-          passwordField.type = 'text';
-        } else {
-          passwordField.type = 'password';
-        }
-      }
-    }
-  };
-</script>
