@@ -42,10 +42,9 @@ $input-size: 32px;
     background: none;
     border-bottom: 1px solid rgba(#000, .12);
     transition: $swift-ease-out;
-    transition-property: font-size, line-height;
+    transition-property: font-size;
     color: rgba(#000, .54);
     font-size: 0;
-    line-height: 0;
 
     &:focus {
       outline: none;
@@ -53,8 +52,9 @@ $input-size: 32px;
   }
 
   textarea {
-    height: auto;
     min-height: 32px;
+    padding: 4px 0;
+    line-height: 1.5em;
     resize: none;
   }
 }
@@ -70,7 +70,6 @@ $input-size: 32px;
   input,
   textarea {
     font-size: 16px;
-    line-height: $input-size;
   }
 }
 
@@ -82,6 +81,10 @@ $input-size: 32px;
 }
 
 .md-input-inline {
+  label {
+    pointer-events: none;
+  }
+
   &.md-input-focused {
     label {
       top: 23px;
