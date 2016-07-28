@@ -11,6 +11,8 @@
 <style lang="scss" src="./mdInputContainer.scss"></style>
 
 <script>
+  import autosize from 'autosize';
+
   let focusedClass = 'md-input-focused';
   let inlineClass = 'md-input-inline';
   let disabledClass = 'md-input-disabled';
@@ -106,6 +108,12 @@
 
       manageHasValueClass(this.input, container);
       manageDisabled(this.mdDisabled, this.input);
+
+      if (this.input.tagName.toLowerCase() === 'textarea') {
+        this.input.setAttribute('rows', '1');
+
+        autosize(this.input);
+      }
     },
     beforeDestroy() {
       this.input.removeEventListener('focus', focusBindFunction);

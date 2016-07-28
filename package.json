@@ -15,6 +15,7 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
   },
   "dependencies": {
+    "autosize": "^3.0.17",
     "scopedQuerySelectorShim": "github:lazd/scopedQuerySelectorShim"
   },
   "devDependencies": {
