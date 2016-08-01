@@ -1,5 +1,6 @@
 /* Third Party */
 import Vue from 'vue';
+import VueValidator from 'vue-validator';
 import VueRouter from 'vue-router';
 
 /* Pages */
@@ -19,6 +20,7 @@ import Toolbar from './pages/Toolbar';
 import Whiteframe from './pages/Whiteframe';
 
 
+Vue.use(VueValidator);
 Vue.use(VueRouter);
 
 let router = new VueRouter({

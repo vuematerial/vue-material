@@ -29,4 +29,3 @@ router.afterEach(function() {
 });
 
 router.start(App, '#app');
-

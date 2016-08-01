@@ -24,5 +24,21 @@
         color: PRIMARY-COLOR;
       }
     }
+
+    &.md-input-invalid {
+      &:after {
+        background-color: WARN-COLOR;
+      }
+
+      label,
+      .md-error {
+        color: WARN-COLOR;
+      }
+
+      input,
+      textarea {
+        color: WARN-COLOR;
+      }
+    }
   }
 }
