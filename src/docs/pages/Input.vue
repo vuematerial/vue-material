@@ -1,5 +1,5 @@
 <template>
-  <section v-md-theme="'blue'">
+  <section>
     <validator name="validation">
       <form novalidate @submit.stop.prevent="submit">
         <md-input-container>
@@ -51,6 +51,16 @@
           <md-input maxlength="20" v-validate:counterInput="{ maxlength: 20 }" initial="off"></md-input>
 
           <span class="md-error">Max length reached</span>
+        </md-input-container>
+
+        <md-input-container v-md-theme="'blue'">
+          <label>Themable - Input</label>
+          <md-input></md-input>
+        </md-input-container>
+
+        <md-input-container v-md-theme="'orange'">
+          <label>Themable - Textarea</label>
+          <md-textarea></md-textarea>
         </md-input-container>
 
         <md-button type="submit" class="md-primary md-raised">Validate</md-button>
