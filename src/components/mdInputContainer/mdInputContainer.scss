@@ -60,11 +60,20 @@ $input-size: 32px;
 
   .md-error {
     height: 20px;
+    padding-top: 4px;
     display: block !important;
     position: absolute;
     opacity: 0;
     transform: translate3d(0, -8px, 0);
     transition: $swift-ease-in;
+    font-size: 12px;
+  }
+
+  .md-count {
+    height: 20px;
+    padding-top: 4px;
+    position: absolute;
+    right: 0;
     font-size: 12px;
   }
 }

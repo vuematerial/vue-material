@@ -26,6 +26,11 @@
     }
   };
 
+  let manageMaxlength = (length, parent) => {
+    parent.enableCounter = length > 0;
+    parent.counterLength = length;
+  };
+
   let manageHasValueClass = function(value, scope) {
     if (value.length > 0) {
       scope.add(hasValueClass);
@@ -36,7 +41,9 @@
 
   export default {
     props: {
-      disabled: Boolean
+      type: String,
+      disabled: Boolean,
+      maxlength: String
     },
     data() {
       return {
@@ -46,6 +53,9 @@
     watch: {
       disabled(disabled) {
         manageDisabledClass(disabled, this.parentClasses);
+      },
+      maxlength(maxlength) {
+        manageMaxlength(maxlength, this.$parent);
       }
     },
     methods: {
@@ -66,11 +76,19 @@
       },
       onInput() {
         manageHasValueClass(this.$el.value, this.parentClasses);
+        this.$parent.inputLength = this.$el.value.length;
       }
     },
     ready() {
+      if (!this.$parent.$el.classList.contains('md-input-container')) {
+        this.$destroy();
+
+        throw new Error('You should wrap the md-textarea in a md-input-container');
+      }
+
       manageDisabledClass(this.disabled, this.parentClasses);
       manageHasValueClass(this.$el.value, this.parentClasses);
+      manageMaxlength(this.maxlength, this.$parent);
 
       if (!this.$el.getAttribute('rows')) {
         this.$el.setAttribute('rows', '1');

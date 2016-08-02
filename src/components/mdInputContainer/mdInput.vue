@@ -25,6 +25,11 @@
     }
   };
 
+  let manageMaxlength = (length, parent) => {
+    parent.enableCounter = length > 0;
+    parent.counterLength = length;
+  };
+
   let manageHasValueClass = function(value, scope) {
     if (value.length > 0) {
       scope.add(hasValueClass);
@@ -35,8 +40,9 @@
 
   export default {
     props: {
+      type: String,
       disabled: Boolean,
-      type: String
+      maxlength: String
     },
     data() {
       return {
@@ -46,6 +52,9 @@
     watch: {
       disabled(disabled) {
         manageDisabledClass(disabled, this.parentClasses);
+      },
+      maxlength(maxlength) {
+        manageMaxlength(maxlength, this.$parent);
       }
     },
     methods: {
@@ -69,8 +78,15 @@
       }
     },
     ready() {
+      if (!this.$parent.$el.classList.contains('md-input-container')) {
+        this.$destroy();
+
+        throw new Error('You should wrap the md-input in a md-input-container');
+      }
+
       manageDisabledClass(this.disabled, this.parentClasses);
       manageHasValueClass(this.$el.value, this.parentClasses);
+      manageMaxlength(this.maxlength, this.$parent);
     },
     beforeDestroy() {
 

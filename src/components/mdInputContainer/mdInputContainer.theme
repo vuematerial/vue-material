@@ -31,10 +31,8 @@
       }
 
       label,
-      .md-error {
-        color: WARN-COLOR;
-      }
-
+      .md-error,
+      .md-count,
       input,
       textarea {
         color: WARN-COLOR;

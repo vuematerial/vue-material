@@ -1,9 +1,3 @@
-/* Third Party */
-import Vue from 'vue';
-import VueValidator from 'vue-validator';
-import VueRouter from 'vue-router';
-
-/* Pages */
 import Home from './pages/Home';
 import Avatar from './pages/Avatar';
 import BottomBar from './pages/BottomBar';
@@ -19,15 +13,7 @@ import Theme from './pages/Theme';
 import Toolbar from './pages/Toolbar';
 import Whiteframe from './pages/Whiteframe';
 
-
-Vue.use(VueValidator);
-Vue.use(VueRouter);
-
-let router = new VueRouter({
-  hashbang: false
-});
-
-router.map({
+const routes = {
   '/': {
     name: 'home',
     component: Home
@@ -84,6 +70,6 @@ router.map({
     name: 'whiteframe',
     component: Whiteframe
   }
-});
+};
 
-export default router;
+export default routes;
