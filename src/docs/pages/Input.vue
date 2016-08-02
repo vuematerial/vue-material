@@ -8,7 +8,7 @@
         </md-input-container>
 
         <md-input-container>
-          <label>Placeholder</label>
+          <label>With label</label>
           <md-input placeholder="My nice placeholder"></md-input>
         </md-input-container>
 
