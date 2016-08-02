@@ -2,6 +2,8 @@
   <div class="md-input-container" :class="classes">
     <slot></slot>
 
+    <span class="md-count" v-if="enableCounter">{{ inputLength }} / {{ counterLength }}</span>
+
     <md-button class="md-icon-button md-toggle-password" @click="togglePasswordType" v-if="mdHasPassword">
       <md-icon>{{ showPassword ? 'visibility_off' : 'visibility' }}</md-icon>
     </md-button>
@@ -34,7 +36,10 @@
       return {
         input: false,
         inputType: false,
-        showPassword: false
+        showPassword: false,
+        enableCounter: false,
+        counterLength: 0,
+        inputLength: 0
       };
     },
     methods: {
@@ -56,6 +61,13 @@
     },
     ready() {
       this.input = this.$el.querySelector('input') || this.$el.querySelector('textarea');
+
+      if (!this.input) {
+        this.$destroy();
+
+        throw new Error('Missing input inside md-input-container');
+      }
+
       this.inputType = this.input.type;
     }
   };

@@ -26,12 +26,19 @@
 
         <md-input-container md-has-password>
           <label>Passwords</label>
-          <md-input type="password" @input="onInput"></md-input>
+          <md-input type="password"></md-input>
         </md-input-container>
 
         <md-input-container>
           <label>Textarea</label>
           <md-textarea></md-textarea>
+        </md-input-container>
+
+        <md-input-container>
+          <label>Character counter</label>
+          <md-textarea maxlength="70" v-validate:counter="{ maxlength: 70 }" initial="off"></md-textarea>
+
+          <span class="md-error">Max length reached</span>
         </md-input-container>
 
         <md-button type="submit" class="md-primary md-raised">Validate</md-button>
@@ -49,16 +56,8 @@
 <script>
   export default {
     methods: {
-      checkRequiredField(input) {
-        input = this.$validation[input];
-
-        return input && input.required;
-      },
       submit() {
         this.$validate(true);
-      },
-      onInput() {
-        console.log('Test');
       }
     }
   };
