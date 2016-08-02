@@ -8,6 +8,12 @@
         }
       }
 
+      &.md-input-required {
+        label:after {
+          color: WARN-COLOR;
+        }
+      }
+
       &:after {
         height: 2px;
         background-color: PRIMARY-COLOR;
