@@ -42,7 +42,7 @@ $input-size: 32px;
     transition: $swift-ease-out;
     transition-property: font-size;
     color: rgba(#000, .54);
-    font-family: $font-roboto;
+    font-family: inherit;
     font-size: 1px;
     line-height: $input-size;
 
