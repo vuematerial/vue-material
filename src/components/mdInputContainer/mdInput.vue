@@ -3,6 +3,8 @@
     class="md-input"
     :type="type || 'text'"
     :disabled="disabled"
+    :required="required"
+    :placeholder="placeholder"
     @invalid="onInvalid"
     @valid="onValid"
     @focus="onFocus"
@@ -14,6 +16,7 @@
   let invalidClass = 'md-input-invalid';
   let disabledClass = 'md-input-disabled';
   let requiredClass = 'md-input-required';
+  let placeholderClass = 'md-input-placeholder';
   let focusedClass = 'md-input-focused';
   let hasValueClass = 'md-has-value';
 
@@ -30,6 +33,14 @@
       scope.add(requiredClass);
     } else {
       scope.remove(requiredClass);
+    }
+  };
+
+  let managePlaceholderClass = (placeholder, scope) => {
+    if (placeholder) {
+      scope.add(placeholderClass);
+    } else {
+      scope.remove(placeholderClass);
     }
   };
 
@@ -51,7 +62,8 @@
       type: String,
       disabled: Boolean,
       required: Boolean,
-      maxlength: String
+      maxlength: String,
+      placeholder: String
     },
     data() {
       return {
@@ -64,6 +76,9 @@
       },
       required(required) {
         manageRequiredClass(required, this.parentClasses);
+      },
+      placeholder(placeholder) {
+        managePlaceholderClass(placeholder, this.parentClasses);
       },
       maxlength(maxlength) {
         manageMaxlength(maxlength, this.$parent);
@@ -97,6 +112,7 @@
 
       manageDisabledClass(this.disabled, this.parentClasses);
       manageRequiredClass(this.required, this.parentClasses);
+      managePlaceholderClass(this.placeholder, this.parentClasses);
       manageHasValueClass(this.$el.value, this.parentClasses);
       manageMaxlength(this.maxlength, this.$parent);
     },

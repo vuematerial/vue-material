@@ -7,6 +7,11 @@
           <md-input value="My initial value"></md-input>
         </md-input-container>
 
+        <md-input-container>
+          <label>Placeholder</label>
+          <md-input placeholder="My nice placeholder"></md-input>
+        </md-input-container>
+
         <md-input-container md-inline>
           <label>Inline field</label>
           <md-input></md-input>
@@ -35,8 +40,15 @@
         </md-input-container>
 
         <md-input-container>
-          <label>Character counter</label>
-          <md-textarea maxlength="70" v-validate:counter="{ maxlength: 70 }" initial="off"></md-textarea>
+          <label>Character counter - Textarea</label>
+          <md-textarea maxlength="70" v-validate:counterTextarea="{ maxlength: 70 }" initial="off"></md-textarea>
+
+          <span class="md-error">Max length reached</span>
+        </md-input-container>
+
+        <md-input-container>
+          <label>Character counter - Input</label>
+          <md-input maxlength="20" v-validate:counterInput="{ maxlength: 20 }" initial="off"></md-input>
 
           <span class="md-error">Max length reached</span>
         </md-input-container>
