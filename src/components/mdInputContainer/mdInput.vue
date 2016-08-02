@@ -85,6 +85,7 @@
       },
       onInput() {
         manageHasValueClass(this.$el.value, this.parentClasses);
+        this.$parent.inputLength = this.$el.value.length;
       }
     },
     ready() {
