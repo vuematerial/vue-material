@@ -14,7 +14,7 @@
 
         <md-input-container>
           <label>Required</label>
-          <md-input v-validate:inline="['required']" initial="off"></md-input>
+          <md-input required v-validate:inline="['required']" initial="off"></md-input>
 
           <span class="md-error">Validation message</span>
         </md-input-container>

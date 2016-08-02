@@ -11,9 +11,9 @@
 </template>
 
 <script>
-  let validClass = 'md-input-valid';
   let invalidClass = 'md-input-invalid';
   let disabledClass = 'md-input-disabled';
+  let requiredClass = 'md-input-required';
   let focusedClass = 'md-input-focused';
   let hasValueClass = 'md-has-value';
 
@@ -25,9 +25,12 @@
     }
   };
 
-  let manageMaxlength = (length, parent) => {
-    parent.enableCounter = length > 0;
-    parent.counterLength = length;
+  let manageRequiredClass = (required, scope) => {
+    if (required) {
+      scope.add(requiredClass);
+    } else {
+      scope.remove(requiredClass);
+    }
   };
 
   let manageHasValueClass = function(value, scope) {
@@ -38,10 +41,16 @@
     }
   };
 
+  let manageMaxlength = (length, parent) => {
+    parent.enableCounter = length > 0;
+    parent.counterLength = length;
+  };
+
   export default {
     props: {
       type: String,
       disabled: Boolean,
+      required: Boolean,
       maxlength: String
     },
     data() {
@@ -53,18 +62,19 @@
       disabled(disabled) {
         manageDisabledClass(disabled, this.parentClasses);
       },
+      required(required) {
+        manageRequiredClass(required, this.parentClasses);
+      },
       maxlength(maxlength) {
         manageMaxlength(maxlength, this.$parent);
       }
     },
     methods: {
       onInvalid() {
-        this.parentClasses.remove(validClass);
         this.parentClasses.add(invalidClass);
       },
       onValid() {
         this.parentClasses.remove(invalidClass);
-        this.parentClasses.add(validClass);
       },
       onFocus() {
         this.parentClasses.add(focusedClass);
@@ -85,6 +95,7 @@
       }
 
       manageDisabledClass(this.disabled, this.parentClasses);
+      manageRequiredClass(this.required, this.parentClasses);
       manageHasValueClass(this.$el.value, this.parentClasses);
       manageMaxlength(this.maxlength, this.$parent);
     },
