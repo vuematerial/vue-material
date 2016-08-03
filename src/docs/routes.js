@@ -3,6 +3,7 @@ import Avatar from './pages/Avatar';
 import BottomBar from './pages/BottomBar';
 import Buttons from './pages/Buttons';
 import ButtonToggle from './pages/ButtonToggle';
+import Checkbox from './pages/Checkbox';
 import Divider from './pages/Divider';
 import Icon from './pages/Icon';
 import Input from './pages/Input';
@@ -46,6 +47,10 @@ const routes = {
   '/divider': {
     name: 'divider',
     component: Divider
+  },
+  '/checkbox': {
+    name: 'checkbox',
+    component: Checkbox
   },
   '/ripple': {
     name: 'ripple',
