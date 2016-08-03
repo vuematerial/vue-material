@@ -7,8 +7,8 @@
 <style lang="scss" src="./mdTooltip.scss"></style>
 
 <script>
-  let registeredMouseEnter;
-  let registeredMouseLeave;
+  let registeredEnterEvent;
+  let registeredLeaveEvent;
 
   let calculateTooltipPosition = (scope) => {
     let position = scope.parent.getBoundingClientRect();
@@ -88,19 +88,26 @@
       this.created = false;
       this.$remove();
 
-      this.parent.addEventListener('mouseenter', registeredMouseEnter = () => {
+      registeredEnterEvent = () => {
         this.$appendTo(this.parent);
         calculateTooltipPosition(this);
-      });
+      };
 
-      this.parent.addEventListener('mouseleave', registeredMouseLeave = () => {
+      registeredLeaveEvent = () => {
         this.$remove();
-      });
+      };
+
+      this.parent.addEventListener('mouseenter', registeredEnterEvent);
+      this.parent.addEventListener('focus', registeredEnterEvent);
+      this.parent.addEventListener('mouseleave', registeredLeaveEvent);
+      this.parent.addEventListener('blur', registeredLeaveEvent);
     },
     beforeDestroy() {
       this.$remove();
-      this.parent.removeEventListener('mouseenter', registeredMouseEnter);
-      this.parent.removeEventListener('mouseleave', registeredMouseLeave);
+      this.parent.removeEventListener('mouseenter', registeredEnterEvent);
+      this.parent.removeEventListener('focus', registeredEnterEvent);
+      this.parent.removeEventListener('mouseleave', registeredLeaveEvent);
+      this.parent.removeEventListener('blur', registeredLeaveEvent);
     }
   };
 </script>
