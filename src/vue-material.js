@@ -8,6 +8,7 @@ import MdIcon from './components/mdIcon';
 import MdInputContainer from './components/mdInputContainer';
 import MdBottomBar from './components/mdBottomBar';
 import MdToolbar from './components/mdToolbar';
+import MdTooltip from './components/mdTooltip';
 import MdSidenav from './components/mdSidenav';
 import MdAvatar from './components/mdAvatar';
 import MdList from './components/mdList';
@@ -25,6 +26,7 @@ let options = {
   MdList,
   MdSidenav,
   MdToolbar,
+  MdTooltip,
   MdWhiteframe,
   MdTheme
 };

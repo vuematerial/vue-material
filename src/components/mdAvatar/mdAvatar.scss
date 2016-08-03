@@ -32,4 +32,22 @@ $avatar-size: 40px;
   img {
     display: block;
   }
+
+  .md-tooltip {
+    &.md-tooltip-top {
+      margin-top: -8px;
+    }
+
+    &.md-tooltip-right {
+      margin-left: 8px;
+    }
+
+    &.md-tooltip-bottom {
+      margin-top: 8px;
+    }
+
+    &.md-tooltip-left {
+      margin-left: -8px;
+    }
+  }
 }

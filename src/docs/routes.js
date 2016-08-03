@@ -11,6 +11,7 @@ import List from './pages/List';
 import Sidenav from './pages/Sidenav';
 import Theme from './pages/Theme';
 import Toolbar from './pages/Toolbar';
+import Tooltip from './pages/Tooltip';
 import Whiteframe from './pages/Whiteframe';
 
 const routes = {
@@ -65,6 +66,10 @@ const routes = {
   '/toolbar': {
     name: 'toolbar',
     component: Toolbar
+  },
+  '/tooltip': {
+    name: 'tooltip',
+    component: Tooltip
   },
   '/whiteframe': {
     name: 'whiteframe',
