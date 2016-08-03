@@ -3,6 +3,7 @@ import MdTheme from './components/mdTheme';
 import MdInkRipple from './components/mdInkRipple';
 import MdButton from './components/mdButton';
 import MdButtonToggle from './components/mdButtonToggle';
+import MdCheckbox from './components/mdCheckbox';
 import MdDivider from './components/mdDivider';
 import MdIcon from './components/mdIcon';
 import MdInputContainer from './components/mdInputContainer';
@@ -19,6 +20,7 @@ let options = {
   MdBottomBar,
   MdButton,
   MdButtonToggle,
+  MdCheckbox,
   MdDivider,
   MdIcon,
   MdInputContainer,
