@@ -164,6 +164,10 @@ $input-size: 32px;
     right: 0;
     bottom: -2px;
     color: rgba(#000, .38);
+
+    .md-ink-ripple {
+      color: rgba(#000, .87);
+    }
   }
 }
 

@@ -120,6 +120,13 @@ $button-icon-size: 40px;
 
     .md-ink-ripple {
       border-radius: 50%;
+
+      .md-ripple {
+        top: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        left: 0 !important;
+      }
     }
 
     .md-ripple.md-active {

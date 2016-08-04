@@ -1,7 +1,11 @@
 <template>
-  <div class="md-checkbox">
-    <input type="checkbox" id="temp">
-    <label for="temp">
+  <div class="md-checkbox md-checked">
+    <div class="md-checkbox-container" v-md-ink-ripple>
+      <input type="checkbox" id="temp">
+      <md-icon>check</md-icon>
+    </div>
+
+    <label class="md-checkbox-label" for="temp">
       <slot></slot>
     </label>
   </div>
