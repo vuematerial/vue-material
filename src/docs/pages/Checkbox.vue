@@ -2,7 +2,7 @@
   <section>
     <h2 class="title">Checkbox</h2>
 
-    <md-checkbox>My beautiful checkbox</md-checkbox>
+    <md-checkbox :model.sync="checked" id="my-test" name="my-test">My beautiful checkbox</md-checkbox>
   </section>
 </template>
 
@@ -14,6 +14,10 @@
 
 <script>
   export default {
-
+    data() {
+      return {
+        checked: false
+      };
+    }
   };
 </script>

@@ -6,6 +6,10 @@
         background-color: PRIMARY-COLOR;
         border-color: PRIMARY-COLOR;
       }
+
+      .md-ink-ripple {
+        color: PRIMARY-COLOR;
+      }
     }
   }
 }
