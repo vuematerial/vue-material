@@ -1,6 +1,11 @@
 .THEME_NAME {
   .md-checkbox,
   &.md-checkbox {
-
+    &.md-checked {
+      .md-checkbox-container {
+        background-color: PRIMARY-COLOR;
+        border-color: PRIMARY-COLOR;
+      }
+    }
   }
 }

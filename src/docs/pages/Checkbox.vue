@@ -6,6 +6,12 @@
   </section>
 </template>
 
+<style lang="scss" scoped>
+  section {
+    padding: 0 24px;
+  }
+</style>
+
 <script>
   export default {
 
