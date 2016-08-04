@@ -16,6 +16,7 @@ $checkbox-ripple-size: 48px;
     position: relative;
     border-radius: 2px;
     border: 2px solid rgba(#000, .54);
+    transition: $swift-ease-out;
 
     input {
       position: absolute;
@@ -28,6 +29,7 @@ $checkbox-ripple-size: 48px;
       bottom: -16px;
       left: -16px;
       border-radius: 50%;
+      color: rgba(#000, .54);
 
       .md-ripple {
         width: $checkbox-ripple-size !important;
@@ -56,18 +58,17 @@ $checkbox-ripple-size: 48px;
     bottom: 0;
     left: 0;
     opacity: 0;
-    transform: scale(.5);
+    transform: scale3D(.3, .3, 1);
     color: #fff;
     font-size: $checkbox-size - 4px;
-    transition: $swift-ease-out;
+    transition: $swift-ease-in;
   }
 }
 
 .md-checkbox.md-checked {
-
-
   .md-icon {
     opacity: 1;
-    transform: scale(1);
+    transform: scale3D(1, 1, 1);
+    transition: $swift-ease-out;
   }
 }
