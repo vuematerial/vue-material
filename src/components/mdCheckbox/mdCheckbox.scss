@@ -18,6 +18,21 @@ $checkbox-ripple-size: 48px;
     border: 2px solid rgba(#000, .54);
     transition: $swift-ease-out;
 
+    &:after {
+      width: 6px;
+      height: 13px;
+      position: absolute;
+      top: 0;
+      left: 5px;
+      border: 2px solid #fff;
+      border-top: 0;
+      border-left: 0;
+      opacity: 0;
+      transform: rotate(45deg) scale3D(.2, .2, 1);
+      transition: $swift-ease-in;
+      content: " ";
+    }
+
     input {
       position: absolute;
       left: -999em;
@@ -46,29 +61,14 @@ $checkbox-ripple-size: 48px;
     height: $checkbox-size;
     line-height: $checkbox-size;
   }
-
-  .md-icon {
-    width: $checkbox-size;
-    min-width: 0;
-    height: $checkbox-size;
-    min-height: 0;
-    position: absolute;
-    top: 4px;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    opacity: 0;
-    transform: scale3D(.3, .3, 1);
-    color: #fff;
-    font-size: $checkbox-size - 4px;
-    transition: $swift-ease-in;
-  }
 }
 
 .md-checkbox.md-checked {
-  .md-icon {
-    opacity: 1;
-    transform: scale3D(1, 1, 1);
-    transition: $swift-ease-out;
+  .md-checkbox-container {
+    &:after {
+      opacity: 1;
+      transform: rotate(45deg) scale3D(1, 1, 1);
+      transition: $swift-ease-out;
+    }
   }
 }

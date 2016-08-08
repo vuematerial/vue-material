@@ -2,8 +2,6 @@
   <div class="md-checkbox" :class="classes">
     <div class="md-checkbox-container" @click="toggleCheck" v-md-ink-ripple>
       <input type="checkbox" v-model="model" :name="name" :id="id" :disabled="disabled" :value="value">
-
-      <md-icon>check</md-icon>
     </div>
 
     <label :for="id || name" class="md-checkbox-label">
