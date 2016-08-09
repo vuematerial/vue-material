@@ -13,6 +13,7 @@ import MdBottomBar from './components/mdBottomBar';
 import MdToolbar from './components/mdToolbar';
 import MdTooltip from './components/mdTooltip';
 import MdSidenav from './components/mdSidenav';
+import MdSubheader from './components/mdSubheader';
 import MdAvatar from './components/mdAvatar';
 import MdList from './components/mdList';
 import MdWhiteframe from './components/mdWhiteframe';
@@ -31,6 +32,7 @@ let options = {
   MdInkRipple,
   MdList,
   MdSidenav,
+  MdSubheader,
   MdToolbar,
   MdTooltip,
   MdWhiteframe,
