@@ -1,6 +1,6 @@
 <template>
   <div class="md-checkbox" :class="classes">
-    <div class="md-checkbox-container" @click="toggleCheck" v-md-ink-ripple>
+    <div class="md-checkbox-container" @mousedown="toggleCheck" v-md-ink-ripple="disabled">
       <input type="checkbox" v-model="model" :name="name" :id="id" :disabled="disabled" :value="value">
     </div>
 
@@ -27,13 +27,16 @@
     computed: {
       classes() {
         return {
-          'md-checked': Boolean(this.model)
+          'md-checked': Boolean(this.model),
+          'md-disabled': this.disabled
         };
       }
     },
     methods: {
       toggleCheck() {
-        this.model = !this.model;
+        if (!this.disabled) {
+          this.model = !this.model;
+        }
       }
     },
     ready() {
