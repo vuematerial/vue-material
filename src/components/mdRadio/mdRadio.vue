@@ -1,10 +1,10 @@
 <template>
   <div class="md-radio" :class="classes">
-    <div class="md-radio-container" @mousedown="toggleCheck" v-md-ink-ripple="disabled">
+    <div class="md-radio-container" @click="toggleCheck" v-md-ink-ripple="disabled">
       <input type="radio" v-model="model" :name="name" :id="id" :disabled="disabled" :value="value">
     </div>
 
-    <label :for="id || name" class="md-radio-label">
+    <label :for="id || name" class="md-radio-label" v-if="hasSlot">
       <slot></slot>
     </label>
   </div>
@@ -27,6 +27,11 @@
       id: String,
       disabled: Boolean
     },
+    data() {
+      return {
+        hasSlot: true
+      };
+    },
     computed: {
       classes() {
         return {
@@ -41,6 +46,9 @@
           this.model = this.value;
         }
       }
+    },
+    ready() {
+      this.hasSlot = this.$el.querySelector('label').innerHTML.trim() !== '';
     }
   };
 </script>

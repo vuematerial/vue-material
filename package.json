@@ -16,7 +16,8 @@
   },
   "dependencies": {
     "autosize": "^3.0.17",
-    "scopedQuerySelectorShim": "github:lazd/scopedQuerySelectorShim"
+    "scopedQuerySelectorShim": "github:lazd/scopedQuerySelectorShim",
+    "vue-touch": "^1.1.0"
   },
   "devDependencies": {
     "babel-core": "^6.11.4",

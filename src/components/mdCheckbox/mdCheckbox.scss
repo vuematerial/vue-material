@@ -12,7 +12,6 @@ $checkbox-ripple-size: 48px;
   .md-checkbox-container {
     width: $checkbox-size;
     height: $checkbox-size;
-    margin-right: 8px;
     position: relative;
     border-radius: 2px;
     border: 2px solid rgba(#000, .54);
@@ -59,6 +58,7 @@ $checkbox-ripple-size: 48px;
 
   .md-checkbox-label {
     height: $checkbox-size;
+    padding-left: 8px;
     line-height: $checkbox-size;
   }
 }
