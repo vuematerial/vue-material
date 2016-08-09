@@ -1,9 +1,12 @@
 .THEME_NAME {
-  .md-checkbox,
-  &.md-checkbox {
+  .md-radio,
+  &.md-radio {
+    .md-radio-container:after {
+      background-color: ACCENT-COLOR;
+    }
+
     &.md-checked {
-      .md-checkbox-container {
-        background-color: ACCENT-COLOR;
+      .md-radio-container {
         border-color: ACCENT-COLOR;
       }
 
@@ -17,14 +20,12 @@
     }
 
     &.md-disabled {
-      &.md-checked {
-        .md-checkbox-container {
+      .md-radio-container {
+        border-color: rgba(#000, .26);
+
+        &:after {
           background-color: rgba(#000, .26);
         }
-      }
-
-      .md-checkbox-container {
-        border-color: transparent;
       }
     }
   }

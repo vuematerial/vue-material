@@ -9,6 +9,7 @@
   bottom: 0;
   left: 0;
   mask-image: radial-gradient(circle, white 100%, black 100%);
+  transition: $swift-ease-in;
 }
 
 .md-ripple {
