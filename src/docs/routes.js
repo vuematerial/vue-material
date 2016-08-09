@@ -4,6 +4,7 @@ import BottomBar from './pages/BottomBar';
 import Buttons from './pages/Buttons';
 import ButtonToggle from './pages/ButtonToggle';
 import Checkbox from './pages/Checkbox';
+import Radio from './pages/Radio';
 import Divider from './pages/Divider';
 import Icon from './pages/Icon';
 import Input from './pages/Input';
@@ -36,6 +37,18 @@ const routes = {
     name: 'buttonToggle',
     component: ButtonToggle
   },
+  '/radio': {
+    name: 'radio',
+    component: Radio
+  },
+  '/checkbox': {
+    name: 'checkbox',
+    component: Checkbox
+  },
+  '/divider': {
+    name: 'divider',
+    component: Divider
+  },
   '/icon': {
     name: 'icon',
     component: Icon
@@ -44,21 +57,13 @@ const routes = {
     name: 'input',
     component: Input
   },
-  '/divider': {
-    name: 'divider',
-    component: Divider
-  },
-  '/checkbox': {
-    name: 'checkbox',
-    component: Checkbox
+  '/list': {
+    name: 'list',
+    component: List
   },
   '/ripple': {
     name: 'ripple',
     component: Ripple
-  },
-  '/list': {
-    name: 'list',
-    component: List
   },
   '/sidenav': {
     name: 'sidenav',

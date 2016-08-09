@@ -1,34 +1,32 @@
 @import '../../core/variables.scss';
 
-$checkbox-size: 20px;
-$checkbox-ripple-size: 48px;
+$radio-size: 20px;
+$radio-ripple-size: 48px;
 
-.md-checkbox {
+.md-radio {
   width: auto;
   margin: 16px 8px 16px 0;
   display: inline-flex;
   position: relative;
 
-  .md-checkbox-container {
-    width: $checkbox-size;
-    height: $checkbox-size;
+  .md-radio-container {
+    width: $radio-size;
+    height: $radio-size;
     margin-right: 8px;
     position: relative;
-    border-radius: 2px;
+    border-radius: 50%;
     border: 2px solid rgba(#000, .54);
     transition: $swift-ease-out;
 
     &:after {
-      width: 6px;
-      height: 13px;
       position: absolute;
-      top: 0;
-      left: 5px;
-      border: 2px solid #fff;
-      border-top: 0;
-      border-left: 0;
+      top: 3px;
+      right: 3px;
+      bottom: 3px;
+      left: 3px;
+      border-radius: 50%;
       opacity: 0;
-      transform: rotate(45deg) scale3D(.15, .15, 1);
+      transform: scale3D(.38, .38, 1);
       transition: $swift-ease-in;
       content: " ";
     }
@@ -47,8 +45,8 @@ $checkbox-ripple-size: 48px;
       color: rgba(#000, .54);
 
       .md-ripple {
-        width: $checkbox-ripple-size !important;
-        height: $checkbox-ripple-size !important;
+        width: $radio-ripple-size !important;
+        height: $radio-ripple-size !important;
         top: 0 !important;
         right: 0 !important;
         bottom: 0 !important;
@@ -57,17 +55,17 @@ $checkbox-ripple-size: 48px;
     }
   }
 
-  .md-checkbox-label {
-    height: $checkbox-size;
-    line-height: $checkbox-size;
+  .md-radio-label {
+    height: $radio-size;
+    line-height: $radio-size;
   }
 }
 
-.md-checkbox.md-checked {
-  .md-checkbox-container {
+.md-radio.md-checked {
+  .md-radio-container {
     &:after {
       opacity: 1;
-      transform: rotate(45deg) scale3D(1, 1, 1);
+      transform: scale3D(1, 1, 1);
       transition: $swift-ease-out;
     }
   }
