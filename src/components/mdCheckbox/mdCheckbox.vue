@@ -1,10 +1,10 @@
 <template>
   <div class="md-checkbox" :class="classes">
-    <div class="md-checkbox-container" @mousedown="toggleCheck" v-md-ink-ripple="disabled">
+    <div class="md-checkbox-container" @click="toggleCheck" v-md-ink-ripple="disabled">
       <input type="checkbox" v-model="model" :name="name" :id="id" :disabled="disabled" :value="value">
     </div>
 
-    <label :for="id || name" class="md-checkbox-label">
+    <label :for="id || name" class="md-checkbox-label" v-if="hasSlot">
       <slot></slot>
     </label>
   </div>
@@ -24,6 +24,11 @@
       id: String,
       disabled: Boolean
     },
+    data() {
+      return {
+        hasSlot: true
+      };
+    },
     computed: {
       classes() {
         return {
@@ -40,7 +45,7 @@
       }
     },
     ready() {
-
+      this.hasSlot = this.$el.querySelector('label').innerHTML.trim() !== '';
     }
   };
 </script>

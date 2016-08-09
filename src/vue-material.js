@@ -5,6 +5,7 @@ import MdButton from './components/mdButton';
 import MdButtonToggle from './components/mdButtonToggle';
 import MdCheckbox from './components/mdCheckbox';
 import mdRadio from './components/mdRadio';
+import mdSwitch from './components/mdSwitch';
 import MdDivider from './components/mdDivider';
 import MdIcon from './components/mdIcon';
 import MdInputContainer from './components/mdInputContainer';
@@ -23,6 +24,7 @@ let options = {
   MdButtonToggle,
   MdCheckbox,
   mdRadio,
+  mdSwitch,
   MdDivider,
   MdIcon,
   MdInputContainer,

@@ -5,6 +5,7 @@ import Buttons from './pages/Buttons';
 import ButtonToggle from './pages/ButtonToggle';
 import Checkbox from './pages/Checkbox';
 import Radio from './pages/Radio';
+import Switch from './pages/Switch';
 import Divider from './pages/Divider';
 import Icon from './pages/Icon';
 import Input from './pages/Input';
@@ -40,6 +41,10 @@ const routes = {
   '/radio': {
     name: 'radio',
     component: Radio
+  },
+  '/switch': {
+    name: 'switch',
+    component: Switch
   },
   '/checkbox': {
     name: 'checkbox',
