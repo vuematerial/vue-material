@@ -108,6 +108,10 @@
       align-items: flex-start;
     }
   }
+
+  > .md-subheader:first-of-type {
+    margin-top: -8px;
+  }
 }
 
 .md-list-item {

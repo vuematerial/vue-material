@@ -12,6 +12,7 @@ import Input from './pages/Input';
 import Ripple from './pages/Ripple';
 import List from './pages/List';
 import Sidenav from './pages/Sidenav';
+import Subheader from './pages/Subheader';
 import Theme from './pages/Theme';
 import Toolbar from './pages/Toolbar';
 import Tooltip from './pages/Tooltip';
@@ -73,6 +74,10 @@ const routes = {
   '/sidenav': {
     name: 'sidenav',
     component: Sidenav
+  },
+  '/subheader': {
+    name: 'subheader',
+    component: Subheader
   },
   '/theme': {
     name: 'theme',

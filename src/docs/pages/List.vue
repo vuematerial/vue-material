@@ -1,11 +1,11 @@
 <template>
   <section>
-    <h1 class="title">Lists</h1>
+    <h1 class="md-title">Lists</h1>
 
     <div>
       <div class="cell-phone scrollable">
         <md-toolbar>
-          <h2 class="title">Normal - Single Line</h2>
+          <h2 class="md-title">Normal - Single Line</h2>
         </md-toolbar>
 
         <md-list>
@@ -67,7 +67,7 @@
 
       <div class="cell-phone scrollable">
         <md-toolbar>
-          <h2 class="title">Dense - Single Line</h2>
+          <h2 class="md-title">Dense - Single Line</h2>
         </md-toolbar>
 
         <md-list class="md-dense">
@@ -131,7 +131,7 @@
     <div v-md-theme="'indigo'">
       <div class="cell-phone scrollable">
         <md-toolbar>
-          <h2 class="title">Normal - Double Line</h2>
+          <h2 class="md-title">Normal - Double Line</h2>
         </md-toolbar>
 
         <md-list class="md-double-line">
@@ -181,7 +181,7 @@
 
       <div class="cell-phone scrollable">
         <md-toolbar>
-          <h2 class="title">Dense - Double Line</h2>
+          <h2 class="md-title">Dense - Double Line</h2>
         </md-toolbar>
 
         <md-list class="md-double-line md-dense">
@@ -233,7 +233,7 @@
     <div class="custom-list" v-md-theme="'orange'">
       <div class="cell-phone scrollable">
         <md-toolbar>
-          <h2 class="title">Normal - Triple Line</h2>
+          <h2 class="md-title">Normal - Triple Line</h2>
         </md-toolbar>
 
         <md-list class="md-triple-line">
@@ -252,7 +252,7 @@
               <md-icon class="md-primary">star</md-icon>
             </md-button>
 
-            <md-divider></md-divider>
+            <md-divider class="md-inset"></md-divider>
           </md-list-item>
 
           <md-list-item>
@@ -270,7 +270,7 @@
               <md-icon>star_border</md-icon>
             </md-button>
 
-            <md-divider></md-divider>
+            <md-divider class="md-inset"></md-divider>
           </md-list-item>
 
           <md-list-item>
@@ -288,7 +288,7 @@
               <md-icon>star_border</md-icon>
             </md-button>
 
-            <md-divider></md-divider>
+            <md-divider class="md-inset"></md-divider>
           </md-list-item>
 
           <md-list-item>
@@ -306,14 +306,14 @@
               <md-icon>star_border</md-icon>
             </md-button>
 
-            <md-divider></md-divider>
+            <md-divider class="md-inset"></md-divider>
           </md-list-item>
         </md-list>
       </div>
 
       <div class="cell-phone scrollable">
         <md-toolbar>
-          <h2 class="title">Dense - Triple Line</h2>
+          <h2 class="md-title">Dense - Triple Line</h2>
         </md-toolbar>
 
         <md-list class="md-triple-line md-dense">
@@ -332,7 +332,7 @@
               <md-icon class="md-primary">star</md-icon>
             </md-button>
 
-            <md-divider></md-divider>
+            <md-divider class="md-inset"></md-divider>
           </md-list-item>
 
           <md-list-item>
@@ -350,7 +350,7 @@
               <md-icon>star_border</md-icon>
             </md-button>
 
-            <md-divider></md-divider>
+            <md-divider class="md-inset"></md-divider>
           </md-list-item>
 
           <md-list-item>
@@ -368,7 +368,7 @@
               <md-icon>star_border</md-icon>
             </md-button>
 
-            <md-divider></md-divider>
+            <md-divider class="md-inset"></md-divider>
           </md-list-item>
 
           <md-list-item>
@@ -386,7 +386,7 @@
               <md-icon>star_border</md-icon>
             </md-button>
 
-            <md-divider></md-divider>
+            <md-divider class="md-inset"></md-divider>
           </md-list-item>
         </md-list>
       </div>
