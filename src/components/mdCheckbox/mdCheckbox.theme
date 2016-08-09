@@ -3,12 +3,23 @@
   &.md-checkbox {
     &.md-checked {
       .md-checkbox-container {
-        background-color: PRIMARY-COLOR;
-        border-color: PRIMARY-COLOR;
+        background-color: ACCENT-COLOR;
+        border-color: ACCENT-COLOR;
       }
 
       .md-ink-ripple {
-        color: PRIMARY-COLOR;
+        color: ACCENT-COLOR;
+      }
+
+      .md-ripple {
+        opacity: .38;
+      }
+    }
+
+    &.md-disabled {
+      .md-checkbox-container {
+        border-color: transparent;
+        background-color: rgba(#000, .26);
       }
     }
   }

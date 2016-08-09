@@ -11,15 +11,19 @@ Vue.use(VueMaterial.MdTheme, {
     }
   },
   indigo: {
-    primary: 'indigo'
+    primary: 'indigo',
+    accent: 'blue'
   },
   orange: {
-    primary: 'orange'
+    primary: 'orange',
+    accent: 'green'
   },
   blue: {
-    primary: 'blue'
+    primary: 'blue',
+    accent: 'purple'
   },
   'bottom-bar': {
-    primary: 'teal'
+    primary: 'teal',
+    accent: 'orange'
   }
 });

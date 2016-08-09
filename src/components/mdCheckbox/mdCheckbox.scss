@@ -28,7 +28,7 @@ $checkbox-ripple-size: 48px;
       border-top: 0;
       border-left: 0;
       opacity: 0;
-      transform: rotate(45deg) scale3D(.2, .2, 1);
+      transform: rotate(45deg) scale3D(.15, .15, 1);
       transition: $swift-ease-in;
       content: " ";
     }
