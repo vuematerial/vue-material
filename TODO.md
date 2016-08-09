@@ -1,8 +1,8 @@
-# TODO LIST
+## TODO LIST
 
 Later this should become issues with milestones
 
-### Components
+#### Components
 * Subheaders
 * Image loaders
 * Dropdown
@@ -26,7 +26,7 @@ Later this should become issues with milestones
 * Notifications
 * Onboarding
 
-### UI
+#### UI
 * Typography
 * Responsive Components
 * Structure elements
@@ -34,16 +34,19 @@ Later this should become issues with milestones
 * Scrolling effects
 * Navigational transitions
 
-### Documentation
+#### Documentation
+* Documentation templates
+* New webpack tasks
+* Separate bundles
+* Codepen examples
 
-
-### Improvements
+#### Improvements
 * Examples of Lists: Controls
 * Accessible components
 * Gesture events
 * More examples of Navigation Drawers
 * Feature discovery
 
-### Fixes
+#### Fixes
 * Color palettes with HUES
 * Custom directive/components do handle colors
