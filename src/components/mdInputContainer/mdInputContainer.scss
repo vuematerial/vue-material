@@ -1,4 +1,4 @@
-@import '../../core/variables.scss';
+@import '../../core/stylesheets/variables.scss';
 
 $input-size: 32px;
 
@@ -192,11 +192,9 @@ $input-size: 32px;
     }
   }
 
-  &.md-has-select {
-    &:hover {
-      label {
-        color: rgba(#000, .87);
-      }
+  &.md-has-select:hover {
+    .md-select:after {
+      color: rgba(#000, .87);
     }
   }
 }

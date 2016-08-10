@@ -580,7 +580,7 @@
 </template>
 
 <style lang="scss">
-  @import '../../core/variables.scss';
+  @import '../../core/stylesheets/variables.scss';
 
   .custom-list {
     .md-list-action {
