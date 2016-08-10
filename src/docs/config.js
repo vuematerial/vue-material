@@ -22,6 +22,13 @@ Vue.use(VueMaterial.MdTheme, {
     primary: 'blue',
     accent: 'purple'
   },
+  'light-blue': {
+    primary: 'light-blue',
+    accent: {
+      color: 'cyan',
+      hue: 'A200'
+    }
+  },
   'bottom-bar': {
     primary: 'teal',
     accent: 'orange'

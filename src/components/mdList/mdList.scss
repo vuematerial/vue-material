@@ -109,6 +109,12 @@
     }
   }
 
+  .md-subheader {
+    &.md-inset {
+      padding-left: 72px;
+    }
+  }
+
   > .md-subheader:first-of-type {
     margin-top: -8px;
   }
@@ -155,10 +161,10 @@
     }
 
     .md-list-action {
-      margin: 0;
+      margin: 0 -2px 0 0;
 
       &:nth-child(3) {
-        margin: 0 0 0 16px;
+        margin: 0 -2px 0 16px;
       }
     }
   }
@@ -174,7 +180,7 @@
   .md-avatar {
     margin: 0;
 
-    + * {
+    &:first-of-type + * {
       flex: 1 1 auto;
     }
   }
@@ -192,6 +198,7 @@
 .md-list-text-container {
   display: flex;
   flex-flow: column nowrap;
+  flex: 1;
   overflow: hidden;
   line-height: 1.25em;
   text-overflow: ellipsis;

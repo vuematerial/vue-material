@@ -1,5 +1,5 @@
 <template>
-  <a :disabled="disabled" class="md-button" v-md-ink-ripple="disabled">
+  <a class="md-button" :disabled="disabled" v-md-ink-ripple="disabled">
     <slot></slot>
   </a>
 </template>

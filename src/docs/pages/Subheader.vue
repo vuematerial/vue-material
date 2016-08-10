@@ -76,7 +76,7 @@
           <h2 class="md-title">Normal - Triple Line</h2>
         </md-toolbar>
 
-        <md-list class="md-triple-line">
+        <md-list class="custom-list md-triple-line">
           <md-subheader>Today</md-subheader>
 
           <md-list-item>
@@ -155,3 +155,19 @@
     </div>
   </section>
 </template>
+
+<style lang="scss">
+  .custom-list {
+    .md-list-action {
+      position: absolute;
+      top: 8px;
+      right: 16px;
+      pointer-events: auto;
+      z-index: 2;
+    }
+
+    .md-icon {
+      color: rgba(#000, .26);
+    }
+  }
+</style>
