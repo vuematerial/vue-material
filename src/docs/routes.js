@@ -4,15 +4,16 @@ import BottomBar from './pages/BottomBar';
 import Buttons from './pages/Buttons';
 import ButtonToggle from './pages/ButtonToggle';
 import Checkbox from './pages/Checkbox';
-import Radio from './pages/Radio';
-import Switch from './pages/Switch';
 import Divider from './pages/Divider';
 import Icon from './pages/Icon';
 import Input from './pages/Input';
-import Ripple from './pages/Ripple';
 import List from './pages/List';
+import Radio from './pages/Radio';
+import Ripple from './pages/Ripple';
+import Select from './pages/Select';
 import Sidenav from './pages/Sidenav';
 import Subheader from './pages/Subheader';
+import Switch from './pages/Switch';
 import Theme from './pages/Theme';
 import Toolbar from './pages/Toolbar';
 import Tooltip from './pages/Tooltip';
@@ -74,6 +75,10 @@ const routes = {
   '/sidenav': {
     name: 'sidenav',
     component: Sidenav
+  },
+  '/select': {
+    name: 'select',
+    component: Select
   },
   '/subheader': {
     name: 'subheader',

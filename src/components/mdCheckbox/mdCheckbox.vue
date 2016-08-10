@@ -21,6 +21,7 @@
         twoWay: true
       },
       name: String,
+      value: String,
       id: String,
       disabled: Boolean
     },
