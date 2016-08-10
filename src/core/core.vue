@@ -1,25 +1,29 @@
 <script>
-  import CoreTheme from './core.theme';
+  import Vue from 'vue';
+  import CoreTheme from './stylesheets/core.theme';
+  import clickaway from './directives/clickaway';
 
   window.VueMaterial = {
     styles: [CoreTheme]
   };
+
+  Vue.directive('onClickaway', clickaway);
 </script>
 
 <style lang="sass">
   /* Common mixins */
-  @import 'utils/mixins';
+  @import './stylesheets/utils/mixins';
 
 
   /* Commons */
-  @import 'utils/commons';
+  @import './stylesheets/utils/commons';
 
 
   /* Variables */
-  @import 'variables';
+  @import './stylesheets/variables';
 
 
   /* Core Styles */
-  @import 'structure';
-  @import 'type';
+  @import './stylesheets/structure';
+  @import './stylesheets/type';
 </style>

@@ -115,9 +115,6 @@
       managePlaceholderClass(this.placeholder, this.parentClasses);
       manageHasValueClass(this.$el.value, this.parentClasses);
       manageMaxlength(this.maxlength, this.$parent);
-    },
-    beforeDestroy() {
-
     }
   };
 </script>

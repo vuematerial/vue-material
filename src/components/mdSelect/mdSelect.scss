@@ -1,16 +1,13 @@
-@import '../../core/variables.scss';
+@import '../../core/stylesheets/variables.scss';
 
 .md-select {
+  width: 100%;
   min-width: 128px;
-
-  &:hover {
-    &:after {
-      color: rgba(#000, .87);
-    }
-  }
+  height: 32px;
+  position: relative;
 
   &:after {
-    margin-top: 9px;
+    margin-top: 2px;
     position: absolute;
     top: 50%;
     right: 0;
@@ -20,12 +17,104 @@
     content: "\25BC";
   }
 
+  &.md-active {
+    .md-select-menu {
+      top: -8px;
+      pointer-events: auto;
+      opacity: 1;
+      transform: translateY(-8px) scale3D(1, 1, 1);
+      transform-origin: center top;
+      transition: $swift-ease-out;
+      transition-duration: .25s;
+      transition-property: opacity, transform, top;
+
+      > * {
+        opacity: 1;
+        transition: $swift-ease-in;
+        transition-duration: .15s;
+        transition-delay: .1s;
+      }
+    }
+  }
+
   select {
     position: absolute;
     left: -999em;
   }
 
+  .md-select-value {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    font-size: 16px;
+    line-height: 1.2em;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
   .md-select-menu {
-    display: none;
+    min-width: 156px;
+    max-width: 100%;
+    min-height: 48px;
+    max-height: 256px;
+    display: flex;
+    flex-flow: column;
+    justify-content: stretch;
+    align-content: stretch;
+    pointer-events: none;
+    position: absolute;
+    top: -16px;
+    left: -16px;
+    z-index: 7;
+    background-color: #fff;
+    border-radius: 2px;
+    box-shadow: $material-shadow-2dp;
+    opacity: 0;
+    transform: scale3D(.85, .7, 1);
+    transition: opacity .25s $swift-ease-in-timing-function,
+                top .25s $swift-ease-in-timing-function,
+                transform 0s .25s $swift-ease-in-timing-function;
+
+    > * {
+      opacity: 0;
+      transition: $swift-ease-out;
+      transition-duration: .25s;
+    }
+  }
+
+  .md-select-menu-container {
+    margin: 0;
+    padding: 8px 0;
+    display: flex;
+    flex-flow: column;
+    justify-content: stretch;
+    align-content: stretch;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}
+
+.md-option {
+  height: 48px;
+  min-height: 48px;
+  padding: 0 16px;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  transition: $swift-ease-out;
+  font-size: 16px;
+  line-height: 1.2em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: rgba(#000, .12);
   }
 }

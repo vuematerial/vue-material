@@ -1,20 +1,33 @@
 <template>
-  <div class="md-select" :class="classes">
-    <div class="md-select-value">
-      <select v-model="model" :name="name" :id="id" :disabled="disabled" :value="value">
-        <option v-for="option in selectedOptions" :value="option.value">{{ options.text }}</option>
-      </select>
-    </div>
+  <div class="md-select" :class="classes" v-on-clickaway="hideMenu" @invalid="onInvalid" @valid="onValid">
+    <span class="md-select-value" @click="showMenu">{{ model }}</span>
 
     <div class="md-select-menu">
-      <slot></slot>
+      <ul class="md-select-menu-container">
+        <slot></slot>
+      </ul>
     </div>
+
+    <select v-model.sync="model" :name="name" :id="id" :required="required">
+      <option selected="true" :value="model">{{ model }}</option>
+    </select>
   </div>
 </template>
 
 <style lang="scss" src="./mdSelect.scss"></style>
 
 <script>
+  let hasValueClass = 'md-has-value';
+  let invalidClass = 'md-input-invalid';
+
+  let handleModelValue = (target, value) => {
+    if (value) {
+      target.add(hasValueClass);
+    } else {
+      target.remove(hasValueClass);
+    }
+  };
+
   export default {
     props: {
       model: {
@@ -22,25 +35,59 @@
         required: true,
         twoWay: true
       },
+      name: {
+        type: String,
+        required: true
+      },
+      required: Boolean,
       value: String,
-      name: String,
       id: String,
       disabled: Boolean
     },
     data() {
       return {
-        selectedOptions: []
+        active: false
       };
     },
     computed: {
       classes() {
         return {
-          'md-disabled': this.disabled
+          'md-disabled': this.disabled,
+          'md-active': this.active
         };
       }
     },
+    watch: {
+      model(value) {
+        handleModelValue(this.$parent.$el.classList, value);
+      }
+    },
+    methods: {
+      onInvalid() {
+        this.$parent.$el.classList.add(invalidClass);
+      },
+      onValid() {
+        this.$parent.$el.classList.remove(invalidClass);
+      },
+      showMenu() {
+        this.active = true;
+      },
+      hideMenu() {
+        this.active = false;
+      },
+      selectOption(option) {
+        this.model = option;
+        this.hideMenu();
+      }
+    },
     ready() {
+      if (!this.$parent.$el.classList.contains('md-input-container')) {
+        this.$destroy();
 
+        throw new Error('You should wrap the md-select in a md-input-container');
+      }
+
+      handleModelValue(this.$parent.$el.classList, this.model);
     }
   };
 </script>

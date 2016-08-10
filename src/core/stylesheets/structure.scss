@@ -1,0 +1,46 @@
+body {
+  min-height: 100%;
+  margin: 0;
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  color: rgba(#000, .87);
+  font-family: $font-roboto;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: .010em;
+  line-height: 20px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  box-shadow: inset 1px 1px 0 rgba(0, 0, 0, .1);
+  transition: $swift-ease-in-out;
+  background-color: rgba(0, 0, 0, .05);
+
+  &:hover {
+    box-shadow: inset 1px 1px 0 rgba(0, 0, 0, .05),
+                inset 0 -1px 0 rgba(0, 0, 0, .03);
+    background-color: rgba(0, 0, 0, .08);
+  }
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, .2);
+  box-shadow: inset 1px 1px 0 rgba(0, 0, 0, .05),
+              inset 0 -1px 0 rgba(0, 0, 0, .07);
+  transition: $swift-ease-in-out;
+}
