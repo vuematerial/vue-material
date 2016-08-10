@@ -10,6 +10,7 @@ Later this should become issues with milestones
 * Dialogs
 * Cards
 * Tabs
+* Sticky subheader
 * Image loaders
 * Swipe to refresh
 * Autocomplete

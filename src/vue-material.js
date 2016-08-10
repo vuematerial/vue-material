@@ -1,22 +1,23 @@
 import './core/core';
-import MdTheme from './components/mdTheme';
-import MdInkRipple from './components/mdInkRipple';
+import MdAvatar from './components/mdAvatar';
+import MdBottomBar from './components/mdBottomBar';
 import MdButton from './components/mdButton';
 import MdButtonToggle from './components/mdButtonToggle';
 import MdCheckbox from './components/mdCheckbox';
-import mdRadio from './components/mdRadio';
-import mdSwitch from './components/mdSwitch';
 import MdDivider from './components/mdDivider';
 import MdIcon from './components/mdIcon';
+import MdInkRipple from './components/mdInkRipple';
 import MdInputContainer from './components/mdInputContainer';
-import MdBottomBar from './components/mdBottomBar';
-import MdToolbar from './components/mdToolbar';
-import MdTooltip from './components/mdTooltip';
+import MdList from './components/mdList';
+import mdRadio from './components/mdRadio';
+import MdSelect from './components/mdSelect';
 import MdSidenav from './components/mdSidenav';
 import MdSubheader from './components/mdSubheader';
-import MdAvatar from './components/mdAvatar';
-import MdList from './components/mdList';
+import mdSwitch from './components/mdSwitch';
+import MdToolbar from './components/mdToolbar';
+import MdTooltip from './components/mdTooltip';
 import MdWhiteframe from './components/mdWhiteframe';
+import MdTheme from './components/mdTheme';
 
 let options = {
   MdAvatar,
@@ -24,15 +25,16 @@ let options = {
   MdButton,
   MdButtonToggle,
   MdCheckbox,
-  mdRadio,
-  mdSwitch,
   MdDivider,
   MdIcon,
-  MdInputContainer,
   MdInkRipple,
+  MdInputContainer,
   MdList,
+  mdRadio,
+  MdSelect,
   MdSidenav,
   MdSubheader,
+  mdSwitch,
   MdToolbar,
   MdTooltip,
   MdWhiteframe,

@@ -84,109 +84,119 @@ $input-size: 32px;
   }
 }
 
-.md-input-placeholder {
-  label {
-    pointer-events: auto;
-    top: 10px;
-    opacity: 0;
-    font-size: 12px;
-  }
-
-  input,
-  textarea {
-    font-size: 16px;
-  }
-}
-
-.md-input-focused,
-.md-has-value {
-  label {
-    pointer-events: auto;
-    top: 0;
-    opacity: 1;
-    font-size: 12px;
-  }
-
-  input,
-  textarea {
-    font-size: 16px;
-  }
-}
-
-.md-has-value {
-  input,
-  textarea {
-    color: rgba(#000, .87);
-  }
-}
-
-.md-input-inline {
-  label {
-    pointer-events: none;
-  }
-
-  &.md-input-focused {
+.md-input-container {
+  &.md-input-placeholder {
     label {
-      top: 23px;
+      pointer-events: auto;
+      top: 10px;
+      opacity: 0;
+      font-size: 12px;
+    }
+
+    input,
+    textarea {
+      font-size: 16px;
+    }
+  }
+
+  &.md-input-focused,
+  &.md-has-value {
+    label {
+      pointer-events: auto;
+      top: 0;
+      opacity: 1;
+      font-size: 12px;
+    }
+
+    input,
+    textarea {
       font-size: 16px;
     }
   }
 
   &.md-has-value {
-    label {
-      opacity: 0;
-    }
-  }
-}
-
-.md-input-disabled {
-  &:after {
-    background: bottom left repeat-x;
-    background-image: linear-gradient(to right, rgba(#000, .38) 0%, rgba(#000, .38) 33%, transparent 0%);
-    background-size: 4px 1px;
-  }
-
-  label,
-  input,
-  textarea {
-    color: rgba(#000, .38);
-  }
-}
-
-.md-has-password {
-  &.md-input-focused .md-toggle-password {
-    color: rgba(#000, .54);
-  }
-
-  .md-toggle-password {
-    margin: 0;
-    position: absolute;
-    right: 0;
-    bottom: -2px;
-    color: rgba(#000, .38);
-
-    .md-ink-ripple {
+    input,
+    textarea {
       color: rgba(#000, .87);
     }
   }
-}
 
-.md-input-invalid {
-  .md-error {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
+  &.md-input-inline {
+    label {
+      pointer-events: none;
+    }
+
+    &.md-input-focused {
+      label {
+        top: 23px;
+        font-size: 16px;
+      }
+    }
+
+    &.md-has-value {
+      label {
+        opacity: 0;
+      }
+    }
   }
-}
 
-.md-input-required {
-  label:after {
-    position: absolute;
-    top: 2px;
-    right: 0;
-    transform: translateX(calc(100% + 2px));
-    content: "*";
-    font-size: 12px;
-    line-height: 1em;
-    vertical-align: top;
+  &.md-input-disabled {
+    &:after {
+      background: bottom left repeat-x;
+      background-image: linear-gradient(to right, rgba(#000, .38) 0%, rgba(#000, .38) 33%, transparent 0%);
+      background-size: 4px 1px;
+    }
+
+    label,
+    input,
+    textarea {
+      color: rgba(#000, .38);
+    }
+  }
+
+  &.md-has-password {
+    &.md-input-focused .md-toggle-password {
+      color: rgba(#000, .54);
+    }
+
+    .md-toggle-password {
+      margin: 0;
+      position: absolute;
+      right: 0;
+      bottom: -2px;
+      color: rgba(#000, .38);
+
+      .md-ink-ripple {
+        color: rgba(#000, .87);
+      }
+    }
+  }
+
+  &.md-input-invalid {
+    .md-error {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  &.md-input-required {
+    label:after {
+      position: absolute;
+      top: 2px;
+      right: 0;
+      transform: translateX(calc(100% + 2px));
+      content: "*";
+      font-size: 12px;
+      line-height: 1em;
+      vertical-align: top;
+    }
+  }
+
+  &.md-has-select {
+    &:hover {
+      label {
+        color: rgba(#000, .87);
+      }
+    }
   }
 }

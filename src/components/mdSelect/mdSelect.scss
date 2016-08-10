@@ -1,0 +1,31 @@
+@import '../../core/variables.scss';
+
+.md-select {
+  min-width: 128px;
+
+  &:hover {
+    &:after {
+      color: rgba(#000, .87);
+    }
+  }
+
+  &:after {
+    margin-top: 9px;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%) scaleY(0.45) scaleX(0.85);
+    transition: $swift-linear;
+    color: rgba(#000, .54);
+    content: "\25BC";
+  }
+
+  select {
+    position: absolute;
+    left: -999em;
+  }
+
+  .md-select-menu {
+    display: none;
+  }
+}

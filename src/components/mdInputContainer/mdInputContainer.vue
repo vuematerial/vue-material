@@ -13,9 +13,6 @@
 <style lang="scss" src="./mdInputContainer.scss"></style>
 
 <script>
-  let inlineClass = 'md-input-inline';
-  let hasPasswordClass = 'md-has-password';
-
   export default {
     props: {
       mdInline: Boolean,
@@ -24,12 +21,11 @@
     },
     computed: {
       classes() {
-        let cssClasses = [];
-
-        this.mdInline && cssClasses.push(inlineClass);
-        this.mdHasPassword && cssClasses.push(hasPasswordClass);
-
-        return cssClasses.join(' ');
+        return {
+          'md-input-inline': this.mdInline,
+          'md-has-password': this.mdHasPassword,
+          'md-has-select': this.mdHasSelect
+        };
       }
     },
     data() {
@@ -38,6 +34,7 @@
         inputType: false,
         showPassword: false,
         enableCounter: false,
+        mdHasSelect: false,
         counterLength: 0,
         inputLength: 0
       };
@@ -60,15 +57,19 @@
       }
     },
     ready() {
-      this.input = this.$el.querySelector('input') || this.$el.querySelector('textarea');
+      this.input = this.$el.querySelector('input') || this.$el.querySelector('textarea') || this.$el.querySelector('select');
 
       if (!this.input) {
         this.$destroy();
 
-        throw new Error('Missing input inside md-input-container');
+        throw new Error('Missing input/select/textarea inside md-input-container');
       }
 
       this.inputType = this.input.type;
+
+      if (this.$el.querySelector('select')) {
+        this.mdHasSelect = true;
+      }
     }
   };
 </script>
