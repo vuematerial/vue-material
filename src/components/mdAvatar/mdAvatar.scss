@@ -1,6 +1,7 @@
 @import '../../core/variables.scss';
 
 $avatar-size: 40px;
+$avatar-large-size: 64px;
 
 .md-avatar {
   width: $avatar-size;
@@ -13,6 +14,14 @@ $avatar-size: 40px;
   position: relative;
   border-radius: $avatar-size;
   vertical-align: middle;
+
+  &.md-large {
+    width: $avatar-large-size;
+    min-width: $avatar-large-size;
+    height: $avatar-large-size;
+    min-height: $avatar-large-size;
+    border-radius: $avatar-large-size;
+  }
 
   &.md-avatar-icon {
     background-color: rgba(#000, .38);

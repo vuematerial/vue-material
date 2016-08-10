@@ -3,5 +3,42 @@
   &.md-list {
     background-color: BACKGROUND-COLOR-A100;
     color: BACKGROUND-CONTRAST;
+
+    &.md-transparent {
+      background-color: transparent;
+      color: inherit;
+    }
+
+    .md-list-item {
+      &.md-primary {
+        .md-list-item-container {
+          color: PRIMARY-COLOR;
+
+          > .md-icon {
+            color: PRIMARY-COLOR;
+          }
+        }
+      }
+
+      &.md-accent {
+        .md-list-item-container {
+          color: ACCENT-COLOR;
+
+          > .md-icon {
+            color: ACCENT-COLOR;
+          }
+        }
+      }
+
+      &.md-warn {
+        .md-list-item-container {
+          color: WARN-COLOR;
+
+          > .md-icon {
+            color: WARN-COLOR;
+          }
+        }
+      }
+    }
   }
 }

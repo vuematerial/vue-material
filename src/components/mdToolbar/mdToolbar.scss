@@ -29,6 +29,32 @@
     }
   }
 
+  &.md-account-header {
+    min-height: 164px;
+
+    .md-ink-ripple {
+      color: #fff;
+    }
+
+    .md-list-item-container {
+      &:hover:not([disabled]) {
+        background-color: rgba(#fff, .12);
+      }
+    }
+
+    .md-avatar-list {
+      margin: 16px 0 8px;
+
+      .md-list-item-container {
+        align-items: flex-start;
+      }
+
+      .md-avatar + .md-avatar {
+        margin-left: 16px;
+      }
+    }
+  }
+
   .md-toolbar-container {
     width: 100%;
     height: 64px;
@@ -36,18 +62,38 @@
     align-items: center;
     align-self: flex-start;
 
-    > .md-button:first-child {
-      margin-right: 16px;
+    > .md-button {
+      &:first-child {
+        margin-left: 0;
+        margin-right: 16px;
+      }
+
+      + .md-button {
+        margin-left: 0;
+      }
     }
   }
 
-  > .md-button:first-child {
-    margin-right: 16px;
+  > .md-button {
+    &:first-child {
+      margin-left: 0;
+      margin-right: 16px;
+    }
+
+    + .md-button {
+      margin-left: 0;
+    }
   }
 
   .md-title {
     font-size: 20px;
     font-weight: 400;
     line-height: 24px;
+  }
+
+  .md-list {
+    padding: 0;
+    margin: 0 -8px;
+    flex: 1;
   }
 }
