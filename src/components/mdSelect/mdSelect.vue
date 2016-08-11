@@ -1,14 +1,20 @@
 <template>
-  <div class="md-select" :class="classes" v-on-clickaway="hideMenu" @invalid="onInvalid" @valid="onValid">
+  <div
+    class="md-select"
+    :class="classes"
+    :tabindex="disabled ? null : '0'"
+    v-on-clickaway="hideMenu"
+    @invalid="onInvalid"
+    @valid="onValid">
     <span class="md-select-value" @click="showMenu">{{ model }}</span>
 
-    <div class="md-select-menu">
+    <div class="md-select-menu" tabindex="-1">
       <ul class="md-select-menu-container">
         <slot></slot>
       </ul>
     </div>
 
-    <select v-model.sync="model" :name="name" :id="id" :required="required">
+    <select v-model.sync="model" :name="name" :id="id" :required="required" tabindex="-1">
       <option selected="true" :value="model">{{ model }}</option>
     </select>
   </div>
@@ -71,9 +77,11 @@
       },
       showMenu() {
         this.active = true;
+        this.$el.focus();
       },
       hideMenu() {
         this.active = false;
+        this.$el.blur();
       },
       selectOption(option) {
         this.model = option;
@@ -86,6 +94,8 @@
 
         throw new Error('You should wrap the md-select in a md-input-container');
       }
+
+      console.log(this);
 
       handleModelValue(this.$parent.$el.classList, this.model);
     }
