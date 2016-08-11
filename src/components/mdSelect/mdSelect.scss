@@ -6,6 +6,10 @@
   height: 32px;
   position: relative;
 
+  &:focus {
+    outline: none;
+  }
+
   &:after {
     margin-top: 2px;
     position: absolute;

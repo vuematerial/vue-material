@@ -3,13 +3,14 @@
 Later this should become issues with milestones
 
 #### Components
-* Dropdown
 * Select
+* Dropdown
 * Progress bars
 * Snackbars and toasts
 * Dialogs
 * Cards
 * Tabs
+* Speed dial
 * Sticky subheader
 * Image loaders
 * Swipe to refresh
