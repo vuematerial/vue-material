@@ -20,13 +20,11 @@
 
           <md-input-container>
             <label for="country">Country</label>
-            <md-select :model.sync="country" name="country" id="country" required v-validate:country="['required']" initial="off">
+            <md-select :model.sync="country" name="country" id="country">
               <md-option value="Australia">Australia</md-option>
               <md-option value="Brazil">Brazil</md-option>
               <md-option value="Japan">Japan</md-option>
               <md-option value="United States">United States</md-option>
-
-              <span class="md-error">Validation message</span>
             </md-select>
 
             <span class="md-error">Validation message</span>
