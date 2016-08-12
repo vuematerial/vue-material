@@ -14,8 +14,8 @@
       </ul>
     </div>
 
-    <select v-model.sync="model" :name="name" :id="id" :required="required" tabindex="-1">
-      <option selected="true" :value="model">{{ model }}</option>
+    <select v-model="model" :name="name" :id="id" :required="required" tabindex="-1">
+      <option :value="model">{{ model }}</option>
     </select>
   </div>
 </template>
@@ -41,10 +41,7 @@
         required: true,
         twoWay: true
       },
-      name: {
-        type: String,
-        required: true
-      },
+      name: String,
       required: Boolean,
       value: String,
       id: String,
@@ -77,11 +74,9 @@
       },
       showMenu() {
         this.active = true;
-        this.$el.focus();
       },
       hideMenu() {
         this.active = false;
-        this.$el.blur();
       },
       selectOption(option) {
         this.model = option;
@@ -94,8 +89,6 @@
 
         throw new Error('You should wrap the md-select in a md-input-container');
       }
-
-      console.log(this);
 
       handleModelValue(this.$parent.$el.classList, this.model);
     }
