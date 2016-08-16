@@ -5,7 +5,6 @@
   min-width: 128px;
   height: 32px;
   position: relative;
-  color: rgba(#212121, .87);
 
   &:focus {
     outline: none;
@@ -83,6 +82,7 @@
     transition: opacity .25s $swift-ease-in-timing-function,
                 top .25s $swift-ease-in-timing-function,
                 transform 0s .25s $swift-ease-in-timing-function;
+    color: rgba(#212121, .87);
 
     > * {
       opacity: 0;

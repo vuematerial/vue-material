@@ -10,27 +10,14 @@ Vue.use(VueRouter);
 /* Configs */
 import './stylesheets/docs.scss';
 import './config.js';
+import './core';
 import routes from './routes.js';
+import app from './App.vue';
+
+let App = Vue.component('app', app);
 
 let router = new VueRouter({
   hashbang: false
-});
-
-let App = Vue.component('app', {
-  name: 'app',
-  data() {
-    return {
-      showSidenav: false
-    };
-  },
-  methods: {
-    toggleSidenav() {
-      this.showSidenav = !this.showSidenav;
-    },
-    hideSidenav() {
-      this.showSidenav = false;
-    }
-  }
 });
 
 router.afterEach(function() {
