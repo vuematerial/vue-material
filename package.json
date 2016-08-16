@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "autosize": "^3.0.17",
+    "highlight.js": "^9.6.0",
     "scopedQuerySelectorShim": "github:lazd/scopedQuerySelectorShim",
     "vue-touch": "^1.1.0"
   },
