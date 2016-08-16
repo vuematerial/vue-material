@@ -9,9 +9,9 @@
     <span class="md-select-value" @click="showMenu">{{ model }}</span>
 
     <div class="md-select-menu" tabindex="-1">
-      <ul class="md-select-menu-container">
+      <div class="md-select-menu-container">
         <slot></slot>
-      </ul>
+      </div>
     </div>
 
     <select v-model="model" :name="name" :id="id" :required="required" tabindex="-1">

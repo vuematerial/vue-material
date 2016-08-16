@@ -1,7 +1,9 @@
 <template>
-  <li class="md-option" @click="selectOption" v-md-ink-ripple>
-    <slot></slot>
-  </li>
+  <div class="md-option" @click="selectOption" v-md-ink-ripple>
+    <span>
+      <slot></slot>
+    </span>
+  </div>
 </template>
 
 <script>
@@ -12,13 +14,26 @@
         required: true
       }
     },
+    data() {
+      return {
+        parent: null
+      };
+    },
     methods: {
       selectOption() {
-        this.$parent.selectOption(this.value);
+        if (this.$parent.$el.classList.contains('md-select')) {
+          this.$parent.selectOption(this.value);
+        } else {
+          this.$parent.$parent.selectOption(this.value);
+        }
       }
     },
     ready() {
-      if (!this.$parent.$el.classList.contains('md-select')) {
+      let parentClasses = this.$parent.$el.classList;
+
+      this.parent = this.$parent;
+
+      if (!parentClasses.contains('md-select') && !parentClasses.contains('md-option-group')) {
         this.$destroy();
 
         throw new Error('You should wrap the md-option in a md-select');

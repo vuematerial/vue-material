@@ -5,6 +5,7 @@
   min-width: 128px;
   height: 32px;
   position: relative;
+  color: rgba(#212121, .87);
 
   &:focus {
     outline: none;
@@ -105,7 +106,7 @@
 .md-option {
   height: 48px;
   min-height: 48px;
-  padding: 0 16px;
+  padding: 0 4px 0 16px;
   display: flex;
   flex-flow: column;
   justify-content: center;
@@ -121,4 +122,23 @@
   &:hover {
     background-color: rgba(#000, .12);
   }
+
+  span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.md-option-group:first-child {
+  margin-top: -8px;
+}
+
+.md-option-group-label {
+  padding: 16px;
+  display: block;
+  color: rgba(#757575, .87);
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
 }
