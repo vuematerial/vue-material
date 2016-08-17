@@ -2,13 +2,16 @@
   .md-switch,
   &.md-switch {
     &.md-checked {
-      .md-switch-container,
+      .md-switch-container {
+        background-color: #{'ACCENT-COLOR-500-0.5'};
+      }
+
       .md-switch-thumb {
-        background-color: ACCENT-COLOR;
+        background-color: #{'ACCENT-COLOR'};
       }
 
       .md-ink-ripple {
-        color: ACCENT-COLOR;
+        color: #{'ACCENT-COLOR'};
       }
 
       .md-ripple {

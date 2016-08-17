@@ -3,93 +3,113 @@
   &.md-button:not([disabled]) {
     &.md-raised {
       &:not(.md-icon-button) {
-        color: BACKGROUND-COLOR-900;
-        background-color: BACKGROUND-COLOR-50;
+        color: #{'BACKGROUND-COLOR-900'};
+        background-color: #{'BACKGROUND-COLOR-50'};
 
         &:hover {
-          background-color: BACKGROUND-COLOR-200;
+          background-color: #{'BACKGROUND-COLOR-200'};
         }
       }
 
       &.md-icon-button:not(.md-raised) {
-        color: BACKGROUND-COLOR;
+        color: #{'BACKGROUND-COLOR'};
       }
     }
 
     &.md-fab {
-      color: ACCENT-CONTRAST;
-      background-color: ACCENT-COLOR;
+      color: #{'ACCENT-CONTRAST'};
+      background-color: #{'ACCENT-COLOR'};
 
       &:hover {
-        background-color: ACCENT-COLOR-A700;
+        background-color: #{'ACCENT-COLOR-A700'};
       }
 
       &.md-fab-clean {
-        color: BACKGROUND-COLOR-900;
-        background-color: BACKGROUND-COLOR-50;
+        color: #{'BACKGROUND-COLOR-900'};
+        background-color: #{'BACKGROUND-COLOR-50'};
 
         &:hover {
-          background-color: BACKGROUND-COLOR-200;
+          background-color: #{'BACKGROUND-COLOR-200'};
         }
       }
     }
 
     &.md-primary {
       &:not(.md-icon-button) {
-        color: PRIMARY-COLOR;
+        color: #{'PRIMARY-COLOR'};
       }
 
       &.md-raised,
       &.md-fab {
-        background-color: PRIMARY-COLOR;
-        color: PRIMARY-CONTRAST;
+        background-color: #{'PRIMARY-COLOR'};
+        color: #{'PRIMARY-CONTRAST'};
 
         &:hover {
-          background-color: PRIMARY-COLOR-600;
+          background-color: #{'PRIMARY-COLOR-600'};
         }
       }
 
       &.md-icon-button:not(.md-raised) {
-        color: PRIMARY-COLOR;
+        color: #{'PRIMARY-COLOR'};
       }
     }
 
     &.md-accent {
       &:not(.md-icon-button) {
-        color: ACCENT-COLOR;
+        color: #{'ACCENT-COLOR'};
       }
 
       &.md-raised {
-        background-color: ACCENT-COLOR;
-        color: ACCENT-CONTRAST;
+        background-color: #{'ACCENT-COLOR'};
+        color: #{'ACCENT-CONTRAST'};
 
         &:hover {
-          background-color: ACCENT-COLOR-A700;
+          background-color: #{'ACCENT-COLOR-A700'};
         }
       }
 
       &.md-icon-button:not(.md-raised) {
-        color: ACCENT-COLOR;
+        color: #{'ACCENT-COLOR'};
       }
     }
 
     &.md-warn {
       &:not(.md-icon-button) {
-        color: WARN-COLOR;
+        color: #{'WARN-COLOR'};
       }
 
       &.md-raised,
       &.md-fab {
-        background-color: WARN-COLOR;
-        color: WARN-CONTRAST;
+        background-color: #{'WARN-COLOR'};
+        color: #{'WARN-CONTRAST'};
 
         &:hover {
-          background-color: WARN-COLOR-600;
+          background-color: #{'WARN-COLOR-600'};
         }
       }
 
       &.md-icon-button:not(.md-raised) {
-        color: WARN-COLOR;
+        color: #{'WARN-COLOR'};
+      }
+    }
+
+    &.md-hue-1 {
+      &:not(.md-icon-button) {
+        color: #{'HUE-1-COLOR'};
+      }
+
+      &.md-raised,
+      &.md-fab {
+        background-color: #{'HUE-1-COLOR'};
+        color: #{'HUE-1-CONTRAST'};
+
+        &:hover {
+          background-color: #{'HUE-1-COLOR-600'};
+        }
+      }
+
+      &.md-icon-button:not(.md-raised) {
+        color: #{'HUE-1-COLOR'};
       }
     }
   }
