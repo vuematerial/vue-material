@@ -35,11 +35,6 @@
   }
 
   .page-documentation {
-    display: flex;
-    flex-flow: column;
-    background-color: lighten(#2d3234, 10%);
-    color: #fff;
-
     ::-webkit-scrollbar {
       box-shadow: inset 1px 1px 0 rgba(#fff, .1);
       background-color: rgba(#fff, .05);
