@@ -92,25 +92,5 @@
         color: #{'WARN-COLOR'};
       }
     }
-
-    &.md-hue-1 {
-      &:not(.md-icon-button) {
-        color: #{'HUE-1-COLOR'};
-      }
-
-      &.md-raised,
-      &.md-fab {
-        background-color: #{'HUE-1-COLOR'};
-        color: #{'HUE-1-CONTRAST'};
-
-        &:hover {
-          background-color: #{'HUE-1-COLOR-600'};
-        }
-      }
-
-      &.md-icon-button:not(.md-raised) {
-        color: #{'HUE-1-COLOR'};
-      }
-    }
   }
 }
