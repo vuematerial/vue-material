@@ -14,15 +14,27 @@
   .page-container {
     display: flex;
     flex: 1;
+    flex-flow: column;
+    overflow: auto;
+
+    @media (min-width: 768px) {
+      flex-flow: row;
+    }
+  }
+
+  .page-example,
+  .page-documentation {
+    @media (min-width: 768px) {
+      width: 50%;
+      flex: 1;
+    }
   }
 
   .page-example {
-    min-width: 60%;
     padding: 16px;
   }
 
   .page-documentation {
-    width: 40%;
     display: flex;
     flex-flow: column;
     background-color: lighten(#2d3234, 10%);
@@ -43,17 +55,6 @@
       background-color: rgba(#fff, .2);
       box-shadow: inset 1px 1px 0 rgba(#fff, .05),
                   inset 0 -1px 0 rgba(#fff, .07);
-    }
-
-    .code-example {
-      max-height: 50%;
-      display: flex;
-      flex-flow: column;
-      flex: 1;
-    }
-
-    .code {
-      height: 100%;
     }
   }
 

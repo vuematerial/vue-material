@@ -6,8 +6,12 @@ VueMaterial.enableAll(Vue);
 Vue.use(VueMaterial.MdTheme, {
   default: {
     primary: {
-      color: 'green',
-      hue: 800
+      color: 'blue',
+      hue: '600'
+    },
+    accent: {
+      color: 'red',
+      hue: 'A200'
     }
   },
   indigo: {
