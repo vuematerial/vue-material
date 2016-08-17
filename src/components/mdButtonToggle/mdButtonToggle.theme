@@ -13,54 +13,54 @@
     }
 
     .md-toggle {
-      color: BACKGROUND-CONTRAST-600;
-      background-color: BACKGROUND-COLOR-500;
+      color: #{'BACKGROUND-CONTRAST-600'};
+      background-color: #{'BACKGROUND-COLOR-500'};
 
       &:hover {
-        background-color: BACKGROUND-COLOR-600;
+        background-color: #{'BACKGROUND-COLOR-600'};
       }
 
       + .md-toggle:after {
-        background-color: BACKGROUND-COLOR-600;
+        background-color: #{'BACKGROUND-COLOR-600'};
       }
     }
 
     &.md-primary .md-toggle {
-      color: PRIMARY-CONTRAST;
-      background-color: PRIMARY-COLOR;
+      color: #{'PRIMARY-CONTRAST'};
+      background-color: #{'PRIMARY-COLOR'};
 
       &:hover {
-        background-color: PRIMARY-COLOR-600;
+        background-color: #{'PRIMARY-COLOR-600'};
       }
 
       + .md-toggle:after {
-        background-color: PRIMARY-COLOR-700;
+        background-color: #{'PRIMARY-COLOR-700'};
       }
     }
 
     &.md-accent .md-toggle {
-      color: ACCENT-CONTRAST;
-      background-color: ACCENT-COLOR;
+      color: #{'ACCENT-CONTRAST'};
+      background-color: #{'ACCENT-COLOR'};
 
       &:hover {
-        background-color: ACCENT-COLOR-600;
+        background-color: #{'ACCENT-COLOR-600'};
       }
 
       + .md-toggle:after {
-        background-color: ACCENT-COLOR-700;
+        background-color: #{'ACCENT-COLOR-700'};
       }
     }
 
     &.md-warn .md-toggle {
-      color: WARN-CONTRAST;
-      background-color: WARN-COLOR;
+      color: #{'WARN-CONTRAST'};
+      background-color: #{'WARN-COLOR'};
 
       &:hover {
-        background-color: WARN-COLOR-600;
+        background-color: #{'WARN-COLOR-600'};
       }
 
       + .md-toggle:after {
-        background-color: WARN-COLOR-700;
+        background-color: #{'WARN-COLOR-700'};
       }
     }
   }

@@ -3,12 +3,12 @@
   &.md-checkbox {
     &.md-checked {
       .md-checkbox-container {
-        background-color: ACCENT-COLOR;
-        border-color: ACCENT-COLOR;
+        background-color: #{'ACCENT-COLOR'};
+        border-color: #{'ACCENT-COLOR'};
       }
 
       .md-ink-ripple {
-        color: ACCENT-COLOR;
+        color: #{'ACCENT-COLOR'};
       }
 
       .md-ripple {

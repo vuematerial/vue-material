@@ -2,16 +2,16 @@
   .md-radio,
   &.md-radio {
     .md-radio-container:after {
-      background-color: ACCENT-COLOR;
+      background-color: #{'ACCENT-COLOR'};
     }
 
     &.md-checked {
       .md-radio-container {
-        border-color: ACCENT-COLOR;
+        border-color: #{'ACCENT-COLOR'};
       }
 
       .md-ink-ripple {
-        color: ACCENT-COLOR;
+        color: #{'ACCENT-COLOR'};
       }
 
       .md-ripple {

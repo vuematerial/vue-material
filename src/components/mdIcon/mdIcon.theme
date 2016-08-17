@@ -2,15 +2,15 @@
   .md-icon,
   &.md-icon {
     &.md-primary {
-      color: PRIMARY-COLOR;
+      color: #{'PRIMARY-COLOR'};
     }
 
     &.md-accent {
-      color: ACCENT-COLOR;
+      color: #{'ACCENT-COLOR'};
     }
 
     &.md-warn {
-      color: WARN-COLOR;
+      color: #{'WARN-COLOR'};
     }
   }
 }

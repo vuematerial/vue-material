@@ -1,9 +1,9 @@
 body.THEME_NAME {
   color: rgba(0, 0, 0, .87);
-  background-color: BACKGROUND-COLOR-A100;
+  background-color: #{'BACKGROUND-COLOR-A100'};
 
   :not(input):not(textarea)::selection {
-    background: ACCENT-COLOR;
-    color: ACCENT-CONTRAST !important;
+    background: #{'ACCENT-COLOR'};
+    color: #{'ACCENT-CONTRAST'} !important;
   }
 }
