@@ -11,34 +11,54 @@
     </md-whiteframe>
 
     <md-sidenav class="main-sidebar md-left md-fixed" :md-visible.sync="showSidenav">
-      <md-list>
-        <md-list-item v-link="avatar">Avatar</md-list-item>
-        <md-list-item v-link="bottom-bar">Bottom Bar</md-list-item>
-        <md-list-item v-link="button">Button</md-list-item>
-        <md-list-item v-link="button-toggle">Button Toggle</md-list-item>
-        <md-list-item v-link="checkbox">Checkbox</md-list-item>
-        <md-list-item v-link="divider">Divider</md-list-item>
-        <md-list-item v-link="icon">Icon</md-list-item>
-        <md-list-item v-link="input">Input</md-list-item>
-        <md-list-item v-link="list">List</md-list-item>
-        <md-list-item v-link="radio">Radio</md-list-item>
-        <md-list-item v-link="ripple">Ripple</md-list-item>
-        <md-list-item v-link="select">Select</md-list-item>
-        <md-list-item v-link="sidenav">Sidenav</md-list-item>
-        <md-list-item v-link="subheader">Subheader</md-list-item>
-        <md-list-item v-link="switch">Switch</md-list-item>
-        <md-list-item v-link="theme">Theme</md-list-item>
-        <md-list-item v-link="toolbar">Toolbar</md-list-item>
-        <md-list-item v-link="tooltip">Tooltip</md-list-item>
-        <md-list-item v-link="whiteframe">Whiteframe</md-list-item>
-      </md-list>
+      <partial name="navigation"></partial>
     </md-sidenav>
 
     <div class="main-content">
+      <div class="main-sidebar-docked">
+        <partial name="navigation"></partial>
+      </div>
+
       <router-view></router-view>
     </div>
   </div>
 </template>
+
+<style lang="scss" scoped>
+  .container {
+    min-height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    flex: 1;
+  }
+
+  .main-header {
+    position: relative;
+    z-index: 2;
+  }
+
+  .main-content {
+    padding-left: 280px;
+    display: flex;
+    flex-flow: column;
+    flex: 1;
+    overflow: auto;
+    position: relative;
+  }
+
+  .main-sidebar .md-sidenav-content {
+    overflow: auto;
+  }
+
+  .main-sidebar-docked {
+    width: 280px;
+    position: fixed;
+    top: 64px;
+    bottom: 0;
+    left: 0;
+    overflow: auto;
+  }
+</style>
 
 <script>
   export default {

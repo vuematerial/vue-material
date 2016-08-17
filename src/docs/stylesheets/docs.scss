@@ -7,28 +7,6 @@ body {
   display: flex;
 }
 
-.container {
-  min-height: 100%;
-  display: flex;
-  flex-flow: column nowrap;
-  flex: 1;
-}
-
-.main-header {
-  position: relative;
-  z-index: 2;
-}
-
-.main-content {
-  flex: 1;
-  overflow: auto;
-  position: relative;
-}
-
-.main-sidebar .md-sidenav-content {
-  overflow: auto;
-}
-
 .cell-phone {
   width: 360px;
   height: 480px;
