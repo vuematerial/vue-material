@@ -33,7 +33,7 @@ Vue.use(VueMaterial.MdTheme, {
       hue: 'A200'
     }
   },
-  'bottom-bar': {
+  'teal': {
     primary: 'teal',
     accent: 'orange'
   }
