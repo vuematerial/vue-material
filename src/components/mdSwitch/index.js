@@ -1,3 +1,4 @@
+import 'hammerjs/hammer.min.js';
 import VueTouch from 'vue-touch';
 import mdSwitch from './mdSwitch.vue';
 import mdSwitchTheme from './mdSwitch.theme';
