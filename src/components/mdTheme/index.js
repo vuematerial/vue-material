@@ -8,6 +8,18 @@ const DEFAULT_THEME_COLORS = {
   background: 'grey',
   warn: 'deep-orange'
 };
+const DEFAULT_HUES = {
+  accent: {
+    'hue-1': 'A100',
+    'hue-2': 'A400',
+    'hue-3': 'A700'
+  },
+  background: {
+    'hue-1': 'A100',
+    'hue-2': '100',
+    'hue-3': '300'
+  }
+};
 
 const createNewStyleElement = (style, name) => {
   let head = document.head;
