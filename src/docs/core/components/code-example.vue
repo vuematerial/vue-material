@@ -1,15 +1,6 @@
 <template>
   <div class="code-example">
-    <div class="code-highlighted">
-      <h3 class="title">Code Example</h3>
-      <pre class="code" :class="syntax"><slot name="code"></slot></pre>
-    </div>
-
-    <div class="api">
-      <h3 class="title">API</h3>
-
-      <slot name="api"></slot>
-    </div>
+    <pre class="code" :class="syntax"><slot></slot></pre>
   </div>
 </template>
 
@@ -17,6 +8,12 @@
 
 <style lang="scss">
   .code-example {
+    display: flex;
+    flex-flow: column;
+    flex: 1;
+    overflow: hidden;
+    background-color: #2d3234;
+
     .code {
       width: auto;
       margin: 0;
@@ -81,11 +78,6 @@
       .hljs-attr {
         color: #c594c5;
       }
-    }
-
-    .title {
-      margin: 0;
-      padding: 16px;
     }
   }
 </style>

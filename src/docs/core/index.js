@@ -1,8 +1,8 @@
 import Vue from 'vue';
-import CodeExample from './components/code-example';
-import DocsPage from './components/docs-page';
-import Navigation from './partials/navigation.html';
+import codeExample from './components/code-example';
+import codeSection from './components/code-section';
+import pageContainer from './components/page-container';
 
-Vue.component('code-example', CodeExample);
-Vue.component('docs-page', DocsPage);
-Vue.partial('navigation', Navigation);
+Vue.component('code-example', codeExample);
+Vue.component('code-section', codeSection);
+Vue.component('page-container', pageContainer);

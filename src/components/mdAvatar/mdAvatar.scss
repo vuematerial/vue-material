@@ -2,6 +2,7 @@
 
 $avatar-size: 40px;
 $avatar-large-size: 64px;
+$avatar-large-icon: 40px;
 
 .md-avatar {
   width: $avatar-size;
@@ -11,6 +12,7 @@ $avatar-large-size: 64px;
   margin: auto;
   display: inline-block;
   overflow: hidden;
+  user-select: none;
   position: relative;
   border-radius: $avatar-size;
   vertical-align: middle;
@@ -21,6 +23,15 @@ $avatar-large-size: 64px;
     height: $avatar-large-size;
     min-height: $avatar-large-size;
     border-radius: $avatar-large-size;
+
+    .md-icon {
+      width: $avatar-large-icon;
+      min-width: $avatar-large-icon;
+      height: $avatar-large-icon;
+      min-height: $avatar-large-icon;
+      font-size: $avatar-large-icon;
+      line-height: $avatar-large-icon;
+    }
   }
 
   &.md-avatar-icon {
