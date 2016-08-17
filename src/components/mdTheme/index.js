@@ -1,12 +1,24 @@
 import palette from './palette';
+import rgba from './rgba';
 
-let registedThemes = [];
-const VALID_THEME_TYPE = ['primary', 'accent', 'background', 'warn'];
+const VALID_THEME_TYPE = ['primary', 'accent', 'background', 'warn', 'hue-1', 'hue-2', 'hue-3'];
 const DEFAULT_THEME_COLORS = {
   primary: 'indigo',
   accent: 'pink',
   background: 'grey',
   warn: 'deep-orange'
+};
+const DEFAULT_HUES = {
+  accent: {
+    'hue-1': 'A100',
+    'hue-2': 'A400',
+    'hue-3': 'A700'
+  },
+  background: {
+    'hue-1': 'A100',
+    'hue-2': '100',
+    'hue-3': '300'
+  }
 };
 
 const createNewStyleElement = (style, name) => {
@@ -26,9 +38,11 @@ const createNewStyleElement = (style, name) => {
   }
 };
 
+let registedThemes = [];
+
 const parseStyle = (style, theme) => {
   VALID_THEME_TYPE.forEach((type) => {
-    style = style.replace(RegExp('(' + type.toUpperCase() + ')-(COLOR|CONTRAST)-?(A?\\d\\.?\\d*)?', 'g'), (match, paletteType, colorType, hue) => {
+    style = style.replace(RegExp('(' + type.toUpperCase() + ')-(COLOR|CONTRAST)-?(A?\\d*)-?(\\d*\\.?\\d+)?', 'g'), (match, paletteType, colorType, hue, opacity) => {
       let color;
       let colorVariant = hue || 500;
 
@@ -52,6 +66,10 @@ const parseStyle = (style, theme) => {
           } else if (type === 'background') {
             colorVariant = 50;
           }
+        }
+
+        if (opacity) {
+          return rgba(color[colorVariant], opacity);
         }
 
         return color[colorVariant];

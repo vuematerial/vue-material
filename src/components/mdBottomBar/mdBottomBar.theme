@@ -3,22 +3,22 @@
   &.md-bottom-bar {
     &:not(.md-shift) {
       .md-active {
-        color: PRIMARY-COLOR;
+        color: #{'PRIMARY-COLOR'};
       }
     }
 
     &.md-shift {
-      background-color: PRIMARY-COLOR;
-      color: PRIMARY-CONTRAST;
+      background-color: #{'PRIMARY-COLOR'};
+      color: #{'PRIMARY-CONTRAST'};
 
       &.md-accent {
-        background-color: ACCENT-COLOR;
-        color: ACCENT-CONTRAST;
+        background-color: #{'ACCENT-COLOR'};
+        color: #{'ACCENT-CONTRAST'};
       }
 
       &.md-warn {
-        background-color: WARN-COLOR;
-        color: WARN-CONTRAST;
+        background-color: #{'WARN-COLOR'};
+        color: #{'WARN-CONTRAST'};
       }
     }
   }
