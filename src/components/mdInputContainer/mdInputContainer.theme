@@ -10,30 +10,30 @@
 
       &.md-input-required {
         label:after {
-          color: WARN-COLOR;
+          color: #{'WARN-COLOR'};
         }
       }
 
       &:after {
         height: 2px;
-        background-color: PRIMARY-COLOR;
+        background-color: #{'PRIMARY-COLOR'};
       }
 
       input,
       textarea {
-        color: PRIMARY-COLOR;
-        text-shadow: 0 0 0 BACKGROUND-CONTRAST;
+        color: #{'PRIMARY-COLOR'};
+        text-shadow: 0 0 0 #{'BACKGROUND-CONTRAST'};
         -webkit-text-fill-color: transparent;
       }
 
       label {
-        color: PRIMARY-COLOR;
+        color: #{'PRIMARY-COLOR'};
       }
     }
 
     &.md-input-invalid {
       &:after {
-        background-color: WARN-COLOR;
+        background-color: #{'WARN-COLOR'};
       }
 
       label,
@@ -41,7 +41,7 @@
       .md-count,
       input,
       textarea {
-        color: WARN-COLOR;
+        color: #{'WARN-COLOR'};
       }
     }
   }

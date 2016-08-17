@@ -3,30 +3,30 @@
   &.md-avatar {
     &.md-primary {
       &.md-avatar-icon {
-        background-color: PRIMARY-COLOR;
+        background-color: #{'PRIMARY-COLOR'};
 
         .md-icon {
-          color: PRIMARY-CONTRAST;
+          color: #{'PRIMARY-CONTRAST'};
         }
       }
     }
 
     &.md-accent {
       &.md-avatar-icon {
-        background-color: ACCENT-COLOR;
+        background-color: #{'ACCENT-COLOR'};
 
         .md-icon {
-          color: ACCENT-CONTRAST;
+          color: #{'ACCENT-CONTRAST'};
         }
       }
     }
 
     &.md-warn {
       &.md-avatar-icon {
-        background-color: WARN-COLOR;
+        background-color: #{'WARN-COLOR'};
 
         .md-icon {
-          color: WARN-CONTRAST;
+          color: #{'WARN-CONTRAST'};
         }
       }
     }
