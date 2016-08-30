@@ -25,13 +25,8 @@
     bottom: 0;
     z-index: 100;
     pointer-events: none;
+    overflow: auto;
     transition: $swift-ease-out;
-
-    &.md-active {
-      pointer-events: auto;
-      box-shadow: $material-shadow-16dp;
-      transform: translate3d(0, 0, 0);
-    }
   }
 
   .md-backdrop {
@@ -46,10 +41,18 @@
     transform: translate3d(0, 0, 0);
     opacity: 0;
     transition: $swift-ease-in-out;
+  }
+}
 
-    &.md-active {
-      opacity: 1;
-      pointer-events: auto;
-    }
+.md-sidenav.md-active {
+  .md-sidenav-content {
+    pointer-events: auto;
+    box-shadow: $material-shadow-16dp;
+    transform: translate3d(0, 0, 0);
+  }
+
+  .md-backdrop {
+    opacity: 1;
+    pointer-events: auto;
   }
 }

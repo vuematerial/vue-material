@@ -116,12 +116,12 @@ export default function install(Vue) {
     });
   };
 
-  Vue.directive('mdInkRipple', function(disabled) {
-    this.vm.$nextTick(() => {
-      if (!disabled) {
-        createRipple(this.el);
+  Vue.directive('mdInkRipple', function(el, bindings) {
+    Vue.nextTick(() => {
+      if (!bindings.value) {
+        createRipple(el);
       } else {
-        unregisterMouseEvent(this.el);
+        unregisterMouseEvent(el);
       }
     });
   });

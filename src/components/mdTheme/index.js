@@ -8,7 +8,7 @@ const DEFAULT_THEME_COLORS = {
   background: 'grey',
   warn: 'deep-orange'
 };
-const DEFAULT_HUES = {
+/*const DEFAULT_HUES = {
   accent: {
     'hue-1': 'A100',
     'hue-2': 'A400',
@@ -19,7 +19,7 @@ const DEFAULT_HUES = {
     'hue-2': '100',
     'hue-3': '300'
   }
-};
+};*/
 
 const createNewStyleElement = (style, name) => {
   let head = document.head;
@@ -112,9 +112,11 @@ export default function install(Vue, themes) {
 
   document.body.classList.add('md-theme-default');
 
-  Vue.directive('mdTheme', function(theme) {
+  Vue.directive('mdTheme', function(el, bindings) {
+    let theme = bindings.value;
+
     if (theme && registedThemes.indexOf(theme) >= 0) {
-      this.el.classList.add('md-theme-' + theme);
+      el.classList.add('md-theme-' + theme);
     } else {
       console.warn('Attempted to use unregistered theme "' + theme + '\".');
     }

@@ -4,5 +4,6 @@ body.THEME_NAME {
 
   :not(input):not(textarea)::selection {
     background: #{'ACCENT-COLOR'};
+    color: #{'ACCENT-CONTRAST'};
   }
 }

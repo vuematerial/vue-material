@@ -4,8 +4,9 @@ import VueRouter from 'vue-router';
 
 /* Configs */
 import './config.js';
+import './core';
 import routes from './routes.js';
-import App from './App';
+import App from './App.vue';
 
 
 Vue.use(VueRouter);
@@ -15,13 +16,13 @@ let router = new VueRouter({
   routes
 });
 
-let Docs = Vue.component('app', App);
-
-Docs = new Docs({
+var app = new Vue({
   el: '#app',
+  ...App,
   router
 });
 
 router.afterEach(() => {
+  app.hideSidenav();
   document.querySelector('.main-content').scrollTop = 0;
 });

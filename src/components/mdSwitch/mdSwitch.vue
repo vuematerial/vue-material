@@ -1,7 +1,8 @@
 <template>
   <div class="md-switch" :class="classes">
     <div class="md-switch-container" @click="onClick">
-      <div class="md-switch-thumb" :style="styles" v-md-ink-ripple="disabled" v-touch:panstart="onDragStart" v-touch:panmove="onDrag" v-touch:panend="onDragEnd" v-touch-options:pan="{ direction: 'horizontal' }">
+      <!-- <div class="md-switch-thumb" :style="styles" v-md-ink-ripple="disabled" v-touch:panstart="onDragStart" v-touch:panmove="onDrag" v-touch:panend="onDragEnd" v-touch-options:pan="{ direction: 'horizontal' }"> -->
+      <div class="md-switch-thumb" :style="styles" v-md-ink-ripple="disabled">
         <input type="checkbox" v-model="model" :name="name" :id="id" :disabled="disabled" :value="value">
       </div>
     </div>

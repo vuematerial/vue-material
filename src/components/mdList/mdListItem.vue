@@ -1,10 +1,6 @@
 <template>
   <li class="md-list-item">
-    <md-link-button :title="title" :target="target" :href="href" v-link="vLink" class="md-list-item-container" v-if="href || vLink">
-      <slot></slot>
-    </md-link-button>
-
-    <md-button :title="title" class="md-list-item-container" v-else>
+    <md-button :title="title" :target="target" :href="href" class="md-list-item-container">
       <slot></slot>
     </md-button>
   </li>
