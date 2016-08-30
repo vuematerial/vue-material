@@ -5,12 +5,14 @@ VueMaterial.enableAll(Vue);
 
 Vue.use(VueMaterial.MdTheme, {
   default: {
-    primary: 'cyan',
-    accent: 'indigo'
-  },
-  white: {
-    primary: 'white',
-    accent: 'indigo'
+    primary: {
+      color: 'blue',
+      hue: '600'
+    },
+    accent: {
+      color: 'red',
+      hue: 'A200'
+    }
   },
   indigo: {
     primary: 'indigo',

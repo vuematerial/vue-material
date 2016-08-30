@@ -1,49 +1,49 @@
 <template>
   <div class="container">
-    <md-sidenav class="main-sidebar md-left md-fixed" :md-visible.sync="showSidenav">
-      <md-toolbar class="md-extended">
-        <div class="md-toolbar-container">
-          <h1 class="md-title vue-material-logo">Vue Material</h1>
-        </div>
+    <md-sidenav class="main-sidebar md-left md-fixed">
+      <md-toolbar v-md-theme="'white'">
+        <span class="md-title">Vue Material</span>
       </md-toolbar>
 
       <md-list>
-        <md-list-item v-link="avatar">Avatar</md-list-item>
-        <md-list-item v-link="bottom-bar">Bottom Bar</md-list-item>
-        <md-list-item v-link="button">Button</md-list-item>
-        <md-list-item v-link="button-toggle">Button Toggle</md-list-item>
-        <md-list-item v-link="checkbox">Checkbox</md-list-item>
-        <md-list-item v-link="divider">Divider</md-list-item>
-        <md-list-item v-link="icon">Icon</md-list-item>
-        <md-list-item v-link="input">Input</md-list-item>
-        <md-list-item v-link="list">List</md-list-item>
-        <md-list-item v-link="radio">Radio</md-list-item>
-        <md-list-item v-link="ripple">Ripple</md-list-item>
-        <md-list-item v-link="select">Select</md-list-item>
-        <md-list-item v-link="sidenav">Sidenav</md-list-item>
-        <md-list-item v-link="subheader">Subheader</md-list-item>
-        <md-list-item :v-link="'switch'">Switch</md-list-item>
-        <md-list-item v-link="theme">Theme</md-list-item>
-        <md-list-item v-link="toolbar">Toolbar</md-list-item>
-        <md-list-item v-link="tooltip">Tooltip</md-list-item>
-        <md-list-item v-link="whiteframe">Whiteframe</md-list-item>
+        <md-list-item>Avatar</md-list-item>
+        <md-list-item>Bottom Bar</md-list-item>
+        <md-list-item>Button</md-list-item>
+        <md-list-item>Button Toggle</md-list-item>
+        <md-list-item>Checkbox</md-list-item>
+        <md-list-item>Divider</md-list-item>
+        <md-list-item>Icon</md-list-item>
+        <md-list-item>Input</md-list-item>
+        <md-list-item>List</md-list-item>
+        <md-list-item>Radio</md-list-item>
+        <md-list-item>Ripple</md-list-item>
+        <md-list-item>Select</md-list-item>
+        <md-list-item>Sidenav</md-list-item>
+        <md-list-item>Subheader</md-list-item>
+        <md-list-item>Switch</md-list-item>
+        <md-list-item>Theme</md-list-item>
+        <md-list-item>Toolbar</md-list-item>
+        <md-list-item>Tooltip</md-list-item>
+        <md-list-item>Whiteframe</md-list-item>
       </md-list>
     </md-sidenav>
 
-    <div class="main-content">
-      <md-whiteframe md-elevation="3dp" class="main-header">
+    <div class="page-content">
+      <md-whiteframe class="main-header" md-elevation="3">
         <md-toolbar>
-          <md-button class="md-icon-button" @click="toggleSidenav">
+          <md-button class="md-icon-button">
             <md-icon>menu</md-icon>
           </md-button>
 
-          <span class="vue-material-logo">Vue Material</span>
-
-          <h2 class="md-title">{{ pageTitle }}</h2>
+          <div class="md-title">
+            <span class="logo-vue-material">Vue Material – </span><span class="page-title">Home</span>
+          </div>
         </md-toolbar>
       </md-whiteframe>
 
-      <router-view></router-view>
+      <div class="main-content">
+        <router-view></router-view>
+      </div>
     </div>
   </div>
 </template>
@@ -53,11 +53,24 @@
 
   $sizebar-size: 280px;
 
+  html,
+  body {
+    height: 100%;
+  }
+
+  body {
+    display: flex;
+  }
+
   .container {
     min-height: 100%;
     display: flex;
     flex-flow: column nowrap;
     flex: 1;
+  }
+
+  .md-theme-default .md-toolbar:not(.md-theme-white) {
+    color: #fff;
   }
 
   .main-header {
@@ -70,16 +83,23 @@
       }
     }
 
-    .vue-material-logo {
-      margin-right: 16px;
-      padding-right: 16px;
-      border-right: 1px solid rgba(#fff, .6);
-      font-size: 20px;
-      font-weight: 500;
-      line-height: 26px;
+    .md-title {
+      font-size: 18px;
 
-      @media (min-width: 1280px) {
-        margin-left: 8px;
+      .logo-vue-material {
+        display: inline-block;
+
+        @media (min-width: 1280px) {
+          display: none;
+        }
+      }
+
+      .page-title {
+        margin-left: 0;
+
+        @media (min-width: 1280px) {
+          margin-left: 8px;
+        }
       }
     }
   }
@@ -98,13 +118,17 @@
       }
     }
 
+    .md-toolbar {
+      border-bottom: 1px solid rgba(#000, .12);
+    }
+
     .md-list {
       overflow: auto;
       flex: 1;
     }
   }
 
-  .main-content {
+  .page-content {
     display: flex;
     flex-flow: column;
     flex: 1;
@@ -116,29 +140,16 @@
       padding-left: $sizebar-size;
     }
   }
+
+  .main-content {
+    padding: 16px;
+    flex: 1;
+    overflow: auto;
+  }
 </style>
 
 <script>
   export default {
-    name: 'app',
-    data() {
-      return {
-        showSidenav: false,
-        pageTitle: ''
-      };
-    },
-    methods: {
-      toggleSidenav() {
-        this.showSidenav = !this.showSidenav;
-      },
-      hideSidenav() {
-        this.showSidenav = false;
-      }
-    },
-    ready() {
-      this.$on('pageTitle', (title) => {
-        this.pageTitle = title;
-      });
-    }
+
   };
 </script>
