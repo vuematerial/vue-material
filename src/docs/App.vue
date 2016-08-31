@@ -29,14 +29,16 @@
     </md-sidenav>
 
     <div class="page-content">
-      <md-whiteframe class="main-header" md-elevation="3">
+      <md-whiteframe class="main-header" md-elevation="2">
         <md-toolbar>
           <md-button class="md-icon-button">
             <md-icon>menu</md-icon>
           </md-button>
 
           <div class="md-title">
-            <span class="logo-vue-material">Vue Material – </span><span class="page-title">Home</span>
+            <span class="logo-vue-material">Vue Material</span>
+            <span> – </span>
+            <span class="page-title">Home</span>
           </div>
         </md-toolbar>
       </md-whiteframe>
@@ -84,14 +86,8 @@
     }
 
     .md-title {
-      font-size: 18px;
-
       .logo-vue-material {
         display: inline-block;
-
-        @media (min-width: 1280px) {
-          display: none;
-        }
       }
 
       .page-title {
@@ -99,6 +95,12 @@
 
         @media (min-width: 1280px) {
           margin-left: 8px;
+        }
+      }
+
+      span:not(.page-title) {
+        @media (min-width: 1280px) {
+          display: none;
         }
       }
     }
