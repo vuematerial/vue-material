@@ -103,7 +103,7 @@
         this.$parent.inputLength = this.$el.value.length;
       }
     },
-    ready() {
+    mounted() {
       if (!this.$parent.$el.classList.contains('md-input-container')) {
         this.$destroy();
 

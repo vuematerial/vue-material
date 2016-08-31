@@ -27,7 +27,7 @@
         this.active = true;
       }
     },
-    ready() {
+    mounted() {
       if (this.$el.classList.contains('md-active')) {
         this.active = true;
       }

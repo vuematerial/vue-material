@@ -28,7 +28,7 @@
         }
       }
     },
-    ready() {
+    mounted() {
       let parentClasses = this.$parent.$el.classList;
 
       this.parent = this.$parent;

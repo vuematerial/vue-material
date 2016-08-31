@@ -13,7 +13,7 @@
     props: {
       type: String
     },
-    ready() {
+    mounted() {
       this.$children.forEach((child) => {
         let element = child.$el;
         let toggleClass = 'md-toggle';

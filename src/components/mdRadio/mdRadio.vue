@@ -47,7 +47,7 @@
         }
       }
     },
-    ready() {
+    mounted() {
       this.hasSlot = this.$el.querySelector('label').innerHTML.trim() !== '';
     }
   };
