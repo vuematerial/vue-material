@@ -83,7 +83,7 @@
         this.hideMenu();
       }
     },
-    ready() {
+    mounted() {
       if (!this.$parent.$el.classList.contains('md-input-container')) {
         this.$destroy();
 

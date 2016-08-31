@@ -98,7 +98,7 @@
         }
       }
     },
-    ready() {
+    mounted() {
       this.hasSlot = this.$el.querySelector('label').innerHTML.trim() !== '';
       this.leftPos = this.model ? fullThreshold + '%' : initialThreshold;
     },

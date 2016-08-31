@@ -80,10 +80,10 @@
         calculateTooltipPosition(this);
       }
     },
-    attached() {
+    beforeMount() {
       this.parent = this.$el.parentNode;
     },
-    ready() {
+    mounted() {
       calculateTooltipPosition(this);
       this.created = false;
       this.$remove();

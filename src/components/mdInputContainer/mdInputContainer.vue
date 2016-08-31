@@ -56,7 +56,7 @@
         }
       }
     },
-    ready() {
+    mounted() {
       this.input = this.$el.querySelector('input') || this.$el.querySelector('textarea') || this.$el.querySelector('select');
 
       if (!this.input) {
