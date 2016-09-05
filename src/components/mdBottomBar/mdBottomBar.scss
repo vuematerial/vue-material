@@ -24,7 +24,6 @@
   cursor: pointer;
   border: none;
   background: transparent;
-  transition: $swift-ease-out;
   transform: translate3d(0, 0, 0);
   color: currentColor;
   font-family: inherit;
@@ -49,6 +48,7 @@
     max-width: 96px;
     position: static;
     flex: 1 1 32px;
+    transition: $swift-ease-out;
 
     .md-icon {
       transform: translate3d(0, 8px, 0);

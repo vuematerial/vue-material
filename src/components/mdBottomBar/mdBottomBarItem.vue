@@ -1,5 +1,5 @@
 <template>
-  <button class="md-bottom-bar-item" :class="{ 'md-active': active }" v-md-ink-ripple @click="setActive">
+  <button type="button" class="md-bottom-bar-item" :class="classes" v-md-ink-ripple @click="setActive">
     <md-icon>{{ mdIcon }}</md-icon>
 
     <span class="md-text">
@@ -11,12 +11,25 @@
 <script>
   export default {
     props: {
-      mdIcon: String
+      mdIcon: String,
+      mdActive: Boolean
     },
     data() {
       return {
         active: false
       };
+    },
+    computed: {
+      classes() {
+        return {
+          'md-active': this.active
+        };
+      }
+    },
+    watch: {
+      mdActive(active) {
+        this.active = active;
+      }
     },
     methods: {
       setActive() {
@@ -28,7 +41,13 @@
       }
     },
     mounted() {
-      if (this.$el.classList.contains('md-active')) {
+      if (!this.$parent.$el.classList.contains('md-bottom-bar')) {
+        this.$destroy();
+
+        throw new Error('You should wrap the md-bottom-bar-item in a md-bottom-bar');
+      }
+
+      if (this.mdActive) {
         this.active = true;
       }
     }
