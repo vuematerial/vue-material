@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <md-sidenav class="main-sidebar md-left md-fixed">
+    <md-sidenav class="main-sidebar md-left md-fixed" ref="main-sidebar">
       <md-toolbar v-md-theme="'white'">
         <span class="md-title">Vue Material</span>
       </md-toolbar>
@@ -31,7 +31,7 @@
     <div class="page-content">
       <md-whiteframe class="main-header" md-elevation="2">
         <md-toolbar>
-          <md-button class="md-icon-button">
+          <md-button class="md-icon-button" @click="toggleSidenav">
             <md-icon>menu</md-icon>
           </md-button>
 
@@ -152,6 +152,10 @@
 
 <script>
   export default {
-
+    methods: {
+      toggleSidenav() {
+        this.$refs['main-sidebar'].toggle();
+      }
+    }
   };
 </script>
