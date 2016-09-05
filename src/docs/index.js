@@ -23,6 +23,6 @@ Docs = new Docs({
 });
 
 router.afterEach(() => {
-  console.log(Docs);
   document.querySelector('.main-content').scrollTop = 0;
+  Docs.closeSidenav();
 });

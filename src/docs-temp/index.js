@@ -23,6 +23,6 @@ var app = new Vue({
 });
 
 router.afterEach(() => {
-  app.hideSidenav();
+  app.closeSidenav();
   document.querySelector('.main-content').scrollTop = 0;
 });

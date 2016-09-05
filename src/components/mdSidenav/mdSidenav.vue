@@ -1,10 +1,10 @@
 <template>
-  <div class="md-sidenav" :class="classes" @keyup.esc="hide" tabindex="0">
+  <div class="md-sidenav" :class="classes" @keyup.esc="close" tabindex="0">
     <div class="md-sidenav-content">
       <slot></slot>
     </div>
 
-    <div class="md-backdrop" @click="hide"></div>
+    <div class="md-backdrop" @click="close"></div>
   </div>
 </template>
 
@@ -26,16 +26,16 @@
       show() {
         this.mdVisible = true;
         this.$el.focus();
-        this.$emit('on-open');
+        this.$emit('open');
       },
-      hide() {
+      close() {
         this.mdVisible = false;
         this.$el.blur();
-        this.$emit('on-close');
+        this.$emit('close');
       },
       toggle() {
         if (this.mdVisible) {
-          this.hide();
+          this.close();
         } else {
           this.show();
         }
