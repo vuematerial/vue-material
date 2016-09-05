@@ -1,14 +1,40 @@
-<template>
-  <button class="md-button" :type="type || 'button'" :disabled="disabled" v-md-ink-ripple="disabled">
-    <slot></slot>
-  </button>
-</template>
-
 <style lang="scss" src="./mdButton.scss"></style>
 
 <script>
   export default {
+    render(createElement) {
+      let isDisabled = Boolean(this.disabled);
+      let hasLink = Boolean(this.href);
+      let tag = 'button';
+      let emitClick = () => {
+        this.$emit('click');
+      };
+      let options = {
+        staticClass: 'md-button',
+        attrs: {
+          type: hasLink || 'button',
+          disabled: isDisabled
+        },
+        directives: [{
+          name: 'md-ink-ripple',
+          value: isDisabled,
+          expression: 'disabled'
+        }],
+        on: {
+          click: emitClick
+        }
+      };
+
+      if (hasLink) {
+        tag = 'a';
+        options.attrs.href = this.href;
+        delete options.attrs.type;
+      }
+
+      return createElement(tag, options, this.$slots.default);
+    },
     props: {
+      href: String,
       type: String,
       disabled: Boolean
     }
