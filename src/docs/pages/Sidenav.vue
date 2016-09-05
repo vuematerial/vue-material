@@ -4,14 +4,14 @@
 
     <div class="cell-phone">
       <md-toolbar>
-        <md-button class="md-icon-button" @click="toggleLeftSidenav">
+        <md-button class="md-icon-button" @click.native="toggleLeftSidenav">
           <md-icon>menu</md-icon>
         </md-button>
 
         <h2 class="md-title">Left Sidenav</h2>
       </md-toolbar>
 
-      <md-sidenav class="md-left" :md-visible.sync="sidenavLeftVisible">
+      <md-sidenav class="md-left" ref="leftSidenav" @on-open="open" @on-close="close">
         <md-toolbar class="md-extended">
           <div class="md-toolbar-container">
             <h3 class="md-title">Sidenav content</h3>
@@ -24,14 +24,14 @@
 
     <div class="cell-phone">
       <md-toolbar>
-        <md-button class="md-icon-button" @click="toggleRightSidenav">
+        <md-button class="md-icon-button" @click.native="toggleRightSidenav">
           <md-icon>menu</md-icon>
         </md-button>
 
         <h2 class="md-title">Right Sidenav</h2>
       </md-toolbar>
 
-      <md-sidenav class="md-right md-fixed" :md-visible.sync="sidenavRightVisible">
+      <md-sidenav class="md-right md-fixed" ref="rightSidenav" @on-open="open" @on-close="close">
         <md-toolbar class="md-extended">
           <div class="md-toolbar-container">
             <h3 class="md-title">Sidenav content</h3>
@@ -54,10 +54,16 @@
     },
     methods: {
       toggleLeftSidenav() {
-        this.sidenavLeftVisible = !this.sidenavLeftVisible;
+        this.$refs.leftSidenav.toggle();
       },
       toggleRightSidenav() {
-        this.sidenavRightVisible = !this.sidenavRightVisible;
+        this.$refs.rightSidenav.toggle();
+      },
+      open() {
+        console.log('Open');
+      },
+      close() {
+        console.log('Close');
       }
     }
   };
