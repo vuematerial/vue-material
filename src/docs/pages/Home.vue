@@ -6,8 +6,6 @@
 
 <script>
   export default {
-    ready() {
-      console.log('READY');
-    }
+
   };
 </script>

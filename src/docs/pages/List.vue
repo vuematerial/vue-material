@@ -505,12 +505,27 @@
           </md-list-item>
 
           <md-list-item>
-            <md-avatar class="md-avatar-icon md-primary">
+            <md-avatar v-md-theme="'green'" class="md-avatar-icon md-primary">
               <md-icon>view_list</md-icon>
             </md-avatar>
 
             <div class="md-list-text-container">
               <span>Grocery Shop</span>
+              <p>Jan 10, 2014</p>
+            </div>
+
+            <md-button class="md-icon-button md-list-action">
+              <md-icon>info</md-icon>
+            </md-button>
+          </md-list-item>
+
+          <md-list-item>
+            <md-avatar v-md-theme="'orange'" class="md-avatar-icon md-primary">
+              <md-icon>collections</md-icon>
+            </md-avatar>
+
+            <div class="md-list-text-container">
+              <span>Weekend Pictures</span>
               <p>Jan 10, 2014</p>
             </div>
 

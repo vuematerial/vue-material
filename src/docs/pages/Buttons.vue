@@ -3,12 +3,22 @@
     <h2 class="title">Buttons</h2>
 
     <md-button @click="disablePrimaryButton">Button</md-button>
-    <md-link-button class="md-primary" :disabled="buttonDisabled">Primary</md-link-button>
-    <md-link-button class="md-primary md-raised">Raised</md-link-button>
+    <md-button class="md-primary" :disabled="buttonDisabled">Primary</md-button>
+    <md-button class="md-primary md-raised">Raised</md-button>
     <md-button class="md-accent md-raised">Accent</md-button>
-    <md-link-button class="md-warn">Warn</md-link-button>
-    <md-link-button class="md-raised md-primary" :disabled="!buttonDisabled">Disabled</md-link-button>
+    <md-button class="md-warn">Warn</md-button>
+    <md-button class="md-raised md-primary" :disabled="!buttonDisabled">Disabled</md-button>
     <md-button class="md-raised md-dense md-accent">Dense</md-button>
+
+    <h2 class="title">Links</h2>
+
+    <md-button href="#/button" @click="disablePrimaryButton">Button</md-button>
+    <md-button href="#/button" class="md-primary" :disabled="buttonDisabled">Primary</md-button>
+    <md-button href="#/button" class="md-primary md-raised">Raised</md-button>
+    <md-button href="#/button" class="md-accent md-raised">Accent</md-button>
+    <md-button href="#/button" class="md-warn">Warn</md-button>
+    <md-button href="#/button" class="md-raised md-primary" :disabled="!buttonDisabled">Disabled</md-button>
+    <md-button href="#/button" class="md-raised md-dense md-accent">Dense</md-button>
 
     <h2 class="title">FAB</h2>
 
