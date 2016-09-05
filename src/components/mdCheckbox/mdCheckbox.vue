@@ -1,7 +1,7 @@
 <template>
   <div class="md-checkbox" :class="classes">
     <div class="md-checkbox-container" @click="toggleCheck" v-md-ink-ripple="disabled">
-      <input type="checkbox" v-model="model" :name="name" :id="id" :disabled="disabled" :value="value">
+      <input type="checkbox" :name="name" :id="id" :disabled="disabled" :checked="isChecked">
     </div>
 
     <label :for="id || name" class="md-checkbox-label" v-if="hasSlot">
@@ -15,25 +15,22 @@
 <script>
   export default {
     props: {
-      model: {
-        type: Boolean,
-        required: true,
-        twoWay: true
-      },
       name: String,
-      value: String,
+      value: [String, Boolean],
       id: String,
+      checked: Boolean,
       disabled: Boolean
     },
     data() {
       return {
-        hasSlot: true
+        hasSlot: true,
+        isChecked: this.checked
       };
     },
     computed: {
       classes() {
         return {
-          'md-checked': Boolean(this.model),
+          'md-checked': Boolean(this.isChecked),
           'md-disabled': this.disabled
         };
       }
@@ -41,7 +38,8 @@
     methods: {
       toggleCheck() {
         if (!this.disabled) {
-          this.model = !this.model;
+          this.isChecked = !this.isChecked;
+          this.$emit('change', this.isChecked);
         }
       }
     },
