@@ -15,7 +15,7 @@
     </div>
 
     <div v-md-theme="'orange'">
-      <md-checkbox id="my-test3" name="my-test3" checked @change="onChange">Fancy colors</md-checkbox>
+      <md-checkbox id="my-test3" name="my-test3" @change="onChange">Fancy colors</md-checkbox>
     </div>
 
     <div v-md-theme="'teal'">
@@ -23,7 +23,7 @@
     </div>
 
     <div v-md-theme="'teal'">
-      <md-checkbox id="my-test5" name="my-test5" checked @change="onChange" disabled>Disabled</md-checkbox>
+      <md-checkbox id="my-test5" name="my-test5" @change="onChange" disabled>Disabled</md-checkbox>
     </div>
   </section>
 </template>

@@ -155,6 +155,9 @@
     methods: {
       toggleSidenav() {
         this.$refs['main-sidebar'].toggle();
+      },
+      closeSidenav() {
+        this.$refs['main-sidebar'].close();
       }
     }
   };

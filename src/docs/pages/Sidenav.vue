@@ -11,7 +11,7 @@
         <h2 class="md-title">Left Sidenav</h2>
       </md-toolbar>
 
-      <md-sidenav class="md-left" ref="leftSidenav" @on-open="open" @on-close="close">
+      <md-sidenav class="md-left" ref="leftSidenav" @open="open" @close="close">
         <md-toolbar class="md-extended">
           <div class="md-toolbar-container">
             <h3 class="md-title">Sidenav content</h3>
@@ -31,7 +31,7 @@
         <h2 class="md-title">Right Sidenav</h2>
       </md-toolbar>
 
-      <md-sidenav class="md-right md-fixed" ref="rightSidenav" @on-open="open" @on-close="close">
+      <md-sidenav class="md-right md-fixed" ref="rightSidenav" @open="open" @close="close">
         <md-toolbar class="md-extended">
           <div class="md-toolbar-container">
             <h3 class="md-title">Sidenav content</h3>

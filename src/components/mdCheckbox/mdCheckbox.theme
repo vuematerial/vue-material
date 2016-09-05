@@ -20,11 +20,14 @@
       &.md-checked {
         .md-checkbox-container {
           background-color: rgba(#000, .26);
+          border-color: transparent;
         }
       }
 
-      .md-checkbox-container {
-        border-color: transparent;
+      &:not(.md-checked) {
+        .md-checkbox-container {
+          border-color: rgba(#000, .26);
+        }
       }
     }
   }
