@@ -12,32 +12,33 @@
 
 <script>
   export default {
-    props: {
-      mdVisible: Boolean
+    data() {
+      return {
+        mdVisible: false
+      };
     },
     computed: {
       classes() {
         return this.mdVisible && 'md-active';
       }
     },
-    watch: {
-      mdVisible(value) {
-        if (value) {
-          this.$el.focus();
-        } else {
-          this.$el.blur();
-        }
-      }
-    },
     methods: {
       show() {
         this.mdVisible = true;
+        this.$el.focus();
+        this.$emit('on-open');
       },
       hide() {
         this.mdVisible = false;
+        this.$el.blur();
+        this.$emit('on-close');
       },
       toggle() {
-        this.mdVisible = !this.visible;
+        if (this.mdVisible) {
+          this.hide();
+        } else {
+          this.show();
+        }
       }
     }
   };
