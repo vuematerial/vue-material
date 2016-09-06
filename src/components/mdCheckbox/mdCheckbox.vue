@@ -23,16 +23,13 @@
     data() {
       return {
         hasSlot: true,
-        isChecked: this.value
+        checked: this.value
       };
     },
     computed: {
-      checked() {
-        return this.value;
-      },
       classes() {
         return {
-          'md-checked': Boolean(this.checked),
+          'md-checked': Boolean(this.value),
           'md-disabled': this.disabled
         };
       }
@@ -40,15 +37,15 @@
     methods: {
       toggleCheck() {
         if (!this.disabled) {
-          this.isChecked = !this.isChecked;
-          this.$emit('change', this.isChecked);
-          this.$emit('input', this.isChecked);
+          this.checked = !this.checked;
+          this.$emit('change', this.checked);
+          this.$emit('input', this.checked);
         }
       }
     },
     mounted() {
       if (this.value) {
-        this.isChecked = true;
+        this.checked = true;
       }
 
       this.hasSlot = this.$el.querySelector('label').innerHTML.trim() !== '';
