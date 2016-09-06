@@ -65,11 +65,6 @@
       maxlength: String,
       placeholder: String
     },
-    data() {
-      return {
-        parentClasses: this.$parent.$el.classList
-      };
-    },
     watch: {
       disabled(disabled) {
         manageDisabledClass(disabled, this.parentClasses);
@@ -109,6 +104,8 @@
 
         throw new Error('You should wrap the md-input in a md-input-container');
       }
+
+      this.parentClasses = this.$parent.$el.classList;
 
       manageDisabledClass(this.disabled, this.parentClasses);
       manageRequiredClass(this.required, this.parentClasses);
