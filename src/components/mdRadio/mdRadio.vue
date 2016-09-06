@@ -1,10 +1,10 @@
 <template>
   <div class="md-radio" :class="classes">
     <div class="md-radio-container" @click="toggleCheck" v-md-ink-ripple="disabled">
-      <input type="radio" v-model="model" :name="name" :id="id" :disabled="disabled" :value="value">
+      <input type="radio" :name="name" :id="id" :disabled="disabled" :value="value">
     </div>
 
-    <label :for="id || name" class="md-radio-label" v-if="hasSlot">
+    <label :for="id || name" class="md-radio-label" v-if="$slots.default">
       <slot></slot>
     </label>
   </div>
@@ -15,27 +15,19 @@
 <script>
   export default {
     props: {
-      model: {
-        required: true,
-        twoWay: true
-      },
       name: String,
-      value: {
-        type: [String, Boolean],
+      value: [String, Boolean, Number],
+      mdValue: {
+        type: [String, Boolean, Number],
         required: true
       },
       id: String,
       disabled: Boolean
     },
-    data() {
-      return {
-        hasSlot: true
-      };
-    },
     computed: {
       classes() {
         return {
-          'md-checked': this.model && this.value && this.model.toString() === this.value.toString(),
+          'md-checked': this.value && this.mdValue.toString() === this.value.toString(),
           'md-disabled': this.disabled
         };
       }
@@ -43,12 +35,10 @@
     methods: {
       toggleCheck() {
         if (!this.disabled) {
-          this.model = this.value;
+          this.$emit('change', this.mdValue);
+          this.$emit('input', this.mdValue);
         }
       }
-    },
-    mounted() {
-      this.hasSlot = this.$el.querySelector('label').innerHTML.trim() !== '';
     }
   };
 </script>

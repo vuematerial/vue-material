@@ -28,5 +28,37 @@
         }
       }
     }
+
+    &.md-primary {
+      .md-radio-container:after {
+        background-color: #{'PRIMARY-COLOR'};
+      }
+
+      &.md-checked {
+        .md-radio-container {
+          border-color: #{'PRIMARY-COLOR'};
+        }
+
+        .md-ink-ripple {
+          color: #{'PRIMARY-COLOR'};
+        }
+      }
+    }
+
+    &.md-warn {
+      .md-radio-container:after {
+        background-color: #{'WARN-COLOR'};
+      }
+
+      &.md-checked {
+        .md-radio-container {
+          border-color: #{'WARN-COLOR'};
+        }
+
+        .md-ink-ripple {
+          color: #{'WARN-COLOR'};
+        }
+      }
+    }
   }
 }
