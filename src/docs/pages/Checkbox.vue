@@ -26,7 +26,7 @@
       <md-checkbox id="my-test5" name="my-test5" v-model="checkbox" disabled>Disabled</md-checkbox>
     </div>
 
-    {{ checkbox }}
+    <span>{{ checkbox }}</span>
   </section>
 </template>
 
