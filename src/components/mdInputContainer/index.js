@@ -4,9 +4,9 @@ import mdTextarea from './mdTextarea.vue';
 import mdInputContainerTheme from './mdInputContainer.theme';
 
 export default function install(Vue) {
-  Vue.component('md-input-container', Vue.extend(mdInputContainer));
-  Vue.component('md-input', Vue.extend(mdInput));
-  Vue.component('md-textarea', Vue.extend(mdTextarea));
+  Vue.component('md-input-container', mdInputContainer);
+  Vue.component('md-input', mdInput);
+  Vue.component('md-textarea', mdTextarea);
 
   window.VueMaterial.styles.push(mdInputContainerTheme);
 }
