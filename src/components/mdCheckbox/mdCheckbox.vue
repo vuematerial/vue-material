@@ -1,7 +1,7 @@
 <template>
   <div class="md-checkbox" :class="classes">
     <div class="md-checkbox-container" @click="toggleCheck" v-md-ink-ripple="disabled">
-      <input type="checkbox" :name="name" :id="id" :disabled="disabled" :checked="isChecked">
+      <input type="checkbox" :name="name" :id="id" :disabled="disabled" :value="value">
     </div>
 
     <label :for="id || name" class="md-checkbox-label" v-if="hasSlot">
@@ -18,19 +18,21 @@
       name: String,
       value: [String, Boolean],
       id: String,
-      checked: Boolean,
       disabled: Boolean
     },
     data() {
       return {
         hasSlot: true,
-        isChecked: this.checked
+        isChecked: this.value
       };
     },
     computed: {
+      checked() {
+        return this.value;
+      },
       classes() {
         return {
-          'md-checked': Boolean(this.isChecked),
+          'md-checked': Boolean(this.checked),
           'md-disabled': this.disabled
         };
       }
@@ -40,10 +42,15 @@
         if (!this.disabled) {
           this.isChecked = !this.isChecked;
           this.$emit('change', this.isChecked);
+          this.$emit('input', this.isChecked);
         }
       }
     },
     mounted() {
+      if (this.value) {
+        this.isChecked = true;
+      }
+
       this.hasSlot = this.$el.querySelector('label').innerHTML.trim() !== '';
     }
   };
