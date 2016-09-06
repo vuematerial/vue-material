@@ -42,11 +42,6 @@
       return {
         checkbox: true
       };
-    },
-    methods: {
-      onChange(change) {
-        console.log('Change', change);
-      }
     }
   };
 </script>

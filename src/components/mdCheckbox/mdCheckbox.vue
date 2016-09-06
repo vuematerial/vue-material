@@ -4,7 +4,7 @@
       <input type="checkbox" :name="name" :id="id" :disabled="disabled" :value="value">
     </div>
 
-    <label :for="id || name" class="md-checkbox-label" v-if="hasSlot">
+    <label :for="id || name" class="md-checkbox-label" v-if="$slots.default">
       <slot></slot>
     </label>
   </div>
@@ -22,7 +22,6 @@
     },
     data() {
       return {
-        hasSlot: true,
         checked: this.value
       };
     },
@@ -42,13 +41,6 @@
           this.$emit('input', this.checked);
         }
       }
-    },
-    mounted() {
-      if (this.value) {
-        this.checked = true;
-      }
-
-      this.hasSlot = this.$el.querySelector('label').innerHTML.trim() !== '';
     }
   };
 </script>
