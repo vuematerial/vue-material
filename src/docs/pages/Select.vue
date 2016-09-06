@@ -5,7 +5,7 @@
     <div class="field-group">
       <md-input-container>
         <label for="movie">Movie</label>
-        <md-select :model.sync="movie" :name="movie" id="movie">
+        <md-select v-model="movie" name="movie" id="movie">
           <md-option value="Fight Club">Fight Club</md-option>
           <md-option value="Godfather II">Godfather II</md-option>
           <md-option value="Godfather III">Godfather III</md-option>
@@ -18,7 +18,7 @@
 
       <md-input-container>
         <label for="country">Country</label>
-        <md-select :model.sync="country" name="country" id="country">
+        <md-select v-model="country" name="country" id="country">
           <md-option value="Australia">Australia</md-option>
           <md-option value="Brazil">Brazil</md-option>
           <md-option value="Japan">Japan</md-option>
@@ -28,7 +28,7 @@
 
       <md-input-container>
         <label for="font">Font</label>
-        <md-select :model.sync="font" name="font" id="font">
+        <md-select v-model="font" name="font" id="font">
           <md-option value="Arial">Arial</md-option>
           <md-option value="Calibri">Calibri</md-option>
           <md-option value="Cambria">Cambria</md-option>
@@ -49,7 +49,7 @@
 
       <md-input-container>
         <label for="food">Food</label>
-        <md-select :model.sync="food" name="food" id="food">
+        <md-select v-model="food" name="food" id="food">
           <md-optgroup label="Fruits">
             <md-option value="Apples">Apples</md-option>
             <md-option value="Bananas">Bananas</md-option>
