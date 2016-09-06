@@ -6,7 +6,7 @@
     v-on-clickaway="hideMenu"
     @invalid="onInvalid"
     @valid="onValid">
-    <span class="md-select-value" @click="showMenu">{{ model }}</span>
+    <span class="md-select-value" @click="showMenu">{{ value }}</span>
 
     <div class="md-select-menu" tabindex="-1">
       <div class="md-select-menu-container">
@@ -14,8 +14,8 @@
       </div>
     </div>
 
-    <select v-model="model" :name="name" :id="id" :required="required" tabindex="-1">
-      <option :value="model">{{ model }}</option>
+    <select :name="name" :id="id" :required="required" tabindex="-1">
+      <option :value="value">{{ value }}</option>
     </select>
   </div>
 </template>
@@ -36,14 +36,9 @@
 
   export default {
     props: {
-      model: {
-        type: [String, Array, Boolean],
-        required: true,
-        twoWay: true
-      },
       name: String,
       required: Boolean,
-      value: String,
+      value: [String, Number, Boolean],
       id: String,
       disabled: Boolean
     },
@@ -60,11 +55,6 @@
         };
       }
     },
-    watch: {
-      model(value) {
-        handleModelValue(this.$parent.$el.classList, value);
-      }
-    },
     methods: {
       onInvalid() {
         this.$parent.$el.classList.add(invalidClass);
@@ -78,8 +68,7 @@
       hideMenu() {
         this.active = false;
       },
-      selectOption(option) {
-        this.model = option;
+      selectOption() {
         this.hideMenu();
       }
     },
@@ -89,8 +78,6 @@
 
         throw new Error('You should wrap the md-select in a md-input-container');
       }
-
-      handleModelValue(this.$parent.$el.classList, this.model);
     }
   };
 </script>
