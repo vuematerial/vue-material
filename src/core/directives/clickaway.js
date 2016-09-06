@@ -1,26 +1,18 @@
-import Vue from 'vue';
+let handleClick;
 
 export default {
   acceptStatement: true,
   priority: 700,
-  update(handler) {
-    var self = this;
-
-    this.handler = function(ev) {
-      if (!self.el.contains(ev.target)) {
-        let res = handler(ev);
-
-        ev.targetVM = self.vm;
-        self.vm.$event = ev;
-
-        self.vm.$event = null;
-        return res;
+  update(element, handler) {
+    handleClick = function(event) {
+      if (!element.contains(event.target)) {
+        handler.value(event);
       }
     };
 
-    Vue.util.on(document.documentElement, 'click', this.handler);
+    document.documentElement.addEventListener('click', handleClick);
   },
   unbind() {
-    Vue.util.off(document.documentElement, 'click', this.handler);
+    document.documentElement.removeEventListener(document.documentElement, 'click', handleClick);
   }
 };
