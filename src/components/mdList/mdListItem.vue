@@ -1,5 +1,5 @@
 <template>
-  <li class="md-list-item">
+  <li class="md-list-item" @click="$emit('click')">
     <md-button :title="title" :target="target" :href="href" class="md-list-item-container">
       <slot></slot>
     </md-button>
