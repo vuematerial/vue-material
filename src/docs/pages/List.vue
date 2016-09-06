@@ -535,7 +535,7 @@
           </md-list-item>
         </md-list>
 
-        <md-sidenav v-md-theme="'blue'" class="md-left" :md-visible.sync="sidenavVisible">
+        <md-sidenav v-md-theme="'blue'" class="md-left" ref="sidebar">
           <md-toolbar class="md-account-header">
             <md-list class="md-transparent">
               <md-list-item class="md-avatar-list">
@@ -568,23 +568,23 @@
           </md-toolbar>
 
           <md-list>
-            <md-list-item class="md-primary" @click="toggleSidenav">
+            <md-list-item class="md-primary">
               <md-icon>insert_drive_file</md-icon> <span>My files</span>
             </md-list-item>
 
-            <md-list-item @click="toggleSidenav">
+            <md-list-item>
               <md-icon>people</md-icon> <span>Shared with me</span>
             </md-list-item>
 
-            <md-list-item @click="toggleSidenav">
+            <md-list-item>
               <md-icon>access_time</md-icon> <span>Recent</span>
             </md-list-item>
 
-            <md-list-item @click="toggleSidenav">
+            <md-list-item>
               <md-icon>start</md-icon> <span>Starred</span>
             </md-list-item>
 
-            <md-list-item @click="toggleSidenav">
+            <md-list-item>
               <md-icon>delete</md-icon> <span>Trash</span>
             </md-list-item>
           </md-list>
@@ -660,6 +660,10 @@
     .md-sidenav .md-list-text-container > :nth-child(2) {
       color: rgba(#fff, .54);
     }
+
+    .md-account-header .md-list-item:hover .md-button:hover {
+      background-color: inherit;
+    }
   }
 </style>
 
@@ -672,7 +676,7 @@
     },
     methods: {
       toggleSidenav() {
-        this.sidenavVisible = !this.sidenavVisible;
+        this.$refs.sidebar.toggle();
       }
     }
   };
