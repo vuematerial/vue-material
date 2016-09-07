@@ -24,12 +24,14 @@
         return {
           'md-input-inline': this.mdInline,
           'md-has-password': this.mdHasPassword,
-          'md-has-select': this.mdHasSelect
+          'md-has-select': this.mdHasSelect,
+          'md-has-value': Boolean(this.value)
         };
       }
     },
     data() {
       return {
+        value: null,
         input: false,
         inputType: false,
         showPassword: false,
@@ -54,6 +56,9 @@
 
           this.input.focus();
         }
+      },
+      setValue(value) {
+        this.value = value;
       }
     },
     mounted() {
@@ -66,10 +71,6 @@
       }
 
       this.inputType = this.input.type;
-
-      if (this.$el.querySelector('select')) {
-        this.mdHasSelect = true;
-      }
     }
   };
 </script>

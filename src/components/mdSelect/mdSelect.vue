@@ -3,9 +3,7 @@
     class="md-select"
     :class="classes"
     :tabindex="disabled ? null : '0'"
-    v-on-clickaway="hideMenu"
-    @invalid="onInvalid"
-    @valid="onValid">
+    v-on-clickaway="hideMenu">
     <span class="md-select-value" @click="showMenu">{{ value }}</span>
 
     <div class="md-select-menu" tabindex="-1">
@@ -23,17 +21,6 @@
 <style lang="scss" src="./mdSelect.scss"></style>
 
 <script>
-  let hasValueClass = 'md-has-value';
-  let invalidClass = 'md-input-invalid';
-
-  let handleModelValue = (target, value) => {
-    if (value) {
-      target.add(hasValueClass);
-    } else {
-      target.remove(hasValueClass);
-    }
-  };
-
   export default {
     props: {
       name: String,
@@ -56,20 +43,17 @@
       }
     },
     methods: {
-      onInvalid() {
-        this.$parent.$el.classList.add(invalidClass);
-      },
-      onValid() {
-        this.$parent.$el.classList.remove(invalidClass);
-      },
       showMenu() {
         this.active = true;
       },
       hideMenu() {
         this.active = false;
       },
-      selectOption() {
+      selectOption(value) {
         this.hideMenu();
+        this.$parent.setValue(value);
+        this.$emit('change', value);
+        this.$emit('input', value);
       }
     },
     mounted() {
@@ -78,6 +62,13 @@
 
         throw new Error('You should wrap the md-select in a md-input-container');
       }
+
+      this.$parent.setValue(this.value);
+      this.$parent.hasSelect = true;
+    },
+    beforeDestroy() {
+      this.$parent.setValue(null);
+      this.$parent.hasSelect = false;
     }
   };
 </script>
