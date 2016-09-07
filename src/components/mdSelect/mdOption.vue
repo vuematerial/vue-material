@@ -9,15 +9,7 @@
 <script>
   export default {
     props: {
-      value: {
-        type: [String, Boolean],
-        required: true
-      }
-    },
-    data() {
-      return {
-        parent: null
-      };
+      value: [String, Boolean, Number]
     },
     methods: {
       selectOption() {
@@ -30,8 +22,6 @@
     },
     mounted() {
       let parentClasses = this.$parent.$el.classList;
-
-      this.parent = this.$parent;
 
       if (!parentClasses.contains('md-select') && !parentClasses.contains('md-option-group')) {
         this.$destroy();
