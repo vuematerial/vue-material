@@ -7,9 +7,12 @@ $tooltip-height: 20px;
   padding: 0 8px;
   position: fixed;
   pointer-events: none;
-  opacity: 0;
   background-color: rgba(#616161, .87);
+  border-radius: 2px;
+  opacity: 0;
   transform-origin: center top;
+  transition: $swift-ease-out;
+  transition-delay: 0s;
   color: #fff;
   font-family: $font-roboto;
   font-size: 10px;
@@ -17,63 +20,44 @@ $tooltip-height: 20px;
   text-transform: none;
   white-space: nowrap;
 
-  &.md-tooltip-created {
-    display: none !important;
-  }
-
-  &.md-active-transition {
+  &.md-active {
     opacity: 1;
-    transition: $swift-ease-out;
-    border-radius: 2px;
-
-    &.md-active-leave {
-      transition: $swift-ease-in;
-      transition-delay: 0s !important;
-    }
-  }
-
-  &.md-active-enter,
-  &.md-active-leave {
-    opacity: 0;
+    transition: $swift-ease-in;
   }
 
   &.md-tooltip-top {
     margin-top: -14px;
-    transform: translate(-50%, 0);
+    transform: translate(-50%, 8px);
 
-    &.md-active-enter,
-    &.md-active-leave {
-      transform: translate(-50%, 8px);
+    &.md-active {
+      transform: translate(-50%, 0);
     }
   }
 
   &.md-tooltip-right {
     margin-left: 14px;
-    transform: translate(0, 50%);
+    transform: translate(-8px, 50%);
 
-    &.md-active-enter,
-    &.md-active-leave {
-      transform: translate(-8px, 50%);
+    &.md-active {
+      transform: translate(0, 50%);
     }
   }
 
   &.md-tooltip-bottom {
     margin-top: 14px;
-    transform: translate(-50%, 0);
+    transform: translate(-50%, -8px);
 
-    &.md-active-enter,
-    &.md-active-leave {
-      transform: translate(-50%, -8px);
+    &.md-active {
+      transform: translate(-50%, 0);
     }
   }
 
   &.md-tooltip-left {
     margin-left: -14px;
-    transform: translate(0, 50%);
+    transform: translate(8px, 50%);
 
-    &.md-active-enter,
-    &.md-active-leave {
-      transform: translate(8px, 50%);
+    &.md-active {
+      transform: translate(0, 50%);
     }
   }
 }

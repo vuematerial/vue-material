@@ -1,5 +1,5 @@
 <template>
-  <span class="md-tooltip" :class="classes" :style="style" transition="md-active">
+  <span class="md-tooltip" :class="classes" :style="style">
     <slot></slot>
   </span>
 </template>
@@ -7,11 +7,12 @@
 <style lang="scss" src="./mdTooltip.scss"></style>
 
 <script>
-  let registeredEnterEvent;
-  let registeredLeaveEvent;
+  let onMouseEnter;
+  let onMouseLeave;
+  let targetElement;
 
   let calculateTooltipPosition = (scope) => {
-    let position = scope.parent.getBoundingClientRect();
+    let position = scope.$parent.$el.getBoundingClientRect();
 
     switch (scope.mdDirection) {
       case 'top':
@@ -56,13 +57,13 @@
     },
     data() {
       return {
-        created: true
+        active: false
       };
     },
     computed: {
       classes() {
         return {
-          'md-tooltip-created': this.created,
+          'md-active': this.active,
           'md-tooltip-top': this.mdDirection === 'top',
           'md-tooltip-right': this.mdDirection === 'right',
           'md-tooltip-bottom': this.mdDirection === 'bottom',
@@ -80,34 +81,45 @@
         calculateTooltipPosition(this);
       }
     },
-    beforeMount() {
-      this.parent = this.$el.parentNode;
-    },
     mounted() {
-      calculateTooltipPosition(this);
-      this.created = false;
-      this.$remove();
+      let tooltipElement = this.$el;
+      let targetElement = tooltipElement.parentNode;
 
-      registeredEnterEvent = () => {
-        this.$appendTo(this.parent);
+      onMouseEnter = () => {
+        document.body.appendChild(tooltipElement);
         calculateTooltipPosition(this);
+        this.active = true;
       };
 
-      registeredLeaveEvent = () => {
-        this.$remove();
+      onMouseLeave = () => {
+        let onTransitionEnd = () => {
+          tooltipElement.removeEventListener('transitionend', onTransitionEnd);
+
+          if (tooltipElement.parentNode && !tooltipElement.classList.contains('md-active')) {
+            document.body.removeChild(tooltipElement);
+          }
+        };
+
+        this.active = false;
+        tooltipElement.removeEventListener('transitionend', onTransitionEnd);
+        tooltipElement.addEventListener('transitionend', onTransitionEnd);
       };
 
-      this.parent.addEventListener('mouseenter', registeredEnterEvent);
-      this.parent.addEventListener('focus', registeredEnterEvent);
-      this.parent.addEventListener('mouseleave', registeredLeaveEvent);
-      this.parent.addEventListener('blur', registeredLeaveEvent);
+      this.$el.parentNode.removeChild(this.$el);
+
+      targetElement.addEventListener('mouseenter', onMouseEnter);
+      targetElement.addEventListener('focus', onMouseEnter);
+      targetElement.addEventListener('mouseleave', onMouseLeave);
+      targetElement.addEventListener('blur', onMouseLeave);
     },
     beforeDestroy() {
-      this.$remove();
-      this.parent.removeEventListener('mouseenter', registeredEnterEvent);
-      this.parent.removeEventListener('focus', registeredEnterEvent);
-      this.parent.removeEventListener('mouseleave', registeredLeaveEvent);
-      this.parent.removeEventListener('blur', registeredLeaveEvent);
+      document.body.removeChild(this.$el);
+      this.active = false;
+
+      targetElement.removeEventListener('mouseenter', onMouseEnter);
+      targetElement.removeEventListener('focus', onMouseEnter);
+      targetElement.removeEventListener('mouseleave', onMouseLeave);
+      targetElement.removeEventListener('blur', onMouseLeave);
     }
   };
 </script>
