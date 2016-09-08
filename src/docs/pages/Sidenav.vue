@@ -44,6 +44,14 @@
   </section>
 </template>
 
+<style lang="scss" scoped>
+  .cell-phone {
+    position: relative;
+    overflow: hidden;
+  }
+</style>
+
+
 <script>
   export default {
     data() {
