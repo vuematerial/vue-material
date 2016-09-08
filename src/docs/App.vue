@@ -164,15 +164,22 @@
 
   .main-sidebar.md-sidenav {
     .md-sidenav-content {
+      display: flex;
+      flex-flow: column;
+
       @media (min-width: 1280px) {
         width: $sizebar-size;
-        display: flex;
-        flex-flow: column;
         top: 0;
-        z-index: 2;
         pointer-events: auto;
         transform: translate3d(0, 0, 0);
         box-shadow: $material-shadow-3dp;
+      }
+    }
+
+    .md-backdrop {
+      @media (min-width: 1280px) {
+        opacity: 0;
+        pointer-events: none;
       }
     }
 
@@ -195,6 +202,7 @@
     display: flex;
     flex-flow: column;
     flex: 1;
+    overflow: auto;
     position: relative;
     z-index: 1;
     transition: $swift-ease-out;
