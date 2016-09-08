@@ -67,5 +67,6 @@
   .md-button,
   .md-avatar {
     margin: 24px;
+    overflow: visible;
   }
 </style>
