@@ -3,10 +3,16 @@
     class="md-select"
     :class="classes"
     :tabindex="disabled ? null : '0'"
-    v-on-clickaway="hideMenu">
-    <span class="md-select-value" @click="showMenu">{{ value }}</span>
+    v-on-clickaway="close">
+    <span class="md-select-value" @click="show">{{ value }}</span>
 
-    <div class="md-select-menu" tabindex="-1">
+    <div
+      class="md-select-menu"
+      tabindex="-1"
+      ref="menu"
+      @keydown.esc.prevent="close"
+      @keydown.up.prevent="highlightOption(-1)"
+      @keydown.down.prevent="highlightOption(1)">
       <div class="md-select-menu-container">
         <slot></slot>
       </div>
@@ -31,7 +37,9 @@
     },
     data() {
       return {
-        active: false
+        active: false,
+        highlighted: false,
+        optionsAmount: 0
       };
     },
     computed: {
@@ -43,14 +51,23 @@
       }
     },
     methods: {
-      showMenu() {
+      show() {
+        this.$refs.menu.focus();
         this.active = true;
       },
-      hideMenu() {
+      close() {
+        this.$refs.menu.blur();
         this.active = false;
       },
+      highlightOption(factor) {
+        let factorAbs = Math.abs(factor);
+
+        if (factorAbs >= 0 && factorAbs <= this.optionsAmount) {
+          this.highlighted += factor;
+        }
+      },
       selectOption(value) {
-        this.hideMenu();
+        this.close();
         this.$parent.setValue(value);
         this.$emit('change', value);
         this.$emit('input', value);

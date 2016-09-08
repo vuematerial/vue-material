@@ -11,6 +11,11 @@
     props: {
       value: [String, Boolean, Number]
     },
+    data() {
+      return {
+        index: 0
+      };
+    },
     methods: {
       selectOption() {
         if (this.$parent.$el.classList.contains('md-select')) {
@@ -28,6 +33,9 @@
 
         throw new Error('You should wrap the md-option in a md-select');
       }
+
+      this.$parent.optionsAmount++;
+      this.index = this.$parent.optionsAmount;
     }
   };
 </script>
