@@ -33,7 +33,7 @@ const routes = [
   },
   {
     path: '/bottom-bar',
-    name: 'bottomBar',
+    name: 'bottom-bar',
     component: BottomBar
   },
   {
@@ -43,7 +43,7 @@ const routes = [
   },
   {
     path: '/button-toggle',
-    name: 'buttonToggle',
+    name: 'button-toggle',
     component: ButtonToggle
   },
   {
