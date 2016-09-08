@@ -1,13 +1,13 @@
 <template>
   <div class="md-switch" :class="classes">
-    <div class="md-switch-container" @click="onClick">
-      <!-- <div class="md-switch-thumb" :style="styles" v-md-ink-ripple="disabled" v-touch:panstart="onDragStart" v-touch:panmove="onDrag" v-touch:panend="onDragEnd" v-touch-options:pan="{ direction: 'horizontal' }"> -->
+    <div class="md-switch-container" @click="toggleSwitch">
       <div class="md-switch-thumb" :style="styles" v-md-ink-ripple="disabled">
-        <input type="checkbox" v-model="model" :name="name" :id="id" :disabled="disabled" :value="value">
+        <input type="checkbox" :name="name" :id="id" :disabled="disabled" :value="value">
+        <button class="md-switch-holder"></button>
       </div>
     </div>
 
-    <label :for="id || name" class="md-switch-label" v-if="hasSlot">
+    <label :for="id || name" class="md-switch-label" v-if="$slots.default">
       <slot></slot>
     </label>
   </div>
@@ -16,35 +16,27 @@
 <style lang="scss" src="./mdSwitch.scss"></style>
 
 <script>
-  let dragFrame;
   let fullThreshold = 75;
   let initialThreshold = '-1px';
 
   export default {
     props: {
-      model: {
-        type: Boolean,
-        required: true,
-        twoWay: true
-      },
       name: String,
+      value: Boolean,
       id: String,
       disabled: Boolean
     },
     data() {
       return {
-        hasSlot: true,
         leftPos: initialThreshold,
-        percent: 0,
-        dragging: false
+        checked: this.value
       };
     },
     computed: {
       classes() {
         return {
-          'md-checked': Boolean(this.model),
-          'md-disabled': this.disabled,
-          'md-dragging': this.dragging
+          'md-checked': Boolean(this.value),
+          'md-disabled': this.disabled
         };
       },
       styles() {
@@ -54,56 +46,21 @@
       }
     },
     watch: {
-      model() {
-        this.leftPos = this.model ? fullThreshold + '%' : initialThreshold;
+      checked() {
+        this.leftPos = this.value ? fullThreshold + '%' : initialThreshold;
       }
     },
     methods: {
-      onClick() {
-        if (!this.disabled && !this.dragging) {
-          this.model = !this.model;
-        }
-      },
-      onDragStart() {
+      toggleSwitch() {
         if (!this.disabled) {
-          this.dragging = true;
-        }
-      },
-      onDrag(event) {
-        if (!this.disabled) {
-          dragFrame = requestAnimationFrame(() => {
-            let percent = 0;
-
-            if (this.model) {
-              percent = 20;
-            }
-
-            percent = Math.round((event.deltaX + percent) * 100 / 34);
-
-            if (percent >= 0 && percent <= fullThreshold) {
-              this.percent = percent;
-              this.leftPos = percent + '%';
-            }
-          });
-        }
-      },
-      onDragEnd() {
-        if (!this.disabled) {
-          setTimeout(() => {
-            this.dragging = false;
-          }, 50);
-
-          this.model = this.percent >= fullThreshold / 2;
-          this.leftPos = this.model ? fullThreshold + '%' : initialThreshold;
+          this.checked = !this.checked;
+          this.$emit('change', this.checked);
+          this.$emit('input', this.checked);
         }
       }
     },
     mounted() {
-      this.hasSlot = this.$el.querySelector('label').innerHTML.trim() !== '';
-      this.leftPos = this.model ? fullThreshold + '%' : initialThreshold;
-    },
-    destroyed() {
-      cancelAnimationFrame(dragFrame);
+      this.leftPos = this.value ? fullThreshold + '%' : initialThreshold;
     }
   };
 </script>
