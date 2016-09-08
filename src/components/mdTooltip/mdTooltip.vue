@@ -113,13 +113,18 @@
       targetElement.addEventListener('blur', onMouseLeave);
     },
     beforeDestroy() {
-      document.body.removeChild(this.$el);
       this.active = false;
 
-      targetElement.removeEventListener('mouseenter', onMouseEnter);
-      targetElement.removeEventListener('focus', onMouseEnter);
-      targetElement.removeEventListener('mouseleave', onMouseLeave);
-      targetElement.removeEventListener('blur', onMouseLeave);
+      if (this.$el.parentNode) {
+        document.body.removeChild(this.$el);
+      }
+
+      if (targetElement) {
+        targetElement.removeEventListener('mouseenter', onMouseEnter);
+        targetElement.removeEventListener('focus', onMouseEnter);
+        targetElement.removeEventListener('mouseleave', onMouseLeave);
+        targetElement.removeEventListener('blur', onMouseLeave);
+      }
     }
   };
 </script>
