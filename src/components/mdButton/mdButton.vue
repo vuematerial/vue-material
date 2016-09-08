@@ -2,6 +2,11 @@
 
 <script>
   export default {
+    props: {
+      href: String,
+      type: String,
+      disabled: Boolean
+    },
     render(createElement) {
       let isDisabled = Boolean(this.disabled);
       let hasLink = Boolean(this.href);
@@ -32,11 +37,6 @@
       }
 
       return createElement(tag, options, this.$slots.default);
-    },
-    props: {
-      href: String,
-      type: String,
-      disabled: Boolean
     }
   };
 </script>
