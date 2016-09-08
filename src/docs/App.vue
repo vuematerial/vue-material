@@ -2,7 +2,7 @@
   <div class="container">
     <md-sidenav class="main-sidebar md-left md-fixed" ref="main-sidebar">
       <md-toolbar v-md-theme="'white'">
-        <a href="/" class="md-title">Vue Material</a>
+        <a href="/#" class="md-title">Vue Material</a>
       </md-toolbar>
 
       <md-list>
