@@ -70,7 +70,7 @@
       </div>
     </div>
 
-    <div v-md-theme="'bottom-bar'">
+    <div v-md-theme="'teal'">
       <div class="cell-phone scrollable">
         <md-toolbar>
           <h2 class="md-title">Normal - Triple Line</h2>

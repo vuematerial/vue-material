@@ -19,7 +19,7 @@
     </div>
 
     <div v-md-theme="'teal'">
-      <md-checkbox id="my-test4" name="my-test4">Really simple</md-checkbox>
+      <md-checkbox id="my-test4" name="my-test4" v-model="checkbox2">Really simple</md-checkbox>
     </div>
 
     <div v-md-theme="'teal'">
@@ -40,7 +40,8 @@
   export default {
     data() {
       return {
-        checkbox: true
+        checkbox: true,
+        checkbox2: false
       };
     }
   };
