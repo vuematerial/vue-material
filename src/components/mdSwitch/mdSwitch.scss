@@ -25,7 +25,6 @@ $switch-ripple-size: 48px;
       position: absolute;
       top: 50%;
       left: 0;
-      cursor: grab;
       background-color: #fafafa;
       border-radius: 50%;
       box-shadow: $material-shadow-1dp;
@@ -52,6 +51,25 @@ $switch-ripple-size: 48px;
         right: 0 !important;
         bottom: 0 !important;
         left: 0 !important;
+      }
+    }
+
+    .md-switch-holder {
+      width: 40px;
+      height: 40px;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 2;
+      //cursor: -webkit-grab;
+      background: none;
+      border: none;
+      transform: translate(-50%, -50%);
+
+      &:focus {
+        outline: none;
       }
     }
   }
