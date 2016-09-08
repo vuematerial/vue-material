@@ -1,6 +1,6 @@
 <template>
   <section>
-    <h2 class="md-title">Sidenav</h2>
+    <h2 class="md-title">Subheader</h2>
 
     <div v-md-theme="'blue'">
       <div class="cell-phone scrollable">
