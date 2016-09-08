@@ -10,6 +10,14 @@
     }
 
     .md-list-item {
+      .router-link-active.md-list-item-container {
+        color: #{'PRIMARY-COLOR'};
+
+        > .md-icon {
+          color: #{'PRIMARY-COLOR'};
+        }
+      }
+
       &.md-primary {
         .md-list-item-container {
           color: #{'PRIMARY-COLOR'};
