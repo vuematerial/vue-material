@@ -2,29 +2,85 @@
   <div class="container">
     <md-sidenav class="main-sidebar md-left md-fixed" ref="main-sidebar">
       <md-toolbar v-md-theme="'white'">
-        <a href="#/" class="md-title">Vue Material</a>
+        <router-link to="/" class="md-title">Vue Material</router-link>
       </md-toolbar>
 
       <md-list>
-        <md-list-item>Avatar</md-list-item>
-        <md-list-item>Bottom Bar</md-list-item>
-        <md-list-item>Button</md-list-item>
-        <md-list-item>Button Toggle</md-list-item>
-        <md-list-item>Checkbox</md-list-item>
-        <md-list-item>Divider</md-list-item>
-        <md-list-item>Icon</md-list-item>
-        <md-list-item>Input</md-list-item>
-        <md-list-item>List</md-list-item>
-        <md-list-item>Radio</md-list-item>
-        <md-list-item>Ripple</md-list-item>
-        <md-list-item>Select</md-list-item>
-        <md-list-item>Sidenav</md-list-item>
-        <md-list-item>Subheader</md-list-item>
-        <md-list-item>Switch</md-list-item>
-        <md-list-item>Theme</md-list-item>
-        <md-list-item>Toolbar</md-list-item>
-        <md-list-item>Tooltip</md-list-item>
-        <md-list-item>Whiteframe</md-list-item>
+        <md-list-item>
+          <router-link to="/avatar">Avatar</router-link>
+        </md-list-item>
+
+        <md-list-item>
+          <router-link to="/bottom-bar">Bottom Bar</router-link>
+        </md-list-item>
+
+        <md-list-item>
+          <router-link to="/button">Button</router-link>
+        </md-list-item>
+
+        <md-list-item>
+          <router-link to="/button-toggle">Button Toggle</router-link>
+        </md-list-item>
+
+        <md-list-item>
+          <router-link to="/checkbox">Checkbox</router-link>
+        </md-list-item>
+
+        <md-list-item>
+          <router-link to="/divider">Divider</router-link>
+        </md-list-item>
+
+        <md-list-item>
+          <router-link to="/icon">Icon</router-link>
+        </md-list-item>
+
+        <md-list-item>
+          <router-link to="/input">Input</router-link>
+        </md-list-item>
+
+        <md-list-item>
+          <router-link to="/list">List</router-link>
+        </md-list-item>
+
+        <md-list-item>
+          <router-link to="/radio">Radio</router-link>
+        </md-list-item>
+
+        <md-list-item>
+          <router-link to="/ripple">Ripple</router-link>
+        </md-list-item>
+
+        <md-list-item>
+          <router-link to="/select">Select</router-link>
+        </md-list-item>
+
+        <md-list-item>
+          <router-link to="/sidenav">Sidenav</router-link>
+        </md-list-item>
+
+        <md-list-item>
+          <router-link to="/subheader">Subheader</router-link>
+        </md-list-item>
+
+        <md-list-item>
+          <router-link to="/switch">Switch</router-link>
+        </md-list-item>
+
+        <md-list-item>
+          <router-link to="/theme">Theme</router-link>
+        </md-list-item>
+
+        <md-list-item>
+          <router-link to="/toolbar">Toolbar</router-link>
+        </md-list-item>
+
+        <md-list-item>
+          <router-link to="/tooltip">Tooltip</router-link>
+        </md-list-item>
+
+        <md-list-item>
+          <router-link to="/whiteframe">Whiteframe</router-link>
+        </md-list-item>
       </md-list>
     </md-sidenav>
 
