@@ -2,8 +2,7 @@
   <div
     class="md-select"
     :class="classes"
-    :tabindex="disabled ? null : '0'"
-    v-on-clickaway="close">
+    :tabindex="disabled ? null : '0'">
     <span class="md-select-value" @click="show">{{ value }}</span>
 
     <div
@@ -11,8 +10,8 @@
       tabindex="-1"
       ref="menu"
       @keydown.esc.prevent="close"
-      @keydown.up.prevent="highlightOption(-1)"
-      @keydown.down.prevent="highlightOption(1)">
+      @keydown.up.prevent="highlightOption(highlighted - 1)"
+      @keydown.down.prevent="highlightOption(highlighted + 1)">
       <div class="md-select-menu-container">
         <slot></slot>
       </div>
@@ -54,16 +53,23 @@
       show() {
         this.$refs.menu.focus();
         this.active = true;
+        document.addEventListener('click', this.closeOnOffClick);
       },
       close() {
-        this.$refs.menu.blur();
-        this.active = false;
+        if (this.active) {
+          this.$refs.menu.blur();
+          this.active = false;
+          document.removeEventListener('click', this.closeOnOffClick);
+        }
+      },
+      closeOnOffClick(event) {
+        if (!this.$el.contains(event.target)) {
+          this.close();
+        }
       },
       highlightOption(factor) {
-        let factorAbs = Math.abs(factor);
-
-        if (factorAbs >= 0 && factorAbs <= this.optionsAmount) {
-          this.highlighted += factor;
+        if (factor >= 1 && factor <= this.optionsAmount) {
+          this.highlighted = factor;
         }
       },
       selectOption(value) {
@@ -82,10 +88,13 @@
 
       this.$parent.setValue(this.value);
       this.$parent.hasSelect = true;
+
     },
     beforeDestroy() {
       this.$parent.setValue(null);
       this.$parent.hasSelect = false;
+
+      document.removeEventListener('click', this.closeOnOffClick);
     }
   };
 </script>

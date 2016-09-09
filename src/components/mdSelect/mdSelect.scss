@@ -102,6 +102,15 @@
     overflow-x: hidden;
     overflow-y: auto;
   }
+
+  .md-subheader {
+    color: rgba(#757575, .87);
+    text-transform: uppercase;
+
+    &:first-child {
+      margin-top: -8px;
+    }
+  }
 }
 
 .md-option {
@@ -114,13 +123,14 @@
   overflow: hidden;
   cursor: pointer;
   position: relative;
+  transform: translate3D(0, 0, 0);
   transition: $swift-ease-out;
   font-size: 16px;
   line-height: 1.2em;
   text-overflow: ellipsis;
   white-space: nowrap;
 
-  &:hover {
+  &.md-highlighted {
     background-color: rgba(#000, .12);
   }
 
@@ -129,17 +139,4 @@
     text-overflow: ellipsis;
     white-space: nowrap;
   }
-}
-
-.md-option-group:first-child {
-  margin-top: -8px;
-}
-
-.md-option-group-label {
-  padding: 16px;
-  display: block;
-  color: rgba(#757575, .87);
-  font-size: 14px;
-  font-weight: 500;
-  text-transform: uppercase;
 }

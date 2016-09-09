@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "autosize": "^3.0.17",
+    "element.scrollintoviewifneeded-polyfill": "^1.0.1",
     "scopedQuerySelectorShim": "github:lazd/scopedQuerySelectorShim"
   },
   "devDependencies": {
