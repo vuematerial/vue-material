@@ -11,9 +11,6 @@
       let isDisabled = Boolean(this.disabled);
       let hasLink = Boolean(this.href);
       let tag = 'button';
-      let emitClick = () => {
-        this.$emit('click');
-      };
       let options = {
         staticClass: 'md-button',
         attrs: {
@@ -26,7 +23,9 @@
           expression: 'disabled'
         }],
         on: {
-          click: emitClick
+          click: () => {
+            this.$emit('click');
+          }
         }
       };
 
