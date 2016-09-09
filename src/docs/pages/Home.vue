@@ -1,11 +1,5 @@
 <template>
-  <section>
+  <div class="page-content">
     <h1>Home</h1>
-  </section>
+  </div>
 </template>
-
-<script>
-  export default {
-
-  };
-</script>

@@ -22,7 +22,7 @@ import Whiteframe from './pages/Whiteframe';
 
 const routes = [
   {
-    path: '',
+    path: '/',
     name: 'home',
     component: Home
   },
