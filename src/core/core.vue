@@ -1,13 +1,9 @@
 <script>
-  import Vue from 'vue';
   import CoreTheme from './stylesheets/core.theme';
-  import clickaway from './directives/clickaway';
 
   window.VueMaterial = {
     styles: [CoreTheme]
   };
-
-  Vue.directive('onClickaway', clickaway);
 </script>
 
 <style lang="sass">

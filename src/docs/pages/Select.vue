@@ -50,22 +50,19 @@
       <md-input-container>
         <label for="food">Food</label>
         <md-select name="food" id="food" v-model="food">
-          <md-optgroup label="Fruits">
-            <md-option value="Apples">Apples</md-option>
-            <md-option value="Bananas">Bananas</md-option>
-            <md-option value="Peaches">Peaches</md-option>
-            <md-option value="Oranges">Oranges</md-option>
-          </md-optgroup>
+          <md-subheader>Fruits</md-subheader>
+          <md-option value="Apples">Apples</md-option>
+          <md-option value="Bananas">Bananas</md-option>
+          <md-option value="Peaches">Peaches</md-option>
+          <md-option value="Oranges">Oranges</md-option>
 
-          <md-optgroup label="Vegetables">
-            <md-option value="Carrots">Carrots</md-option>
-            <md-option value="Cucumbers">Cucumbers</md-option>
-          </md-optgroup>
+          <md-subheader>Vegetables</md-subheader>
+          <md-option value="Carrots">Carrots</md-option>
+          <md-option value="Cucumbers">Cucumbers</md-option>
 
-          <md-optgroup label="Baked Goods">
-            <md-option value="Apple Pie">Apple Pie</md-option>
-            <md-option value="Chocolate Cake">Chocolate Cake</md-option>
-          </md-optgroup>
+          <md-subheader>Baked Goods</md-subheader>
+          <md-option value="Apple Pie">Apple Pie</md-option>
+          <md-option value="Chocolate Cake">Chocolate Cake</md-option>
         </md-select>
       </md-input-container>
     </div>
