@@ -17,11 +17,3 @@
     </md-avatar>
   </section>
 </template>
-
-<script>
-  export default {
-    ready() {
-
-    }
-  };
-</script>

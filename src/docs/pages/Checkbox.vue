@@ -25,8 +25,6 @@
     <div v-md-theme="'teal'">
       <md-checkbox id="my-test5" name="my-test5" v-model="checkbox" disabled>Disabled</md-checkbox>
     </div>
-
-    <span>{{ checkbox }}</span>
   </section>
 </template>
 

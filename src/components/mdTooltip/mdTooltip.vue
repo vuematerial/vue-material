@@ -12,7 +12,7 @@
   let targetElement;
 
   let calculateTooltipPosition = (scope) => {
-    let position = scope.$parent.$el.getBoundingClientRect();
+    let position = scope.targetElement.getBoundingClientRect();
 
     switch (scope.mdDirection) {
       case 'top':
@@ -85,6 +85,8 @@
       let tooltipElement = this.$el;
       let targetElement = tooltipElement.parentNode;
 
+      this.targetElement = targetElement;
+
       onMouseEnter = () => {
         document.body.appendChild(tooltipElement);
         calculateTooltipPosition(this);
@@ -104,6 +106,14 @@
         tooltipElement.removeEventListener('transitionend', onTransitionEnd);
         tooltipElement.addEventListener('transitionend', onTransitionEnd);
       };
+
+      if (this.$parent.$el.classList === targetElement.classList) {
+        targetElement.classList.forEach((cssClass) => {
+          if (cssClass.indexOf('md-') >= 0 && cssClass !== 'md-active') {
+            tooltipElement.classList.add(cssClass + '-tooltip');
+          }
+        });
+      }
 
       this.$el.parentNode.removeChild(this.$el);
 
