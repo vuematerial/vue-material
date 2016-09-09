@@ -7,7 +7,7 @@
         <md-icon>format_bold</md-icon>
       </md-button>
 
-      <md-button class="md-icon-button">
+      <md-button class="md-icon-button" disabled>
         <md-icon>format_italic</md-icon>
       </md-button>
 
