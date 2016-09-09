@@ -568,23 +568,23 @@
           </md-toolbar>
 
           <md-list>
-            <md-list-item class="md-primary">
+            <md-list-item @click="toggleSidenav" class="md-primary">
               <md-icon>insert_drive_file</md-icon> <span>My files</span>
             </md-list-item>
 
-            <md-list-item>
+            <md-list-item @click="toggleSidenav">
               <md-icon>people</md-icon> <span>Shared with me</span>
             </md-list-item>
 
-            <md-list-item>
+            <md-list-item @click="toggleSidenav">
               <md-icon>access_time</md-icon> <span>Recent</span>
             </md-list-item>
 
-            <md-list-item>
+            <md-list-item @click="toggleSidenav">
               <md-icon>start</md-icon> <span>Starred</span>
             </md-list-item>
 
-            <md-list-item>
+            <md-list-item @click="toggleSidenav">
               <md-icon>delete</md-icon> <span>Trash</span>
             </md-list-item>
           </md-list>
