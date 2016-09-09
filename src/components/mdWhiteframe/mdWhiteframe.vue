@@ -9,20 +9,26 @@
 <script>
   export default {
     props: {
-      mdElevation: {
-        type: [String, Number],
-        required: true
-      }
+      mdElevation: [String, Number]
+    },
+    data() {
+      return {
+        elevation: this.mdElevation || 1
+      };
     },
     computed: {
       classes() {
-        let numberedElevation = parseInt(this.mdElevation, 10);
+        let numberedElevation = parseInt(this.elevation, 10);
+        let elevationClass = 'md-whiteframe-';
 
         if (!isNaN(numberedElevation) && typeof numberedElevation === 'number') {
-          return `md-whiteframe-${ numberedElevation }dp`;
-        } else if (this.mdElevation.indexOf('dp') > -1) {
-          return `md-whiteframe-${ this.mdElevation }`;
+          elevationClass += numberedElevation;
+          elevationClass += 'dp';
+        } else if (this.elevation.indexOf('dp') > -1) {
+          elevationClass += this.elevation;
         }
+
+        return elevationClass;
       }
     }
   };
