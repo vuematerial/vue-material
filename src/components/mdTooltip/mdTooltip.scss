@@ -12,6 +12,7 @@ $tooltip-height: 20px;
   opacity: 0;
   transform-origin: center top;
   transition: $swift-ease-out;
+  transition-duration: .3s;
   transition-delay: 0s;
   color: #fff;
   font-family: $font-roboto;
@@ -23,6 +24,7 @@ $tooltip-height: 20px;
   &.md-active {
     opacity: 1;
     transition: $swift-ease-in;
+    transition-duration: .3s;
   }
 
   &.md-tooltip-top {
