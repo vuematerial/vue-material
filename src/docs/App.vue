@@ -84,25 +84,19 @@
       </md-list>
     </md-sidenav>
 
-    <div class="page-content">
-      <md-whiteframe class="main-header" md-elevation="2">
-        <md-toolbar>
-          <md-button class="md-icon-button" @click="toggleSidenav">
-            <md-icon>menu</md-icon>
-          </md-button>
+    <md-toolbar class="main-header">
+      <md-button class="md-icon-button" @click="toggleSidenav">
+        <md-icon>menu</md-icon>
+      </md-button>
 
-          <div class="md-title">
-            <span class="logo-vue-material">Vue Material</span>
-            <span> – </span>
-            <span class="page-title">Home</span>
-          </div>
-        </md-toolbar>
-      </md-whiteframe>
-
-      <div class="main-content">
-        <router-view></router-view>
+      <div class="md-title">
+        <span class="logo-vue-material">Vue Material</span>
+        <span> – </span>
+        <span class="page-title">{{ pageTitle }}</span>
       </div>
-    </div>
+    </md-toolbar>
+
+    <router-view></router-view>
   </div>
 </template>
 
@@ -125,9 +119,14 @@
     display: flex;
     flex-flow: column nowrap;
     flex: 1;
+    transition: $swift-ease-out;
+
+    @media (min-width: 1280px) {
+      padding-left: $sizebar-size;
+    }
   }
 
-  .md-theme-default .md-toolbar:not(.md-theme-white) {
+  .md-theme-default .md-toolbar:not(.md-theme-white):not(.md-theme-grey) {
     color: #fff;
   }
 
@@ -205,11 +204,12 @@
     overflow: auto;
     position: relative;
     z-index: 1;
-    transition: $swift-ease-out;
+  }
 
-    @media (min-width: 1280px) {
-      padding-left: $sizebar-size;
-    }
+  .page-content-wrapper {
+    display: flex;
+    flex-flow: column;
+    flex: 1;
   }
 
   .main-content {
@@ -221,6 +221,11 @@
 
 <script>
   export default {
+    data() {
+      return {
+        pageTitle: ''
+      };
+    },
     methods: {
       toggleSidenav() {
         this.$refs['main-sidebar'].toggle();

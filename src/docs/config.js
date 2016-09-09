@@ -12,6 +12,13 @@ Vue.use(VueMaterial.MdTheme, {
     primary: 'white',
     accent: 'indigo'
   },
+  grey: {
+    primary: {
+      color: 'grey',
+      hue: 300
+    },
+    accent: 'indigo'
+  },
   indigo: {
     primary: 'indigo',
     accent: 'blue'
