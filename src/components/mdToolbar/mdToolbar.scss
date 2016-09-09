@@ -7,6 +7,7 @@
   align-items: center;
   align-content: center;
   flex-flow: row wrap;
+  position: relative;
 
   &.md-dense {
     min-height: 48px;
@@ -26,7 +27,7 @@
 
     .md-toolbar-container:nth-child(2) {
       .md-title:first-child {
-        margin-left: 64px;
+        margin-left: 56px;
       }
     }
   }
@@ -84,6 +85,12 @@
 
     + .md-button {
       margin-left: 0;
+    }
+  }
+
+  .md-button:hover {
+    &:not([disabled]):not(.md-raised):not(.md-icon-button):not(.md-fab) {
+      background-color: rgba(#fff, .1);
     }
   }
 
