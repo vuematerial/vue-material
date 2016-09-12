@@ -1,0 +1,42 @@
+.THEME_NAME {
+  .md-tabs,
+  &.md-tabs {
+    .md-tabs-navigation {
+      background-color: #{'PRIMARY-COLOR'};
+    }
+
+    .md-tab-indicator {
+      background-color: #{'ACCENT-COLOR'};
+    }
+
+    &.md-accent {
+      .md-tabs-navigation {
+        background-color: #{'ACCENT-COLOR'};
+      }
+
+      .md-tab-indicator {
+        background-color: #{'BACKGROUND-COLOR'};
+      }
+    }
+
+    &.md-warn {
+      .md-tabs-navigation {
+        background-color: #{'WARN-COLOR'};
+      }
+
+      .md-tab-indicator {
+        background-color: #{'BACKGROUND-COLOR'};
+      }
+    }
+
+    &.md-transparent {
+      .md-tabs-navigation {
+        background-color: transparent;
+      }
+
+      .md-tab-indicator {
+        background-color: #{'BACKGROUND-COLOR'};
+      }
+    }
+  }
+}

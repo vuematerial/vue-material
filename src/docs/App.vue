@@ -67,6 +67,10 @@
         </md-list-item>
 
         <md-list-item>
+          <router-link to="/tabs">Tabs</router-link>
+        </md-list-item>
+
+        <md-list-item>
           <router-link to="/theme">Theme</router-link>
         </md-list-item>
 
