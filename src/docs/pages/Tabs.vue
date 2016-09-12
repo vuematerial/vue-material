@@ -130,6 +130,10 @@
 
     > .md-whiteframe > .md-tabs-navigation {
       padding-left: 52px;
+
+      .md-tab-indicator {
+        background-color: #fff;
+      }
     }
 
     > .md-tabs-content {
@@ -139,6 +143,7 @@
     .cell-phone {
       width: 100%;
       max-width: 412px;
+      min-height: 0;
       height: auto;
       margin-right: 16px;
       position: relative;
