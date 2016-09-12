@@ -13,7 +13,7 @@
     },
     data() {
       return {
-        elevation: this.mdElevation || 1
+        elevation: this.mdElevation === 0 ? 0 : this.mdElevation || 1
       };
     },
     computed: {

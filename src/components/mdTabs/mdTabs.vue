@@ -1,19 +1,21 @@
 <template>
   <div class="md-tabs" :class="tabClasses">
-    <div class="md-tabs-navigation">
-      <button
-        v-for="(header, index) in tabs"
-        type="button"
-        class="md-tab-header"
-        :class="{ 'md-active': activeTab === index }"
-        @click="changeTab(index)"
-        v-md-ink-ripple
-        ref="tabHeader">
-        <md-icon v-if="header.icon">{{ header.icon }}</md-icon>
-        <span v-if="header.label">{{ header.label }}</span>
-      </button>
-      <span class="md-tab-indicator" ref="indicator"></span>
-    </div>
+    <md-whiteframe :md-elevation="mdElevation || 0">
+      <div class="md-tabs-navigation">
+        <button
+          v-for="(header, index) in tabs"
+          type="button"
+          class="md-tab-header"
+          :class="{ 'md-active': activeTab === index }"
+          @click="changeTab(index)"
+          v-md-ink-ripple
+          ref="tabHeader">
+          <md-icon v-if="header.icon">{{ header.icon }}</md-icon>
+          <span v-if="header.label">{{ header.label }}</span>
+        </button>
+        <span class="md-tab-indicator" ref="indicator"></span>
+      </div>
+    </md-whiteframe>
 
     <div class="md-tabs-content" ref="tabContent">
       <div class="md-tabs-wrapper" ref="tabWrapper">
@@ -31,7 +33,8 @@
   export default {
     props: {
       mdFixed: Boolean,
-      mdCentered: Boolean
+      mdCentered: Boolean,
+      mdElevation: [String, Number]
     },
     data() {
       return {
