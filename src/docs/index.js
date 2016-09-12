@@ -6,6 +6,7 @@ import VueRouter from 'vue-router';
 import './config.js';
 import routes from './routes.js';
 import App from './App';
+import Demo from './components/demo';
 
 
 Vue.use(VueRouter);
@@ -16,6 +17,8 @@ let router = new VueRouter({
 });
 
 let Docs = Vue.component('app', App);
+
+Vue.component('demo', Demo);
 
 Docs = new Docs({
   el: '#app',
