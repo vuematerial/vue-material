@@ -8,7 +8,7 @@
       </md-toolbar>
     </md-whiteframe>
 
-    <div class="main-content">
+    <div class="main-content" v-md-theme="'indigo'">
       <h2 class="title">Buttons</h2>
 
       <md-button @click="disablePrimaryButton">Button</md-button>
