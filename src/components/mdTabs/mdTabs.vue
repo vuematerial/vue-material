@@ -99,12 +99,26 @@
         }
 
         this.calculateTabPos(this.tabs[this.tabs.length - 1].ref, this.tabs.length - 1);
+      },
+      recalculateTabPos() {
+        window.requestAnimationFrame(() => {
+          this.calculateIndicatorPos();
+
+          this.tabs.forEach((tab, index) => {
+            this.calculateTabPos(this.tabs[index].ref, index);
+          });
+        });
       }
     },
     mounted() {
       if (this.activeTab === 0) {
         this.changeTab(0);
       }
+
+      window.addEventListener('resize', this.recalculateTabPos);
+    },
+    beforeDestroy() {
+      window.removeEventListener('resize', this.recalculateTabPos);
     }
   };
 </script>
