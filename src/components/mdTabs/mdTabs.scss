@@ -5,6 +5,8 @@ $tab-max-width: 264px;
 
 .md-tabs {
   width: 100%;
+  display: flex;
+  flex-flow: column;
   position: relative;
 
   &.md-has-icon.md-has-label {
@@ -31,6 +33,7 @@ $tab-max-width: 264px;
 
   .md-tabs-navigation {
     height: 48px;
+    min-height: 48px;
     position: relative;
     z-index: 1;
     display: flex;
@@ -81,6 +84,7 @@ $tab-max-width: 264px;
   .md-tabs-content {
     width: 100%;
     height: 0;
+    flex: 1;
     position: relative;
     overflow: hidden;
     transition: height ($swift-ease-in-out-duration * .8) $swift-ease-out-timing-function;
