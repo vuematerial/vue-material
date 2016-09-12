@@ -72,6 +72,10 @@
   .md-whiteframe-1dp {
     margin-bottom: 16px;
   }
+
+  section {
+    padding: 16px;
+  }
 </style>
 
 <script>
