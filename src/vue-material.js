@@ -14,6 +14,7 @@ import MdSelect from './components/mdSelect';
 import MdSidenav from './components/mdSidenav';
 import MdSubheader from './components/mdSubheader';
 import mdSwitch from './components/mdSwitch';
+import mdTabs from './components/mdTabs';
 import MdToolbar from './components/mdToolbar';
 import MdTooltip from './components/mdTooltip';
 import MdWhiteframe from './components/mdWhiteframe';
@@ -35,6 +36,7 @@ let options = {
   MdSidenav,
   MdSubheader,
   mdSwitch,
+  mdTabs,
   MdToolbar,
   MdTooltip,
   MdWhiteframe,

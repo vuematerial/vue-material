@@ -15,6 +15,7 @@ import Select from './pages/Select';
 import Sidenav from './pages/Sidenav';
 import Subheader from './pages/Subheader';
 import Switch from './pages/Switch';
+import Tabs from './pages/Tabs';
 import Theme from './pages/Theme';
 import Toolbar from './pages/Toolbar';
 import Tooltip from './pages/Tooltip';
@@ -100,6 +101,11 @@ const routes = [
     path: '/subheader',
     name: 'subheader',
     component: Subheader
+  },
+  {
+    path: '/tabs',
+    name: 'tabs',
+    component: Tabs
   },
   {
     path: '/theme',

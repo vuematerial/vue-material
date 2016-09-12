@@ -68,6 +68,12 @@
   </div>
 </template>
 
+<style lang="scss" scoped>
+  .md-whiteframe-1dp {
+    margin-bottom: 16px;
+  }
+</style>
+
 <script>
   export default {
     mounted() {
