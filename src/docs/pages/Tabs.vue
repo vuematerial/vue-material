@@ -115,8 +115,11 @@
     </div>
 
     <div slot="api">
-      <h2>Code</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt debitis magni dolorem praesentium labore velit repudiandae nostrum culpa quod assumenda. Dolores ipsum, explicabo quasi eius architecto esse ratione natus iure.</p>
+      <p>
+      To use Tabs you must wrap all <code>&lt;md-tab&gt;</code> in a <code>&lt;md-tabs&gt;</code> as a direct parent.
+      The <code>&lt;md-tabs&gt;</code> can accept some parameters to modify his styles, like <code>md-fixed</code> and <code>md-centered</code> for example.
+      Each single tab accept a <code>md-label</code> and/or <code>md-icon</code>. You can set the active tab by setting a parameter <code>md-active</code>.
+      </p>
     </div>
   </demo>
 </template>

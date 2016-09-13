@@ -24,7 +24,7 @@
       </div>
     </md-toolbar>
 
-    <md-toolbar>
+    <md-toolbar class="md-accent">
       <md-button class="md-icon-button">
         <md-icon>menu</md-icon>
       </md-button>
@@ -36,7 +36,7 @@
       </md-button>
     </md-toolbar>
 
-    <md-toolbar>
+    <md-toolbar v-md-theme="'orange'">
       <md-button class="md-icon-button">
         <md-icon>menu</md-icon>
       </md-button>
@@ -47,7 +47,7 @@
       <md-button>Remove</md-button>
     </md-toolbar>
 
-    <md-toolbar>
+    <md-toolbar v-md-theme="'teal'">
       <md-button class="md-icon-button">
         <md-icon>menu</md-icon>
       </md-button>
@@ -58,7 +58,7 @@
       <md-button class="md-raised md-warn">Remove</md-button>
     </md-toolbar>
 
-    <md-toolbar class="md-extended">
+    <md-toolbar class="md-extended" v-md-theme="'green'">
       <div class="md-toolbar-container">
         <md-button class="md-icon-button">
           <md-icon>menu</md-icon>
