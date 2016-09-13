@@ -3,13 +3,18 @@
     class="md-select"
     :class="classes"
     :tabindex="disabled ? null : '0'">
-    <span class="md-select-value" @click="show">{{ value }}</span>
+    <span
+      class="md-select-value"
+      @click="open"
+      @keydown.enter.prevent="open"
+      ref="value">{{ value }}</span>
 
     <div
       class="md-select-menu"
       tabindex="-1"
       ref="menu"
       @keydown.esc.prevent="close"
+      @keydown.tab.prevent="close"
       @keydown.up.prevent="highlightOption(highlighted - 1)"
       @keydown.down.prevent="highlightOption(highlighted + 1)">
       <div class="md-select-menu-container">
@@ -50,16 +55,17 @@
       }
     },
     methods: {
-      show() {
-        this.$refs.menu.focus();
+      open() {
         this.active = true;
         document.addEventListener('click', this.closeOnOffClick);
+        this.$refs.menu.focus();
       },
       close() {
         if (this.active) {
           this.$refs.menu.blur();
           this.active = false;
           document.removeEventListener('click', this.closeOnOffClick);
+          this.$refs.value.focus();
         }
       },
       closeOnOffClick(event) {
@@ -70,6 +76,8 @@
       highlightOption(factor) {
         if (factor >= 1 && factor <= this.optionsAmount) {
           this.highlighted = factor;
+        } else {
+          this.highlighted = 1;
         }
       },
       selectOption(value) {

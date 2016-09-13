@@ -85,6 +85,7 @@
         this.calculateIndicatorPos();
         this.calculateTabPos(this.tabs[this.activeTab].ref, this.activeTab);
         this.setVisibleTab(this.tabs[index].ref);
+        this.$emit('change', index);
       },
       registerTab(options) {
         this.tabs.push(options);
