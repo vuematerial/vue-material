@@ -44,14 +44,14 @@ const parseStyle = (style, theme) => {
   VALID_THEME_TYPE.forEach((type) => {
     style = style.replace(RegExp('(' + type.toUpperCase() + ')-(COLOR|CONTRAST)-?(A?\\d*)-?(\\d*\\.?\\d+)?', 'g'), (match, paletteType, colorType, hue, opacity) => {
       let color;
-      let colorVariant = hue || 500;
+      let colorVariant = +hue === 0 ? 500 : hue;
 
       if (theme[type]) {
         if (typeof theme[type] === 'string') {
           color = palette[theme[type]];
         } else {
           color = palette[theme[type].color] || palette[DEFAULT_THEME_COLORS[type]];
-          colorVariant = hue || theme[type].hue;
+          colorVariant = +hue === 0 ? theme[type].hue : hue;
         }
       } else {
         color = palette[DEFAULT_THEME_COLORS[type]];
