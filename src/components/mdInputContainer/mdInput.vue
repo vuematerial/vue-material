@@ -2,6 +2,7 @@
   <input
     class="md-input"
     :type="type || 'text'"
+    :value="value"
     :disabled="disabled"
     :required="required"
     :placeholder="placeholder"
@@ -9,7 +10,9 @@
     @valid="onValid"
     @focus="onFocus"
     @blur="onBlur"
-    @input="onInput">
+    @input="onInput"
+    @keydown.up="onInput"
+    @keydown.down="onInput">
 </template>
 
 <script>
@@ -60,10 +63,11 @@
   export default {
     props: {
       type: String,
+      value: [String, Number],
       disabled: Boolean,
       required: Boolean,
-      maxlength: String,
-      placeholder: String
+      maxlength: Number,
+      placeholder: [String, Number]
     },
     watch: {
       disabled(disabled) {
@@ -96,6 +100,8 @@
       onInput() {
         manageHasValueClass(this.$el.value, this.parentClasses);
         this.$parent.inputLength = this.$el.value.length;
+        this.$emit('change', this.$el.value);
+        this.$emit('input', this.$el.value);
       }
     },
     mounted() {
