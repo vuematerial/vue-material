@@ -6,7 +6,8 @@ import VueRouter from 'vue-router';
 import './config.js';
 import routes from './routes.js';
 import App from './App';
-import Demo from './components/demo';
+import DemoPage from './components/demo-page';
+import DemoExample from './components/demo-example';
 
 
 Vue.use(VueRouter);
@@ -18,7 +19,8 @@ let router = new VueRouter({
 
 let Docs = Vue.component('app', App);
 
-Vue.component('demo', Demo);
+Vue.component('demo-page', DemoPage);
+Vue.component('demo-example', DemoExample);
 
 Docs = new Docs({
   el: '#app',

@@ -55,16 +55,10 @@ $tab-max-width: 264px;
     border: 0;
     background: none;
     transition: $swift-ease-out;
-    color: rgba(#fff, .7);
     font-family: inherit;
     font-size: 14px;
     font-weight: 500;
     text-transform: uppercase;
-
-    &.md-active,
-    &:hover {
-      color: #fff;
-    }
 
     &.md-disabled {
       cursor: default;

@@ -1,177 +1,146 @@
 <template>
-  <demo>
+  <demo-page>
     <div slot="examples">
-      <md-whiteframe class="example cell-phone">
-        <md-toolbar v-md-theme="'grey'">
-          <h2 class="md-title">Default</h2>
-        </md-toolbar>
+      <demo-example label="Default - Grey Theme" size="3" body-theme="grey">
+        <md-tabs>
+          <md-tab id="movies" md-label="Movies">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
+          </md-tab>
 
-        <section>
-          <md-tabs>
-            <md-tab id="movies" md-label="Movies">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
-            </md-tab>
+          <md-tab id="music" md-label="Music">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
+          </md-tab>
 
-            <md-tab id="music" md-label="Music">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
-            </md-tab>
+          <md-tab id="books" md-label="Books">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.</p>
+          </md-tab>
 
-            <md-tab id="books" md-label="Books">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.</p>
-            </md-tab>
+          <md-tab id="pictures" md-label="Pictures">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.</p>
+          </md-tab>
+        </md-tabs>
+      </demo-example>
 
-            <md-tab id="pictures" md-label="Pictures">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.</p>
-            </md-tab>
-          </md-tabs>
-        </section>
-      </md-whiteframe>
+      <demo-example label="Fixed - Accent Color" size="3">
+        <md-tabs md-fixed class="md-accent">
+          <md-tab md-label="Movies">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
+          </md-tab>
 
-      <md-whiteframe class="example cell-phone">
-        <md-toolbar v-md-theme="'grey'">
-          <h2 class="md-title">Fixed</h2>
-        </md-toolbar>
+          <md-tab md-label="Music">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
+          </md-tab>
 
-        <section>
-          <md-tabs md-fixed class="md-accent">
-            <md-tab md-label="Movies">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
-            </md-tab>
+          <md-tab md-label="Books">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.</p>
+          </md-tab>
 
-            <md-tab md-label="Music">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
-            </md-tab>
+          <md-tab md-label="Pictures">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.</p>
+          </md-tab>
+        </md-tabs>
+      </demo-example>
 
-            <md-tab md-label="Books">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.</p>
-            </md-tab>
+      <demo-example label="With icons and text - Teal Theme" size="3" body-theme="teal">
+        <md-tabs md-fixed>
+          <md-tab md-label="Movies" md-icon="ondemand_video">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
+          </md-tab>
 
-            <md-tab md-label="Pictures">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.</p>
-            </md-tab>
-          </md-tabs>
-        </section>
-      </md-whiteframe>
+          <md-tab md-label="Music" md-icon="music_note">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
+          </md-tab>
 
-      <md-whiteframe class="example cell-phone">
-        <md-toolbar v-md-theme="'grey'">
-          <h2 class="md-title">With icons and text</h2>
-        </md-toolbar>
+          <md-tab md-label="Books" md-icon="books">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.</p>
+          </md-tab>
 
-        <section v-md-theme="'teal'">
-          <md-tabs md-fixed>
-            <md-tab md-label="Movies" md-icon="ondemand_video">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
-            </md-tab>
+          <md-tab md-label="Pictures" md-icon="photo">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.</p>
+          </md-tab>
+        </md-tabs>
+      </demo-example>
 
-            <md-tab md-label="Music" md-icon="music_note">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
-            </md-tab>
+      <demo-example label="Centered with only icon - Transparent Color" size="3">
+        <md-tabs md-centered class="md-transparent">
+          <md-tab md-icon="phone">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
+          </md-tab>
 
-            <md-tab md-label="Books" md-icon="books">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.</p>
-            </md-tab>
+          <md-tab md-icon="favorite">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
+          </md-tab>
 
-            <md-tab md-label="Pictures" md-icon="photo">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.</p>
-            </md-tab>
-          </md-tabs>
-        </section>
-      </md-whiteframe>
+          <md-tab md-icon="near_me">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.</p>
+          </md-tab>
+        </md-tabs>
+      </demo-example>
 
-      <md-whiteframe class="example cell-phone">
-        <md-toolbar v-md-theme="'grey'">
-          <h2 class="md-title">Centered with only icon</h2>
-        </md-toolbar>
+      <demo-example label="Fixed with only icon - Default Theme" size="3">
+        <md-tabs md-fixed>
+          <md-tab md-icon="phone">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
+          </md-tab>
 
-        <section v-md-theme="'green'">
-          <md-tabs md-centered>
-            <md-tab md-icon="phone">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
-            </md-tab>
+          <md-tab md-icon="favorite">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
+          </md-tab>
 
-            <md-tab md-icon="favorite">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
-            </md-tab>
+          <md-tab md-icon="near_me">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.</p>
+          </md-tab>
+        </md-tabs>
+      </demo-example>
 
-            <md-tab md-icon="near_me">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.</p>
-            </md-tab>
-          </md-tabs>
-        </section>
-      </md-whiteframe>
+      <demo-example label="Playground" size="3">
+        <div class="playground">
+          <md-subheader>Tabs Attributes</md-subheader>
+          <md-checkbox id="fixed" v-model="playground.fixed">Fixed</md-checkbox>
+          <md-checkbox id="centered" v-model="playground.centered">Centered</md-checkbox>
+          <md-input-container>
+            <label for="shadow">Shadow</label>
+            <md-input type="number" id="shadow" v-model="playground.shadow" min="0" max="24"></md-input>
+          </md-input-container>
 
-      <md-whiteframe class="example cell-phone">
-        <md-toolbar v-md-theme="'grey'">
-          <h2 class="md-title">Fixed with only icon</h2>
-        </md-toolbar>
+          <md-subheader>Colors</md-subheader>
+          <md-radio v-model="playground.color" id="color1" name="color" md-value="0">Default</md-radio>
+          <md-radio v-model="playground.color" id="color2" name="color" md-value="1">Accent</md-radio>
+          <md-radio v-model="playground.color" id="color3" name="color" md-value="2">Warn</md-radio>
+          <md-radio v-model="playground.color" id="color4" name="color" md-value="3">Transparent</md-radio>
 
-        <section>
-          <md-tabs md-fixed>
-            <md-tab md-icon="phone">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
-            </md-tab>
+          <md-subheader>Second Tab</md-subheader>
+          <md-checkbox id="disabled" v-model="playground.tabs[1].disabled">Disabled</md-checkbox>
+          <md-checkbox id="active" v-model="playground.tabs[1].active">Active</md-checkbox>
+        </div>
 
-            <md-tab md-icon="favorite">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
-            </md-tab>
-
-            <md-tab md-icon="near_me">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.</p>
-            </md-tab>
-          </md-tabs>
-        </section>
-      </md-whiteframe>
-
-      <md-whiteframe class="example cell-phone">
-        <md-toolbar v-md-theme="'grey'">
-          <h2 class="md-title">Playground</h2>
-        </md-toolbar>
-
-        <section>
-          <div class="playground">
-            <md-subheader>Tabs Attributes</md-subheader>
-            <md-checkbox id="fixed" v-model="playground.fixed">Fixed</md-checkbox>
-            <md-checkbox id="centered" v-model="playground.centered">Centered</md-checkbox>
+        <md-tabs
+          :class="{
+            'md-accent': playground.color === '1',
+            'md-warn': playground.color === '2',
+            'md-transparent': playground.color === '3'
+          }"
+          :md-fixed="playground.fixed"
+          :md-centered="playground.centered"
+          :md-elevation="playground.shadow">
+          <md-tab v-for="(tab, index) in playground.tabs" :md-label="tab.label" :md-icon="tab.icon" :md-disabled="tab.disabled" :md-active="tab.active">
             <md-input-container>
-              <label for="shadow">Shadow</label>
-              <md-input type="number" id="shadow" v-model="playground.shadow" min="0" max="24"></md-input>
+              <label :for="'label' + index">Label</label>
+              <md-input type="text" :id="'label' + index" v-model="tab.label"></md-input>
             </md-input-container>
 
-            <md-subheader>Colors</md-subheader>
-            <md-radio v-model="playground.color" id="color1" name="color" md-value="default">Default</md-radio>
-            <md-radio v-model="playground.color" id="color2" name="color" md-value="accent">Accent</md-radio>
-            <md-radio v-model="playground.color" id="color3" name="color" md-value="warn">Warn</md-radio>
-
-            <md-subheader>Second Tab</md-subheader>
-            <md-checkbox id="disabled" v-model="playground.tabs[1].disabled">Disabled</md-checkbox>
-            <md-checkbox id="active" v-model="playground.tabs[1].active">Active</md-checkbox>
-          </div>
-
-          <md-tabs
-            :class="{ 'md-accent': playground.color === 'accent', 'md-warn': playground.color === 'warn' }"
-            :md-fixed="playground.fixed"
-            :md-centered="playground.centered"
-            :md-elevation="playground.shadow">
-            <md-tab v-for="(tab, index) in playground.tabs" :md-label="tab.label" :md-icon="tab.icon" :md-disabled="tab.disabled" :md-active="tab.active">
-              <md-input-container>
-                <label :for="'label' + index">Label</label>
-                <md-input type="text" :id="'label' + index" v-model="tab.label"></md-input>
-              </md-input-container>
-
-              <md-input-container>
-                <label :for="'icon' + index">Icon</label>
-                <md-input type="text" :id="'icon' + index" v-model="tab.icon"></md-input>
-              </md-input-container>
-            </md-tab>
-          </md-tabs>
-        </section>
-      </md-whiteframe>
+            <md-input-container>
+              <label :for="'icon' + index">Icon</label>
+              <md-input type="text" :id="'icon' + index" v-model="tab.icon"></md-input>
+            </md-input-container>
+          </md-tab>
+        </md-tabs>
+      </demo-example>
     </div>
 
     <div slot="code">
@@ -189,7 +158,7 @@
       Each single tab accept a <code>md-label</code> and/or <code>md-icon</code>. You can set the active tab by setting a parameter <code>md-active</code>.
       </p>
     </div>
-  </demo>
+  </demo-page>
 </template>
 
 <style lang="scss">
@@ -207,10 +176,6 @@
       background-color: #fafafa;
     }
 
-    .example {
-      margin-bottom: 16px;
-    }
-
     .playground {
       padding: 0 16px 16px;
 
@@ -226,10 +191,10 @@
     data() {
       return {
         playground: {
-          color: 'accent',
+          color: '3',
           fixed: false,
           centered: true,
-          shadow: 2,
+          shadow: 0,
           tabs: [
             {
               label: 'Phone',
