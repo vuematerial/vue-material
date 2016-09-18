@@ -16,6 +16,11 @@
         elevation: this.mdElevation === 0 ? 0 : this.mdElevation || 1
       };
     },
+    watch: {
+      mdElevation() {
+        this.elevation = this.mdElevation;
+      }
+    },
     computed: {
       classes() {
         let numberedElevation = parseInt(this.elevation, 10);

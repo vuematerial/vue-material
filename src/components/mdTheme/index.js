@@ -76,7 +76,15 @@ const parseStyle = (style, theme) => {
       }
 
       if (color.darkText.indexOf(colorVariant) >= 0) {
+        if (opacity) {
+          return rgba('#000', opacity);
+        }
+
         return 'rgba(0, 0, 0, .87)';
+      }
+
+      if (opacity) {
+        return rgba('#fff', opacity);
       }
 
       return 'rgba(255, 255, 255, .87)';

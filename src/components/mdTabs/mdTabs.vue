@@ -1,19 +1,22 @@
 <template>
   <div class="md-tabs" :class="tabClasses">
-    <md-whiteframe :md-elevation="mdElevation || 0">
+    <md-whiteframe :md-elevation="elevation || 0">
       <div class="md-tabs-navigation">
         <button
-          v-for="(header, index) in tabs"
+          v-for="header in tabs"
+          :key="header.id"
           type="button"
           class="md-tab-header"
-          :class="{ 'md-active': activeTab === index }"
-          @click="changeTab(index)"
-          v-md-ink-ripple
+          :class="{ 'md-active': activeTab === header.id, 'md-disabled': header.disabled }"
+          :disabled="header.disabled"
+          @click="changeTab(header.id)"
+          v-md-ink-ripple="header.disabled"
           ref="tabHeader">
           <md-icon v-if="header.icon">{{ header.icon }}</md-icon>
           <span v-if="header.label">{{ header.label }}</span>
         </button>
-        <span class="md-tab-indicator" ref="indicator"></span>
+
+        <span class="md-tab-indicator" :class="indicatorClass" ref="indicator"></span>
       </div>
     </md-whiteframe>
 
@@ -40,9 +43,22 @@
       return {
         hasIcons: false,
         hasLabel: false,
-        activeTab: 0,
-        tabs: []
+        elevation: this.mdElevation,
+        activeTab: '',
+        activeTabNumber: 0,
+        tabs: {}
       };
+    },
+    watch: {
+      mdFixed() {
+        this.recalculateAllTabsPos();
+      },
+      mdCentered() {
+        this.recalculateAllTabsPos();
+      },
+      mdElevation() {
+        this.elevation = this.mdElevation;
+      }
     },
     computed: {
       tabClasses() {
@@ -52,24 +68,44 @@
           'md-has-icon': this.hasIcons,
           'md-has-label': this.hasLabel
         };
+      },
+      indicatorClass() {
+        let toLeft = this.lastIndicatorNumber > this.activeTabNumber;
+
+        this.lastIndicatorNumber = this.activeTabNumber;
+
+        return {
+          'md-to-right': !toLeft,
+          'md-to-left': toLeft
+        };
       }
     },
     methods: {
-      calculateIndicatorPos() {
+      calculateIndicatorPos(recalculate) {
         let indicator = this.$refs.indicator;
         let tabsWidth = this.$el.offsetWidth;
 
+        if (recalculate) {
+          indicator.classList.add('md-transition-off');
+        }
+
         Vue.nextTick(() => {
-          let activeTab = this.$refs.tabHeader[this.activeTab];
+          let activeTab = this.$refs.tabHeader[this.activeTabNumber];
           let left = activeTab.offsetLeft;
           let right = tabsWidth - left - activeTab.offsetWidth;
 
           indicator.style.left = left + 'px';
           indicator.style.right = right + 'px';
+
+          if (recalculate) {
+            window.setTimeout(() => {
+              indicator.classList.remove('md-transition-off');
+            }, 100);
+          }
         });
       },
       calculateTabPos(ref, index) {
-        this.$refs.tabWrapper.style.left = -this.$refs.tabContent.offsetWidth * this.activeTab + 'px';
+        this.$refs.tabWrapper.style.transform = 'translate3D(' + -this.$refs.tabContent.offsetWidth * this.activeTabNumber + 'px, 0, 0)';
         ref.style.width = this.$refs.tabContent.offsetWidth + 'px';
         ref.style.left = this.$refs.tabContent.offsetWidth * index + 'px';
       },
@@ -79,50 +115,64 @@
           ref.classList.add('md-active');
         });
       },
-      changeTab(index) {
-        this.tabs[this.activeTab].ref.classList.remove('md-active');
-        this.activeTab = index;
+      changeTab(tabId) {
+        let idList = Object.keys(this.tabs);
+        let id = tabId || idList[0];
+        let index = idList.indexOf(id);
+
+        this.tabs[this.activeTab || id].ref.classList.remove('md-active');
+        this.activeTab = id;
+        this.activeTabNumber = index;
         this.calculateIndicatorPos();
-        this.calculateTabPos(this.tabs[this.activeTab].ref, this.activeTab);
-        this.setVisibleTab(this.tabs[index].ref);
+        this.calculateTabPos(this.tabs[id].ref, index);
+        this.setVisibleTab(this.tabs[id].ref);
         this.$emit('change', index);
       },
-      registerTab(options) {
-        this.tabs.push(options);
+      handleTabData(data) {
+        let idList = Object.keys(this.tabs);
+        let index = idList.indexOf(data.id);
 
-        if (options.icon) {
-          this.hasIcons = true;
+        this.hasIcons = !!data.icon;
+        this.hasLabel = !!data.label;
+
+        if (!data.disabled) {
+          if (data.active) {
+            this.changeTab(data.id);
+          }
+        } else {
+          this.changeTab(idList[index + 1]);
         }
-
-        if (options.label) {
-          this.hasLabel = true;
-        }
-
-        if (options.active) {
-          this.changeTab(this.tabs.length - 1);
-        }
-
-        this.calculateTabPos(this.tabs[this.tabs.length - 1].ref, this.tabs.length - 1);
       },
-      recalculateTabPos() {
+      registerTab(data) {
+        this.tabs[data.id] = data;
+        this.handleTabData(data);
+        this.calculateTabPos(this.tabs[data.id].ref, Object.keys(this.tabs).length - 1);
+      },
+      updateTabData(data) {
+        this.tabs[data.id] = data;
+        this.handleTabData(data);
+        this.$forceUpdate();
+        this.recalculateAllTabsPos();
+      },
+      recalculateAllTabsPos() {
         window.requestAnimationFrame(() => {
-          this.calculateIndicatorPos();
+          this.calculateIndicatorPos(true);
 
-          this.tabs.forEach((tab, index) => {
-            this.calculateTabPos(this.tabs[index].ref, index);
+          Object.keys(this.tabs).forEach((tab, index) => {
+            this.calculateTabPos(this.tabs[tab].ref, index);
           });
         });
       }
     },
     mounted() {
-      if (this.activeTab === 0) {
-        this.changeTab(0);
+      if (!this.activeTab) {
+        this.changeTab();
       }
 
-      window.addEventListener('resize', this.recalculateTabPos);
+      window.addEventListener('resize', this.recalculateAllTabsPos);
     },
     beforeDestroy() {
-      window.removeEventListener('resize', this.recalculateTabPos);
+      window.removeEventListener('resize', this.recalculateAllTabsPos);
     }
   };
 </script>

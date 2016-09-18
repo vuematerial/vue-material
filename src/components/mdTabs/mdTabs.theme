@@ -1,6 +1,10 @@
 .THEME_NAME {
   .md-tabs,
   &.md-tabs {
+    .md-disabled {
+      color: #{'PRIMARY-CONTRAST-500-0.26'}
+    }
+
     .md-tabs-navigation {
       background-color: #{'PRIMARY-COLOR'};
     }
