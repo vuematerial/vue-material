@@ -51,6 +51,19 @@
     },
     watch: {
       mdFixed() {
+        let transitionCounter = 0;
+        let transitionInterval = window.setInterval(() => {
+          transitionCounter++;
+
+          window.requestAnimationFrame(() => {
+            this.calculateIndicatorPos(true);
+          });
+
+          if (transitionCounter > 200) {
+            window.clearInterval(transitionInterval);
+          }
+        }, 1);
+
         this.recalculateAllTabsPos();
       },
       mdCentered() {
@@ -110,10 +123,8 @@
         ref.style.left = this.$refs.tabContent.offsetWidth * index + 'px';
       },
       setVisibleTab(ref) {
-        Vue.nextTick(() => {
-          this.$refs.tabContent.style.height = ref.offsetHeight + 'px';
-          ref.classList.add('md-active');
-        });
+        this.$refs.tabContent.style.height = ref.offsetHeight + 'px';
+        ref.classList.add('md-active');
       },
       changeTab(tabId) {
         let idList = Object.keys(this.tabs);
@@ -123,9 +134,13 @@
         this.tabs[this.activeTab || id].ref.classList.remove('md-active');
         this.activeTab = id;
         this.activeTabNumber = index;
-        this.calculateIndicatorPos();
-        this.calculateTabPos(this.tabs[id].ref, index);
-        this.setVisibleTab(this.tabs[id].ref);
+
+        Vue.nextTick(() => {
+          this.calculateIndicatorPos();
+          this.calculateTabPos(this.tabs[id].ref, index);
+          this.setVisibleTab(this.tabs[id].ref);
+        });
+
         this.$emit('change', index);
       },
       handleTabData(data) {
@@ -154,9 +169,13 @@
         this.$forceUpdate();
         this.recalculateAllTabsPos();
       },
-      recalculateAllTabsPos() {
+      recalculateAllTabsPos(transitionOff) {
+        if (typeof transitionOff === 'undefined') {
+          transitionOff = true;
+        }
+
         window.requestAnimationFrame(() => {
-          this.calculateIndicatorPos(true);
+          this.calculateIndicatorPos(!transitionOff);
 
           Object.keys(this.tabs).forEach((tab, index) => {
             this.calculateTabPos(this.tabs[tab].ref, index);

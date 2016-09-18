@@ -1,12 +1,21 @@
 .THEME_NAME {
   .md-tabs,
   &.md-tabs {
-    .md-disabled {
-      color: #{'PRIMARY-CONTRAST-500-0.26'}
-    }
-
     .md-tabs-navigation {
       background-color: #{'PRIMARY-COLOR'};
+    }
+
+    .md-tab-header {
+      color: #{'PRIMARY-CONTRAST-0.54'};
+
+      &.md-active,
+      &:focus {
+        color: #{'PRIMARY-CONTRAST-0.99999'};
+      }
+
+      &.md-disabled {
+        color: #{'PRIMARY-CONTRAST-0.26'}
+      }
     }
 
     .md-tab-indicator {
@@ -16,6 +25,19 @@
     &.md-accent {
       .md-tabs-navigation {
         background-color: #{'ACCENT-COLOR'};
+      }
+
+      .md-tab-header {
+        color: #{'ACCENT-CONTRAST-0.54'};
+
+        &.md-active,
+        &:focus {
+          color: #{'ACCENT-CONTRAST-0.99999'};
+        }
+
+        &.md-disabled {
+          color: #{'ACCENT-CONTRAST-0.26'}
+        }
       }
 
       .md-tab-indicator {
@@ -28,6 +50,19 @@
         background-color: #{'WARN-COLOR'};
       }
 
+      .md-tab-header {
+        color: #{'WARN-CONTRAST-0.54'};
+
+        &.md-active,
+        &:focus {
+          color: #{'WARN-CONTRAST-0.99999'};
+        }
+
+        &.md-disabled {
+          color: #{'WARN-CONTRAST-0.26'}
+        }
+      }
+
       .md-tab-indicator {
         background-color: #{'BACKGROUND-COLOR'};
       }
@@ -38,8 +73,21 @@
         background-color: transparent;
       }
 
+      .md-tab-header {
+        color: #{'BACKGROUND-CONTRAST-0.54'};
+
+        &.md-active,
+        &:focus {
+          color: #{'PRIMARY-COLOR'};
+        }
+
+        &.md-disabled {
+          color: #{'BACKGROUND-CONTRAST-0.26'}
+        }
+      }
+
       .md-tab-indicator {
-        background-color: #{'BACKGROUND-COLOR'};
+        background-color: #{'PRIMARY-COLOR'};
       }
     }
   }
