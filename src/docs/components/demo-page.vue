@@ -31,6 +31,14 @@
         padding-left: 8px;
       }
 
+      .md-tab-header {
+        color: rgba(#fff, .7);
+
+        &.md-active {
+          color: #fff;
+        }
+      }
+
       .md-tab-indicator {
         background-color: #fff;
       }
