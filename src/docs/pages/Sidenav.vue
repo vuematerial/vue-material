@@ -17,7 +17,7 @@
           </div>
 
           <md-sidenav class="md-left" ref="leftSidenav" @open="open('Left')" @close="close('Left')">
-            <md-toolbar class="md-extended">
+            <md-toolbar class="md-large">
               <div class="md-toolbar-container">
                 <h3 class="md-title">Sidenav content</h3>
               </div>
