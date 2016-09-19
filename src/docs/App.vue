@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <md-sidenav class="main-sidebar md-left md-fixed" ref="main-sidebar">
-      <md-toolbar v-md-theme="'white'">
+      <md-toolbar class="vue-material-logo" v-md-theme="'white'">
         <router-link to="/" class="md-title">Vue Material</router-link>
       </md-toolbar>
 
@@ -183,6 +183,7 @@
     }
 
     .md-toolbar {
+      height: 112px;
       border-bottom: 1px solid rgba(#000, .12);
 
       a {
