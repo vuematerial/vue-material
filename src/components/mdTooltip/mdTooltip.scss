@@ -6,6 +6,7 @@ $tooltip-height: 20px;
   height: $tooltip-height;
   padding: 0 8px;
   position: fixed;
+  z-index: 200;
   pointer-events: none;
   background-color: rgba(#616161, .87);
   border-radius: 2px;
@@ -25,6 +26,10 @@ $tooltip-height: 20px;
     opacity: 1;
     transition: $swift-ease-in;
     transition-duration: .3s;
+  }
+
+  &:not(.md-active) {
+    transition-delay: 0s !important;
   }
 
   &.md-tooltip-top {
