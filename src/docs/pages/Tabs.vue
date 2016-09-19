@@ -1,6 +1,6 @@
 <template>
   <demo-page>
-    <div slot="examples">
+    <div slot="examples" class="examples">
       <demo-example label="Default - Grey Theme" size="3" body-theme="grey">
         <md-tabs>
           <md-tab id="movies" md-label="Movies">
@@ -162,27 +162,16 @@
 </template>
 
 <style lang="scss">
-  .page-tabs {
-    .cell-phone {
-      width: 100%;
-      max-width: 412px;
-      height: auto;
-      min-height: 0;
-      max-height: none;
-      margin-right: 16px;
-      position: relative;
-      overflow: hidden;
-      border: none;
-      background-color: #fafafa;
-    }
+  .playground {
+    padding: 0 16px 16px;
 
-    .playground {
-      padding: 0 16px 16px;
-
-      .md-subheader {
-        padding: 16px 0 0;
-      }
+    .md-subheader {
+      padding: 16px 0 0;
     }
+  }
+
+  div.examples .demo-example .demo-example-body {
+    padding: 0;
   }
 </style>
 
@@ -192,8 +181,8 @@
       return {
         playground: {
           color: '3',
-          fixed: false,
-          centered: true,
+          fixed: true,
+          centered: false,
           shadow: 0,
           tabs: [
             {

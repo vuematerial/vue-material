@@ -27,10 +27,6 @@
         </md-list-item>
 
         <md-list-item>
-          <router-link to="/divider">Divider</router-link>
-        </md-list-item>
-
-        <md-list-item>
           <router-link to="/icon">Icon</router-link>
         </md-list-item>
 

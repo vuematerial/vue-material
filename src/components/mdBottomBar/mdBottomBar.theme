@@ -1,9 +1,15 @@
 .THEME_NAME {
   .md-bottom-bar,
   &.md-bottom-bar {
-    &:not(.md-shift) {
-      .md-active {
-        color: #{'PRIMARY-COLOR'};
+    &.md-fixed {
+      background-color: #{'BACKGROUND-COLOR'};
+
+      .md-bottom-bar-item {
+        color: #{'BACKGROUND-CONTRAST-0.54'};
+
+        &.md-active {
+          color: #{'PRIMARY-COLOR'};
+        }
       }
     }
 
@@ -11,14 +17,48 @@
       background-color: #{'PRIMARY-COLOR'};
       color: #{'PRIMARY-CONTRAST'};
 
+      .md-bottom-bar-item {
+        color: #{'PRIMARY-CONTRAST-0.54'};
+
+        &.md-active {
+          color: #{'PRIMARY-CONTRAST'};
+        }
+      }
+
       &.md-accent {
         background-color: #{'ACCENT-COLOR'};
-        color: #{'ACCENT-CONTRAST'};
+
+        .md-bottom-bar-item {
+          color: #{'ACCENT-CONTRAST-0.54'};
+
+          &.md-active {
+            color: #{'ACCENT-CONTRAST'};
+          }
+        }
       }
 
       &.md-warn {
         background-color: #{'WARN-COLOR'};
-        color: #{'WARN-CONTRAST'};
+
+        .md-bottom-bar-item {
+          color: #{'WARN-CONTRAST-0.54'};
+
+          &.md-active {
+            color: #{'WARN-CONTRAST'};
+          }
+        }
+      }
+
+      &.md-transparent {
+        background-color: transparent;
+
+        .md-bottom-bar-item {
+          color: #{'BACKGROUND-CONTRAST-0.54'};
+
+          &.md-active {
+            color: #{'BACKGROUND-CONTRAST'};
+          }
+        }
       }
     }
   }

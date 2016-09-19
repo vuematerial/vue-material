@@ -87,6 +87,7 @@
   }
 
   .md-icon {
-    transition: $swift-ease-out;
+    transition: $swift-ease-out,
+                color $swift-linear-duration $swift-linear-timing-function;
   }
 }

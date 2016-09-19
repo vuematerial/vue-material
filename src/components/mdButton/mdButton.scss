@@ -15,7 +15,7 @@ $button-icon-size: 40px;
   min-width: $button-width;
   min-height: $button-height;
   margin: 6px 8px;
-  padding: 0 16px;
+  padding: 0 8px;
   display: inline-block;
   position: relative;
   align-items: center;
@@ -61,19 +61,6 @@ $button-icon-size: 40px;
     background-color: rgba(#999, .4);
   }
 
-  &[disabled] {
-    color: rgba(#000, .26);
-    cursor: default;
-
-    &.md-raised {
-      background-color: rgba(#000, .12);
-    }
-  }
-
-  &:after {
-    transition: $swift-ease-out;
-  }
-
   &.md-raised:not([disabled]) {
     box-shadow: $material-shadow-2dp;
   }
@@ -93,11 +80,11 @@ $button-icon-size: 40px;
     }
 
     &.md-dense {
+      min-width: $button-dense-height;
       height: $button-dense-height;
       min-height: $button-dense-height;
       padding: 0;
       line-height: $button-dense-height;
-      font-size: 13px;
     }
 
     .md-tooltip {
@@ -194,6 +181,24 @@ $button-icon-size: 40px;
     .md-ink-ripple {
       border-radius: $button-fab-size;
     }
+  }
+
+  &[disabled] {
+    color: rgba(#000, .26);
+    cursor: default;
+
+    &.md-raised,
+    &.md-fab {
+      background-color: rgba(#000, .12);
+    }
+
+    &.md-fab {
+      box-shadow: none;
+    }
+  }
+
+  &:after {
+    transition: $swift-ease-out;
   }
 
   .md-ink-ripple {
