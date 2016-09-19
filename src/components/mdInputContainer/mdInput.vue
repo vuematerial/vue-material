@@ -6,6 +6,7 @@
     :disabled="disabled"
     :required="required"
     :placeholder="placeholder"
+    :maxlength="maxlength"
     @invalid="onInvalid"
     @valid="onValid"
     @focus="onFocus"

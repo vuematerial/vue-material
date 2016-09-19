@@ -19,6 +19,10 @@ Vue.use(VueMaterial.MdTheme, {
     },
     accent: 'indigo'
   },
+  brown: {
+    primary: 'brown',
+    accent: 'green'
+  },
   indigo: {
     primary: 'indigo',
     accent: 'blue'

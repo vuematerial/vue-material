@@ -13,7 +13,7 @@
     },
     computed: {
       classes() {
-        return this.mdShift && 'md-shift';
+        return this.mdShift ? 'md-shift' : 'md-fixed';
       }
     }
   };

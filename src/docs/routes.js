@@ -5,7 +5,6 @@ import BottomBar from './pages/BottomBar';
 import Buttons from './pages/Buttons';
 import ButtonToggle from './pages/ButtonToggle';
 import Checkbox from './pages/Checkbox';
-import Divider from './pages/Divider';
 import Icon from './pages/Icon';
 import Input from './pages/Input';
 import List from './pages/List';
@@ -51,11 +50,6 @@ const routes = [
     path: '/checkbox',
     name: 'checkbox',
     component: Checkbox
-  },
-  {
-    path: '/divider',
-    name: 'divider',
-    component: Divider
   },
   {
     path: '/icon',

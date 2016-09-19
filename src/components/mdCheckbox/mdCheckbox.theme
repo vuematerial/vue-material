@@ -5,6 +5,10 @@
       .md-checkbox-container {
         background-color: #{'ACCENT-COLOR'};
         border-color: #{'ACCENT-COLOR'};
+
+        &:after {
+          border-color: #{'ACCENT-CONTRAST'};
+        }
       }
 
       .md-ink-ripple {
@@ -13,6 +17,36 @@
 
       .md-ripple {
         opacity: .38;
+      }
+    }
+
+    &.md-primary.md-checked {
+      .md-checkbox-container {
+        background-color: #{'PRIMARY-COLOR'};
+        border-color: #{'PRIMARY-COLOR'};
+
+        &:after {
+          border-color: #{'PRIMARY-CONTRAST'};
+        }
+      }
+
+      .md-ink-ripple {
+        color: #{'PRIMARY-COLOR'};
+      }
+    }
+
+    &.md-warn.md-checked {
+      .md-checkbox-container {
+        background-color: #{'WARN-COLOR'};
+        border-color: #{'WARN-COLOR'};
+
+        &:after {
+          border-color: #{'WARN-CONTRAST'};
+        }
+      }
+
+      .md-ink-ripple {
+        color: #{'WARN-COLOR'};
       }
     }
 

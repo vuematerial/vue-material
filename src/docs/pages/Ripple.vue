@@ -1,21 +1,57 @@
 <template>
-  <section>
-    <h2 class="title">Ripple</h2>
+  <demo-page>
+    <div slot="examples">
+      <demo-example label="Default">
+        <span class="has-ripple" v-md-ink-ripple>This span has ripple effect</span>
+        <span class="has-ripple green" v-md-ink-ripple>This span has ripple effect</span>
+        <span class="has-ripple blue" v-md-ink-ripple>This span has ripple effect</span>
 
-    <div class="has-ripple" v-md-ink-ripple>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <div>
+          <md-avatar v-md-ink-ripple>
+            <img src="//placeimg.com/40/40/people/1" alt="People">
+          </md-avatar>
+
+          <md-avatar v-md-ink-ripple class="md-avatar-icon">
+            <md-icon>home</md-icon>
+          </md-avatar>
+        </div>
+      </demo-example>
     </div>
-  </section>
+
+    <div slot="code">
+      <h2>Code</h2>
+    </div>
+
+    <div slot="api">
+
+    </div>
+  </demo-page>
 </template>
 
 <style lang="scss" scoped>
   .has-ripple {
+    margin-bottom: 16px;
     padding: 16px;
     position: relative;
   }
+
+  span {
+    display: inline-block;
+  }
+
+  .blue {
+    color: #2196F3;
+  }
+
+  .green {
+    color: #4CAF50;
+  }
 </style>
+
+<script>
+  export default {
+    mounted() {
+      this.$root.pageTitle = 'Ripple';
+    }
+  };
+</script>

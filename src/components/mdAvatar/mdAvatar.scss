@@ -53,6 +53,14 @@ $avatar-large-icon: 40px;
     display: block;
   }
 
+  .md-ink-ripple {
+    border-radius: 50%;
+
+    .md-ripple.md-active {
+      animation-duration: .9s;
+    }
+  }
+
   .md-tooltip {
     &.md-tooltip-top {
       margin-top: -8px;

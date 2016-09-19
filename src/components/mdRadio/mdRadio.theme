@@ -19,16 +19,6 @@
       }
     }
 
-    &.md-disabled {
-      .md-radio-container {
-        border-color: rgba(#000, .26);
-
-        &:after {
-          background-color: rgba(#000, .26);
-        }
-      }
-    }
-
     &.md-primary {
       .md-radio-container:after {
         background-color: #{'PRIMARY-COLOR'};
@@ -57,6 +47,22 @@
 
         .md-ink-ripple {
           color: #{'WARN-COLOR'};
+        }
+      }
+    }
+
+    &.md-disabled {
+      .md-radio-container {
+        border-color: rgba(#000, .26);
+
+        &:after {
+          background-color: rgba(#000, .26);
+        }
+      }
+
+      &.md-checked {
+        .md-radio-container {
+          border-color: rgba(#000, .26);
         }
       }
     }

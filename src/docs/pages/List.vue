@@ -1,20 +1,8 @@
 <template>
-  <div class="page-content">
-    <md-whiteframe md-elevation="2">
-      <md-toolbar class="md-dense">
-        <md-button>Examples</md-button>
-        <md-button>Code</md-button>
-        <md-button>API</md-button>
-      </md-toolbar>
-    </md-whiteframe>
-
-    <div class="main-content">
-      <section>
-        <div class="cell-phone scrollable">
-          <md-toolbar>
-            <h2 class="md-title">Normal - Single Line</h2>
-          </md-toolbar>
-
+  <demo-page>
+    <div slot="examples">
+      <demo-example label="Single Line">
+        <div class="phone-viewport">
           <md-list>
             <md-list-item>
               <md-icon>move_to_inbox</md-icon> <span>Inbox</span>
@@ -72,11 +60,7 @@
           </md-list>
         </div>
 
-        <div class="cell-phone scrollable">
-          <md-toolbar>
-            <h2 class="md-title">Dense - Single Line</h2>
-          </md-toolbar>
-
+        <div class="phone-viewport">
           <md-list class="md-dense">
             <md-list-item>
               <md-icon>move_to_inbox</md-icon> <span>Inbox</span>
@@ -133,14 +117,10 @@
             </md-list-item>
           </md-list>
         </div>
-      </section>
+      </demo-example>
 
-      <section v-md-theme="'indigo'">
-        <div class="cell-phone scrollable">
-          <md-toolbar>
-            <h2 class="md-title">Normal - Double Line</h2>
-          </md-toolbar>
-
+      <demo-example label="Double Line">
+        <div class="phone-viewport">
           <md-list class="md-double-line">
             <md-list-item>
               <md-icon class="md-primary">phone</md-icon>
@@ -186,11 +166,7 @@
           </md-list>
         </div>
 
-        <div class="cell-phone scrollable">
-          <md-toolbar>
-            <h2 class="md-title">Dense - Double Line</h2>
-          </md-toolbar>
-
+        <div class="phone-viewport">
           <md-list class="md-double-line md-dense">
             <md-list-item>
               <md-icon class="md-primary">phone</md-icon>
@@ -235,14 +211,10 @@
             </md-list-item>
           </md-list>
         </div>
-      </section>
+      </demo-example>
 
-      <section v-md-theme="'orange'">
-        <div class="cell-phone scrollable">
-          <md-toolbar>
-            <h2 class="md-title">Normal - Triple Line</h2>
-          </md-toolbar>
-
+      <demo-example label="Triple Line">
+        <div class="phone-viewport">
           <md-list class="custom-list md-triple-line">
             <md-list-item>
               <md-avatar>
@@ -318,11 +290,7 @@
           </md-list>
         </div>
 
-        <div class="cell-phone scrollable">
-          <md-toolbar>
-            <h2 class="md-title">Dense - Triple Line</h2>
-          </md-toolbar>
-
+        <div class="phone-viewport">
           <md-list class="custom-list md-triple-line md-dense">
             <md-list-item>
               <md-avatar>
@@ -397,10 +365,10 @@
             </md-list-item>
           </md-list>
         </div>
-      </section>
+      </demo-example>
 
-      <section>
-        <div class="cell-phone complete-example">
+      <demo-example label="Complete Example">
+        <div class="phone-viewport complete-example">
           <md-whiteframe md-elevation="3">
             <md-toolbar class="md-extended" v-md-theme="'light-blue'">
               <div class="md-toolbar-container">
@@ -542,8 +510,8 @@
             </md-list-item>
           </md-list>
 
-          <md-sidenav v-md-theme="'blue'" class="md-left" ref="sidebar">
-            <md-toolbar class="md-account-header">
+          <md-sidenav class="md-left" ref="sidebar">
+            <md-toolbar class="md-account-header" v-md-theme="'blue'">
               <md-list class="md-transparent">
                 <md-list-item class="md-avatar-list">
                   <md-avatar class="md-large">
@@ -574,7 +542,7 @@
               </md-list>
             </md-toolbar>
 
-            <md-list>
+            <md-list v-md-theme="'blue'">
               <md-list-item @click="toggleSidenav" class="md-primary">
                 <md-icon>insert_drive_file</md-icon> <span>My files</span>
               </md-list-item>
@@ -597,20 +565,31 @@
             </md-list>
           </md-sidenav>
         </div>
-      </section>
+      </demo-example>
     </div>
-  </div>
+
+    <div slot="code">
+      <h2>Code</h2>
+    </div>
+
+    <div slot="api">
+
+    </div>
+  </demo-page>
 </template>
 
 <style lang="scss">
   @import '../../core/stylesheets/variables.scss';
 
-  .cell-phone {
+  .phone-viewport {
     width: 360px;
-    max-height: 540px;
-    min-height: 540px;
-    margin-bottom: 24px;
-    border: 1px solid #ccc;
+    height: 540px;
+    margin-right: 16px;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    background-color: #fff;
+    border: 1px solid rgba(#000, .12);
   }
 
   .custom-list {
@@ -628,7 +607,7 @@
   }
 
   .complete-example {
-    height: auto;
+    height: 480px;
     display: flex;
     flex-flow: column;
     position: relative;
@@ -669,8 +648,14 @@
       color: rgba(#fff, .54);
     }
 
-    .md-account-header .md-list-item:hover .md-button:hover {
-      background-color: inherit;
+    .md-account-header {
+      .md-list-item:hover .md-button:hover {
+        background-color: inherit;
+      }
+
+      .md-avatar-list .md-list-item-container:hover {
+        background: none !important;
+      }
     }
   }
 </style>
