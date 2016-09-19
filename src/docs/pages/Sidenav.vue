@@ -1,65 +1,62 @@
 <template>
-  <section>
-    <h2 class="title">Sidenav</h2>
+  <demo-page>
+    <div slot="examples">
+      <demo-example label="Default" size="2">
+        <div class="phone-viewport">
+          <md-toolbar>
+            <md-button class="md-icon-button" @click="toggleLeftSidenav">
+              <md-icon>menu</md-icon>
+            </md-button>
 
-    <div class="cell-phone">
-      <md-toolbar>
-        <md-button class="md-icon-button" @click.native="toggleLeftSidenav">
-          <md-icon>menu</md-icon>
-        </md-button>
+            <h2 class="md-title">My App</h2>
+          </md-toolbar>
 
-        <h2 class="md-title">Left Sidenav</h2>
-      </md-toolbar>
-
-      <md-sidenav class="md-left" ref="leftSidenav" @open="open" @close="close">
-        <md-toolbar class="md-extended">
-          <div class="md-toolbar-container">
-            <h3 class="md-title">Sidenav content</h3>
+          <div>
+            <md-button class="md-raised md-accent" @click="toggleRightSidenav">Toggle right</md-button>
+            <p>Open console to see the events</p>
           </div>
-        </md-toolbar>
 
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi cupiditate esse necessitatibus beatae nobis, deserunt ut est fugit, tempora deleniti, eligendi commodi doloribus. Nemo, assumenda possimus, impedit inventore perferendis iusto!</p>
-      </md-sidenav>
+          <md-sidenav class="md-left" ref="leftSidenav" @open="open('Left')" @close="close('Left')">
+            <md-toolbar class="md-extended">
+              <div class="md-toolbar-container">
+                <h3 class="md-title">Sidenav content</h3>
+              </div>
+            </md-toolbar>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi cupiditate esse necessitatibus beatae nobis, deserunt ut est fugit, tempora deleniti, eligendi commodi doloribus. Nemo, assumenda possimus, impedit inventore perferendis iusto!</p>
+          </md-sidenav>
+
+          <md-sidenav class="md-right" ref="rightSidenav" @open="open('Right')" @close="close('Right')">
+            <md-toolbar>
+              <div class="md-toolbar-container">
+                <h3 class="md-title">Sidenav content</h3>
+              </div>
+            </md-toolbar>
+
+            <md-button class="md-raised md-accent" @click="closeRightSidenav">Close</md-button>
+          </md-sidenav>
+        </div>
+      </demo-example>
     </div>
 
-    <div class="cell-phone">
-      <md-toolbar>
-        <md-button class="md-icon-button" @click.native="toggleRightSidenav">
-          <md-icon>menu</md-icon>
-        </md-button>
-
-        <h2 class="md-title">Right Sidenav</h2>
-      </md-toolbar>
-
-      <md-sidenav class="md-right md-fixed" ref="rightSidenav" @open="open" @close="close">
-        <md-toolbar class="md-extended">
-          <div class="md-toolbar-container">
-            <h3 class="md-title">Sidenav content</h3>
-          </div>
-        </md-toolbar>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi cupiditate esse necessitatibus beatae nobis, deserunt ut est fugit, tempora deleniti, eligendi commodi doloribus. Nemo, assumenda possimus, impedit inventore perferendis iusto!</p>
-      </md-sidenav>
+    <div slot="code">
+      <h2>Code</h2>
     </div>
-  </section>
+
+    <div slot="api">
+
+    </div>
+  </demo-page>
 </template>
 
 <style lang="scss" scoped>
-  .cell-phone {
-    position: relative;
-    overflow: hidden;
+  p {
+    padding: 8px 16px;
   }
 </style>
 
-
 <script>
   export default {
-    data() {
-      return {
-        sidenavLeftVisible: false,
-        sidenavRightVisible: false
-      };
-    },
     methods: {
       toggleLeftSidenav() {
         this.$refs.leftSidenav.toggle();
@@ -67,12 +64,18 @@
       toggleRightSidenav() {
         this.$refs.rightSidenav.toggle();
       },
-      open() {
-        console.log('Open');
+      closeRightSidenav() {
+        this.$refs.rightSidenav.close();
       },
-      close() {
-        console.log('Close');
+      open(ref) {
+        console.log('Opened: ' + ref);
+      },
+      close(ref) {
+        console.log('Closed: ' + ref);
       }
+    },
+    mounted() {
+      this.$root.pageTitle = 'Sidenav';
     }
   };
 </script>
