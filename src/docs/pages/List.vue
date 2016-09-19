@@ -370,7 +370,7 @@
       <demo-example label="Complete Example">
         <div class="phone-viewport complete-example">
           <md-whiteframe md-elevation="3">
-            <md-toolbar class="md-extended" v-md-theme="'light-blue'">
+            <md-toolbar class="md-large" v-md-theme="'light-blue'">
               <div class="md-toolbar-container">
                 <md-button class="md-icon-button" @click="toggleSidenav">
                   <md-icon>menu</md-icon>

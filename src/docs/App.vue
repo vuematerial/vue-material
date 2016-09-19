@@ -126,7 +126,7 @@
     }
   }
 
-  .md-theme-default .md-toolbar:not(.md-theme-white):not(.md-theme-grey) {
+  .md-theme-default .main-header {
     color: #fff;
   }
 
