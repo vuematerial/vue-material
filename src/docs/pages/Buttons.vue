@@ -122,6 +122,14 @@
           <md-icon>save</md-icon>
         </md-button>
 
+        <md-button class="md-fab md-clean">
+          <md-icon>chat</md-icon>
+        </md-button>
+
+        <md-button class="md-fab md-clean md-mini">
+          <md-icon>chat</md-icon>
+        </md-button>
+
         <md-button class="md-fab" disabled>
           <md-icon>message</md-icon>
         </md-button>

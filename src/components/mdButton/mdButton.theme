@@ -21,10 +21,10 @@
       background-color: #{'ACCENT-COLOR'};
 
       &:hover {
-        background-color: #{'ACCENT-COLOR-A700'};
+        background-color: #{'ACCENT-COLOR-600'};
       }
 
-      &.md-fab-clean {
+      &.md-clean {
         color: #{'BACKGROUND-COLOR-900'};
         background-color: #{'BACKGROUND-COLOR-50'};
 
@@ -64,7 +64,7 @@
         color: #{'ACCENT-CONTRAST'};
 
         &:hover {
-          background-color: #{'ACCENT-COLOR-A700'};
+          background-color: #{'ACCENT-COLOR-600'};
         }
       }
 
