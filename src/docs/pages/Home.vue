@@ -1,5 +1,13 @@
 <template>
   <div class="page-content">
-    <h1>Home</h1>
+    <h1>Introduction</h1>
   </div>
 </template>
+
+<script>
+  export default {
+    mounted() {
+      this.$root.pageTitle = 'Introduction';
+    }
+  };
+</script>
