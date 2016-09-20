@@ -8,6 +8,11 @@
   display: flex;
   justify-content: center;
   box-shadow: $material-shadow-8dp;
+  transition: $swift-ease-out;
+
+  .md-ripple {
+    animation-duration: $swift-ease-out-duration;
+  }
 }
 
 .md-bottom-bar-item {
@@ -48,7 +53,8 @@
     max-width: 96px;
     position: static;
     flex: 1 1 32px;
-    transition: $swift-ease-out;
+    transition: $swift-ease-out-duration $swift-ease-out-timing-function;
+    transition-property: flex, min-width, max-width;
 
     .md-icon {
       transform: translate3d(0, 8px, 0);
