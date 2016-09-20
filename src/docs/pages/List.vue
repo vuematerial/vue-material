@@ -607,7 +607,7 @@
   }
 
   .complete-example {
-    height: 480px;
+    height: 540px;
     display: flex;
     flex-flow: column;
     position: relative;
