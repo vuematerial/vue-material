@@ -7,7 +7,7 @@
           :key="header.id"
           type="button"
           class="md-tab-header"
-          :class="{ 'md-active': activeTab === header.id, 'md-disabled': header.disabled }"
+          :class="getHeaderClass(header)"
           :disabled="header.disabled"
           @click="changeTab(header.id)"
           v-md-ink-ripple="header.disabled"
@@ -94,6 +94,12 @@
       }
     },
     methods: {
+      getHeaderClass(header) {
+        return {
+          'md-active': this.activeTab === header.id,
+          'md-disabled': header.disabled
+        };
+      },
       calculateIndicatorPos(recalculate) {
         let indicator = this.$refs.indicator;
         let tabsWidth = this.$el.offsetWidth;
