@@ -174,7 +174,7 @@
         top: 0;
         pointer-events: auto;
         transform: translate3d(0, 0, 0);
-        box-shadow: $material-shadow-3dp;
+        box-shadow: $material-shadow-2dp;
       }
     }
 
@@ -186,7 +186,7 @@
     }
 
     .md-toolbar {
-      height: 112px;
+      height: 172px;
       border-bottom: 1px solid rgba(#000, .12);
     }
 
@@ -204,8 +204,7 @@
       }
 
       img {
-        width: 60px;
-        margin-bottom: 16px;
+        margin-bottom: 24px;
       }
     }
 
