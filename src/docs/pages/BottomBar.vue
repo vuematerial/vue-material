@@ -84,6 +84,17 @@
           </md-bottom-bar>
         </div>
       </demo-example>
+
+      <demo-example label="Dynamic Theme">
+        <div class="phone-viewport">
+          <md-bottom-bar md-shift v-md-theme="playground.theme">
+            <md-bottom-bar-item @click="setTheme('blue')" md-icon="ondemand_video">Movies</md-bottom-bar-item>
+            <md-bottom-bar-item @click="setTheme('teal')" md-icon="music_note">Music</md-bottom-bar-item>
+            <md-bottom-bar-item @click="setTheme('brown')" md-icon="books" md-active>Books</md-bottom-bar-item>
+            <md-bottom-bar-item @click="setTheme('indigo')" md-icon="photo">Pictures</md-bottom-bar-item>
+          </md-bottom-bar>
+        </div>
+      </demo-example>
     </div>
 
     <div slot="code">
@@ -117,6 +128,18 @@
 
 <script>
   export default {
+    data() {
+      return {
+        playground: {
+          theme: 'brown'
+        }
+      };
+    },
+    methods: {
+      setTheme(theme) {
+        this.playground.theme = theme;
+      }
+    },
     mounted() {
       this.$root.pageTitle = 'Bottom Bar';
     }
