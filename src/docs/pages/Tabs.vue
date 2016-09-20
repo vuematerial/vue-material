@@ -108,6 +108,12 @@
             <md-input type="number" id="shadow" v-model="playground.shadow" min="0" max="24"></md-input>
           </md-input-container>
 
+          <md-subheader>Theme</md-subheader>
+          <md-radio v-model="playground.theme" id="theme1" name="theme" md-value="default">Default</md-radio>
+          <md-radio v-model="playground.theme" id="theme2" name="theme" md-value="green">Green</md-radio>
+          <md-radio v-model="playground.theme" id="theme3" name="theme" md-value="indigo">Indigo</md-radio>
+          <md-radio v-model="playground.theme" id="theme4" name="theme" md-value="brown">Brown</md-radio>
+
           <md-subheader>Colors</md-subheader>
           <md-radio v-model="playground.color" id="color1" name="color" md-value="0">Default</md-radio>
           <md-radio v-model="playground.color" id="color2" name="color" md-value="1">Accent</md-radio>
@@ -127,7 +133,8 @@
           }"
           :md-fixed="playground.fixed"
           :md-centered="playground.centered"
-          :md-elevation="playground.shadow">
+          :md-elevation="playground.shadow"
+          v-md-theme="playground.theme">
           <md-tab v-for="(tab, index) in playground.tabs" :md-label="tab.label" :md-icon="tab.icon" :md-disabled="tab.disabled" :md-active="tab.active">
             <md-input-container>
               <label :for="'label' + index">Label</label>
@@ -184,6 +191,7 @@
           fixed: true,
           centered: false,
           shadow: 0,
+          theme: 'default',
           tabs: [
             {
               label: 'Phone',
