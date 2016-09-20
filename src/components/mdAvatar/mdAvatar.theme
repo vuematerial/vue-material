@@ -6,7 +6,7 @@
         background-color: #{'PRIMARY-COLOR'};
 
         .md-icon {
-          color: #{'PRIMARY-CONTRAST'};
+          color: #{'PRIMARY-CONTRAST-0.99999'};
         }
       }
     }
@@ -16,7 +16,7 @@
         background-color: #{'ACCENT-COLOR'};
 
         .md-icon {
-          color: #{'ACCENT-CONTRAST'};
+          color: #{'ACCENT-CONTRAST-0.99999'};
         }
       }
     }
@@ -26,7 +26,7 @@
         background-color: #{'WARN-COLOR'};
 
         .md-icon {
-          color: #{'WARN-CONTRAST'};
+          color: #{'WARN-CONTRAST-0.99999'};
         }
       }
     }
