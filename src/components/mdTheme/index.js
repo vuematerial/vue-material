@@ -120,13 +120,19 @@ export default function install(Vue, themes) {
 
   document.body.classList.add('md-theme-default');
 
-  Vue.directive('mdTheme', function(el, bindings) {
-    let theme = bindings.value;
+  Vue.directive('mdTheme', (element, { value, oldValue }) => {
+    let theme = value;
+    let newClass = 'md-theme-' + theme;
+    let oldClass = 'md-theme-' + oldValue;
 
-    if (theme && registedThemes.indexOf(theme) >= 0) {
-      el.classList.add('md-theme-' + theme);
-    } else {
-      console.warn('Attempted to use unregistered theme "' + theme + '\".');
+    if (!element.classList.contains(newClass)) {
+      element.classList.remove(oldClass);
+
+      if (theme && registedThemes.indexOf(theme) >= 0) {
+        element.classList.add(newClass);
+      } else {
+        console.warn('Attempted to use unregistered theme "' + theme + '\".');
+      }
     }
   });
 }
