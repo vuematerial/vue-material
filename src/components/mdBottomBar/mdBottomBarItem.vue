@@ -28,16 +28,18 @@
     },
     watch: {
       mdActive(active) {
-        this.active = active;
+        this.setActive(active);
       }
     },
     methods: {
-      setActive() {
+      setActive(active) {
         this.$parent.$children.forEach((item) => {
           item.active = false;
         });
 
-        this.active = true;
+        this.active = !!active;
+
+        this.$emit('click');
       }
     },
     mounted() {
