@@ -20,12 +20,12 @@
       </demo-example>
 
       <demo-example label="Themed">
-        <md-button class="md-raised md-primary" @click="disablePrimaryButton" v-md-theme="'indigo'">Default</md-button>
-        <md-button class="md-raised md-primary" :disabled="buttonDisabled" v-md-theme="'teal'">Primary</md-button>
-        <md-button class="md-raised md-primary" v-md-theme="'green'">Accent</md-button>
-        <md-button class="md-raised md-primary" v-md-theme="'white'">Warn</md-button>
-        <md-button class="md-raised md-primary" :disabled="!buttonDisabled" v-md-theme="'grey'">Disabled</md-button>
-        <md-button class="md-raised md-primary" v-md-theme="'orange'">Dense</md-button>
+        <md-button class="md-raised md-primary" @click="disablePrimaryButton" v-md-theme="'indigo'">Indigo</md-button>
+        <md-button class="md-raised md-primary" :disabled="buttonDisabled" v-md-theme="'teal'">Teal</md-button>
+        <md-button class="md-raised md-primary" v-md-theme="'green'">Green</md-button>
+        <md-button class="md-raised md-primary" v-md-theme="'white'">White</md-button>
+        <md-button class="md-raised md-primary" :disabled="!buttonDisabled" v-md-theme="'brown'">Brown</md-button>
+        <md-button class="md-raised md-primary md-dense" v-md-theme="'orange'">Orange</md-button>
       </demo-example>
 
       <demo-example label="Links">
