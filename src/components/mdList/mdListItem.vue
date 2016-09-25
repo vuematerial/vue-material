@@ -2,8 +2,6 @@
   export default {
     props: {
       href: String,
-      vLink: [String, Object],
-      title: String,
       target: String
     },
     render(createElement) {
@@ -28,14 +26,69 @@
         return createElement('li', listItem, slot);
       }
 
+      let expand;
+      let expandIndex;
+
+      slot.some((slot, index) => {
+        if (slot.componentOptions && slot.componentOptions.tag === 'md-list-expand') {
+          expand = slot;
+          expandIndex = index;
+
+          return true;
+        }
+      });
+
+      if (expand) {
+        let expandArrow = createElement('md-icon', {
+          staticClass: 'md-list-expand-indicator'
+        }, 'keyboard_arrow_down');
+
+        slot.splice(expandIndex, 1);
+        slot.push(expandArrow);
+
+        let container = createElement('div', {
+          staticClass: containerClass,
+          on: {
+            click: () => {
+              let target;
+
+              this.$parent.$children.some((child) => {
+                if (child.$el.classList.contains('md-list-item-expand') && child.$el.classList.contains('md-active')) {
+                  target = child;
+                  child.$el.classList.remove('md-active');
+
+                  return true;
+                }
+              });
+
+              if (!target || this.$el !== target.$el) {
+                this.$el.classList.add('md-active');
+              }
+
+              this.$emit('click');
+            }
+          },
+          directives: [{
+            name: 'md-ink-ripple'
+          }]
+        }, slot);
+
+        listItem.staticClass += ' md-list-item-expand';
+
+        return createElement('li', listItem, [container, expand]);
+      }
+
       let button = createElement('md-button', {
         staticClass: containerClass,
         attrs: {
-          title: this.title,
           target: this.target,
           href: this.href
         }
       }, slot);
+
+      if (this.target) {
+        button.data.attrs.rel = 'noopener';
+      }
 
       return createElement('li', listItem, [button]);
     }

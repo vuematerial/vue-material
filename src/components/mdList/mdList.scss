@@ -12,13 +12,12 @@
     padding: 4px 0;
 
     .md-list-item {
-      min-height: 40px;
-
       &.md-inset .md-list-item-container {
         padding-left: 72px;
       }
 
       .md-list-item-container {
+        min-height: 40px;
         font-size: 13px;
 
         .md-avatar:first-child {
@@ -38,7 +37,9 @@
   &.md-double-line {
     &.md-dense {
       .md-list-item {
-        min-height: 60px;
+        .md-list-item-container {
+          min-height: 60px;
+        }
 
         .md-avatar {
           width: 36px;
@@ -64,14 +65,18 @@
     }
 
     .md-list-item {
-      min-height: 72px;
+      .md-list-item-container {
+        min-height: 72px;
+      }
     }
   }
 
   &.md-triple-line {
     &.md-dense {
       .md-list-item {
-        min-height: 76px;
+        .md-list-item-container {
+          min-height: 76px;
+        }
 
         .md-avatar {
           width: 36px;
@@ -97,7 +102,9 @@
     }
 
     .md-list-item {
-      min-height: 88px;
+      .md-list-item-container {
+        min-height: 88px;
+      }
     }
 
     .md-avatar {
@@ -122,8 +129,6 @@
 
 .md-list-item {
   height: auto;
-  min-height: 48px;
-  display: flex;
   position: relative;
 
   &.md-inset {
@@ -134,14 +139,13 @@
 
   .md-list-item-container {
     width: 100%;
-    min-height: 0;
+    min-height: 48px;
     margin: 0;
     padding: 0 16px;
     display: flex;
-    position: relative;
-    flex: 1 1 auto;
     flex-flow: row nowrap;
     align-items: center;
+    position: relative;
     border-radius: 0;
     font-size: 16px;
     font-weight: 400;
@@ -192,6 +196,76 @@
 
   .md-icon {
     color: rgba(#000, .54);
+  }
+}
+
+.md-list-item-expand {
+  min-height: 48px;
+  flex-flow: column wrap;
+  overflow: hidden;
+
+  &:before,
+  &:after {
+    height: 1px;
+    position: absolute;
+    right: 0;
+    left: 0;
+    z-index: 3;
+    transition: $swift-ease-out;
+    content: " ";
+  }
+
+  &:before {
+    top: 0;
+  }
+
+  &:after {
+    bottom: 0;
+  }
+
+  &.md-active {
+    position: relative;
+
+    &:before,
+    &:after {
+      background-color: rgba(#000, .12);
+    }
+
+    &:first-of-type {
+      &:before {
+        background: none;
+      }
+    }
+
+    .md-list-expand-indicator {
+      transform: rotateZ(180deg) translate3D(0, 0, 0);
+    }
+
+    .md-list-expand {
+      margin-bottom: 0 !important;
+    }
+  }
+
+  > .md-list-item-container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .md-expansion-indicator,
+  .md-list-item-container,
+  .md-icon {
+    transition: $swift-ease-out;
+  }
+
+  .md-list-expand {
+    position: relative;
+    z-index: 1;
+    transform: translate3D(0, 0, 0);
+    transition: $swift-ease-out;
+
+    &.md-transition-off {
+      transition: none;
+    }
   }
 }
 
