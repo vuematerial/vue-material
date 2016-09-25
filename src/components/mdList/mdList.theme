@@ -48,5 +48,24 @@
         }
       }
     }
+
+    .md-list-item-expand {
+      &.md-active {
+        color: #{'PRIMARY-COLOR'};
+
+        .md-icon:not(.md-list-expand-indicator) {
+          color: #{'PRIMARY-COLOR'};
+        }
+      }
+
+      .md-list-item-container {
+        background-color: #{'BACKGROUND-COLOR-A100'};
+
+        &:hover,
+        &:focus {
+          background-color: rgba(#999, .2);
+        }
+      }
+    }
   }
 }
