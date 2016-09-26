@@ -58,6 +58,6 @@
       toggleSidenav() {
         this.$root.toggleSidenav();
       }
-    },
+    }
   };
 </script>
