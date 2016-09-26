@@ -26,6 +26,18 @@
     padding: 16px;
   }
 
+  .single-page-content {
+    font-size: 16px;
+    line-height: 1.6em;
+
+    .introduction {
+      margin-top: 2px;
+      margin-bottom: 1.5em;
+      font-size: 20px;
+      line-height: 1.6em;
+    }
+  }
+
   .single-page-home {
     padding-top: 256px;
 
