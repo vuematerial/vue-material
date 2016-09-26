@@ -18,6 +18,17 @@ let router = new VueRouter({
 });
 
 let Docs = Vue.component('app', App);
+let handleSectionTheme = (route) => {
+  if (route.name.indexOf('components') >= 0) {
+    Docs.theme = 'indigo';
+  } else if (route.name.indexOf('themes') >= 0) {
+    Docs.theme = 'teal';
+  } else if (route.name.indexOf('ui-elements') >= 0) {
+    Docs.theme = 'dark-pink';
+  } else {
+    Docs.theme = 'default';
+  }
+};
 
 Vue.component('demo-page', DemoPage);
 Vue.component('demo-example', DemoExample);
@@ -27,12 +38,16 @@ Docs = new Docs({
   router
 });
 
-router.afterEach(() => {
+handleSectionTheme(router.currentRoute);
+
+router.afterEach((currentRoute) => {
   let mainContent = document.querySelector('.main-content');
 
   if (mainContent) {
     mainContent.scrollTop = 0;
   }
+
+  handleSectionTheme(currentRoute);
 
   Docs.closeSidenav();
 });

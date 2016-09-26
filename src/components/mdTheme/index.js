@@ -105,7 +105,7 @@ const registerTheme = (theme, name) => {
   createNewStyleElement(parsedStyle.join('\n'), name);
 };
 
-export default function install(Vue, themes) {
+const registerInitialThemes = (themes) => {
   let themeNames = themes ? Object.keys(themes) : [];
 
   if (themeNames.indexOf('default') === -1) {
@@ -117,22 +117,25 @@ export default function install(Vue, themes) {
     registerTheme(themes[name], name);
     registedThemes.push(name);
   });
+};
 
-  document.body.classList.add('md-theme-default');
+const registerDirective = (element, { value, oldValue }) => {
+  let theme = value;
+  let newClass = 'md-theme-' + theme;
+  let oldClass = 'md-theme-' + oldValue;
 
-  Vue.directive('mdTheme', (element, { value, oldValue }) => {
-    let theme = value;
-    let newClass = 'md-theme-' + theme;
-    let oldClass = 'md-theme-' + oldValue;
+  if (!element.classList.contains(newClass)) {
+    element.classList.remove(oldClass);
 
-    if (!element.classList.contains(newClass)) {
-      element.classList.remove(oldClass);
-
-      if (theme && registedThemes.indexOf(theme) >= 0) {
-        element.classList.add(newClass);
-      } else {
-        console.warn('Attempted to use unregistered theme "' + theme + '\".');
-      }
+    if (theme && registedThemes.indexOf(theme) >= 0) {
+      element.classList.add(newClass);
+    } else {
+      console.warn('Attempted to use unregistered theme "' + theme + '\".');
     }
-  });
+  }
+};
+
+export default function install(Vue, themes) {
+  registerInitialThemes(themes);
+  Vue.directive('mdTheme', registerDirective);
 }

@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" v-md-theme="theme">
     <md-sidenav class="main-sidebar md-left md-fixed" ref="main-sidebar">
       <md-toolbar class="vue-material-logo" v-md-theme="'white'">
         <router-link to="/">
@@ -298,6 +298,7 @@
   export default {
     data() {
       return {
+        theme: 'default',
         pageTitle: ''
       };
     },
