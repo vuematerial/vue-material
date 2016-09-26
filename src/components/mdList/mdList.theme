@@ -50,16 +50,6 @@
     }
 
     .md-list-item-expand {
-      &.md-active {
-        > .md-list-item-container {
-          color: #{'PRIMARY-COLOR'};
-
-          .md-icon:not(.md-list-expand-indicator) {
-            color: #{'PRIMARY-COLOR'};
-          }
-        }
-      }
-
       .md-list-item-container {
         background-color: #{'BACKGROUND-COLOR-A100'};
 
