@@ -1,5 +1,5 @@
 <template>
-  <demo-page>
+  <demo-page label="Components - Tooltip">
     <div slot="examples">
       <demo-example label="Default">
         <div>
@@ -70,11 +70,3 @@
     margin: 24px;
   }
 </style>
-
-<script>
-  export default {
-    mounted() {
-      this.$root.pageTitle = 'Components - Tooltip';
-    }
-  };
-</script>

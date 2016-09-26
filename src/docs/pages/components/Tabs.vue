@@ -1,5 +1,5 @@
 <template>
-  <demo-page>
+  <demo-page label="Components - Tabs">
     <div slot="examples" class="examples">
       <demo-example label="Default - Grey Theme" size="3" body-theme="grey">
         <md-tabs>
@@ -215,9 +215,6 @@
         },
         firstTabName: 'Movies'
       };
-    },
-    mounted() {
-      this.$root.pageTitle = 'Components - Tabs';
     }
   };
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <demo-page>
+  <demo-page label="Components - List">
     <div slot="examples">
       <demo-example label="Single Line">
         <div class="phone-viewport">
@@ -722,9 +722,6 @@
       toggleSidenav() {
         this.$refs.sidebar.toggle();
       }
-    },
-    mounted() {
-      this.$root.pageTitle = 'Components - List';
     }
   };
 </script>

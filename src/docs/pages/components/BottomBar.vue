@@ -1,5 +1,5 @@
 <template>
-  <demo-page>
+  <demo-page label="Components - Bottom Bar">
     <div slot="examples">
       <demo-example label="Default">
         <div class="phone-viewport">
@@ -139,9 +139,6 @@
       setTheme(theme) {
         this.playground.theme = theme;
       }
-    },
-    mounted() {
-      this.$root.pageTitle = 'Components - Bottom Bar';
     }
   };
 </script>

@@ -1,13 +1,5 @@
 <template>
-  <div class="page-content">
-    <h1>Configuration</h1>
-  </div>
-</template>
+  <single-page class="single-page-home" label="Themes - Configuration">
 
-<script>
-  export default {
-    mounted() {
-      this.$root.pageTitle = 'Themes - Configuration';
-    }
-  };
-</script>
+  </single-page>
+</template>

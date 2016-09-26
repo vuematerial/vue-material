@@ -1,13 +1,5 @@
 <template>
-  <single-page class="single-page-home" label="Changelog" page-title="Changelog">
-
+  <single-page class="single-page-home" label="Changelog">
+    <single-page-banner label="Changelog"></single-page-banner>
   </single-page>
 </template>
-
-<script>
-  export default {
-    mounted() {
-      this.$root.pageTitle = 'Changelog';
-    }
-  };
-</script>

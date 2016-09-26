@@ -1,13 +1,5 @@
 <template>
-  <div class="page-content">
-    <h1>Grid System</h1>
-  </div>
-</template>
+  <single-page class="single-page-home" label="UI Elements - Grid System">
 
-<script>
-  export default {
-    mounted() {
-      this.$root.pageTitle = 'Themes - Grid System';
-    }
-  };
-</script>
+  </single-page>
+</template>

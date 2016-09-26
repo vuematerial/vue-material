@@ -1,5 +1,5 @@
 <template>
-  <demo-page>
+  <demo-page label="Components - Switch">
     <div slot="examples">
       <demo-example label="Default">
         <div>
@@ -61,9 +61,6 @@
         checked6: true,
         checked7: true
       };
-    },
-    mounted() {
-      this.$root.pageTitle = 'Components - Switch';
     }
   };
 </script>

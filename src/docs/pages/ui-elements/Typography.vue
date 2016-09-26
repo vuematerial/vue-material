@@ -1,13 +1,5 @@
 <template>
-  <div class="page-content">
-    <h1>Typography</h1>
-  </div>
-</template>
+  <single-page class="single-page-home" label="UI Elements - Typography">
 
-<script>
-  export default {
-    mounted() {
-      this.$root.pageTitle = 'Themes - Typography';
-    }
-  };
-</script>
+  </single-page>
+</template>
