@@ -1,13 +1,5 @@
 <template>
-  <div class="page-content">
-    <h1>Introduction</h1>
-  </div>
-</template>
+  <single-page class="single-page-home" label="Introduction" page-title="Vue Material">
 
-<script>
-  export default {
-    mounted() {
-      this.$root.pageTitle = 'Introduction';
-    }
-  };
-</script>
+  </single-page>
+</template>

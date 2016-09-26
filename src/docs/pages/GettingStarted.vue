@@ -1,7 +1,7 @@
 <template>
-  <div class="page-content">
-    <h1>Getting Started</h1>
-  </div>
+  <single-page class="single-page-home" label="Getting Started" page-title="Getting Started">
+
+  </single-page>
 </template>
 
 <script>

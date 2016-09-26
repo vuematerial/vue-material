@@ -141,7 +141,7 @@
       </div>
     </md-sidenav>
 
-    <md-toolbar class="main-header">
+    <md-toolbar class="main-header" v-if="toolbar">
       <md-button class="md-icon-button" @click="toggleSidenav">
         <md-icon>menu</md-icon>
       </md-button>
@@ -302,6 +302,7 @@
   export default {
     data() {
       return {
+        toolbar: true,
         theme: 'default',
         pageTitle: ''
       };

@@ -79,7 +79,7 @@ export default function install(Vue) {
     while (!found) {
       parent = parent.parentNode;
 
-      if (parent.tagName.toLowerCase() === 'body') {
+      if (!parent || parent.tagName.toLowerCase() === 'body') {
         break;
       }
 
