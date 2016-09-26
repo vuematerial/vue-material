@@ -2,6 +2,7 @@
 import Introduction from './pages/Introduction';
 import GettingStarted from './pages/GettingStarted';
 import About from './pages/About';
+import Changelog from './pages/Changelog';
 import Error404 from './pages/Error';
 
 /* Components */
@@ -47,6 +48,11 @@ const main = [
     path: '/about',
     name: 'about',
     component: About
+  },
+  {
+    path: '/changelog',
+    name: 'changelog',
+    component: Changelog
   }
 ];
 
