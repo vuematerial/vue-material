@@ -111,7 +111,7 @@
           <md-subheader>Theme</md-subheader>
           <md-radio v-model="playground.theme" id="theme1" name="theme" md-value="default">Default</md-radio>
           <md-radio v-model="playground.theme" id="theme2" name="theme" md-value="green">Green</md-radio>
-          <md-radio v-model="playground.theme" id="theme3" name="theme" md-value="indigo">Indigo</md-radio>
+          <md-radio v-model="playground.theme" id="theme3" name="theme" md-value="cyan">Cyan</md-radio>
           <md-radio v-model="playground.theme" id="theme4" name="theme" md-value="brown">Brown</md-radio>
 
           <md-subheader>Colors</md-subheader>

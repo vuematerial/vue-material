@@ -6,25 +6,18 @@ VueMaterial.enableAll(Vue);
 Vue.use(VueMaterial.MdTheme, {
   default: {
     primary: 'cyan',
-    accent: 'indigo'
+    accent: 'pink'
   },
-  white: {
-    primary: 'white',
-    accent: 'indigo'
-  },
-  grey: {
-    primary: {
-      color: 'grey',
-      hue: 300
-    },
-    accent: 'indigo'
+  indigo: {
+    primary: 'indigo',
+    accent: 'pink'
   },
   brown: {
     primary: 'brown',
     accent: 'green'
   },
-  indigo: {
-    primary: 'indigo',
+  purple: {
+    primary: 'purple',
     accent: 'blue'
   },
   orange: {
@@ -49,5 +42,27 @@ Vue.use(VueMaterial.MdTheme, {
   teal: {
     primary: 'teal',
     accent: 'orange'
+  },
+  'dark-pink': {
+    primary: {
+      color: 'pink',
+      hue: 800
+    },
+    accent: 'orange'
+  },
+  cyan: {
+    primary: 'cyan',
+    accent: 'pink'
+  },
+  white: {
+    primary: 'white',
+    accent: 'indigo'
+  },
+  grey: {
+    primary: {
+      color: 'grey',
+      hue: 300
+    },
+    accent: 'indigo'
   }
 });
