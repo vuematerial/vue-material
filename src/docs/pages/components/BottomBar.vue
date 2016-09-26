@@ -141,7 +141,7 @@
       }
     },
     mounted() {
-      this.$root.pageTitle = 'Bottom Bar';
+      this.$root.pageTitle = 'Components - Bottom Bar';
     }
   };
 </script>

@@ -85,7 +85,7 @@
       };
     },
     mounted() {
-      this.$root.pageTitle = 'Radio';
+      this.$root.pageTitle = 'Components - Radio';
     }
   };
 </script>

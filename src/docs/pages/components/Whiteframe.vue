@@ -57,7 +57,7 @@
 <script>
   export default {
     mounted() {
-      this.$root.pageTitle = 'Whiteframe';
+      this.$root.pageTitle = 'Components - Whiteframe';
     }
   };
 </script>

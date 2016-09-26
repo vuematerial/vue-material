@@ -59,7 +59,7 @@
 <script>
   export default {
     mounted() {
-      this.$root.pageTitle = 'Avatar';
+      this.$root.pageTitle = 'Components - Avatar';
     }
   };
 </script>

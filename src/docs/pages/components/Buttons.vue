@@ -163,7 +163,7 @@
       }
     },
     mounted() {
-      this.$root.pageTitle = 'Button';
+      this.$root.pageTitle = 'Components - Button';
     }
   };
 </script>

@@ -74,7 +74,7 @@
 <script>
   export default {
     mounted() {
-      this.$root.pageTitle = 'Tooltip';
+      this.$root.pageTitle = 'Components - Tooltip';
     }
   };
 </script>

@@ -56,7 +56,7 @@
       };
     },
     mounted() {
-      this.$root.pageTitle = 'Checkbox';
+      this.$root.pageTitle = 'Components - Checkbox';
     }
   };
 </script>

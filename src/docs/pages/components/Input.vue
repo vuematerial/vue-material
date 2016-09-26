@@ -124,7 +124,7 @@
       };
     },
     mounted() {
-      this.$root.pageTitle = 'Input';
+      this.$root.pageTitle = 'Components - Input';
     }
   };
 </script>

@@ -217,7 +217,7 @@
       };
     },
     mounted() {
-      this.$root.pageTitle = 'Tabs';
+      this.$root.pageTitle = 'Components - Tabs';
     }
   };
 </script>
