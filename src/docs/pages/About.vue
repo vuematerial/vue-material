@@ -1,7 +1,7 @@
 <template>
-  <section>
-    <h1>About</h1>
-  </section>
+  <single-page class="single-page-home" label="About" page-title="About">
+
+  </single-page>
 </template>
 
 <script>

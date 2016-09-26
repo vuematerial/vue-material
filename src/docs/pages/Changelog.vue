@@ -1,7 +1,7 @@
 <template>
-  <section>
-    <h1>Changelog</h1>
-  </section>
+  <single-page class="single-page-home" label="Changelog" page-title="Changelog">
+
+  </single-page>
 </template>
 
 <script>
