@@ -2,7 +2,7 @@
   <div class="container" v-md-theme="theme">
     <md-sidenav class="main-sidebar md-left md-fixed" ref="main-sidebar">
       <md-toolbar class="vue-material-logo" v-md-theme="'white'">
-        <router-link to="/">
+        <router-link exact to="/">
           <img src="data:image/png;base64,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" alt="Vue">
           <span>Vue Material</span>
         </router-link>
@@ -11,11 +11,11 @@
       <div class="main-sidebar-links">
         <md-list class="md-dense">
           <md-list-item>
-            <router-link to="/">Introduction</router-link>
+            <router-link exact to="/">Introduction</router-link>
           </md-list-item>
 
           <md-list-item>
-            <router-link to="/getting-started">Getting Started</router-link>
+            <router-link exact to="/getting-started">Getting Started</router-link>
           </md-list-item>
 
           <md-list-item>
@@ -24,75 +24,75 @@
             <md-list-expand>
               <md-list>
                 <md-list-item class="md-inset">
-                  <router-link to="/components/avatar">Avatar</router-link>
+                  <router-link exact to="/components/avatar">Avatar</router-link>
                 </md-list-item>
 
                 <md-list-item class="md-inset">
-                  <router-link to="/components/bottom-bar">Bottom Bar</router-link>
+                  <router-link exact to="/components/bottom-bar">Bottom Bar</router-link>
                 </md-list-item>
 
                 <md-list-item class="md-inset">
-                  <router-link to="/components/button">Button</router-link>
+                  <router-link exact to="/components/button">Button</router-link>
                 </md-list-item>
 
                 <md-list-item class="md-inset">
-                  <router-link to="/components/button-toggle">Button Toggle</router-link>
+                  <router-link exact to="/components/button-toggle">Button Toggle</router-link>
                 </md-list-item>
 
                 <md-list-item class="md-inset">
-                  <router-link to="/components/checkbox">Checkbox</router-link>
+                  <router-link exact to="/components/checkbox">Checkbox</router-link>
                 </md-list-item>
 
                 <md-list-item class="md-inset">
-                  <router-link to="/components/icon">Icon</router-link>
+                  <router-link exact to="/components/icon">Icon</router-link>
                 </md-list-item>
 
                 <md-list-item class="md-inset">
-                  <router-link to="/components/input">Input</router-link>
+                  <router-link exact to="/components/input">Input</router-link>
                 </md-list-item>
 
                 <md-list-item class="md-inset">
-                  <router-link to="/components/list">List</router-link>
+                  <router-link exact to="/components/list">List</router-link>
                 </md-list-item>
 
                 <md-list-item class="md-inset">
-                  <router-link to="/components/radio">Radio</router-link>
+                  <router-link exact to="/components/radio">Radio</router-link>
                 </md-list-item>
 
                 <md-list-item class="md-inset">
-                  <router-link to="/components/ripple">Ripple</router-link>
+                  <router-link exact to="/components/ripple">Ripple</router-link>
                 </md-list-item>
 
                 <md-list-item class="md-inset">
-                  <router-link to="/components/select">Select</router-link>
+                  <router-link exact to="/components/select">Select</router-link>
                 </md-list-item>
 
                 <md-list-item class="md-inset">
-                  <router-link to="/components/sidenav">Sidenav</router-link>
+                  <router-link exact to="/components/sidenav">Sidenav</router-link>
                 </md-list-item>
 
                 <md-list-item class="md-inset">
-                  <router-link to="/components/subheader">Subheader</router-link>
+                  <router-link exact to="/components/subheader">Subheader</router-link>
                 </md-list-item>
 
                 <md-list-item class="md-inset">
-                  <router-link to="/components/switch">Switch</router-link>
+                  <router-link exact to="/components/switch">Switch</router-link>
                 </md-list-item>
 
                 <md-list-item class="md-inset">
-                  <router-link to="/components/tabs">Tabs</router-link>
+                  <router-link exact to="/components/tabs">Tabs</router-link>
                 </md-list-item>
 
                 <md-list-item class="md-inset">
-                  <router-link to="/components/toolbar">Toolbar</router-link>
+                  <router-link exact to="/components/toolbar">Toolbar</router-link>
                 </md-list-item>
 
                 <md-list-item class="md-inset">
-                  <router-link to="/components/tooltip">Tooltip</router-link>
+                  <router-link exact to="/components/tooltip">Tooltip</router-link>
                 </md-list-item>
 
                 <md-list-item class="md-inset">
-                  <router-link to="/components/whiteframe">Whiteframe</router-link>
+                  <router-link exact to="/components/whiteframe">Whiteframe</router-link>
                 </md-list-item>
               </md-list>
             </md-list-expand>
@@ -104,11 +104,11 @@
             <md-list-expand>
               <md-list>
                 <md-list-item class="md-inset">
-                  <router-link to="/ui-elements/typography">Typography</router-link>
+                  <router-link exact to="/ui-elements/typography">Typography</router-link>
                 </md-list-item>
 
                 <md-list-item class="md-inset">
-                  <router-link to="/ui-elements/grid-system">Grid System</router-link>
+                  <router-link exact to="/ui-elements/grid-system">Grid System</router-link>
                 </md-list-item>
               </md-list>
             </md-list-expand>
@@ -120,22 +120,22 @@
             <md-list-expand>
               <md-list>
                 <md-list-item class="md-inset">
-                  <router-link to="/themes/configuration">Configuration</router-link>
+                  <router-link exact to="/themes/configuration">Configuration</router-link>
                 </md-list-item>
 
                 <md-list-item class="md-inset">
-                  <router-link to="/themes/dynamic-themes">Dynamic Theme</router-link>
+                  <router-link exact to="/themes/dynamic-themes">Dynamic Theme</router-link>
                 </md-list-item>
               </md-list>
             </md-list-expand>
           </md-list-item>
 
           <md-list-item>
-            <router-link to="/changelog">Changelog</router-link>
+            <router-link exact to="/changelog">Changelog</router-link>
           </md-list-item>
 
           <md-list-item>
-            <router-link to="/about">About</router-link>
+            <router-link exact to="/about">About</router-link>
           </md-list-item>
         </md-list>
       </div>
