@@ -57,8 +57,8 @@
   };
 
   let manageMaxlength = (length, parent) => {
-    parent.enableCounter = length > 0;
-    parent.counterLength = length;
+    parent.enableCounter = +length > 0;
+    parent.counterLength = +length;
   };
 
   export default {
@@ -67,7 +67,7 @@
       value: [String, Number],
       disabled: Boolean,
       required: Boolean,
-      maxlength: Number,
+      maxlength: [String, Number],
       placeholder: [String, Number]
     },
     watch: {
