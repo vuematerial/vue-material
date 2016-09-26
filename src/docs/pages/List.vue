@@ -404,9 +404,8 @@
                 <md-list>
                   <md-list-item class="md-inset">Humor</md-list-item>
                   <md-list-item class="md-inset">Music</md-list-item>
-                  <md-list-item class="md-inset" @click="test = !test">Movies</md-list-item>
+                  <md-list-item class="md-inset">Movies</md-list-item>
                   <md-list-item class="md-inset">TV Shows</md-list-item>
-                  <md-list-item class="md-inset" v-if="test">Test</md-list-item>
                 </md-list>
               </md-list-expand>
             </md-list-item>
@@ -716,8 +715,7 @@
   export default {
     data() {
       return {
-        sidenavVisible: false,
-        test: false
+        sidenavVisible: false
       };
     },
     methods: {

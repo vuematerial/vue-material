@@ -51,10 +51,12 @@
 
     .md-list-item-expand {
       &.md-active {
-        color: #{'PRIMARY-COLOR'};
-
-        .md-icon:not(.md-list-expand-indicator) {
+        > .md-list-item-container {
           color: #{'PRIMARY-COLOR'};
+
+          .md-icon:not(.md-list-expand-indicator) {
+            color: #{'PRIMARY-COLOR'};
+          }
         }
       }
 

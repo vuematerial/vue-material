@@ -6,7 +6,12 @@
     },
     render(createElement) {
       let containerClass = 'md-button md-list-item-container';
-      let listItem = {
+      let slot = this.$slots.default;
+      let componentOptions = slot[0].componentOptions;
+      let expandSlot;
+      let expandSlotIndex;
+
+      let listItemSpec = {
         staticClass: 'md-list-item',
         on: {
           click: () => {
@@ -14,57 +19,71 @@
           }
         }
       };
-      let slot = this.$slots.default;
-      let componentOptions = slot[0].componentOptions;
 
-      if (componentOptions && componentOptions.tag === 'router-link') {
+      let createCompatibleRouterLink = () => {
         slot[0].data.staticClass = containerClass;
         slot[0].data.directives = [{
           name: 'md-ink-ripple'
         }];
 
-        return createElement('li', listItem, slot);
-      }
+        return createElement('li', listItemSpec, slot);
+      };
 
-      let expand;
-      let expandIndex;
+      let prepareExpandList = () => {
+        slot.some((slot, index) => {
+          if (slot.componentOptions && slot.componentOptions.tag === 'md-list-expand') {
+            expandSlot = slot;
+            expandSlotIndex = index;
 
-      slot.some((slot, index) => {
-        if (slot.componentOptions && slot.componentOptions.tag === 'md-list-expand') {
-          expand = slot;
-          expandIndex = index;
+            return true;
+          }
+        });
+      };
 
-          return true;
-        }
-      });
-
-      if (expand) {
-        let expandArrow = createElement('md-icon', {
+      let createExpandIndicator = () => {
+        return createElement('md-icon', {
           staticClass: 'md-list-expand-indicator'
         }, 'keyboard_arrow_down');
+      };
 
-        slot.splice(expandIndex, 1);
-        slot.push(expandArrow);
+      let recalculateExpand = (element) => {
+        element.$children.some((expand) => {
+          if (expand.$el.classList.contains('md-list-expand')) {
+            expand.calculatePadding();
+          }
+        });
+      };
 
-        let container = createElement('div', {
+      let handleExpandClick = (scope) => {
+        let target;
+
+        scope.$parent.$children.some((child) => {
+          var classList = child.$el.classList;
+
+          if (classList.contains('md-list-item-expand') && classList.contains('md-active')) {
+            target = child;
+            classList.remove('md-active');
+
+            recalculateExpand(child);
+
+            return true;
+          }
+        });
+
+        if (!target || scope.$el !== target.$el) {
+          scope.$el.classList.add('md-active');
+        }
+      };
+
+      let createExpandElement = () => {
+        slot.splice(expandSlotIndex, 1);
+        slot.push(createExpandIndicator());
+
+        return createElement('div', {
           staticClass: containerClass,
           on: {
             click: () => {
-              let target;
-
-              this.$parent.$children.some((child) => {
-                if (child.$el.classList.contains('md-list-item-expand') && child.$el.classList.contains('md-active')) {
-                  target = child;
-                  child.$el.classList.remove('md-active');
-
-                  return true;
-                }
-              });
-
-              if (!target || this.$el !== target.$el) {
-                this.$el.classList.add('md-active');
-              }
-
+              handleExpandClick(this);
               this.$emit('click');
             }
           },
@@ -72,13 +91,25 @@
             name: 'md-ink-ripple'
           }]
         }, slot);
+      };
 
-        listItem.staticClass += ' md-list-item-expand';
+      let createExpandList = () => {
+        listItemSpec.staticClass += ' md-list-item-expand';
 
-        return createElement('li', listItem, [container, expand]);
+        return createElement('li', listItemSpec, [createExpandElement(), expandSlot]);
+      };
+
+      if (componentOptions && componentOptions.tag === 'router-link') {
+        createCompatibleRouterLink();
       }
 
-      let button = createElement('md-button', {
+      prepareExpandList();
+
+      if (expandSlot) {
+        return createExpandList();
+      }
+
+      let buttonSpec = createElement('md-button', {
         staticClass: containerClass,
         attrs: {
           target: this.target,
@@ -87,10 +118,10 @@
       }, slot);
 
       if (this.target) {
-        button.data.attrs.rel = 'noopener';
+        buttonSpec.data.attrs.rel = 'noopener';
       }
 
-      return createElement('li', listItem, [button]);
+      return createElement('li', listItemSpec, [buttonSpec]);
     }
   };
 </script>
