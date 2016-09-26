@@ -141,7 +141,9 @@
       </div>
     </md-sidenav>
 
-    <router-view></router-view>
+    <transition name="md-router">
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 
@@ -279,6 +281,31 @@
     padding: 16px;
     flex: 1;
     overflow: auto;
+  }
+
+  .md-router-enter-active,
+  .md-router-leave-active {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 280px;
+    transition: $swift-ease-out;
+  }
+
+  .md-router-enter,
+  .md-router-leave-active {
+    opacity: 0;
+  }
+
+  .md-router-enter {
+    .single-page-banner .md-toolbar {
+      min-height: 64px;
+      padding-top: 0;
+
+      .md-title {
+        font-size: 20px;
+      }
+    }
   }
 </style>
 
