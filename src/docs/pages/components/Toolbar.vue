@@ -1,5 +1,5 @@
 <template>
-  <demo-page>
+  <demo-page label="Components - Toolbar">
     <div slot="examples">
       <demo-example label="Default">
         <md-toolbar>
@@ -223,11 +223,3 @@
     }
   }
 </style>
-
-<script>
-  export default {
-    mounted() {
-      this.$root.pageTitle = 'Components - Toolbar';
-    }
-  };
-</script>

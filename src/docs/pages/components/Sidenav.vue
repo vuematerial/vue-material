@@ -1,5 +1,5 @@
 <template>
-  <demo-page>
+  <demo-page label="Components - Sidenav">
     <div slot="examples">
       <demo-example label="Default" size="2">
         <div class="phone-viewport">
@@ -73,9 +73,6 @@
       close(ref) {
         console.log('Closed: ' + ref);
       }
-    },
-    mounted() {
-      this.$root.pageTitle = 'Components - Sidenav';
     }
   };
 </script>

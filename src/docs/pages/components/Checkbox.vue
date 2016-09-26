@@ -1,5 +1,5 @@
 <template>
-  <demo-page>
+  <demo-page label="Components - Checkbox">
     <div slot="examples">
       <demo-example label="Default">
         <md-checkbox id="my-test1" name="my-test1" v-model="checkbox">Regular Checkbox</md-checkbox>
@@ -54,9 +54,6 @@
         checkbox: true,
         checkbox2: false
       };
-    },
-    mounted() {
-      this.$root.pageTitle = 'Components - Checkbox';
     }
   };
 </script>

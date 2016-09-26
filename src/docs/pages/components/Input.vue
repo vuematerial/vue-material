@@ -1,5 +1,5 @@
 <template>
-  <demo-page>
+  <demo-page label="Components - Input">
     <div slot="examples">
       <demo-example label="Regular fields" size="4">
         <form novalidate @submit.stop.prevent="submit">
@@ -122,9 +122,6 @@
       return {
         initialValue: 'My initial value'
       };
-    },
-    mounted() {
-      this.$root.pageTitle = 'Components - Input';
     }
   };
 </script>

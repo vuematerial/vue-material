@@ -1,5 +1,5 @@
 <template>
-  <demo-page>
+  <demo-page label="Components - Subheader">
     <div slot="examples">
       <demo-example label="With Lists">
         <div class="phone-viewport">
@@ -153,11 +153,3 @@
     </div>
   </demo-page>
 </template>
-
-<script>
-  export default {
-    mounted() {
-      this.$root.pageTitle = 'Components - Subheader';
-    }
-  };
-</script>

@@ -1,5 +1,5 @@
 <template>
-  <demo-page>
+  <demo-page label="Components - Avatar">
     <div slot="examples">
       <demo-example label="Default" size="2">
         <md-avatar>
@@ -55,11 +55,3 @@
     </div>
   </demo-page>
 </template>
-
-<script>
-  export default {
-    mounted() {
-      this.$root.pageTitle = 'Components - Avatar';
-    }
-  };
-</script>

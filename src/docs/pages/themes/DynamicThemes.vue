@@ -1,13 +1,5 @@
 <template>
-  <div class="page-content">
-    <h1>Dynamic Themes</h1>
-  </div>
-</template>
+  <single-page class="single-page-home" label="Themes - Dynamic Themes">
 
-<script>
-  export default {
-    mounted() {
-      this.$root.pageTitle = 'Themes - Dynamic Themes';
-    }
-  };
-</script>
+  </single-page>
+</template>

@@ -1,5 +1,5 @@
 <template>
-  <demo-page>
+  <demo-page label="Components - Button Toggle">
     <div slot="examples">
       <demo-example label="Multiple" size="2">
         <md-button-toggle class="md-button-group">
@@ -215,11 +215,3 @@
     margin-top: 16px;
   }
 </style>
-
-<script>
-  export default {
-    mounted() {
-      this.$root.pageTitle = 'Components - Buttom Toggle';
-    }
-  };
-</script>

@@ -1,5 +1,5 @@
 <template>
-  <demo-page>
+  <demo-page label="Components - Select">
     <div slot="examples">
       <demo-example label="Default">
         <div class="field-group">
@@ -102,9 +102,6 @@
         font: '',
         food: ''
       };
-    },
-    mounted() {
-      this.$root.pageTitle = 'Components - Select';
     }
   };
 </script>

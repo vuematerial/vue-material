@@ -1,5 +1,5 @@
 <template>
-  <demo-page>
+  <demo-page label="Components - Ripple">
     <div slot="examples">
       <demo-example label="Default">
         <span class="has-ripple" v-md-ink-ripple>This span has ripple effect</span>
@@ -47,11 +47,3 @@
     color: #4CAF50;
   }
 </style>
-
-<script>
-  export default {
-    mounted() {
-      this.$root.pageTitle = 'Components - Ripple';
-    }
-  };
-</script>

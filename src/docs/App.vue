@@ -141,18 +141,6 @@
       </div>
     </md-sidenav>
 
-    <md-toolbar class="main-header" v-if="toolbar">
-      <md-button class="md-icon-button" @click="toggleSidenav">
-        <md-icon>menu</md-icon>
-      </md-button>
-
-      <div class="md-title">
-        <span class="logo-vue-material">Vue Material</span>
-        <span> – </span>
-        <span class="page-title">{{ pageTitle }}</span>
-      </div>
-    </md-toolbar>
-
     <router-view></router-view>
   </div>
 </template>
@@ -198,10 +186,6 @@
     }
 
     .md-title {
-      .logo-vue-material {
-        display: inline-block;
-      }
-
       .page-title {
         margin-left: 0;
 

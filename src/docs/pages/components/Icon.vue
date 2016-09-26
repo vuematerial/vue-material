@@ -1,5 +1,5 @@
 <template>
-  <demo-page>
+  <demo-page label="Components - Icon">
     <div slot="examples">
       <demo-example label="Default" size="2">
         <md-icon>home</md-icon>
@@ -25,11 +25,3 @@
     </div>
   </demo-page>
 </template>
-
-<script>
-  export default {
-    mounted() {
-      this.$root.pageTitle = 'Components - Icon';
-    }
-  };
-</script>

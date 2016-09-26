@@ -7,6 +7,7 @@ import './config.js';
 import routes from './routes.js';
 import App from './App';
 import SinglePage from './components/single-page';
+import SinglePageBanner from './components/single-page-banner';
 import DemoPage from './components/demo-page';
 import DemoExample from './components/demo-example';
 
@@ -32,6 +33,7 @@ let handleSectionTheme = (route) => {
 };
 
 Vue.component('single-page', SinglePage);
+Vue.component('single-page-banner', SinglePageBanner);
 Vue.component('demo-page', DemoPage);
 Vue.component('demo-example', DemoExample);
 

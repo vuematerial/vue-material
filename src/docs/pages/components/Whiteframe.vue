@@ -1,5 +1,5 @@
 <template>
-  <demo-page>
+  <demo-page label="Components - Whiteframe">
     <div slot="examples" class="whiteframe-list">
       <demo-example label="Default">
         <md-whiteframe md-elevation="1">1dp</md-whiteframe>
@@ -53,11 +53,3 @@
     }
   }
 </style>
-
-<script>
-  export default {
-    mounted() {
-      this.$root.pageTitle = 'Components - Whiteframe';
-    }
-  };
-</script>

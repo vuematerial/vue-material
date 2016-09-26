@@ -1,5 +1,5 @@
 <template>
-  <demo-page>
+  <demo-page label="Components - Button">
     <div slot="examples">
       <demo-example label="Flat">
         <md-button @click="disablePrimaryButton">Default</md-button>
@@ -161,9 +161,6 @@
       disablePrimaryButton() {
         this.buttonDisabled = !this.buttonDisabled;
       }
-    },
-    mounted() {
-      this.$root.pageTitle = 'Components - Button';
     }
   };
 </script>
