@@ -15,6 +15,8 @@
 </template>
 
 <style lang="scss">
+  @import '../../core/stylesheets/variables.scss';
+
   .single-page-banner {
     min-height: 256px;
     padding-top: 98px;
@@ -23,6 +25,7 @@
     right: 0;
     left: 0;
     z-index: 3;
+    transition: $swift-ease-out;
     color: #fff !important;
 
     .md-title:first-child {
@@ -30,6 +33,7 @@
       font-size: 45px;
       font-weight: 400;
       line-height: 1.3em;
+      transition: $swift-ease-out;
     }
   }
 
