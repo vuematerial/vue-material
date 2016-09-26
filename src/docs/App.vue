@@ -131,6 +131,10 @@
           </md-list-item>
 
           <md-list-item>
+            <router-link to="/changelog">Changelog</router-link>
+          </md-list-item>
+
+          <md-list-item>
             <router-link to="/about">About</router-link>
           </md-list-item>
         </md-list>
