@@ -157,7 +157,7 @@
 <script>
   export default {
     mounted() {
-      this.$root.pageTitle = 'Subheader';
+      this.$root.pageTitle = 'Components - Subheader';
     }
   };
 </script>

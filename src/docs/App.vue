@@ -8,83 +8,133 @@
         </router-link>
       </md-toolbar>
 
-      <md-list>
-        <md-list-item>
-          <router-link to="/avatar">Avatar</router-link>
-        </md-list-item>
+      <div class="main-sidebar-links">
+        <md-list class="md-dense">
+          <md-list-item>
+            <router-link to="/">Introduction</router-link>
+          </md-list-item>
 
-        <md-list-item>
-          <router-link to="/bottom-bar">Bottom Bar</router-link>
-        </md-list-item>
+          <md-list-item>
+            <router-link to="/getting-started">Getting Started</router-link>
+          </md-list-item>
 
-        <md-list-item>
-          <router-link to="/button">Button</router-link>
-        </md-list-item>
+          <md-list-item>
+            <span>Components</span>
 
-        <md-list-item>
-          <router-link to="/button-toggle">Button Toggle</router-link>
-        </md-list-item>
+            <md-list-expand>
+              <md-list>
+                <md-list-item class="md-inset">
+                  <router-link to="/components/avatar">Avatar</router-link>
+                </md-list-item>
 
-        <md-list-item>
-          <router-link to="/checkbox">Checkbox</router-link>
-        </md-list-item>
+                <md-list-item class="md-inset">
+                  <router-link to="/components/bottom-bar">Bottom Bar</router-link>
+                </md-list-item>
 
-        <md-list-item>
-          <router-link to="/icon">Icon</router-link>
-        </md-list-item>
+                <md-list-item class="md-inset">
+                  <router-link to="/components/button">Button</router-link>
+                </md-list-item>
 
-        <md-list-item>
-          <router-link to="/input">Input</router-link>
-        </md-list-item>
+                <md-list-item class="md-inset">
+                  <router-link to="/components/button-toggle">Button Toggle</router-link>
+                </md-list-item>
 
-        <md-list-item>
-          <router-link to="/list">List</router-link>
-        </md-list-item>
+                <md-list-item class="md-inset">
+                  <router-link to="/components/checkbox">Checkbox</router-link>
+                </md-list-item>
 
-        <md-list-item>
-          <router-link to="/radio">Radio</router-link>
-        </md-list-item>
+                <md-list-item class="md-inset">
+                  <router-link to="/components/icon">Icon</router-link>
+                </md-list-item>
 
-        <md-list-item>
-          <router-link to="/ripple">Ripple</router-link>
-        </md-list-item>
+                <md-list-item class="md-inset">
+                  <router-link to="/components/input">Input</router-link>
+                </md-list-item>
 
-        <md-list-item>
-          <router-link to="/select">Select</router-link>
-        </md-list-item>
+                <md-list-item class="md-inset">
+                  <router-link to="/components/list">List</router-link>
+                </md-list-item>
 
-        <md-list-item>
-          <router-link to="/sidenav">Sidenav</router-link>
-        </md-list-item>
+                <md-list-item class="md-inset">
+                  <router-link to="/components/radio">Radio</router-link>
+                </md-list-item>
 
-        <md-list-item>
-          <router-link to="/subheader">Subheader</router-link>
-        </md-list-item>
+                <md-list-item class="md-inset">
+                  <router-link to="/components/ripple">Ripple</router-link>
+                </md-list-item>
 
-        <md-list-item>
-          <router-link to="/switch">Switch</router-link>
-        </md-list-item>
+                <md-list-item class="md-inset">
+                  <router-link to="/components/select">Select</router-link>
+                </md-list-item>
 
-        <md-list-item>
-          <router-link to="/tabs">Tabs</router-link>
-        </md-list-item>
+                <md-list-item class="md-inset">
+                  <router-link to="/components/sidenav">Sidenav</router-link>
+                </md-list-item>
 
-        <md-list-item>
-          <router-link to="/theme">Theme</router-link>
-        </md-list-item>
+                <md-list-item class="md-inset">
+                  <router-link to="/components/subheader">Subheader</router-link>
+                </md-list-item>
 
-        <md-list-item>
-          <router-link to="/toolbar">Toolbar</router-link>
-        </md-list-item>
+                <md-list-item class="md-inset">
+                  <router-link to="/components/switch">Switch</router-link>
+                </md-list-item>
 
-        <md-list-item>
-          <router-link to="/tooltip">Tooltip</router-link>
-        </md-list-item>
+                <md-list-item class="md-inset">
+                  <router-link to="/components/tabs">Tabs</router-link>
+                </md-list-item>
 
-        <md-list-item>
-          <router-link to="/whiteframe">Whiteframe</router-link>
-        </md-list-item>
-      </md-list>
+                <md-list-item class="md-inset">
+                  <router-link to="/components/toolbar">Toolbar</router-link>
+                </md-list-item>
+
+                <md-list-item class="md-inset">
+                  <router-link to="/components/tooltip">Tooltip</router-link>
+                </md-list-item>
+
+                <md-list-item class="md-inset">
+                  <router-link to="/components/whiteframe">Whiteframe</router-link>
+                </md-list-item>
+              </md-list>
+            </md-list-expand>
+          </md-list-item>
+
+          <md-list-item>
+            <span>UI Elements</span>
+
+            <md-list-expand>
+              <md-list>
+                <md-list-item class="md-inset">
+                  <router-link to="/ui-elements/typography">Typography</router-link>
+                </md-list-item>
+
+                <md-list-item class="md-inset">
+                  <router-link to="/ui-elements/grid-system">Grid System</router-link>
+                </md-list-item>
+              </md-list>
+            </md-list-expand>
+          </md-list-item>
+
+          <md-list-item>
+            <span>Themes</span>
+
+            <md-list-expand>
+              <md-list>
+                <md-list-item class="md-inset">
+                  <router-link to="/themes/configuration">Configuration</router-link>
+                </md-list-item>
+
+                <md-list-item class="md-inset">
+                  <router-link to="/themes/dynamic-themes">Dynamic Theme</router-link>
+                </md-list-item>
+              </md-list>
+            </md-list-expand>
+          </md-list-item>
+
+          <md-list-item>
+            <router-link to="/about">About</router-link>
+          </md-list-item>
+        </md-list>
+      </div>
     </md-sidenav>
 
     <md-toolbar class="main-header">
@@ -186,7 +236,7 @@
     }
 
     .md-toolbar {
-      height: 172px;
+      min-height: 172px;
       border-bottom: 1px solid rgba(#000, .12);
     }
 
@@ -208,9 +258,17 @@
       }
     }
 
-    .md-list {
+    .main-sidebar-links {
       overflow: auto;
-      flex: 1;
+
+      .md-inset .md-list-item-container {
+        padding-left: 36px;
+      }
+
+      .md-list-item-container {
+        font-size: 14px;
+        font-weight: 500;
+      }
     }
   }
 

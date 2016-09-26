@@ -227,7 +227,7 @@
 <script>
   export default {
     mounted() {
-      this.$root.pageTitle = 'Toolbar';
+      this.$root.pageTitle = 'Components - Toolbar';
     }
   };
 </script>

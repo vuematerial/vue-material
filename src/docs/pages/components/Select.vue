@@ -104,7 +104,7 @@
       };
     },
     mounted() {
-      this.$root.pageTitle = 'Select';
+      this.$root.pageTitle = 'Components - Select';
     }
   };
 </script>

@@ -630,7 +630,7 @@
 </template>
 
 <style lang="scss">
-  @import '../../core/stylesheets/variables.scss';
+  @import '../../../core/stylesheets/variables.scss';
 
   .phone-viewport {
     width: 360px;
@@ -724,7 +724,7 @@
       }
     },
     mounted() {
-      this.$root.pageTitle = 'List';
+      this.$root.pageTitle = 'Components - List';
     }
   };
 </script>

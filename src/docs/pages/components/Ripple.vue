@@ -51,7 +51,7 @@
 <script>
   export default {
     mounted() {
-      this.$root.pageTitle = 'Ripple';
+      this.$root.pageTitle = 'Components - Ripple';
     }
   };
 </script>

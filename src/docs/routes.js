@@ -1,126 +1,190 @@
-import Home from './pages/Home';
+/* main */
+import Introduction from './pages/Introduction';
+import GettingStarted from './pages/GettingStarted';
+import About from './pages/About';
 import Error404 from './pages/Error';
-import Avatar from './pages/Avatar';
-import BottomBar from './pages/BottomBar';
-import Buttons from './pages/Buttons';
-import ButtonToggle from './pages/ButtonToggle';
-import Checkbox from './pages/Checkbox';
-import Icon from './pages/Icon';
-import Input from './pages/Input';
-import List from './pages/List';
-import Radio from './pages/Radio';
-import Ripple from './pages/Ripple';
-import Select from './pages/Select';
-import Sidenav from './pages/Sidenav';
-import Subheader from './pages/Subheader';
-import Switch from './pages/Switch';
-import Tabs from './pages/Tabs';
-import Theme from './pages/Theme';
-import Toolbar from './pages/Toolbar';
-import Tooltip from './pages/Tooltip';
-import Whiteframe from './pages/Whiteframe';
 
-const routes = [
+/* Components */
+import Avatar from './pages/components/Avatar';
+import BottomBar from './pages/components/BottomBar';
+import Buttons from './pages/components/Buttons';
+import ButtonToggle from './pages/components/ButtonToggle';
+import Checkbox from './pages/components/Checkbox';
+import Icon from './pages/components/Icon';
+import Input from './pages/components/Input';
+import List from './pages/components/List';
+import Radio from './pages/components/Radio';
+import Ripple from './pages/components/Ripple';
+import Select from './pages/components/Select';
+import Sidenav from './pages/components/Sidenav';
+import Subheader from './pages/components/Subheader';
+import Switch from './pages/components/Switch';
+import Tabs from './pages/components/Tabs';
+import Toolbar from './pages/components/Toolbar';
+import Tooltip from './pages/components/Tooltip';
+import Whiteframe from './pages/components/Whiteframe';
+
+/* UI Elements */
+import Typography from './pages/ui-elements/Typography';
+import GridSystem from './pages/ui-elements/GridSystem';
+
+/* Themes */
+import Configuration from './pages/themes/Configuration';
+import DynamicThemes from './pages/themes/DynamicThemes';
+
+const main = [
   {
     path: '/',
-    name: 'home',
-    component: Home
+    name: 'introduction',
+    component: Introduction
   },
   {
-    path: '/avatar',
-    name: 'avatar',
+    path: '/getting-started',
+    name: 'getting-started',
+    component: GettingStarted
+  },
+  {
+    path: '/about',
+    name: 'about',
+    component: About
+  }
+];
+
+const components = [
+  {
+    path: '/components',
+    name: 'components',
+    redirect: '/components/avatar'
+  },
+  {
+    path: '/components/avatar',
+    name: 'components:avatar',
     component: Avatar
   },
   {
-    path: '/bottom-bar',
-    name: 'bottom-bar',
+    path: '/components/bottom-bar',
+    name: 'components:bottom-bar',
     component: BottomBar
   },
   {
-    path: '/button',
-    name: 'button',
+    path: '/components/button',
+    name: 'components:button',
     component: Buttons
   },
   {
-    path: '/button-toggle',
-    name: 'button-toggle',
+    path: '/components/button-toggle',
+    name: 'components:button-toggle',
     component: ButtonToggle
   },
   {
-    path: '/checkbox',
-    name: 'checkbox',
+    path: '/components/checkbox',
+    name: 'components:checkbox',
     component: Checkbox
   },
   {
-    path: '/icon',
-    name: 'icon',
+    path: '/components/icon',
+    name: 'components:icon',
     component: Icon
   },
   {
-    path: '/input',
-    name: 'input',
+    path: '/components/input',
+    name: 'components:input',
     component: Input
   },
   {
-    path: '/list',
-    name: 'list',
+    path: '/components/list',
+    name: 'components:list',
     component: List
   },
   {
-    path: '/radio',
-    name: 'radio',
+    path: '/components/radio',
+    name: 'components:radio',
     component: Radio
   },
   {
-    path: '/ripple',
-    name: 'ripple',
+    path: '/components/ripple',
+    name: 'components:ripple',
     component: Ripple
   },
   {
-    path: '/select',
-    name: 'select',
+    path: '/components/select',
+    name: 'components:select',
     component: Select
   },
   {
-    path: '/sidenav',
-    name: 'sidenav',
+    path: '/components/sidenav',
+    name: 'components:sidenav',
     component: Sidenav
   },
   {
-    path: '/switch',
-    name: 'switch',
+    path: '/components/switch',
+    name: 'components:switch',
     component: Switch
   },
   {
-    path: '/subheader',
-    name: 'subheader',
+    path: '/components/subheader',
+    name: 'components:subheader',
     component: Subheader
   },
   {
-    path: '/tabs',
-    name: 'tabs',
+    path: '/components/tabs',
+    name: 'components:tabs',
     component: Tabs
   },
   {
-    path: '/theme',
-    name: 'theme',
-    component: Theme
-  },
-  {
-    path: '/toolbar',
-    name: 'toolbar',
+    path: '/components/toolbar',
+    name: 'components:toolbar',
     component: Toolbar
   },
   {
-    path: '/tooltip',
-    name: 'tooltip',
+    path: '/components/tooltip',
+    name: 'components:tooltip',
     component: Tooltip
   },
   {
-    path: '/whiteframe',
-    name: 'whiteframe',
+    path: '/components/whiteframe',
+    name: 'components:whiteframe',
     component: Whiteframe
+  }
+];
+
+const theme = [
+  {
+    path: '/themes',
+    name: 'themes',
+    redirect: '/themes/configuration'
   },
+  {
+    path: '/themes/configuration',
+    name: 'themes:configuration',
+    component: Configuration
+  },
+  {
+    path: '/themes/dynamic-themes',
+    name: 'themes:dynamic-themes',
+    component: DynamicThemes
+  }
+];
+
+const uiElements = [
+  {
+    path: '/ui-elements',
+    name: 'ui-elements',
+    redirect: '/ui-elements/typography'
+  },
+  {
+    path: '/ui-elements/typography',
+    name: 'ui-elements:typography',
+    component: Typography
+  },
+  {
+    path: '/ui-elements/grid-system',
+    name: 'ui-elements:grid-system',
+    component: GridSystem
+  }
+];
+
+const error = [
   {
     path: '*',
     name: 'error',
@@ -128,4 +192,4 @@ const routes = [
   }
 ];
 
-export default routes;
+export default [].concat(main, components, theme, uiElements, error);

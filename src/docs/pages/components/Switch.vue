@@ -63,7 +63,7 @@
       };
     },
     mounted() {
-      this.$root.pageTitle = 'Switch';
+      this.$root.pageTitle = 'Components - Switch';
     }
   };
 </script>

@@ -29,7 +29,7 @@
 <script>
   export default {
     mounted() {
-      this.$root.pageTitle = 'Icon';
+      this.$root.pageTitle = 'Components - Icon';
     }
   };
 </script>

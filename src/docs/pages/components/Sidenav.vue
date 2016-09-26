@@ -75,7 +75,7 @@
       }
     },
     mounted() {
-      this.$root.pageTitle = 'Sidenav';
+      this.$root.pageTitle = 'Components - Sidenav';
     }
   };
 </script>

@@ -219,7 +219,7 @@
 <script>
   export default {
     mounted() {
-      this.$root.pageTitle = 'Buttom Toggle';
+      this.$root.pageTitle = 'Components - Buttom Toggle';
     }
   };
 </script>
