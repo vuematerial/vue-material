@@ -1,9 +1,18 @@
-body.THEME_NAME {
+.THEME_NAME {
   color: rgba(0, 0, 0, .87);
   background-color: #{'BACKGROUND-COLOR-A100'};
 
   :not(input):not(textarea)::selection {
     background: #{'ACCENT-COLOR'};
     color: #{'ACCENT-CONTRAST'};
+  }
+
+  a:not(.md-button) {
+    color: #{'PRIMARY-COLOR'};
+    text-decoration: none;
+
+    &:hover {
+      color: #{'PRIMARY-COLOR-800'};
+    }
   }
 }
