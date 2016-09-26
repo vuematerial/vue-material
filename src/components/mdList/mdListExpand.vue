@@ -8,16 +8,16 @@
   export default {
     data() {
       return {
-        height: null
+        height: 0
       };
     },
-    watch: {
-      '$el.offsetHeight': function() {
-        console.log(this);
+    methods: {
+      calculatePadding() {
+        this.height = -this.$el.offsetHeight + 'px';
       }
     },
     mounted() {
-      this.height = -this.$el.offsetHeight + 'px';
+      this.calculatePadding();
     }
   };
 </script>
