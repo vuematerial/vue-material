@@ -100,7 +100,7 @@
       };
 
       if (componentOptions && componentOptions.tag === 'router-link') {
-        createCompatibleRouterLink();
+        return createCompatibleRouterLink();
       }
 
       prepareExpandList();
