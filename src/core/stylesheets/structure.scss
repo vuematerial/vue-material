@@ -10,10 +10,7 @@ body {
   -webkit-font-smoothing: antialiased;
   color: rgba(#000, .87);
   font-family: $font-roboto;
-  font-size: 14px;
-  font-weight: 400;
-  letter-spacing: .010em;
-  line-height: 20px;
+  @extend .md-body-1;
 }
 
 ::-webkit-scrollbar {

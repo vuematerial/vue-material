@@ -1,7 +1,7 @@
 <template>
   <div class="single-page-banner">
     <md-toolbar class="single-page-banner">
-      <h1 class="md-title">{{ label }}</h1>
+      <h1 class="md-display-2">{{ label }}</h1>
     </md-toolbar>
 
     <md-button href="https://github.com/marcosmoura/vue-material" target="_blank" rel="noopener" class="md-icon-button github-button">
@@ -28,12 +28,13 @@
     transition: $swift-ease-out;
     color: #fff !important;
 
-    .md-title:first-child {
-      margin-left: 48px;
-      font-size: 45px;
-      font-weight: 400;
-      line-height: 1.3em;
+    .md-display-2 {
+      width: 100%;
+      max-width: 1024px;
+      padding-left: 16px;
+      margin: 0 auto;
       transition: $swift-ease-out;
+      color: #fff;
     }
   }
 
@@ -41,7 +42,7 @@
     margin: 0;
     position: fixed;
     top: 12px;
-    left: 2px;
+    left: 12px;
     z-index: 3;
     color: #fff;
   }
