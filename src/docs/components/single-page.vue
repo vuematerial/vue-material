@@ -21,25 +21,14 @@
 <style lang="scss">
   @import '../../core/stylesheets/variables.scss';
 
-  .single-page:not(.single-page-home),
   .single-page-content {
+    max-width: 1024px;
     padding: 16px;
+    margin: 0 auto;
   }
 
-  .single-page-content {
-    font-size: 16px;
-    line-height: 1.6em;
-
-    .introduction {
-      margin-top: 2px;
-      margin-bottom: 1.5em;
-      font-size: 20px;
-      line-height: 1.6em;
-    }
-  }
-
-  .single-page-home {
-    padding-top: 256px;
+  .single-page {
+    padding-top: 64px;
 
     .main-header {
       position: fixed;
@@ -53,10 +42,15 @@
         padding-left: 280px;
       }
 
-      .md-toolbar {
+      .md-toolbar,
+      .md-title {
         color: #fff;
       }
     }
+  }
+
+  .single-page-home {
+    padding-top: 256px;
   }
 
   .single-page-banner {
@@ -81,7 +75,7 @@
     margin: 0;
     position: fixed;
     top: 12px;
-    left: 2px;
+    left: 12px;
     z-index: 3;
     color: #fff;
   }

@@ -21,12 +21,18 @@ let router = new VueRouter({
 
 let Docs = Vue.component('app', App);
 let handleSectionTheme = (route) => {
-  if (route.name.indexOf('components') >= 0) {
+  if (route.name.indexOf('introduction') >= 0) {
+    Docs.theme = 'blue';
+  } else if (route.name.indexOf('components') >= 0) {
     Docs.theme = 'indigo';
   } else if (route.name.indexOf('themes') >= 0) {
     Docs.theme = 'teal';
   } else if (route.name.indexOf('ui-elements') >= 0) {
     Docs.theme = 'dark-pink';
+  } else if (route.name.indexOf('changelog') >= 0) {
+    Docs.theme = 'orange';
+  } else if (route.name.indexOf('about') >= 0) {
+    Docs.theme = 'green';
   } else {
     Docs.theme = 'default';
   }
@@ -51,7 +57,7 @@ router.afterEach((currentRoute) => {
     mainContent.scrollTop = 0;
   }
 
-  handleSectionTheme(currentRoute);
-
   Docs.closeSidenav();
+
+  handleSectionTheme(currentRoute);
 });

@@ -26,7 +26,7 @@ Vue.use(VueMaterial.MdTheme, {
   },
   blue: {
     primary: 'blue',
-    accent: 'purple'
+    accent: 'pink'
   },
   green: {
     primary: 'green',

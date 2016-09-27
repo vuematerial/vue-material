@@ -1,5 +1,5 @@
 .THEME_NAME {
-  color: rgba(0, 0, 0, .87);
+  color: #{'BACKGROUND-CONTRAST-0.87'};
   background-color: #{'BACKGROUND-COLOR-A100'};
 
   :not(input):not(textarea)::selection {
@@ -8,11 +8,23 @@
   }
 
   a:not(.md-button) {
-    color: #{'PRIMARY-COLOR'};
-    text-decoration: none;
+    color: #{'ACCENT-COLOR'};
 
     &:hover {
-      color: #{'PRIMARY-COLOR-800'};
+      color: #{'ACCENT-COLOR-800'};
     }
+  }
+}
+
+
+/* Typography */
+
+.THEME_NAME {
+  .md-caption,
+  .md-display-1,
+  .md-display-2,
+  .md-display-3,
+  .md-display-4 {
+    color: #{'BACKGROUND-CONTRAST-0.57'};
   }
 }

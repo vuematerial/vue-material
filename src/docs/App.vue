@@ -173,10 +173,6 @@
     }
   }
 
-  .md-theme-default .main-header {
-    color: #fff;
-  }
-
   .main-header {
     position: relative;
     z-index: 3;
@@ -185,6 +181,11 @@
       @media (min-width: 1280px) {
         display: none;
       }
+    }
+
+    .md-toolbar,
+    .md-title {
+      color: #fff;
     }
 
     .md-title {
@@ -206,11 +207,11 @@
 
   .main-sidebar.md-sidenav {
     .md-sidenav-content {
+      width: $sizebar-size;
       display: flex;
       flex-flow: column;
 
       @media (min-width: 1280px) {
-        width: $sizebar-size;
         top: 0;
         pointer-events: auto;
         transform: translate3d(0, 0, 0);
@@ -288,23 +289,22 @@
     position: absolute;
     top: 0;
     right: 0;
-    left: 280px;
+    left: 0;
     transition: $swift-ease-out;
+
+    @media (min-width: 1280px) {
+      left: 280px;
+    }
   }
 
   .md-router-enter,
   .md-router-leave-active {
-    opacity: 0;
+    opacity: .2;
   }
 
   .md-router-enter {
-    .single-page-banner .md-toolbar {
-      min-height: 64px;
-      padding-top: 0;
-
-      .md-title {
-        font-size: 20px;
-      }
+    .md-display-2 {
+      transform: translate3D(0, -36px, 0);
     }
   }
 </style>
