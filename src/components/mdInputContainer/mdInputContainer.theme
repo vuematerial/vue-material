@@ -1,6 +1,20 @@
 .THEME_NAME {
   .md-input-container,
   &.md-input-container {
+    &.md-input-invalid {
+      &:after {
+        background-color: #{'WARN-COLOR'};
+      }
+
+      label,
+      .md-error,
+      .md-count,
+      input,
+      textarea {
+        color: #{'WARN-COLOR'};
+      }
+    }
+
     &.md-input-focused {
       &.md-input-inline {
         label {
@@ -28,20 +42,6 @@
 
       label {
         color: #{'PRIMARY-COLOR'};
-      }
-    }
-
-    &.md-input-invalid {
-      &:after {
-        background-color: #{'WARN-COLOR'};
-      }
-
-      label,
-      .md-error,
-      .md-count,
-      input,
-      textarea {
-        color: #{'WARN-COLOR'};
       }
     }
   }
