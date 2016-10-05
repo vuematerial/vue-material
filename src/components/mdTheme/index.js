@@ -130,6 +130,7 @@ const registerDirective = (element, { value, oldValue }) => {
     if (theme && registedThemes.indexOf(theme) >= 0) {
       element.classList.add(newClass);
     } else {
+      element.classList.add(oldClass);
       console.warn('Attempted to use unregistered theme "' + theme + '\".');
     }
   }
