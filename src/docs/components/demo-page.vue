@@ -70,18 +70,6 @@
       font-size: 16px;
       line-height: 1.6em;
     }
-
-    code:not(.highlight) {
-      margin-left: 1px;
-      margin-right: 1px;
-      padding: 1px 5px;
-      background-color: rgba(#3f51b5, .12);
-      border-radius: 2px;
-      color: #3f51b5;
-      font-family: Hack, Menlo, "Liberation Mono", "Operator Mono", Monaco, Consolas, monospace;
-      letter-spacing: .010em;
-      line-height: 1.5em;
-    }
   }
 </style>
 

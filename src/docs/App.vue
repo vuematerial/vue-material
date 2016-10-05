@@ -307,6 +307,21 @@
       transform: translate3D(0, -36px, 0);
     }
   }
+
+  code {
+    &:not(.hljs) {
+      margin-left: 1px;
+      margin-right: 1px;
+      padding: 0 4px;
+      display: inline-block;
+      border-radius: 2px;
+      font-family: "Operator Mono", "Fira Code", Menlo, Hack, "Roboto Mono", "Liberation Mono", Monaco, monospace;
+
+      pre {
+        margin: 8px 0;
+      }
+    }
+  }
 </style>
 
 <script>

@@ -1,8 +1,10 @@
 <template>
-  <single-page class="single-page-home" label="Introduction">
-    <single-page-banner label="Vue Material"></single-page-banner>
-
+  <single-page label="Introduction">
     <div class="button-actions">
+      <div class="example">
+        <img src="https://lh6.googleusercontent.com/QTsTXFhpLc6qOCJEI9AFwW78-d2l456z5i-dLkhaMhhoY0EtABhsoMvSiCi0r2cIsmGIj7OWEKlTTPACO5x4FazNPPONVP8ye0EMu0OieX0U9_n18xg_wFiUuFHH0h6Zzg" alt="Material Design">
+      </div>
+
       <div class="introduction">Build well-crafted apps with Material Design and Vue 2.0</div>
 
       <md-button class="md-primary md-raised" href="#/getting-started">Getting Started</md-button>
@@ -29,6 +31,16 @@
 </template>
 
 <style lang="scss" scoped>
+  .example {
+    margin-bottom: 24px;
+    overflow: hidden;
+
+    img {
+      margin: -45px 0;
+      display: block;
+    }
+  }
+
   .button-actions {
     margin-bottom: 24px;
     text-align: center;
@@ -54,5 +66,9 @@
   .column {
     margin: 0 10px;
     flex: 1 1 30%;
+
+    @media (max-width: 640px) {
+      flex: 1 1 100%;
+    }
   }
 </style>

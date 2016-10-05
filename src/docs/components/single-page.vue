@@ -22,9 +22,10 @@
   @import '../../core/stylesheets/variables.scss';
 
   .single-page-content {
+    width: 100%;
     max-width: 1024px;
-    padding: 16px;
     margin: 0 auto;
+    padding: 16px;
   }
 
   .single-page {
