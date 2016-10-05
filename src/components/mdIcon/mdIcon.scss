@@ -8,7 +8,8 @@ $icon-size: 24px;
   height: $icon-size;
   min-height: $icon-size;
   margin: auto;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   fill: currentColor;
   vertical-align: middle;
 }
