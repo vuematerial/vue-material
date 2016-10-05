@@ -44,6 +44,7 @@
 
     .demo-example-body {
       padding: 16px;
+      background-color: #FFF;
     }
   }
 </style>
