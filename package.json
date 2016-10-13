@@ -1,7 +1,7 @@
 {
   "name": "vue-material",
   "description": "Material Design for Vue.js",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "Marcos Moura <marcosvmmoura@gmail.com>",
   "private": true,
   "repository": {
