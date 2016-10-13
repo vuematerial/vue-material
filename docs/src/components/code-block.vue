@@ -10,12 +10,12 @@
   .code-block {
     width: auto;
     max-width: 600px;
-    padding: 8px 32px;
+    padding: 4px 32px;
     margin: 0;
     position: relative;
     overflow: auto;
     border-radius: 2px;
-    background-color: #ededed;
+    background-color: #eee;
     color: #455A64;
     font-family: "Operator Mono", "Fira Code", Menlo, Hack, "Roboto Mono", "Liberation Mono", Monaco, monospace;
     font-size: 14px;

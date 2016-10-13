@@ -1,4 +1,5 @@
-/* Text and Titles */
+/*  Text and Titles
+   ========================================================================== */
 
 .md-caption {
   font-size: 12px;
@@ -70,8 +71,16 @@
   line-height: 112px;
 }
 
-/* Links */
+
+/*  Links & Buttons
+   ========================================================================== */
 
 a {
   text-decoration: none;
+}
+
+button {
+  &:focus {
+    outline: none;
+  }
 }

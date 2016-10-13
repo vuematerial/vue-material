@@ -14,8 +14,8 @@
 }
 
 body.THEME_NAME {
-  color: #{'BACKGROUND-CONTRAST-0.87'};
   background-color: #{'BACKGROUND-COLOR-50'};
+  color: #{'BACKGROUND-CONTRAST-0.87'};
 }
 
 /* Typography */
