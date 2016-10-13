@@ -6,5 +6,5 @@ export default function install(Vue) {
   Vue.component('md-bottom-bar', Vue.extend(MdBottomBar));
   Vue.component('md-bottom-bar-item', Vue.extend(MdBottomBarItem));
 
-  window.VueMaterial.styles.push(MdBottomBarTheme);
+  Vue.material.styles.push(MdBottomBarTheme);
 }

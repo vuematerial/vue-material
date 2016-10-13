@@ -31,8 +31,6 @@
 <style lang="scss" src="./mdTabs.scss"></style>
 
 <script>
-  import Vue from 'vue';
-
   export default {
     props: {
       mdFixed: Boolean,
@@ -108,7 +106,7 @@
           indicator.classList.add('md-transition-off');
         }
 
-        Vue.nextTick(() => {
+        this.$nextTick(() => {
           let activeTab = this.$refs.tabHeader[this.activeTabNumber];
           let left = activeTab.offsetLeft;
           let right = tabsWidth - left - activeTab.offsetWidth;
@@ -141,7 +139,7 @@
         this.activeTab = id;
         this.activeTabNumber = index;
 
-        Vue.nextTick(() => {
+        this.$nextTick(() => {
           this.calculateIndicatorPos();
           this.calculateTabPos(this.tabs[id].ref, index);
           this.setVisibleTab(this.tabs[id].ref);

@@ -8,5 +8,5 @@ export default function install(Vue) {
   Vue.component('md-option', Vue.extend(mdOption));
   Vue.component('md-optgroup', Vue.extend(mdOptgroup));
 
-  window.VueMaterial.styles.push(mdSelectTheme);
+  Vue.material.styles.push(mdSelectTheme);
 }

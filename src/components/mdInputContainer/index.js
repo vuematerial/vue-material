@@ -8,5 +8,5 @@ export default function install(Vue) {
   Vue.component('md-input', mdInput);
   Vue.component('md-textarea', mdTextarea);
 
-  window.VueMaterial.styles.push(mdInputContainerTheme);
+  Vue.material.styles.push(mdInputContainerTheme);
 }

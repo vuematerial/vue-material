@@ -1,7 +1,4 @@
 .THEME_NAME {
-  color: #{'BACKGROUND-CONTRAST-0.87'};
-  background-color: #{'BACKGROUND-COLOR-50'};
-
   :not(input):not(textarea)::selection {
     background: #{'ACCENT-COLOR'};
     color: #{'ACCENT-CONTRAST'};
@@ -16,6 +13,10 @@
   }
 }
 
+body.THEME_NAME {
+  color: #{'BACKGROUND-CONTRAST-0.87'};
+  background-color: #{'BACKGROUND-COLOR-50'};
+}
 
 /* Typography */
 
