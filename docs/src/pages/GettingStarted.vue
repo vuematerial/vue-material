@@ -4,21 +4,21 @@
 
     <single-page-section label="Installation">
       <p>
-        - Install Vue Material through npm or bower: <br>
-        <code>npm install vue-material</code> <br>
-        <code>bower install vue-material</code>
+        - Install Vue Material through npm or yarn: <br>
+        <code>npm install vue-material</code><br>
+        <code>yarn add vue-material</code>
       </p>
       <p>- Import or require Vue and Vue Material in your code:</p>
       <code-block lang="javascript">
 import Vue from &#039;vue&#039;;
-import VueMaterial from &#039;../vue-material&#039;;
+import VueMaterial from &#039;vue-material&#039;;
 
 // OR
 
 var Vue = require(&#039;vue&#039;);
-var VueMaterial = require(&#039;../vue-material&#039;);
+var VueMaterial = require(&#039;vue-material&#039;);
       </code-block>
-      <small>* Others package managers like JSPM are not supported yet.</small>
+      <small>* Others package managers like JSPM and Bower are not supported yet.</small>
 
       <p>Or <a href="https://github.com/marcosmoura/vue-material/archive/master.zip" target="_blank" rel="noopener">download</a> from Github and reference the script and the stylesheet in yout HTML:</p>
       <code-block lang="xml">
@@ -34,7 +34,7 @@ Vue.use(VueMaterial);
 
 // OR
 
-Vue.use(VueMaterial.MdCore); //This is required to boot Vue Material
+Vue.use(VueMaterial.MdCore); //Required to make all components work
 Vue.use(VueMaterial.MdButton);
 Vue.use(VueMaterial.MdIcon);
 Vue.use(VueMaterial.MdSidenav);

@@ -8,8 +8,8 @@
   @import '../../../src/core/stylesheets/variables.scss';
 
   .code-block {
-    width: auto;
-    max-width: 600px;
+    width: 640px;
+    max-width: 100%;
     padding: 4px 32px;
     margin: 0;
     position: relative;
