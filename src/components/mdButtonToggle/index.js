@@ -4,5 +4,5 @@ import mdButtonToggleTheme from './mdButtonToggle.theme';
 export default function install(Vue) {
   Vue.component('md-button-toggle', Vue.extend(mdButtonToggle));
 
-  window.VueMaterial.styles.push(mdButtonToggleTheme);
+  Vue.material.styles.push(mdButtonToggleTheme);
 }

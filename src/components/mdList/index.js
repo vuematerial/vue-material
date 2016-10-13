@@ -8,5 +8,5 @@ export default function install(Vue) {
   Vue.component('md-list-item', Vue.extend(mdListItem));
   Vue.component('md-list-expand', Vue.extend(mdListExpand));
 
-  window.VueMaterial.styles.push(mdListTheme);
+  Vue.material.styles.push(mdListTheme);
 }

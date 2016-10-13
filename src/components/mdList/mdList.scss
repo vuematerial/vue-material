@@ -247,11 +247,11 @@
       }
     }
 
-    .md-list-expand-indicator {
+    > .md-list-item-container .md-list-expand-indicator {
       transform: rotateZ(180deg) translate3D(0, 0, 0);
     }
 
-    .md-list-expand {
+    > .md-list-expand {
       margin-bottom: 0 !important;
     }
   }
