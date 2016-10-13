@@ -75,7 +75,7 @@ export default {
         loader: 'url',
         query: {
           limit: 10000,
-          name: buildAssetsPath('img/[name].[hash:7].[ext]')
+          name: buildAssetsPath('images/[name].[hash:7].[ext]')
         }
       }
     ]
