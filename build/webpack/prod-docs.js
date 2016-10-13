@@ -1,11 +1,18 @@
 import webpack from 'webpack';
+import path from 'path';
 import merge from 'webpack-merge';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import config from '../config';
-import baseWebpackConfig from './base';
+import baseConfig from './base';
 
-export default merge(baseWebpackConfig, {
+
+export default merge(baseConfig, {
+  output: {
+    path: path.join(config.rootPath, 'docs'),
+    filename: '[name].[chunkhash:8].js',
+    chunkFilename: '[id].[chunkhash:8].js'
+  },
   vue: {
     loaders: {
       css: ExtractTextPlugin.extract('css'),
@@ -19,7 +26,7 @@ export default merge(baseWebpackConfig, {
       }
     }),
     new webpack.optimize.OccurenceOrderPlugin(),
-    new ExtractTextPlugin('[name].css'),
+    new ExtractTextPlugin('[name].[contenthash:8].css'),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: config.indexPath,
@@ -42,6 +49,18 @@ export default merge(baseWebpackConfig, {
         useShortDoctype: true
       },
       chunksSortMode: 'dependency'
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      minChunks: (module) => {
+        let resource = module.resource;
+
+        return resource && (/\.js$/).test(resource) && resource.indexOf(config.nodePath) === 0;
+      }
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'manifest',
+      chunks: ['vendor']
     })
   ]
 });

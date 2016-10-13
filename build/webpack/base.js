@@ -4,14 +4,13 @@ import autoprefixer from 'autoprefixer';
 import eslintFormatter from 'eslint-friendly-formatter';
 import config from '../config';
 
-
 const buildAssetsPath = (_path) => {
   return path.posix.join(_path);
 };
 
 export default {
   entry: {
-    'docs/docs': './docs/src/index.js'
+    docs: './docs/src/index.js'
   },
   output: {
     path: config.rootPath,
