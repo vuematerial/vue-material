@@ -17,7 +17,23 @@
     </div>
 
     <div slot="code">
-      <h2>Code</h2>
+      <demo-example label="Default">
+        <code-block lang="xml">
+&lt;md-icon&gt;home&lt;/md-icon&gt;
+&lt;md-icon class=&quot;md-primary&quot;&gt;home&lt;/md-icon&gt;
+&lt;md-icon class=&quot;md-accent&quot;&gt;home&lt;/md-icon&gt;
+&lt;md-icon class=&quot;md-warn&quot;&gt;home&lt;/md-icon&gt;
+        </code-block>
+      </demo-example>
+
+      <demo-example label="Themed">
+        <code-block lang="xml">
+&lt;md-icon v-md-theme=&quot;&#039;light-blue&#039;&quot; class=&quot;md-primary&quot;&gt;home&lt;/md-icon&gt;
+&lt;md-icon v-md-theme=&quot;&#039;green&#039;&quot; class=&quot;md-primary&quot;&gt;home&lt;/md-icon&gt;
+&lt;md-icon v-md-theme=&quot;&#039;brown&#039;&quot; class=&quot;md-primary&quot;&gt;home&lt;/md-icon&gt;
+&lt;md-icon v-md-theme=&quot;&#039;orange&#039;&quot; class=&quot;md-primary&quot;&gt;home&lt;/md-icon&gt;
+        </code-block>
+      </demo-example>
     </div>
 
     <div slot="api">

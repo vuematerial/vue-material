@@ -32,7 +32,38 @@
     </div>
 
     <div slot="code">
-      <h2>Code</h2>
+      <demo-example label="Default">
+          <code-block lang="xml">
+&lt;md-checkbox id=&quot;my-test1&quot; name=&quot;my-test1&quot; v-model=&quot;checkbox&quot;&gt;Regular Checkbox&lt;/md-checkbox&gt;
+&lt;md-checkbox id=&quot;my-test2&quot; name=&quot;my-test2&quot; v-model=&quot;checkbox&quot; class=&quot;md-primary&quot;&gt;Primary Color&lt;/md-checkbox&gt;
+&lt;md-checkbox id=&quot;my-test3&quot; name=&quot;my-test3&quot; v-model=&quot;checkbox&quot; class=&quot;md-warn&quot;&gt;Warn Color&lt;/md-checkbox&gt;
+&lt;md-checkbox id=&quot;my-test4&quot; name=&quot;my-test4&quot; v-model=&quot;checkbox&quot; disabled&gt;Disabled&lt;/md-checkbox&gt;
+          </code-block>
+      </demo-example>
+
+      <demo-example label="Themed">
+        <code-block lang="xml">
+&lt;div class=&quot;themed&quot; v-md-theme=&quot;&#039;orange&#039;&quot;&gt;
+  &lt;md-checkbox id=&quot;my-test5&quot; name=&quot;my-test5&quot; v-model=&quot;checkbox2&quot; class=&quot;md-primary&quot;&gt;Primary Orange&lt;/md-checkbox&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;themed&quot; v-md-theme=&quot;&#039;green&#039;&quot;&gt;
+  &lt;md-checkbox id=&quot;my-test6&quot; name=&quot;my-test6&quot; v-model=&quot;checkbox2&quot; class=&quot;md-primary&quot;&gt;Primary Green&lt;/md-checkbox&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;themed&quot; v-md-theme=&quot;&#039;light-blue&#039;&quot;&gt;
+  &lt;md-checkbox id=&quot;my-test7&quot; name=&quot;my-test7&quot; v-model=&quot;checkbox2&quot; class=&quot;md-primary&quot;&gt;Primary Light Blue&lt;/md-checkbox&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;themed&quot; v-md-theme=&quot;&#039;indigo&#039;&quot;&gt;
+  &lt;md-checkbox id=&quot;my-test8&quot; name=&quot;my-test8&quot; v-model=&quot;checkbox2&quot; class=&quot;md-primary&quot;&gt;Primary Indigo&lt;/md-checkbox&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;themed&quot; v-md-theme=&quot;&#039;brown&#039;&quot;&gt;
+  &lt;md-checkbox id=&quot;my-test9&quot; name=&quot;my-test9&quot; v-model=&quot;checkbox2&quot; class=&quot;md-primary&quot; disabled&gt;Primary Brown Disabled&lt;/md-checkbox&gt;
+&lt;/div&gt;
+        </code-block>
+      </demo-example>
     </div>
 
     <div slot="api">
