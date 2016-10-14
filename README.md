@@ -25,6 +25,7 @@ npm run build:lib
 
 ## Credits and Thanks
 This library aims to delivery components using almost the same API of [Angular Material](https://material.angularjs.org/latest/)
+
 Thanks to [elviskang](https://github.com/elviskang) who provided to me the **vue-material** name on npm.
 
 ## Dependencies 
