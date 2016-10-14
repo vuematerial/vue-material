@@ -10,6 +10,7 @@ import baseConfig from './base';
 export default merge(baseConfig, {
   output: {
     path: path.join(config.rootPath, 'docs'),
+    publicPath: '',
     filename: '[name].[chunkhash:8].js',
     chunkFilename: '[id].[chunkhash:8].js'
   },
