@@ -1,6 +1,0 @@
-.THEME_NAME {
-  .md-select,
-  &.md-select {
-
-  }
-}
