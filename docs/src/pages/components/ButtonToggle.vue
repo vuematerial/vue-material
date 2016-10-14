@@ -201,7 +201,207 @@
     </div>
 
     <div slot="code">
-      <h2>Code</h2>
+      <demo-example label="Multiple">
+        <code-block lang="xml">
+&lt;md-button-toggle class=&quot;md-button-group&quot;&gt;
+  &lt;md-button class=&quot;md-icon-button md-toggle&quot;&gt;
+    &lt;md-icon&gt;format_bold&lt;/md-icon&gt;
+  &lt;/md-button&gt;
+
+  &lt;md-button class=&quot;md-icon-button&quot;&gt;
+    &lt;md-icon&gt;format_italic&lt;/md-icon&gt;
+  &lt;/md-button&gt;
+
+  &lt;md-button class=&quot;md-icon-button&quot;&gt;
+    &lt;md-icon&gt;strikethrough_s&lt;/md-icon&gt;
+  &lt;/md-button&gt;
+
+  &lt;md-button class=&quot;md-icon-button md-toggle&quot;&gt;
+    &lt;md-icon&gt;title&lt;/md-icon&gt;
+  &lt;/md-button&gt;
+&lt;/md-button-toggle&gt;
+
+&lt;md-button-toggle class=&quot;md-button-group md-primary&quot;&gt;
+  &lt;md-button class=&quot;md-icon-button md-toggle&quot;&gt;
+    &lt;md-icon&gt;format_bold&lt;/md-icon&gt;
+  &lt;/md-button&gt;
+
+  &lt;md-button class=&quot;md-icon-button md-toggle&quot;&gt;
+    &lt;md-icon&gt;format_italic&lt;/md-icon&gt;
+  &lt;/md-button&gt;
+
+  &lt;md-button class=&quot;md-icon-button&quot;&gt;
+    &lt;md-icon&gt;format_underline&lt;/md-icon&gt;
+  &lt;/md-button&gt;
+
+  &lt;md-button class=&quot;md-icon-button&quot;&gt;
+    &lt;md-icon&gt;title&lt;/md-icon&gt;
+  &lt;/md-button&gt;
+&lt;/md-button-toggle&gt;
+
+&lt;md-button-toggle class=&quot;md-button-group md-accent&quot;&gt;
+  &lt;md-button class=&quot;md-icon-button md-toggle&quot;&gt;
+    &lt;md-icon&gt;format_bold&lt;/md-icon&gt;
+  &lt;/md-button&gt;
+
+  &lt;md-button class=&quot;md-icon-button md-toggle&quot;&gt;
+    &lt;md-icon&gt;format_italic&lt;/md-icon&gt;
+  &lt;/md-button&gt;
+
+  &lt;md-button class=&quot;md-icon-button&quot;&gt;
+    &lt;md-icon&gt;format_underline&lt;/md-icon&gt;
+  &lt;/md-button&gt;
+
+  &lt;md-button class=&quot;md-icon-button&quot;&gt;
+    &lt;md-icon&gt;title&lt;/md-icon&gt;
+  &lt;/md-button&gt;
+&lt;/md-button-toggle&gt;
+
+&lt;md-button-toggle class=&quot;md-button-group md-warn&quot;&gt;
+  &lt;md-button class=&quot;md-icon-button md-toggle&quot;&gt;
+    &lt;md-icon&gt;format_bold&lt;/md-icon&gt;
+  &lt;/md-button&gt;
+
+  &lt;md-button class=&quot;md-icon-button md-toggle&quot;&gt;
+    &lt;md-icon&gt;format_italic&lt;/md-icon&gt;
+  &lt;/md-button&gt;
+
+  &lt;md-button class=&quot;md-icon-button&quot;&gt;
+    &lt;md-icon&gt;strikethrough_s&lt;/md-icon&gt;
+  &lt;/md-button&gt;
+
+  &lt;md-button class=&quot;md-icon-button&quot;&gt;
+    &lt;md-icon&gt;title&lt;/md-icon&gt;
+  &lt;/md-button&gt;
+&lt;/md-button-toggle&gt;
+
+&lt;md-button-toggle class=&quot;md-button-group md-primary&quot;&gt;
+  &lt;md-button class=&quot;md-icon-button md-toggle&quot;&gt;
+    &lt;md-icon&gt;format_bold&lt;/md-icon&gt;
+  &lt;/md-button&gt;
+
+  &lt;md-button class=&quot;md-icon-button md-toggle&quot; disabled&gt;
+    &lt;md-icon&gt;format_italic&lt;/md-icon&gt;
+  &lt;/md-button&gt;
+
+  &lt;md-button class=&quot;md-icon-button&quot; disabled&gt;
+    &lt;md-icon&gt;strikethrough_s&lt;/md-icon&gt;
+  &lt;/md-button&gt;
+
+  &lt;md-button class=&quot;md-icon-button&quot;&gt;
+    &lt;md-icon&gt;title&lt;/md-icon&gt;
+  &lt;/md-button&gt;
+&lt;/md-button-toggle&gt;
+
+&lt;md-button-toggle class=&quot;md-button-group md-primary&quot;&gt;
+  &lt;md-button class=&quot;md-toggle&quot;&gt;Works&lt;/md-button&gt;
+  &lt;md-button class=&quot;md-toggle&quot;&gt;With&lt;/md-button&gt;
+  &lt;md-button&gt;Text&lt;/md-button&gt;
+  &lt;md-button&gt;Too&lt;/md-button&gt;
+&lt;/md-button-toggle&gt;
+        </code-block>
+      </demo-example>
+
+      <demo-example label="Single Selection">
+        <code-block lang="xml">
+&lt;md-button-toggle type=&quot;radio&quot; class=&quot;md-button-group&quot;&gt;
+  &lt;md-button class=&quot;md-icon-button&quot;&gt;
+    &lt;md-icon&gt;format_align_left&lt;/md-icon&gt;
+  &lt;/md-button&gt;
+
+  &lt;md-button class=&quot;md-icon-button md-toggle&quot;&gt;
+    &lt;md-icon&gt;format_align_center&lt;/md-icon&gt;
+  &lt;/md-button&gt;
+
+  &lt;md-button class=&quot;md-icon-button&quot;&gt;
+    &lt;md-icon&gt;format_align_right&lt;/md-icon&gt;
+  &lt;/md-button&gt;
+
+  &lt;md-button class=&quot;md-icon-button&quot;&gt;
+    &lt;md-icon&gt;format_align_justify&lt;/md-icon&gt;
+  &lt;/md-button&gt;
+&lt;/md-button-toggle&gt;
+
+&lt;md-button-toggle type=&quot;radio&quot; class=&quot;md-button-group md-primary&quot;&gt;
+  &lt;md-button class=&quot;md-icon-button&quot;&gt;
+    &lt;md-icon&gt;format_align_left&lt;/md-icon&gt;
+  &lt;/md-button&gt;
+
+  &lt;md-button class=&quot;md-icon-button md-toggle&quot;&gt;
+    &lt;md-icon&gt;format_align_center&lt;/md-icon&gt;
+  &lt;/md-button&gt;
+
+  &lt;md-button class=&quot;md-icon-button&quot;&gt;
+    &lt;md-icon&gt;format_align_right&lt;/md-icon&gt;
+  &lt;/md-button&gt;
+
+  &lt;md-button class=&quot;md-icon-button&quot;&gt;
+    &lt;md-icon&gt;format_align_justify&lt;/md-icon&gt;
+  &lt;/md-button&gt;
+&lt;/md-button-toggle&gt;
+
+&lt;md-button-toggle type=&quot;radio&quot; class=&quot;md-button-group md-accent&quot;&gt;
+  &lt;md-button class=&quot;md-icon-button&quot;&gt;
+    &lt;md-icon&gt;format_align_left&lt;/md-icon&gt;
+  &lt;/md-button&gt;
+
+  &lt;md-button class=&quot;md-icon-button md-toggle&quot;&gt;
+    &lt;md-icon&gt;format_align_center&lt;/md-icon&gt;
+  &lt;/md-button&gt;
+
+  &lt;md-button class=&quot;md-icon-button&quot;&gt;
+    &lt;md-icon&gt;format_align_right&lt;/md-icon&gt;
+  &lt;/md-button&gt;
+
+  &lt;md-button class=&quot;md-icon-button&quot;&gt;
+    &lt;md-icon&gt;format_align_justify&lt;/md-icon&gt;
+  &lt;/md-button&gt;
+&lt;/md-button-toggle&gt;
+
+&lt;md-button-toggle type=&quot;radio&quot; class=&quot;md-button-group md-warn&quot;&gt;
+  &lt;md-button class=&quot;md-icon-button&quot;&gt;
+    &lt;md-icon&gt;format_align_left&lt;/md-icon&gt;
+  &lt;/md-button&gt;
+
+  &lt;md-button class=&quot;md-icon-button md-toggle&quot;&gt;
+    &lt;md-icon&gt;format_align_center&lt;/md-icon&gt;
+  &lt;/md-button&gt;
+
+  &lt;md-button class=&quot;md-icon-button&quot;&gt;
+    &lt;md-icon&gt;format_align_right&lt;/md-icon&gt;
+  &lt;/md-button&gt;
+
+  &lt;md-button class=&quot;md-icon-button&quot;&gt;
+    &lt;md-icon&gt;format_align_justify&lt;/md-icon&gt;
+  &lt;/md-button&gt;
+&lt;/md-button-toggle&gt;
+
+&lt;md-button-toggle type=&quot;radio&quot; class=&quot;md-button-group md-primary&quot;&gt;
+  &lt;md-button class=&quot;md-icon-button md-toggle&quot;&gt;
+    &lt;md-icon&gt;format_align_left&lt;/md-icon&gt;
+  &lt;/md-button&gt;
+
+  &lt;md-button class=&quot;md-icon-button&quot;&gt;
+    &lt;md-icon&gt;format_align_center&lt;/md-icon&gt;
+  &lt;/md-button&gt;
+
+  &lt;md-button class=&quot;md-icon-button&quot;&gt;
+    &lt;md-icon&gt;format_align_right&lt;/md-icon&gt;
+  &lt;/md-button&gt;
+
+  &lt;md-button class=&quot;md-icon-button&quot; disabled&gt;
+    &lt;md-icon&gt;format_align_justify&lt;/md-icon&gt;
+  &lt;/md-button&gt;
+&lt;/md-button-toggle&gt;
+
+&lt;md-button-toggle type=&quot;radio&quot; class=&quot;md-button-group md-primary&quot;&gt;
+  &lt;md-button&gt;Works&lt;/md-button&gt;
+  &lt;md-button class=&quot;md-toggle&quot;&gt;With&lt;/md-button&gt;
+  &lt;md-button&gt;Text&lt;/md-button&gt;
+  &lt;md-button&gt;Too&lt;/md-button&gt;
+&lt;/md-button-toggle&gt;
+        </code-block>
+      </demo-example>
     </div>
 
     <div slot="api">

@@ -30,7 +30,34 @@
     </div>
 
     <div slot="code">
-      <h2>Code</h2>
+      <demo-example label="Default">
+        <code-block lang="xml">
+&lt;md-whiteframe md-elevation=&quot;1&quot;&gt;1dp&lt;/md-whiteframe&gt;
+&lt;md-whiteframe md-elevation=&quot;2&quot;&gt;2dp&lt;/md-whiteframe&gt;
+&lt;md-whiteframe md-elevation=&quot;3&quot;&gt;3dp&lt;/md-whiteframe&gt;
+&lt;md-whiteframe md-elevation=&quot;4&quot;&gt;4dp&lt;/md-whiteframe&gt;
+&lt;md-whiteframe md-elevation=&quot;5&quot;&gt;5dp&lt;/md-whiteframe&gt;
+&lt;md-whiteframe md-elevation=&quot;6&quot;&gt;6dp&lt;/md-whiteframe&gt;
+&lt;md-whiteframe md-elevation=&quot;7&quot;&gt;7dp&lt;/md-whiteframe&gt;
+&lt;md-whiteframe md-elevation=&quot;8&quot;&gt;8dp&lt;/md-whiteframe&gt;
+&lt;md-whiteframe md-elevation=&quot;9&quot;&gt;9dp&lt;/md-whiteframe&gt;
+&lt;md-whiteframe md-elevation=&quot;10&quot;&gt;10dp&lt;/md-whiteframe&gt;
+&lt;md-whiteframe md-elevation=&quot;11&quot;&gt;11dp&lt;/md-whiteframe&gt;
+&lt;md-whiteframe md-elevation=&quot;12&quot;&gt;12dp&lt;/md-whiteframe&gt;
+&lt;md-whiteframe md-elevation=&quot;13&quot;&gt;13dp&lt;/md-whiteframe&gt;
+&lt;md-whiteframe md-elevation=&quot;14&quot;&gt;14dp&lt;/md-whiteframe&gt;
+&lt;md-whiteframe md-elevation=&quot;15&quot;&gt;15dp&lt;/md-whiteframe&gt;
+&lt;md-whiteframe md-elevation=&quot;16&quot;&gt;16dp&lt;/md-whiteframe&gt;
+&lt;md-whiteframe md-elevation=&quot;17&quot;&gt;17dp&lt;/md-whiteframe&gt;
+&lt;md-whiteframe md-elevation=&quot;18&quot;&gt;18dp&lt;/md-whiteframe&gt;
+&lt;md-whiteframe md-elevation=&quot;19&quot;&gt;19dp&lt;/md-whiteframe&gt;
+&lt;md-whiteframe md-elevation=&quot;20&quot;&gt;20dp&lt;/md-whiteframe&gt;
+&lt;md-whiteframe md-elevation=&quot;21&quot;&gt;21dp&lt;/md-whiteframe&gt;
+&lt;md-whiteframe md-elevation=&quot;22&quot;&gt;22dp&lt;/md-whiteframe&gt;
+&lt;md-whiteframe md-elevation=&quot;23&quot;&gt;23dp&lt;/md-whiteframe&gt;
+&lt;md-whiteframe md-elevation=&quot;24&quot;&gt;24dp&lt;/md-whiteframe&gt;
+        </code-block>
+      </demo-example>
     </div>
 
     <div slot="api">

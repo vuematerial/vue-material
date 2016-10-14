@@ -99,19 +99,19 @@
           </md-list-item>
 
           <md-list-item>
-            <span>UI Elements</span>
+            <router-link exact to="/ui-elements/typography">Typography</router-link>
 
+            <!-- <span>UI Elements</span>
             <md-list-expand>
               <md-list>
                 <md-list-item class="md-inset">
-                  <router-link exact to="/ui-elements/typography">Typography</router-link>
                 </md-list-item>
 
                 <md-list-item class="md-inset">
                   <router-link exact to="/ui-elements/grid-system">Grid System</router-link>
                 </md-list-item>
               </md-list>
-            </md-list-expand>
+            </md-list-expand> -->
           </md-list-item>
 
           <md-list-item>
@@ -299,7 +299,7 @@
 
   .md-router-enter,
   .md-router-leave-active {
-    opacity: .2;
+    opacity: 0;
   }
 
   .md-router-enter {

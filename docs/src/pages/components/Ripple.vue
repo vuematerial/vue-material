@@ -19,7 +19,23 @@
     </div>
 
     <div slot="code">
-      <h2>Code</h2>
+      <demo-example label="Default">
+        <code-block lang="xml">
+&lt;span class=&quot;has-ripple&quot; v-md-ink-ripple&gt;This span has ripple effect&lt;/span&gt;
+&lt;span class=&quot;has-ripple green&quot; v-md-ink-ripple&gt;This span has ripple effect&lt;/span&gt;
+&lt;span class=&quot;has-ripple blue&quot; v-md-ink-ripple&gt;This span has ripple effect&lt;/span&gt;
+
+&lt;div&gt;
+  &lt;md-avatar v-md-ink-ripple&gt;
+    &lt;img src=&quot;//placeimg.com/40/40/people/1&quot; alt=&quot;People&quot;&gt;
+  &lt;/md-avatar&gt;
+
+  &lt;md-avatar v-md-ink-ripple class=&quot;md-avatar-icon&quot;&gt;
+    &lt;md-icon&gt;home&lt;/md-icon&gt;
+  &lt;/md-avatar&gt;
+&lt;/div&gt;
+        </code-block>
+      </demo-example>
     </div>
 
     <div slot="api">

@@ -40,7 +40,64 @@
     </div>
 
     <div slot="code">
-      <h2>Code</h2>
+      <demo-example label="Default">
+        <code-block lang="xml">
+&lt;md-toolbar&gt;
+  &lt;md-button class=&quot;md-icon-button&quot; @click=&quot;toggleLeftSidenav&quot;&gt;
+    &lt;md-icon&gt;menu&lt;/md-icon&gt;
+  &lt;/md-button&gt;
+
+  &lt;h2 class=&quot;md-title&quot;&gt;My App&lt;/h2&gt;
+&lt;/md-toolbar&gt;
+
+&lt;div&gt;
+  &lt;md-button class=&quot;md-raised md-accent&quot; @click=&quot;toggleRightSidenav&quot;&gt;Toggle right&lt;/md-button&gt;
+  &lt;p&gt;Open console to see the events&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;md-sidenav class=&quot;md-left&quot; ref=&quot;leftSidenav&quot; @open=&quot;open(&#039;Left&#039;)&quot; @close=&quot;close(&#039;Left&#039;)&quot;&gt;
+  &lt;md-toolbar class=&quot;md-large&quot;&gt;
+    &lt;div class=&quot;md-toolbar-container&quot;&gt;
+      &lt;h3 class=&quot;md-title&quot;&gt;Sidenav content&lt;/h3&gt;
+    &lt;/div&gt;
+  &lt;/md-toolbar&gt;
+
+  &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi cupiditate esse necessitatibus beatae nobis, deserunt ut est fugit, tempora deleniti, eligendi commodi doloribus. Nemo, assumenda possimus, impedit inventore perferendis iusto!&lt;/p&gt;
+&lt;/md-sidenav&gt;
+
+&lt;md-sidenav class=&quot;md-right&quot; ref=&quot;rightSidenav&quot; @open=&quot;open(&#039;Right&#039;)&quot; @close=&quot;close(&#039;Right&#039;)&quot;&gt;
+  &lt;md-toolbar&gt;
+    &lt;div class=&quot;md-toolbar-container&quot;&gt;
+      &lt;h3 class=&quot;md-title&quot;&gt;Sidenav content&lt;/h3&gt;
+    &lt;/div&gt;
+  &lt;/md-toolbar&gt;
+
+  &lt;md-button class=&quot;md-raised md-accent&quot; @click=&quot;closeRightSidenav&quot;&gt;Close&lt;/md-button&gt;
+&lt;/md-sidenav&gt;
+        </code-block>
+
+        <code-block lang="javascript">
+export default {
+  methods: {
+    toggleLeftSidenav() {
+      this.$refs.leftSidenav.toggle();
+    },
+    toggleRightSidenav() {
+      this.$refs.rightSidenav.toggle();
+    },
+    closeRightSidenav() {
+      this.$refs.rightSidenav.close();
+    },
+    open(ref) {
+      console.log('Opened: ' + ref);
+    },
+    close(ref) {
+      console.log('Closed: ' + ref);
+    }
+  }
+};
+        </code-block>
+      </demo-example>
     </div>
 
     <div slot="api">

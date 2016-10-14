@@ -55,7 +55,53 @@
     </div>
 
     <div slot="code">
-      <h2>Code</h2>
+      <demo-example label="Default">
+        <code-block lang="xml">
+&lt;md-radio v-model=&quot;radio1&quot; id=&quot;my-test1&quot; name=&quot;my-test-group1&quot; md-value=&quot;1&quot;&gt;My beautiful radio&lt;/md-radio&gt;
+&lt;md-radio v-model=&quot;radio1&quot; id=&quot;my-test2&quot; name=&quot;my-test-group1&quot; md-value=&quot;2&quot;&gt;Another radio&lt;/md-radio&gt;
+&lt;md-radio v-model=&quot;radio1&quot; id=&quot;my-test3&quot; name=&quot;my-test-group1&quot; md-value=&quot;3&quot;&gt;Another another radio&lt;/md-radio&gt;
+
+&lt;md-radio v-model=&quot;radio2&quot; id=&quot;my-test4&quot; name=&quot;my-test-group2&quot; md-value=&quot;1&quot; class=&quot;md-primary&quot;&gt;Primary radio&lt;/md-radio&gt;
+&lt;md-radio v-model=&quot;radio2&quot; id=&quot;my-test5&quot; name=&quot;my-test-group2&quot; md-value=&quot;2&quot; class=&quot;md-primary&quot;&gt;Another primary radio&lt;/md-radio&gt;
+&lt;md-radio v-model=&quot;radio2&quot; id=&quot;my-test6&quot; name=&quot;my-test-group2&quot; md-value=&quot;3&quot; class=&quot;md-primary&quot;&gt;Another another primary radio&lt;/md-radio&gt;
+
+&lt;md-radio v-model=&quot;radio3&quot; id=&quot;my-test7&quot; name=&quot;my-test-group3&quot; md-value=&quot;1&quot; class=&quot;md-warn&quot;&gt;Warn radio&lt;/md-radio&gt;
+&lt;md-radio v-model=&quot;radio3&quot; id=&quot;my-test8&quot; name=&quot;my-test-group3&quot; md-value=&quot;2&quot; class=&quot;md-warn&quot;&gt;Another warn radio&lt;/md-radio&gt;
+&lt;md-radio v-model=&quot;radio3&quot; id=&quot;my-test9&quot; name=&quot;my-test-group3&quot; md-value=&quot;3&quot; class=&quot;md-warn&quot;&gt;Another another warn radio&lt;/md-radio&gt;
+
+&lt;md-radio v-model=&quot;radio4&quot; id=&quot;my-test10&quot; name=&quot;my-test-group3&quot; md-value=&quot;1&quot;&gt;My beautiful radio&lt;/md-radio&gt;
+&lt;md-radio v-model=&quot;radio4&quot; id=&quot;my-test11&quot; name=&quot;my-test-group3&quot; md-value=&quot;2&quot; disabled&gt;Disabled&lt;/md-radio&gt;
+&lt;md-radio v-model=&quot;radio4&quot; id=&quot;my-test12&quot; name=&quot;my-test-group3&quot; md-value=&quot;3&quot;&gt;Another radio&lt;/md-radio&gt;
+        </code-block>
+      </demo-example>
+
+      <demo-example label="Themed">
+        <code-block lang="xml">
+&lt;div v-md-theme=&quot;&#039;orange&#039;&quot;&gt;
+  &lt;md-radio v-model=&quot;radio5&quot; id=&quot;my-test13&quot; name=&quot;my-test-group4&quot; md-value=&quot;1&quot; class=&quot;md-primary&quot;&gt;Orange radio&lt;/md-radio&gt;
+  &lt;md-radio v-model=&quot;radio5&quot; id=&quot;my-test14&quot; name=&quot;my-test-group4&quot; md-value=&quot;2&quot; class=&quot;md-primary&quot;&gt;Another Orange radio&lt;/md-radio&gt;
+  &lt;md-radio v-model=&quot;radio5&quot; id=&quot;my-test15&quot; name=&quot;my-test-group4&quot; md-value=&quot;3&quot; class=&quot;md-primary&quot;&gt;Another another Orange radio&lt;/md-radio&gt;
+&lt;/div&gt;
+
+&lt;div v-md-theme=&quot;&#039;brown&#039;&quot;&gt;
+  &lt;md-radio v-model=&quot;radio6&quot; id=&quot;my-test16&quot; name=&quot;my-test-group4&quot; md-value=&quot;1&quot; class=&quot;md-primary&quot;&gt;Brown radio&lt;/md-radio&gt;
+  &lt;md-radio v-model=&quot;radio6&quot; id=&quot;my-test17&quot; name=&quot;my-test-group4&quot; md-value=&quot;2&quot; class=&quot;md-primary&quot;&gt;Another Brown radio&lt;/md-radio&gt;
+  &lt;md-radio v-model=&quot;radio6&quot; id=&quot;my-test18&quot; name=&quot;my-test-group4&quot; md-value=&quot;3&quot; class=&quot;md-primary&quot;&gt;Another another Brown radio&lt;/md-radio&gt;
+&lt;/div&gt;
+
+&lt;div v-md-theme=&quot;&#039;green&#039;&quot;&gt;
+  &lt;md-radio v-model=&quot;radio7&quot; id=&quot;my-test19&quot; name=&quot;my-test-group6&quot; md-value=&quot;1&quot; class=&quot;md-primary&quot;&gt;Green radio&lt;/md-radio&gt;
+  &lt;md-radio v-model=&quot;radio7&quot; id=&quot;my-test20&quot; name=&quot;my-test-group6&quot; md-value=&quot;2&quot; class=&quot;md-primary&quot;&gt;Another Green radio&lt;/md-radio&gt;
+  &lt;md-radio v-model=&quot;radio7&quot; id=&quot;my-test21&quot; name=&quot;my-test-group6&quot; md-value=&quot;3&quot; class=&quot;md-primary&quot;&gt;Another another Green radio&lt;/md-radio&gt;
+&lt;/div&gt;
+
+&lt;div v-md-theme=&quot;&#039;teal&#039;&quot;&gt;
+  &lt;md-radio v-model=&quot;radio8&quot; id=&quot;my-test22&quot; name=&quot;my-test-group3&quot; md-value=&quot;1&quot; class=&quot;md-primary&quot;&gt;Teal radio&lt;/md-radio&gt;
+  &lt;md-radio v-model=&quot;radio8&quot; id=&quot;my-test23&quot; name=&quot;my-test-group3&quot; md-value=&quot;2&quot; class=&quot;md-primary&quot; disabled&gt;Teal disabled radio&lt;/md-radio&gt;
+  &lt;md-radio v-model=&quot;radio8&quot; id=&quot;my-test24&quot; name=&quot;my-test-group3&quot; md-value=&quot;3&quot; class=&quot;md-primary&quot;&gt;Another another Teal radio&lt;/md-radio&gt;
+&lt;/div&gt;
+        </code-block>
+      </demo-example>
     </div>
 
     <div slot="api">

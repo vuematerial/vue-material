@@ -145,7 +145,147 @@
     </div>
 
     <div slot="code">
-      <h2>Code</h2>
+      <demo-example label="With Lists">
+        <code-block lang="xml">
+&lt;md-list&gt;
+  &lt;md-subheader&gt;Navigation&lt;/md-subheader&gt;
+
+  &lt;md-list-item&gt;
+    &lt;md-icon&gt;move_to_inbox&lt;/md-icon&gt; &lt;span&gt;Inbox&lt;/span&gt;
+  &lt;/md-list-item&gt;
+
+  &lt;md-list-item&gt;
+    &lt;md-icon&gt;send&lt;/md-icon&gt; &lt;span&gt;Outbox&lt;/span&gt;
+  &lt;/md-list-item&gt;
+
+  &lt;md-list-item&gt;
+    &lt;md-icon&gt;delete&lt;/md-icon&gt; &lt;span&gt;Trash&lt;/span&gt;
+  &lt;/md-list-item&gt;
+
+  &lt;md-list-item&gt;
+    &lt;md-icon&gt;error&lt;/md-icon&gt; &lt;span&gt;Spam&lt;/span&gt;
+
+    &lt;md-divider class=&quot;md-inset&quot;&gt;&lt;/md-divider&gt;
+  &lt;/md-list-item&gt;
+
+  &lt;md-subheader&gt;Contacts&lt;/md-subheader&gt;
+
+  &lt;md-list-item&gt;
+    &lt;md-avatar&gt;
+      &lt;img src=&quot;https://placeimg.com/40/40/people/5&quot; alt=&quot;People&quot;&gt;
+    &lt;/md-avatar&gt;
+
+    &lt;span&gt;Abbey Christansen&lt;/span&gt;
+
+    &lt;md-button class=&quot;md-icon-button md-list-action&quot;&gt;
+      &lt;md-icon class=&quot;md-primary&quot;&gt;chat_bubble&lt;/md-icon&gt;
+    &lt;/md-button&gt;
+  &lt;/md-list-item&gt;
+
+  &lt;md-list-item&gt;
+    &lt;md-avatar&gt;
+      &lt;img src=&quot;https://placeimg.com/40/40/people/1&quot; alt=&quot;People&quot;&gt;
+    &lt;/md-avatar&gt;
+
+    &lt;span&gt;Alex Nelson&lt;/span&gt;
+
+    &lt;md-button class=&quot;md-icon-button md-list-action&quot;&gt;
+      &lt;md-icon class=&quot;md-primary&quot;&gt;chat_bubble&lt;/md-icon&gt;
+    &lt;/md-button&gt;
+  &lt;/md-list-item&gt;
+
+  &lt;md-list-item&gt;
+    &lt;md-avatar&gt;
+      &lt;img src=&quot;https://placeimg.com/40/40/people/6&quot; alt=&quot;People&quot;&gt;
+    &lt;/md-avatar&gt;
+
+    &lt;span&gt;Mary Johnson&lt;/span&gt;
+
+    &lt;md-button class=&quot;md-icon-button md-list-action&quot;&gt;
+      &lt;md-icon&gt;chat_bubble&lt;/md-icon&gt;
+    &lt;/md-button&gt;
+  &lt;/md-list-item&gt;
+&lt;/md-list&gt;
+        </code-block>
+
+        <code-block lang="xml">
+&lt;md-list class=&quot;custom-list md-triple-line&quot;&gt;
+  &lt;md-subheader&gt;Today&lt;/md-subheader&gt;
+
+  &lt;md-list-item&gt;
+    &lt;md-avatar&gt;
+      &lt;img src=&quot;https://placeimg.com/40/40/people/1&quot; alt=&quot;People&quot;&gt;
+    &lt;/md-avatar&gt;
+
+    &lt;div class=&quot;md-list-text-container&quot;&gt;
+      &lt;span&gt;Ali Connors&lt;/span&gt;
+      &lt;span&gt;Brunch this weekend?&lt;/span&gt;
+      &lt;p&gt;I&#039;ll be in your neighborhood doing errands...&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;md-button class=&quot;md-icon-button md-list-action&quot;&gt;
+      &lt;md-icon class=&quot;md-primary&quot;&gt;star&lt;/md-icon&gt;
+    &lt;/md-button&gt;
+
+    &lt;md-divider class=&quot;md-inset&quot;&gt;&lt;/md-divider&gt;
+  &lt;/md-list-item&gt;
+
+  &lt;md-list-item&gt;
+    &lt;md-avatar&gt;
+      &lt;img src=&quot;https://placeimg.com/40/40/people/6&quot; alt=&quot;People&quot;&gt;
+    &lt;/md-avatar&gt;
+
+    &lt;div class=&quot;md-list-text-container&quot;&gt;
+      &lt;span&gt;me, Scott, Jennifer&lt;/span&gt;
+      &lt;span&gt;Summer BBQ&lt;/span&gt;
+      &lt;p&gt;Wish I could come, but I&#039;m out of town ...&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;md-button class=&quot;md-icon-button md-list-action&quot;&gt;
+      &lt;md-icon&gt;star_border&lt;/md-icon&gt;
+    &lt;/md-button&gt;
+
+    &lt;md-divider class=&quot;md-inset&quot;&gt;&lt;/md-divider&gt;
+  &lt;/md-list-item&gt;
+
+  &lt;md-list-item&gt;
+    &lt;md-avatar&gt;
+      &lt;img src=&quot;https://placeimg.com/40/40/people/5&quot; alt=&quot;People&quot;&gt;
+    &lt;/md-avatar&gt;
+
+    &lt;div class=&quot;md-list-text-container&quot;&gt;
+      &lt;span&gt;Sandra Adams&lt;/span&gt;
+      &lt;span&gt;Oui oui&lt;/span&gt;
+      &lt;p&gt;Do you have Paris recommendations ...&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;md-button class=&quot;md-icon-button md-list-action&quot;&gt;
+      &lt;md-icon&gt;star_border&lt;/md-icon&gt;
+    &lt;/md-button&gt;
+
+    &lt;md-divider class=&quot;md-inset&quot;&gt;&lt;/md-divider&gt;
+  &lt;/md-list-item&gt;
+
+  &lt;md-list-item&gt;
+    &lt;md-avatar&gt;
+      &lt;img src=&quot;https://placeimg.com/40/40/people/8&quot; alt=&quot;People&quot;&gt;
+    &lt;/md-avatar&gt;
+
+    &lt;div class=&quot;md-list-text-container&quot;&gt;
+      &lt;span&gt;Trevor Hansen&lt;/span&gt;
+      &lt;span&gt;Order confirmation&lt;/span&gt;
+      &lt;p&gt;Thank you for your recent order from ...&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;md-button class=&quot;md-icon-button md-list-action&quot;&gt;
+      &lt;md-icon&gt;star_border&lt;/md-icon&gt;
+    &lt;/md-button&gt;
+
+    &lt;md-divider class=&quot;md-inset&quot;&gt;&lt;/md-divider&gt;
+  &lt;/md-list-item&gt;
+&lt;/md-list&gt;
+        </code-block>
+      </demo-example>
     </div>
 
     <div slot="api">

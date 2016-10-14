@@ -9,7 +9,6 @@
 
   .code-block {
     width: 100%;
-    max-width: 850px;
     padding: 4px 32px;
     margin: 0;
     position: relative;
