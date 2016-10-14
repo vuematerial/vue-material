@@ -26,7 +26,7 @@ npm run build:lib
 ## Credits and Thanks
 This library aims to delivery components using almost the same API of <a href="https://material.angularjs.org/latest/" target="_blank">Angular Material</a>
 
-Thanks a lot to <a href="https://github.com/elviskang" target="_blank">elviskang</a> who provided to me the **vue-material** name on npm.
+Thanks a lot to <a href="https://github.com/elviskang" target="_blank">elviskang</a> who provided me the **vue-material** name on npm.
 
 Thanks to <a href="https://github.com/yyx990803" target="_blank">Evan You</a> for allowing me to use Vue.js Logo.
 
