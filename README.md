@@ -34,3 +34,6 @@ Thanks to <a href="https://github.com/yyx990803" target="_blank">Evan You</a> fo
 * <a href="http://www.jacklmoore.com/autosize/" target="_blank">autosize</a>
 * <a href="https://www.npmjs.com/package/element.scrollintoviewifneeded-polyfill" target="_blank">element.scrollintoviewifneeded-polyfill</a>
 * <a href="https://github.com/lazd/scopedQuerySelectorShim" target="_blank">scopedQuerySelectorShim</a>
+
+## License 
+MIT
