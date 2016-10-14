@@ -35,6 +35,10 @@
       margin: 0 auto;
       transition: $swift-ease-out;
       color: #fff;
+
+      @media (max-width: 1120px) {
+        margin-left: 36px;
+      }
     }
   }
 
@@ -42,7 +46,7 @@
     margin: 0;
     position: fixed;
     top: 12px;
-    left: 12px;
+    left: 8px;
     z-index: 3;
     color: #fff;
   }

@@ -8,8 +8,8 @@
   @import '../../../src/core/stylesheets/variables.scss';
 
   .code-block {
-    width: 640px;
-    max-width: 100%;
+    width: 100%;
+    max-width: 640px;
     padding: 4px 32px;
     margin: 0;
     position: relative;
@@ -20,10 +20,10 @@
     font-family: "Operator Mono", "Fira Code", Menlo, Hack, "Roboto Mono", "Liberation Mono", Monaco, monospace;
     font-size: 14px;
     line-height: 24px;
-    white-space: pre-wrap;
 
     pre {
-      margin: 0
+      margin: 0;
+      white-space: pre-wrap;
     }
 
     code {
