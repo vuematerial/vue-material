@@ -9,7 +9,7 @@
 
   .code-block {
     width: 100%;
-    max-width: 640px;
+    max-width: 850px;
     padding: 4px 32px;
     margin: 0;
     position: relative;
@@ -20,6 +20,10 @@
     font-family: "Operator Mono", "Fira Code", Menlo, Hack, "Roboto Mono", "Liberation Mono", Monaco, monospace;
     font-size: 14px;
     line-height: 24px;
+
+    + .code-block {
+      margin-top: 16px;
+    }
 
     pre {
       margin: 0;

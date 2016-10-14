@@ -50,24 +50,24 @@
       </demo-example>
 
       <demo-example label="Themed">
-        <div class="phone-viewport" v-md-theme="'indigo'">
-          <md-bottom-bar>
+        <div class="phone-viewport">
+          <md-bottom-bar v-md-theme="'indigo'">
             <md-bottom-bar-item md-icon="history">Recents</md-bottom-bar-item>
             <md-bottom-bar-item md-icon="favorite" md-active>Favorites</md-bottom-bar-item>
             <md-bottom-bar-item md-icon="near_me">Nearby</md-bottom-bar-item>
           </md-bottom-bar>
         </div>
 
-        <div class="phone-viewport" v-md-theme="'orange'">
-          <md-bottom-bar>
+        <div class="phone-viewport">
+          <md-bottom-bar v-md-theme="'orange'">
             <md-bottom-bar-item md-icon="history">Recents</md-bottom-bar-item>
             <md-bottom-bar-item md-icon="favorite" md-active>Favorites</md-bottom-bar-item>
             <md-bottom-bar-item md-icon="near_me">Nearby</md-bottom-bar-item>
           </md-bottom-bar>
         </div>
 
-        <div class="phone-viewport" v-md-theme="'green'">
-          <md-bottom-bar md-shift>
+        <div class="phone-viewport">
+          <md-bottom-bar md-shift v-md-theme="'green'">
             <md-bottom-bar-item md-icon="ondemand_video">Movies</md-bottom-bar-item>
             <md-bottom-bar-item md-icon="music_note">Music</md-bottom-bar-item>
             <md-bottom-bar-item md-icon="books" md-active>Books</md-bottom-bar-item>
@@ -75,8 +75,8 @@
           </md-bottom-bar>
         </div>
 
-        <div class="phone-viewport" v-md-theme="'brown'">
-          <md-bottom-bar md-shift>
+        <div class="phone-viewport">
+          <md-bottom-bar md-shift v-md-theme="'brown'">
             <md-bottom-bar-item md-icon="ondemand_video">Movies</md-bottom-bar-item>
             <md-bottom-bar-item md-icon="music_note">Music</md-bottom-bar-item>
             <md-bottom-bar-item md-icon="books" md-active>Books</md-bottom-bar-item>
@@ -98,7 +98,117 @@
     </div>
 
     <div slot="code">
-      <h2>Code</h2>
+      <demo-example label="Default">
+        <code-block lang="xml">
+&lt;md-bottom-bar&gt;
+  &lt;md-bottom-bar-item md-icon=&quot;history&quot;&gt;Recents&lt;/md-bottom-bar-item&gt;
+  &lt;md-bottom-bar-item md-icon=&quot;favorite&quot; md-active&gt;Favorites&lt;/md-bottom-bar-item&gt;
+  &lt;md-bottom-bar-item md-icon=&quot;near_me&quot;&gt;Nearby&lt;/md-bottom-bar-item&gt;
+&lt;/md-bottom-bar&gt;
+        </code-block>
+      </demo-example>
+
+      <demo-example label="Shifting">
+        <code-block lang="xml">
+&lt;md-bottom-bar md-shift&gt;
+  &lt;md-bottom-bar-item md-icon=&quot;ondemand_video&quot;&gt;Movies&lt;/md-bottom-bar-item&gt;
+  &lt;md-bottom-bar-item md-icon=&quot;music_note&quot;&gt;Music&lt;/md-bottom-bar-item&gt;
+  &lt;md-bottom-bar-item md-icon=&quot;books&quot; md-active&gt;Books&lt;/md-bottom-bar-item&gt;
+  &lt;md-bottom-bar-item md-icon=&quot;photo&quot;&gt;Pictures&lt;/md-bottom-bar-item&gt;
+&lt;/md-bottom-bar&gt;
+        </code-block>
+
+        <code-block lang="xml">
+&lt;md-bottom-bar class=&quot;md-accent&quot; md-shift&gt;
+  &lt;md-bottom-bar-item md-icon=&quot;ondemand_video&quot;&gt;Movies&lt;/md-bottom-bar-item&gt;
+  &lt;md-bottom-bar-item md-icon=&quot;music_note&quot;&gt;Music&lt;/md-bottom-bar-item&gt;
+  &lt;md-bottom-bar-item md-icon=&quot;books&quot; md-active&gt;Books&lt;/md-bottom-bar-item&gt;
+  &lt;md-bottom-bar-item md-icon=&quot;photo&quot;&gt;Pictures&lt;/md-bottom-bar-item&gt;
+&lt;/md-bottom-bar&gt;
+        </code-block>
+
+        <code-block lang="xml">
+&lt;md-bottom-bar class=&quot;md-warn&quot; md-shift&gt;
+  &lt;md-bottom-bar-item md-icon=&quot;ondemand_video&quot;&gt;Movies&lt;/md-bottom-bar-item&gt;
+  &lt;md-bottom-bar-item md-icon=&quot;music_note&quot;&gt;Music&lt;/md-bottom-bar-item&gt;
+  &lt;md-bottom-bar-item md-icon=&quot;books&quot; md-active&gt;Books&lt;/md-bottom-bar-item&gt;
+  &lt;md-bottom-bar-item md-icon=&quot;photo&quot;&gt;Pictures&lt;/md-bottom-bar-item&gt;
+&lt;/md-bottom-bar&gt;
+        </code-block>
+
+        <code-block lang="xml">
+&lt;md-bottom-bar class=&quot;md-transparent&quot; md-shift&gt;
+  &lt;md-bottom-bar-item md-icon=&quot;ondemand_video&quot;&gt;Movies&lt;/md-bottom-bar-item&gt;
+  &lt;md-bottom-bar-item md-icon=&quot;music_note&quot;&gt;Music&lt;/md-bottom-bar-item&gt;
+  &lt;md-bottom-bar-item md-icon=&quot;books&quot; md-active&gt;Books&lt;/md-bottom-bar-item&gt;
+  &lt;md-bottom-bar-item md-icon=&quot;photo&quot;&gt;Pictures&lt;/md-bottom-bar-item&gt;
+&lt;/md-bottom-bar&gt;
+        </code-block>
+      </demo-example>
+
+      <demo-example label="Themed">
+        <code-block lang="xml">
+&lt;md-bottom-bar v-md-theme=&quot;&#039;indigo&#039;&quot;&gt;
+  &lt;md-bottom-bar-item md-icon=&quot;history&quot;&gt;Recents&lt;/md-bottom-bar-item&gt;
+  &lt;md-bottom-bar-item md-icon=&quot;favorite&quot; md-active&gt;Favorites&lt;/md-bottom-bar-item&gt;
+  &lt;md-bottom-bar-item md-icon=&quot;near_me&quot;&gt;Nearby&lt;/md-bottom-bar-item&gt;
+&lt;/md-bottom-bar&gt;
+        </code-block>
+
+        <code-block lang="xml">
+&lt;md-bottom-bar v-md-theme=&quot;&#039;orange&#039;&quot;&gt;
+  &lt;md-bottom-bar-item md-icon=&quot;history&quot;&gt;Recents&lt;/md-bottom-bar-item&gt;
+  &lt;md-bottom-bar-item md-icon=&quot;favorite&quot; md-active&gt;Favorites&lt;/md-bottom-bar-item&gt;
+  &lt;md-bottom-bar-item md-icon=&quot;near_me&quot;&gt;Nearby&lt;/md-bottom-bar-item&gt;
+&lt;/md-bottom-bar&gt;
+        </code-block>
+
+        <code-block lang="xml">
+&lt;md-bottom-bar md-shift v-md-theme=&quot;&#039;green&#039;&quot;&gt;
+  &lt;md-bottom-bar-item md-icon=&quot;ondemand_video&quot;&gt;Movies&lt;/md-bottom-bar-item&gt;
+  &lt;md-bottom-bar-item md-icon=&quot;music_note&quot;&gt;Music&lt;/md-bottom-bar-item&gt;
+  &lt;md-bottom-bar-item md-icon=&quot;books&quot; md-active&gt;Books&lt;/md-bottom-bar-item&gt;
+  &lt;md-bottom-bar-item md-icon=&quot;photo&quot;&gt;Pictures&lt;/md-bottom-bar-item&gt;
+&lt;/md-bottom-bar&gt;
+        </code-block>
+
+        <code-block lang="xml">
+&lt;md-bottom-bar md-shift v-md-theme=&quot;&#039;brown&#039;&quot;&gt;
+  &lt;md-bottom-bar-item md-icon=&quot;ondemand_video&quot;&gt;Movies&lt;/md-bottom-bar-item&gt;
+  &lt;md-bottom-bar-item md-icon=&quot;music_note&quot;&gt;Music&lt;/md-bottom-bar-item&gt;
+  &lt;md-bottom-bar-item md-icon=&quot;books&quot; md-active&gt;Books&lt;/md-bottom-bar-item&gt;
+  &lt;md-bottom-bar-item md-icon=&quot;photo&quot;&gt;Pictures&lt;/md-bottom-bar-item&gt;
+&lt;/md-bottom-bar&gt;
+        </code-block>
+      </demo-example>
+
+      <demo-example label="Dynamic Theme">
+        <code-block lang="xml">
+&lt;md-bottom-bar md-shift v-md-theme=&quot;playground.theme&quot;&gt;
+  &lt;md-bottom-bar-item @click=&quot;setTheme(&#039;blue&#039;)&quot; md-icon=&quot;ondemand_video&quot;&gt;Movies&lt;/md-bottom-bar-item&gt;
+  &lt;md-bottom-bar-item @click=&quot;setTheme(&#039;teal&#039;)&quot; md-icon=&quot;music_note&quot;&gt;Music&lt;/md-bottom-bar-item&gt;
+  &lt;md-bottom-bar-item @click=&quot;setTheme(&#039;brown&#039;)&quot; md-icon=&quot;books&quot; md-active&gt;Books&lt;/md-bottom-bar-item&gt;
+  &lt;md-bottom-bar-item @click=&quot;setTheme(&#039;indigo&#039;)&quot; md-icon=&quot;photo&quot;&gt;Pictures&lt;/md-bottom-bar-item&gt;
+&lt;/md-bottom-bar&gt;
+        </code-block>
+
+        <code-block lang="javascript">
+export default {
+  data() {
+    return {
+      playground: {
+        theme: 'brown'
+      }
+    };
+  },
+  methods: {
+    setTheme(theme) {
+      this.playground.theme = theme;
+    }
+  }
+};
+        </code-block>
+      </demo-example>
     </div>
 
     <div slot="api">

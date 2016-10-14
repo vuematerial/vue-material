@@ -141,7 +141,157 @@
     </div>
 
     <div slot="code">
-      <h2>Code</h2>
+      <demo-example label="Flat">
+        <code-block lang="html">
+&lt;md-button&gt;Default&lt;/md-button&gt;
+&lt;md-button class=&quot;md-primary&quot;&gt;Primary&lt;/md-button&gt;
+&lt;md-button class=&quot;md-accent&quot;&gt;Accent&lt;/md-button&gt;
+&lt;md-button class=&quot;md-warn&quot;&gt;Warn&lt;/md-button&gt;
+&lt;md-button class=&quot;md-primary&quot; disabled&gt;Disabled&lt;/md-button&gt;
+&lt;md-button class=&quot;md-dense&quot;&gt;Dense&lt;/md-button&gt;
+        </code-block>
+      </demo-example>
+
+      <demo-example label="Raised">
+        <code-block lang="xml">
+&lt;md-button class=&quot;md-raised&quot;&gt;Default&lt;/md-button&gt;
+&lt;md-button class=&quot;md-raised md-primary&quot;&gt;Primary&lt;/md-button&gt;
+&lt;md-button class=&quot;md-raised md-accent&quot;&gt;Accent&lt;/md-button&gt;
+&lt;md-button class=&quot;md-raised md-warn&quot;&gt;Warn&lt;/md-button&gt;
+&lt;md-button class=&quot;md-raised md-primary&quot; disabled&gt;Disabled&lt;/md-button&gt;
+&lt;md-button class=&quot;md-raised md-dense&quot;&gt;Dense&lt;/md-button&gt;
+        </code-block>
+      </demo-example>
+
+      <demo-example label="Themed">
+        <code-block lang="xml">
+&lt;md-button class=&quot;md-raised md-primary&quot; v-md-theme=&quot;&#039;indigo&#039;&quot;&gt;Indigo&lt;/md-button&gt;
+&lt;md-button class=&quot;md-raised md-primary&quot; v-md-theme=&quot;&#039;teal&#039;&quot;&gt;Teal&lt;/md-button&gt;
+&lt;md-button class=&quot;md-raised md-primary&quot; v-md-theme=&quot;&#039;green&#039;&quot;&gt;Green&lt;/md-button&gt;
+&lt;md-button class=&quot;md-raised md-primary&quot; v-md-theme=&quot;&#039;white&#039;&quot;&gt;White&lt;/md-button&gt;
+&lt;md-button class=&quot;md-raised md-primary&quot; disabled v-md-theme=&quot;&#039;brown&#039;&quot;&gt;Brown&lt;/md-button&gt;
+&lt;md-button class=&quot;md-raised md-primary md-dense&quot; v-md-theme=&quot;&#039;orange&#039;&quot;&gt;Orange&lt;/md-button&gt;
+        </code-block>
+      </demo-example>
+
+      <demo-example label="Links">
+        <code-block lang="xml">
+&lt;md-button href=&quot;#/button&quot; class=&quot;md-raised&quot;&gt;Default&lt;/md-button&gt;
+&lt;md-button href=&quot;#/button&quot; class=&quot;md-raised md-primary&quot;&gt;Primary&lt;/md-button&gt;
+&lt;md-button href=&quot;#/button&quot; class=&quot;md-raised md-accent&quot;&gt;Accent&lt;/md-button&gt;
+&lt;md-button href=&quot;#/button&quot; class=&quot;md-raised md-warn&quot;&gt;Warn&lt;/md-button&gt;
+&lt;md-button href=&quot;#/button&quot; class=&quot;md-raised md-primary&quot; disabled&gt;Disabled&lt;/md-button&gt;
+&lt;md-button href=&quot;#/button&quot; class=&quot;md-raised md-dense&quot;&gt;Dense&lt;/md-button&gt;
+        </code-block>
+      </demo-example>
+
+      <demo-example label="Icons - Flat">
+          <code-block lang="xml">
+&lt;md-button class=&quot;md-icon-button&quot;&gt;
+  &lt;md-icon&gt;add&lt;/md-icon&gt;
+&lt;/md-button&gt;
+
+&lt;md-button class=&quot;md-icon-button md-primary&quot;&gt;
+  &lt;md-icon&gt;add&lt;/md-icon&gt;
+&lt;/md-button&gt;
+
+&lt;md-button class=&quot;md-icon-button md-accent&quot;&gt;
+  &lt;md-icon&gt;add&lt;/md-icon&gt;
+&lt;/md-button&gt;
+
+&lt;md-button class=&quot;md-icon-button md-warn&quot;&gt;
+  &lt;md-icon&gt;add&lt;/md-icon&gt;
+&lt;/md-button&gt;
+
+&lt;md-button class=&quot;md-icon-button&quot; disabled&gt;
+  &lt;md-icon&gt;add&lt;/md-icon&gt;
+&lt;/md-button&gt;
+
+&lt;md-button class=&quot;md-icon-button md-dense&quot;&gt;
+  &lt;md-icon&gt;add&lt;/md-icon&gt;
+&lt;/md-button&gt;
+        </code-block>
+      </demo-example>
+
+      <demo-example label="Icons - Raised">
+        <code-block lang="xml">
+&lt;md-button class=&quot;md-icon-button md-raised&quot;&gt;
+  &lt;md-icon&gt;add&lt;/md-icon&gt;
+&lt;/md-button&gt;
+
+&lt;md-button class=&quot;md-icon-button md-raised md-primary&quot;&gt;
+  &lt;md-icon&gt;add&lt;/md-icon&gt;
+&lt;/md-button&gt;
+
+&lt;md-button class=&quot;md-icon-button md-raised md-accent&quot;&gt;
+  &lt;md-icon&gt;add&lt;/md-icon&gt;
+&lt;/md-button&gt;
+
+&lt;md-button class=&quot;md-icon-button md-raised md-warn&quot;&gt;
+  &lt;md-icon&gt;add&lt;/md-icon&gt;
+&lt;/md-button&gt;
+
+&lt;md-button class=&quot;md-icon-button md-raised&quot; disabled&gt;
+  &lt;md-icon&gt;add&lt;/md-icon&gt;
+&lt;/md-button&gt;
+
+&lt;md-button class=&quot;md-icon-button md-raised md-dense&quot;&gt;
+  &lt;md-icon&gt;add&lt;/md-icon&gt;
+&lt;/md-button&gt;
+        </code-block>
+      </demo-example>
+
+      <demo-example label="Floating Action Button">
+        <code-block lang="xml">
+&lt;md-button class=&quot;md-fab md-fab-bottom-right&quot;&gt;
+  &lt;md-icon&gt;add&lt;/md-icon&gt;
+&lt;/md-button&gt;
+
+&lt;md-button class=&quot;md-fab md-fab-bottom-left md-mini&quot;&gt;
+  &lt;md-icon&gt;add&lt;/md-icon&gt;
+&lt;/md-button&gt;
+
+&lt;md-button class=&quot;md-fab&quot;&gt;
+  &lt;md-icon&gt;edit&lt;/md-icon&gt;
+&lt;/md-button&gt;
+
+&lt;md-button class=&quot;md-fab md-mini&quot;&gt;
+  &lt;md-icon&gt;edit&lt;/md-icon&gt;
+&lt;/md-button&gt;
+
+&lt;md-button class=&quot;md-fab md-primary&quot;&gt;
+  &lt;md-icon&gt;email&lt;/md-icon&gt;
+&lt;/md-button&gt;
+
+&lt;md-button class=&quot;md-fab md-primary md-mini&quot;&gt;
+  &lt;md-icon&gt;email&lt;/md-icon&gt;
+&lt;/md-button&gt;
+
+&lt;md-button class=&quot;md-fab md-warn&quot;&gt;
+  &lt;md-icon&gt;save&lt;/md-icon&gt;
+&lt;/md-button&gt;
+
+&lt;md-button class=&quot;md-fab md-warn md-mini&quot;&gt;
+  &lt;md-icon&gt;save&lt;/md-icon&gt;
+&lt;/md-button&gt;
+
+&lt;md-button class=&quot;md-fab md-clean&quot;&gt;
+  &lt;md-icon&gt;chat&lt;/md-icon&gt;
+&lt;/md-button&gt;
+
+&lt;md-button class=&quot;md-fab md-clean md-mini&quot;&gt;
+  &lt;md-icon&gt;chat&lt;/md-icon&gt;
+&lt;/md-button&gt;
+
+&lt;md-button class=&quot;md-fab&quot; disabled&gt;
+  &lt;md-icon&gt;message&lt;/md-icon&gt;
+&lt;/md-button&gt;
+
+&lt;md-button class=&quot;md-fab md-mini&quot; disabled&gt;
+  &lt;md-icon&gt;message&lt;/md-icon&gt;
+&lt;/md-button&gt;
+        </code-block>
+      </demo-example>
     </div>
 
     <div slot="api">
