@@ -28,7 +28,7 @@ This library aims to delivery components using almost the same API of <a href="h
 
 Thanks a lot to <a href="https://github.com/elviskang" target="_blank">elviskang</a> who provided to me the **vue-material** name on npm.
 
-Thanks to <a href="https://github.com/yyx990803" target="_blank">Evan You</a> for allowing me to use Vue.js Logo
+Thanks to <a href="https://github.com/yyx990803" target="_blank">Evan You</a> for allowing me to use Vue.js Logo.
 
 ## Dependencies 
 * <a href="http://www.jacklmoore.com/autosize/" target="_blank">autosize</a>
