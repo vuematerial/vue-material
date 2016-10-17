@@ -96,7 +96,6 @@
 
       this.$parent.setValue(this.value);
       this.$parent.hasSelect = true;
-
     },
     beforeDestroy() {
       this.$parent.setValue(null);
