@@ -69,6 +69,13 @@
       </div>
       <h1 class="md-caption">Caption</h1>
     </div>
+
+    <div>
+      <div class="column">
+        <code>Link</code>
+      </div>
+      <a>Link</a>
+    </div>
   </single-page>
 </template>
 

@@ -7,7 +7,7 @@ const config = {
   docsPath: 'docs',
   indexPath: 'docs/index.html',
   publicPath: '/',
-  assetsPath: '/'
+  assetsPath: 'docs/src/assets'
 };
 
 let dev = {

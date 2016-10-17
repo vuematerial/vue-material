@@ -2,6 +2,7 @@ import webpack from 'webpack';
 import path from 'path';
 import merge from 'webpack-merge';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import config from '../config';
 import baseConfig from './base';
@@ -28,6 +29,13 @@ export default merge(baseConfig, {
     }),
     new webpack.optimize.OccurenceOrderPlugin(),
     new ExtractTextPlugin('[name].[contenthash:8].css'),
+    new CopyWebpackPlugin([
+      {
+        context: config.assetsPath,
+        from: '**/*',
+        to: path.join(config.rootPath, 'docs', 'assets')
+      }
+    ]),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: config.indexPath,

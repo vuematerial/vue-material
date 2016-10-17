@@ -6,6 +6,7 @@
     },
     render(createElement) {
       let containerClass = 'md-button md-list-item-container';
+      let holderClass = 'md-list-item-holder';
       let slot = this.$slots.default;
       let componentOptions = slot[0].componentOptions;
       let expandSlot;
@@ -20,8 +21,12 @@
         }
       };
 
+      let createItemHolder = (content) => {
+        return createElement('div', { staticClass: holderClass }, content);
+      };
+
       let createCompatibleRouterLink = () => {
-        slot[0].data.staticClass = containerClass;
+        slot[0].data.staticClass = containerClass + ' ' + holderClass;
         slot[0].data.directives = [{
           name: 'md-ink-ripple'
         }];
@@ -79,7 +84,7 @@
         slot.splice(expandSlotIndex, 1);
         slot.push(createExpandIndicator());
 
-        return createElement('div', {
+        return createElement('button', {
           staticClass: containerClass,
           on: {
             click: () => {
@@ -90,7 +95,7 @@
           directives: [{
             name: 'md-ink-ripple'
           }]
-        }, slot);
+        }, [createItemHolder(slot)]);
       };
 
       let createExpandList = () => {
@@ -115,7 +120,7 @@
           target: this.target,
           href: this.href
         }
-      }, slot);
+      }, [createItemHolder(slot)]);
 
       if (this.target) {
         buttonSpec.data.attrs.rel = 'noopener';

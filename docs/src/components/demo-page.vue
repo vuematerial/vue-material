@@ -20,9 +20,9 @@
           <slot name="code"></slot>
         </md-tab>
 
-        <md-tab md-label="API">
+        <!-- <md-tab md-label="API">
           <slot name="api"></slot>
-        </md-tab>
+        </md-tab> -->
       </md-tabs>
 
       <slot></slot>
@@ -36,6 +36,7 @@
   .demo-page {
     display: flex;
     flex-flow: column;
+    flex: 1;
   }
 
   .page-tabs {
@@ -62,6 +63,7 @@
     }
 
     > .md-tabs-content {
+      flex: 1;
       overflow-y: auto;
     }
 

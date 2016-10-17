@@ -34,7 +34,7 @@
       padding-left: 16px;
       margin: 0 auto;
       transition: $swift-ease-out;
-      color: #fff;
+      color: #fff !important;
 
       @media (max-width: 1120px) {
         margin-left: 36px;

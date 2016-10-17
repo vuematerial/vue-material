@@ -45,7 +45,7 @@ let handleSectionTheme = (route) => {
   } else if (route.name.indexOf('themes') >= 0) {
     Docs.theme = 'teal';
   } else if (route.name.indexOf('ui-elements') >= 0) {
-    Docs.theme = 'dark-pink';
+    Docs.theme = 'blue-grey';
   } else if (route.name.indexOf('changelog') >= 0) {
     Docs.theme = 'orange';
   } else if (route.name.indexOf('about') >= 0) {

@@ -75,8 +75,12 @@
 /*  Links & Buttons
    ========================================================================== */
 
-a {
+a:not(.md-button) {
   text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 button {
