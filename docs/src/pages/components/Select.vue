@@ -171,9 +171,9 @@
     data() {
       return {
         movie: 'Godfather',
-        country: '',
-        font: '',
-        food: ''
+        country: null,
+        font: null,
+        food: null
       };
     }
   };
