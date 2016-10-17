@@ -29,12 +29,12 @@
       </demo-example>
 
       <demo-example label="Links">
-        <md-button href="#/button" class="md-raised" @click="disablePrimaryButton">Default</md-button>
-        <md-button href="#/button" class="md-raised md-primary" :disabled="buttonDisabled">Primary</md-button>
-        <md-button href="#/button" class="md-raised md-accent">Accent</md-button>
-        <md-button href="#/button" class="md-raised md-warn">Warn</md-button>
-        <md-button href="#/button" class="md-raised md-primary" :disabled="!buttonDisabled">Disabled</md-button>
-        <md-button href="#/button" class="md-raised md-dense">Dense</md-button>
+        <md-button href="#/components/button" class="md-raised" @click="disablePrimaryButton">Default</md-button>
+        <md-button href="#/components/button" class="md-raised md-primary" :disabled="buttonDisabled">Primary</md-button>
+        <md-button href="#/components/button" class="md-raised md-accent">Accent</md-button>
+        <md-button href="#/components/button" class="md-raised md-warn">Warn</md-button>
+        <md-button href="#/components/button" class="md-raised md-primary" :disabled="!buttonDisabled">Disabled</md-button>
+        <md-button href="#/components/button" class="md-raised md-dense">Dense</md-button>
       </demo-example>
 
       <demo-example label="Icons - Flat">
@@ -176,12 +176,12 @@
 
       <demo-example label="Links">
         <code-block lang="xml">
-&lt;md-button href=&quot;#/button&quot; class=&quot;md-raised&quot;&gt;Default&lt;/md-button&gt;
-&lt;md-button href=&quot;#/button&quot; class=&quot;md-raised md-primary&quot;&gt;Primary&lt;/md-button&gt;
-&lt;md-button href=&quot;#/button&quot; class=&quot;md-raised md-accent&quot;&gt;Accent&lt;/md-button&gt;
-&lt;md-button href=&quot;#/button&quot; class=&quot;md-raised md-warn&quot;&gt;Warn&lt;/md-button&gt;
-&lt;md-button href=&quot;#/button&quot; class=&quot;md-raised md-primary&quot; disabled&gt;Disabled&lt;/md-button&gt;
-&lt;md-button href=&quot;#/button&quot; class=&quot;md-raised md-dense&quot;&gt;Dense&lt;/md-button&gt;
+&lt;md-button href=&quot;#/components/button&quot; class=&quot;md-raised&quot;&gt;Default&lt;/md-button&gt;
+&lt;md-button href=&quot;#/components/button&quot; class=&quot;md-raised md-primary&quot;&gt;Primary&lt;/md-button&gt;
+&lt;md-button href=&quot;#/components/button&quot; class=&quot;md-raised md-accent&quot;&gt;Accent&lt;/md-button&gt;
+&lt;md-button href=&quot;#/components/button&quot; class=&quot;md-raised md-warn&quot;&gt;Warn&lt;/md-button&gt;
+&lt;md-button href=&quot;#/components/button&quot; class=&quot;md-raised md-primary&quot; disabled&gt;Disabled&lt;/md-button&gt;
+&lt;md-button href=&quot;#/components/button&quot; class=&quot;md-raised md-dense&quot;&gt;Dense&lt;/md-button&gt;
         </code-block>
       </demo-example>
 
