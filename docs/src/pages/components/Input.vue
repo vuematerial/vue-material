@@ -107,7 +107,129 @@
     </div>
 
     <div slot="code">
-      <h2>Code</h2>
+      <demo-example label="Regular fields">
+        <code-block lang="xml">
+&lt;form novalidate @submit.stop.prevent=&quot;submit&quot;&gt;
+  &lt;md-input-container&gt;
+    &lt;label&gt;Initial value&lt;/label&gt;
+    &lt;md-input v-model=&quot;initialValue&quot;&gt;&lt;/md-input&gt;
+  &lt;/md-input-container&gt;
+
+  &lt;md-input-container&gt;
+    &lt;label&gt;With label&lt;/label&gt;
+    &lt;md-input placeholder=&quot;My nice placeholder&quot;&gt;&lt;/md-input&gt;
+  &lt;/md-input-container&gt;
+
+  &lt;md-input-container md-inline&gt;
+    &lt;label&gt;Inline field&lt;/label&gt;
+    &lt;md-input&gt;&lt;/md-input&gt;
+  &lt;/md-input-container&gt;
+
+  &lt;md-input-container&gt;
+    &lt;label&gt;Number&lt;/label&gt;
+    &lt;md-input type=&quot;number&quot;&gt;&lt;/md-input&gt;
+  &lt;/md-input-container&gt;
+
+  &lt;md-input-container&gt;
+    &lt;label&gt;Textarea&lt;/label&gt;
+    &lt;md-textarea&gt;&lt;/md-textarea&gt;
+  &lt;/md-input-container&gt;
+
+  &lt;md-input-container&gt;
+    &lt;label&gt;Disabled&lt;/label&gt;
+    &lt;md-input disabled&gt;&lt;/md-input&gt;
+  &lt;/md-input-container&gt;
+&lt;/form&gt;
+        </code-block>
+
+        <code-block lang="javascript">
+export default {
+  data() {
+    return {
+      initialValue: 'My initial value'
+    };
+  }
+};
+        </code-block>
+      </demo-example>
+
+      <demo-example label="Password">
+        <code-block lang="xml">
+&lt;form novalidate @submit.stop.prevent=&quot;submit&quot;&gt;
+  &lt;md-input-container&gt;
+    &lt;label&gt;Regular Password&lt;/label&gt;
+    &lt;md-input type=&quot;password&quot;&gt;&lt;/md-input&gt;
+  &lt;/md-input-container&gt;
+
+  &lt;md-input-container md-has-password&gt;
+    &lt;label&gt;Password Reveal&lt;/label&gt;
+    &lt;md-input type=&quot;password&quot;&gt;&lt;/md-input&gt;
+  &lt;/md-input-container&gt;
+&lt;/form&gt;
+        </code-block>
+      </demo-example>
+
+      <demo-example label="Required and Errors">
+        <code-block lang="xml">
+&lt;form novalidate @submit.stop.prevent=&quot;submit&quot;&gt;
+  &lt;md-input-container&gt;
+    &lt;label&gt;Required&lt;/label&gt;
+    &lt;md-input required&gt;&lt;/md-input&gt;
+  &lt;/md-input-container&gt;
+
+  &lt;md-input-container class=&quot;md-input-invalid&quot;&gt;
+    &lt;label&gt;Error&lt;/label&gt;
+    &lt;md-input required&gt;&lt;/md-input&gt;
+  &lt;/md-input-container&gt;
+
+  &lt;md-input-container class=&quot;md-input-invalid&quot;&gt;
+    &lt;label&gt;Error with message&lt;/label&gt;
+    &lt;md-input required&gt;&lt;/md-input&gt;
+
+    &lt;span class=&quot;md-error&quot;&gt;Validation message&lt;/span&gt;
+  &lt;/md-input-container&gt;
+
+  &lt;md-input-container class=&quot;md-input-invalid&quot;&gt;
+    &lt;label&gt;Textarea with error&lt;/label&gt;
+    &lt;md-textarea&gt;&lt;/md-textarea&gt;
+
+    &lt;span class=&quot;md-error&quot;&gt;Textarea validation message&lt;/span&gt;
+  &lt;/md-input-container&gt;
+&lt;/form&gt;
+        </code-block>
+      </demo-example>
+
+      <demo-example label="Character counter">
+        <code-block lang="xml">
+&lt;form novalidate @submit.stop.prevent=&quot;submit&quot;&gt;
+  &lt;md-input-container&gt;
+    &lt;label&gt;Textarea&lt;/label&gt;
+    &lt;md-textarea maxlength=&quot;70&quot;&gt;&lt;/md-textarea&gt;
+  &lt;/md-input-container&gt;
+
+  &lt;md-input-container&gt;
+    &lt;label&gt;Input&lt;/label&gt;
+    &lt;md-input maxlength=&quot;20&quot;&gt;&lt;/md-input&gt;
+  &lt;/md-input-container&gt;
+&lt;/form&gt;
+        </code-block>
+      </demo-example>
+
+      <demo-example label="Themed" size="4">
+        <code-block lang="xml">
+&lt;form novalidate @submit.stop.prevent=&quot;submit&quot;&gt;
+  &lt;md-input-container v-md-theme=&quot;&#039;green&#039;&quot;&gt;
+    &lt;label&gt;Themable - Input&lt;/label&gt;
+    &lt;md-input&gt;&lt;/md-input&gt;
+  &lt;/md-input-container&gt;
+
+  &lt;md-input-container v-md-theme=&quot;&#039;brown&#039;&quot;&gt;
+    &lt;label&gt;Themable - Textarea&lt;/label&gt;
+    &lt;md-textarea&gt;&lt;/md-textarea&gt;
+  &lt;/md-input-container&gt;
+&lt;/form&gt;
+        </code-block>
+      </demo-example>
     </div>
 
     <div slot="api">

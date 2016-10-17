@@ -367,7 +367,7 @@
         </div>
       </demo-example>
 
-      <demo-example label="Controls">
+      <demo-example label="Expansion List">
         <div class="phone-viewport">
           <md-list>
             <md-list-item>
@@ -620,7 +620,704 @@
     </div>
 
     <div slot="code">
-      <h2>Code</h2>
+      <demo-example label="Single Line">
+        <code-block lang="xml">
+&lt;md-list&gt;
+  &lt;md-list-item&gt;
+    &lt;md-icon&gt;move_to_inbox&lt;/md-icon&gt; &lt;span&gt;Inbox&lt;/span&gt;
+  &lt;/md-list-item&gt;
+
+  &lt;md-list-item&gt;
+    &lt;md-icon&gt;send&lt;/md-icon&gt; &lt;span&gt;Sent Mail&lt;/span&gt;
+  &lt;/md-list-item&gt;
+
+  &lt;md-list-item&gt;
+    &lt;md-icon&gt;delete&lt;/md-icon&gt; &lt;span&gt;Trash&lt;/span&gt;
+  &lt;/md-list-item&gt;
+
+  &lt;md-list-item&gt;
+    &lt;md-icon&gt;error&lt;/md-icon&gt; &lt;span&gt;Spam&lt;/span&gt;
+
+    &lt;md-divider class=&quot;md-inset&quot;&gt;&lt;/md-divider&gt;
+  &lt;/md-list-item&gt;
+
+  &lt;md-list-item&gt;
+    &lt;md-avatar&gt;
+      &lt;img src=&quot;https://placeimg.com/40/40/people/5&quot; alt=&quot;People&quot;&gt;
+    &lt;/md-avatar&gt;
+
+    &lt;span&gt;Abbey Christansen&lt;/span&gt;
+
+    &lt;md-button class=&quot;md-icon-button md-list-action&quot;&gt;
+      &lt;md-icon class=&quot;md-primary&quot;&gt;chat_bubble&lt;/md-icon&gt;
+    &lt;/md-button&gt;
+  &lt;/md-list-item&gt;
+
+  &lt;md-list-item&gt;
+    &lt;md-avatar&gt;
+      &lt;img src=&quot;https://placeimg.com/40/40/people/1&quot; alt=&quot;People&quot;&gt;
+    &lt;/md-avatar&gt;
+
+    &lt;span&gt;Alex Nelson&lt;/span&gt;
+
+    &lt;md-button class=&quot;md-icon-button md-list-action&quot;&gt;
+      &lt;md-icon class=&quot;md-primary&quot;&gt;chat_bubble&lt;/md-icon&gt;
+    &lt;/md-button&gt;
+  &lt;/md-list-item&gt;
+
+  &lt;md-list-item&gt;
+    &lt;md-avatar&gt;
+      &lt;img src=&quot;https://placeimg.com/40/40/people/6&quot; alt=&quot;People&quot;&gt;
+    &lt;/md-avatar&gt;
+
+    &lt;span&gt;Mary Johnson&lt;/span&gt;
+
+    &lt;md-button class=&quot;md-icon-button md-list-action&quot;&gt;
+      &lt;md-icon&gt;chat_bubble&lt;/md-icon&gt;
+    &lt;/md-button&gt;
+  &lt;/md-list-item&gt;
+&lt;/md-list&gt;
+        </code-block>
+
+        <code-block lang="xml">
+&lt;md-list class=&quot;md-dense&quot;&gt;
+  &lt;md-list-item&gt;
+    &lt;md-icon&gt;move_to_inbox&lt;/md-icon&gt; &lt;span&gt;Inbox&lt;/span&gt;
+  &lt;/md-list-item&gt;
+
+  &lt;md-list-item&gt;
+    &lt;md-icon&gt;send&lt;/md-icon&gt; &lt;span&gt;Sent Mail&lt;/span&gt;
+  &lt;/md-list-item&gt;
+
+  &lt;md-list-item&gt;
+    &lt;md-icon&gt;delete&lt;/md-icon&gt; &lt;span&gt;Trash&lt;/span&gt;
+  &lt;/md-list-item&gt;
+
+  &lt;md-list-item&gt;
+    &lt;md-icon&gt;error&lt;/md-icon&gt; &lt;span&gt;Spam&lt;/span&gt;
+
+    &lt;md-divider class=&quot;md-inset&quot;&gt;&lt;/md-divider&gt;
+  &lt;/md-list-item&gt;
+
+  &lt;md-list-item&gt;
+    &lt;md-avatar&gt;
+      &lt;img src=&quot;https://placeimg.com/40/40/people/5&quot; alt=&quot;People&quot;&gt;
+    &lt;/md-avatar&gt;
+
+    &lt;span&gt;Abbey Christansen&lt;/span&gt;
+
+    &lt;md-button class=&quot;md-icon-button md-list-action&quot;&gt;
+      &lt;md-icon class=&quot;md-primary&quot;&gt;chat_bubble&lt;/md-icon&gt;
+    &lt;/md-button&gt;
+  &lt;/md-list-item&gt;
+
+  &lt;md-list-item&gt;
+    &lt;md-avatar&gt;
+      &lt;img src=&quot;https://placeimg.com/40/40/people/1&quot; alt=&quot;People&quot;&gt;
+    &lt;/md-avatar&gt;
+
+    &lt;span&gt;Alex Nelson&lt;/span&gt;
+
+    &lt;md-button class=&quot;md-icon-button md-list-action&quot;&gt;
+      &lt;md-icon class=&quot;md-primary&quot;&gt;chat_bubble&lt;/md-icon&gt;
+    &lt;/md-button&gt;
+  &lt;/md-list-item&gt;
+
+  &lt;md-list-item&gt;
+    &lt;md-avatar&gt;
+      &lt;img src=&quot;https://placeimg.com/40/40/people/6&quot; alt=&quot;People&quot;&gt;
+    &lt;/md-avatar&gt;
+
+    &lt;span&gt;Mary Johnson&lt;/span&gt;
+
+    &lt;md-button class=&quot;md-icon-button md-list-action&quot;&gt;
+      &lt;md-icon&gt;chat_bubble&lt;/md-icon&gt;
+    &lt;/md-button&gt;
+  &lt;/md-list-item&gt;
+&lt;/md-list&gt;
+        </code-block>
+      </demo-example>
+
+      <demo-example label="Double Line">
+        <code-block lang="xml">
+&lt;md-list class=&quot;md-double-line&quot;&gt;
+  &lt;md-list-item&gt;
+    &lt;md-icon class=&quot;md-primary&quot;&gt;phone&lt;/md-icon&gt;
+
+    &lt;div class=&quot;md-list-text-container&quot;&gt;
+      &lt;span&gt;(650) 555-1234&lt;/span&gt;
+      &lt;span&gt;Mobile&lt;/span&gt;
+    &lt;/div&gt;
+
+    &lt;md-button class=&quot;md-icon-button md-list-action&quot;&gt;
+      &lt;md-icon&gt;sms&lt;/md-icon&gt;
+    &lt;/md-button&gt;
+  &lt;/md-list-item&gt;
+
+  &lt;md-list-item class=&quot;md-inset&quot;&gt;
+    &lt;div class=&quot;md-list-text-container&quot;&gt;
+      &lt;span&gt;(650) 555-1234&lt;/span&gt;
+      &lt;span&gt;Mobile&lt;/span&gt;
+    &lt;/div&gt;
+
+    &lt;md-divider class=&quot;md-inset&quot;&gt;&lt;/md-divider&gt;
+  &lt;/md-list-item&gt;
+
+  &lt;md-list-item&gt;
+    &lt;md-icon class=&quot;md-primary&quot;&gt;email&lt;/md-icon&gt;
+
+    &lt;div class=&quot;md-list-text-container&quot;&gt;
+      &lt;span&gt;aliconnors@example.com&lt;/span&gt;
+      &lt;span&gt;Personal&lt;/span&gt;
+    &lt;/div&gt;
+
+    &lt;md-button class=&quot;md-icon-button md-list-action&quot;&gt;
+      &lt;md-icon&gt;sms&lt;/md-icon&gt;
+    &lt;/md-button&gt;
+  &lt;/md-list-item&gt;
+
+  &lt;md-list-item class=&quot;md-inset&quot;&gt;
+    &lt;div class=&quot;md-list-text-container&quot;&gt;
+      &lt;span&gt;ali_connors@example.com&lt;/span&gt;
+      &lt;span&gt;Work&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/md-list-item&gt;
+&lt;/md-list&gt;
+        </code-block>
+
+        <code-block lang="xml">
+&lt;md-list class=&quot;md-double-line md-dense&quot;&gt;
+  &lt;md-list-item&gt;
+    &lt;md-icon class=&quot;md-primary&quot;&gt;phone&lt;/md-icon&gt;
+
+    &lt;div class=&quot;md-list-text-container&quot;&gt;
+      &lt;span&gt;(650) 555-1234&lt;/span&gt;
+      &lt;span&gt;Mobile&lt;/span&gt;
+    &lt;/div&gt;
+
+    &lt;md-button class=&quot;md-icon-button md-list-action&quot;&gt;
+      &lt;md-icon&gt;sms&lt;/md-icon&gt;
+    &lt;/md-button&gt;
+  &lt;/md-list-item&gt;
+
+  &lt;md-list-item class=&quot;md-inset&quot;&gt;
+    &lt;div class=&quot;md-list-text-container&quot;&gt;
+      &lt;span&gt;(650) 555-1234&lt;/span&gt;
+      &lt;span&gt;Mobile&lt;/span&gt;
+    &lt;/div&gt;
+
+    &lt;md-divider class=&quot;md-inset&quot;&gt;&lt;/md-divider&gt;
+  &lt;/md-list-item&gt;
+
+  &lt;md-list-item&gt;
+    &lt;md-icon class=&quot;md-primary&quot;&gt;email&lt;/md-icon&gt;
+
+    &lt;div class=&quot;md-list-text-container&quot;&gt;
+      &lt;span&gt;aliconnors@example.com&lt;/span&gt;
+      &lt;span&gt;Personal&lt;/span&gt;
+    &lt;/div&gt;
+
+    &lt;md-button class=&quot;md-icon-button md-list-action&quot;&gt;
+      &lt;md-icon&gt;sms&lt;/md-icon&gt;
+    &lt;/md-button&gt;
+  &lt;/md-list-item&gt;
+
+  &lt;md-list-item class=&quot;md-inset&quot;&gt;
+    &lt;div class=&quot;md-list-text-container&quot;&gt;
+      &lt;span&gt;ali_connors@example.com&lt;/span&gt;
+      &lt;span&gt;Work&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/md-list-item&gt;
+&lt;/md-list&gt;
+        </code-block>
+      </demo-example>
+
+      <demo-example label="Triple Line">
+        <code-block lang="xml">
+&lt;md-list class=&quot;custom-list md-triple-line&quot;&gt;
+  &lt;md-list-item&gt;
+    &lt;md-avatar&gt;
+      &lt;img src=&quot;https://placeimg.com/40/40/people/1&quot; alt=&quot;People&quot;&gt;
+    &lt;/md-avatar&gt;
+
+    &lt;div class=&quot;md-list-text-container&quot;&gt;
+      &lt;span&gt;Ali Connors&lt;/span&gt;
+      &lt;span&gt;Brunch this weekend?&lt;/span&gt;
+      &lt;p&gt;I&#039;ll be in your neighborhood doing errands...&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;md-button class=&quot;md-icon-button md-list-action&quot;&gt;
+      &lt;md-icon class=&quot;md-primary&quot;&gt;star&lt;/md-icon&gt;
+    &lt;/md-button&gt;
+
+    &lt;md-divider class=&quot;md-inset&quot;&gt;&lt;/md-divider&gt;
+  &lt;/md-list-item&gt;
+
+  &lt;md-list-item&gt;
+    &lt;md-avatar&gt;
+      &lt;img src=&quot;https://placeimg.com/40/40/people/6&quot; alt=&quot;People&quot;&gt;
+    &lt;/md-avatar&gt;
+
+    &lt;div class=&quot;md-list-text-container&quot;&gt;
+      &lt;span&gt;me, Scott, Jennifer&lt;/span&gt;
+      &lt;span&gt;Summer BBQ&lt;/span&gt;
+      &lt;p&gt;Wish I could come, but I&#039;m out of town ...&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;md-button class=&quot;md-icon-button md-list-action&quot;&gt;
+      &lt;md-icon&gt;star_border&lt;/md-icon&gt;
+    &lt;/md-button&gt;
+
+    &lt;md-divider class=&quot;md-inset&quot;&gt;&lt;/md-divider&gt;
+  &lt;/md-list-item&gt;
+
+  &lt;md-list-item&gt;
+    &lt;md-avatar&gt;
+      &lt;img src=&quot;https://placeimg.com/40/40/people/5&quot; alt=&quot;People&quot;&gt;
+    &lt;/md-avatar&gt;
+
+    &lt;div class=&quot;md-list-text-container&quot;&gt;
+      &lt;span&gt;Sandra Adams&lt;/span&gt;
+      &lt;span&gt;Oui oui&lt;/span&gt;
+      &lt;p&gt;Do you have Paris recommendations ...&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;md-button class=&quot;md-icon-button md-list-action&quot;&gt;
+      &lt;md-icon&gt;star_border&lt;/md-icon&gt;
+    &lt;/md-button&gt;
+
+    &lt;md-divider class=&quot;md-inset&quot;&gt;&lt;/md-divider&gt;
+  &lt;/md-list-item&gt;
+
+  &lt;md-list-item&gt;
+    &lt;md-avatar&gt;
+      &lt;img src=&quot;https://placeimg.com/40/40/people/8&quot; alt=&quot;People&quot;&gt;
+    &lt;/md-avatar&gt;
+
+    &lt;div class=&quot;md-list-text-container&quot;&gt;
+      &lt;span&gt;Trevor Hansen&lt;/span&gt;
+      &lt;span&gt;Order confirmation&lt;/span&gt;
+      &lt;p&gt;Thank you for your recent order from ...&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;md-button class=&quot;md-icon-button md-list-action&quot;&gt;
+      &lt;md-icon&gt;star_border&lt;/md-icon&gt;
+    &lt;/md-button&gt;
+
+    &lt;md-divider class=&quot;md-inset&quot;&gt;&lt;/md-divider&gt;
+  &lt;/md-list-item&gt;
+&lt;/md-list&gt;
+        </code-block>
+
+        <code-block lang="xml">
+&lt;md-list class=&quot;custom-list md-triple-line md-dense&quot;&gt;
+  &lt;md-list-item&gt;
+    &lt;md-avatar&gt;
+      &lt;img src=&quot;https://placeimg.com/40/40/people/1&quot; alt=&quot;People&quot;&gt;
+    &lt;/md-avatar&gt;
+
+    &lt;div class=&quot;md-list-text-container&quot;&gt;
+      &lt;span&gt;Ali Connors&lt;/span&gt;
+      &lt;span&gt;Brunch this weekend?&lt;/span&gt;
+      &lt;p&gt;I&#039;ll be in your neighborhood doing errands...&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;md-button class=&quot;md-icon-button md-list-action&quot;&gt;
+      &lt;md-icon class=&quot;md-primary&quot;&gt;star&lt;/md-icon&gt;
+    &lt;/md-button&gt;
+
+    &lt;md-divider class=&quot;md-inset&quot;&gt;&lt;/md-divider&gt;
+  &lt;/md-list-item&gt;
+
+  &lt;md-list-item&gt;
+    &lt;md-avatar&gt;
+      &lt;img src=&quot;https://placeimg.com/40/40/people/6&quot; alt=&quot;People&quot;&gt;
+    &lt;/md-avatar&gt;
+
+    &lt;div class=&quot;md-list-text-container&quot;&gt;
+      &lt;span&gt;me, Scott, Jennifer&lt;/span&gt;
+      &lt;span&gt;Summer BBQ&lt;/span&gt;
+      &lt;p&gt;Wish I could come, but I&#039;m out of town ...&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;md-button class=&quot;md-icon-button md-list-action&quot;&gt;
+      &lt;md-icon&gt;star_border&lt;/md-icon&gt;
+    &lt;/md-button&gt;
+
+    &lt;md-divider class=&quot;md-inset&quot;&gt;&lt;/md-divider&gt;
+  &lt;/md-list-item&gt;
+
+  &lt;md-list-item&gt;
+    &lt;md-avatar&gt;
+      &lt;img src=&quot;https://placeimg.com/40/40/people/5&quot; alt=&quot;People&quot;&gt;
+    &lt;/md-avatar&gt;
+
+    &lt;div class=&quot;md-list-text-container&quot;&gt;
+      &lt;span&gt;Sandra Adams&lt;/span&gt;
+      &lt;span&gt;Oui oui&lt;/span&gt;
+      &lt;p&gt;Do you have Paris recommendations ...&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;md-button class=&quot;md-icon-button md-list-action&quot;&gt;
+      &lt;md-icon&gt;star_border&lt;/md-icon&gt;
+    &lt;/md-button&gt;
+
+    &lt;md-divider class=&quot;md-inset&quot;&gt;&lt;/md-divider&gt;
+  &lt;/md-list-item&gt;
+
+  &lt;md-list-item&gt;
+    &lt;md-avatar&gt;
+      &lt;img src=&quot;https://placeimg.com/40/40/people/8&quot; alt=&quot;People&quot;&gt;
+    &lt;/md-avatar&gt;
+
+    &lt;div class=&quot;md-list-text-container&quot;&gt;
+      &lt;span&gt;Trevor Hansen&lt;/span&gt;
+      &lt;span&gt;Order confirmation&lt;/span&gt;
+      &lt;p&gt;Thank you for your recent order from ...&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;md-button class=&quot;md-icon-button md-list-action&quot;&gt;
+      &lt;md-icon&gt;star_border&lt;/md-icon&gt;
+    &lt;/md-button&gt;
+
+    &lt;md-divider class=&quot;md-inset&quot;&gt;&lt;/md-divider&gt;
+  &lt;/md-list-item&gt;
+&lt;/md-list&gt;
+        </code-block>
+
+        <code-block lang="scss">
+.custom-list {
+  .md-list-action {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+    pointer-events: auto;
+    z-index: 2;
+  }
+
+  .md-icon {
+    color: rgba(#000, .26);
+  }
+}
+        </code-block>
+      </demo-example>
+
+      <demo-example label="Expansion List">
+        <code-block lang="xml">
+&lt;md-list&gt;
+  &lt;md-list-item&gt;
+    &lt;md-icon&gt;whatshot&lt;/md-icon&gt;
+    &lt;span&gt;News&lt;/span&gt;
+
+    &lt;md-list-expand&gt;
+      &lt;md-list&gt;
+        &lt;md-list-item class=&quot;md-inset&quot;&gt;World&lt;/md-list-item&gt;
+        &lt;md-list-item class=&quot;md-inset&quot;&gt;Americas&lt;/md-list-item&gt;
+        &lt;md-list-item class=&quot;md-inset&quot;&gt;Europe&lt;/md-list-item&gt;
+      &lt;/md-list&gt;
+    &lt;/md-list-expand&gt;
+  &lt;/md-list-item&gt;
+
+  &lt;md-list-item&gt;
+    &lt;md-icon&gt;videogame_asset&lt;/md-icon&gt;
+    &lt;span&gt;Games&lt;/span&gt;
+
+    &lt;md-list-expand&gt;
+      &lt;md-list&gt;
+        &lt;md-list-item class=&quot;md-inset&quot;&gt;Console&lt;/md-list-item&gt;
+        &lt;md-list-item class=&quot;md-inset&quot;&gt;PC&lt;/md-list-item&gt;
+        &lt;md-list-item class=&quot;md-inset&quot;&gt;Phone&lt;/md-list-item&gt;
+      &lt;/md-list&gt;
+    &lt;/md-list-expand&gt;
+  &lt;/md-list-item&gt;
+
+  &lt;md-list-item&gt;
+    &lt;md-icon&gt;video_library&lt;/md-icon&gt;
+    &lt;span&gt;Video&lt;/span&gt;
+
+    &lt;md-list-expand&gt;
+      &lt;md-list&gt;
+        &lt;md-list-item class=&quot;md-inset&quot;&gt;Humor&lt;/md-list-item&gt;
+        &lt;md-list-item class=&quot;md-inset&quot;&gt;Music&lt;/md-list-item&gt;
+        &lt;md-list-item class=&quot;md-inset&quot;&gt;Movies&lt;/md-list-item&gt;
+        &lt;md-list-item class=&quot;md-inset&quot;&gt;TV Shows&lt;/md-list-item&gt;
+      &lt;/md-list&gt;
+    &lt;/md-list-expand&gt;
+  &lt;/md-list-item&gt;
+
+  &lt;md-list-item&gt;
+    &lt;md-icon&gt;shopping_basket&lt;/md-icon&gt;
+    &lt;span&gt;Shop&lt;/span&gt;
+  &lt;/md-list-item&gt;
+&lt;/md-list&gt;
+        </code-block>
+      </demo-example>
+
+      <demo-example label="Complete Example">
+        <code-block lang="xml">
+&lt;div class=&quot;complete-example&quot;&gt;
+  &lt;md-whiteframe md-elevation=&quot;3&quot;&gt;
+    &lt;md-toolbar class=&quot;md-large&quot; v-md-theme=&quot;&#039;light-blue&#039;&quot;&gt;
+      &lt;div class=&quot;md-toolbar-container&quot;&gt;
+        &lt;md-button class=&quot;md-icon-button&quot; @click=&quot;toggleSidenav&quot;&gt;
+          &lt;md-icon&gt;menu&lt;/md-icon&gt;
+        &lt;/md-button&gt;
+
+        &lt;span style=&quot;flex: 1&quot;&gt;&lt;/span&gt;
+
+        &lt;md-button class=&quot;md-icon-button&quot;&gt;
+          &lt;md-icon&gt;search&lt;/md-icon&gt;
+        &lt;/md-button&gt;
+
+        &lt;md-button class=&quot;md-icon-button&quot;&gt;
+          &lt;md-icon&gt;view_module&lt;/md-icon&gt;
+        &lt;/md-button&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&quot;md-toolbar-container&quot;&gt;
+        &lt;h2 class=&quot;md-title&quot;&gt;My Files&lt;/h2&gt;
+
+        &lt;md-button class=&quot;md-fab md-mini&quot;&gt;
+          &lt;md-icon&gt;add&lt;/md-icon&gt;
+        &lt;/md-button&gt;
+      &lt;/div&gt;
+    &lt;/md-toolbar&gt;
+  &lt;/md-whiteframe&gt;
+
+  &lt;md-list class=&quot;md-double-line&quot;&gt;
+    &lt;md-subheader class=&quot;md-inset&quot;&gt;Folders&lt;/md-subheader&gt;
+
+    &lt;md-list-item&gt;
+      &lt;md-avatar class=&quot;md-avatar-icon&quot;&gt;
+        &lt;md-icon&gt;folder&lt;/md-icon&gt;
+      &lt;/md-avatar&gt;
+
+      &lt;div class=&quot;md-list-text-container&quot;&gt;
+        &lt;span&gt;Photos&lt;/span&gt;
+        &lt;p&gt;Jan 9, 2014&lt;/p&gt;
+      &lt;/div&gt;
+
+      &lt;md-button class=&quot;md-icon-button md-list-action&quot;&gt;
+        &lt;md-icon&gt;info&lt;/md-icon&gt;
+      &lt;/md-button&gt;
+    &lt;/md-list-item&gt;
+
+    &lt;md-list-item&gt;
+      &lt;md-avatar class=&quot;md-avatar-icon&quot;&gt;
+        &lt;md-icon&gt;folder&lt;/md-icon&gt;
+      &lt;/md-avatar&gt;
+
+      &lt;div class=&quot;md-list-text-container&quot;&gt;
+        &lt;span&gt;Recipes&lt;/span&gt;
+        &lt;p&gt;Jan 17, 2014&lt;/p&gt;
+      &lt;/div&gt;
+
+      &lt;md-button class=&quot;md-icon-button md-list-action&quot;&gt;
+        &lt;md-icon&gt;info&lt;/md-icon&gt;
+      &lt;/md-button&gt;
+    &lt;/md-list-item&gt;
+
+    &lt;md-list-item&gt;
+      &lt;md-avatar class=&quot;md-avatar-icon&quot;&gt;
+        &lt;md-icon&gt;folder&lt;/md-icon&gt;
+      &lt;/md-avatar&gt;
+
+      &lt;div class=&quot;md-list-text-container&quot;&gt;
+        &lt;span&gt;Work&lt;/span&gt;
+        &lt;p&gt;Jan 28, 2014&lt;/p&gt;
+      &lt;/div&gt;
+
+      &lt;md-button class=&quot;md-icon-button md-list-action&quot;&gt;
+        &lt;md-icon&gt;info&lt;/md-icon&gt;
+      &lt;/md-button&gt;
+
+      &lt;md-divider class=&quot;md-inset&quot;&gt;&lt;/md-divider&gt;
+    &lt;/md-list-item&gt;
+
+    &lt;md-subheader class=&quot;md-inset&quot;&gt;Files&lt;/md-subheader&gt;
+
+    &lt;md-list-item&gt;
+      &lt;md-avatar v-md-theme=&quot;&#039;blue&#039;&quot; class=&quot;md-avatar-icon md-primary&quot;&gt;
+        &lt;md-icon&gt;insert_drive_file&lt;/md-icon&gt;
+      &lt;/md-avatar&gt;
+
+      &lt;div class=&quot;md-list-text-container&quot;&gt;
+        &lt;span&gt;Vacation Itinerary&lt;/span&gt;
+        &lt;p&gt;Jan 20, 2014&lt;/p&gt;
+      &lt;/div&gt;
+
+      &lt;md-button class=&quot;md-icon-button md-list-action&quot;&gt;
+        &lt;md-icon&gt;info&lt;/md-icon&gt;
+      &lt;/md-button&gt;
+    &lt;/md-list-item&gt;
+
+    &lt;md-list-item&gt;
+      &lt;md-avatar v-md-theme=&quot;&#039;orange&#039;&quot; class=&quot;md-avatar-icon md-primary&quot;&gt;
+        &lt;md-icon&gt;collections&lt;/md-icon&gt;
+      &lt;/md-avatar&gt;
+
+      &lt;div class=&quot;md-list-text-container&quot;&gt;
+        &lt;span&gt;Kitchen Remodel&lt;/span&gt;
+        &lt;p&gt;Jan 10, 2014&lt;/p&gt;
+      &lt;/div&gt;
+
+      &lt;md-button class=&quot;md-icon-button md-list-action&quot;&gt;
+        &lt;md-icon&gt;info&lt;/md-icon&gt;
+      &lt;/md-button&gt;
+    &lt;/md-list-item&gt;
+
+    &lt;md-list-item&gt;
+      &lt;md-avatar v-md-theme=&quot;&#039;green&#039;&quot; class=&quot;md-avatar-icon md-primary&quot;&gt;
+        &lt;md-icon&gt;view_list&lt;/md-icon&gt;
+      &lt;/md-avatar&gt;
+
+      &lt;div class=&quot;md-list-text-container&quot;&gt;
+        &lt;span&gt;Grocery Shop&lt;/span&gt;
+        &lt;p&gt;Jan 10, 2014&lt;/p&gt;
+      &lt;/div&gt;
+
+      &lt;md-button class=&quot;md-icon-button md-list-action&quot;&gt;
+        &lt;md-icon&gt;info&lt;/md-icon&gt;
+      &lt;/md-button&gt;
+    &lt;/md-list-item&gt;
+
+    &lt;md-list-item&gt;
+      &lt;md-avatar v-md-theme=&quot;&#039;orange&#039;&quot; class=&quot;md-avatar-icon md-primary&quot;&gt;
+        &lt;md-icon&gt;collections&lt;/md-icon&gt;
+      &lt;/md-avatar&gt;
+
+      &lt;div class=&quot;md-list-text-container&quot;&gt;
+        &lt;span&gt;Weekend Pictures&lt;/span&gt;
+        &lt;p&gt;Jan 10, 2014&lt;/p&gt;
+      &lt;/div&gt;
+
+      &lt;md-button class=&quot;md-icon-button md-list-action&quot;&gt;
+        &lt;md-icon&gt;info&lt;/md-icon&gt;
+      &lt;/md-button&gt;
+    &lt;/md-list-item&gt;
+  &lt;/md-list&gt;
+
+  &lt;md-sidenav class=&quot;md-left&quot; ref=&quot;sidebar&quot;&gt;
+    &lt;md-toolbar class=&quot;md-account-header&quot; v-md-theme=&quot;&#039;blue&#039;&quot;&gt;
+      &lt;md-list class=&quot;md-transparent&quot;&gt;
+        &lt;md-list-item class=&quot;md-avatar-list&quot;&gt;
+          &lt;md-avatar class=&quot;md-large&quot;&gt;
+            &lt;img src=&quot;https://placeimg.com/64/64/people/8&quot; alt=&quot;People&quot;&gt;
+          &lt;/md-avatar&gt;
+
+          &lt;span style=&quot;flex: 1&quot;&gt;&lt;/span&gt;
+
+          &lt;md-avatar&gt;
+            &lt;img src=&quot;https://placeimg.com/40/40/people/3&quot; alt=&quot;People&quot;&gt;
+          &lt;/md-avatar&gt;
+
+          &lt;md-avatar&gt;
+            &lt;img src=&quot;https://placeimg.com/40/40/people/4&quot; alt=&quot;People&quot;&gt;
+          &lt;/md-avatar&gt;
+        &lt;/md-list-item&gt;
+
+        &lt;md-list-item&gt;
+          &lt;div class=&quot;md-list-text-container&quot;&gt;
+            &lt;span&gt;John Doe&lt;/span&gt;
+            &lt;span&gt;johndoe@email.com&lt;/span&gt;
+          &lt;/div&gt;
+
+          &lt;md-button class=&quot;md-icon-button md-list-action&quot;&gt;
+            &lt;md-icon&gt;arrow_drop_down&lt;/md-icon&gt;
+          &lt;/md-button&gt;
+        &lt;/md-list-item&gt;
+      &lt;/md-list&gt;
+    &lt;/md-toolbar&gt;
+
+    &lt;md-list v-md-theme=&quot;&#039;blue&#039;&quot;&gt;
+      &lt;md-list-item @click=&quot;toggleSidenav&quot; class=&quot;md-primary&quot;&gt;
+        &lt;md-icon&gt;insert_drive_file&lt;/md-icon&gt; &lt;span&gt;My files&lt;/span&gt;
+      &lt;/md-list-item&gt;
+
+      &lt;md-list-item @click=&quot;toggleSidenav&quot;&gt;
+        &lt;md-icon&gt;people&lt;/md-icon&gt; &lt;span&gt;Shared with me&lt;/span&gt;
+      &lt;/md-list-item&gt;
+
+      &lt;md-list-item @click=&quot;toggleSidenav&quot;&gt;
+        &lt;md-icon&gt;access_time&lt;/md-icon&gt; &lt;span&gt;Recent&lt;/span&gt;
+      &lt;/md-list-item&gt;
+
+      &lt;md-list-item @click=&quot;toggleSidenav&quot;&gt;
+        &lt;md-icon&gt;start&lt;/md-icon&gt; &lt;span&gt;Starred&lt;/span&gt;
+      &lt;/md-list-item&gt;
+
+      &lt;md-list-item @click=&quot;toggleSidenav&quot;&gt;
+        &lt;md-icon&gt;delete&lt;/md-icon&gt; &lt;span&gt;Trash&lt;/span&gt;
+      &lt;/md-list-item&gt;
+    &lt;/md-list&gt;
+  &lt;/md-sidenav&gt;
+&lt;/div&gt;
+        </code-block>
+
+        <code-block lang="scss">
+.complete-example {
+  display: flex;
+  flex-flow: column;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+
+  .md-fab {
+    margin: 0;
+    position: absolute;
+    bottom: -20px;
+    left: 16px;
+    box-shadow: $material-shadow-5dp;
+  }
+
+  .md-toolbar {
+    .md-icon {
+      color: #014e70;
+    }
+  }
+
+  .md-title {
+    color: #fff;
+  }
+
+  .md-list {
+    overflow: auto;
+  }
+
+  .md-list-action .md-icon {
+    color: rgba(#000, .26);
+  }
+
+  .md-avatar-icon .md-icon {
+    color: #fff !important;
+  }
+
+  .md-sidenav .md-list-text-container > :nth-child(2) {
+    color: rgba(#fff, .54);
+  }
+
+  .md-account-header {
+    .md-list-item:hover .md-button:hover {
+      background-color: inherit;
+    }
+
+    .md-avatar-list .md-list-item-container:hover {
+      background: none !important;
+    }
+  }
+}
+        </code-block>
+
+        <code-block lang="javascript">
+export default {
+  methods: {
+    toggleSidenav() {
+      this.$refs.sidebar.toggle();
+    }
+  }
+};
+        </code-block>
+      </demo-example>
     </div>
 
     <div slot="api">
@@ -713,11 +1410,6 @@
 
 <script>
   export default {
-    data() {
-      return {
-        sidenavVisible: false
-      };
-    },
     methods: {
       toggleSidenav() {
         this.$refs.sidebar.toggle();

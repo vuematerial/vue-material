@@ -197,7 +197,239 @@
     </div>
 
     <div slot="code">
-      <h2>Code</h2>
+      <demo-example label="Default">
+        <code-block lang="xml">
+&lt;md-toolbar&gt;
+  &lt;md-button class=&quot;md-icon-button&quot;&gt;
+    &lt;md-icon&gt;menu&lt;/md-icon&gt;
+  &lt;/md-button&gt;
+
+  &lt;h2 class=&quot;md-title&quot; style=&quot;flex: 1&quot;&gt;Vue Material&lt;/h2&gt;
+
+  &lt;md-button class=&quot;md-icon-button&quot;&gt;
+    &lt;md-icon&gt;favorite&lt;/md-icon&gt;
+  &lt;/md-button&gt;
+&lt;/md-toolbar&gt;
+        </code-block>
+      </demo-example>
+
+      <demo-example label="Dense">
+        <code-block lang="xml">
+&lt;md-toolbar class=&quot;md-dense&quot;&gt;
+  &lt;md-button class=&quot;md-icon-button&quot;&gt;
+    &lt;md-icon&gt;menu&lt;/md-icon&gt;
+  &lt;/md-button&gt;
+
+  &lt;h2 class=&quot;md-title&quot; style=&quot;flex: 1&quot;&gt;Vue Material&lt;/h2&gt;
+
+  &lt;md-button class=&quot;md-icon-button&quot;&gt;
+    &lt;md-icon&gt;favorite&lt;/md-icon&gt;
+  &lt;/md-button&gt;
+&lt;/md-toolbar&gt;
+        </code-block>
+      </demo-example>
+
+      <demo-example label="Medium">
+        <code-block lang="xml">
+&lt;md-toolbar class=&quot;md-medium&quot;&gt;
+  &lt;div class=&quot;md-toolbar-container&quot;&gt;
+    &lt;md-button class=&quot;md-icon-button&quot;&gt;
+      &lt;md-icon&gt;menu&lt;/md-icon&gt;
+    &lt;/md-button&gt;
+
+    &lt;h2 class=&quot;md-title&quot; style=&quot;flex: 1;&quot;&gt;Vue Material&lt;/h2&gt;
+
+    &lt;md-button class=&quot;md-icon-button&quot;&gt;
+      &lt;md-icon&gt;search&lt;/md-icon&gt;
+    &lt;/md-button&gt;
+
+    &lt;md-button class=&quot;md-icon-button&quot;&gt;
+      &lt;md-icon&gt;filter_list&lt;/md-icon&gt;
+    &lt;/md-button&gt;
+  &lt;/div&gt;
+&lt;/md-toolbar&gt;
+        </code-block>
+      </demo-example>
+
+      <demo-example label="Large">
+        <code-block lang="xml">
+&lt;md-toolbar class=&quot;md-large&quot;&gt;
+  &lt;div class=&quot;md-toolbar-container&quot;&gt;
+    &lt;md-button class=&quot;md-icon-button&quot;&gt;
+      &lt;md-icon&gt;menu&lt;/md-icon&gt;
+    &lt;/md-button&gt;
+
+    &lt;span style=&quot;flex: 1;&quot;&gt;&lt;/span&gt;
+
+    &lt;md-button class=&quot;md-icon-button&quot;&gt;
+      &lt;md-icon&gt;search&lt;/md-icon&gt;
+    &lt;/md-button&gt;
+
+    &lt;md-button class=&quot;md-icon-button&quot;&gt;
+      &lt;md-icon&gt;filter_list&lt;/md-icon&gt;
+    &lt;/md-button&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;md-toolbar-container&quot;&gt;
+    &lt;h2 class=&quot;md-title&quot;&gt;Vue Material&lt;/h2&gt;
+  &lt;/div&gt;
+&lt;/md-toolbar&gt;
+        </code-block>
+      </demo-example>
+
+      <demo-example label="Accent, Warn and Transparent Colors">
+        <code-block lang="xml">
+&lt;md-toolbar class=&quot;md-accent&quot;&gt;
+  &lt;md-button class=&quot;md-icon-button&quot;&gt;
+    &lt;md-icon&gt;menu&lt;/md-icon&gt;
+  &lt;/md-button&gt;
+
+  &lt;h2 class=&quot;md-title&quot; style=&quot;flex: 1&quot;&gt;Vue Material&lt;/h2&gt;
+
+  &lt;md-button class=&quot;md-icon-button&quot;&gt;
+    &lt;md-icon&gt;favorite&lt;/md-icon&gt;
+  &lt;/md-button&gt;
+&lt;/md-toolbar&gt;
+        </code-block>
+
+        <code-block lang="xml">
+&lt;md-toolbar class=&quot;md-warn&quot;&gt;
+  &lt;md-button class=&quot;md-icon-button&quot;&gt;
+    &lt;md-icon&gt;menu&lt;/md-icon&gt;
+  &lt;/md-button&gt;
+
+  &lt;h2 class=&quot;md-title&quot; style=&quot;flex: 1&quot;&gt;Vue Material&lt;/h2&gt;
+
+  &lt;md-button&gt;Add&lt;/md-button&gt;
+  &lt;md-button&gt;Remove&lt;/md-button&gt;
+&lt;/md-toolbar&gt;
+        </code-block>
+
+        <code-block lang="xml">
+&lt;md-toolbar class=&quot;md-transparent&quot;&gt;
+  &lt;md-button class=&quot;md-icon-button&quot;&gt;
+    &lt;md-icon&gt;menu&lt;/md-icon&gt;
+  &lt;/md-button&gt;
+
+  &lt;h2 class=&quot;md-title&quot; style=&quot;flex: 1&quot;&gt;Vue Material&lt;/h2&gt;
+
+  &lt;md-button class=&quot;md-raised&quot;&gt;Add&lt;/md-button&gt;
+  &lt;md-button class=&quot;md-raised md-warn&quot;&gt;Remove&lt;/md-button&gt;
+&lt;/md-toolbar&gt;
+        </code-block>
+      </demo-example>
+
+      <demo-example label="Themed">
+        <code-block lang="xml">
+&lt;md-toolbar v-md-theme=&quot;&#039;green&#039;&quot;&gt;
+  &lt;md-button class=&quot;md-icon-button&quot;&gt;
+    &lt;md-icon&gt;menu&lt;/md-icon&gt;
+  &lt;/md-button&gt;
+
+  &lt;h2 class=&quot;md-title&quot; style=&quot;flex: 1&quot;&gt;Vue Material&lt;/h2&gt;
+
+  &lt;md-button class=&quot;md-icon-button&quot;&gt;
+    &lt;md-icon&gt;favorite&lt;/md-icon&gt;
+  &lt;/md-button&gt;
+&lt;/md-toolbar&gt;
+        </code-block>
+
+        <code-block lang="xml">
+&lt;md-toolbar class=&quot;md-large&quot; v-md-theme=&quot;&#039;brown&#039;&quot;&gt;
+  &lt;div class=&quot;md-toolbar-container&quot;&gt;
+    &lt;md-button class=&quot;md-icon-button&quot;&gt;
+      &lt;md-icon&gt;menu&lt;/md-icon&gt;
+    &lt;/md-button&gt;
+
+    &lt;span style=&quot;flex: 1;&quot;&gt;&lt;/span&gt;
+
+    &lt;md-button class=&quot;md-icon-button&quot;&gt;
+      &lt;md-icon&gt;search&lt;/md-icon&gt;
+    &lt;/md-button&gt;
+
+    &lt;md-button class=&quot;md-icon-button&quot;&gt;
+      &lt;md-icon&gt;filter_list&lt;/md-icon&gt;
+    &lt;/md-button&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;md-toolbar-container&quot;&gt;
+    &lt;h2 class=&quot;md-title&quot;&gt;Vue Material&lt;/h2&gt;
+  &lt;/div&gt;
+&lt;/md-toolbar&gt;
+        </code-block>
+
+        <code-block lang="xml">
+&lt;md-toolbar v-md-theme=&quot;&#039;orange&#039;&quot;&gt;
+  &lt;md-button class=&quot;md-icon-button&quot;&gt;
+    &lt;md-icon&gt;menu&lt;/md-icon&gt;
+  &lt;/md-button&gt;
+
+  &lt;h2 class=&quot;md-title&quot; style=&quot;flex: 1&quot;&gt;Vue Material&lt;/h2&gt;
+
+  &lt;md-button&gt;Add&lt;/md-button&gt;
+  &lt;md-button&gt;Remove&lt;/md-button&gt;
+&lt;/md-toolbar&gt;
+        </code-block>
+
+        <code-block lang="xml">
+&lt;md-toolbar v-md-theme=&quot;&#039;blue&#039;&quot;&gt;
+  &lt;md-button class=&quot;md-icon-button&quot;&gt;
+    &lt;md-icon&gt;menu&lt;/md-icon&gt;
+  &lt;/md-button&gt;
+
+  &lt;h2 class=&quot;md-title&quot; style=&quot;flex: 1&quot;&gt;Vue Material&lt;/h2&gt;
+
+  &lt;md-button class=&quot;md-raised&quot;&gt;Add&lt;/md-button&gt;
+  &lt;md-button class=&quot;md-raised md-warn&quot;&gt;Remove&lt;/md-button&gt;
+&lt;/md-toolbar&gt;
+        </code-block>
+      </demo-example>
+
+      <demo-example label="Complete Example" class="example">
+        <code-block lang="xml">
+&lt;div class=&quot;example&quot;&gt;
+  &lt;md-toolbar class=&quot;md-large&quot; v-md-theme=&quot;&#039;green&#039;&quot;&gt;
+    &lt;div class=&quot;md-toolbar-container&quot;&gt;
+      &lt;md-button class=&quot;md-icon-button&quot;&gt;
+        &lt;md-icon&gt;menu&lt;/md-icon&gt;
+      &lt;/md-button&gt;
+
+      &lt;span style=&quot;flex: 1;&quot;&gt;&lt;/span&gt;
+
+      &lt;md-button class=&quot;md-icon-button&quot;&gt;
+        &lt;md-icon&gt;search&lt;/md-icon&gt;
+      &lt;/md-button&gt;
+
+      &lt;md-button class=&quot;md-icon-button&quot;&gt;
+        &lt;md-icon&gt;filter_list&lt;/md-icon&gt;
+      &lt;/md-button&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;md-toolbar-container&quot;&gt;
+      &lt;h2 class=&quot;md-title&quot;&gt;Vue Material&lt;/h2&gt;
+
+      &lt;md-button class=&quot;md-fab md-fab-bottom-right&quot;&gt;
+        &lt;md-icon&gt;add&lt;/md-icon&gt;
+      &lt;/md-button&gt;
+    &lt;/div&gt;
+  &lt;/md-toolbar&gt;
+&lt;/div&gt;
+        </code-block>
+
+        <code-block lang="scss">
+.example {
+  .md-button.md-fab {
+    margin: 0;
+    right: 56px;
+    bottom: -26px;
+  }
+
+  .md-toolbar {
+    margin-bottom: 50px;
+  }
+}
+        </code-block>
+      </demo-example>
     </div>
 
     <div slot="api">
@@ -211,13 +443,13 @@
     margin-top: 16px;
   }
 
-  .md-button.md-fab {
-    margin: 0;
-    right: 56px;
-    bottom: -26px;
-  }
-
   .example {
+    .md-button.md-fab {
+      margin: 0;
+      right: 56px;
+      bottom: -26px;
+    }
+
     .md-toolbar {
       margin-bottom: 50px;
     }

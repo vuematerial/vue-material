@@ -151,11 +151,212 @@
     </div>
 
     <div slot="code">
-      <h2>Code</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt debitis magni dolorem praesentium labore velit repudiandae nostrum culpa quod assumenda. Dolores ipsum, explicabo quasi eius architecto esse ratione natus iure.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt debitis magni dolorem praesentium labore velit repudiandae nostrum culpa quod assumenda. Dolores ipsum, explicabo quasi eius architecto esse ratione natus iure.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt debitis magni dolorem praesentium labore velit repudiandae nostrum culpa quod assumenda. Dolores ipsum, explicabo quasi eius architecto esse ratione natus iure.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt debitis magni dolorem praesentium labore velit repudiandae nostrum culpa quod assumenda. Dolores ipsum, explicabo quasi eius architecto esse ratione natus iure.</p>
+      <demo-example label="Default - Grey Theme" body-theme="grey">
+        <code-block lang="xml">
+&lt;md-tabs&gt;
+  &lt;md-tab id=&quot;movies&quot; md-label=&quot;Movies&quot;&gt;
+    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.&lt;/p&gt;
+  &lt;/md-tab&gt;
+
+  &lt;md-tab id=&quot;music&quot; md-label=&quot;Music&quot;&gt;
+    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.&lt;/p&gt;
+    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.&lt;/p&gt;
+  &lt;/md-tab&gt;
+
+  &lt;md-tab id=&quot;books&quot; md-label=&quot;Books&quot;&gt;
+    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.&lt;/p&gt;
+  &lt;/md-tab&gt;
+
+  &lt;md-tab id=&quot;pictures&quot; md-label=&quot;Pictures&quot;&gt;
+    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.&lt;/p&gt;
+  &lt;/md-tab&gt;
+&lt;/md-tabs&gt;
+        </code-block>
+      </demo-example>
+
+      <demo-example label="Fixed - Accent Color">
+        <code-block lang="xml">
+&lt;md-tabs md-fixed class=&quot;md-accent&quot;&gt;
+  &lt;md-tab md-label=&quot;Movies&quot;&gt;
+    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.&lt;/p&gt;
+  &lt;/md-tab&gt;
+
+  &lt;md-tab md-label=&quot;Music&quot;&gt;
+    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.&lt;/p&gt;
+    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.&lt;/p&gt;
+  &lt;/md-tab&gt;
+
+  &lt;md-tab md-label=&quot;Books&quot;&gt;
+    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.&lt;/p&gt;
+  &lt;/md-tab&gt;
+
+  &lt;md-tab md-label=&quot;Pictures&quot;&gt;
+    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.&lt;/p&gt;
+  &lt;/md-tab&gt;
+&lt;/md-tabs&gt;
+        </code-block>
+      </demo-example>
+
+      <demo-example label="With icons and text - Teal Theme" body-theme="teal">
+        <code-block lang="xml">
+&lt;md-tabs md-fixed&gt;
+  &lt;md-tab md-label=&quot;Movies&quot; md-icon=&quot;ondemand_video&quot;&gt;
+    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.&lt;/p&gt;
+  &lt;/md-tab&gt;
+
+  &lt;md-tab md-label=&quot;Music&quot; md-icon=&quot;music_note&quot;&gt;
+    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.&lt;/p&gt;
+    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.&lt;/p&gt;
+  &lt;/md-tab&gt;
+
+  &lt;md-tab md-label=&quot;Books&quot; md-icon=&quot;books&quot;&gt;
+    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.&lt;/p&gt;
+  &lt;/md-tab&gt;
+
+  &lt;md-tab md-label=&quot;Pictures&quot; md-icon=&quot;photo&quot;&gt;
+    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.&lt;/p&gt;
+  &lt;/md-tab&gt;
+&lt;/md-tabs>
+        </code-block>
+      </demo-example>
+
+      <demo-example label="Centered with only icon - Transparent Color">
+        <code-block lang="xml">
+&lt;md-tabs md-centered class=&quot;md-transparent&quot;&gt;
+  &lt;md-tab md-icon=&quot;phone&quot;&gt;
+    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.&lt;/p&gt;
+  &lt;/md-tab&gt;
+
+  &lt;md-tab md-icon=&quot;favorite&quot;&gt;
+    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.&lt;/p&gt;
+    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.&lt;/p&gt;
+  &lt;/md-tab&gt;
+
+  &lt;md-tab md-icon=&quot;near_me&quot;&gt;
+    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.&lt;/p&gt;
+  &lt;/md-tab&gt;
+&lt;/md-tabs&gt;
+        </code-block>
+      </demo-example>
+
+      <demo-example label="Fixed with only icon - Default Theme">
+        <code-block lang="xml">
+&lt;md-tabs md-fixed&gt;
+  &lt;md-tab md-icon=&quot;phone&quot;&gt;
+    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.&lt;/p&gt;
+  &lt;/md-tab&gt;
+
+  &lt;md-tab md-icon=&quot;favorite&quot;&gt;
+    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.&lt;/p&gt;
+    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.&lt;/p&gt;
+  &lt;/md-tab&gt;
+
+  &lt;md-tab md-icon=&quot;near_me&quot;&gt;
+    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.&lt;/p&gt;
+  &lt;/md-tab&gt;
+&lt;/md-tabs&gt;
+        </code-block>
+      </demo-example>
+
+      <demo-example label="Playground">
+        <code-block lang="xml">
+&lt;div class=&quot;playground&quot;&gt;
+  &lt;md-subheader&gt;Tabs Attributes&lt;/md-subheader&gt;
+  &lt;md-checkbox id=&quot;fixed&quot; v-model=&quot;playground.fixed&quot;&gt;Fixed&lt;/md-checkbox&gt;
+  &lt;md-checkbox id=&quot;centered&quot; v-model=&quot;playground.centered&quot;&gt;Centered&lt;/md-checkbox&gt;
+  &lt;md-input-container&gt;
+    &lt;label for=&quot;shadow&quot;&gt;Shadow&lt;/label&gt;
+    &lt;md-input type=&quot;number&quot; id=&quot;shadow&quot; v-model=&quot;playground.shadow&quot; min=&quot;0&quot; max=&quot;24&quot;&gt;&lt;/md-input&gt;
+  &lt;/md-input-container&gt;
+
+  &lt;md-subheader&gt;Theme&lt;/md-subheader&gt;
+  &lt;md-radio v-model=&quot;playground.theme&quot; id=&quot;theme1&quot; name=&quot;theme&quot; md-value=&quot;default&quot;&gt;Default&lt;/md-radio&gt;
+  &lt;md-radio v-model=&quot;playground.theme&quot; id=&quot;theme2&quot; name=&quot;theme&quot; md-value=&quot;green&quot;&gt;Green&lt;/md-radio&gt;
+  &lt;md-radio v-model=&quot;playground.theme&quot; id=&quot;theme3&quot; name=&quot;theme&quot; md-value=&quot;cyan&quot;&gt;Cyan&lt;/md-radio&gt;
+  &lt;md-radio v-model=&quot;playground.theme&quot; id=&quot;theme4&quot; name=&quot;theme&quot; md-value=&quot;brown&quot;&gt;Brown&lt;/md-radio&gt;
+
+  &lt;md-subheader&gt;Colors&lt;/md-subheader&gt;
+  &lt;md-radio v-model=&quot;playground.color&quot; id=&quot;color1&quot; name=&quot;color&quot; md-value=&quot;0&quot;&gt;Default&lt;/md-radio&gt;
+  &lt;md-radio v-model=&quot;playground.color&quot; id=&quot;color2&quot; name=&quot;color&quot; md-value=&quot;1&quot;&gt;Accent&lt;/md-radio&gt;
+  &lt;md-radio v-model=&quot;playground.color&quot; id=&quot;color3&quot; name=&quot;color&quot; md-value=&quot;2&quot;&gt;Warn&lt;/md-radio&gt;
+  &lt;md-radio v-model=&quot;playground.color&quot; id=&quot;color4&quot; name=&quot;color&quot; md-value=&quot;3&quot;&gt;Transparent&lt;/md-radio&gt;
+
+  &lt;md-subheader&gt;Second Tab&lt;/md-subheader&gt;
+  &lt;md-checkbox id=&quot;disabled&quot; v-model=&quot;playground.tabs[1].disabled&quot;&gt;Disabled&lt;/md-checkbox&gt;
+  &lt;md-checkbox id=&quot;active&quot; v-model=&quot;playground.tabs[1].active&quot;&gt;Active&lt;/md-checkbox&gt;
+&lt;/div&gt;
+
+&lt;md-tabs
+  :class=&quot;{
+    &#039;md-accent&#039;: playground.color === &#039;1&#039;,
+    &#039;md-warn&#039;: playground.color === &#039;2&#039;,
+    &#039;md-transparent&#039;: playground.color === &#039;3&#039;
+  }&quot;
+  :md-fixed=&quot;playground.fixed&quot;
+  :md-centered=&quot;playground.centered&quot;
+  :md-elevation=&quot;playground.shadow&quot;
+  v-md-theme=&quot;playground.theme&quot;&gt;
+  &lt;md-tab v-for=&quot;(tab, index) in playground.tabs&quot; :md-label=&quot;tab.label&quot; :md-icon=&quot;tab.icon&quot; :md-disabled=&quot;tab.disabled&quot; :md-active=&quot;tab.active&quot;&gt;
+    &lt;md-input-container&gt;
+      &lt;label :for=&quot;&#039;label&#039; + index&quot;&gt;Label&lt;/label&gt;
+      &lt;md-input type=&quot;text&quot; :id=&quot;&#039;label&#039; + index&quot; v-model=&quot;tab.label&quot;&gt;&lt;/md-input&gt;
+    &lt;/md-input-container&gt;
+
+    &lt;md-input-container&gt;
+      &lt;label :for=&quot;&#039;icon&#039; + index&quot;&gt;Icon&lt;/label&gt;
+      &lt;md-input type=&quot;text&quot; :id=&quot;&#039;icon&#039; + index&quot; v-model=&quot;tab.icon&quot;&gt;&lt;/md-input&gt;
+    &lt;/md-input-container&gt;
+  &lt;/md-tab&gt;
+&lt;/md-tabs&gt;
+        </code-block>
+
+        <code-block lang="scss">
+.playground {
+  padding: 0 16px 16px;
+
+  .md-subheader {
+    padding: 16px 0 0;
+  }
+}
+        </code-block>
+
+        <code-block lang="javascript">
+export default {
+  data() {
+    return {
+      playground: {
+        color: '3',
+        fixed: true,
+        centered: false,
+        shadow: 0,
+        theme: 'default',
+        tabs: [
+          {
+            label: 'Phone',
+            icon: 'phone',
+            active: false,
+            disabled: false
+          },
+          {
+            label: 'Favorites',
+            icon: 'favorite',
+            active: false,
+            disabled: false
+          },
+          {
+            label: 'Near me',
+            icon: 'near_me',
+            active: true,
+            disabled: false
+          }
+        ]
+      },
+      firstTabName: 'Movies'
+    };
+  }
+};
+        </code-block>
+      </demo-example>
     </div>
 
     <div slot="api">
