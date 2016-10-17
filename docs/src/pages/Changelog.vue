@@ -3,6 +3,15 @@
     <single-page-banner label="Changelog"></single-page-banner>
 
     <section>
+      <h2 class="md-headline">v0.1.2 - Minor Fixes</h2>
+      <ul>
+        <li>Fixed tooltips on Firefox</li>
+        <li>Misaligned icons inside buttons on Firefox</li>
+        <li>Documentation fixes</li>
+      </ul>
+    </section>
+
+    <section>
       <h2 class="md-headline">v0.1.1 - Minor Fixes</h2>
       <ul>
         <li>Minor fixes</li>
