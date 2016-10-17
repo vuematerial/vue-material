@@ -108,7 +108,7 @@
       };
 
       if (this.$parent.$el.classList === targetElement.classList) {
-        targetElement.classList.forEach((cssClass) => {
+        [].slice.call(targetElement.classList).forEach((cssClass) => {
           if (cssClass.indexOf('md-') >= 0 && cssClass !== 'md-active') {
             tooltipElement.classList.add(cssClass + '-tooltip');
           }
