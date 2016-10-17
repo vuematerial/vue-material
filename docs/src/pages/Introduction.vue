@@ -42,7 +42,7 @@
   }
 
   .button-actions {
-    margin-bottom: 24px;
+    margin-bottom: 16px;
     text-align: center;
 
     .introduction {
