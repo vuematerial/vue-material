@@ -4,10 +4,6 @@ import autoprefixer from 'autoprefixer';
 import eslintFormatter from 'eslint-friendly-formatter';
 import config from '../config';
 
-const buildAssetsPath = (_path) => {
-  return path.posix.join(_path);
-};
-
 export default {
   entry: {
     docs: './docs/src/index.js'
@@ -21,7 +17,7 @@ export default {
     extensions: ['', '.js', '.vue'],
     fallback: [config.nodePath],
     alias: {
-      vue: 'vue/dist/vue.common.js'
+      assets: path.resolve(__dirname, '../../docs/src/assets')
     }
   },
   resolveLoader: {
@@ -68,14 +64,6 @@ export default {
       {
         test: /\.html$/,
         loader: 'vue-html'
-      },
-      {
-        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-        loader: 'url',
-        query: {
-          limit: 10000,
-          name: buildAssetsPath('images/[name].[hash:7].[ext]')
-        }
       }
     ]
   },

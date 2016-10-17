@@ -2,7 +2,7 @@
   <single-page label="Introduction">
     <div class="button-actions">
       <div class="example">
-        <img src="https://lh6.googleusercontent.com/QTsTXFhpLc6qOCJEI9AFwW78-d2l456z5i-dLkhaMhhoY0EtABhsoMvSiCi0r2cIsmGIj7OWEKlTTPACO5x4FazNPPONVP8ye0EMu0OieX0U9_n18xg_wFiUuFHH0h6Zzg" alt="Material Design">
+        <img src="assets/vue-material-example.png" alt="Material Design">
       </div>
 
       <div class="introduction">Build well-crafted apps with Material Design and Vue 2.0</div>

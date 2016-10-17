@@ -32,11 +32,7 @@ compiler.plugin('compilation', (compilation) => {
 app.use(historyApiFallback());
 app.use(devMiddlewareInstance);
 app.use(hotMiddlewareInstance);
-app.use(express.static(__dirname + config.devPath));
-
-app.get('*', function(req, res) {
-  res.sendFile(path.join(__dirname, 'index.html'));
-});
+app.use('/assets', express.static(path.join(__dirname, '..', '..', config.assetsPath)));
 
 export default app.listen(config.server.port, (error) => {
   let uri = 'http://localhost:' + config.server.port;

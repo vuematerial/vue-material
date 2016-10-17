@@ -8,7 +8,7 @@
   right: 0;
   bottom: 0;
   left: 0;
-  -webkit-mask-image: radial-gradient(circle, white 100%, black 100%);
+  mask-image: radial-gradient(circle, white 100%, black 100%);
   transition: $swift-ease-in;
 }
 

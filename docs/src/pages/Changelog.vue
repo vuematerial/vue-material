@@ -3,6 +3,15 @@
     <single-page-banner label="Changelog"></single-page-banner>
 
     <section>
+      <h2 class="md-headline">v0.1.1 - Minor Fixes</h2>
+      <ul>
+        <li>Minor fixes</li>
+        <li>Firefox support</li>
+        <li>Initial documentation</li>
+      </ul>
+    </section>
+
+    <section>
       <h2 class="md-headline">v0.1.0 - Initial Release</h2>
       <h3 class="md-title">New Components:</h3>
       <ul>
@@ -28,6 +37,7 @@
 
       <h3 class="md-title">UI Elements:</h3>
       <ul>
+        <li>Themes</li>
         <li>Tipography</li>
         <li>Fluid Media</li>
         <li>Custom Scrollbar</li>

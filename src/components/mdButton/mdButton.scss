@@ -66,6 +66,7 @@ $button-icon-size: 40px;
   }
 
   &.md-icon-button {
+    width: $button-icon-size;
     min-width: $button-icon-size;
     height: $button-icon-size;
     margin: 0 6px;
@@ -80,6 +81,7 @@ $button-icon-size: 40px;
     }
 
     &.md-dense {
+      width: $button-dense-height;
       min-width: $button-dense-height;
       height: $button-dense-height;
       min-height: $button-dense-height;
@@ -205,7 +207,6 @@ $button-icon-size: 40px;
     border-radius: $button-radius;
     background-clip: padding-box;
     overflow: hidden;
-    //-webkit-mask-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC');
   }
 }
 

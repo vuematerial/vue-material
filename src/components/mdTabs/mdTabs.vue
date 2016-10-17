@@ -12,8 +12,10 @@
           @click="changeTab(header.id)"
           v-md-ink-ripple="header.disabled"
           ref="tabHeader">
-          <md-icon v-if="header.icon">{{ header.icon }}</md-icon>
-          <span v-if="header.label">{{ header.label }}</span>
+          <div class="md-tab-header-container">
+            <md-icon v-if="header.icon">{{ header.icon }}</md-icon>
+            <span v-if="header.label">{{ header.label }}</span>
+          </div>
         </button>
 
         <span class="md-tab-indicator" :class="indicatorClass" ref="indicator"></span>
@@ -127,7 +129,7 @@
         ref.style.left = this.$refs.tabContent.offsetWidth * index + 'px';
       },
       setVisibleTab(ref) {
-        this.$refs.tabContent.style.minHeight = ref.offsetHeight + 'px';
+        this.$refs.tabContent.style.height = ref.offsetHeight + 'px';
         ref.classList.add('md-active');
       },
       changeTab(tabId) {

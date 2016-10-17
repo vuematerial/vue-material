@@ -30,7 +30,7 @@ Vue.material.theme.registerAll({
   },
   green: {
     primary: 'green',
-    accent: 'purple'
+    accent: 'pink'
   },
   'light-blue': {
     primary: 'light-blue',
@@ -43,12 +43,9 @@ Vue.material.theme.registerAll({
     primary: 'teal',
     accent: 'orange'
   },
-  'dark-pink': {
-    primary: {
-      color: 'pink',
-      hue: 800
-    },
-    accent: 'orange'
+  'blue-grey': {
+    primary: 'blue-grey',
+    accent: 'blue'
   },
   cyan: {
     primary: 'cyan',

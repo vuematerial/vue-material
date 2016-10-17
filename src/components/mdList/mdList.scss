@@ -141,20 +141,11 @@
     }
   }
 
-  .md-list-item-container {
-    width: 100%;
-    min-height: 48px;
-    margin: 0;
-    padding: 0 16px;
+  .md-list-item-holder {
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
-    position: relative;
-    border-radius: 0;
-    font-size: 16px;
-    font-weight: 400;
-    text-align: left;
-    text-transform: none;
+    flex: 1;
 
     > .md-ink-ripple {
       border-radius: 0;
@@ -175,6 +166,19 @@
         margin: 0 -2px 0 16px;
       }
     }
+  }
+
+  .md-list-item-container {
+    width: 100%;
+    min-height: 48px;
+    margin: 0;
+    padding: 0 16px;
+    position: relative;
+    border-radius: 0;
+    font-size: 16px;
+    font-weight: 400;
+    text-align: left;
+    text-transform: none;
   }
 
   .md-divider {
@@ -256,7 +260,7 @@
     }
   }
 
-  > .md-list-item-container {
+  > .md-list-item-container > .md-list-item-holder {
     position: relative;
     z-index: 2;
 
