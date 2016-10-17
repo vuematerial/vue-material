@@ -127,7 +127,7 @@
         ref.style.left = this.$refs.tabContent.offsetWidth * index + 'px';
       },
       setVisibleTab(ref) {
-        this.$refs.tabContent.style.height = ref.offsetHeight + 'px';
+        this.$refs.tabContent.style.minHeight = ref.offsetHeight + 'px';
         ref.classList.add('md-active');
       },
       changeTab(tabId) {
