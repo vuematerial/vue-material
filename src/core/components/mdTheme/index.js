@@ -137,26 +137,17 @@ const registerDirective = (element, { value, oldValue }) => {
 
 export default function install(Vue) {
   Vue.directive('mdTheme', registerDirective);
+
   Vue.material.theme = {
-    register(name, theme) {
-      let currentThemes = Vue.material.theme.registeredThemes;
+    register(name, spec) {
+      let theme = {};
 
-      currentThemes[name] = theme;
+      theme[name] = spec;
 
-      Vue.material.theme.registeredThemes = currentThemes;
+      registerAllThemes(theme, Vue.material.styles);
     },
     registerAll(themes) {
-      Vue.material.theme.registeredThemes = themes;
-    }
-  };
-
-  Object.defineProperty(Vue.material.theme, 'registeredThemes', {
-    get() {
-      return this.themes;
-    },
-    set(themes) {
-      this.themes = themes;
       registerAllThemes(themes, Vue.material.styles);
     }
-  });
+  };
 }
