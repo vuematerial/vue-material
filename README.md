@@ -57,10 +57,17 @@ Vue.material.theme.registerAll({
     accent: 'pink'
   }
 });
+```
+
+Apply your theme using <code>v-md-theme</code> directive:
+
+``` html
+<div v-md-theme="'default'"></div>
+<div v-md-theme="'phone'"></div>
+```
 
 ## Changelog
 <a href="https://marcosmoura.github.io/vue-material/#/changelog" target="_blank">Link</a>
-```
 
 ## Build Setup
 
