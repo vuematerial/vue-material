@@ -5,7 +5,7 @@
 Vue Material is lightweight framework built exactly according to the <a href="http://material.google.com" target="_blank">Material Design</a> specs. It aims to deliver a collection of reusable components and a series of UI Elements to build applications with support to <a href="https://saucelabs.com/u/vuejs" target="_blank">modern Web Browsers</a> through Vue 2.0. Build powerful and well-designed web apps that can can fit on every screen. You can generate and use themes dynamically, use components on demand, take advantage of UI Elements and Components with an ease-to-use API.
 
 ## Demo and Documentation
-<a href="https://marcosmoura.github.io/vue-material/" target="_blank">Material Design</a>
+<a href="https://marcosmoura.github.io/vue-material/" target="_blank">Demo</a>
 
 ## Installation
 
@@ -67,7 +67,7 @@ Apply your theme using <code>v-md-theme</code> directive:
 ```
 
 ## Changelog
-<a href="https://marcosmoura.github.io/vue-material/#/changelog" target="_blank">Link</a>
+<a href="https://marcosmoura.github.io/vue-material/#/changelog" target="_blank">Changelog</a>
 
 ## Build Setup
 
