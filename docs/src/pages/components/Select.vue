@@ -1,7 +1,7 @@
 <template>
   <demo-page label="Components - Select">
     <div slot="examples">
-      <demo-example label="Default">
+      <demo-example label="Default" height="350">
         <div class="field-group">
           <md-input-container>
             <label for="movie">Movie</label>
@@ -49,7 +49,7 @@
         </div>
       </demo-example>
 
-      <demo-example label="Groups">
+      <demo-example label="Groups" height="350">
         <div class="field-group">
           <md-input-container>
             <label for="food">Food</label>
