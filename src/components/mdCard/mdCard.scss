@@ -1,4 +1,5 @@
 @import '../../core/stylesheets/variables.scss';
+@import '../../core/stylesheets/mixins.scss';
 
 $card-radius: 2px;
 
@@ -25,12 +26,28 @@ $card-radius: 2px;
   .md-card-media {
     position: relative;
 
+    &.md-16-9 {
+      @include image-aspect-ratio(16, 9);
+    }
+
+    &.md-4-3 {
+      @include image-aspect-ratio(4, 3);
+    }
+
+    &.md-1-1 {
+      @include image-aspect-ratio(1, 1);
+    }
+
     + .md-card-header {
       padding-top: 24px;
     }
 
     + .md-card-content:last-child {
       padding-bottom: 16px;
+    }
+
+    img {
+      width: 100%;
     }
   }
 

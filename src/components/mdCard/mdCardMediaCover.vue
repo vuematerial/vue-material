@@ -86,6 +86,10 @@
           let limit = 256;
           let darkness = Math.abs(limit - lightness) * 100 / limit;
 
+          if (darkness > 30) {
+            darkness = 30;
+          }
+
           if (this.mdTextScrim) {
             this.applyScrimColor((darkness + 35) / 100);
           } else if (this.mdSolid) {
