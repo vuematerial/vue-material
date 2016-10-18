@@ -1,6 +1,12 @@
 .THEME_NAME {
   .md-card,
   &.md-card {
+    .md-icon-button {
+      .md-icon {
+        color: #{'BACKGROUND-CONTRAST-0.54'};
+      }
+    }
+
     > .md-card-area {
       &:not(.md-inset) {
         border-bottom-color: #{'BACKGROUND-CONTRAST-0.12'};

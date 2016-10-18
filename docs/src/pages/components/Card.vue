@@ -94,14 +94,23 @@
           </md-card-media>
 
           <md-card-actions>
-            <md-button>Action</md-button>
-            <md-button>Action</md-button>
+            <md-button class="md-icon-button">
+              <md-icon>favorite</md-icon>
+            </md-button>
+
+            <md-button class="md-icon-button">
+              <md-icon>bookmark</md-icon>
+            </md-button>
+
+            <md-button class="md-icon-button">
+              <md-icon>share</md-icon>
+            </md-button>
           </md-card-actions>
         </md-card>
 
         <md-card>
           <md-card-media-cover md-text-scrim>
-            <md-card-media>
+            <md-card-media md-ratio="16:9">
               <img src="assets/card-image-3.jpg" alt="People">
             </md-card-media>
 
@@ -139,35 +148,9 @@
           </md-card-media-cover>
         </md-card>
 
-        <md-card md-with-hover>
-          <md-card-area v-md-ink-ripple>
-            <md-card-header>
-              <md-avatar>
-                <img src="assets/avatar.png" alt="People">
-              </md-avatar>
-
-              <div class="md-title">Title goes here</div>
-              <div class="md-subhead">Subtitle here</div>
-            </md-card-header>
-
-            <md-card-media>
-              <img src="assets/card-image-1.jpg" alt="People">
-            </md-card-media>
-
-            <md-card-content>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea nostrum.
-            </md-card-content>
-          </md-card-area>
-
-          <md-card-actions>
-            <md-button>Action</md-button>
-            <md-button>Action</md-button>
-          </md-card-actions>
-        </md-card>
-
         <md-card class="card-example" v-md-theme="'blue'">
           <md-card-area md-inset>
-            <md-card-media>
+            <md-card-media md-ratio="16:9">
               <img src="assets/card-example.jpg" alt="Coffee House">
             </md-card-media>
 
