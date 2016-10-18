@@ -1,0 +1,170 @@
+@import '../../core/stylesheets/variables.scss';
+
+$card-radius: 2px;
+
+.md-card {
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+  border-radius: $card-radius;
+  box-shadow: $material-shadow-2dp;
+
+  &.md-with-hover {
+    cursor: pointer;
+    transition: $swift-ease-out;
+    transition-property: box-shadow;
+
+    &:hover {
+      z-index: 2;
+      box-shadow: $material-shadow-8dp;
+    }
+  }
+
+  .md-card-media {
+    position: relative;
+
+    + .md-card-header {
+      padding-top: 24px;
+    }
+
+    + .md-card-content:last-child {
+      padding-bottom: 16px;
+    }
+  }
+
+  .md-card-header {
+    padding: 16px;
+
+    + .md-card-content {
+      padding-top: 0;
+    }
+
+    + .md-card-actions:not(:last-child) {
+      padding: 0 8px;
+    }
+
+    .md-avatar {
+      margin-right: 16px;
+      float: left;
+
+      ~ .md-title {
+        font-size: 14px;
+      }
+
+      ~ .md-title,
+      ~ .md-subhead {
+        font-weight: 500;
+        line-height: 20px;
+      }
+    }
+  }
+
+  .md-subhead,
+  .md-title,
+  .md-subheading {
+    margin: 0;
+    font-weight: 400;
+  }
+
+  .md-subhead {
+    opacity: .54;
+    font-size: 14px;
+    letter-spacing: .01em;
+    line-height: 20px;
+  }
+
+  .md-title {
+    font-size: 24px;
+    letter-spacing: 0;
+    line-height: 32px;
+  }
+
+  .md-card-content {
+    padding: 16px;
+    font-size: 14px;
+    line-height: 22px;
+
+    &:last-child {
+      padding-bottom: 24px;
+    }
+  }
+
+  .md-card-actions {
+    padding: 8px;
+    display: flex;
+    justify-content: flex-end;
+
+    .md-button {
+      margin: 0;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      + .md-button {
+        margin-left: 4px;
+      }
+    }
+  }
+
+  .md-card-area {
+    position: relative;
+  }
+
+  > .md-card-area {
+    &:not(.md-inset) {
+      border-bottom: 1px solid;
+    }
+
+    &.md-inset {
+      position: relative;
+
+      &:after {
+        height: 1px;
+        position: absolute;
+        right: 16px;
+        bottom: 0;
+        left: 16px;
+        content: " ";
+      }
+    }
+  }
+
+  .md-card-media-cover {
+    position: relative;
+    color: #fff;
+
+    &.md-text-scrim {
+      .md-backdrop {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+      }
+    }
+
+    .md-card-area {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 2;
+    }
+
+    .md-card-header + .md-card-actions {
+      padding-top: 0;
+    }
+
+    .md-subhead {
+      opacity: 1;
+    }
+  }
+}
