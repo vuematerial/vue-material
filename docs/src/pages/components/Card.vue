@@ -108,8 +108,8 @@
           </md-card-actions>
         </md-card>
 
-        <md-card>
-          <md-card-media-cover md-text-scrim>
+        <md-card md-with-hover>
+          <md-card-media-cover md-text-scrim v-md-ink-ripple>
             <md-card-media md-ratio="16:9">
               <img src="assets/card-image-3.jpg" alt="People">
             </md-card-media>
@@ -128,10 +128,10 @@
           </md-card-media-cover>
         </md-card>
 
-        <md-card>
-          <md-card-media-cover md-solid>
+        <md-card md-with-hover>
+          <md-card-media-cover md-solid v-md-ink-ripple>
             <md-card-media>
-              <img src="assets/card-image-2.jpg" alt="People">
+              <img src="assets/card-image-1.jpg" alt="People">
             </md-card-media>
 
             <md-card-area>
@@ -217,6 +217,10 @@
         min-height: $size;
         font-size: $size;
         line-height: $size;
+      }
+
+      span {
+        vertical-align: middle;
       }
     }
 
