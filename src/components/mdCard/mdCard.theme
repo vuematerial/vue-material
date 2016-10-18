@@ -1,0 +1,30 @@
+.THEME_NAME {
+  .md-card,
+  &.md-card {
+    > .md-card-area {
+      &:not(.md-inset) {
+        border-bottom-color: #{'BACKGROUND-CONTRAST-0.12'};
+      }
+
+      &.md-inset {
+        &:after {
+          background-color: #{'BACKGROUND-CONTRAST-0.12'};
+        }
+      }
+    }
+
+    .md-card-media-cover {
+      &.md-text-scrim {
+        .md-backdrop {
+          background: linear-gradient(to bottom, #{'BACKGROUND-CONTRAST-0.0'} 20%, #{'BACKGROUND-CONTRAST-0.275'} 66%, #{'BACKGROUND-CONTRAST-0.55'} 100%);
+        }
+      }
+
+      &.md-solid {
+        .md-card-area {
+          background-color: #{'BACKGROUND-CONTRAST-0.4'};
+        }
+      }
+    }
+  }
+}
