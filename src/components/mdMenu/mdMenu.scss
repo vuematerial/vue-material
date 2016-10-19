@@ -1,5 +1,93 @@
 @import '../../core/stylesheets/variables.scss';
 
-.md-select {
+$menu-base-width: 56px;
 
+.md-menu-content {
+  min-width: $menu-base-width * 1.5;
+  max-width: $menu-base-width * 3;
+  min-height: 64px;
+  max-height: 256px;
+  padding: 8px 0;
+  display: flex;
+  flex-flow: column;
+  justify-content: stretch;
+  align-content: stretch;
+  pointer-events: none;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 120;
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: $material-shadow-2dp;
+  opacity: 0;
+  transform: scale3D(.85, .7, 1);
+  transition: $swift-ease-out-duration $swift-ease-out-timing-function,
+              opacity .25s $swift-ease-in-timing-function,
+              top .25s $swift-ease-in-timing-function,
+              transform 0s .25s $swift-ease-in-timing-function;
+  color: rgba(#212121, .87);
+
+  &.md-active {
+    pointer-events: auto;
+    opacity: 1;
+    transform: scale3D(1, 1, 1);
+    transform-origin: center top;
+    transition: $swift-ease-out;
+    transition-duration: .25s;
+    transition-property: opacity, transform, top;
+
+    > * {
+      opacity: 1;
+      transition: $swift-ease-in;
+      transition-duration: .15s;
+      transition-delay: .1s;
+    }
+  }
+
+  &.md-size-1 {
+    max-width: $menu-base-width * 1.5;
+  }
+
+  @for $i from 2 through 7 {
+    &.md-size-#{$i} {
+      max-width: $menu-base-width * $i;
+    }
+  }
+
+  > * {
+    opacity: 0;
+    transition: $swift-ease-out;
+    transition-duration: .25s;
+  }
+}
+
+.md-menu-item {
+  height: 48px;
+  min-height: 48px;
+  padding: 0 16px;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  transform: translate3D(0, 0, 0);
+  transition: $swift-ease-out;
+  font-size: 16px;
+  line-height: 1.2em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: rgba(#000, .12);
+  }
+
+  .md-menu-item-content {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 }
