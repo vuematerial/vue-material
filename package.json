@@ -3,20 +3,27 @@
   "description": "Material Design for Vue.js",
   "version": "0.1.2",
   "author": "Marcos Moura <marcosvmmoura@gmail.com>",
+  "homepage": "https://marcosmoura.github.io/vue-material",
   "license": "MIT",
+  "registry": "github",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/marcosmoura/vue-material.git"
+  },
+  "bugs": {
+    "url": "https://github.com/marcosmoura/vue-material/issues"
+  },
   "keywords": [
+    "browser",
     "vue",
     "vue 2",
+    "vue2",
     "vuejs",
     "material design",
     "material",
     "angular-material",
     "components"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/marcosmoura/vue-material.git"
-  },
   "main": "dist/vue-material.js",
   "files": [
     "dist",
@@ -31,8 +38,7 @@
     "build:lib": "babel-node build/server/build-lib.js --presets es2015,stage-0",
     "build": "rm -rf dist && npm run build:docs && npm run build:lib",
     "lint": "eslint --ext .js,.vue --fix src",
-    "deploy-docs": "git push origin `git subtree split --prefix dist/docs master`:gh-pages --force",
-    "publish": "npm run deploy-docs && npm publish"
+    "deploy-docs": "git push origin `git subtree split --prefix dist/docs master`:gh-pages --force"
   },
   "dependencies": {
     "autosize": "^3.0.17",

@@ -54,6 +54,11 @@ $card-radius: 2px;
   .md-card-header {
     padding: 16px;
 
+    &.md-card-header-flex {
+      display: flex;
+      justify-content: space-between;
+    }
+
     + .md-card-content {
       padding-top: 0;
     }
@@ -76,6 +81,47 @@ $card-radius: 2px;
         line-height: 20px;
       }
     }
+
+    .md-button {
+      margin: 0;
+
+      &:last-child {
+        margin-right: -4px;
+      }
+
+      + .md-button {
+        margin-left: 8px;
+      }
+    }
+
+    .md-card-header-text {
+      flex: 1;
+    }
+
+    .md-card-media {
+      $size: 80px;
+
+      width: $size;
+      flex: 0 0 $size;
+      height: $size;
+      margin-left: 16px;
+
+      &.md-medium {
+        $size: 120px;
+
+        width: $size;
+        flex: 0 0 $size;
+        height: $size;
+      }
+
+      &.md-big {
+        $size: 160px;
+
+        width: $size;
+        flex: 0 0 $size;
+        height: $size;
+      }
+    }
   }
 
   .md-subhead,
@@ -96,6 +142,30 @@ $card-radius: 2px;
     font-size: 24px;
     letter-spacing: 0;
     line-height: 32px;
+  }
+
+  .md-card-media-actions {
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+
+    .md-card-media {
+      $size: 240px;
+
+      width: $size;
+      flex: 0 0 $size;
+      height: $size;
+    }
+
+    .md-card-actions {
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+
+      .md-button + .md-button {
+        margin: 8px 0 0;
+      }
+    }
   }
 
   .md-card-content {
@@ -134,22 +204,24 @@ $card-radius: 2px;
     position: relative;
   }
 
-  > .md-card-area {
-    &:not(.md-inset) {
-      border-bottom: 1px solid;
+  > .md-card-area:not(:last-child) {
+    position: relative;
+
+    &:after {
+      height: 1px;
+      position: absolute;
+      bottom: 0;
+      content: " ";
     }
 
-    &.md-inset {
-      position: relative;
+    &:not(.md-inset):after {
+      right: 0;
+      left: 0;
+    }
 
-      &:after {
-        height: 1px;
-        position: absolute;
-        right: 16px;
-        bottom: 0;
-        left: 16px;
-        content: " ";
-      }
+    &.md-inset:after {
+      right: 16px;
+      left: 16px;
     }
   }
 
@@ -182,6 +254,38 @@ $card-radius: 2px;
 
     .md-subhead {
       opacity: 1;
+    }
+  }
+
+  .md-card-expand {
+    overflow: hidden;
+
+    &.md-active {
+      [md-expand-trigger] {
+        transform: rotateZ(180deg) translate3D(0, 0, 0);
+      }
+
+      .md-card-content {
+        margin-top: 0 !important;
+      }
+    }
+
+    .md-card-actions {
+      padding-top: 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    [md-expand-trigger] {
+      transition: $swift-ease-out;
+    }
+
+    .md-card-content {
+      padding-top: 4px;
+      position: relative;
+      z-index: 1;
+      transform: translate3D(0, 0, 0);
+      transition: $swift-ease-out;
     }
   }
 }
