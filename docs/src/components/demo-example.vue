@@ -14,8 +14,10 @@
   .demo-example {
     max-width: 100%;
     min-width: 320px;
-    position: relative;
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
+    position: relative;
     background-color: #fafafa;
 
     &.size-1 {
@@ -44,6 +46,7 @@
 
     .demo-example-body {
       padding: 16px;
+      flex: 1;
       background-color: #FFF;
     }
   }
