@@ -23,6 +23,28 @@
         </md-card>
 
         <md-card>
+          <md-card-header>
+            <md-card-header-text>
+              <div class="md-title">Title goes here</div>
+              <div class="md-subhead">Subtitle here</div>
+            </md-card-header-text>
+
+            <md-button class="md-icon-button">
+              <md-icon>more_vert</md-icon>
+            </md-button>
+          </md-card-header>
+
+          <md-card-content>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non, voluptas eius illo quas, saepe voluptate pariatur in deleniti minus sint. Excepturi.
+          </md-card-content>
+
+          <md-card-actions>
+            <md-button>Action</md-button>
+            <md-button>Action</md-button>
+          </md-card-actions>
+        </md-card>
+
+        <md-card>
           <md-card-media>
             <img src="assets/card-image-2.jpg" alt="People">
           </md-card-media>
@@ -148,6 +170,130 @@
           </md-card-media-cover>
         </md-card>
 
+        <md-card>
+          <md-card-header>
+            <md-card-header-text>
+              <div class="md-title">Title goes here</div>
+              <div class="md-subhead">Subtitle here</div>
+            </md-card-header-text>
+
+            <md-card-media>
+              <img src="assets/avatar-2.jpg" alt="People">
+            </md-card-media>
+          </md-card-header>
+
+          <md-card-actions>
+            <md-button>Action</md-button>
+            <md-button>Action</md-button>
+          </md-card-actions>
+        </md-card>
+
+        <md-card>
+          <md-card-header>
+            <md-card-header-text>
+              <div class="md-title">Title goes here</div>
+              <div class="md-subhead">Subtitle here</div>
+            </md-card-header-text>
+
+            <md-card-media md-medium>
+              <img src="assets/card-weather.png" alt="People">
+            </md-card-media>
+          </md-card-header>
+
+          <md-card-actions>
+            <md-button>Action</md-button>
+            <md-button>Action</md-button>
+          </md-card-actions>
+        </md-card>
+
+        <md-card>
+          <md-card-header>
+            <md-card-header-text>
+              <div class="md-title">Title goes</div>
+              <div class="md-subhead">Subtitle here</div>
+            </md-card-header-text>
+
+            <md-card-media md-big>
+              <img src="assets/card-weather.png" alt="People">
+            </md-card-media>
+          </md-card-header>
+
+          <md-card-actions>
+            <md-button>Action</md-button>
+            <md-button>Action</md-button>
+          </md-card-actions>
+        </md-card>
+
+        <md-card>
+          <md-card-media-actions>
+            <md-card-media>
+              <img src="assets/cover.png" alt="Cover">
+            </md-card-media>
+
+            <md-card-actions>
+              <md-button class="md-icon-button">
+                <md-icon>favorite</md-icon>
+              </md-button>
+
+              <md-button class="md-icon-button">
+                <md-icon>bookmark</md-icon>
+              </md-button>
+
+              <md-button class="md-icon-button">
+                <md-icon>share</md-icon>
+              </md-button>
+            </md-card-actions>
+          </md-card-media-actions>
+        </md-card>
+
+        <md-card>
+          <md-card-media>
+            <img src="assets/card-image-1.jpg" alt="People">
+          </md-card-media>
+
+          <md-card-header>
+            <div class="md-title">Title goes here</div>
+            <div class="md-subhead">Subtitle here</div>
+          </md-card-header>
+
+          <md-card-expand>
+            <md-card-actions>
+              <md-button>Action</md-button>
+              <md-button>Action</md-button>
+              <span style="flex: 1"></span>
+              <md-button class="md-icon-button" md-expand-trigger>
+                <md-icon>keyboard_arrow_down</md-icon>
+              </md-button>
+            </md-card-actions>
+
+            <md-card-content>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non, voluptas eius illo quas, saepe voluptate pariatur in deleniti minus sint. Excepturi.
+            </md-card-content>
+          </md-card-expand>
+        </md-card>
+
+        <md-card>
+          <md-card-area>
+            <md-card-media>
+              <img src="assets/card-image-1.jpg" alt="People">
+            </md-card-media>
+
+            <md-card-header>
+              <div class="md-title">Title goes here</div>
+              <div class="md-subhead">Subtitle here</div>
+            </md-card-header>
+
+            <md-card-content>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non, voluptas eius illo quas, saepe voluptate pariatur in deleniti minus sint. Excepturi.
+            </md-card-content>
+          </md-card-area>
+
+          <md-card-actions>
+            <md-button>Action</md-button>
+            <md-button>Action</md-button>
+          </md-card-actions>
+        </md-card>
+
         <md-card class="card-example" v-md-theme="'blue'">
           <md-card-area md-inset>
             <md-card-media md-ratio="16:9">
@@ -198,15 +344,14 @@
 
 <style lang="scss" scoped>
   .md-card {
-    width: 300px;
+    width: 100%;
+    max-width: 340px;
     margin: 0 4px 16px;
     display: inline-block;
     vertical-align: top;
   }
 
   .card-example {
-    width: 340px;
-
     .md-subhead {
       .md-icon {
         $size: 16px;
