@@ -4,6 +4,7 @@ import mdBottomBar from './components/mdBottomBar';
 import mdButton from './components/mdButton';
 import mdButtonToggle from './components/mdButtonToggle';
 import mdCheckbox from './components/mdCheckbox';
+import mdCard from './components/mdCard';
 import mdDivider from './components/mdDivider';
 import mdIcon from './components/mdIcon';
 import mdInputContainer from './components/mdInputContainer';
@@ -26,6 +27,7 @@ let options = {
   mdButton,
   mdButtonToggle,
   mdCheckbox,
+  mdCard,
   mdDivider,
   mdIcon,
   mdInputContainer,
