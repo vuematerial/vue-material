@@ -3,6 +3,14 @@
     <single-page-banner label="Changelog"></single-page-banner>
 
     <section>
+      <h2 class="md-headline">v0.2.0 - New components</h2>
+      <h3 class="md-title">New Components:</h3>
+      <ul>
+        <li>Cards</li>
+      </ul>
+    </section>
+
+    <section>
       <h2 class="md-headline">v0.1.2 - Minor Fixes</h2>
       <ul>
         <li>Fixed tooltips on Firefox</li>
@@ -47,7 +55,7 @@
       <h3 class="md-title">UI Elements:</h3>
       <ul>
         <li>Themes</li>
-        <li>Tipography</li>
+        <li>Typography</li>
         <li>Fluid Media</li>
         <li>Custom Scrollbar</li>
         <li>Selection Styles</li>

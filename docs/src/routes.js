@@ -10,6 +10,7 @@ import Avatar from './pages/components/Avatar';
 import BottomBar from './pages/components/BottomBar';
 import Buttons from './pages/components/Buttons';
 import ButtonToggle from './pages/components/ButtonToggle';
+import Card from './pages/components/Card';
 import Checkbox from './pages/components/Checkbox';
 import Icon from './pages/components/Icon';
 import Input from './pages/components/Input';
@@ -81,6 +82,11 @@ const components = [
     path: '/components/button-toggle',
     name: 'components:button-toggle',
     component: ButtonToggle
+  },
+  {
+    path: '/components/card',
+    name: 'components:card',
+    component: Card
   },
   {
     path: '/components/checkbox',
