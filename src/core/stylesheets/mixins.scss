@@ -1,0 +1,18 @@
+@mixin image-aspect-ratio($width, $height) {
+  overflow: hidden;
+
+  &:before{
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+    display: block;
+    content: " ";
+  }
+
+  img {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    left: 0;
+    transform: translateY(-50%);
+  }
+}
