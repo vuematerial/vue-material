@@ -136,6 +136,10 @@ $card-radius: 2px;
     font-size: 14px;
     letter-spacing: .01em;
     line-height: 20px;
+
+    + .md-title {
+      margin-top: 4px;
+    }
   }
 
   .md-title {
