@@ -2,6 +2,7 @@
   <demo-page label="Components - Menu">
     <div slot="examples">
       <demo-example label="Default">
+        <md-menu></md-menu>
       </demo-example>
     </div>
 
