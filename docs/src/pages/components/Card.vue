@@ -34,14 +34,13 @@
             </md-button>
           </md-card-header>
 
+          <md-card-media>
+            <img src="assets/card-image-1.jpg" alt="People">
+          </md-card-media>
+
           <md-card-content>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non, voluptas eius illo quas, saepe voluptate pariatur in deleniti minus sint. Excepturi.
           </md-card-content>
-
-          <md-card-actions>
-            <md-button>Action</md-button>
-            <md-button>Action</md-button>
-          </md-card-actions>
         </md-card>
 
         <md-card>
@@ -133,7 +132,7 @@
         <md-card md-with-hover>
           <md-card-media-cover md-text-scrim v-md-ink-ripple>
             <md-card-media md-ratio="16:9">
-              <img src="assets/card-image-3.jpg" alt="People">
+              <img src="assets/card-sky.jpg" alt="Skyscraper">
             </md-card-media>
 
             <md-card-area>
@@ -152,8 +151,8 @@
 
         <md-card md-with-hover>
           <md-card-media-cover md-solid v-md-ink-ripple>
-            <md-card-media>
-              <img src="assets/card-image-1.jpg" alt="People">
+            <md-card-media md-ratio="1:1">
+              <img src="assets/card-sky.jpg" alt="Skyscraper">
             </md-card-media>
 
             <md-card-area>
@@ -247,6 +246,28 @@
         </md-card>
 
         <md-card>
+          <md-card-area>
+            <md-card-media>
+              <img src="assets/card-image-1.jpg" alt="People">
+            </md-card-media>
+
+            <md-card-header>
+              <div class="md-title">Title goes here</div>
+              <div class="md-subhead">Subtitle here</div>
+            </md-card-header>
+
+            <md-card-content>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non, voluptas eius illo quas, saepe voluptate pariatur in deleniti minus sint. Excepturi.
+            </md-card-content>
+          </md-card-area>
+
+          <md-card-actions>
+            <md-button>Action</md-button>
+            <md-button>Action</md-button>
+          </md-card-actions>
+        </md-card>
+
+        <md-card>
           <md-card-media>
             <img src="assets/card-image-1.jpg" alt="People">
           </md-card-media>
@@ -270,28 +291,6 @@
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non, voluptas eius illo quas, saepe voluptate pariatur in deleniti minus sint. Excepturi.
             </md-card-content>
           </md-card-expand>
-        </md-card>
-
-        <md-card>
-          <md-card-area>
-            <md-card-media>
-              <img src="assets/card-image-1.jpg" alt="People">
-            </md-card-media>
-
-            <md-card-header>
-              <div class="md-title">Title goes here</div>
-              <div class="md-subhead">Subtitle here</div>
-            </md-card-header>
-
-            <md-card-content>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non, voluptas eius illo quas, saepe voluptate pariatur in deleniti minus sint. Excepturi.
-            </md-card-content>
-          </md-card-area>
-
-          <md-card-actions>
-            <md-button>Action</md-button>
-            <md-button>Action</md-button>
-          </md-card-actions>
         </md-card>
 
         <md-card class="card-example" v-md-theme="'blue'">

@@ -93,7 +93,7 @@
           if (this.mdTextScrim) {
             this.applyScrimColor((darkness + 35) / 100);
           } else if (this.mdSolid) {
-            this.applySolidColor((darkness + 20) / 100);
+            this.applySolidColor((darkness + 30) / 100);
           }
         });
       }
