@@ -379,9 +379,17 @@
       &lt;div class=&quot;md-subhead&quot;&gt;Subtitle here&lt;/div&gt;
     &lt;/md-card-header-text&gt;
 
-    &lt;md-button class=&quot;md-icon-button&quot;&gt;
-      &lt;md-icon&gt;more_vert&lt;/md-icon&gt;
-    &lt;/md-button&gt;
+    &lt;md-menu md-size=&quot;2&quot; md-direction=&quot;bottom left&quot;&gt;
+      &lt;md-button class=&quot;md-icon-button&quot; md-menu-trigger&gt;
+        &lt;md-icon&gt;more_vert&lt;/md-icon&gt;
+      &lt;/md-button&gt;
+
+      &lt;md-menu-content&gt;
+        &lt;md-menu-item&gt;My Item 1&lt;/md-menu-item&gt;
+        &lt;md-menu-item&gt;My Item 2&lt;/md-menu-item&gt;
+        &lt;md-menu-item&gt;My Item 3&lt;/md-menu-item&gt;
+      &lt;/md-menu-content&gt;
+    &lt;/md-menu&gt;
   &lt;/md-card-header&gt;
 
   &lt;md-card-media&gt;
