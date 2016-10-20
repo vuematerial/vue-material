@@ -1,5 +1,5 @@
 <template>
-  <div class="md-menu-item" v-md-ink-ripple>
+  <div class="md-menu-item" v-md-ink-ripple @click="$emit('click')">
     <div class="md-menu-item-content">
       <slot></slot>
     </div>
