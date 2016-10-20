@@ -2,9 +2,14 @@
 
 $menu-base-width: 56px;
 
+.md-menu {
+  display: inline-block;
+}
+
 .md-menu-content {
+  width: $menu-base-width * 3;
   min-width: $menu-base-width * 1.5;
-  max-width: $menu-base-width * 3;
+  max-width: $menu-base-width * 7;
   min-height: 64px;
   max-height: 256px;
   padding: 8px 0;
@@ -23,44 +28,41 @@ $menu-base-width: 56px;
   border-radius: 2px;
   box-shadow: $material-shadow-2dp;
   opacity: 0;
-  transform: scale3D(.85, .7, 1);
-  transition: $swift-ease-out-duration $swift-ease-out-timing-function,
-              opacity .25s $swift-ease-in-timing-function,
-              top .25s $swift-ease-in-timing-function,
-              transform 0s .25s $swift-ease-in-timing-function;
+  transform: scale3D(.85, .85, 1);
+  transition: width $swift-ease-out-duration $swift-ease-out-timing-function,
+              opacity .2s $swift-ease-in-timing-function,
+              transform .15s .1s $swift-ease-in-timing-function;
   color: rgba(#212121, .87);
 
   &.md-active {
     pointer-events: auto;
     opacity: 1;
     transform: scale3D(1, 1, 1);
-    transform-origin: center top;
-    transition: $swift-ease-out;
-    transition-duration: .25s;
-    transition-property: opacity, transform, top;
+    transform-origin: center;
+    transition: width $swift-ease-out-duration $swift-ease-out-timing-function,
+                opacity .2s $swift-ease-out-timing-function,
+                transform .15s .1s $swift-ease-out-timing-function;
 
     > * {
       opacity: 1;
       transition: $swift-ease-in;
-      transition-duration: .15s;
-      transition-delay: .1s;
     }
   }
 
   &.md-size-1 {
-    max-width: $menu-base-width * 1.5;
+    width: $menu-base-width * 1.5;
   }
 
   @for $i from 2 through 7 {
     &.md-size-#{$i} {
-      max-width: $menu-base-width * $i;
+      width: $menu-base-width * $i;
     }
   }
 
   > * {
     opacity: 0;
     transition: $swift-ease-out;
-    transition-duration: .25s;
+    transition-duration: .3s;
   }
 }
 
@@ -83,6 +85,7 @@ $menu-base-width: 56px;
 
   &:hover {
     background-color: rgba(#000, .12);
+    transition: $swift-ease-out;
   }
 
   .md-menu-item-content {
