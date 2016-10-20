@@ -29,9 +29,17 @@
               <div class="md-subhead">Subtitle here</div>
             </md-card-header-text>
 
-            <md-button class="md-icon-button">
-              <md-icon>more_vert</md-icon>
-            </md-button>
+            <md-menu md-size="2" md-direction="bottom left">
+              <md-button class="md-icon-button" md-menu-trigger>
+                <md-icon>more_vert</md-icon>
+              </md-button>
+
+              <md-menu-content>
+                <md-menu-item>My Item 1</md-menu-item>
+                <md-menu-item>My Item 2</md-menu-item>
+                <md-menu-item>My Item 3</md-menu-item>
+              </md-menu-content>
+            </md-menu>
           </md-card-header>
 
           <md-card-media>
