@@ -22,6 +22,11 @@
         default: 'bottom right'
       }
     },
+    data() {
+      return {
+        margin: 16
+      };
+    },
     watch: {
       mdSize(current, previous) {
         this.removeLastMenuContentClass(previous);
@@ -53,100 +58,128 @@
           this.close();
         }
       },
-      calculateMenuContentPos() {
+      getBottomRightPos() {
         let menuTriggerRect = this.menuTrigger.getBoundingClientRect();
-        let margin = 8;
-        let top;
-        let left;
-        let origin;
+        let position = {
+          top: menuTriggerRect.top,
+          left: menuTriggerRect.left,
+          origin: 'left top'
+        };
+
+        if (position.left <= this.margin) {
+          position.left = this.margin;
+          position.origin = 'center top';
+        }
+
+        if (position.top <= this.margin) {
+          position.top = this.margin;
+          position.origin = 'left center';
+        }
+
+        if (position.left <= this.margin && position.top <= this.margin) {
+          position.origin = 'center';
+        }
+
+        return position;
+      },
+      getBottomLeftPos() {
+        let menuTriggerRect = this.menuTrigger.getBoundingClientRect();
+        let position = {
+          top: menuTriggerRect.top,
+          left: menuTriggerRect.left - this.menuContent.offsetWidth + menuTriggerRect.width,
+          origin: 'right top'
+        };
+
+        if (position.left <= this.margin) {
+          position.left = this.margin;
+          position.origin = 'center top';
+        }
+
+        if (top <= this.margin) {
+          position.top = this.margin;
+          position.origin = 'right center';
+        }
+
+        if (position.left <= this.margin && top <= this.margin) {
+          position.origin = 'center';
+        }
+
+        return position;
+      },
+      getTopRightPos() {
+        let menuTriggerRect = this.menuTrigger.getBoundingClientRect();
+        let position = {
+          top: menuTriggerRect.top + menuTriggerRect.height - this.menuContent.offsetHeight,
+          left: menuTriggerRect.left,
+          origin: 'left bottom'
+        };
+
+        if (position.left <= this.margin) {
+          position.left = this.margin;
+          position.origin = 'center bottom';
+        }
+
+        if (top <= this.margin) {
+          top = this.margin;
+          position.origin = 'left center';
+        }
+
+        if (position.left <= this.margin && position.top <= this.margin) {
+          position.origin = 'center';
+        }
+
+        return position;
+      },
+      getTopLeftPos() {
+        let menuTriggerRect = this.menuTrigger.getBoundingClientRect();
+        let position = {
+          top: menuTriggerRect.top + menuTriggerRect.height - this.menuContent.offsetHeight,
+          left: menuTriggerRect.left - this.menuContent.offsetWidth + menuTriggerRect.width,
+          origin: 'right bottom'
+        };
+
+        if (position.left <= this.margin) {
+          position.left = this.margin;
+          position.origin = 'center bottom';
+        }
+
+        if (position.top <= this.margin) {
+          position.top = this.margin;
+          position.origin = 'right center';
+        }
+
+        if (position.left <= this.margin && position.top <= this.margin) {
+          position.origin = 'center';
+        }
+
+        return position;
+      },
+      calculateMenuContentPos() {
+        let position;
 
         switch (this.mdDirection) {
           case 'bottom left':
-            top = menuTriggerRect.top;
-            left = menuTriggerRect.left - this.menuContent.offsetWidth + menuTriggerRect.width;
-            origin = 'right top';
-
-            if (left <= margin) {
-              left = margin;
-              origin = 'center top';
-            }
-
-            if (top <= margin) {
-              top = margin;
-              origin = 'right center';
-            }
-
-            if (left <= margin && top <= margin) {
-              origin = 'center';
-            }
+            position = this.getBottomLeftPos();
 
             break;
 
           case 'top right':
-            top = menuTriggerRect.top + menuTriggerRect.height - this.menuContent.offsetHeight;
-            left = menuTriggerRect.left;
-            origin = 'left bottom';
-
-            if (left <= margin) {
-              left = margin;
-              origin = 'center bottom';
-            }
-
-            if (top <= margin) {
-              top = margin;
-              origin = 'left center';
-            }
-
-            if (left <= margin && top <= margin) {
-              origin = 'center';
-            }
+            position = this.getTopRightPos();
 
             break;
 
           case 'top left':
-            top = menuTriggerRect.top + menuTriggerRect.height - this.menuContent.offsetHeight;
-            left = menuTriggerRect.left - this.menuContent.offsetWidth + menuTriggerRect.width;
-            origin = 'right bottom';
-
-            if (left <= margin) {
-              left = margin;
-              origin = 'center bottom';
-            }
-
-            if (top <= margin) {
-              top = margin;
-              origin = 'right center';
-            }
-
-            if (left <= margin && top <= margin) {
-              origin = 'center';
-            }
+            position = this.getTopLeftPos();
 
             break;
 
           default:
-            top = menuTriggerRect.top;
-            left = menuTriggerRect.left;
-            origin = 'left top';
-
-            if (left <= margin) {
-              left = margin;
-              origin = 'center top';
-            }
-
-            if (top <= margin) {
-              top = margin;
-              origin = 'left center';
-            }
-
-            if (left <= margin && top <= margin) {
-              origin = 'center';
-            }
+            position = this.getBottomRightPos();
         }
 
-        this.menuContent.style.transformOrigin = origin;
-        this.menuContent.style.top = top + 'px';
-        this.menuContent.style.left = left + 'px';
+        this.menuContent.style.transformOrigin = position.origin;
+        this.menuContent.style.top = position.top + 'px';
+        this.menuContent.style.left = position.left + 'px';
       },
       open() {
         document.body.appendChild(this.menuContent);
