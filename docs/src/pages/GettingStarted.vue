@@ -3,6 +3,12 @@
     <single-page-banner label="Getting Started"></single-page-banner>
 
     <single-page-section label="Installation">
+      <p>Import Roboto and Google Icons from Google CDN:</p>
+      <code-block lang="xml">
+&lt;link rel=&quot;stylesheet&quot; href=&quot;//fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;//fonts.googleapis.com/icon?family=Material+Icons&quot;&gt;
+      </code-block>
+
       <p>
         - Install Vue Material through npm or yarn: <br>
         <code>npm install vue-material</code><br>

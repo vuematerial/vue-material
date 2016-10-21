@@ -9,6 +9,13 @@ Vue Material is lightweight framework built exactly according to the <a href="ht
 
 ## Installation
 
+Import Roboto and Google Icons from Google CDN:
+
+``` html
+&lt;link rel=&quot;stylesheet&quot; href=&quot;//fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;//fonts.googleapis.com/icon?family=Material+Icons&quot;&gt;
+```
+
 Install Vue Material through npm or yarn
 ``` bash
 npm install --save vue-material
