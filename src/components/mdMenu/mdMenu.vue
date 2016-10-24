@@ -24,7 +24,8 @@
     },
     data() {
       return {
-        margin: 16
+        margin: 16,
+        active: false
       };
     },
     watch: {
@@ -38,13 +39,13 @@
         if (!this.menuContent) {
           this.$destroy();
 
-          throw new Error('You should have a md-menu-content inside your menu.');
+          throw new Error('You must have a md-menu-content inside your menu.');
         }
 
         if (!this.menuTrigger) {
           this.$destroy();
 
-          throw new Error('You should have an element with a md-menu-trigger attribute inside your menu.');
+          throw new Error('You must have an element with a md-menu-trigger attribute inside your menu.');
         }
       },
       removeLastMenuContentClass(size) {
@@ -181,9 +182,13 @@
         this.menuContent.style.top = position.top + 'px';
         this.menuContent.style.left = position.left + 'px';
       },
+      recalculateOnResize() {
+        window.requestAnimationFrame(this.calculateMenuContentPos);
+      },
       open() {
         document.body.appendChild(this.menuContent);
         document.addEventListener('click', this.closeOnOffClick);
+        window.addEventListener('resize', this.recalculateOnResize);
 
         this.calculateMenuContentPos();
 
@@ -195,8 +200,10 @@
         transitionEnd(this.menuContent).bind(() => {
           document.body.removeChild(this.menuContent);
           document.removeEventListener('click', this.closeOnOffClick);
-          transitionEnd(this.menuContent).unbind();
+          window.removeEventListener('resize', this.recalculateOnResize);
+
           this.active = false;
+          transitionEnd(this.menuContent).unbind();
         });
 
         this.menuContent.classList.remove('md-active');
