@@ -9,30 +9,53 @@ Vue Material is lightweight framework built exactly according to the <a href="ht
 
 ## Installation
 
+Import Roboto and Google Icons from Google CDN:
+
+``` html
+&lt;link rel=&quot;stylesheet&quot; href=&quot;//fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;//fonts.googleapis.com/icon?family=Material+Icons&quot;&gt;
+```
+
 Install Vue Material through npm or yarn
 ``` bash
 npm install --save vue-material
 yarn add vue-material
 ```
+<small>* Others package managers like JSPM and Bower are not supported yet.</small>
 
-Or <a href="https://github.com/marcosmoura/vue-material/archive/master.zip" target="_blank" rel="noopener">download</a> and reference the script and the stylesheet in your HTML:
+Import or require Vue and Vue Material in your code:
+``` javascript
+import Vue from 'vue'
+import VueMaterial from 'vue-material'
+import 'vue-material/dist/vue-material.css'
+
+// OR
+
+var Vue = require(vue')
+var VueMaterial = require(vue-material')
+require('vue-material/dist/vue-material.css')
+```
+
+Alternativelly you can <a href="https://github.com/marcosmoura/vue-material/archive/master.zip" target="_blank" rel="noopener">download</a> and reference the script and the stylesheet in your HTML:
 
 ``` html
 <link rel="stylesheet" href="path/to/vue-material.css">
 <script src="path/to/vue-material.js"></script>
 ```
 
+## Usage
+
 Enable Vue Material in your application using ```Vue.use()```. You can always enable individual components:
 ``` javascript
-Vue.use(VueMaterial);
+Vue.use(VueMaterial)
 
 // OR
 
-Vue.use(VueMaterial.MdCore); //Required to boot vue material
-Vue.use(VueMaterial.MdButton);
-Vue.use(VueMaterial.MdIcon);
-Vue.use(VueMaterial.MdSidenav);
-Vue.use(VueMaterial.MdToolbar);
+Vue.use(VueMaterial.mdCore) //Required to boot vue material
+Vue.use(VueMaterial.mdButton)
+Vue.use(VueMaterial.mdIcon)
+Vue.use(VueMaterial.mdSidenav)
+Vue.use(VueMaterial.mdToolbar)
 ```
 
 To get Vue Material working properly, you'll need to configure and apply a default theme.
@@ -41,7 +64,7 @@ To get Vue Material working properly, you'll need to configure and apply a defau
 Vue.material.theme.register('default', {
   primary: 'cyan',
   accent: 'pink'
-});
+})
 ```
 
 Or you can register multiple themes at once.
@@ -56,7 +79,7 @@ Vue.material.theme.registerAll({
     primary: 'indigo',
     accent: 'pink'
   }
-});
+})
 ```
 
 Apply your theme using <code>v-md-theme</code> directive:
