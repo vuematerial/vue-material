@@ -7,9 +7,7 @@
 <style lang="scss" src="./mdMenu.scss"></style>
 
 <script>
-  import 'transitionEnd';
-
-  let transitionEnd = window.transitionEnd;
+  import transitionEndEventName from '../../core/utils/transitionEndEventName';
 
   export default {
     props: {
@@ -24,7 +22,7 @@
     },
     data() {
       return {
-        margin: 16,
+        margin: 4,
         active: false
       };
     },
@@ -55,7 +53,7 @@
         this.menuContent.classList.add('md-size-' + this.mdSize);
       },
       closeOnOffClick(event) {
-        if (!this.$el.contains(event.target)) {
+        if (!this.$el.contains(event.target) && !this.menuContent.contains(event.target)) {
           this.close();
         }
       },
@@ -197,17 +195,24 @@
 
         getComputedStyle(this.menuContent).top;
         this.menuContent.classList.add('md-active');
+        this.menuContent.focus();
         this.active = true;
       },
       close() {
-        transitionEnd(this.menuContent).bind(() => {
-          document.body.removeChild(this.menuContent);
-          document.removeEventListener('click', this.closeOnOffClick);
-          window.removeEventListener('resize', this.recalculateOnResize);
+        let close = (event) => {
+          if (this.menuContent && event.target === this.menuContent && event.propertyName === 'transform') {
+            this.menuContent.removeEventListener(transitionEndEventName, close);
+            this.menuTrigger.focus();
 
-          this.active = false;
-          transitionEnd(this.menuContent).unbind();
-        });
+            document.body.removeChild(this.menuContent);
+            document.removeEventListener('click', this.closeOnOffClick);
+            window.removeEventListener('resize', this.recalculateOnResize);
+
+            this.active = false;
+          }
+        };
+
+        this.menuContent.addEventListener(transitionEndEventName, close);
 
         this.menuContent.classList.remove('md-active');
       },
