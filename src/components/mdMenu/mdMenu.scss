@@ -30,8 +30,8 @@ $menu-base-width: 56px;
   opacity: 0;
   transform: scale3D(.85, .85, 1);
   transition: width $swift-ease-out-duration $swift-ease-out-timing-function,
-              opacity .2s $swift-ease-in-timing-function,
-              transform .15s .1s $swift-ease-in-timing-function;
+              opacity .25s $swift-ease-in-timing-function,
+              transform .1s .12s $swift-ease-in-timing-function;
   color: rgba(#212121, .87);
 
   &.md-active {
@@ -40,8 +40,8 @@ $menu-base-width: 56px;
     transform: scale3D(1, 1, 1);
     transform-origin: center;
     transition: width $swift-ease-out-duration $swift-ease-out-timing-function,
-                opacity .2s $swift-ease-out-timing-function,
-                transform .15s .1s $swift-ease-out-timing-function;
+                opacity .3s $swift-ease-out-timing-function,
+                transform .2s .073s $swift-ease-out-timing-function;
 
     > * {
       opacity: 1;
