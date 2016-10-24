@@ -1,5 +1,9 @@
 <template>
-  <div class="md-menu-content" @keydown.esc="close" tabindex="-1">
+  <div
+    class="md-menu-content"
+    @keydown.esc.prevent="close"
+    @keydown.tab.prevent="close"
+    tabindex="-1">
     <slot></slot>
   </div>
 </template>
