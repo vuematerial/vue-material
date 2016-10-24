@@ -95,6 +95,8 @@
       onInput() {
         manageHasValueClass(this.$el.value, this.parentClasses);
         this.$parent.inputLength = this.$el.value.length;
+        this.$emit('change', this.$el.value);
+        this.$emit('input', this.$el.value);
       }
     },
     mounted() {
