@@ -27,8 +27,8 @@ import 'vue-material/dist/vue-material.css'
 
         <md-tab md-label="AMD">
           <code-block lang="javascript">
-var Vue = require(vue')
-var VueMaterial = require(vue-material')
+var Vue = require('vue')
+var VueMaterial = require('vue-material')
 require('vue-material/dist/vue-material.css')
           </code-block>
         </md-tab>

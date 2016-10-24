@@ -84,16 +84,16 @@
       if (image && (this.mdTextScrim || this.mdSolid)) {
         getImageAlpha(image, (lightness) => {
           let limit = 256;
-          let darkness = Math.abs(limit - lightness) * 100 / limit;
+          let darkness = (Math.abs(limit - lightness) * 100 / limit + 15) / 100;
 
-          if (darkness > 30) {
-            darkness = 30;
+          if (darkness >= 0.7) {
+            darkness = 0.7;
           }
 
           if (this.mdTextScrim) {
-            this.applyScrimColor((darkness + 35) / 100);
+            this.applyScrimColor(darkness);
           } else if (this.mdSolid) {
-            this.applySolidColor((darkness + 30) / 100);
+            this.applySolidColor(darkness);
           }
         });
       }
