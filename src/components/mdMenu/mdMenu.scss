@@ -83,7 +83,9 @@ $menu-base-width: 56px;
   text-overflow: ellipsis;
   white-space: nowrap;
 
-  &:hover {
+  &:hover,
+  &:focus,
+  &.md-highlighted {
     background-color: rgba(#000, .12);
     transition: $swift-ease-out;
   }
