@@ -38,12 +38,12 @@
       </demo-example>
 
       <demo-example label="Typed">
-        <form @click.stop.prevent="submit">
-          <md-switch v-model="checked8" id="my-test8" name="my-test8">Submit (default)</md-switch>
-        </form>
+        <md-switch v-model="checked8" id="my-test8" name="my-test8">Button (default)</md-switch>
 
         <div>
-          <md-switch type="button" v-model="checked9" id="my-test9" name="my-test9" class="md-primary">Button</md-switch>
+          <form @click.stop.prevent="submit">
+            <md-switch type="submit" v-model="checked9" id="my-test9" name="my-test9" class="md-primary">Submit</md-switch>
+          </form>
         </div>
       </demo-example>
     </div>
@@ -80,20 +80,20 @@
 
       <demo-example label="Typed">
         <code-block lang="xml">
-&lt;form @click.stop.prevent=&quot;submit&quot;&gt;
-  &lt;md-switch v-model=&quot;checked8&quot; id=&quot;my-test8&quot; name=&quot;my-test8&quot;&gt;Submit (default)&lt;/md-switch&gt;
-&lt;/form&gt;
-
 &lt;div&gt;
-  &lt;md-switch type=&quot;button&quot; v-model=&quot;checked9&quot; id=&quot;my-test9&quot; name=&quot;my-test9&quot; class=&quot;md-primary&quot;&gt;Button&lt;/md-switch&gt;
+  &lt;md-switch v-model=&quot;checked8&quot; id=&quot;my-test8&quot; name=&quot;my-test8&quot; class=&quot;md-primary&quot;&gt;Button (default)&lt;/md-switch&gt;
 &lt;/div&gt;
+
+&lt;form @click.stop.prevent=&quot;submit&quot;&gt;
+  &lt;md-switch type=&quot;submit&quot; v-model=&quot;checked9&quot; id=&quot;my-test9&quot; name=&quot;my-test9&quot;&gt;Submit&lt;/md-switch&gt;
+&lt;/form&gt;
         </code-block>
 
         <code-block lang="javascript">
 export default {
   methods: {
     submit(e) {
-      alert('Default switch submits form');
+      alert('This switch submits the form');
     }
   }
 };
@@ -126,8 +126,8 @@ export default {
     },
 
     methods: {
-      submit(e) {
-        alert('Default switch submits form');
+      submit() {
+        alert('This switch submits the form');
       }
     }
   };
