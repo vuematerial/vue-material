@@ -1,6 +1,8 @@
 <template>
   <div class="md-table" :class="classes">
-
+    <table>
+      <slot></slot>
+    </table>
   </div>
 </template>
 

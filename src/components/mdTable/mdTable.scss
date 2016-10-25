@@ -1,5 +1,10 @@
 @import '../../core/stylesheets/variables.scss';
 
 .md-table {
-
+  display: flex;
+  flex-flow: column wrap;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: .01em;
+  line-height: 20px;
 }
