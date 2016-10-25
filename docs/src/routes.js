@@ -21,6 +21,7 @@ import Select from './pages/components/Select';
 import Sidenav from './pages/components/Sidenav';
 import Subheader from './pages/components/Subheader';
 import Switch from './pages/components/Switch';
+import Table from './pages/components/Table';
 import Tabs from './pages/components/Tabs';
 import Toolbar from './pages/components/Toolbar';
 import Tooltip from './pages/components/Tooltip';
@@ -137,6 +138,11 @@ const components = [
     path: '/components/subheader',
     name: 'components:subheader',
     component: Subheader
+  },
+  {
+    path: '/components/table',
+    name: 'components:table',
+    component: Table
   },
   {
     path: '/components/tabs',
