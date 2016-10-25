@@ -3,7 +3,7 @@
     <div class="md-switch-container" @click="toggleSwitch">
       <div class="md-switch-thumb" :style="styles" v-md-ink-ripple="disabled">
         <input type="checkbox" :name="name" :id="id" :disabled="disabled" :value="value">
-        <button class="md-switch-holder"></button>
+        <button :type="type" class="md-switch-holder"></button>
       </div>
     </div>
 
@@ -24,7 +24,11 @@
       name: String,
       value: Boolean,
       id: String,
-      disabled: Boolean
+      disabled: Boolean,
+      type: {
+        type: String,
+        default: 'button'
+      }
     },
     data() {
       return {
