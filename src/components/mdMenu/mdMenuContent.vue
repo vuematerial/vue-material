@@ -3,12 +3,14 @@
     class="md-menu-content"
     @keydown.esc.prevent="close"
     @keydown.tab.prevent="close"
-    @keydown.up.prevent="highlightItem(highlighted - 1)"
-    @keydown.down.prevent="highlightItem(highlighted + 1)"
+    @keydown.up.prevent="highlightItem('up')"
+    @keydown.down.prevent="highlightItem('down')"
     @keydown.enter.prevent="fireClick"
     @keydown.space.prevent="fireClick"
     tabindex="-1">
-    <slot></slot>
+    <md-list>
+      <slot></slot>
+    </md-list>
   </div>
 </template>
 
@@ -16,6 +18,7 @@
   export default {
     data() {
       return {
+        oldHighlight: false,
         highlighted: false,
         itemsAmount: 0
       };
@@ -25,16 +28,28 @@
         this.highlighted = false;
         this.$parent.close();
       },
-      highlightItem(factor) {
-        if (factor >= 1 && factor <= this.itemsAmount) {
-          this.highlighted = factor;
-        } else {
-          this.highlighted = 1;
+      highlightItem(direction) {
+        this.oldHighlight = this.highlighted;
+
+        if (direction === 'up') {
+          if (this.highlighted === 1) {
+            this.highlighted = this.itemsAmount;
+          } else {
+            this.highlighted--;
+          }
+        }
+
+        if (direction === 'down') {
+          if (this.highlighted === this.itemsAmount) {
+            this.highlighted = 1;
+          } else {
+            this.highlighted++;
+          }
         }
       },
       fireClick() {
         if (this.highlighted > 0) {
-          this.$children[this.highlighted - 1].$el.click();
+          this.$children[0].$children[this.highlighted - 1].$el.click();
         }
       }
     },

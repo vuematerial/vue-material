@@ -145,6 +145,7 @@
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
+    justify-content: space-between;
     flex: 1;
 
     > .md-ink-ripple {
@@ -263,10 +264,6 @@
   > .md-list-item-container > .md-list-item-holder {
     position: relative;
     z-index: 2;
-
-    > span {
-      flex: 1;
-    }
   }
 
   .md-expansion-indicator,

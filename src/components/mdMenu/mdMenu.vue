@@ -22,14 +22,20 @@
     },
     data() {
       return {
-        margin: 4,
+        browserMargin: 8,
         active: false
       };
     },
     watch: {
       mdSize(current, previous) {
-        this.removeLastMenuContentClass(previous);
-        this.addNewMenuContentClass();
+        if (current >= 1 && current <= 7) {
+          this.removeLastSizeMenuContentClass(previous);
+          this.addNewSizeMenuContentClass(current);
+        }
+      },
+      mdDirection(current, previous) {
+        this.removeLastDirectionMenuContentClass(previous);
+        this.addNewDirectionMenuContentClass(current);
       }
     },
     methods: {
@@ -46,11 +52,17 @@
           throw new Error('You must have an element with a md-menu-trigger attribute inside your menu.');
         }
       },
-      removeLastMenuContentClass(size) {
+      removeLastSizeMenuContentClass(size) {
         this.menuContent.classList.remove('md-size-' + size);
       },
-      addNewMenuContentClass() {
-        this.menuContent.classList.add('md-size-' + this.mdSize);
+      removeLastDirectionMenuContentClass(direction) {
+        this.menuContent.classList.remove('md-direction-' + direction.replace(' ', '-'));
+      },
+      addNewSizeMenuContentClass(size) {
+        this.menuContent.classList.add('md-size-' + size);
+      },
+      addNewDirectionMenuContentClass(direction) {
+        this.menuContent.classList.add('md-direction-' + direction.replace(' ', '-'));
       },
       closeOnOffClick(event) {
         if (!this.$el.contains(event.target) && !this.menuContent.contains(event.target)) {
@@ -58,52 +70,34 @@
         }
       },
       isAboveOfViewport(pos) {
-        return pos.top <= this.margin;
+        return pos.top <= this.browserMargin - parseInt(getComputedStyle(this.menuContent).marginTop, 10);
       },
       isBelowOfViewport(pos) {
-        return pos.top + this.menuContent.offsetHeight + this.margin >= window.innerHeight;
+        return pos.top + this.menuContent.offsetHeight + this.browserMargin >= window.innerHeight - parseInt(getComputedStyle(this.menuContent).marginTop, 10);
       },
       isOnTheLeftOfViewport(pos) {
-        return pos.left <= this.margin;
+        return pos.left <= this.browserMargin - parseInt(getComputedStyle(this.menuContent).marginLeft, 10);
       },
       isOnTheRightOfViewport(pos) {
-        return pos.left + this.menuContent.offsetWidth + this.margin >= window.innerWidth;
+        return pos.left + this.menuContent.offsetWidth + this.browserMargin >= window.innerWidth - parseInt(getComputedStyle(this.menuContent).marginLeft, 10);
       },
       getInViewPosition(position) {
+        let computedStyle = getComputedStyle(this.menuContent);
+
         if (this.isAboveOfViewport(position)) {
-          position.top = this.margin;
-          position.origin = 'center top';
-
-          if (this.isOnTheLeftOfViewport(position)) {
-            position.origin = 'left top';
-          }
-
-          if (this.isOnTheRightOfViewport(position)) {
-            position.origin = 'right top';
-          }
+          position.top = this.browserMargin - parseInt(computedStyle.marginTop, 10);
         }
 
         if (this.isOnTheLeftOfViewport(position)) {
-          position.left = this.margin;
-          position.origin = 'left';
+          position.left = this.browserMargin - parseInt(computedStyle.marginLeft, 10);
         }
 
         if (this.isOnTheRightOfViewport(position)) {
-          position.left = window.innerWidth - this.margin - this.menuContent.offsetWidth;
-          position.origin = 'right';
+          position.left = window.innerWidth - this.browserMargin - this.menuContent.offsetWidth - parseInt(computedStyle.marginLeft, 10);
         }
 
         if (this.isBelowOfViewport(position)) {
-          position.top = window.innerHeight - this.margin - this.menuContent.offsetHeight;
-          position.origin = 'center bottom';
-
-          if (this.isOnTheLeftOfViewport(position)) {
-            position.origin = 'left bottom';
-          }
-
-          if (this.isOnTheRightOfViewport(position)) {
-            position.origin = 'right bottom';
-          }
+          position.top = window.innerHeight - this.browserMargin - this.menuContent.offsetHeight - parseInt(computedStyle.marginTop, 10);
         }
 
         return position;
@@ -112,8 +106,7 @@
         let menuTriggerRect = this.menuTrigger.getBoundingClientRect();
         let position = {
           top: menuTriggerRect.top,
-          left: menuTriggerRect.left,
-          origin: 'left top'
+          left: menuTriggerRect.left
         };
 
         this.getInViewPosition(position);
@@ -124,8 +117,7 @@
         let menuTriggerRect = this.menuTrigger.getBoundingClientRect();
         let position = {
           top: menuTriggerRect.top,
-          left: menuTriggerRect.left - this.menuContent.offsetWidth + menuTriggerRect.width,
-          origin: 'right top'
+          left: menuTriggerRect.left - this.menuContent.offsetWidth + menuTriggerRect.width
         };
 
         this.getInViewPosition(position);
@@ -136,8 +128,7 @@
         let menuTriggerRect = this.menuTrigger.getBoundingClientRect();
         let position = {
           top: menuTriggerRect.top + menuTriggerRect.height - this.menuContent.offsetHeight,
-          left: menuTriggerRect.left,
-          origin: 'left bottom'
+          left: menuTriggerRect.left
         };
 
         this.getInViewPosition(position);
@@ -148,8 +139,7 @@
         let menuTriggerRect = this.menuTrigger.getBoundingClientRect();
         let position = {
           top: menuTriggerRect.top + menuTriggerRect.height - this.menuContent.offsetHeight,
-          left: menuTriggerRect.left - this.menuContent.offsetWidth + menuTriggerRect.width,
-          origin: 'right bottom'
+          left: menuTriggerRect.left - this.menuContent.offsetWidth + menuTriggerRect.width
         };
 
         this.getInViewPosition(position);
@@ -179,7 +169,6 @@
             position = this.getBottomRightPos();
         }
 
-        this.menuContent.style.transformOrigin = position.origin;
         this.menuContent.style.top = position.top + 'px';
         this.menuContent.style.left = position.left + 'px';
       },
@@ -187,6 +176,10 @@
         window.requestAnimationFrame(this.calculateMenuContentPos);
       },
       open() {
+        if (document.body.contains(this.menuContent)) {
+          document.body.removeChild(this.menuContent);
+        }
+
         document.body.appendChild(this.menuContent);
         document.addEventListener('click', this.closeOnOffClick);
         window.addEventListener('resize', this.recalculateOnResize);
@@ -199,21 +192,26 @@
         this.active = true;
       },
       close() {
+        let menuContent = this.menuContent;
         let close = (event) => {
-          if (this.menuContent && event.target === this.menuContent && event.propertyName === 'transform') {
-            this.menuContent.removeEventListener(transitionEndEventName, close);
-            this.menuTrigger.focus();
+          if (menuContent && event.target === menuContent) {
+            let activeRipple = this.menuContent.querySelector('.md-ripple.md-active');
 
-            document.body.removeChild(this.menuContent);
+            menuContent.removeEventListener(transitionEndEventName, close);
+            this.menuTrigger.focus();
+            this.active = false;
+
+            if (activeRipple) {
+              activeRipple.classList.remove('md-active');
+            }
+
+            document.body.removeChild(menuContent);
             document.removeEventListener('click', this.closeOnOffClick);
             window.removeEventListener('resize', this.recalculateOnResize);
-
-            this.active = false;
           }
         };
 
         this.menuContent.addEventListener(transitionEndEventName, close);
-
         this.menuContent.classList.remove('md-active');
       },
       toggle() {
@@ -228,8 +226,8 @@
       this.menuTrigger = this.$el.querySelector('[md-menu-trigger]');
       this.menuContent = this.$el.querySelector('.md-menu-content');
       this.validateMenu();
-      this.addNewMenuContentClass();
-
+      this.addNewSizeMenuContentClass(this.mdSize);
+      this.addNewDirectionMenuContentClass(this.mdDirection);
       this.menuContent.parentNode.removeChild(this.menuContent);
       this.menuTrigger.addEventListener('click', this.toggle);
     }
