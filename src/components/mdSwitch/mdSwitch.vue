@@ -25,7 +25,10 @@
       value: Boolean,
       id: String,
       disabled: Boolean,
-      type: String
+      type: {
+        type: String,
+        default: 'button'
+      }
     },
     data() {
       return {
