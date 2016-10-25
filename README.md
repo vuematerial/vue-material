@@ -31,8 +31,8 @@ import 'vue-material/dist/vue-material.css'
 
 // OR
 
-var Vue = require(vue')
-var VueMaterial = require(vue-material')
+var Vue = require('vue')
+var VueMaterial = require('vue-material')
 require('vue-material/dist/vue-material.css')
 ```
 
