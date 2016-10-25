@@ -7,9 +7,7 @@
 <style lang="scss" src="./mdMenu.scss"></style>
 
 <script>
-  import 'transitionEnd';
-
-  let transitionEnd = window.transitionEnd;
+  import transitionEndEventName from '../../core/utils/transitionEndEventName';
 
   export default {
     props: {
@@ -24,7 +22,7 @@
     },
     data() {
       return {
-        margin: 16,
+        margin: 4,
         active: false
       };
     },
@@ -55,9 +53,60 @@
         this.menuContent.classList.add('md-size-' + this.mdSize);
       },
       closeOnOffClick(event) {
-        if (!this.$el.contains(event.target)) {
+        if (!this.$el.contains(event.target) && !this.menuContent.contains(event.target)) {
           this.close();
         }
+      },
+      isAboveOfViewport(pos) {
+        return pos.top <= this.margin;
+      },
+      isBelowOfViewport(pos) {
+        return pos.top + this.menuContent.offsetHeight + this.margin >= window.innerHeight;
+      },
+      isOnTheLeftOfViewport(pos) {
+        return pos.left <= this.margin;
+      },
+      isOnTheRightOfViewport(pos) {
+        return pos.left + this.menuContent.offsetWidth + this.margin >= window.innerWidth;
+      },
+      getInViewPosition(position) {
+        if (this.isAboveOfViewport(position)) {
+          position.top = this.margin;
+          position.origin = 'center top';
+
+          if (this.isOnTheLeftOfViewport(position)) {
+            position.origin = 'left top';
+          }
+
+          if (this.isOnTheRightOfViewport(position)) {
+            position.origin = 'right top';
+          }
+        }
+
+        if (this.isOnTheLeftOfViewport(position)) {
+          position.left = this.margin;
+          position.origin = 'left';
+        }
+
+        if (this.isOnTheRightOfViewport(position)) {
+          position.left = window.innerWidth - this.margin - this.menuContent.offsetWidth;
+          position.origin = 'right';
+        }
+
+        if (this.isBelowOfViewport(position)) {
+          position.top = window.innerHeight - this.margin - this.menuContent.offsetHeight;
+          position.origin = 'center bottom';
+
+          if (this.isOnTheLeftOfViewport(position)) {
+            position.origin = 'left bottom';
+          }
+
+          if (this.isOnTheRightOfViewport(position)) {
+            position.origin = 'right bottom';
+          }
+        }
+
+        return position;
       },
       getBottomRightPos() {
         let menuTriggerRect = this.menuTrigger.getBoundingClientRect();
@@ -67,19 +116,7 @@
           origin: 'left top'
         };
 
-        if (position.left <= this.margin) {
-          position.left = this.margin;
-          position.origin = 'center top';
-        }
-
-        if (position.top <= this.margin) {
-          position.top = this.margin;
-          position.origin = 'left center';
-        }
-
-        if (position.left <= this.margin && position.top <= this.margin) {
-          position.origin = 'center';
-        }
+        this.getInViewPosition(position);
 
         return position;
       },
@@ -91,19 +128,7 @@
           origin: 'right top'
         };
 
-        if (position.left <= this.margin) {
-          position.left = this.margin;
-          position.origin = 'center top';
-        }
-
-        if (top <= this.margin) {
-          position.top = this.margin;
-          position.origin = 'right center';
-        }
-
-        if (position.left <= this.margin && top <= this.margin) {
-          position.origin = 'center';
-        }
+        this.getInViewPosition(position);
 
         return position;
       },
@@ -115,19 +140,7 @@
           origin: 'left bottom'
         };
 
-        if (position.left <= this.margin) {
-          position.left = this.margin;
-          position.origin = 'center bottom';
-        }
-
-        if (top <= this.margin) {
-          top = this.margin;
-          position.origin = 'left center';
-        }
-
-        if (position.left <= this.margin && position.top <= this.margin) {
-          position.origin = 'center';
-        }
+        this.getInViewPosition(position);
 
         return position;
       },
@@ -139,19 +152,7 @@
           origin: 'right bottom'
         };
 
-        if (position.left <= this.margin) {
-          position.left = this.margin;
-          position.origin = 'center bottom';
-        }
-
-        if (position.top <= this.margin) {
-          position.top = this.margin;
-          position.origin = 'right center';
-        }
-
-        if (position.left <= this.margin && position.top <= this.margin) {
-          position.origin = 'center';
-        }
+        this.getInViewPosition(position);
 
         return position;
       },
@@ -194,17 +195,24 @@
 
         getComputedStyle(this.menuContent).top;
         this.menuContent.classList.add('md-active');
+        this.menuContent.focus();
         this.active = true;
       },
       close() {
-        transitionEnd(this.menuContent).bind(() => {
-          document.body.removeChild(this.menuContent);
-          document.removeEventListener('click', this.closeOnOffClick);
-          window.removeEventListener('resize', this.recalculateOnResize);
+        let close = (event) => {
+          if (this.menuContent && event.target === this.menuContent && event.propertyName === 'transform') {
+            this.menuContent.removeEventListener(transitionEndEventName, close);
+            this.menuTrigger.focus();
 
-          this.active = false;
-          transitionEnd(this.menuContent).unbind();
-        });
+            document.body.removeChild(this.menuContent);
+            document.removeEventListener('click', this.closeOnOffClick);
+            window.removeEventListener('resize', this.recalculateOnResize);
+
+            this.active = false;
+          }
+        };
+
+        this.menuContent.addEventListener(transitionEndEventName, close);
 
         this.menuContent.classList.remove('md-active');
       },
