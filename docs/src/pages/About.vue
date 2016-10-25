@@ -22,7 +22,7 @@
       <h2 class="md-headline">Credits and Thanks</h2>
       <ul>
         <li>This library aims to delivery components using almost the same API of <a href="https://material.angularjs.org/latest/" target="_blank">Angular Material</a></li>
-        <li>Thanks a lot to <a href="https://github.com/elviskang" target="_blank">elviskang</a> who provided me the **vue-material** name on npm.</li>
+        <li>Thanks a lot to <a href="https://github.com/elviskang" target="_blank">elviskang</a> for donating the npm package name!</li>
         <li>Thanks to <a href="https://github.com/yyx990803" target="_blank">Evan You</a> for allowing me to use Vue.js Logo.</li>
       </ul>
     </section>
