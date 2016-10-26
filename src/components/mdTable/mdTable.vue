@@ -11,11 +11,12 @@
 <script>
   export default {
     props: {
-
+      mdRowSelection: Boolean
     },
     data() {
       return {
-
+        numberOfRows: 0,
+        selectedRows: []
       };
     },
     computed: {

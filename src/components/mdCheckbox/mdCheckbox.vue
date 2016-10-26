@@ -36,7 +36,7 @@
     methods: {
       toggleCheck() {
         if (!this.disabled) {
-          this.checked = !this.checked;
+          this.checked = !this.value;
           this.$emit('change', this.checked);
           this.$emit('input', this.checked);
         }

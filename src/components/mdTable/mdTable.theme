@@ -1,6 +1,13 @@
 .THEME_NAME {
   .md-table,
   &.md-table {
+  }
 
+  .md-table-card,
+  &.md-table-card {
+    .md-toolbar {
+      background-color: #{'BACKGROUND-COLOR-A100'};
+      color: #{'BACKGROUND-CONTRAST-A100'};
+    }
   }
 }
