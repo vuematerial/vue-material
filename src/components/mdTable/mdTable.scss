@@ -3,8 +3,88 @@
 .md-table {
   display: flex;
   flex-flow: column wrap;
-  font-size: 14px;
-  font-weight: 400;
-  letter-spacing: .01em;
-  line-height: 20px;
+
+  table {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+  }
+
+  tr {
+    transition: $swift-ease-out;
+  }
+
+  tbody tr {
+    border-top: 1px solid #e0e0e0;
+
+    &:hover {
+      background-color: #eee;
+    }
+
+    &.md-selected {
+      background-color: #f5f5f5;
+    }
+  }
+
+  th,
+  td {
+    padding-right: 32px;
+    padding-left: 24px;
+
+    &:last-child {
+      padding-right: 24px;
+    }
+  }
+
+  th {
+    height: 56px;
+    position: relative;
+    overflow: hidden;
+    transition: $swift-ease-out;
+    color: rgba(#000, .54);
+    font-size: 12px;
+    line-height: 16px;
+    text-align: left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  td {
+    height: 48px;
+    color: rgba(#000, .87);
+    font-size: 13px;
+    line-height: 18px;
+  }
+
+  .md-table-selection {
+    width: 20px;
+    padding-right: 0;
+    vertical-align: middle;
+
+    .md-checkbox {
+      margin: 3px 0 0;
+    }
+
+    .md-checkbox-container {
+      width: 18px;
+      height: 18px;
+
+      &:after {
+        top: -1px;
+        left: 4px
+      }
+    }
+  }
+}
+
+.md-table-card {
+  .md-toolbar {
+    padding-left: 16px;
+    background-color: #fff;
+  }
+
+  .md-title {
+    flex: 1;
+    font-size: 20px;
+  }
 }
