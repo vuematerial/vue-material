@@ -25,7 +25,7 @@
             </thead>
 
             <tbody>
-              <md-table-row v-for="test in 10">
+              <md-table-row v-for="test in 100">
                 <td>Cell 1</td>
                 <td>Cell 2</td>
                 <td>Cell 3</td>

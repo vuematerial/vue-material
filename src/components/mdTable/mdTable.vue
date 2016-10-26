@@ -16,7 +16,8 @@
     data() {
       return {
         numberOfRows: 0,
-        selectedRows: []
+        numberOfSelected: 0,
+        selectedRows: {}
       };
     },
     computed: {

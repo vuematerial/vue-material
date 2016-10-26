@@ -8,7 +8,6 @@ $checkbox-ripple-size: 48px;
   margin: 16px 8px 16px 0;
   display: inline-flex;
   position: relative;
-  transform: translate3D(0, 0, 0);
 
   .md-checkbox-container {
     width: $checkbox-size;
@@ -17,6 +16,7 @@ $checkbox-ripple-size: 48px;
     border-radius: 2px;
     border: 2px solid rgba(#000, .54);
     transition: $swift-ease-out;
+    transform: translate3D(0, 0, 0);
 
     &:after {
       width: 6px;
