@@ -4,6 +4,14 @@
   display: flex;
   flex-flow: column wrap;
 
+  &.md-transition-off {
+    tr,
+    .md-checkbox .md-checkbox-container,
+    .md-checkbox .md-checkbox-container:after {
+      transition: none !important;
+    }
+  }
+
   table {
     width: 100%;
     border-spacing: 0;
@@ -40,7 +48,6 @@
     height: 56px;
     position: relative;
     overflow: hidden;
-    transition: $swift-ease-out;
     color: rgba(#000, .54);
     font-size: 12px;
     line-height: 16px;

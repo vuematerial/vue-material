@@ -9,6 +9,8 @@
 </template>
 
 <script>
+  const transitionClass = 'md-transition-off';
+
   export default {
     data() {
       return {
@@ -25,25 +27,34 @@
     },
     methods: {
       setSelectedRow(value, index) {
-        let arrayIndex = this.$parent.selectedRows.indexOf(index);
-
-        if (arrayIndex >= 0) {
-          this.$parent.selectedRows.splice(arrayIndex, 1);
-        }
-
         if (value) {
-          this.$parent.selectedRows.push(index);
+          this.$parent.selectedRows[index] = value;
+          ++this.$parent.numberOfSelected;
+        } else {
+          delete this.$parent.selectedRows[index];
+          --this.$parent.numberOfSelected;
         }
       },
       handleSingleSelection(value) {
         this.setSelectedRow(value, this.index);
-        this.$parent.$children[0].checkbox = this.$parent.selectedRows.length >= this.$parent.numberOfRows;
+        this.$parent.$children[0].checkbox = this.$parent.numberOfSelected >= this.$parent.numberOfRows;
       },
       handleMultipleSelection(value) {
-        this.$parent.$children.forEach((row, index) => {
+        this.$parent.$el.classList.add(transitionClass);
+
+        this.$parent.$children.forEach((row) => {
           row.checkbox = value;
-          this.setSelectedRow(value, index + 1);
         });
+
+        if (value) {
+          /*this.$parent.selectedRows = {}; //and so on, this can be lazly created the first time or on component boot*/
+          this.$parent.numberOfSelected = this.$parent.numberOfRows;
+        } else {
+          /*this.$parent.selectedRows = {};*/
+          this.$parent.numberOfSelected = 0;
+        }
+
+        window.setTimeout(() => this.$parent.$el.classList.remove(transitionClass));
       },
       select(value) {
         if (this.$parent.mdRowSelection) {

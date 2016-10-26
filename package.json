@@ -42,7 +42,9 @@
   },
   "dependencies": {
     "autosize": "^3.0.17",
+    "chokidar": "^1.6.1",
     "element.scrollintoviewifneeded-polyfill": "^1.0.1",
+    "node-sass": "3.10.1",
     "scopedQuerySelectorShim": "github:lazd/scopedQuerySelectorShim",
     "vue": "^2.0.2"
   },
