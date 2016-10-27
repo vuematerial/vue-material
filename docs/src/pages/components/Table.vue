@@ -29,8 +29,9 @@
             </thead>
 
             <tbody>
-              <md-table-row v-for="(row, index) in 10" :key="index" md-auto-select>
-                <md-table-cell v-for="(col, index) in 8" :key="index" :md-numeric="index > 0">Cell</md-table-cell>
+              <md-table-row v-for="(row, index) in 5" :key="index" md-auto-select>
+                <md-table-cell>Dessert Name</md-table-cell>
+                <md-table-cell v-for="(col, index) in 7" :key="index" md-numeric>10</md-table-cell>
               </md-table-row>
             </tbody>
           </md-table>
@@ -63,11 +64,9 @@
             </thead>
 
             <tbody>
-              <md-table-row v-for="(row, index) in 10" :key="index">
-                <md-table-cell>Cell</md-table-cell>
-                <md-table-cell md-numeric>Cell</md-table-cell>
-                <md-table-cell md-numeric>Cell</md-table-cell>
-                <md-table-cell md-numeric>Cell</md-table-cell>
+              <md-table-row v-for="(row, index) in 5" :key="index">
+                <md-table-cell>Dessert Name</md-table-cell>
+                <md-table-cell v-for="(col, index) in 3" :key="index" md-numeric>10</md-table-cell>
                 <md-table-cell>
                   <md-table-edit
                     v-model="comment"
