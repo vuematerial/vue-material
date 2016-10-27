@@ -11,10 +11,14 @@
 <script>
   export default {
     props: {
-      mdRowSelection: Boolean
+      mdRowSelection: Boolean,
+      mdSortType: String,
+      mdSort: String
     },
     data() {
       return {
+        sortType: this.mdSortType,
+        sortBy: this.mdSort,
         numberOfRows: 0,
         numberOfSelected: 0,
         selectedRows: {}
@@ -28,7 +32,10 @@
       }
     },
     methods: {
-
+      emitSort(name) {
+        this.sortBy = name;
+        this.$emit('sort', name);
+      }
     },
     mounted() {
 
