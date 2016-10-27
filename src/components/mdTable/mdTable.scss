@@ -3,6 +3,7 @@
 .md-table {
   display: flex;
   flex-flow: column wrap;
+  overflow: auto;
 
   &.md-transition-off {
     tr,
@@ -51,9 +52,13 @@
     height: 100%;
     padding-right: 32px;
     padding-left: 24px;
-    display: flex;
-    align-items: center;
     transition: $swift-ease-out;
+    line-height: 56px;
+  }
+
+  .md-table-head-text {
+    height: 28px;
+    line-height: 28px;
   }
 
   .md-sortable {
@@ -121,7 +126,7 @@
     }
 
     .md-table-cell-container {
-      padding: 0 24px 0 32px;
+      padding: 0 32px 0 24px;
     }
 
     &.md-numeric {
@@ -130,7 +135,7 @@
   }
 
   .md-table-selection {
-    width: 20px;
+    width: 60px;
     position: relative;
     vertical-align: middle;
 

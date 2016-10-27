@@ -18,7 +18,7 @@
             <thead>
               <md-table-row>
                 <md-table-head md-sort-by="dessert">Dessert (100g serving)</md-table-head>
-                <md-table-head md-sort-by="calories" md-numeric>Calories (g)</md-table-head>
+                <md-table-head md-sort-by="calories" md-numeric md-tooltip="The total amount of food energy and the given serving size">Calories (g)</md-table-head>
                 <md-table-head md-sort-by="fat" md-numeric>Fat (g)</md-table-head>
                 <md-table-head md-sort-by="carbs" md-numeric>Carbs (g)</md-table-head>
                 <md-table-head md-sort-by="protein" md-numeric>Protein (g)</md-table-head>
