@@ -68,13 +68,11 @@
 
     &:hover,
     &.md-sorted {
+      color: rgba(#000, .87);
+
       .md-icon {
         opacity: 1;
       }
-    }
-
-    &:hover {
-      color: rgba(#000, .87);
     }
 
     &.md-sorted {
