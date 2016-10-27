@@ -1,8 +1,8 @@
 <template>
   <tr class="md-table-row" :class="classes">
-    <td class="md-table-selection" v-if="$parent.mdRowSelection">
+    <md-table-cell class="md-table-selection" v-if="$parent.mdRowSelection">
       <md-checkbox v-model="checkbox" @change="select"></md-checkbox>
-    </td>
+    </md-table-cell>
 
     <slot></slot>
   </tr>
@@ -37,10 +37,12 @@
       },
       handleSingleSelection(value) {
         this.setSelectedRow(value, this.index);
-        this.$parent.$children[0].checkbox = this.$parent.numberOfSelected >= this.$parent.numberOfRows;
+        this.$parent.$children[0].checkbox = this.$parent.numberOfSelected === this.$parent.numberOfRows;
       },
       handleMultipleSelection(value) {
-        this.$parent.$el.classList.add(transitionClass);
+        if (this.$parent.numberOfRows > 25) {
+          this.$parent.$el.classList.add(transitionClass);
+        }
 
         this.$parent.$children.forEach((row) => {
           row.checkbox = value;

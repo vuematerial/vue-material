@@ -1,5 +1,5 @@
 <template>
-  <md-card class="md-table-card">
+  <md-card class="md-table-card" v-once>
     <slot></slot>
   </md-card>
 </template>

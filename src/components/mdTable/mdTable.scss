@@ -18,34 +18,21 @@
     border-collapse: collapse;
   }
 
-  tr {
-    transition: $swift-ease-out;
-  }
-
   tbody tr {
     border-top: 1px solid #e0e0e0;
 
-    &:hover {
-      background-color: #eee;
-    }
-
-    &.md-selected {
+    &.md-selected .md-table-cell {
       background-color: #f5f5f5;
     }
-  }
 
-  th,
-  td {
-    padding-right: 32px;
-    padding-left: 24px;
-
-    &:last-child {
-      padding-right: 24px;
+    &:hover .md-table-cell {
+      background-color: #eee;
     }
   }
 
-  th {
+  .md-table-head {
     height: 56px;
+    padding: 0;
     position: relative;
     overflow: hidden;
     color: rgba(#000, .54);
@@ -54,19 +41,112 @@
     text-align: left;
     text-overflow: ellipsis;
     white-space: nowrap;
+
+    &:last-child .md-table-head-container {
+      padding-right: 24px;
+    }
   }
 
-  td {
+  .md-table-head-container {
+    height: 100%;
+    padding-right: 32px;
+    padding-left: 24px;
+    display: flex;
+    align-items: center;
+    transition: $swift-ease-out;
+  }
+
+  .md-sortable {
+    cursor: pointer;
+
+    &:first-of-type {
+      .md-icon {
+        left: auto;
+        right: 10px;
+      }
+    }
+
+    &:hover,
+    &.md-sorted {
+      .md-icon {
+        opacity: 1;
+      }
+    }
+
+    &:hover {
+      color: rgba(#000, .87);
+    }
+
+    &.md-sorted {
+      .md-icon {
+        color: rgba(#000, .87);
+      }
+    }
+
+    &.md-sorted-descending {
+      .md-icon {
+        transform: translateY(-50%) rotate(180deg);
+      }
+    }
+
+    .md-icon {
+      $size: 16px;
+
+      width: $size;
+      min-width: $size;
+      height: $size;
+      min-height: $size;
+      position: absolute;
+      top: 50%;
+      left: 2px;
+      transition: $swift-ease-out;
+      transform: translateY(-50%);
+      opacity: 0;
+      color: rgba(#000, .38);
+      font-size: $size;
+    }
+
+    .md-ink-ripple {
+      color: rgba(#000, .87);
+    }
+  }
+
+  .md-table-cell {
     height: 48px;
+    transition: $swift-ease-out;
     color: rgba(#000, .87);
     font-size: 13px;
     line-height: 18px;
+
+    &:last-child .md-table-cell-container {
+      padding-right: 24px;
+    }
+
+    .md-table-cell-container {
+      padding: 0 24px 0 32px;
+    }
+
+    &.md-numeric {
+      text-align: right;
+    }
   }
 
   .md-table-selection {
     width: 20px;
-    padding-right: 0;
+    position: relative;
     vertical-align: middle;
+
+    + {
+      .md-table-cell .md-table-cell-container,
+      .md-table-head .md-table-head-container {
+        padding-left: 8px;
+      }
+    }
+
+    .md-table-cell-container {
+      padding-right: 16px;
+      padding-left: 24px;
+    }
 
     .md-checkbox {
       margin: 3px 0 0;

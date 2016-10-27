@@ -14,22 +14,23 @@
             </md-button>
           </md-toolbar>
 
-          <md-table md-row-selection>
+          <md-table md-row-selection md-sort="calories">
             <thead>
               <md-table-row>
-                <th>Head 1</th>
-                <th>Head 2</th>
-                <th>Head 3</th>
-                <th>Head 4</th>
+                <md-table-head md-sort-by="dessert">Dessert (100g serving)</md-table-head>
+                <md-table-head md-sort-by="calories" md-numeric>Calories (g)</md-table-head>
+                <md-table-head md-sort-by="fat" md-numeric>Fat (g)</md-table-head>
+                <md-table-head md-sort-by="carbs" md-numeric>Carbs (g)</md-table-head>
+                <md-table-head md-sort-by="protein" md-numeric>Protein (g)</md-table-head>
+                <md-table-head md-sort-by="sodium" md-numeric>Sodium (mg)</md-table-head>
+                <md-table-head md-sort-by="calcium" md-numeric>Calcium (%)</md-table-head>
+                <md-table-head md-sort-by="iron" md-numeric>Iron (%)</md-table-head>
               </md-table-row>
             </thead>
 
             <tbody>
-              <md-table-row v-for="test in 100">
-                <td>Cell 1</td>
-                <td>Cell 2</td>
-                <td>Cell 3</td>
-                <td>Cell 4</td>
+              <md-table-row v-for="(row, index) in 10" :key="index">
+                <md-table-cell v-for="(col, index) in 8" :key="index" :md-numeric="index > 0">Cell</md-table-cell>
               </md-table-row>
             </tbody>
           </md-table>
