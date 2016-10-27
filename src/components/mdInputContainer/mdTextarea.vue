@@ -113,6 +113,7 @@
       managePlaceholderClass(this.placeholder, this.parentClasses);
       manageHasValueClass(this.$el.value, this.parentClasses);
       manageMaxlength(this.maxlength, this.$parent);
+      this.$parent.inputLength = this.$el.value.length;
 
       if (!this.$el.getAttribute('rows')) {
         this.$el.setAttribute('rows', '1');
