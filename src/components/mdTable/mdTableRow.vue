@@ -1,5 +1,5 @@
 <template>
-  <tr class="md-table-row" :class="classes">
+  <tr class="md-table-row" :class="classes" @click.stop="autoSelect">
     <md-table-cell class="md-table-selection" v-if="$parent.mdRowSelection">
       <md-checkbox v-model="checkbox" @change="select"></md-checkbox>
     </md-table-cell>
@@ -12,6 +12,9 @@
   const transitionClass = 'md-transition-off';
 
   export default {
+    props: {
+      mdAutoSelect: Boolean
+    },
     data() {
       return {
         checkbox: false,
@@ -65,6 +68,12 @@
           } else {
             this.handleSingleSelection(value);
           }
+        }
+      },
+      autoSelect() {
+        if (this.mdAutoSelect) {
+          this.checkbox = !this.checkbox;
+          this.handleSingleSelection(this.checkbox);
         }
       }
     },

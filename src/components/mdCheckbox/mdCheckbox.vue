@@ -1,6 +1,6 @@
 <template>
   <div class="md-checkbox" :class="classes">
-    <div class="md-checkbox-container" @click="toggleCheck" v-md-ink-ripple="disabled">
+    <div class="md-checkbox-container" @click.stop="toggleCheck" v-md-ink-ripple="disabled">
       <input type="checkbox" :name="name" :id="id" :disabled="disabled" :value="value">
     </div>
 

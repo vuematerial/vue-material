@@ -29,7 +29,7 @@
             </thead>
 
             <tbody>
-              <md-table-row v-for="(row, index) in 10" :key="index">
+              <md-table-row v-for="(row, index) in 10" :key="index" md-auto-select>
                 <md-table-cell v-for="(col, index) in 8" :key="index" :md-numeric="index > 0">Cell</md-table-cell>
               </md-table-row>
             </tbody>
