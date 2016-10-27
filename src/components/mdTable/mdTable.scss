@@ -32,65 +32,19 @@
   }
 
   .md-table-head {
-    height: 56px;
     padding: 0;
     position: relative;
-    overflow: hidden;
     color: rgba(#000, .54);
     font-size: 12px;
     line-height: 16px;
     text-align: left;
-    text-overflow: ellipsis;
-    white-space: nowrap;
 
-    &:last-child .md-table-head-container {
+    &:last-child .md-table-head-container .md-table-head-text {
       padding-right: 24px;
     }
-  }
 
-  .md-table-head-container {
-    height: 100%;
-    padding-right: 32px;
-    padding-left: 24px;
-    transition: $swift-ease-out;
-    line-height: 56px;
-  }
-
-  .md-table-head-text {
-    height: 28px;
-    line-height: 28px;
-    display: inline-block;
-  }
-
-  .md-sortable {
-    cursor: pointer;
-
-    &:first-of-type {
-      .md-icon {
-        left: auto;
-        right: 10px;
-      }
-    }
-
-    &:hover,
-    &.md-sorted {
-      color: rgba(#000, .87);
-
-      .md-icon {
-        opacity: 1;
-      }
-    }
-
-    &.md-sorted {
-      .md-icon {
-        color: rgba(#000, .87);
-      }
-    }
-
-    &.md-sorted-descending {
-      .md-icon {
-        transform: translateY(-50%) rotate(180deg);
-      }
+    &.md-numeric {
+      text-align: right;
     }
 
     .md-icon {
@@ -100,6 +54,73 @@
       min-width: $size;
       height: $size;
       min-height: $size;
+      font-size: $size;
+      color: rgba(#000, .54);
+
+      &:not(.md-sortable-icon) {
+        margin: 0 4px;
+      }
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .md-table-head-container {
+    height: 56px;
+    padding: 14px 0;
+    transition: $swift-ease-out;
+  }
+
+  .md-table-head-text {
+    height: 28px;
+    padding-right: 32px;
+    padding-left: 24px;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    line-height: 28px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .md-sortable {
+    cursor: pointer;
+
+    &:first-of-type {
+      .md-sortable-icon {
+        left: auto;
+        right: 10px;
+      }
+    }
+
+    &:hover,
+    &.md-sorted {
+      color: rgba(#000, .87);
+
+      .md-sortable-icon {
+        opacity: 1;
+      }
+    }
+
+    &.md-sorted {
+      .md-sortable-icon {
+        color: rgba(#000, .87);
+      }
+    }
+
+    &.md-sorted-descending {
+      .md-sortable-icon {
+        transform: translateY(-50%) rotate(180deg);
+      }
+    }
+
+    .md-sortable-icon {
       position: absolute;
       top: 50%;
       left: 2px;
@@ -107,7 +128,6 @@
       transform: translateY(-50%);
       opacity: 0;
       color: rgba(#000, .38);
-      font-size: $size;
     }
 
     .md-ink-ripple {
@@ -117,6 +137,7 @@
 
   .md-table-cell {
     height: 48px;
+    position: relative;
     transition: $swift-ease-out;
     color: rgba(#000, .87);
     font-size: 13px;
@@ -142,7 +163,7 @@
 
     + {
       .md-table-cell .md-table-cell-container,
-      .md-table-head .md-table-head-container {
+      .md-table-head .md-table-head-container .md-table-head-text {
         padding-left: 8px;
       }
     }
@@ -165,6 +186,68 @@
         left: 4px
       }
     }
+  }
+}
+
+.md-table-edit-trigger {
+  display: inline-block;
+  cursor: pointer;
+  color: rgba(#000, .38);
+
+  &.md-edited {
+    color: rgba(#000, .87);
+  }
+}
+
+.md-table-dialog {
+  max-height: 0;
+  margin: 0;
+  padding: 0 24px 2px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 24px;
+  z-index: 60;
+  overflow: hidden;
+  pointer-events: none;
+  border-radius: 2px;
+  box-shadow: $material-shadow-2dp;
+  background-color: #fff;
+  opacity: 0;
+  transition: $swift-ease-out,
+              max-height 0s .5s;
+  transition-duration: .3s;
+  transform: translate3D(0, -8px, 0);
+
+  &.md-active {
+    max-height: 400px;
+    pointer-events: auto;
+    transform: translate3D(0, 0, 0);
+    opacity: 1;
+    transition: $swift-ease-out;
+    transition-duration: .3s;
+  }
+
+  &.md-large {
+    padding: 12px 24px 2px;
+  }
+
+  .md-input-container {
+    margin-top: 0;
+    margin-bottom: 16px;
+  }
+
+  input {
+    font-size: 13px;
+  }
+
+  .md-char-counter {
+    font-size: 13.5px;
+    color: rgba(0, 0, 0, .54);
+  }
+
+  .md-button {
+    min-width: 64px;
   }
 }
 

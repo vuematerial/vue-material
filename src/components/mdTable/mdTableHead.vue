@@ -1,13 +1,13 @@
 <template>
   <th class="md-table-head" :class="classes" @click="changeSort">
     <div class="md-table-head-container" v-md-ink-ripple="!mdSortBy">
-      <md-icon v-if="mdSortBy">arrow_downward</md-icon>
+      <div class="md-table-head-text md-test">
+        <md-icon class="md-sortable-icon" v-if="mdSortBy">arrow_downward</md-icon>
 
-      <span class="md-table-head-text md-test">
         <slot></slot>
 
         <md-tooltip v-if="mdTooltip">{{ mdTooltip }}</md-tooltip>
-      </span>
+      </div>
     </div>
   </th>
 </template>
