@@ -3,8 +3,10 @@
     <div class="md-table-head-container" v-md-ink-ripple="!mdSortBy">
       <md-icon v-if="mdSortBy">arrow_downward</md-icon>
 
-      <span>
+      <span class="md-table-head-text md-test">
         <slot></slot>
+
+        <md-tooltip v-if="mdTooltip">{{ mdTooltip }}</md-tooltip>
       </span>
     </div>
   </th>
@@ -14,7 +16,8 @@
   export default {
     props: {
       mdNumeric: Boolean,
-      mdSortBy: String
+      mdSortBy: String,
+      mdTooltip: String
     },
     data() {
       return {
@@ -31,6 +34,7 @@
         }
 
         return {
+          'md-numeric': this.mdNumeric,
           'md-sortable': this.mdSortBy,
           'md-sorted': matchSort && this.sorted,
           'md-sorted-descending': matchSort && this.sortType === 'desc'
