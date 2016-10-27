@@ -102,7 +102,7 @@
   export default {
     data() {
       return {
-        comment: 'Test'
+        comment: null
       };
     }
   };

@@ -1,5 +1,5 @@
 <template>
-  <tr class="md-table-row" :class="classes" @click.stop="autoSelect">
+  <tr class="md-table-row" :class="classes" @click="autoSelect">
     <md-table-cell class="md-table-selection" v-if="$parent.mdRowSelection">
       <md-checkbox v-model="checkbox" @change="select"></md-checkbox>
     </md-table-cell>
