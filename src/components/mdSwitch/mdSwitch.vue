@@ -23,13 +23,15 @@
       id: String,
       disabled: Boolean
     },
-    data: () => ({
-      realValue: !!this.value
-    }),
+    data() {
+      return {
+        realValue: !!this.value
+      };
+    },
     computed: {
       classes() {
         return {
-          'md-checked': this.value,
+          'md-checked': this.realValue,
           'md-disabled': this.disabled
         };
       }
