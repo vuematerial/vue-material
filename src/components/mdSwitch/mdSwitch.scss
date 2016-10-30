@@ -11,7 +11,7 @@ $switch-ripple-size: 48px;
   display: inline-flex;
   position: relative;
 
-  &.md-checked .md-switch-thumb {
+  &.md-checked .md-switch-container .md-switch-thumb {
     transform: translate3D(75%, -50%, 0);
   }
 
