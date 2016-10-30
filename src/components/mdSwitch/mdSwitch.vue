@@ -1,8 +1,8 @@
 <template>
-  <div class="md-switch" :class="classes">
-    <div class="md-switch-container" @click="toggleSwitch">
-      <div class="md-switch-thumb" :style="styles" v-md-ink-ripple="disabled">
-        <input type="checkbox" :name="name" :id="id" :disabled="disabled" :value="value">
+  <div class="md-switch" :class="classes" @click="toggleSwitch">
+    <div class="md-switch-container">
+      <div class="md-switch-thumb" v-md-ink-ripple="disabled">
+        <input type="checkbox" :name="name" :id="id" :disabled="disabled" v-model="realValue">
         <button class="md-switch-holder"></button>
       </div>
     </div>
@@ -23,10 +23,13 @@
       id: String,
       disabled: Boolean
     },
+    data: () => ({
+      realValue: !!this.value
+    }),
     computed: {
       classes() {
         return {
-          'md-checked': Boolean(this.value),
+          'md-checked': this.value,
           'md-disabled': this.disabled
         };
       }
@@ -34,7 +37,7 @@
     methods: {
       toggleSwitch() {
         if (!this.disabled) {
-          this.value = !this.value;
+          this.realValue = !this.realValue;
           this.$emit('change', this.value);
           this.$emit('input', this.value);
         }
