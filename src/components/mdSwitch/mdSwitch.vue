@@ -16,9 +16,6 @@
 <style lang="scss" src="./mdSwitch.scss"></style>
 
 <script>
-  let fullThreshold = 75;
-  let initialThreshold = '-1px';
-
   export default {
     props: {
       name: String,
@@ -26,41 +23,22 @@
       id: String,
       disabled: Boolean
     },
-    data() {
-      return {
-        leftPos: initialThreshold,
-        checked: this.value
-      };
-    },
     computed: {
       classes() {
         return {
           'md-checked': Boolean(this.value),
           'md-disabled': this.disabled
         };
-      },
-      styles() {
-        return {
-          transform: `translate3D(${this.leftPos}, -50%, 0)`
-        };
-      }
-    },
-    watch: {
-      checked() {
-        this.leftPos = this.value ? fullThreshold + '%' : initialThreshold;
       }
     },
     methods: {
       toggleSwitch() {
         if (!this.disabled) {
-          this.checked = !this.checked;
-          this.$emit('change', this.checked);
-          this.$emit('input', this.checked);
+          this.value = !this.value;
+          this.$emit('change', this.value);
+          this.$emit('input', this.value);
         }
       }
-    },
-    mounted() {
-      this.leftPos = this.value ? fullThreshold + '%' : initialThreshold;
     }
   };
 </script>
