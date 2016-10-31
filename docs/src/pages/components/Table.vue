@@ -65,6 +65,8 @@
               </md-table-row>
             </md-table-body>
           </md-table>
+
+          <md-table-pagination></md-table-pagination>
         </md-table-card>
 
         <md-table-card>
