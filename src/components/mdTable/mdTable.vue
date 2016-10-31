@@ -24,21 +24,11 @@
         selectedRows: {}
       };
     },
-    computed: {
-      classes() {
-        return {
-
-        };
-      }
-    },
     methods: {
       emitSort(name) {
         this.sortBy = name;
         this.$emit('sort', name);
       }
-    },
-    mounted() {
-
     }
   };
 </script>
