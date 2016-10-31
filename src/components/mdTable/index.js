@@ -8,6 +8,18 @@ import mdTableTheme from './mdTable.theme';
 
 export default function install(Vue) {
   Vue.component('md-table', Vue.extend(mdTable));
+  Vue.component('md-table-header', {
+    functional: true,
+    render: (h, scope) => h('thead', {
+      staticClass: 'md-table-header'
+    }, scope.children)
+  });
+  Vue.component('md-table-body', {
+    functional: true,
+    render: (h, scope) => h('tbody', {
+      staticClass: 'md-table-body'
+    }, scope.children)
+  });
   Vue.component('md-table-row', Vue.extend(mdTableRow));
   Vue.component('md-table-head', Vue.extend(mdTableHead));
   Vue.component('md-table-cell', Vue.extend(mdTableCell));

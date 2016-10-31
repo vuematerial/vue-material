@@ -148,12 +148,42 @@
       padding-right: 24px;
     }
 
-    .md-table-cell-container {
-      padding: 0 32px 0 24px;
+    &.md-numeric {
+      .md-table-cell-container {
+        justify-content: flex-end;
+      }
     }
 
-    &.md-numeric {
-      text-align: right;
+    .md-table-cell-container {
+      padding: 0 32px 0 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .md-button {
+      $size: 36px;
+
+      width: $size;
+      min-width: $size;
+      height: $size;
+      min-height: $size;
+
+      &:last-child {
+        margin: 0 -10px 0 0;
+      }
+
+      .md-icon {
+        $size: 18px;
+
+        width: $size;
+        min-width: $size;
+        height: $size;
+        min-height: $size;
+        margin: 0;
+        color: rgba(#000, .54);
+        font-size: $size;
+      }
     }
   }
 
@@ -175,18 +205,28 @@
     }
 
     .md-checkbox {
-      margin: 3px 0 0;
+      margin: 0;
     }
 
     .md-checkbox-container {
       width: 18px;
       height: 18px;
+      margin-top: 1px;
 
       &:after {
         top: -1px;
         left: 4px
       }
     }
+  }
+
+  .md-select {
+    min-width: 84px;
+  }
+
+  .md-select-value,
+  .md-option {
+    font-size: 13px;
   }
 }
 
@@ -236,10 +276,14 @@
   .md-input-container {
     margin-top: 0;
     margin-bottom: 16px;
-  }
 
-  input {
-    font-size: 13px;
+    &.md-input-placeholder input {
+      font-size: 13px;
+
+      &::-webkit-input-placeholder {
+        font-size: 13px;
+      }
+    }
   }
 
   .md-char-counter {
