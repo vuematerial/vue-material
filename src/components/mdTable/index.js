@@ -4,6 +4,7 @@ import mdTableHead from './mdTableHead.vue';
 import mdTableCell from './mdTableCell.vue';
 import mdTableEdit from './mdTableEdit.vue';
 import mdTableCard from './mdTableCard.vue';
+import mdTableAlternateHeader from './mdTableAlternateHeader.vue';
 import mdTablePagination from './mdTablePagination.vue';
 import mdTableTheme from './mdTable.theme';
 
@@ -27,6 +28,7 @@ export default function install(Vue) {
   Vue.component('md-table-edit', Vue.extend(mdTableEdit));
   Vue.component('md-table-card', Vue.extend(mdTableCard));
   Vue.component('md-table-pagination', Vue.extend(mdTablePagination));
+  Vue.component('md-table-alternate-header', Vue.extend(mdTableAlternateHeader));
 
   Vue.material.styles.push(mdTableTheme);
 }
