@@ -12,6 +12,7 @@
           :name="mdName"
           :maxlength="mdMaxlength"
           :value="value"
+          :placeholder="mdPlaceholder"
           @keydown.enter.native="confirmDialog"></md-input>
       </md-input-container>
     </div>
