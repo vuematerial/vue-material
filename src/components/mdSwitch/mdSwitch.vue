@@ -1,13 +1,13 @@
 <template>
-  <div class="md-switch" :class="classes" @click="toggleSwitch">
-    <div class="md-switch-container">
+  <div class="md-switch" :class="classes">
+    <div class="md-switch-container" v-on:click="toggleSwitch">
       <div class="md-switch-thumb" v-md-ink-ripple="disabled">
         <input type="checkbox" :name="name" :id="id" :disabled="disabled" v-model="realValue">
         <button class="md-switch-holder"></button>
       </div>
     </div>
 
-    <label :for="id || name" class="md-switch-label" v-if="$slots.default">
+    <label :for="id || name" class="md-switch-label" v-if="$slots.default" v-on:click="toggleSwitch">
       <slot></slot>
     </label>
   </div>
@@ -34,6 +34,11 @@
           'md-checked': this.realValue,
           'md-disabled': this.disabled
         };
+      }
+    },
+    watch: {
+      value(newValue) {
+        this.realValue = newValue;
       }
     },
     methods: {
