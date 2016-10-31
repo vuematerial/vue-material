@@ -1,7 +1,7 @@
 <template>
   <div class="md-checkbox" :class="classes">
-    <div class="md-checkbox-container" @click.stop="toggleCheck" v-md-ink-ripple="disabled">
-      <input type="checkbox" :name="name" :id="id" :disabled="disabled" :value="value">
+    <div class="md-checkbox-container" @click.stop="toggleCheck" v-md-ink-ripple="disabled" tabindex="0">
+      <input type="checkbox" :name="name" :id="id" :disabled="disabled" :value="value" tabindex="-1">
     </div>
 
     <label :for="id || name" class="md-checkbox-label" v-if="$slots.default">
