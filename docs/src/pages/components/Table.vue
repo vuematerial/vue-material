@@ -70,6 +70,10 @@
         </md-table-card>
 
         <md-table-card>
+          <md-table-alternate-header>
+            <md-button class="md-primary">Remove</md-button>
+          </md-table-alternate-header>
+
           <md-toolbar>
             <h1 class="md-title">Nutrition</h1>
             <md-button class="md-icon-button">
