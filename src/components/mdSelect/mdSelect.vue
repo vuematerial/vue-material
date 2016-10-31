@@ -7,7 +7,7 @@
       class="md-select-value"
       @click="open"
       @keydown.enter.prevent="open"
-      ref="value">{{ value }}</span>
+      ref="value">{{ value || placeholder }}</span>
 
     <div
       class="md-select-menu"
@@ -35,6 +35,7 @@
     props: {
       name: String,
       required: Boolean,
+      placeholder: [String, Number],
       value: [String, Number, Boolean],
       id: String,
       disabled: Boolean
@@ -82,24 +83,27 @@
       },
       selectOption(value) {
         this.close();
-        this.$parent.setValue(value);
         this.$emit('change', value);
         this.$emit('input', value);
+
+        if (this.isInsideContainer) {
+          this.$parent.setValue(value);
+        }
       }
     },
     mounted() {
-      if (!this.$parent.$el.classList.contains('md-input-container')) {
-        this.$destroy();
+      this.isInsideContainer = this.$parent.$el.classList.contains('md-input-container');
 
-        throw new Error('You should wrap the md-select in a md-input-container');
+      if (this.isInsideContainer) {
+        this.$parent.setValue(this.value);
+        this.$parent.hasSelect = true;
       }
-
-      this.$parent.setValue(this.value);
-      this.$parent.hasSelect = true;
     },
     beforeDestroy() {
-      this.$parent.setValue(null);
-      this.$parent.hasSelect = false;
+      if (this.isInsideContainer) {
+        this.$parent.setValue(null);
+        this.$parent.hasSelect = false;
+      }
 
       document.removeEventListener('click', this.closeOnOffClick);
     }
