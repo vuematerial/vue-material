@@ -70,10 +70,6 @@
         </md-table-card>
 
         <md-table-card>
-          <md-table-alternate-header>
-            <md-button class="md-primary">Remove</md-button>
-          </md-table-alternate-header>
-
           <md-toolbar>
             <h1 class="md-title">Nutrition</h1>
             <md-button class="md-icon-button">
@@ -84,6 +80,16 @@
               <md-icon>search</md-icon>
             </md-button>
           </md-toolbar>
+
+          <md-table-alternate-header md-selected-label="selected">
+            <md-button class="md-icon-button">
+              <md-icon>delete</md-icon>
+            </md-button>
+
+            <md-button class="md-icon-button">
+              <md-icon>more_vert</md-icon>
+            </md-button>
+          </md-table-alternate-header>
 
           <md-table md-row-selection md-sort="calories">
             <md-table-header>
