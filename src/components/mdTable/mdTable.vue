@@ -1,5 +1,5 @@
 <template>
-  <div class="md-table" :class="classes">
+  <div class="md-table">
     <table>
       <slot></slot>
     </table>
@@ -28,6 +28,11 @@
       emitSort(name) {
         this.sortBy = name;
         this.$emit('sort', name);
+      }
+    },
+    mounted() {
+      if (this.$parent.$el.classList.contains('md-table-card')) {
+        this.$parent.tableInstance = this;
       }
     }
   };

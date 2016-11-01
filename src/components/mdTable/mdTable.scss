@@ -6,7 +6,7 @@
   overflow: auto;
 
   &.md-transition-off {
-    tr,
+    .md-table-cell,
     .md-checkbox .md-checkbox-container,
     .md-checkbox .md-checkbox-container:after {
       transition: none !important;
@@ -20,7 +20,7 @@
     overflow: hidden;
   }
 
-  tbody tr {
+  tbody .md-table-row {
     border-top: 1px solid #e0e0e0;
 
     &.md-selected .md-table-cell {
@@ -305,5 +305,28 @@
   .md-title {
     flex: 1;
     font-size: 20px;
+  }
+}
+
+.md-table-alternate-header {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  pointer-events: none;
+  opacity: 0;
+  transition: $swift-ease-out;
+  transition-duration: .3s;
+
+  &.md-active {
+    pointer-events: auto;
+    opacity: 1;
+    transform: translate3D(0, 0, 0);
+  }
+
+  .md-counter {
+    margin-left: 8px;
+    flex: 1;
   }
 }
