@@ -19,10 +19,6 @@ $checkbox-touch-size: 48px;
 
     &:focus {
       outline: none;
-
-      &:before {
-        background-color: rgba(#999, .2);
-      }
     }
 
     &:before {
