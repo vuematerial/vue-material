@@ -14,7 +14,7 @@
       let options = {
         staticClass: 'md-button',
         attrs: {
-          type: hasLink || 'button',
+          type: hasLink || this.type || 'button',
           disabled: isDisabled
         },
         directives: [{
