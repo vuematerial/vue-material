@@ -71,6 +71,9 @@
       placeholder: [String, Number]
     },
     watch: {
+      value(value) {
+        manageHasValueClass(value, this.parentClasses);
+      },
       disabled(disabled) {
         manageDisabledClass(disabled, this.parentClasses);
       },
