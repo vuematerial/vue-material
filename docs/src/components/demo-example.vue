@@ -1,5 +1,5 @@
 <template>
-  <md-whiteframe class="demo-example" :class="classes" :style="{ height: height + 'px' }">
+  <md-card class="demo-example" :class="classes" :style="{ height: height + 'px' }">
     <md-toolbar v-md-theme="titleTheme" class="demo-example-toolbar">
       <h2 class="md-title">{{ label }}</h2>
     </md-toolbar>
@@ -7,15 +7,17 @@
     <section v-md-theme="bodyTheme" class="demo-example-body">
       <slot></slot>
     </section>
-  </md-whiteframe>
+  </md-card>
 </template>
 
 <style lang="scss" scoped>
   .demo-example {
     max-width: 100%;
     min-width: 320px;
-    position: relative;
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
+    position: relative;
     background-color: #fafafa;
 
     &.size-1 {
@@ -44,6 +46,7 @@
 
     .demo-example-body {
       padding: 16px;
+      flex: 1;
       background-color: #FFF;
     }
   }
