@@ -3,7 +3,7 @@
 .md-table {
   display: flex;
   flex-flow: column wrap;
-  overflow: auto;
+  overflow-x: auto;
 
   &.md-transition-off {
     .md-table-cell,
@@ -263,7 +263,7 @@
   &.md-active {
     max-height: 400px;
     pointer-events: auto;
-    transform: translate3D(0, 0, 0);
+    transform: translate3D(#000);
     opacity: 1;
     transition: $swift-ease-out;
     transition-duration: .3s;
@@ -288,13 +288,50 @@
 
   .md-char-counter {
     font-size: 13.5px;
-    color: rgba(0, 0, 0, .54);
+    color: rgba(#000, .54);
   }
 
   .md-button {
     min-width: 64px;
   }
 }
+
+.md-table-pagination {
+  height: 56px;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: flex-end;
+  border-top: 1px solid #e0e0e0;
+  color: rgba(#000, .54);
+  font-size: 12px;
+
+  .md-table-pagination-previous {
+    margin-right: 2px;
+    margin-left: 18px;
+  }
+
+  .md-select {
+    width: auto;
+    min-width: 36px;
+    margin: 0 32px;
+
+    &:after {
+      margin-top: 0;
+    }
+
+    .md-select-value {
+      padding: 0;
+      border: none;
+      font-size: 13px;
+    }
+  }
+
+  .md-button {
+    color: rgba(#000, .87);
+  }
+}
+
 
 .md-table-card {
   .md-toolbar {
@@ -322,7 +359,7 @@
   &.md-active {
     pointer-events: auto;
     opacity: 1;
-    transform: translate3D(0, 0, 0);
+    transform: translate3D(#000);
   }
 
   .md-counter {
