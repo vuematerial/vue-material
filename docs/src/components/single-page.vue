@@ -101,6 +101,9 @@
       toggleSidenav() {
         this.$root.toggleSidenav();
       }
+    },
+    mounted() {
+      document.title = 'Vue Material - ' + this.label;
     }
   };
 </script>
