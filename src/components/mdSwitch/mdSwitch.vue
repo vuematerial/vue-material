@@ -1,8 +1,8 @@
 <template>
-  <div class="md-switch" :class="classes">
-    <div class="md-switch-container" @click="toggleSwitch">
-      <div class="md-switch-thumb" :style="styles" v-md-ink-ripple="disabled">
-        <input type="checkbox" :name="name" :id="id" :disabled="disabled" :value="value">
+  <div class="md-switch">
+    <input type="checkbox" :name="name" :id="id" :disabled="disabled" :value="selectedValue" v-model="checked" >
+    <div class="md-switch-container">
+      <div class="md-switch-thumb" v-md-ink-ripple>
         <button class="md-switch-holder"></button>
       </div>
     </div>
@@ -16,51 +16,37 @@
 <style lang="scss" src="./mdSwitch.scss"></style>
 
 <script>
-  let fullThreshold = 75;
-  let initialThreshold = '-1px';
 
   export default {
     props: {
-      name: String,
-      value: Boolean,
+      value: {
+        type: [Array, Boolean, Number],
+        required: true
+      },
+      disabled: {
+        required: false
+      },
       id: String,
-      disabled: Boolean
+      name: String,
+      selectedValue: {
+        required: false
+      }
     },
-    data() {
+    data: function() {
       return {
-        leftPos: initialThreshold,
-        checked: this.value
+        checked: null
       };
     },
-    computed: {
-      classes() {
-        return {
-          'md-checked': Boolean(this.value),
-          'md-disabled': this.disabled
-        };
-      },
-      styles() {
-        return {
-          transform: `translate3D(${this.leftPos}, -50%, 0)`
-        };
-      }
+    beforeMount: function() {
+      this.checked = this.value;
     },
     watch: {
-      checked() {
-        this.leftPos = this.value ? fullThreshold + '%' : initialThreshold;
+      value: function(value) {
+        this.checked = value;
+      },
+      checked: function(value) {
+        this.$emit('input', value);
       }
-    },
-    methods: {
-      toggleSwitch() {
-        if (!this.disabled) {
-          this.checked = !this.checked;
-          this.$emit('change', this.checked);
-          this.$emit('input', this.checked);
-        }
-      }
-    },
-    mounted() {
-      this.leftPos = this.value ? fullThreshold + '%' : initialThreshold;
     }
   };
 </script>
