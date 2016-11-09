@@ -1,6 +1,6 @@
 <template>
   <div class="md-checkbox" :class="classes">
-    <div class="md-checkbox-container" @click="toggleCheck" v-md-ink-ripple="disabled">
+    <div class="md-checkbox-container" @click="toggleCheck($event)" v-md-ink-ripple="disabled">
       <input type="checkbox" :name="name" :id="id" :disabled="disabled" :value="value">
     </div>
 
@@ -34,11 +34,11 @@
       }
     },
     methods: {
-      toggleCheck() {
+      toggleCheck($event) {
         if (!this.disabled) {
           this.checked = !this.checked;
-          this.$emit('change', this.checked);
-          this.$emit('input', this.checked);
+          this.$emit('change', this.checked, $event);
+          this.$emit('input', this.checked, $event);
         }
       }
     }
