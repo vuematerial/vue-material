@@ -11,6 +11,10 @@ $switch-ripple-size: 48px;
   display: inline-flex;
   position: relative;
 
+  &.md-checked .md-switch-container .md-switch-thumb {
+    transform: translate3D(75%, -50%, 0);
+  }
+
   .md-switch-container {
     width: $switch-width;
     height: $switch-height;
@@ -29,6 +33,7 @@ $switch-ripple-size: 48px;
       border-radius: 50%;
       box-shadow: $material-shadow-1dp;
       transition: $swift-linear;
+      transform: translate3D(-1px, -50%, 0);
     }
 
     input {

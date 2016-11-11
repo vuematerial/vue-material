@@ -1,13 +1,13 @@
 <template>
   <div class="md-switch" :class="classes">
-    <div class="md-switch-container" @click="toggleSwitch">
-      <div class="md-switch-thumb" :style="styles" v-md-ink-ripple="disabled">
-        <input type="checkbox" :name="name" :id="id" :disabled="disabled" :value="value">
+    <div class="md-switch-container" v-on:click="toggleSwitch">
+      <div class="md-switch-thumb" v-md-ink-ripple="disabled">
+        <input type="checkbox" :name="name" :id="id" :disabled="disabled" v-model="realValue">
         <button class="md-switch-holder"></button>
       </div>
     </div>
 
-    <label :for="id || name" class="md-switch-label" v-if="$slots.default">
+    <label :for="id || name" class="md-switch-label" v-if="$slots.default" v-on:click="toggleSwitch">
       <slot></slot>
     </label>
   </div>
@@ -16,9 +16,6 @@
 <style lang="scss" src="./mdSwitch.scss"></style>
 
 <script>
-  let fullThreshold = 75;
-  let initialThreshold = '-1px';
-
   export default {
     props: {
       name: String,
@@ -28,39 +25,30 @@
     },
     data() {
       return {
-        leftPos: initialThreshold,
-        checked: this.value
+        realValue: !!this.value
       };
     },
     computed: {
       classes() {
         return {
-          'md-checked': Boolean(this.value),
+          'md-checked': this.realValue,
           'md-disabled': this.disabled
-        };
-      },
-      styles() {
-        return {
-          transform: `translate3D(${this.leftPos}, -50%, 0)`
         };
       }
     },
     watch: {
-      checked() {
-        this.leftPos = this.value ? fullThreshold + '%' : initialThreshold;
+      value(newValue) {
+        this.realValue = newValue;
       }
     },
     methods: {
       toggleSwitch() {
         if (!this.disabled) {
-          this.checked = !this.checked;
-          this.$emit('change', this.checked);
-          this.$emit('input', this.checked);
+          this.realValue = !this.realValue;
+          this.$emit('change', this.value);
+          this.$emit('input', this.value);
         }
       }
-    },
-    mounted() {
-      this.leftPos = this.value ? fullThreshold + '%' : initialThreshold;
     }
   };
 </script>
