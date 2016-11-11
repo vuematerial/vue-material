@@ -42,6 +42,10 @@ $button-icon-size: 40px;
   &:focus {
     outline: none;
   }
+  
+  &::-moz-focus-inner {
+    border:0;
+  }
 
   &:hover {
     &:not([disabled]) {
