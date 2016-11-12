@@ -1,26 +1,12 @@
 <template>
-  <div
-    class="md-select"
-    :class="classes"
-    :tabindex="disabled ? null : '0'">
-    <span
-      class="md-select-value"
-      @click="open"
-      @keydown.enter.prevent="open"
-      ref="value">{{ value }}</span>
+  <div class="md-select" :class="classes">
+    <md-menu>
+      <span class="md-select-value" md-menu-trigger ref="value">{{ text }}</span>
 
-    <div
-      class="md-select-menu"
-      tabindex="-1"
-      ref="menu"
-      @keydown.esc.prevent="close"
-      @keydown.tab.prevent="close"
-      @keydown.up.prevent="highlightOption(highlighted - 1)"
-      @keydown.down.prevent="highlightOption(highlighted + 1)">
-      <div class="md-select-menu-container">
+      <md-menu-content class="md-select-content">
         <slot></slot>
-      </div>
-    </div>
+      </md-menu-content>
+    </md-menu>
 
     <select :name="name" :id="id" :required="required" tabindex="-1">
       <option :value="value">{{ value }}</option>
@@ -31,77 +17,53 @@
 <style lang="scss" src="./mdSelect.scss"></style>
 
 <script>
+  import getClosestVueParent from '../../core/utils/getClosestVueParent';
+
   export default {
     props: {
       name: String,
       required: Boolean,
-      value: [String, Number, Boolean],
+      value: [String, Number],
       id: String,
       disabled: Boolean
     },
     data() {
       return {
-        active: false,
-        highlighted: false,
+        text: null,
         optionsAmount: 0
       };
     },
     computed: {
       classes() {
         return {
-          'md-disabled': this.disabled,
-          'md-active': this.active
+          'md-disabled': this.disabled
         };
       }
     },
     methods: {
-      open() {
-        this.active = true;
-        document.addEventListener('click', this.closeOnOffClick);
-        this.$refs.menu.focus();
-      },
-      close() {
-        if (this.active) {
-          this.$refs.menu.blur();
-          this.active = false;
-          document.removeEventListener('click', this.closeOnOffClick);
-          this.$refs.value.focus();
+      selectOption(value, text) {
+        if (this.parentContainer) {
+          this.$parent.setValue(value);
         }
-      },
-      closeOnOffClick(event) {
-        if (!this.$el.contains(event.target)) {
-          this.close();
-        }
-      },
-      highlightOption(factor) {
-        if (factor >= 1 && factor <= this.optionsAmount) {
-          this.highlighted = factor;
-        } else {
-          this.highlighted = 1;
-        }
-      },
-      selectOption(value) {
-        this.close();
-        this.$parent.setValue(value);
+
+        this.text = text;
         this.$emit('change', value);
         this.$emit('input', value);
       }
     },
     mounted() {
-      if (!this.$parent.$el.classList.contains('md-input-container')) {
-        this.$destroy();
+      this.parentContainer = this.parentContent = getClosestVueParent(this.$parent, 'md-input-container');
 
-        throw new Error('You should wrap the md-select in a md-input-container');
+      if (this.parentContainer) {
+        this.parentContainer.setValue(this.value);
+        this.parentContainer.hasSelect = true;
       }
-
-      this.$parent.setValue(this.value);
-      this.$parent.hasSelect = true;
     },
     beforeDestroy() {
-      this.$parent.setValue(null);
-      this.$parent.hasSelect = false;
-
-      document.removeEventListener('click', this.closeOnOffClick);
+      if (this.parentContainer) {
+        this.parentContainer.setValue('');
+        this.parentContainer.hasSelect = false;
+      }
     }
   };
 </script>

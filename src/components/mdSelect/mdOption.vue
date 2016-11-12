@@ -1,20 +1,16 @@
 <template>
-  <div
+  <md-menu-item
     class="md-option"
-    :class="classes"
     @click="selectOption"
-    @mouseenter="setHighlight"
-    @keydown.enter="selectOption"
-    v-md-ink-ripple
     tabindex="-1">
-    <span>
+    <span ref="item">
       <slot></slot>
     </span>
-  </div>
+  </md-menu-item>
 </template>
 
 <script>
-  import 'element.scrollintoviewifneeded-polyfill';
+  import getClosestVueParent from '../../core/utils/getClosestVueParent';
 
   export default {
     props: {
@@ -25,49 +21,25 @@
         index: 0
       };
     },
-    computed: {
-      classes() {
-        return {
-          'md-highlighted': this.hasHighlight()
-        };
-      }
-    },
-    watch: {
-      classes() {
-        if (this.hasHighlight()) {
-          this.$el.focus();
-          this.$el.scrollIntoViewIfNeeded(false);
-        }
-      }
-    },
     methods: {
-      setHighlight() {
-        this.$parent.highlightOption(this.index);
-      },
-      hasHighlight() {
-        return this.index === this.$parent.highlighted;
-      },
       selectOption() {
-        if (this.hasHighlight()) {
-          if (this.$parent.$el.classList.contains('md-select')) {
-            this.$parent.selectOption(this.value);
-          } else {
-            this.$parent.$parent.selectOption(this.value);
-          }
+        this.parentSelect.selectOption(this.value, this.$refs.item.textContent);
+      },
+      selectIfValueMatches() {
+        if (this.value === this.parentSelect.value) {
+          this.selectOption();
         }
       }
     },
     mounted() {
-      let parentClasses = this.$parent.$el.classList;
+      this.parentSelect = getClosestVueParent(this.$parent, 'md-select');
+      this.parentContent = getClosestVueParent(this.$parent, 'md-menu-content');
 
-      if (!parentClasses.contains('md-select')) {
-        this.$destroy();
+      this.$watch(() => {
+        return this.parentSelect.value;
+      }, this.selectIfValueMatches);
 
-        throw new Error('You should wrap the md-option in a md-select');
-      }
-
-      this.$parent.optionsAmount++;
-      this.index = this.$parent.optionsAmount;
+      this.selectIfValueMatches();
     }
   };
 </script>
