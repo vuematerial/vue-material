@@ -82,6 +82,9 @@
       toggleSidenav() {
         this.$root.toggleSidenav();
       }
+    },
+    mounted() {
+      document.title = this.label + ' - Vue Material';
     }
   };
 </script>

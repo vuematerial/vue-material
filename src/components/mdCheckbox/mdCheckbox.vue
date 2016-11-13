@@ -28,15 +28,20 @@
     computed: {
       classes() {
         return {
-          'md-checked': Boolean(this.value),
+          'md-checked': Boolean(this.checked),
           'md-disabled': this.disabled
         };
+      }
+    },
+    watch: {
+      value() {
+        this.checked = this.value;
       }
     },
     methods: {
       toggleCheck() {
         if (!this.disabled) {
-          this.checked = !this.value;
+          this.checked = !this.checked;
           this.$emit('change', this.checked);
           this.$emit('input', this.checked);
         }
