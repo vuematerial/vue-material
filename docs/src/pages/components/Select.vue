@@ -196,8 +196,6 @@
     &lt;/md-select&gt;
   &lt;/md-input-container&gt;
 &lt;/div&gt;
-
-{{ users }}
         </code-block>
       </demo-example>
     </div>
