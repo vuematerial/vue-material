@@ -18,6 +18,10 @@
       mdDirection: {
         type: String,
         default: 'bottom right'
+      },
+      mdCloseOnSelect: {
+        type: Boolean,
+        default: true
       }
     },
     data() {
@@ -176,11 +180,11 @@
         window.requestAnimationFrame(this.calculateMenuContentPos);
       },
       open() {
-        if (document.body.contains(this.menuContent)) {
-          document.body.removeChild(this.menuContent);
+        if (this.$root.$el.contains(this.menuContent)) {
+          this.$root.$el.removeChild(this.menuContent);
         }
 
-        document.body.appendChild(this.menuContent);
+        this.$root.$el.appendChild(this.menuContent);
         document.addEventListener('click', this.closeOnOffClick);
         window.addEventListener('resize', this.recalculateOnResize);
 
@@ -205,7 +209,7 @@
               activeRipple.classList.remove('md-active');
             }
 
-            document.body.removeChild(menuContent);
+            this.$root.$el.removeChild(menuContent);
             document.removeEventListener('click', this.closeOnOffClick);
             window.removeEventListener('resize', this.recalculateOnResize);
           }

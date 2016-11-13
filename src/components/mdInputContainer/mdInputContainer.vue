@@ -32,12 +32,19 @@
       };
     },
     computed: {
+      hasValue() {
+        if (this.value.constructor === Array) {
+          return this.value.length > 0;
+        }
+
+        return Boolean(this.value);
+      },
       classes() {
         return {
           'md-input-inline': this.mdInline,
           'md-has-password': this.mdHasPassword,
           'md-has-select': this.mdHasSelect,
-          'md-has-value': Boolean(this.value)
+          'md-has-value': this.hasValue
         };
       }
     },
