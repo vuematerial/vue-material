@@ -51,7 +51,7 @@
         <md-button class="md-raised md-primary" @click="setPulpFiction">Set Pulp Fiction</md-button>
       </demo-example>
 
-      <demo-example label="Groups" height="350">
+      <demo-example label="Groups &amp; Multiple" height="350">
         <div class="field-group">
           <md-input-container>
             <label for="food">Food</label>
@@ -71,11 +71,7 @@
               <md-option value="chocolate_cake">Chocolate Cake</md-option>
             </md-select>
           </md-input-container>
-        </div>
-      </demo-example>
 
-      <demo-example label="Multiple" height="350">
-        <div class="field-group">
           <md-input-container>
             <label for="users">Users</label>
             <md-select name="users" id="users" multiple v-model="users">
@@ -111,44 +107,44 @@
   &lt;md-input-container&gt;
     &lt;label for=&quot;movie&quot;&gt;Movie&lt;/label&gt;
     &lt;md-select name=&quot;movie&quot; id=&quot;movie&quot; v-model=&quot;movie&quot;&gt;
-      &lt;md-option value=&quot;Fight Club&quot;&gt;Fight Club&lt;/md-option&gt;
-      &lt;md-option value=&quot;Godfather II&quot;&gt;Godfather II&lt;/md-option&gt;
-      &lt;md-option value=&quot;Godfather III&quot;&gt;Godfather III&lt;/md-option&gt;
-      &lt;md-option value=&quot;Godfather&quot;&gt;Godfather&lt;/md-option&gt;
-      &lt;md-option value=&quot;Godfellas&quot;&gt;Godfellas&lt;/md-option&gt;
-      &lt;md-option value=&quot;Pulp Fiction&quot;&gt;Pulp Fiction&lt;/md-option&gt;
-      &lt;md-option value=&quot;Scarface&quot;&gt;Scarface&lt;/md-option&gt;
+      &lt;md-option value=&quot;fight_club&quot;&gt;Fight Club&lt;/md-option&gt;
+      &lt;md-option value=&quot;godfather&quot;&gt;Godfather&lt;/md-option&gt;
+      &lt;md-option value=&quot;godfather_ii&quot;&gt;Godfather II&lt;/md-option&gt;
+      &lt;md-option value=&quot;godfather_iii&quot;&gt;Godfather III&lt;/md-option&gt;
+      &lt;md-option value=&quot;godfellas&quot;&gt;Godfellas&lt;/md-option&gt;
+      &lt;md-option value=&quot;pulp_fiction&quot;&gt;Pulp Fiction&lt;/md-option&gt;
+      &lt;md-option value=&quot;scarface&quot;&gt;Scarface&lt;/md-option&gt;
     &lt;/md-select&gt;
   &lt;/md-input-container&gt;
 
   &lt;md-input-container&gt;
     &lt;label for=&quot;country&quot;&gt;Country&lt;/label&gt;
     &lt;md-select name=&quot;country&quot; id=&quot;country&quot; v-model=&quot;country&quot;&gt;
-      &lt;md-option value=&quot;Australia&quot;&gt;Australia&lt;/md-option&gt;
-      &lt;md-option value=&quot;Brazil&quot;&gt;Brazil&lt;/md-option&gt;
-      &lt;md-option value=&quot;Japan&quot;&gt;Japan&lt;/md-option&gt;
-      &lt;md-option value=&quot;United States&quot;&gt;United States&lt;/md-option&gt;
+      &lt;md-option value=&quot;australia&quot;&gt;Australia&lt;/md-option&gt;
+      &lt;md-option value=&quot;brazil&quot;&gt;Brazil&lt;/md-option&gt;
+      &lt;md-option value=&quot;japan&quot;&gt;Japan&lt;/md-option&gt;
+      &lt;md-option value=&quot;united_states&quot;&gt;United States&lt;/md-option&gt;
     &lt;/md-select&gt;
   &lt;/md-input-container&gt;
 
   &lt;md-input-container&gt;
     &lt;label for=&quot;font&quot;&gt;Font&lt;/label&gt;
     &lt;md-select name=&quot;font&quot; id=&quot;font&quot; v-model=&quot;font&quot;&gt;
-      &lt;md-option value=&quot;Arial&quot;&gt;Arial&lt;/md-option&gt;
-      &lt;md-option value=&quot;Calibri&quot;&gt;Calibri&lt;/md-option&gt;
-      &lt;md-option value=&quot;Cambria&quot;&gt;Cambria&lt;/md-option&gt;
-      &lt;md-option value=&quot;Comic Sans&quot;&gt;Comic Sans&lt;/md-option&gt;
-      &lt;md-option value=&quot;Consolas&quot;&gt;Consolas&lt;/md-option&gt;
-      &lt;md-option value=&quot;Courier&quot;&gt;Courier&lt;/md-option&gt;
-      &lt;md-option value=&quot;Droid Sans&quot;&gt;Droid Sans&lt;/md-option&gt;
-      &lt;md-option value=&quot;Georgia&quot;&gt;Georgia&lt;/md-option&gt;
-      &lt;md-option value=&quot;Helvetica&quot;&gt;Helvetica&lt;/md-option&gt;
-      &lt;md-option value=&quot;Impact&quot;&gt;Impact&lt;/md-option&gt;
-      &lt;md-option value=&quot;Roboto&quot;&gt;Roboto&lt;/md-option&gt;
-      &lt;md-option value=&quot;Segoe UI&quot;&gt;Segoe UI&lt;/md-option&gt;
-      &lt;md-option value=&quot;Times New Roman&quot;&gt;Times New Roman&lt;/md-option&gt;
-      &lt;md-option value=&quot;Ubuntu&quot;&gt;Ubuntu&lt;/md-option&gt;
-      &lt;md-option value=&quot;Verdana&quot;&gt;Verdana&lt;/md-option&gt;
+      &lt;md-option value=&quot;arial&quot;&gt;Arial&lt;/md-option&gt;
+      &lt;md-option value=&quot;calibri&quot;&gt;Calibri&lt;/md-option&gt;
+      &lt;md-option value=&quot;cambria&quot;&gt;Cambria&lt;/md-option&gt;
+      &lt;md-option value=&quot;comic_sans&quot;&gt;Comic Sans&lt;/md-option&gt;
+      &lt;md-option value=&quot;consolas&quot;&gt;Consolas&lt;/md-option&gt;
+      &lt;md-option value=&quot;courier&quot;&gt;Courier&lt;/md-option&gt;
+      &lt;md-option value=&quot;droid_sans&quot;&gt;Droid Sans&lt;/md-option&gt;
+      &lt;md-option value=&quot;georgia&quot;&gt;Georgia&lt;/md-option&gt;
+      &lt;md-option value=&quot;helvetica&quot;&gt;Helvetica&lt;/md-option&gt;
+      &lt;md-option value=&quot;impact&quot;&gt;Impact&lt;/md-option&gt;
+      &lt;md-option value=&quot;roboto&quot;&gt;Roboto&lt;/md-option&gt;
+      &lt;md-option value=&quot;segoe_ui&quot;&gt;Segoe UI&lt;/md-option&gt;
+      &lt;md-option value=&quot;times_new_roman&quot;&gt;Times New Roman&lt;/md-option&gt;
+      &lt;md-option value=&quot;ubuntu&quot;&gt;Ubuntu&lt;/md-option&gt;
+      &lt;md-option value=&quot;verdana&quot;&gt;Verdana&lt;/md-option&gt;
     &lt;/md-select&gt;
   &lt;/md-input-container&gt;
 &lt;/div&gt;
@@ -162,18 +158,41 @@
     &lt;label for=&quot;food&quot;&gt;Food&lt;/label&gt;
     &lt;md-select name=&quot;food&quot; id=&quot;food&quot; v-model=&quot;food&quot;&gt;
       &lt;md-subheader&gt;Fruits&lt;/md-subheader&gt;
-      &lt;md-option value=&quot;Apples&quot;&gt;Apples&lt;/md-option&gt;
-      &lt;md-option value=&quot;Bananas&quot;&gt;Bananas&lt;/md-option&gt;
-      &lt;md-option value=&quot;Peaches&quot;&gt;Peaches&lt;/md-option&gt;
-      &lt;md-option value=&quot;Oranges&quot;&gt;Oranges&lt;/md-option&gt;
+      &lt;md-option value=&quot;apples&quot;&gt;Apples&lt;/md-option&gt;
+      &lt;md-option value=&quot;bananas&quot;&gt;Bananas&lt;/md-option&gt;
+      &lt;md-option value=&quot;peaches&quot;&gt;Peaches&lt;/md-option&gt;
+      &lt;md-option value=&quot;oranges&quot;&gt;Oranges&lt;/md-option&gt;
 
       &lt;md-subheader&gt;Vegetables&lt;/md-subheader&gt;
-      &lt;md-option value=&quot;Carrots&quot;&gt;Carrots&lt;/md-option&gt;
-      &lt;md-option value=&quot;Cucumbers&quot;&gt;Cucumbers&lt;/md-option&gt;
+      &lt;md-option value=&quot;carrots&quot;&gt;Carrots&lt;/md-option&gt;
+      &lt;md-option value=&quot;cucumbers&quot;&gt;Cucumbers&lt;/md-option&gt;
 
       &lt;md-subheader&gt;Baked Goods&lt;/md-subheader&gt;
-      &lt;md-option value=&quot;Apple Pie&quot;&gt;Apple Pie&lt;/md-option&gt;
-      &lt;md-option value=&quot;Chocolate Cake&quot;&gt;Chocolate Cake&lt;/md-option&gt;
+      &lt;md-option value=&quot;apple_pie&quot;&gt;Apple Pie&lt;/md-option&gt;
+      &lt;md-option value=&quot;chocolate_cake&quot;&gt;Chocolate Cake&lt;/md-option&gt;
+    &lt;/md-select&gt;
+  &lt;/md-input-container&gt;
+
+  &lt;md-input-container&gt;
+    &lt;label for=&quot;users&quot;&gt;Users&lt;/label&gt;
+    &lt;md-select name=&quot;users&quot; id=&quot;users&quot; multiple v-model=&quot;users&quot;&gt;
+      &lt;md-subheader&gt;Managers&lt;/md-subheader&gt;
+      &lt;md-option value=&quot;jim_halpert&quot;&gt;Jim Halpert&lt;/md-option&gt;
+      &lt;md-option value=&quot;dwight_schrute&quot;&gt;Dwight Schrute&lt;/md-option&gt;
+      &lt;md-option value=&quot;michael_scott&quot;&gt;Michael Scott&lt;/md-option&gt;
+
+      &lt;md-subheader&gt;Employees&lt;/md-subheader&gt;
+      &lt;md-option value=&quot;pam_beesly&quot;&gt;Pam Beesly&lt;/md-option&gt;
+      &lt;md-option value=&quot;angela_martin&quot;&gt;Angela Martin&lt;/md-option&gt;
+      &lt;md-option value=&quot;kelly_kapoor&quot;&gt;Kelly Kapoor&lt;/md-option&gt;
+      &lt;md-option value=&quot;ryan_howard&quot;&gt;Ryan Howard&lt;/md-option&gt;
+      &lt;md-option value=&quot;kevin_malone&quot;&gt;Kevin Malone&lt;/md-option&gt;
+      &lt;md-option value=&quot;creed_bratton&quot;&gt;Creed Bratton&lt;/md-option&gt;
+      &lt;md-option value=&quot;oscar_nunez&quot;&gt;Oscar Nunez&lt;/md-option&gt;
+      &lt;md-option value=&quot;toby_flenderson&quot;&gt;Toby Flenderson&lt;/md-option&gt;
+      &lt;md-option value=&quot;stanley_hudson&quot;&gt;Stanley Hudson&lt;/md-option&gt;
+      &lt;md-option value=&quot;meredith_palmer&quot;&gt;Meredith Palmer&lt;/md-option&gt;
+      &lt;md-option value=&quot;phyllis_lapin_vance&quot;&gt;Phyllis Lapin-Vance&lt;/md-option&gt;
     &lt;/md-select&gt;
   &lt;/md-input-container&gt;
 &lt;/div&gt;
