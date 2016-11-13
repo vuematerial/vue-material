@@ -1,0 +1,94 @@
+@import '../../core/stylesheets/variables.scss';
+
+$menu-base-width: 56px;
+
+.md-menu {
+  display: inline-block;
+}
+
+.md-menu-content {
+  width: $menu-base-width * 3;
+  min-width: $menu-base-width * 1.5;
+  max-width: $menu-base-width * 7;
+  min-height: 64px;
+  max-height: calc(100vh - 32px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: fixed;
+  z-index: 120;
+  background-color: #fff;
+  border-radius: 2px;
+  filter: drop-shadow(0 1px 1px rgba(#000, $shadow-key-umbra-opacity)) drop-shadow(0 2px 2px rgba(#000, $shadow-key-penumbra-opacity)) drop-shadow(0 1px 1px rgba(#000, $shadow-ambient-shadow-opacity));
+  opacity: 0;
+  transition: width $swift-ease-out-duration $swift-ease-out-timing-function,
+              opacity .25s $swift-ease-in-timing-function,
+              clip-path .17s .08s $swift-ease-in-timing-function;
+  color: rgba(#212121, .87);
+
+  &.md-direction-bottom-right {
+    margin-top: -11px;
+    margin-left: -8px;
+    clip-path: inset(-8px 10% 16% -8px);
+  }
+
+  &.md-direction-bottom-left {
+    margin-top: -11px;
+    margin-left: 8px;
+    clip-path: inset(-8px -8px 16% 10%);
+  }
+
+  &.md-direction-top-right {
+    margin-top: 11px;
+    margin-left: -8px;
+    clip-path: inset(-8px 16% -8px 10%);
+  }
+
+  &.md-direction-top-left {
+    margin-top: 11px;
+    margin-left: 8px;
+    clip-path: inset(16% -8px -8px 10%);
+  }
+
+  &.md-size-1 {
+    width: $menu-base-width * 1.5;
+  }
+
+  @for $i from 2 through 7 {
+    &.md-size-#{$i} {
+      width: $menu-base-width * $i;
+    }
+  }
+
+  &.md-active {
+    pointer-events: auto;
+    opacity: 1;
+    clip-path: inset(-8px -8px -8px -8px);
+    transition: width $swift-ease-out-duration $swift-ease-out-timing-function,
+                opacity .4s $swift-ease-out-timing-function,
+                clip-path .27s .08s $swift-ease-out-timing-function;
+  }
+}
+
+.md-menu-item {
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1.2em;
+
+  &:hover,
+  &:focus,
+  &.md-highlighted {
+    .md-button:not([disabled]) {
+      background-color: rgba(#000, .12);
+    }
+  }
+
+  &[disabled] {
+    cursor: default;
+    color: rgba(#000, .38);
+  }
+
+  .md-list-item-holder {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

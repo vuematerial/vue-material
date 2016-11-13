@@ -2,7 +2,8 @@
   export default {
     props: {
       href: String,
-      target: String
+      target: String,
+      disabled: Boolean
     },
     render(createElement) {
       let containerClass = 'md-button md-list-item-container';
@@ -118,7 +119,8 @@
         staticClass: containerClass,
         attrs: {
           target: this.target,
-          href: this.href
+          href: this.href,
+          disabled: this.disabled
         }
       }, [createItemHolder(slot)]);
 

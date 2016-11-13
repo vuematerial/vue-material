@@ -9,6 +9,7 @@ import mdDivider from './components/mdDivider';
 import mdIcon from './components/mdIcon';
 import mdInputContainer from './components/mdInputContainer';
 import mdList from './components/mdList';
+import mdMenu from './components/mdMenu';
 import mdRadio from './components/mdRadio';
 import mdSelect from './components/mdSelect';
 import mdSidenav from './components/mdSidenav';
@@ -32,6 +33,7 @@ let options = {
   mdIcon,
   mdInputContainer,
   mdList,
+  mdMenu,
   mdRadio,
   mdSelect,
   mdSidenav,

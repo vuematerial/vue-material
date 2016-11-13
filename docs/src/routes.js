@@ -15,6 +15,7 @@ import Checkbox from './pages/components/Checkbox';
 import Icon from './pages/components/Icon';
 import Input from './pages/components/Input';
 import List from './pages/components/List';
+import Menu from './pages/components/Menu';
 import Radio from './pages/components/Radio';
 import Ripple from './pages/components/Ripple';
 import Select from './pages/components/Select';
@@ -108,6 +109,11 @@ const components = [
     path: '/components/list',
     name: 'components:list',
     component: List
+  },
+  {
+    path: '/components/menu',
+    name: 'components:menu',
+    component: Menu
   },
   {
     path: '/components/radio',

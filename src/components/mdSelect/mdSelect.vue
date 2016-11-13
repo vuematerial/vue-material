@@ -1,26 +1,12 @@
 <template>
-  <div
-    class="md-select"
-    :class="classes"
-    :tabindex="disabled ? null : '0'">
-    <span
-      class="md-select-value"
-      @click="open"
-      @keydown.enter.prevent="open"
-      ref="value">{{ value || placeholder }}</span>
+  <div class="md-select" :class="classes">
+    <md-menu :md-close-on-select="!multiple">
+      <span class="md-select-value" md-menu-trigger ref="value">{{ selectedValue || multiplevalue }}</span>
 
-    <div
-      class="md-select-menu"
-      tabindex="-1"
-      ref="menu"
-      @keydown.esc.prevent="close"
-      @keydown.tab.prevent="close"
-      @keydown.up.prevent="highlightOption(highlighted - 1)"
-      @keydown.down.prevent="highlightOption(highlighted + 1)">
-      <div class="md-select-menu-container">
+      <md-menu-content class="md-select-content" :class="contentClasses">
         <slot></slot>
-      </div>
-    </div>
+      </md-menu-content>
+    </md-menu>
 
     <select :name="name" :id="id" :required="required" tabindex="-1">
       <option :value="value">{{ value }}</option>
@@ -31,81 +17,83 @@
 <style lang="scss" src="./mdSelect.scss"></style>
 
 <script>
+  import getClosestVueParent from '../../core/utils/getClosestVueParent';
+
   export default {
     props: {
       name: String,
       required: Boolean,
-      placeholder: [String, Number],
-      value: [String, Number, Boolean],
+      multiple: Boolean,
+      value: [String, Number, Array],
       id: String,
       disabled: Boolean
     },
     data() {
       return {
-        active: false,
-        highlighted: false,
+        selectedValue: null,
+        multiplevalue: null,
+        options: {},
         optionsAmount: 0
       };
     },
     computed: {
       classes() {
         return {
-          'md-disabled': this.disabled,
-          'md-active': this.active
+          'md-disabled': this.disabled
+        };
+      },
+      contentClasses() {
+        return {
+          'md-multiple': this.multiple
         };
       }
     },
     methods: {
-      open() {
-        this.active = true;
-        document.addEventListener('click', this.closeOnOffClick);
-        this.$refs.menu.focus();
-      },
-      close() {
-        if (this.active) {
-          this.$refs.menu.blur();
-          this.active = false;
-          document.removeEventListener('click', this.closeOnOffClick);
-          this.$refs.value.focus();
-        }
-      },
-      closeOnOffClick(event) {
-        if (!this.$el.contains(event.target)) {
-          this.close();
-        }
-      },
-      highlightOption(factor) {
-        if (factor >= 1 && factor <= this.optionsAmount) {
-          this.highlighted = factor;
-        } else {
-          this.highlighted = 1;
-        }
-      },
-      selectOption(value) {
-        this.close();
+      changeValue(value, parentValue) {
         this.$emit('change', value);
         this.$emit('input', value);
 
-        if (this.isInsideContainer) {
-          this.$parent.setValue(value);
+        if (this.parentContainer) {
+          this.$parent.setValue(parentValue || value);
         }
+      },
+      selectMultiple(index, value, text) {
+        let output = [];
+        let values = [];
+
+        this.options[index] = {
+          value,
+          text
+        };
+
+        for (var key in this.options) {
+          if (this.options.hasOwnProperty(key) && this.options[key].text) {
+            output.push(this.options[key].text);
+            values.push(this.options[key].value);
+          }
+        }
+
+        this.multiplevalue = output.join(', ');
+        this.changeValue(values, this.multiplevalue);
+      },
+      selectOption(value, text) {
+        this.selectedValue = text;
+        this.changeValue(value);
       }
     },
     mounted() {
-      this.isInsideContainer = this.$parent.$el.classList.contains('md-input-container');
+      this.parentContainer = this.parentContent = getClosestVueParent(this.$parent, 'md-input-container');
 
-      if (this.isInsideContainer) {
-        this.$parent.setValue(this.value);
-        this.$parent.hasSelect = true;
+      if (this.parentContainer) {
+        this.parentContainer.setValue(this.value);
+        this.parentContainer.hasSelect = true;
       }
     },
     beforeDestroy() {
-      if (this.isInsideContainer) {
-        this.$parent.setValue(null);
-        this.$parent.hasSelect = false;
+      if (this.parentContainer) {
+        this.parentContainer.setValue('');
+        this.parentContainer.hasSelect = false;
       }
-
-      document.removeEventListener('click', this.closeOnOffClick);
     }
   };
 </script>

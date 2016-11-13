@@ -14,20 +14,20 @@
       let options = {
         staticClass: 'md-button',
         attrs: {
-          type: hasLink || 'button',
+          type: this.type || 'button',
           disabled: isDisabled
         },
-        directives: [{
-          name: 'md-ink-ripple',
-          value: isDisabled,
-          expression: 'disabled'
-        }],
         on: {
           click: () => {
             this.$emit('click');
           }
         }
       };
+      let ripple = createElement('md-ink-ripple', {
+        attrs: {
+          mdDisabled: isDisabled
+        }
+      });
 
       if (hasLink) {
         tag = 'a';
@@ -35,7 +35,7 @@
         delete options.attrs.type;
       }
 
-      return createElement(tag, options, this.$slots.default);
+      return createElement(tag, options, [...this.$slots.default, ripple]);
     }
   };
 </script>
