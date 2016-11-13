@@ -1,6 +1,11 @@
 .THEME_NAME {
-  .md-select,
-  &.md-select {
-
+  .md-select-content,
+  &.md-select-content {
+    .md-menu-item {
+      &.md-selected,
+      &.md-checked {
+        color: #{'PRIMARY-COLOR'};
+      }
+    }
   }
 }
