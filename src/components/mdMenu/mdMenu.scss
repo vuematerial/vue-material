@@ -22,7 +22,7 @@ $menu-base-width: 56px;
   opacity: 0;
   transition: width $swift-ease-out-duration $swift-ease-out-timing-function,
               opacity .25s $swift-ease-in-timing-function,
-              clip-path .1s .073s $swift-ease-in-timing-function;
+              clip-path .17s .08s $swift-ease-in-timing-function;
   color: rgba(#212121, .87);
 
   &.md-direction-bottom-right {
@@ -64,8 +64,8 @@ $menu-base-width: 56px;
     opacity: 1;
     clip-path: inset(-8px -8px -8px -8px);
     transition: width $swift-ease-out-duration $swift-ease-out-timing-function,
-                opacity .3s $swift-ease-out-timing-function,
-                clip-path .2s .073s $swift-ease-out-timing-function;
+                opacity .4s $swift-ease-out-timing-function,
+                clip-path .27s .08s $swift-ease-out-timing-function;
   }
 }
 

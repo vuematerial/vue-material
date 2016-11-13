@@ -19,19 +19,9 @@
       mdDisabled: Boolean,
       mdHasPassword: Boolean
     },
-    computed: {
-      classes() {
-        return {
-          'md-input-inline': this.mdInline,
-          'md-has-password': this.mdHasPassword,
-          'md-has-select': this.mdHasSelect,
-          'md-has-value': Boolean(this.value)
-        };
-      }
-    },
     data() {
       return {
-        value: null,
+        value: '',
         input: false,
         inputType: false,
         showPassword: false,
@@ -41,12 +31,27 @@
         inputLength: 0
       };
     },
+    computed: {
+      hasValue() {
+        if (this.value.constructor === Array) {
+          return this.value.length > 0;
+        }
+
+        return Boolean(this.value);
+      },
+      classes() {
+        return {
+          'md-input-inline': this.mdInline,
+          'md-has-password': this.mdHasPassword,
+          'md-has-select': this.mdHasSelect,
+          'md-has-value': this.hasValue
+        };
+      }
+    },
     methods: {
       togglePasswordType() {
         if (this.input.tagName.toLowerCase() === 'input') {
-          let type = this.input.type;
-
-          if (type === 'password') {
+          if (this.inputType === 'password') {
             this.input.type = 'text';
             this.showPassword = true;
           } else {
