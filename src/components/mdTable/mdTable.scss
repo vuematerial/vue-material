@@ -332,8 +332,9 @@
   }
 }
 
-
 .md-table-card {
+  overflow: visible;
+
   .md-toolbar {
     padding-left: 16px;
     background-color: #fff;
