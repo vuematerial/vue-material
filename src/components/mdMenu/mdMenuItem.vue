@@ -53,13 +53,17 @@
     methods: {
       close() {
         if (!this.disabled) {
+          if (this.parentMenu.mdCloseOnSelect) {
+            this.parentContent.close();
+          }
+
           this.$emit('click');
-          this.parentContent.close();
         }
       }
     },
     mounted() {
       this.parentContent = getClosestVueParent(this.$parent, 'md-menu-content');
+      this.parentMenu = getClosestVueParent(this.$parent, 'md-menu');
 
       if (!this.parentContent) {
         this.$destroy();

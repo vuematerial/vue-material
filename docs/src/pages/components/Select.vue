@@ -73,6 +73,35 @@
           </md-input-container>
         </div>
       </demo-example>
+
+      <demo-example label="Multiple" height="350">
+        <div class="field-group">
+          <md-input-container>
+            <label for="users">Users</label>
+            <md-select name="users" id="users" multiple v-model="users">
+              <md-subheader>Managers</md-subheader>
+              <md-option value="jim_halpert">Jim Halpert</md-option>
+              <md-option value="dwight_schrute">Dwight Schrute</md-option>
+              <md-option value="michael_scott">Michael Scott</md-option>
+
+              <md-subheader>Employees</md-subheader>
+              <md-option value="pam_beesly">Pam Beesly</md-option>
+              <md-option value="angela_martin">Angela Martin</md-option>
+              <md-option value="kelly_kapoor">Kelly Kapoor</md-option>
+              <md-option value="ryan_howard">Ryan Howard</md-option>
+              <md-option value="kevin_malone">Kevin Malone</md-option>
+              <md-option value="creed_bratton">Creed Bratton</md-option>
+              <md-option value="oscar_nunez">Oscar Nunez</md-option>
+              <md-option value="toby_flenderson">Toby Flenderson</md-option>
+              <md-option value="stanley_hudson">Stanley Hudson</md-option>
+              <md-option value="meredith_palmer">Meredith Palmer</md-option>
+              <md-option value="phyllis_lapin_vance">Phyllis Lapin-Vance</md-option>
+            </md-select>
+          </md-input-container>
+        </div>
+
+        {{ users }}
+      </demo-example>
     </div>
 
     <div slot="code">
@@ -174,7 +203,8 @@
       movie: 'godfather',
       country: '',
       font: '',
-      food: ''
+      food: '',
+      users: []
     }),
     methods: {
       setPulpFiction() {

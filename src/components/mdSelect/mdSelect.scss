@@ -120,6 +120,7 @@
 }
 
 .md-select-content {
+  width: auto;
   max-height: 256px;
 
   &.md-direction-bottom-right {
@@ -140,5 +141,20 @@
   &.md-direction-top-left {
     margin-top: 15px;
     margin-left: 16px;
+  }
+
+  .md-menu-item .md-list-item-holder {
+    overflow: visible;
+    justify-content: flex-start;
+  }
+
+  &.md-multiple {
+    .md-checkbox {
+      margin: 0;
+    }
+
+    .md-checkbox-label {
+      padding-left: 16px;
+    }
   }
 }

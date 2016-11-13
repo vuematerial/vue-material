@@ -1,9 +1,9 @@
 <template>
   <div class="md-select" :class="classes">
-    <md-menu>
-      <span class="md-select-value" md-menu-trigger ref="value">{{ text }}</span>
+    <md-menu :md-close-on-select="!multiple">
+      <span class="md-select-value" md-menu-trigger ref="value">{{ selectedValue || multiplevalue }}</span>
 
-      <md-menu-content class="md-select-content">
+      <md-menu-content class="md-select-content" :class="contentClasses">
         <slot></slot>
       </md-menu-content>
     </md-menu>
@@ -23,13 +23,16 @@
     props: {
       name: String,
       required: Boolean,
-      value: [String, Number],
+      multiple: Boolean,
+      value: [String, Number, Array],
       id: String,
       disabled: Boolean
     },
     data() {
       return {
-        text: null,
+        selectedValue: null,
+        multiplevalue: null,
+        options: {},
         optionsAmount: 0
       };
     },
@@ -38,17 +41,44 @@
         return {
           'md-disabled': this.disabled
         };
+      },
+      contentClasses() {
+        return {
+          'md-multiple': this.multiple
+        };
       }
     },
     methods: {
-      selectOption(value, text) {
-        if (this.parentContainer) {
-          this.$parent.setValue(value);
-        }
-
-        this.text = text;
+      changeValue(value, parentValue) {
         this.$emit('change', value);
         this.$emit('input', value);
+
+        if (this.parentContainer) {
+          this.$parent.setValue(parentValue || value);
+        }
+      },
+      selectMultiple(index, value, text) {
+        let output = [];
+        let values = [];
+
+        this.options[index] = {
+          value,
+          text
+        };
+
+        for (var key in this.options) {
+          if (this.options.hasOwnProperty(key) && this.options[key].text) {
+            output.push(this.options[key].text);
+            values.push(this.options[key].value);
+          }
+        }
+
+        this.multiplevalue = output.join(', ');
+        this.changeValue(values, this.multiplevalue);
+      },
+      selectOption(value, text) {
+        this.selectedValue = text;
+        this.changeValue(value);
       }
     },
     mounted() {

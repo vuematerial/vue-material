@@ -3,7 +3,13 @@
     class="md-option"
     @click="selectOption"
     tabindex="-1">
-    <span ref="item">
+    <md-checkbox v-model="check" v-if="parentSelect.multiple">
+      <span ref="item">
+        <slot></slot>
+      </span>
+    </md-checkbox>
+
+    <span ref="item" v-else>
       <slot></slot>
     </span>
   </md-menu-item>
@@ -16,14 +22,18 @@
     props: {
       value: [String, Boolean, Number]
     },
-    data() {
-      return {
-        index: 0
-      };
-    },
+    data: () => ({
+      parentSelect: {},
+      check: false,
+      index: 0
+    }),
     methods: {
       selectOption() {
-        this.parentSelect.selectOption(this.value, this.$refs.item.textContent);
+        if (!this.parentSelect.multiple) {
+          this.parentSelect.selectOption(this.value, this.$refs.item.textContent);
+        } else {
+          this.check = !this.check;
+        }
       },
       selectIfValueMatches() {
         if (this.value === this.parentSelect.value) {
@@ -31,9 +41,27 @@
         }
       }
     },
+    watch: {
+      check(check) {
+        if (check) {
+          this.parentSelect.selectMultiple(this.index, this.value, this.$refs.item.textContent);
+        } else {
+          this.parentSelect.selectMultiple(this.index);
+        }
+      }
+    },
     mounted() {
       this.parentSelect = getClosestVueParent(this.$parent, 'md-select');
       this.parentContent = getClosestVueParent(this.$parent, 'md-menu-content');
+
+      if (!this.parentSelect) {
+        throw new Error('You must wrap the md-option in a md-select');
+      }
+
+      this.parentSelect.optionsAmount++;
+      this.index = this.parentSelect.optionsAmount;
+
+      this.parentSelect.options[this.index] = {};
 
       this.$watch(() => {
         return this.parentSelect.value;
