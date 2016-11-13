@@ -1,9 +1,10 @@
 <template>
   <md-menu-item
     class="md-option"
+    :class="classes"
     @click="selectOption"
     tabindex="-1">
-    <md-checkbox v-model="check" v-if="parentSelect.multiple">
+    <md-checkbox class="md-primary" v-model="check" v-if="parentSelect.multiple">
       <span ref="item">
         <slot></slot>
       </span>
@@ -27,6 +28,17 @@
       check: false,
       index: 0
     }),
+    computed: {
+      isSelected() {
+        return this.value === this.parentSelect.value;
+      },
+      classes() {
+        return {
+          'md-selected': this.isSelected,
+          'md-checked': this.check
+        };
+      }
+    },
     methods: {
       selectOption() {
         if (!this.parentSelect.multiple) {
@@ -36,7 +48,7 @@
         }
       },
       selectIfValueMatches() {
-        if (this.value === this.parentSelect.value) {
+        if (this.isSelected) {
           this.selectOption();
         }
       }
