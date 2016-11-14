@@ -1,7 +1,7 @@
 <template>
   <tr class="md-table-row" :class="classes" @click="autoSelect">
-    <md-table-cell class="md-table-selection" v-if="$parent.mdRowSelection">
-      <md-checkbox v-model="checkbox" @change="select"></md-checkbox>
+    <md-table-cell class="md-table-selection" v-if="hasSelection">
+      <md-checkbox v-model="checkbox" :disabled="isDisabled" @change="select"></md-checkbox>
     </md-table-cell>
 
     <slot></slot>
@@ -9,19 +9,31 @@
 </template>
 
 <script>
+  import getClosestVueParent from '../../core/utils/getClosestVueParent';
+
   const transitionClass = 'md-transition-off';
 
   export default {
     props: {
-      mdAutoSelect: Boolean
+      mdAutoSelect: Boolean,
+      mdSelection: Boolean,
+      mdItem: Object
     },
     data() {
       return {
+        parentTable: {},
+        headRow: false,
         checkbox: false,
         index: 0
       };
     },
     computed: {
+      isDisabled() {
+        return !this.mdSelection && !this.headRow;
+      },
+      hasSelection() {
+        return this.mdSelection || this.headRow && this.parentTable.hasRowSelection;
+      },
       classes() {
         return {
           'md-selected': this.checkbox
@@ -31,58 +43,78 @@
     methods: {
       setSelectedRow(value, index) {
         if (value) {
-          this.$parent.selectedRows[index] = value;
-          ++this.$parent.numberOfSelected;
+          this.parentTable.selectedRows[index] = this.parentTable.data[index];
+          ++this.parentTable.numberOfSelected;
         } else {
-          delete this.$parent.selectedRows[index];
-          --this.$parent.numberOfSelected;
+          delete this.parentTable.selectedRows[index];
+          --this.parentTable.numberOfSelected;
         }
       },
       handleSingleSelection(value) {
-        this.setSelectedRow(value, this.index);
-        this.$parent.$children[0].checkbox = this.$parent.numberOfSelected === this.$parent.numberOfRows;
+        this.setSelectedRow(value, this.index - 1);
+        this.parentTable.$children[0].checkbox = this.parentTable.numberOfSelected === this.parentTable.numberOfRows;
       },
       handleMultipleSelection(value) {
-        if (this.$parent.numberOfRows > 25) {
-          this.$parent.$el.classList.add(transitionClass);
+        if (this.parentTable.numberOfRows > 25) {
+          this.parentTable.$el.classList.add(transitionClass);
         }
 
-        this.$parent.$children.forEach((row) => {
+        this.parentTable.$children.forEach((row, index) => {
           row.checkbox = value;
+
+          if (!row.headRow) {
+            this.setSelectedRow(value, index - 1);
+          }
         });
 
         if (value) {
-          /*this.$parent.selectedRows = {}; //and so on, this can be lazly created the first time or on component boot*/
-          this.$parent.numberOfSelected = this.$parent.numberOfRows;
+          this.parentTable.numberOfSelected = this.parentTable.numberOfRows;
         } else {
-          /*this.$parent.selectedRows = {};*/
-          this.$parent.numberOfSelected = 0;
+          this.parentTable.numberOfSelected = 0;
         }
 
-        window.setTimeout(() => this.$parent.$el.classList.remove(transitionClass));
+        window.setTimeout(() => this.parentTable.$el.classList.remove(transitionClass));
       },
       select(value) {
-        if (this.$parent.mdRowSelection) {
+        if (this.hasSelection) {
           if (this.headRow) {
             this.handleMultipleSelection(value);
           } else {
             this.handleSingleSelection(value);
           }
+
+          this.parentTable.emitSelection();
         }
       },
       autoSelect() {
-        if (this.mdAutoSelect) {
+        if (this.mdAutoSelect && this.hasSelection) {
           this.checkbox = !this.checkbox;
           this.handleSingleSelection(this.checkbox);
+          this.parentTable.emitSelection();
         }
       }
     },
+    watch: {
+      data() {
+        this.parentTable.data[this.index] = this.item;
+      }
+    },
     mounted() {
+      this.parentTable = getClosestVueParent(this.$parent, 'md-table');
+
       if (this.$el.parentNode.tagName.toLowerCase() === 'thead') {
         this.headRow = true;
       } else {
-        this.$parent.numberOfRows++;
-        this.index = this.$parent.numberOfRows;
+        this.parentTable.numberOfRows++;
+        this.index = this.parentTable.numberOfRows;
+
+        if (this.mdSelection) {
+          this.parentTable.hasRowSelection = true;
+        }
+
+        if (this.mdItem) {
+          this.parentTable.data.push(this.mdItem);
+        }
       }
     }
   };

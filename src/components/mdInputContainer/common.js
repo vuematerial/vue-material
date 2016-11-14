@@ -1,10 +1,10 @@
 export default {
   props: {
-    value: [String, Number],
+    value: String,
     disabled: Boolean,
     required: Boolean,
-    maxlength: [String, Number],
-    placeholder: [String, Number]
+    maxlength: [Number, String],
+    placeholder: String
   },
   watch: {
     value() {

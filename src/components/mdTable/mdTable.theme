@@ -1,6 +1,7 @@
 .THEME_NAME {
   .md-table,
   &.md-table {
+
   }
 
   .md-table-card,
