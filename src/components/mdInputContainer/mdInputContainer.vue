@@ -26,7 +26,11 @@
         inputType: false,
         showPassword: false,
         enableCounter: false,
-        mdHasSelect: false,
+        hasSelect: false,
+        hasPlaceholder: false,
+        isDisabled: false,
+        isRequired: false,
+        isFocused: false,
         counterLength: 0,
         inputLength: 0
       };
@@ -43,8 +47,12 @@
         return {
           'md-input-inline': this.mdInline,
           'md-has-password': this.mdHasPassword,
-          'md-has-select': this.mdHasSelect,
-          'md-has-value': this.hasValue
+          'md-has-select': this.hasSelect,
+          'md-has-value': this.hasValue,
+          'md-input-placeholder': this.hasPlaceholder,
+          'md-input-disabled': this.isDisabled,
+          'md-input-required': this.isRequired,
+          'md-input-focused': this.isFocused
         };
       }
     },
@@ -67,7 +75,7 @@
       }
     },
     mounted() {
-      this.input = this.$el.querySelector('input') || this.$el.querySelector('textarea') || this.$el.querySelector('select');
+      this.input = this.$el.querySelectorAll('input, textarea, select')[0];
 
       if (!this.input) {
         this.$destroy();
