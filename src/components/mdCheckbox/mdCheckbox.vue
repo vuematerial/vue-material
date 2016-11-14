@@ -39,11 +39,11 @@
       }
     },
     methods: {
-      toggleCheck() {
+      toggleCheck($event) {
         if (!this.disabled) {
           this.checked = !this.checked;
-          this.$emit('change', this.checked);
-          this.$emit('input', this.checked);
+          this.$emit('change', this.checked, $event);
+          this.$emit('input', this.checked, $event);
         }
       }
     }
