@@ -38,7 +38,8 @@
     "build:lib": "babel-node build/server/build-lib.js --presets es2015,stage-0",
     "build": "rm -rf dist && npm run build:docs && npm run build:lib",
     "lint": "eslint --ext .js,.vue --fix src",
-    "deploy-docs": "git push origin `git subtree split --prefix dist/docs master`:gh-pages --force"
+    "deploy-docs": "git push origin `git subtree split --prefix dist/docs master`:gh-pages --force",
+    "release": "bash build/release.sh"
   },
   "dependencies": {
     "autosize": "^3.0.17",
