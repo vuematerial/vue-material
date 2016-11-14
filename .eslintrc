@@ -26,7 +26,8 @@
   },
   "globals": {
     "arguments": true,
-    "window": true
+    "window": true,
+    "Promise": true
   },
   "root": true,
   "parserOptions": {

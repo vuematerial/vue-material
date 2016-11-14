@@ -30,7 +30,7 @@
     }),
     computed: {
       isSelected() {
-        return this.value === this.parentSelect.value;
+        return this.value && this.parentSelect.value && this.value.toString() === this.parentSelect.value.toString();
       },
       classes() {
         return {
@@ -40,16 +40,16 @@
       }
     },
     methods: {
-      selectOption() {
+      selectOption(changed) {
         if (!this.parentSelect.multiple) {
-          this.parentSelect.selectOption(this.value, this.$refs.item.textContent);
+          this.parentSelect.selectOption(this.value, this.$refs.item.textContent, changed);
         } else {
           this.check = !this.check;
         }
       },
       selectIfValueMatches() {
         if (this.isSelected) {
-          this.selectOption();
+          this.selectOption(true);
         }
       }
     },

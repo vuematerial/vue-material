@@ -1,7 +1,7 @@
 <template>
   <div class="md-select" :class="classes">
     <md-menu :md-close-on-select="!multiple">
-      <span class="md-select-value" md-menu-trigger ref="value">{{ selectedValue || multiplevalue }}</span>
+      <span class="md-select-value" md-menu-trigger ref="value">{{ selectedValue || multiplevalue || placeholder }}</span>
 
       <md-menu-content class="md-select-content" :class="contentClasses">
         <slot></slot>
@@ -26,7 +26,9 @@
       multiple: Boolean,
       value: [String, Number, Array],
       id: String,
-      disabled: Boolean
+      disabled: Boolean,
+      placeholder: String,
+      mdMenuClass: String
     },
     data() {
       return {
@@ -43,15 +45,18 @@
         };
       },
       contentClasses() {
-        return {
-          'md-multiple': this.multiple
-        };
+        if (this.multiple) {
+          return 'md-multiple ' + this.mdMenuClass;
+        }
+
+        return this.mdMenuClass;
       }
     },
     methods: {
-      changeValue(value, parentValue) {
-        this.$emit('change', value);
-        this.$emit('input', value);
+      changeValue(value, parentValue, changed) {
+        if (changed) {
+          this.$emit('change', value);
+        }
 
         if (this.parentContainer) {
           this.$parent.setValue(parentValue || value);
@@ -76,9 +81,9 @@
         this.multiplevalue = output.join(', ');
         this.changeValue(values, this.multiplevalue);
       },
-      selectOption(value, text) {
+      selectOption(value, text, changed) {
         this.selectedValue = text;
-        this.changeValue(value);
+        this.changeValue(value, null, changed);
       }
     },
     mounted() {

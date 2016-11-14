@@ -68,7 +68,7 @@
     }
 
     .md-tab {
-      max-width: 1024px;
+      max-width: 1070px;
       font-size: 16px;
       line-height: 1.6em;
     }
