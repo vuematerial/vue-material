@@ -13,17 +13,17 @@
 
       <h3 class="md-title">Fixes:</h3>
       <ul>
-        md-input not reactive when initial value empty <strong><a href="https://github.com/marcosmoura/vue-material/issues/40" target="_blank" rel="noopener">#40</a></strong>
-        md-textarea with maxlength not writable <strong><a href="https://github.com/marcosmoura/vue-material/issues/43" target="_blank" rel="noopener"></a>#43</strong>
-        Do not style scrollbars by default <strong><a href="https://github.com/marcosmoura/vue-material/issues/46" target="_blank" rel="noopener">#46</a></strong>
-        SELECT component: display issue in IE11 <strong><a href="https://github.com/marcosmoura/vue-material/issues/34" target="_blank" rel="noopener">#34</a></strong>
-        Select component popup shows behind other components <strong><a href="https://github.com/marcosmoura/vue-material/issues/26" target="_blank" rel="noopener">#26</a></strong>
-        md-select text vs value <strong><a href="https://github.com/marcosmoura/vue-material/issues/24" target="_blank" rel="noopener"></a>#24</strong>
-        md-button ignores type prop <strong><a href="https://github.com/marcosmoura/vue-material/issues/41" target="_blank" rel="noopener">#41</a> (Thanks to <a href="https://github.com/pauloramires" target="_blank" rel="noopener">@pauloramires</a>)</strong>
-        md-select displaying selected text (rather than value) <strong><a href="https://github.com/marcosmoura/vue-material/issues/36" target="_blank" rel="noopener">#36</a></strong>
-        Added 'type' props to switch button <strong><a href="https://github.com/marcosmoura/vue-material/pull/27" target="_blank" rel="noopener">#27</a> (Thanks to <a href="https://github.com/guillaumerxl" target="_blank" rel="noopener">@guillaumerxl</a>)</strong>
-        Add babel-cli as dev dependency <strong><a href="https://github.com/marcosmoura/vue-material/pull/28" target="_blank" rel="noopener">#28</a> (Thanks to <a href="https://github.com/lucassouza1" target="_blank" rel="noopener">@lucassouza1</a>)</strong>
-        Remove dotted outline around button in firefox <strong><a href="https://github.com/marcosmoura/vue-material/pull/52" target="_blank" rel="noopener">#52</a> (Thanks to <a href="https://github.com/yeknava" target="_blank" rel="noopener">@yeknava</a>)</strong>
+        <li>md-input not reactive when initial value empty <strong><a href="https://github.com/marcosmoura/vue-material/issues/40" target="_blank" rel="noopener">#40</a></strong></li>
+        <li>md-textarea with maxlength not writable <strong><a href="https://github.com/marcosmoura/vue-material/issues/43" target="_blank" rel="noopener"></a>#43</strong></li>
+        <li>Do not style scrollbars by default <strong><a href="https://github.com/marcosmoura/vue-material/issues/46" target="_blank" rel="noopener">#46</a></strong></li>
+        <li>SELECT component: display issue in IE11 <strong><a href="https://github.com/marcosmoura/vue-material/issues/34" target="_blank" rel="noopener">#34</a></strong></li>
+        <li>Select component popup shows behind other components <strong><a href="https://github.com/marcosmoura/vue-material/issues/26" target="_blank" rel="noopener">#26</a></strong></li>
+        <li>md-select text vs value <strong><a href="https://github.com/marcosmoura/vue-material/issues/24" target="_blank" rel="noopener"></a>#24</strong></li>
+        <li>md-button ignores type prop <strong><a href="https://github.com/marcosmoura/vue-material/issues/41" target="_blank" rel="noopener">#41</a> (Thanks to <a href="https://github.com/pauloramires" target="_blank" rel="noopener">@pauloramires</a>)</strong></li>
+        <li>md-select displaying selected text (rather than value) <strong><a href="https://github.com/marcosmoura/vue-material/issues/36" target="_blank" rel="noopener">#36</a></strong></li>
+        <li>Added 'type' props to switch button <strong><a href="https://github.com/marcosmoura/vue-material/pull/27" target="_blank" rel="noopener">#27</a> (Thanks to <a href="https://github.com/guillaumerxl" target="_blank" rel="noopener">@guillaumerxl</a>)</strong></li>
+        <li>Add babel-cli as dev dependency <strong><a href="https://github.com/marcosmoura/vue-material/pull/28" target="_blank" rel="noopener">#28</a> (Thanks to <a href="https://github.com/lucassouza1" target="_blank" rel="noopener">@lucassouza1</a>)</strong></li>
+        <li>Remove dotted outline around button in firefox <strong><a href="https://github.com/marcosmoura/vue-material/pull/52" target="_blank" rel="noopener">#52</a> (Thanks to <a href="https://github.com/yeknava" target="_blank" rel="noopener">@yeknava</a>)</strong></li>
       </ul>
     </section>
 
