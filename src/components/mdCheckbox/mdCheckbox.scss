@@ -1,14 +1,13 @@
 @import '../../core/stylesheets/variables.scss';
 
 $checkbox-size: 20px;
-$checkbox-ripple-size: 48px;
+$checkbox-touch-size: 48px;
 
 .md-checkbox {
   width: auto;
   margin: 16px 8px 16px 0;
   display: inline-flex;
   position: relative;
-  transform: translate3D(0, 0, 0);
 
   .md-checkbox-container {
     width: $checkbox-size;
@@ -17,6 +16,22 @@ $checkbox-ripple-size: 48px;
     border-radius: 2px;
     border: 2px solid rgba(#000, .54);
     transition: $swift-ease-out;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:before {
+      width: $checkbox-touch-size;
+      height: $checkbox-touch-size;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: $swift-ease-in;
+      content: " ";
+    }
 
     &:after {
       width: 6px;
@@ -47,8 +62,8 @@ $checkbox-ripple-size: 48px;
       color: rgba(#000, .54);
 
       .md-ripple {
-        width: $checkbox-ripple-size !important;
-        height: $checkbox-ripple-size !important;
+        width: $checkbox-touch-size !important;
+        height: $checkbox-touch-size !important;
         top: 0 !important;
         right: 0 !important;
         bottom: 0 !important;

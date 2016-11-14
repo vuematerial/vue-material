@@ -1,5 +1,5 @@
 <template>
-  <ul class="md-list">
+  <ul class="md-list" v-once>
     <slot></slot>
   </ul>
 </template>
