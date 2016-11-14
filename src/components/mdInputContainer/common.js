@@ -7,6 +7,9 @@ export default {
     placeholder: [String, Number]
   },
   watch: {
+    value() {
+      this.setParentValue();
+    },
     disabled() {
       this.setParentDisabled();
     },
