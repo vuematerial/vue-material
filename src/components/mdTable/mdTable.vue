@@ -9,9 +9,10 @@
 <style lang="scss" src="./mdTable.scss"></style>
 
 <script>
+  import getClosestVueParent from '../../core/utils/getClosestVueParent';
+
   export default {
     props: {
-      mdRowSelection: Boolean,
       mdSortType: String,
       mdSort: String
     },
@@ -19,6 +20,8 @@
       return {
         sortType: this.mdSortType,
         sortBy: this.mdSort,
+        hasRowSelection: false,
+        data: [],
         numberOfRows: 0,
         numberOfSelected: 0,
         selectedRows: {}
@@ -27,12 +30,20 @@
     methods: {
       emitSort(name) {
         this.sortBy = name;
-        this.$emit('sort', name);
+        this.$emit('sort', {
+          name,
+          type: this.sortType
+        });
+      },
+      emitSelection() {
+        this.$emit('select', this.selectedRows);
       }
     },
     mounted() {
-      if (this.$parent.$el.classList.contains('md-table-card')) {
-        this.$parent.tableInstance = this;
+      this.parentCard = getClosestVueParent(this.$parent, 'md-table-card');
+
+      if (this.parentCard) {
+        this.parentCard.tableInstance = this;
       }
     }
   };

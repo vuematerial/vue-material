@@ -13,6 +13,8 @@
 </template>
 
 <script>
+  import getClosestVueParent from '../../core/utils/getClosestVueParent';
+
   export default {
     props: {
       mdNumeric: Boolean,
@@ -22,12 +24,13 @@
     data() {
       return {
         sortType: null,
-        sorted: false
+        sorted: false,
+        parentTable: {}
       };
     },
     computed: {
       classes() {
-        let matchSort = this.$parent.$parent.sortBy === this.mdSortBy;
+        const matchSort = this.hasMatchSort();
 
         if (!matchSort) {
           this.sorted = false;
@@ -42,19 +45,30 @@
       }
     },
     methods: {
+      hasMatchSort() {
+        return this.parentTable.sortBy === this.mdSortBy;
+      },
       changeSort() {
-        let parent = this.$parent.$parent;
+        if (this.mdSortBy) {
+          if (this.sortType === 'asc' && this.sorted) {
+            this.sortType = 'desc';
+          } else {
+            this.sortType = 'asc';
+          }
 
-        if (this.sortType === 'asc' && this.sorted) {
-          this.sortType = 'desc';
-        } else {
-          this.sortType = 'asc';
+          this.sorted = true;
+
+          this.parentTable.sortType = this.sortType;
+          this.parentTable.emitSort(this.mdSortBy);
         }
+      }
+    },
+    mounted() {
+      this.parentTable = getClosestVueParent(this.$parent, 'md-table');
 
+      if (this.hasMatchSort()) {
         this.sorted = true;
-
-        parent.sortType = this.sortType;
-        parent.emitSort(this.mdSortBy);
+        this.sortType = this.parentTable.sortType;
       }
     }
   };

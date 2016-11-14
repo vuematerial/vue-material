@@ -12,6 +12,8 @@
 </template>
 
 <script>
+  import getClosestVueParent from '../../core/utils/getClosestVueParent';
+
   export default {
     props: {
       mdSelectedLabel: String
@@ -23,8 +25,10 @@
       };
     },
     mounted() {
+      this.parentCard = getClosestVueParent(this.$parent, 'md-table-card');
+
       this.$nextTick(() => {
-        this.tableInstance = this.$parent.tableInstance;
+        this.tableInstance = this.parentCard.tableInstance;
 
         this.$watch('tableInstance.numberOfSelected', () => {
           this.$refs.counter.textContent = this.tableInstance.numberOfSelected;

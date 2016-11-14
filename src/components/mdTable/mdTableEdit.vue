@@ -22,11 +22,11 @@
 <script>
   export default {
     props: {
-      value: [String, Number, Boolean],
+      value: String,
       mdLarge: Boolean,
-      mdId: [String, Number, Boolean],
-      mdName: [String, Number, Boolean],
-      mdPlaceholder: [String, Number, Boolean],
+      mdId: String,
+      mdName: String,
+      mdPlaceholder: String,
       mdMaxlength: [Number, String]
     },
     data() {
@@ -45,6 +45,9 @@
           'md-active': this.active,
           'md-large': this.mdLarge
         };
+      },
+      realValue() {
+        console.log(this.value);
       }
     },
     methods: {
