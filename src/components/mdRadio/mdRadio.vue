@@ -1,6 +1,6 @@
 <template>
   <div class="md-radio" :class="classes">
-    <div class="md-radio-container" @click="toggleCheck($event)" v-md-ink-ripple="disabled">
+    <div class="md-radio-container" @click="toggleCheck" v-md-ink-ripple="disabled">
       <input type="radio" :name="name" :id="id" :disabled="disabled" :value="value">
     </div>
 

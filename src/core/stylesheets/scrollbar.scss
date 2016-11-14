@@ -1,28 +1,34 @@
-::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-  box-shadow: inset 1px 1px 0 rgba(#000, .12);
-  transition: $swift-ease-in-out;
-  background-color: rgba(#000, .05);
+.md-scrollbar {
+  &::-webkit-scrollbar,
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    box-shadow: inset 1px 1px 0 rgba(#000, .12);
+    transition: $swift-ease-in-out;
+    background-color: rgba(#000, .05);
 
-  &:hover {
-    box-shadow: inset 1px 1px 0 rgba(#000, .054),
-                inset 0 -1px 0 rgba(#000, .038);
-    background-color: rgba(#000, .087);
+    &:hover {
+      box-shadow: inset 1px 1px 0 rgba(#000, .054),
+                  inset 0 -1px 0 rgba(#000, .038);
+      background-color: rgba(#000, .087);
+    }
   }
-}
 
-::-webkit-scrollbar-button {
-  display: none;
-}
+  &::-webkit-scrollbar-button,
+  ::-webkit-scrollbar-button {
+    display: none;
+  }
 
-::-webkit-scrollbar-corner {
-  background-color: transparent;
-}
+  &::-webkit-scrollbar-corner,
+  ::-webkit-scrollbar-corner {
+    background-color: transparent;
+  }
 
-::-webkit-scrollbar-thumb {
-  background-color: rgba(#000, .26);
-  box-shadow: inset 1px 1px 0 rgba(#000, .054),
-              inset 0 -1px 0 rgba(#000, .087);
-  transition: $swift-ease-in-out;
+  &::-webkit-scrollbar-thumb,
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(#000, .26);
+    box-shadow: inset 1px 1px 0 rgba(#000, .054),
+                inset 0 -1px 0 rgba(#000, .087);
+    transition: $swift-ease-in-out;
+  }
 }

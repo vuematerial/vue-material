@@ -60,6 +60,10 @@
                 </md-list-item>
 
                 <md-list-item class="md-inset">
+                  <router-link exact to="/components/menu">Menu</router-link>
+                </md-list-item>
+
+                <md-list-item class="md-inset">
                   <router-link exact to="/components/radio">Radio</router-link>
                 </md-list-item>
 
@@ -85,6 +89,10 @@
 
                 <md-list-item class="md-inset">
                   <router-link exact to="/components/tabs">Tabs</router-link>
+                </md-list-item>
+
+                <md-list-item class="md-inset">
+                  <router-link exact to="/components/table">Table</router-link>
                 </md-list-item>
 
                 <md-list-item class="md-inset">
