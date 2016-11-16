@@ -18,7 +18,9 @@ $menu-base-width: 56px;
   z-index: 120;
   background-color: #fff;
   border-radius: 2px;
-  filter: drop-shadow(0 1px 1px rgba(#000, $shadow-key-umbra-opacity)) drop-shadow(0 2px 2px rgba(#000, $shadow-key-penumbra-opacity)) drop-shadow(0 1px 1px rgba(#000, $shadow-ambient-shadow-opacity));
+  filter: drop-shadow(0 1px 1px rgba(#000, $shadow-key-umbra-opacity))
+          drop-shadow(0 2px 2px rgba(#000, $shadow-key-penumbra-opacity))
+          drop-shadow(0 1px 1px rgba(#000, $shadow-ambient-shadow-opacity));
   opacity: 0;
   transition: width $swift-ease-out-duration $swift-ease-out-timing-function,
               opacity .25s $swift-ease-in-timing-function,
