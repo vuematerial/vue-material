@@ -60,7 +60,7 @@ export default merge(baseConfig, {
       chunksSortMode: 'dependency'
     }),
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'third-party',
+      name: 'vendor',
       minChunks: (module) => {
         let resource = module.resource;
 
@@ -69,7 +69,7 @@ export default merge(baseConfig, {
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'manifest',
-      chunks: ['third-party']
+      chunks: ['vendor']
     })
   ]
 });
