@@ -37,7 +37,7 @@
     },
     computed: {
       hasValue() {
-        if (this.value.constructor === Array) {
+        if (this.value && this.value.constructor === Array) {
           return this.value.length > 0;
         }
 
