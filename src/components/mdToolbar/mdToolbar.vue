@@ -1,5 +1,5 @@
 <template>
-  <div class="md-toolbar" v-once>
+  <div class="md-toolbar">
     <slot></slot>
   </div>
 </template>
