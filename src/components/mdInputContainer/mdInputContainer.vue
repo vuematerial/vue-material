@@ -13,6 +13,8 @@
 <style lang="scss" src="./mdInputContainer.scss"></style>
 
 <script>
+  import isArray from '../../core/utils/isArray';
+
   export default {
     props: {
       mdInline: Boolean,
@@ -37,7 +39,7 @@
     },
     computed: {
       hasValue() {
-        if (this.value && this.value.constructor === Array) {
+        if (isArray(this.value)) {
           return this.value.length > 0;
         }
 
