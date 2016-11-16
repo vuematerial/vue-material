@@ -1,7 +1,7 @@
 <template>
   <div class="md-select" :class="classes">
     <md-menu :md-close-on-select="!multiple">
-      <span class="md-select-value" md-menu-trigger ref="value">{{ selectedValue || multiplevalue || placeholder }}</span>
+      <span class="md-select-value" md-menu-trigger ref="value">{{ selectedText || multipleText || placeholder }}</span>
 
       <md-menu-content class="md-select-content" :class="contentClasses">
         <slot></slot>
@@ -18,6 +18,7 @@
 
 <script>
   import getClosestVueParent from '../../core/utils/getClosestVueParent';
+  import isArray from '../../core/utils/isArray';
 
   export default {
     props: {
@@ -33,7 +34,9 @@
     data() {
       return {
         selectedValue: null,
-        multiplevalue: null,
+        selectedText: null,
+        multipleText: null,
+        multipleOptions: {},
         options: {},
         optionsAmount: 0
       };
@@ -52,42 +55,93 @@
         return this.mdMenuClass;
       }
     },
+    watch: {
+      value(value) {
+        this.setTextAndvalue(value);
+      }
+    },
     methods: {
-      changeValue(value, parentValue, changed) {
-        if (changed) {
-          this.$emit('change', value);
+      getSingleValue(value) {
+        let output = {};
+
+        Object.keys(this.options).forEach((index) => {
+          const options = this.options[index];
+
+          if (options.value === value) {
+            output.value = value;
+            output.text = options.$refs.item.textContent;
+          }
+        });
+
+        return output;
+      },
+      getMultipleValue(modelValue) {
+        if (isArray(this.value)) {
+          let outputText = [];
+
+          modelValue.forEach((value) => {
+            Object.keys(this.options).forEach((index) => {
+              const options = this.options[index];
+
+              if (options.value === value) {
+                let text = options.$refs.item.textContent;
+
+                this.multipleOptions[index] = {
+                  value,
+                  text
+                };
+                outputText.push(text);
+              }
+            });
+          });
+
+          return {
+            value: modelValue,
+            text: outputText.join(', ')
+          };
         }
+
+        return {};
+      },
+      setTextAndvalue(modelValue) {
+        const output = this.multiple ? this.getMultipleValue(modelValue) : this.getSingleValue(modelValue);
+
+        this.selectedValue = output.value;
+        this.selectedText = output.text;
 
         if (this.parentContainer) {
-          this.$parent.setValue(parentValue || value);
+          this.$parent.setValue(output.text);
         }
       },
+      changeValue(value) {
+        this.$emit('input', value);
+        this.$emit('change', value);
+      },
       selectMultiple(index, value, text) {
-        let output = [];
         let values = [];
 
-        this.options[index] = {
+        this.multipleOptions[index] = {
           value,
           text
         };
 
-        for (var key in this.options) {
-          if (this.options.hasOwnProperty(key) && this.options[key].text) {
-            output.push(this.options[key].text);
-            values.push(this.options[key].value);
+        for (var key in this.multipleOptions) {
+          if (this.multipleOptions.hasOwnProperty(key) && this.multipleOptions[key].value) {
+            values.push(this.multipleOptions[key].value);
           }
         }
 
-        this.multiplevalue = output.join(', ');
-        this.changeValue(values, this.multiplevalue);
+        this.changeValue(values);
       },
-      selectOption(value, text, changed) {
-        this.selectedValue = text;
-        this.changeValue(value, null, changed);
+      selectOption(value, text) {
+        this.selectedText = text;
+        this.changeValue(value);
       }
     },
     mounted() {
-      this.parentContainer = this.parentContent = getClosestVueParent(this.$parent, 'md-input-container');
+      this.parentContainer = getClosestVueParent(this.$parent, 'md-input-container');
+
+      this.setTextAndvalue(this.value);
 
       if (this.parentContainer) {
         this.parentContainer.setValue(this.value);

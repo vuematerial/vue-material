@@ -223,7 +223,10 @@
       country: '',
       font: '',
       food: '',
-      users: []
+      users: [
+        'jim_halpert',
+        'michael_scott'
+      ]
     }),
     methods: {
       setPulpFiction() {

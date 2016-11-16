@@ -30,7 +30,17 @@
     }),
     computed: {
       isSelected() {
-        return this.value && this.parentSelect.value && this.value.toString() === this.parentSelect.value.toString();
+        if (this.value && this.parentSelect.value) {
+          let thisValue = this.value.toString();
+
+          if (this.parentSelect.multiple) {
+            return this.parentSelect.value.indexOf(thisValue) >= 0;
+          }
+
+          return this.value && this.parentSelect.value && thisValue === this.parentSelect.value.toString();
+        }
+
+        return false;
       },
       classes() {
         return {
@@ -40,20 +50,20 @@
       }
     },
     methods: {
-      selectOption(changed) {
+      selectOption() {
         if (!this.parentSelect.multiple) {
-          this.parentSelect.selectOption(this.value, this.$refs.item.textContent, changed);
+          this.parentSelect.selectOption(this.value, this.$refs.item.textContent);
         } else {
           this.check = !this.check;
-        }
-      },
-      selectIfValueMatches() {
-        if (this.isSelected) {
-          this.selectOption(true);
         }
       }
     },
     watch: {
+      isSelected(selected) {
+        if (this.parentSelect.multiple) {
+          this.check = selected;
+        }
+      },
       check(check) {
         if (check) {
           this.parentSelect.selectMultiple(this.index, this.value, this.$refs.item.textContent);
@@ -73,13 +83,12 @@
       this.parentSelect.optionsAmount++;
       this.index = this.parentSelect.optionsAmount;
 
-      this.parentSelect.options[this.index] = {};
-
-      this.$watch(() => {
-        return this.parentSelect.value;
-      }, this.selectIfValueMatches);
-
-      this.selectIfValueMatches();
+      this.parentSelect.multipleOptions[this.index] = {};
+      this.parentSelect.options[this.index] = this;
+    },
+    beforeDestroy() {
+      delete this.parentSelect.options[this.index];
+      delete this.parentSelect.multipleOptions[this.index];
     }
   };
 </script>
