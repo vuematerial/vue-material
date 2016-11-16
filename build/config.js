@@ -3,7 +3,7 @@ import path from 'path';
 const config = {
   projectRoot: path.resolve(__dirname, '../'),
   rootPath: path.resolve(__dirname, '../dist'),
-  nodePath: path.resolve(__dirname, '../node_modules'),
+  nodePath: path.resolve(__dirname, '../../node_modules'),
   docsPath: 'docs',
   indexPath: 'docs/index.html',
   publicPath: '/',
