@@ -1,5 +1,5 @@
 <template>
-  <div class="md-card-actions" v-once>
+  <div class="md-card-actions">
     <slot></slot>
   </div>
 </template>

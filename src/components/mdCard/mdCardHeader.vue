@@ -1,5 +1,5 @@
 <template>
-  <div class="md-card-header" v-once>
+  <div class="md-card-header">
     <slot></slot>
   </div>
 </template>
