@@ -1,5 +1,5 @@
 <template>
-  <i class="md-icon material-icons" v-once>
+  <i class="md-icon material-icons">
     <slot></slot>
   </i>
 </template>
