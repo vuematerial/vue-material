@@ -3,6 +3,17 @@
     <single-page-banner label="Changelog"></single-page-banner>
 
     <section>
+      <h2 class="md-headline">v0.3.1 - Bugfixes</h2>
+      <h3 class="md-title">Fixes:</h3>
+      <ul>
+        <li>md-select not being reactive <strong><a href="https://github.com/marcosmoura/vue-material/issues/74" target="_blank" rel="noopener">#74</a></strong></li>
+        <li>Fix components not being updated inside v-once <strong><a href="https://github.com/marcosmoura/vue-material/issues/69" target="_blank" rel="noopener">#69</a><a href="https://github.com/marcosmoura/vue-material/issues/70" target="_blank" rel="noopener">#70</a></strong></li>
+        <li>Fix input number not accepting numbers <strong><a href="https://github.com/marcosmoura/vue-material/issues/67" target="_blank" rel="noopener">#67</a> <a href="https://github.com/marcosmoura/vue-material/issues/70" target="_blank" rel="noopener">#70</a></strong></li>
+        <li>Fix md-input-container crashing when the select value is null <strong><a href="https://github.com/marcosmoura/vue-material/issues/64" target="_blank" rel="noopener">#64</a></strong></li>
+      </ul>
+    </section>
+
+    <section>
       <h2 class="md-headline">v0.3.0 - Huge Release</h2>
       <h3 class="md-title">New Components:</h3>
       <ul>
@@ -43,7 +54,7 @@
     </section>
 
     <section>
-      <h2 class="md-headline">v0.1.2 - Minor Fixes</h2>
+      <h2 class="md-headline">v0.1.2 - Bugfixes</h2>
       <h3 class="md-title">Fixes:</h3>
       <ul>
         <li>Fixed tooltips on Firefox</li>
@@ -53,10 +64,10 @@
     </section>
 
     <section>
-      <h2 class="md-headline">v0.1.1 - Minor Fixes</h2>
+      <h2 class="md-headline">v0.1.1 - Bugfixes</h2>
       <h3 class="md-title">Changes:</h3>
       <ul>
-        <li>Minor fixes</li>
+        <li>Bugfixes</li>
         <li>Firefox support</li>
         <li>Initial documentation</li>
       </ul>
