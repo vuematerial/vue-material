@@ -1,4 +1,4 @@
-let getClosestVueParent = ($parent, cssClass) => {
+let getClosestVueParent = ($parent = {}, cssClass) => {
   if (!$parent.$el) {
     return false;
   }
