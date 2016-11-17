@@ -1,8 +1,10 @@
 <template>
   <div class="md-dialog" tabindex="0">
-    <slot></slot>
+    <div class="md-dialog-container">
+      <slot></slot>
 
-    <md-backdrop class="md-dialog-backdrop" ref="backdrop" @close="close"></md-backdrop>
+      <md-backdrop class="md-dialog-backdrop" ref="backdrop" @close="close"></md-backdrop>
+    </div>
   </div>
 </template>
 
