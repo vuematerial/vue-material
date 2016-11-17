@@ -2,7 +2,7 @@
   <demo-page label="Components - Dialog">
     <div slot="examples">
       <demo-example label="Default" size="2">
-        <md-dialog md-open-from="#trigger" md-close-to="#trigger" ref="dialog">
+        <md-dialog ref="dialog1">
           <div class="md-dialog-content">
             <form>
               <md-input-container>
@@ -12,10 +12,24 @@
             </form>
           </div>
 
-          <md-button class="md-primary md-raised" @click="closeDialog">Close</md-button>
+          <md-button class="md-primary" @click="closeDialog('dialog1')">Close</md-button>
         </md-dialog>
 
-        <md-button class="md-primary md-raised" id="trigger" @click="openDialog">Open</md-button>
+        <md-dialog md-open-from="#trigger" md-close-to="#trigger" ref="dialog2">
+          <div class="md-dialog-content">
+            <form>
+              <md-input-container>
+                <label>Test</label>
+                <md-input></md-input>
+              </md-input-container>
+            </form>
+          </div>
+
+          <md-button class="md-primary" @click="closeDialog('dialog2')">Close</md-button>
+        </md-dialog>
+
+        <md-button class="md-primary md-raised" @click="openDialog('dialog1')">Simple</md-button>
+        <md-button class="md-primary md-raised" id="trigger" @click="openDialog('dialog2')">Open from/Close to</md-button>
       </demo-example>
     </div>
 
@@ -39,11 +53,11 @@
 <script>
   export default {
     methods: {
-      openDialog() {
-        this.$refs.dialog.open();
+      openDialog(ref) {
+        this.$refs[ref].open();
       },
-      closeDialog() {
-        this.$refs.dialog.close();
+      closeDialog(ref) {
+        this.$refs[ref].close();
       }
     }
   };
