@@ -75,7 +75,7 @@
           const heightInScale = openFromRect.height / dialogRect.height;
 
           this.dialogTransform = `translate3D(-${leftDistance}px, -${topDistance}px, 0) scale(${widthInScale}, ${heightInScale})`;
-          this.dialogTransformOrigin = 'top left';
+          this.dialogTransformOrigin = 'top left'; /* @TODO: Fix position */
         }
       },
       open() {
