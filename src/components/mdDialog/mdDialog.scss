@@ -1,44 +1,64 @@
 @import '../../core/stylesheets/variables.scss';
 
-.md-dialog {
-  min-width: 280px;
-  max-width: 80%;
-  max-height: 80%;
-  overflow: hidden;
+.md-dialog-container {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
   position: fixed;
-  top: 50%;
-  left: 50%;
-  z-index: 110;
-  outline: none;
-  border-radius: 2px;
-  opacity: 0;
-  filter: drop-shadow(0 7px 8px rgba(#000, $shadow-key-umbra-opacity))
-          drop-shadow(0 12px 17px rgba(#000, $shadow-key-penumbra-opacity))
-          drop-shadow(0 5px 22px rgba(#000, $shadow-ambient-shadow-opacity));
-  clip-path: inset(0 7% 12% 7%);
-  transform: translate3D(-50%, -60%, 0) scale(.85);
-  transition: transform $swift-ease-out-duration $swift-ease-out-timing-function,
-              opacity .3s $swift-ease-out-timing-function,
-              clip-path .3s .1s $swift-ease-out-timing-function;
-  transition-delay: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 108;
 
   &.md-active {
     pointer-events: auto;
-    opacity: 1;
-    clip-path: inset(-22px -22px -22px -22px);
-    transition: transform $swift-ease-out-duration $swift-ease-out-timing-function,
-                opacity .5s $swift-ease-out-timing-function,
-                clip-path .4s .1s $swift-ease-out-timing-function;
-    transition-delay: 0;
-    transform: translate3D(-50%, -50%, 0) scale(1);
-  }
-}
 
-.md-dialog-container {
-  padding: 24px;
+    .md-dialog {
+      opacity: 1 !important;
+      transform: scale(1) !important;
+      transition: $swift-ease-out;
+      transform-property: opacity, transform;
+
+      > * {
+        opacity: 1;
+      }
+    }
+  }
 }
 
 .md-dialog-backdrop {
   position: fixed;
   z-index: 109;
+}
+
+.md-dialog {
+  min-width: 280px;
+  max-width: 80%;
+  max-height: 80%;
+  overflow: hidden;
+  position: relative;
+  z-index: 110;
+  outline: none;
+  border-radius: 2px;
+  opacity: 0;
+  box-shadow: $material-shadow-14dp;
+  transform: scale(.9, .85);
+  transition: opacity $swift-ease-out-duration $swift-ease-out-timing-function,
+              transform $swift-ease-out-duration .05s $swift-ease-out-timing-function;
+  will-change: opacity, transform;
+
+  &.md-transition-off {
+    transition: none;
+  }
+
+  > * {
+    opacity: 0;
+    transition: $swift-ease-out;
+    transition-property: opacity;
+    transition-delay: .1s;
+    will-change: opacity;
+  }
 }

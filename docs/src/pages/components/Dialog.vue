@@ -2,7 +2,7 @@
   <demo-page label="Components - Dialog">
     <div slot="examples">
       <demo-example label="Default" size="2">
-        <md-dialog ref="dialog">
+        <md-dialog md-open-from="#trigger" md-close-to="#trigger" ref="dialog">
           <div class="md-dialog-content">
             <form>
               <md-input-container>
@@ -15,7 +15,7 @@
           <md-button class="md-primary md-raised" @click="closeDialog">Close</md-button>
         </md-dialog>
 
-        <md-button class="md-primary md-raised" @click="openDialog">Open</md-button>
+        <md-button class="md-primary md-raised" id="trigger" @click="openDialog">Open</md-button>
       </demo-example>
     </div>
 
