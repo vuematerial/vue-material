@@ -32,7 +32,7 @@ Vue.component('code-block', CodeBlock);
 Vue.use(VueRouter);
 
 let router = new VueRouter({
-  hashbang: false,
+  base: '/vue-material/',
   routes
 });
 

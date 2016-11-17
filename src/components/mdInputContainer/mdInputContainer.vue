@@ -13,40 +13,55 @@
 <style lang="scss" src="./mdInputContainer.scss"></style>
 
 <script>
+  import isArray from '../../core/utils/isArray';
+
   export default {
     props: {
       mdInline: Boolean,
       mdDisabled: Boolean,
       mdHasPassword: Boolean
     },
-    computed: {
-      classes() {
-        return {
-          'md-input-inline': this.mdInline,
-          'md-has-password': this.mdHasPassword,
-          'md-has-select': this.mdHasSelect,
-          'md-has-value': Boolean(this.value)
-        };
-      }
-    },
     data() {
       return {
-        value: null,
+        value: '',
         input: false,
         inputType: false,
         showPassword: false,
         enableCounter: false,
-        mdHasSelect: false,
+        hasSelect: false,
+        hasPlaceholder: false,
+        isDisabled: false,
+        isRequired: false,
+        isFocused: false,
         counterLength: 0,
         inputLength: 0
       };
     },
+    computed: {
+      hasValue() {
+        if (isArray(this.value)) {
+          return this.value.length > 0;
+        }
+
+        return Boolean(this.value);
+      },
+      classes() {
+        return {
+          'md-input-inline': this.mdInline,
+          'md-has-password': this.mdHasPassword,
+          'md-has-select': this.hasSelect,
+          'md-has-value': this.hasValue,
+          'md-input-placeholder': this.hasPlaceholder,
+          'md-input-disabled': this.isDisabled,
+          'md-input-required': this.isRequired,
+          'md-input-focused': this.isFocused
+        };
+      }
+    },
     methods: {
       togglePasswordType() {
         if (this.input.tagName.toLowerCase() === 'input') {
-          let type = this.input.type;
-
-          if (type === 'password') {
+          if (this.inputType === 'password') {
             this.input.type = 'text';
             this.showPassword = true;
           } else {
@@ -62,7 +77,7 @@
       }
     },
     mounted() {
-      this.input = this.$el.querySelector('input') || this.$el.querySelector('textarea') || this.$el.querySelector('select');
+      this.input = this.$el.querySelectorAll('input, textarea, select')[0];
 
       if (!this.input) {
         this.$destroy();

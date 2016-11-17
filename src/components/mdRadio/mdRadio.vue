@@ -33,10 +33,10 @@
       }
     },
     methods: {
-      toggleCheck() {
+      toggleCheck($event) {
         if (!this.disabled) {
-          this.$emit('change', this.mdValue);
-          this.$emit('input', this.mdValue);
+          this.$emit('change', this.mdValue, $event);
+          this.$emit('input', this.mdValue, $event);
         }
       }
     }

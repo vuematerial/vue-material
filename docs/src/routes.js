@@ -15,12 +15,14 @@ import Checkbox from './pages/components/Checkbox';
 import Icon from './pages/components/Icon';
 import Input from './pages/components/Input';
 import List from './pages/components/List';
+import Menu from './pages/components/Menu';
 import Radio from './pages/components/Radio';
 import Ripple from './pages/components/Ripple';
 import Select from './pages/components/Select';
 import Sidenav from './pages/components/Sidenav';
 import Subheader from './pages/components/Subheader';
 import Switch from './pages/components/Switch';
+import Table from './pages/components/Table';
 import Tabs from './pages/components/Tabs';
 import Toolbar from './pages/components/Toolbar';
 import Tooltip from './pages/components/Tooltip';
@@ -109,6 +111,11 @@ const components = [
     component: List
   },
   {
+    path: '/components/menu',
+    name: 'components:menu',
+    component: Menu
+  },
+  {
     path: '/components/radio',
     name: 'components:radio',
     component: Radio
@@ -137,6 +144,11 @@ const components = [
     path: '/components/subheader',
     name: 'components:subheader',
     component: Subheader
+  },
+  {
+    path: '/components/table',
+    name: 'components:table',
+    component: Table
   },
   {
     path: '/components/tabs',
