@@ -1,7 +1,7 @@
 @import '../../core/stylesheets/variables.scss';
 
 .md-dialog {
-  min-width: 240px;
+  min-width: 280px;
   max-width: 80%;
   max-height: 80%;
   overflow: hidden;
@@ -34,7 +34,7 @@
   }
 }
 
-.md-dialog-content {
+.md-dialog-container {
   padding: 24px;
 }
 
