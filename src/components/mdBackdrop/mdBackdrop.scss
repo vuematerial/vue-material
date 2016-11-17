@@ -17,4 +17,8 @@
     opacity: 1;
     pointer-events: auto;
   }
+
+  &.md-transparent {
+    background: none;
+  }
 }
