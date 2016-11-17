@@ -1,26 +1,12 @@
 <template>
-  <div
-    class="md-select"
-    :class="classes"
-    :tabindex="disabled ? null : '0'">
-    <span
-      class="md-select-value"
-      @click="open"
-      @keydown.enter.prevent="open"
-      ref="value">{{ value }}</span>
+  <div class="md-select" :class="classes">
+    <md-menu :md-close-on-select="!multiple">
+      <span class="md-select-value" md-menu-trigger ref="value">{{ selectedText || multipleText || placeholder }}</span>
 
-    <div
-      class="md-select-menu"
-      tabindex="-1"
-      ref="menu"
-      @keydown.esc.prevent="close"
-      @keydown.tab.prevent="close"
-      @keydown.up.prevent="highlightOption(highlighted - 1)"
-      @keydown.down.prevent="highlightOption(highlighted + 1)">
-      <div class="md-select-menu-container">
+      <md-menu-content class="md-select-content" :class="contentClasses">
         <slot></slot>
-      </div>
-    </div>
+      </md-menu-content>
+    </md-menu>
 
     <select :name="name" :id="id" :required="required" tabindex="-1">
       <option :value="value">{{ value }}</option>
@@ -31,77 +17,142 @@
 <style lang="scss" src="./mdSelect.scss"></style>
 
 <script>
+  import getClosestVueParent from '../../core/utils/getClosestVueParent';
+  import isArray from '../../core/utils/isArray';
+
   export default {
     props: {
       name: String,
       required: Boolean,
-      value: [String, Number, Boolean],
+      multiple: Boolean,
+      value: [String, Number, Array],
       id: String,
-      disabled: Boolean
+      disabled: Boolean,
+      placeholder: String,
+      mdMenuClass: String
     },
     data() {
       return {
-        active: false,
-        highlighted: false,
+        selectedValue: null,
+        selectedText: null,
+        multipleText: null,
+        multipleOptions: {},
+        options: {},
         optionsAmount: 0
       };
     },
     computed: {
       classes() {
         return {
-          'md-disabled': this.disabled,
-          'md-active': this.active
+          'md-disabled': this.disabled
         };
+      },
+      contentClasses() {
+        if (this.multiple) {
+          return 'md-multiple ' + this.mdMenuClass;
+        }
+
+        return this.mdMenuClass;
+      }
+    },
+    watch: {
+      value(value) {
+        this.setTextAndvalue(value);
       }
     },
     methods: {
-      open() {
-        this.active = true;
-        document.addEventListener('click', this.closeOnOffClick);
-        this.$refs.menu.focus();
+      getSingleValue(value) {
+        let output = {};
+
+        Object.keys(this.options).forEach((index) => {
+          const options = this.options[index];
+
+          if (options.value === value) {
+            output.value = value;
+            output.text = options.$refs.item.textContent;
+          }
+        });
+
+        return output;
       },
-      close() {
-        if (this.active) {
-          this.$refs.menu.blur();
-          this.active = false;
-          document.removeEventListener('click', this.closeOnOffClick);
-          this.$refs.value.focus();
+      getMultipleValue(modelValue) {
+        if (isArray(this.value)) {
+          let outputText = [];
+
+          modelValue.forEach((value) => {
+            Object.keys(this.options).forEach((index) => {
+              const options = this.options[index];
+
+              if (options.value === value) {
+                let text = options.$refs.item.textContent;
+
+                this.multipleOptions[index] = {
+                  value,
+                  text
+                };
+                outputText.push(text);
+              }
+            });
+          });
+
+          return {
+            value: modelValue,
+            text: outputText.join(', ')
+          };
+        }
+
+        return {};
+      },
+      setTextAndvalue(modelValue) {
+        const output = this.multiple ? this.getMultipleValue(modelValue) : this.getSingleValue(modelValue);
+
+        this.selectedValue = output.value;
+        this.selectedText = output.text;
+
+        if (this.parentContainer) {
+          this.$parent.setValue(output.text);
         }
       },
-      closeOnOffClick(event) {
-        if (!this.$el.contains(event.target)) {
-          this.close();
-        }
-      },
-      highlightOption(factor) {
-        if (factor >= 1 && factor <= this.optionsAmount) {
-          this.highlighted = factor;
-        } else {
-          this.highlighted = 1;
-        }
-      },
-      selectOption(value) {
-        this.close();
-        this.$parent.setValue(value);
-        this.$emit('change', value);
+      changeValue(value) {
         this.$emit('input', value);
+        this.$emit('change', value);
+      },
+      selectMultiple(index, value, text) {
+        let values = [];
+
+        this.multipleOptions[index] = {
+          value,
+          text
+        };
+
+        for (var key in this.multipleOptions) {
+          if (this.multipleOptions.hasOwnProperty(key) && this.multipleOptions[key].value) {
+            values.push(this.multipleOptions[key].value);
+          }
+        }
+
+        this.changeValue(values);
+      },
+      selectOption(value, text) {
+        this.selectedText = text;
+        this.changeValue(value);
       }
     },
     mounted() {
-      if (!this.$parent.$el.classList.contains('md-input-container')) {
-        this.$destroy();
+      this.parentContainer = getClosestVueParent(this.$parent, 'md-input-container');
 
-        throw new Error('You should wrap the md-select in a md-input-container');
+      this.setTextAndvalue(this.value);
+
+      if (this.parentContainer) {
+        this.parentContainer.setValue(this.value);
+        this.parentContainer.hasSelect = true;
       }
-
-      this.$parent.setValue(this.value);
-      this.$parent.hasSelect = true;
     },
     beforeDestroy() {
-      this.$parent.setValue(null);
-      this.$parent.hasSelect = false;
-
-      document.removeEventListener('click', this.closeOnOffClick);
+      if (this.parentContainer) {
+        this.parentContainer.setValue('');
+        this.parentContainer.hasSelect = false;
+      }
     }
   };
 </script>

@@ -1,73 +1,94 @@
 <template>
-  <div
+  <md-menu-item
     class="md-option"
     :class="classes"
     @click="selectOption"
-    @mouseenter="setHighlight"
-    @keydown.enter="selectOption"
-    v-md-ink-ripple
     tabindex="-1">
-    <span>
+    <md-checkbox class="md-primary" v-model="check" v-if="parentSelect.multiple">
+      <span ref="item">
+        <slot></slot>
+      </span>
+    </md-checkbox>
+
+    <span ref="item" v-else>
       <slot></slot>
     </span>
-  </div>
+  </md-menu-item>
 </template>
 
 <script>
-  import 'element.scrollintoviewifneeded-polyfill';
+  import getClosestVueParent from '../../core/utils/getClosestVueParent';
 
   export default {
     props: {
       value: [String, Boolean, Number]
     },
-    data() {
-      return {
-        index: 0
-      };
-    },
+    data: () => ({
+      parentSelect: {},
+      check: false,
+      index: 0
+    }),
     computed: {
+      isSelected() {
+        if (this.value && this.parentSelect.value) {
+          let thisValue = this.value.toString();
+
+          if (this.parentSelect.multiple) {
+            return this.parentSelect.value.indexOf(thisValue) >= 0;
+          }
+
+          return this.value && this.parentSelect.value && thisValue === this.parentSelect.value.toString();
+        }
+
+        return false;
+      },
       classes() {
         return {
-          'md-highlighted': this.hasHighlight()
+          'md-selected': this.isSelected,
+          'md-checked': this.check
         };
       }
     },
-    watch: {
-      classes() {
-        if (this.hasHighlight()) {
-          this.$el.focus();
-          this.$el.scrollIntoViewIfNeeded(false);
+    methods: {
+      selectOption() {
+        if (!this.parentSelect.multiple) {
+          this.parentSelect.selectOption(this.value, this.$refs.item.textContent);
+        } else {
+          this.check = !this.check;
         }
       }
     },
-    methods: {
-      setHighlight() {
-        this.$parent.highlightOption(this.index);
+    watch: {
+      isSelected(selected) {
+        if (this.parentSelect.multiple) {
+          this.check = selected;
+        }
       },
-      hasHighlight() {
-        return this.index === this.$parent.highlighted;
-      },
-      selectOption() {
-        if (this.hasHighlight()) {
-          if (this.$parent.$el.classList.contains('md-select')) {
-            this.$parent.selectOption(this.value);
-          } else {
-            this.$parent.$parent.selectOption(this.value);
-          }
+      check(check) {
+        if (check) {
+          this.parentSelect.selectMultiple(this.index, this.value, this.$refs.item.textContent);
+        } else {
+          this.parentSelect.selectMultiple(this.index);
         }
       }
     },
     mounted() {
-      let parentClasses = this.$parent.$el.classList;
+      this.parentSelect = getClosestVueParent(this.$parent, 'md-select');
+      this.parentContent = getClosestVueParent(this.$parent, 'md-menu-content');
 
-      if (!parentClasses.contains('md-select')) {
-        this.$destroy();
-
-        throw new Error('You should wrap the md-option in a md-select');
+      if (!this.parentSelect) {
+        throw new Error('You must wrap the md-option in a md-select');
       }
 
-      this.$parent.optionsAmount++;
-      this.index = this.$parent.optionsAmount;
+      this.parentSelect.optionsAmount++;
+      this.index = this.parentSelect.optionsAmount;
+
+      this.parentSelect.multipleOptions[this.index] = {};
+      this.parentSelect.options[this.index] = this;
+    },
+    beforeDestroy() {
+      delete this.parentSelect.options[this.index];
+      delete this.parentSelect.multipleOptions[this.index];
     }
   };
 </script>

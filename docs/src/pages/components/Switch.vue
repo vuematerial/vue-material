@@ -36,6 +36,16 @@
           <md-switch v-model="checked7" id="my-test7" name="my-test7" class="md-primary" disabled>Light Blue Primary Color Disabled</md-switch>
         </div>
       </demo-example>
+
+      <demo-example label="Typed">
+        <md-switch v-model="checked8" id="my-test8" name="my-test8">Button (default)</md-switch>
+
+        <div>
+          <form @click.stop.prevent="submit">
+            <md-switch type="submit" v-model="checked9" id="my-test9" name="my-test9" class="md-primary">Submit</md-switch>
+          </form>
+        </div>
+      </demo-example>
     </div>
 
     <div slot="code">
@@ -67,6 +77,28 @@
 &lt;/div&gt;
         </code-block>
       </demo-example>
+
+      <demo-example label="Typed">
+        <code-block lang="xml">
+&lt;div&gt;
+  &lt;md-switch v-model=&quot;checked8&quot; id=&quot;my-test8&quot; name=&quot;my-test8&quot; class=&quot;md-primary&quot;&gt;Button (default)&lt;/md-switch&gt;
+&lt;/div&gt;
+
+&lt;form @click.stop.prevent=&quot;submit&quot;&gt;
+  &lt;md-switch type=&quot;submit&quot; v-model=&quot;checked9&quot; id=&quot;my-test9&quot; name=&quot;my-test9&quot;&gt;Submit&lt;/md-switch&gt;
+&lt;/form&gt;
+        </code-block>
+
+        <code-block lang="javascript">
+export default {
+  methods: {
+    submit(e) {
+      alert('This switch submits the form');
+    }
+  }
+};
+        </code-block>
+      </demo-example>
     </div>
 
     <div slot="api">
@@ -86,8 +118,17 @@
         checked4: true,
         checked5: true,
         checked6: true,
-        checked7: true
+        checked7: true,
+        checked8: true,
+        checked9: true,
+        checked10: true
       };
+    },
+
+    methods: {
+      submit() {
+        alert('This switch submits the form');
+      }
     }
   };
 </script>

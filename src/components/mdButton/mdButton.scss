@@ -32,6 +32,7 @@ $button-icon-size: 40px;
   font-style: inherit;
   font-variant: inherit;
   font-weight: 500;
+  letter-spacing: inherit;
   line-height: $button-height;
   text-align: center;
   text-transform: uppercase;
@@ -41,6 +42,10 @@ $button-icon-size: 40px;
 
   &:focus {
     outline: none;
+  }
+  
+  &::-moz-focus-inner {
+    border:0;
   }
 
   &:hover {

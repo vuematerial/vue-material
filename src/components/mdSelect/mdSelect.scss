@@ -46,6 +46,13 @@
     left: -999em;
   }
 
+  .md-menu {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: relative;
+  }
+
   .md-select-value {
     width: 100%;
     height: 100%;
@@ -65,7 +72,6 @@
     min-width: 156px;
     max-width: 100%;
     min-height: 48px;
-    max-height: 256px;
     display: flex;
     flex-flow: column;
     justify-content: stretch;
@@ -113,30 +119,28 @@
   }
 }
 
-.md-option {
-  height: 48px;
-  min-height: 48px;
-  padding: 0 4px 0 16px;
-  display: flex;
-  flex-flow: column;
-  justify-content: center;
-  overflow: hidden;
-  cursor: pointer;
-  position: relative;
-  transform: translate3D(0, 0, 0);
-  transition: $swift-ease-out;
-  font-size: 16px;
-  line-height: 1.2em;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+.md-select-content {
+  width: auto;
+  max-height: 256px;
 
-  &.md-highlighted {
-    background-color: rgba(#000, .12);
+  &.md-direction-bottom-right {
+    margin-top: -15px;
+    margin-left: -16px;
   }
 
-  span {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+  .md-menu-item .md-list-item-holder {
+    overflow: visible;
+    justify-content: flex-start;
+  }
+
+  &.md-multiple {
+    .md-checkbox {
+      margin: 0;
+    }
+
+    .md-checkbox-label {
+      padding-left: 16px;
+      cursor: pointer;
+    }
   }
 }

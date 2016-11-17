@@ -107,14 +107,6 @@
         tooltipElement.addEventListener('transitionend', onTransitionEnd);
       };
 
-      if (this.$parent.$el.classList === targetElement.classList) {
-        [].slice.call(targetElement.classList).forEach((cssClass) => {
-          if (cssClass.indexOf('md-') >= 0 && cssClass !== 'md-active') {
-            tooltipElement.classList.add(cssClass + '-tooltip');
-          }
-        });
-      }
-
       this.$el.parentNode.removeChild(this.$el);
 
       targetElement.addEventListener('mouseenter', onMouseEnter);
