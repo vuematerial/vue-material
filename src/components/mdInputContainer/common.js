@@ -29,7 +29,7 @@ export default {
       this.parentContainer.counterLength = this.maxlength;
     },
     setParentValue() {
-      this.parentContainer.setValue(this.$el.value);
+      this.parentContainer.setValue(this.value);
     },
     setParentDisabled() {
       this.parentContainer.isDisabled = this.disabled;
