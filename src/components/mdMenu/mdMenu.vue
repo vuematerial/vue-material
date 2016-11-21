@@ -8,6 +8,7 @@
 
 <script>
   import transitionEndEventName from '../../core/utils/transitionEndEventName';
+  import getInViewPosition from '../../core/utils/getInViewPosition';
 
   export default {
     props: {
@@ -73,39 +74,6 @@
           this.close();
         }
       },
-      isAboveOfViewport(pos) {
-        return pos.top <= this.browserMargin - parseInt(getComputedStyle(this.menuContent).marginTop, 10);
-      },
-      isBelowOfViewport(pos) {
-        return pos.top + this.menuContent.offsetHeight + this.browserMargin >= window.innerHeight - parseInt(getComputedStyle(this.menuContent).marginTop, 10);
-      },
-      isOnTheLeftOfViewport(pos) {
-        return pos.left <= this.browserMargin - parseInt(getComputedStyle(this.menuContent).marginLeft, 10);
-      },
-      isOnTheRightOfViewport(pos) {
-        return pos.left + this.menuContent.offsetWidth + this.browserMargin >= window.innerWidth - parseInt(getComputedStyle(this.menuContent).marginLeft, 10);
-      },
-      getInViewPosition(position) {
-        let computedStyle = getComputedStyle(this.menuContent);
-
-        if (this.isAboveOfViewport(position)) {
-          position.top = this.browserMargin - parseInt(computedStyle.marginTop, 10);
-        }
-
-        if (this.isOnTheLeftOfViewport(position)) {
-          position.left = this.browserMargin - parseInt(computedStyle.marginLeft, 10);
-        }
-
-        if (this.isOnTheRightOfViewport(position)) {
-          position.left = window.innerWidth - this.browserMargin - this.menuContent.offsetWidth - parseInt(computedStyle.marginLeft, 10);
-        }
-
-        if (this.isBelowOfViewport(position)) {
-          position.top = window.innerHeight - this.browserMargin - this.menuContent.offsetHeight - parseInt(computedStyle.marginTop, 10);
-        }
-
-        return position;
-      },
       getBottomRightPos() {
         let menuTriggerRect = this.menuTrigger.getBoundingClientRect();
         let position = {
@@ -113,7 +81,7 @@
           left: menuTriggerRect.left
         };
 
-        this.getInViewPosition(position);
+        position = getInViewPosition(this.menuContent, position);
 
         return position;
       },
@@ -124,7 +92,7 @@
           left: menuTriggerRect.left - this.menuContent.offsetWidth + menuTriggerRect.width
         };
 
-        this.getInViewPosition(position);
+        position = getInViewPosition(this.menuContent, position);
 
         return position;
       },
@@ -135,7 +103,7 @@
           left: menuTriggerRect.left
         };
 
-        this.getInViewPosition(position);
+        position = getInViewPosition(this.menuContent, position);
 
         return position;
       },
@@ -146,7 +114,7 @@
           left: menuTriggerRect.left - this.menuContent.offsetWidth + menuTriggerRect.width
         };
 
-        this.getInViewPosition(position);
+        position = getInViewPosition(this.menuContent, position);
 
         return position;
       },
