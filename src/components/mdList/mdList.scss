@@ -276,6 +276,7 @@
     position: relative;
     z-index: 1;
     transform: translate3D(0, 0, 0);
+    will-change: margin-bottom;
     transition: $swift-ease-in-out;
 
     &.md-transition-off {
