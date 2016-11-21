@@ -25,7 +25,6 @@
       return {
         value: '',
         input: false,
-        inputType: false,
         showPassword: false,
         enableCounter: false,
         hasSelect: false,
@@ -59,9 +58,12 @@
       }
     },
     methods: {
+      isInput() {
+        return this.input && this.input.tagName.toLowerCase() === 'input';
+      },
       togglePasswordType() {
-        if (this.input.tagName.toLowerCase() === 'input') {
-          if (this.inputType === 'password') {
+        if (this.isInput()) {
+          if (this.input.type === 'password') {
             this.input.type = 'text';
             this.showPassword = true;
           } else {
@@ -84,8 +86,6 @@
 
         throw new Error('Missing input/select/textarea inside md-input-container');
       }
-
-      this.inputType = this.input.type;
     }
   };
 </script>
