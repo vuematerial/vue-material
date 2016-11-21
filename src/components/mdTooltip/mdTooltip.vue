@@ -90,8 +90,16 @@
         this.topPosition = cssPosition.top;
         this.leftPosition = cssPosition.left;
       },
+      removeTooltips() {
+        const tooltips = [...document.querySelectorAll('.md-tooltip')];
+
+        tooltips.forEach((tooltip) => {
+          tooltip.parentNode.removeChild(tooltip);
+        });
+      },
       open() {
-        document.body.appendChild(this.tooltipElement);
+        this.removeTooltips();
+        this.rootElement.appendChild(this.tooltipElement);
         getComputedStyle(this.tooltipElement).top;
         this.transitionOff = true;
         this.calculateTooltipPosition();
@@ -106,7 +114,7 @@
           this.tooltipElement.removeEventListener(transitionEndEventName, cleanupElements);
 
           if (this.tooltipElement.parentNode && !this.tooltipElement.classList.contains('md-active')) {
-            document.body.removeChild(this.tooltipElement);
+            this.rootElement.removeChild(this.tooltipElement);
           }
         };
 
@@ -119,6 +127,7 @@
       this.$nextTick(() => {
         this.tooltipElement = this.$el;
         this.parentElement = this.tooltipElement.parentNode;
+        this.rootElement = this.$root.$el;
 
         this.$el.parentNode.removeChild(this.$el);
 
@@ -131,9 +140,7 @@
     beforeDestroy() {
       this.active = false;
 
-      if (this.$el.parentNode) {
-        document.body.removeChild(this.$el);
-      }
+      this.removeTooltips();
 
       if (this.parentElement) {
         this.parentElement.removeEventListener('mouseenter', this.open);
