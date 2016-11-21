@@ -93,15 +93,19 @@
 
       <demo-example label="Themed" size="4">
         <form novalidate @submit.stop.prevent="submit">
-          <md-input-container v-md-theme="'green'">
-            <label>Themable - Input</label>
-            <md-input></md-input>
-          </md-input-container>
+          <div v-md-theme="'green'">
+            <md-input-container>
+              <label>Green - Input</label>
+              <md-input></md-input>
+            </md-input-container>
+          </div>
 
-          <md-input-container v-md-theme="'brown'">
-            <label>Themable - Textarea</label>
-            <md-textarea></md-textarea>
-          </md-input-container>
+          <div v-md-theme="'cyan'">
+            <md-input-container>
+              <label>Cyan - Textarea</label>
+              <md-textarea></md-textarea>
+            </md-input-container>
+          </div>
         </form>
       </demo-example>
     </div>

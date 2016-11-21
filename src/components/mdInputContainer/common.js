@@ -7,8 +7,8 @@ export default {
     placeholder: String
   },
   watch: {
-    value() {
-      this.setParentValue();
+    value(value) {
+      this.setParentValue(value);
     },
     disabled() {
       this.setParentDisabled();
@@ -28,8 +28,8 @@ export default {
       this.parentContainer.enableCounter = this.maxlength > 0;
       this.parentContainer.counterLength = this.maxlength;
     },
-    setParentValue() {
-      this.parentContainer.setValue(this.value);
+    setParentValue(value) {
+      this.parentContainer.setValue(value || this.$el.value);
     },
     setParentDisabled() {
       this.parentContainer.isDisabled = this.disabled;
@@ -48,10 +48,12 @@ export default {
       this.setParentValue();
     },
     onInput() {
+      const value = this.$el.value;
+
       this.setParentValue();
-      this.parentContainer.inputLength = this.value ? this.value.length : 0;
-      this.$emit('change', this.value);
-      this.$emit('input', this.value);
+      this.parentContainer.inputLength = value ? value.length : 0;
+      this.$emit('change', value);
+      this.$emit('input', value);
     }
   }
 };
