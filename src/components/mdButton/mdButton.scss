@@ -43,7 +43,7 @@ $button-icon-size: 40px;
   &:focus {
     outline: none;
   }
-  
+
   &::-moz-focus-inner {
     border:0;
   }
@@ -110,7 +110,7 @@ $button-icon-size: 40px;
       line-height: $button-dense-height;
     }
 
-    .md-tooltip {
+    .md-button-tooltip {
       &.md-tooltip-top {
         margin-top: -8px;
       }
