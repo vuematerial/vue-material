@@ -23,7 +23,7 @@ import mdToolbar from './components/mdToolbar';
 import mdTooltip from './components/mdTooltip';
 import mdWhiteframe from './components/mdWhiteframe';
 
-let options = {
+const options = {
   mdCore,
   mdAvatar,
   mdBackdrop,
@@ -52,7 +52,7 @@ let options = {
 
 options.install = (Vue) => {
   for (let component in options) {
-    let componentInstaller = options[component];
+    const componentInstaller = options[component];
 
     if (componentInstaller && component !== 'install') {
       Vue.use(componentInstaller);
