@@ -60,22 +60,22 @@ $avatar-large-icon: 40px;
       animation-duration: .9s;
     }
   }
+}
 
-  .md-avatar-tooltip {
-    &.md-tooltip-top {
-      margin-top: -8px;
-    }
+.md-avatar-tooltip {
+  &.md-tooltip-top {
+    margin-top: -8px;
+  }
 
-    &.md-tooltip-right {
-      margin-left: 8px;
-    }
+  &.md-tooltip-right {
+    margin-left: 8px;
+  }
 
-    &.md-tooltip-bottom {
-      margin-top: 8px;
-    }
+  &.md-tooltip-bottom {
+    margin-top: 8px;
+  }
 
-    &.md-tooltip-left {
-      margin-left: -8px;
-    }
+  &.md-tooltip-left {
+    margin-left: -8px;
   }
 }

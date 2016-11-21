@@ -110,24 +110,6 @@ $button-icon-size: 40px;
       line-height: $button-dense-height;
     }
 
-    .md-button-tooltip {
-      &.md-tooltip-top {
-        margin-top: -8px;
-      }
-
-      &.md-tooltip-right {
-        margin-left: 8px;
-      }
-
-      &.md-tooltip-bottom {
-        margin-top: 8px;
-      }
-
-      &.md-tooltip-left {
-        margin-left: -8px;
-      }
-    }
-
     .md-ink-ripple {
       border-radius: 50%;
 
@@ -255,5 +237,23 @@ $button-icon-size: 40px;
 .md-button.md-fab {
   md-icon {
     display: block;
+  }
+}
+
+.md-button-tooltip {
+  &.md-tooltip-top {
+    margin-top: -8px;
+  }
+
+  &.md-tooltip-right {
+    margin-left: 8px;
+  }
+
+  &.md-tooltip-bottom {
+    margin-top: 8px;
+  }
+
+  &.md-tooltip-left {
+    margin-left: -8px;
   }
 }
