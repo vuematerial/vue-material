@@ -32,6 +32,10 @@ $tooltip-height: 20px;
     transition-delay: 0s !important;
   }
 
+  &.md-transition-off {
+    transition: none !important;
+  }
+
   &.md-tooltip-top {
     margin-top: -14px;
     transform: translate(-50%, 8px);
