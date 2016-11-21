@@ -23,13 +23,14 @@
     },
     data: () => ({
       active: false,
+      parentClass: null,
       transitionOff: false,
       topPosition: false,
       leftPosition: false
     }),
     computed: {
       classes() {
-        return {
+        const cssClasses = {
           'md-active': this.active,
           'md-transition-off': this.transitionOff,
           'md-tooltip-top': this.mdDirection === 'top',
@@ -37,6 +38,12 @@
           'md-tooltip-bottom': this.mdDirection === 'bottom',
           'md-tooltip-left': this.mdDirection === 'left'
         };
+
+        if (this.parentClass) {
+          cssClasses[this.parentClass] = true;
+        }
+
+        return cssClasses;
       },
       style() {
         return {
@@ -52,6 +59,13 @@
       }
     },
     methods: {
+      removeTooltips() {
+        const tooltips = [...document.querySelectorAll('.md-tooltip')];
+
+        tooltips.forEach((tooltip) => {
+          tooltip.parentNode.removeChild(tooltip);
+        });
+      },
       calculateTooltipPosition() {
         let position = this.parentElement.getBoundingClientRect();
         let cssPosition = {};
@@ -90,10 +104,23 @@
         this.topPosition = cssPosition.top;
         this.leftPosition = cssPosition.left;
       },
+      generateTooltipClasses() {
+        let classes = [];
+
+        this.parentElement.classList.forEach((cssClass) => {
+          if (cssClass.indexOf('md-') >= 0 && cssClass !== 'md-active') {
+            classes.push(cssClass + '-tooltip');
+          }
+        });
+
+        this.parentClass = classes.join(' ');
+      },
       open() {
-        document.body.appendChild(this.tooltipElement);
+        this.removeTooltips();
+        this.rootElement.appendChild(this.tooltipElement);
         getComputedStyle(this.tooltipElement).top;
         this.transitionOff = true;
+        this.generateTooltipClasses();
         this.calculateTooltipPosition();
 
         window.setTimeout(() => {
@@ -106,7 +133,7 @@
           this.tooltipElement.removeEventListener(transitionEndEventName, cleanupElements);
 
           if (this.tooltipElement.parentNode && !this.tooltipElement.classList.contains('md-active')) {
-            document.body.removeChild(this.tooltipElement);
+            this.rootElement.removeChild(this.tooltipElement);
           }
         };
 
@@ -119,6 +146,7 @@
       this.$nextTick(() => {
         this.tooltipElement = this.$el;
         this.parentElement = this.tooltipElement.parentNode;
+        this.rootElement = this.$root.$el;
 
         this.$el.parentNode.removeChild(this.$el);
 
@@ -131,9 +159,7 @@
     beforeDestroy() {
       this.active = false;
 
-      if (this.$el.parentNode) {
-        document.body.removeChild(this.$el);
-      }
+      this.removeTooltips();
 
       if (this.parentElement) {
         this.parentElement.removeEventListener('mouseenter', this.open);

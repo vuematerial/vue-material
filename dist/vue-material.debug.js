@@ -3653,8 +3653,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    placeholder: String
 	  },
 	  watch: {
-	    value: function value() {
-	      this.setParentValue();
+	    value: function value(_value) {
+	      this.setParentValue(_value);
 	    },
 	    disabled: function disabled() {
 	      this.setParentDisabled();
@@ -3674,8 +3674,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	      this.parentContainer.enableCounter = this.maxlength > 0;
 	      this.parentContainer.counterLength = this.maxlength;
 	    },
-	    setParentValue: function setParentValue() {
-	      this.parentContainer.setValue(this.value);
+	    setParentValue: function setParentValue(value) {
+	      this.parentContainer.setValue(value || this.$el.value);
 	    },
 	    setParentDisabled: function setParentDisabled() {
 	      this.parentContainer.isDisabled = this.disabled;
@@ -3694,10 +3694,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	      this.setParentValue();
 	    },
 	    onInput: function onInput() {
+	      var value = this.$el.value;
+	
 	      this.setParentValue();
-	      this.parentContainer.inputLength = this.value ? this.value.length : 0;
-	      this.$emit('change', this.value);
-	      this.$emit('input', this.value);
+	      this.parentContainer.inputLength = value ? value.length : 0;
+	      this.$emit('change', value);
+	      this.$emit('input', value);
 	    }
 	  }
 	};
