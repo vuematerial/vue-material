@@ -82,7 +82,7 @@
           }
 
           if (openFromRect.left > dialogRect.left + dialogRect.width) {
-            distance.left = openFromRect.left - dialogRect.left;
+            distance.left = openFromRect.left - dialogRect.left - openFromRect.width;
           }
 
           this.dialogTransform = `translate3D(${distance.left}px, ${distance.top}px, 0) scale(${widthInScale}, ${heightInScale})`;
