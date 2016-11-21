@@ -7,42 +7,8 @@
 <style lang="scss" src="./mdTooltip.scss"></style>
 
 <script>
-  let onMouseEnter;
-  let onMouseLeave;
-  let targetElement;
-
-  let calculateTooltipPosition = (scope) => {
-    let position = scope.targetElement.getBoundingClientRect();
-
-    switch (scope.mdDirection) {
-      case 'top':
-        scope.$el.style.top = position.top - scope.$el.offsetHeight + 'px';
-        scope.$el.style.left = position.left + position.width / 2 + 'px';
-
-        break;
-
-      case 'right':
-        scope.$el.style.top = position.top + 'px';
-        scope.$el.style.left = position.left + position.width + 'px';
-
-        break;
-
-      case 'bottom':
-        scope.$el.style.top = position.bottom + 'px';
-        scope.$el.style.left = position.left + position.width / 2 + 'px';
-
-        break;
-
-      case 'left':
-        scope.$el.style.top = position.top + 'px';
-        scope.$el.style.left = position.left - scope.$el.offsetWidth + 'px';
-
-        break;
-
-      default:
-        console.warn(`Invalid ${scope.mdDirection} option to md-direction option`);
-    }
-  };
+  import transitionEndEventName from '../../core/utils/transitionEndEventName';
+  import getInViewPosition from '../../core/utils/getInViewPosition';
 
   export default {
     props: {
@@ -55,15 +21,17 @@
         default: '0'
       }
     },
-    data() {
-      return {
-        active: false
-      };
-    },
+    data: () => ({
+      active: false,
+      transitionOff: false,
+      topPosition: false,
+      leftPosition: false
+    }),
     computed: {
       classes() {
         return {
           'md-active': this.active,
+          'md-transition-off': this.transitionOff,
           'md-tooltip-top': this.mdDirection === 'top',
           'md-tooltip-right': this.mdDirection === 'right',
           'md-tooltip-bottom': this.mdDirection === 'bottom',
@@ -72,47 +40,93 @@
       },
       style() {
         return {
-          'transition-delay': this.mdDelay + 'ms'
+          'transition-delay': this.mdDelay + 'ms',
+          top: this.topPosition + 'px',
+          left: this.leftPosition + 'px'
         };
       }
     },
     watch: {
       mdDirection() {
-        calculateTooltipPosition(this);
+        this.calculateTooltipPosition();
       }
     },
-    mounted() {
-      let tooltipElement = this.$el;
-      let targetElement = tooltipElement.parentNode;
+    methods: {
+      calculateTooltipPosition() {
+        let position = this.parentElement.getBoundingClientRect();
+        let cssPosition = {};
 
-      this.targetElement = targetElement;
+        switch (this.mdDirection) {
+          case 'top':
+            cssPosition.top = position.top - this.$el.offsetHeight;
+            cssPosition.left = position.left + position.width / 2;
 
-      onMouseEnter = () => {
-        document.body.appendChild(tooltipElement);
-        calculateTooltipPosition(this);
-        this.active = true;
-      };
+            break;
 
-      onMouseLeave = () => {
-        let onTransitionEnd = () => {
-          tooltipElement.removeEventListener('transitionend', onTransitionEnd);
+          case 'right':
+            cssPosition.top = position.top;
+            cssPosition.left = position.left + position.width;
 
-          if (tooltipElement.parentNode && !tooltipElement.classList.contains('md-active')) {
-            document.body.removeChild(tooltipElement);
+            break;
+
+          case 'bottom':
+            cssPosition.top = position.bottom;
+            cssPosition.left = position.left + position.width / 2;
+
+            break;
+
+          case 'left':
+            cssPosition.top = position.top;
+            cssPosition.left = position.left - this.$el.offsetWidth;
+
+            break;
+
+          default:
+            console.warn(`Invalid ${this.mdDirection} option to md-direction option`);
+        }
+
+        cssPosition = getInViewPosition(this.tooltipElement, cssPosition);
+
+        this.topPosition = cssPosition.top;
+        this.leftPosition = cssPosition.left;
+      },
+      open() {
+        document.body.appendChild(this.tooltipElement);
+        getComputedStyle(this.tooltipElement).top;
+        this.transitionOff = true;
+        this.calculateTooltipPosition();
+
+        window.setTimeout(() => {
+          this.transitionOff = false;
+          this.active = true;
+        }, 10);
+      },
+      close() {
+        let cleanupElements = () => {
+          this.tooltipElement.removeEventListener(transitionEndEventName, cleanupElements);
+
+          if (this.tooltipElement.parentNode && !this.tooltipElement.classList.contains('md-active')) {
+            document.body.removeChild(this.tooltipElement);
           }
         };
 
         this.active = false;
-        tooltipElement.removeEventListener('transitionend', onTransitionEnd);
-        tooltipElement.addEventListener('transitionend', onTransitionEnd);
-      };
+        this.tooltipElement.removeEventListener(transitionEndEventName, cleanupElements);
+        this.tooltipElement.addEventListener(transitionEndEventName, cleanupElements);
+      }
+    },
+    mounted() {
+      this.$nextTick(() => {
+        this.tooltipElement = this.$el;
+        this.parentElement = this.tooltipElement.parentNode;
 
-      this.$el.parentNode.removeChild(this.$el);
+        this.$el.parentNode.removeChild(this.$el);
 
-      targetElement.addEventListener('mouseenter', onMouseEnter);
-      targetElement.addEventListener('focus', onMouseEnter);
-      targetElement.addEventListener('mouseleave', onMouseLeave);
-      targetElement.addEventListener('blur', onMouseLeave);
+        this.parentElement.addEventListener('mouseenter', this.open);
+        this.parentElement.addEventListener('focus', this.open);
+        this.parentElement.addEventListener('mouseleave', this.close);
+        this.parentElement.addEventListener('blur', this.close);
+      });
     },
     beforeDestroy() {
       this.active = false;
@@ -121,11 +135,11 @@
         document.body.removeChild(this.$el);
       }
 
-      if (targetElement) {
-        targetElement.removeEventListener('mouseenter', onMouseEnter);
-        targetElement.removeEventListener('focus', onMouseEnter);
-        targetElement.removeEventListener('mouseleave', onMouseLeave);
-        targetElement.removeEventListener('blur', onMouseLeave);
+      if (this.parentElement) {
+        this.parentElement.removeEventListener('mouseenter', this.open);
+        this.parentElement.removeEventListener('focus', this.open);
+        this.parentElement.removeEventListener('mouseleave', this.close);
+        this.parentElement.removeEventListener('blur', this.close);
       }
     }
   };
