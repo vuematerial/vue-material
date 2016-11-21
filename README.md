@@ -11,10 +11,8 @@
 
   <a href="https://www.npmjs.com/package/vue-material"><img src="https://img.shields.io/npm/v/vue-material.svg" alt="Version"></a>
 
-  <a href="https://www.npmjs.com/package/vue-material"><img src="https://img.shields.io/npm/l/vue-material.svg" alt="License"></a>
+  <a href="https://www.npmjs.com/package/vue-material"><img src="https://img.shields.io/npm/l/vue-material.svg" alt="License"></a> <br>
 </p>
-
-<br>
 
 Vue Material is lightweight framework built exactly according to the <a href="http://material.google.com" target="_blank">Material Design</a> specs. It aims to deliver a collection of reusable components and a series of UI Elements to build applications with support to <a href="https://saucelabs.com/u/vuejs" target="_blank">modern Web Browsers</a> through Vue 2.0. Build powerful and well-designed web apps that can can fit on every screen. You can generate and use themes dynamically, use components on demand, take advantage of UI Elements and Components with an ease-to-use API.
 
