@@ -49,7 +49,7 @@ export default {
     },
     onInput() {
       this.setParentValue();
-      this.parentContainer.inputLength = this.value.length;
+      this.parentContainer.inputLength = this.value ? this.value.length : 0;
       this.$emit('change', this.value);
       this.$emit('input', this.value);
     }
