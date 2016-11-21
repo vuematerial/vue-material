@@ -29,7 +29,7 @@ export default {
       this.parentContainer.counterLength = this.maxlength;
     },
     setParentValue() {
-      this.parentContainer.setValue(this.$el.value);
+      this.parentContainer.setValue(this.value);
     },
     setParentDisabled() {
       this.parentContainer.isDisabled = this.disabled;
@@ -49,9 +49,9 @@ export default {
     },
     onInput() {
       this.setParentValue();
-      this.parentContainer.inputLength = this.$el.value.length;
-      this.$emit('change', this.$el.value);
-      this.$emit('input', this.$el.value);
+      this.parentContainer.inputLength = this.value.length;
+      this.$emit('change', this.value);
+      this.$emit('input', this.value);
     }
   }
 };
