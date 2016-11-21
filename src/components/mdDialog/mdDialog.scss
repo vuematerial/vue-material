@@ -20,7 +20,8 @@
       opacity: 1 !important;
       transform: scale(1) !important;
       transition: $swift-ease-out;
-      transform-property: opacity, transform;
+      transition-property: opacity, transform, border-radius;
+      border-radius: 2px;
 
       > * {
         opacity: 1;
@@ -42,17 +43,22 @@
   position: relative;
   z-index: 110;
   outline: none;
-  border-radius: 2px;
+  border-radius: 24px;
   opacity: 0;
   box-shadow: $material-shadow-14dp;
   transform: scale(.9, .85);
-  transform-origin: top left;
+  transform-origin: center center;
   transition: opacity $swift-ease-out-duration $swift-ease-out-timing-function,
+              border-radius $swift-ease-out-duration .1s $swift-ease-out-timing-function,
               transform $swift-ease-out-duration .05s $swift-ease-out-timing-function;
-  will-change: opacity, transform;
+  will-change: opacity, transform, border-radius;
 
   &.md-transition-off {
-    transition: none;
+    transition: none !important;
+  }
+
+  &.md-with-reference {
+    transform-origin: top center;
   }
 
   > * {
