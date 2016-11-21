@@ -3,11 +3,25 @@
     <single-page-banner label="Changelog"></single-page-banner>
 
     <section>
+      <h2 class="md-headline">v0.3.2 - Bugfixes</h2>
+      <h3 class="md-title">Fixes:</h3>
+      <ul>
+        <li>Fix babel export default module.exports <strong><a href="https://github.com/marcosmoura/vue-material/issues/92" target="_blank" rel="noopener">#92</a></strong></li>
+        <li>Fix tooltips jumping when screen resize <strong><a href="https://github.com/marcosmoura/vue-material/issues/85" target="_blank" rel="noopener">#85</a></strong></li>
+        <li>Fix table not getting instance <strong><a href="https://github.com/marcosmoura/vue-material/issues/91" target="_blank" rel="noopener">#91</a></strong> <strong><a href="https://github.com/marcosmoura/vue-material/issues/88" target="_blank" rel="noopener">#88</a></strong></li>
+        <li>Fix regression on password review <strong><a href="https://github.com/marcosmoura/vue-material/issues/95" target="_blank" rel="noopener">#95</a></strong></li>
+        <li>Fix input getting wrong value after manual update <strong><a href="https://github.com/marcosmoura/vue-material/issues/100" target="_blank" rel="noopener">#100</a></strong> <strong><a href="https://github.com/marcosmoura/vue-material/issues/96" target="_blank" rel="noopener">#96</a></strong></li>
+        <li>Use the internal value of md-input to set the value of the container <strong><a href="https://github.com/marcosmoura/vue-material/pull/97" target="_blank" rel="noopener">#97</a> (Thanks to <a href="https://github.com/Cabbaggio" target="_blank" rel="noopener">@Cabbaggio</a>)</strong></li>
+        <li>Add material.debug.js to dist folder <strong><a href="https://github.com/marcosmoura/vue-material/pull/90" target="_blank" rel="noopener">#90</a> (Thanks to <a href="https://github.com/pauloramires" target="_blank" rel="noopener">@pauloramires</a>)</strong></li>
+      </ul>
+    </section>
+
+    <section>
       <h2 class="md-headline">v0.3.1 - Bugfixes</h2>
       <h3 class="md-title">Fixes:</h3>
       <ul>
         <li>md-select not being reactive <strong><a href="https://github.com/marcosmoura/vue-material/issues/74" target="_blank" rel="noopener">#74</a></strong></li>
-        <li>Fix components not being updated inside v-once <strong><a href="https://github.com/marcosmoura/vue-material/issues/69" target="_blank" rel="noopener">#69</a><a href="https://github.com/marcosmoura/vue-material/issues/70" target="_blank" rel="noopener">#70</a></strong></li>
+        <li>Fix components not being updated inside v-once <strong><a href="https://github.com/marcosmoura/vue-material/issues/69" target="_blank" rel="noopener">#69</a> <a href="https://github.com/marcosmoura/vue-material/issues/70" target="_blank" rel="noopener">#70</a></strong></li>
         <li>Fix input number not accepting numbers <strong><a href="https://github.com/marcosmoura/vue-material/issues/67" target="_blank" rel="noopener">#67</a> <a href="https://github.com/marcosmoura/vue-material/issues/70" target="_blank" rel="noopener">#70</a></strong></li>
         <li>Fix md-input-container crashing when the select value is null <strong><a href="https://github.com/marcosmoura/vue-material/issues/64" target="_blank" rel="noopener">#64</a></strong></li>
       </ul>
