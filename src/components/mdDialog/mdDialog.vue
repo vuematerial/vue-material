@@ -61,7 +61,9 @@
     },
     methods: {
       removeDialog() {
-        this.$el.parentNode.removeChild(this.$el);
+        if (this.rootElement.contains(this.dialogElement)) {
+          this.$el.parentNode.removeChild(this.$el);
+        }
       },
       calculateDialogPos(ref) {
         const reference = document.querySelector(ref);
@@ -79,7 +81,7 @@
         }
       },
       open() {
-        this.$root.$el.appendChild(this.dialogElement);
+        this.rootElement.appendChild(this.dialogElement);
         this.transitionOff = true;
         this.calculateDialogPos(this.mdOpenFrom);
 
@@ -90,7 +92,7 @@
         });
       },
       close() {
-        if (this.$root.$el.contains(this.dialogElement)) {
+        if (this.rootElement.contains(this.dialogElement)) {
           let cleanElement = () => {
             this.dialogInnerElement.removeEventListener(transitionEndEventName, cleanElement);
             this.$root.$el.removeChild(this.dialogElement);
