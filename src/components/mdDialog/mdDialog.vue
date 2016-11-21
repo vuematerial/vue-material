@@ -42,13 +42,14 @@
     computed: {
       classes() {
         return {
-          'md-fullscreen': this.mdFullscreen,
           'md-active': this.active
         };
       },
       dialogClasses() {
         return {
-          'md-transition-off': this.transitionOff
+          'md-fullscreen': this.mdFullscreen,
+          'md-transition-off': this.transitionOff,
+          'md-with-reference': this.mdOpenFrom || this.mdCloseTo
         };
       },
       styles() {
