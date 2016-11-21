@@ -3,6 +3,14 @@
     <single-page-banner label="Changelog"></single-page-banner>
 
     <section>
+      <h2 class="md-headline">v0.3.3 - Bugfixes</h2>
+      <h3 class="md-title">Fixes:</h3>
+      <ul>
+        <li>Fix regression on inputs getting wrong value after manual update #101 #100 #96 <strong><a href="https://github.com/marcosmoura/vue-material/issues/101" target="_blank" rel="noopener">#101</a> <strong><a href="https://github.com/marcosmoura/vue-material/issues/100" target="_blank" rel="noopener">#100</a> <strong><a href="https://github.com/marcosmoura/vue-material/issues/96" target="_blank" rel="noopener">#96</a></li>
+      </ul>
+    </section>
+
+    <section>
       <h2 class="md-headline">v0.3.2 - Bugfixes</h2>
       <h3 class="md-title">Fixes:</h3>
       <ul>
