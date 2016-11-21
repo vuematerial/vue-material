@@ -37,8 +37,7 @@
     data: () => ({
       active: false,
       transitionOff: false,
-      dialogTransform: '',
-      dialogTransformOrigin: ''
+      dialogTransform: ''
     }),
     computed: {
       classes() {
@@ -54,8 +53,7 @@
       },
       styles() {
         return {
-          transform: this.dialogTransform,
-          'transform-origin': this.dialogTransformOrigin
+          transform: this.dialogTransform
         };
       }
     },
@@ -71,13 +69,22 @@
         if (reference) {
           const openFromRect = reference.getBoundingClientRect();
           const dialogRect = this.dialogInnerElement.getBoundingClientRect();
-          const topDistance = dialogRect.top - openFromRect.top;
-          const leftDistance = dialogRect.left - openFromRect.left;
           const widthInScale = openFromRect.width / dialogRect.width;
           const heightInScale = openFromRect.height / dialogRect.height;
+          let distance = {
+            top: -(dialogRect.top - openFromRect.top),
+            left: -(dialogRect.left - openFromRect.left)
+          };
 
-          this.dialogTransform = `translate3D(-${leftDistance}px, -${topDistance}px, 0) scale(${widthInScale}, ${heightInScale})`;
-          this.dialogTransformOrigin = 'top left'; /* @TODO: Fix position */
+          if (openFromRect.top > dialogRect.top + dialogRect.height) {
+            distance.top = openFromRect.top - dialogRect.top;
+          }
+
+          if (openFromRect.left > dialogRect.left + dialogRect.width) {
+            distance.left = openFromRect.left - dialogRect.left;
+          }
+
+          this.dialogTransform = `translate3D(${distance.left}px, ${distance.top}px, 0) scale(${widthInScale}, ${heightInScale})`;
         }
       },
       open() {
@@ -98,11 +105,9 @@
             this.$root.$el.removeChild(this.dialogElement);
 
             this.dialogTransform = '';
-            this.dialogTransformOrigin = '';
           };
 
           this.dialogTransform = '';
-          this.dialogTransformOrigin = '';
           this.calculateDialogPos(this.mdCloseTo);
 
           window.setTimeout(() => {

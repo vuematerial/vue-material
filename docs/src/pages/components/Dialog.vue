@@ -1,7 +1,7 @@
 <template>
   <demo-page label="Components - Dialog">
     <div slot="examples">
-      <demo-example label="Default" size="2">
+      <demo-example label="Default" height="500">
         <md-dialog ref="dialog1">
           <div class="md-dialog-content">
             <form>
@@ -29,7 +29,9 @@
         </md-dialog>
 
         <md-button class="md-primary md-raised" @click="openDialog('dialog1')">Simple</md-button>
-        <md-button class="md-primary md-raised" id="trigger" @click="openDialog('dialog2')">Open from/Close to</md-button>
+        <md-button class="md-fab md-fab-bottom-right" id="trigger" @click="openDialog('dialog2')">
+          <md-icon>add<md-icon>
+        </md-button>
       </demo-example>
     </div>
 
