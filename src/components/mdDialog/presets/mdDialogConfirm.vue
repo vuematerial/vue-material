@@ -1,13 +1,13 @@
 <template>
-  <md-dialog class="md-dialog-confirm" ref="dialog" @close="fireCloseEvent('cancel')">
+  <md-dialog class="md-dialog-confirm" ref="dialog" @close="fireCloseEvent()">
     <md-dialog-title v-if="mdTitle">{{ mdTitle }}</md-dialog-title>
 
     <md-dialog-content v-if="mdContentHtml" v-html="mdContentHtml"></md-dialog-content>
     <md-dialog-content v-else>{{ mdContent }}</md-dialog-content>
 
     <md-dialog-actions>
-      <md-button class="md-primary" @click="close('cancel')">{{ mdCancelText }}</md-button>
-      <md-button class="md-primary" @click="close('ok')">{{ mdOkText }}</md-button>
+      <md-button class="md-primary" @click="close()">{{ mdCancelText }}</md-button>
+      <md-button class="md-primary" @click="close()">{{ mdOkText }}</md-button>
     </md-dialog-actions>
   </md-dialog>
 </template>
@@ -31,9 +31,9 @@
       debounce: false
     }),
     methods: {
-      fireCloseEvent(type) {
+      fireCloseEvent() {
         if (!this.debounce) {
-          this.$emit('close', type);
+          this.$emit('close');
         }
       },
       open() {
@@ -41,8 +41,8 @@
         this.$refs.dialog.open();
         this.debounce = false;
       },
-      close(type) {
-        this.fireCloseEvent(type);
+      close() {
+        this.fireCloseEvent();
         this.debounce = true;
         this.$refs.dialog.close();
       }
