@@ -21,18 +21,32 @@
           ref="dialog2">
         </md-dialog-confirm>
 
-        <md-dialog ref="dialog4">
-          <md-dialog-title>Use Google's location service?</md-dialog-title>
+        <md-dialog-prompt
+          :md-title="prompt.title"
+          :md-ok-text="prompt.ok"
+          :md-cancel-text="prompt.cancel"
+          :md-input-id="prompt.id"
+          :md-input-name="prompt.name"
+          :md-input-maxlength="prompt.maxlength"
+          :md-input-placeholder="prompt.placeholder"
+          v-model="prompt.value"
+          @open="onOpen"
+          @close="onClose"
+          ref="dialog3">
+        </md-dialog-prompt>
 
-          <md-dialog-content>Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.</md-dialog-content>
+        <md-dialog ref="dialog4" md-open-from="#custom" md-close-to="#custom">
+          <md-dialog-title>Lorem ipsum dolor sit amet</md-dialog-title>
+
+          <md-dialog-content>Nemo, nobis necessitatibus ut illo, ducimus ex.</md-dialog-content>
 
           <md-dialog-actions>
-            <md-button class="md-primary" @click="closeDialog('dialog4')">Disagree</md-button>
-            <md-button class="md-primary" @click="closeDialog('dialog4')">Agree</md-button>
+            <md-button class="md-primary" @click="closeDialog('dialog4')">Cancel</md-button>
+            <md-button class="md-primary" @click="closeDialog('dialog4')">Ok</md-button>
           </md-dialog-actions>
         </md-dialog>
 
-        <md-dialog md-open-from="#trigger" md-close-to="#trigger" ref="dialog5">
+        <md-dialog md-open-from="#fab" md-close-to="#fab" ref="dialog5">
           <md-dialog-title>Create new note</md-dialog-title>
 
           <md-dialog-content>
@@ -53,10 +67,12 @@
         <md-button class="md-primary md-raised" @click="openDialog('dialog1')">Alert</md-button>
         <md-button class="md-primary md-raised" @click="openDialog('dialog2')">Confirm</md-button>
         <md-button class="md-primary md-raised" @click="openDialog('dialog3')">Prompt</md-button>
-        <md-button class="md-primary md-raised" @click="openDialog('dialog4')">Simple</md-button>
-        <md-button class="md-fab md-fab-bottom-right" id="trigger" @click="openDialog('dialog5')">
+        <md-button class="md-primary md-raised" id="custom" @click="openDialog('dialog4')">Custom</md-button>
+        <md-button class="md-fab md-fab-bottom-right" id="fab" @click="openDialog('dialog5')">
           <md-icon>add</md-icon>
         </md-button>
+
+        <div>Prompt Name: {{ prompt.value }}</div>
       </demo-example>
     </div>
 
@@ -80,16 +96,25 @@
 <script>
   export default {
     data: () => ({
+      alert: {
+        content: 'Your post has been deleted!',
+        ok: 'Cool!'
+      },
       confirm: {
         title: 'Use Google\'s location service?',
         content: 'Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.',
         ok: 'Agree',
         cancel: 'Disagree'
       },
-      alert: {
-        title: 'Use Google\'s location service?',
-        content: 'Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.',
-        ok: 'Got it!'
+      prompt: {
+        title: 'What\'s your name?',
+        ok: 'Done',
+        cancel: 'Cancel',
+        id: 'name',
+        name: 'name',
+        placeholder: 'Type your name...',
+        maxlength: 30,
+        value: ''
       }
     }),
     methods: {
