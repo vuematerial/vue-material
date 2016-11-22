@@ -13,7 +13,7 @@
 
         <md-dialog-confirm
           :md-title="confirm.title"
-          :md-content="confirm.content"
+          :md-content-html="confirm.contentHtml"
           :md-ok-text="confirm.ok"
           :md-cancel-text="confirm.cancel"
           @open="onOpen"
@@ -102,7 +102,7 @@
       },
       confirm: {
         title: 'Use Google\'s location service?',
-        content: 'Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.',
+        contentHtml: 'Let Google help apps determine location. <br> This means sending <strong>anonymous</strong> location data to Google, even when no apps are running.',
         ok: 'Agree',
         cancel: 'Disagree'
       },
