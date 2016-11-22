@@ -74,7 +74,7 @@
           const heightInScale = openFromRect.height / dialogRect.height;
           let distance = {
             top: -(dialogRect.top - openFromRect.top),
-            left: -(dialogRect.left - openFromRect.left)
+            left: -(dialogRect.left - openFromRect.left + openFromRect.width)
           };
 
           if (openFromRect.top > dialogRect.top + dialogRect.height) {

@@ -22,7 +22,7 @@
 <script>
   export default {
     props: {
-      value: String,
+      value: [String, Number],
       mdLarge: Boolean,
       mdId: String,
       mdName: String,
