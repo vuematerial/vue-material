@@ -21,10 +21,6 @@
       transform: scale(1) !important;
       transition: $swift-ease-out;
       transition-property: opacity, transform;
-
-      > * {
-        opacity: 1;
-      }
     }
   }
 }
@@ -59,11 +55,39 @@
     transform-origin: top center;
   }
 
-  > * {
-    opacity: 0;
-    transition: $swift-ease-out;
-    transition-property: opacity;
-    transition-delay: .1s;
-    will-change: opacity;
+  .md-title {
+    margin: 0 0 20px;
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+.md-dialog-content {
+  padding: 24px;
+}
+
+.md-dialog-body {
+  margin: 0 -24px;
+  padding: 0 24px;
+  overflow: auto;
+}
+
+.md-dialog-actions {
+  min-height: 52px;
+  padding: 8px 8px 8px 24px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  .md-button {
+    min-width: 64px;
+    margin: 0;
+    padding: 0 8px;
+
+    + .md-button {
+      margin-left: 8px;
+    }
   }
 }
