@@ -42,17 +42,13 @@
   opacity: 0;
   box-shadow: $material-shadow-14dp;
   transform: scale(.9, .85);
-  transform-origin: center center;
+  transform-origin: top center;
   transition: opacity $swift-ease-out-duration $swift-ease-out-timing-function,
               transform $swift-ease-out-duration .05s $swift-ease-out-timing-function;
   will-change: opacity, transform;
 
   &.md-transition-off {
     transition: none !important;
-  }
-
-  &.md-with-reference {
-    transform-origin: top center;
   }
 
   p {
