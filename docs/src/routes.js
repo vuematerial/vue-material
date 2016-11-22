@@ -12,6 +12,7 @@ import Buttons from './pages/components/Buttons';
 import ButtonToggle from './pages/components/ButtonToggle';
 import Card from './pages/components/Card';
 import Checkbox from './pages/components/Checkbox';
+import Dialog from './pages/components/Dialog';
 import Icon from './pages/components/Icon';
 import Input from './pages/components/Input';
 import List from './pages/components/List';
@@ -94,6 +95,11 @@ const components = [
     path: '/components/checkbox',
     name: 'components:checkbox',
     component: Checkbox
+  },
+  {
+    path: '/components/dialog',
+    name: 'components:dialog',
+    component: Dialog
   },
   {
     path: '/components/icon',

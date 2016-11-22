@@ -1,0 +1,7 @@
+.THEME_NAME {
+  .md-dialog,
+  &.md-dialog {
+    background-color: #{'BACKGROUND-COLOR-A100'};
+    color: #{'BACKGROUND-CONTRAST'};
+  }
+}

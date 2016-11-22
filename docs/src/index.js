@@ -37,18 +37,18 @@ let router = new VueRouter({
 });
 
 let Docs = Vue.component('app', App);
-let handleSectionTheme = (route) => {
-  if (route.name.indexOf('introduction') >= 0) {
+let handleSectionTheme = (currentRoute) => {
+  if (currentRoute.name.indexOf('introduction') >= 0) {
     Docs.theme = 'blue';
-  } else if (route.name.indexOf('components') >= 0) {
+  } else if (currentRoute.name.indexOf('components') >= 0) {
     Docs.theme = 'indigo';
-  } else if (route.name.indexOf('themes') >= 0) {
+  } else if (currentRoute.name.indexOf('themes') >= 0) {
     Docs.theme = 'teal';
-  } else if (route.name.indexOf('ui-elements') >= 0) {
+  } else if (currentRoute.name.indexOf('ui-elements') >= 0) {
     Docs.theme = 'blue-grey';
-  } else if (route.name.indexOf('changelog') >= 0) {
+  } else if (currentRoute.name.indexOf('changelog') >= 0) {
     Docs.theme = 'orange';
-  } else if (route.name.indexOf('about') >= 0) {
+  } else if (currentRoute.name.indexOf('about') >= 0) {
     Docs.theme = 'green';
   } else {
     Docs.theme = 'default';
@@ -62,7 +62,7 @@ Docs = new Docs({
 
 handleSectionTheme(router.currentRoute);
 
-router.afterEach((currentRoute) => {
+router.beforeEach((to, from, next) => {
   let mainContent = document.querySelector('.main-content');
 
   if (mainContent) {
@@ -71,5 +71,7 @@ router.afterEach((currentRoute) => {
 
   Docs.closeSidenav();
 
-  handleSectionTheme(currentRoute);
+  handleSectionTheme(to);
+
+  next();
 });

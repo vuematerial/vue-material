@@ -1,10 +1,12 @@
 import mdCore from './core';
 import mdAvatar from './components/mdAvatar';
+import mdBackdrop from './components/mdBackdrop';
 import mdBottomBar from './components/mdBottomBar';
 import mdButton from './components/mdButton';
 import mdButtonToggle from './components/mdButtonToggle';
-import mdCheckbox from './components/mdCheckbox';
 import mdCard from './components/mdCard';
+import mdCheckbox from './components/mdCheckbox';
+import mdDialog from './components/mdDialog';
 import mdDivider from './components/mdDivider';
 import mdIcon from './components/mdIcon';
 import mdInputContainer from './components/mdInputContainer';
@@ -24,11 +26,13 @@ import mdWhiteframe from './components/mdWhiteframe';
 const options = {
   mdCore,
   mdAvatar,
+  mdBackdrop,
   mdBottomBar,
   mdButton,
   mdButtonToggle,
-  mdCheckbox,
   mdCard,
+  mdCheckbox,
+  mdDialog,
   mdDivider,
   mdIcon,
   mdInputContainer,
