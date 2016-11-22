@@ -1,6 +1,8 @@
 <template>
   <div class="md-menu">
     <slot></slot>
+
+    <md-backdrop class="md-menu-backdrop md-transparent md-active" ref="backdrop" @close="close"></md-backdrop>
   </div>
 </template>
 
@@ -68,11 +70,6 @@
       },
       addNewDirectionMenuContentClass(direction) {
         this.menuContent.classList.add('md-direction-' + direction.replace(' ', '-'));
-      },
-      closeOnOffClick(event) {
-        if (!this.$el.contains(event.target) && !this.menuContent.contains(event.target)) {
-          this.close();
-        }
       },
       getBottomRightPos() {
         let menuTriggerRect = this.menuTrigger.getBoundingClientRect();
@@ -148,12 +145,12 @@
         window.requestAnimationFrame(this.calculateMenuContentPos);
       },
       open() {
-        if (this.$root.$el.contains(this.menuContent)) {
-          this.$root.$el.removeChild(this.menuContent);
+        if (this.rootElement.contains(this.menuContent)) {
+          this.rootElement.removeChild(this.menuContent);
         }
 
-        this.$root.$el.appendChild(this.menuContent);
-        document.addEventListener('click', this.closeOnOffClick);
+        this.rootElement.appendChild(this.menuContent);
+        this.rootElement.appendChild(this.backdropElement);
         window.addEventListener('resize', this.recalculateOnResize);
 
         this.calculateMenuContentPos();
@@ -164,12 +161,11 @@
         this.active = true;
       },
       close() {
-        let menuContent = this.menuContent;
         let close = (event) => {
-          if (menuContent && event.target === menuContent) {
+          if (this.menuContent && event.target === this.menuContent) {
             let activeRipple = this.menuContent.querySelector('.md-ripple.md-active');
 
-            menuContent.removeEventListener(transitionEndEventName, close);
+            this.menuContent.removeEventListener(transitionEndEventName, close);
             this.menuTrigger.focus();
             this.active = false;
 
@@ -177,8 +173,8 @@
               activeRipple.classList.remove('md-active');
             }
 
-            this.$root.$el.removeChild(menuContent);
-            document.removeEventListener('click', this.closeOnOffClick);
+            this.rootElement.removeChild(this.menuContent);
+            this.rootElement.removeChild(this.backdropElement);
             window.removeEventListener('resize', this.recalculateOnResize);
           }
         };
@@ -195,13 +191,18 @@
       }
     },
     mounted() {
-      this.menuTrigger = this.$el.querySelector('[md-menu-trigger]');
-      this.menuContent = this.$el.querySelector('.md-menu-content');
-      this.validateMenu();
-      this.addNewSizeMenuContentClass(this.mdSize);
-      this.addNewDirectionMenuContentClass(this.mdDirection);
-      this.menuContent.parentNode.removeChild(this.menuContent);
-      this.menuTrigger.addEventListener('click', this.toggle);
+      this.$nextTick(() => {
+        this.rootElement = this.$root.$el;
+        this.menuTrigger = this.$el.querySelector('[md-menu-trigger]');
+        this.menuContent = this.$el.querySelector('.md-menu-content');
+        this.backdropElement = this.$refs.backdrop.$el;
+        this.validateMenu();
+        this.addNewSizeMenuContentClass(this.mdSize);
+        this.addNewDirectionMenuContentClass(this.mdDirection);
+        this.$el.removeChild(this.$refs.backdrop.$el);
+        this.menuContent.parentNode.removeChild(this.menuContent);
+        this.menuTrigger.addEventListener('click', this.toggle);
+      });
     }
   };
 </script>
