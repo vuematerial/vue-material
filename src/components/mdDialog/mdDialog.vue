@@ -48,8 +48,7 @@
       dialogClasses() {
         return {
           'md-fullscreen': this.mdFullscreen,
-          'md-transition-off': this.transitionOff,
-          'md-with-reference': this.mdOpenFrom || this.mdCloseTo
+          'md-transition-off': this.transitionOff
         };
       },
       styles() {
@@ -103,28 +102,31 @@
       },
       close() {
         if (this.rootElement.contains(this.dialogElement)) {
-          let cleanElement = () => {
-            let activeRipple = this.dialogElement.querySelector('.md-ripple.md-active');
+          this.$nextTick(() => {
+            let cleanElement = () => {
+              let activeRipple = this.dialogElement.querySelector('.md-ripple.md-active');
 
-            this.dialogInnerElement.removeEventListener(transitionEndEventName, cleanElement);
-            this.$root.$el.removeChild(this.dialogElement);
+              if (activeRipple) {
+                activeRipple.classList.remove('md-active');
+              }
 
-            if (activeRipple) {
-              activeRipple.classList.remove('md-active');
-            }
+              this.dialogInnerElement.removeEventListener(transitionEndEventName, cleanElement);
+              this.rootElement.removeChild(this.dialogElement);
+              this.dialogTransform = '';
+            };
 
+            this.transitionOff = true;
             this.dialogTransform = '';
-          };
+            this.calculateDialogPos(this.mdCloseTo);
 
-          this.dialogTransform = '';
-          this.calculateDialogPos(this.mdCloseTo);
+            window.setTimeout(() => {
+              this.transitionOff = false;
+              this.active = false;
+              this.dialogInnerElement.addEventListener(transitionEndEventName, cleanElement);
+            });
 
-          window.setTimeout(() => {
-            this.active = false;
-            this.dialogInnerElement.addEventListener(transitionEndEventName, cleanElement);
+            this.$emit('close');
           });
-
-          this.$emit('close');
         }
       }
     },
