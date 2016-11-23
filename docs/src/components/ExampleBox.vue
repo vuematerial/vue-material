@@ -32,6 +32,11 @@
 
   .example-tabs {
     margin-top: -48px;
+
+    @media (max-width: 480px) {
+      margin-top: -1px;
+      background-color: #fff;
+    }
   }
 </style>
 

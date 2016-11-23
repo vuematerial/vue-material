@@ -2,13 +2,13 @@
   <div class="main-content component-docs">
     <div class="usage-content">
       <section class="component-description">
-        <h2 class="md-headline"># Component:</h2>
+        <h2 class="md-headline">Description</h2>
 
         <slot name="description"></slot>
       </section>
 
       <section class="api-documentation">
-        <h2 class="md-headline"># API Options:</h2>
+        <h2 class="md-headline">API Options</h2>
 
         <slot name="api"></slot>
       </section>
@@ -43,6 +43,8 @@
     flex: 1 1 45%;
 
     @media (max-width: 1024px) {
+      padding: 0;
+      flex: none;
       order: 2;
     }
   }
@@ -58,5 +60,10 @@
   .example-content {
     padding-left: 8px;
     flex: 1 1 55%;
+
+    @media (max-width: 1024px) {
+      padding: 0;
+      flex: none;
+    }
   }
 </style>
