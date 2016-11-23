@@ -11,7 +11,7 @@
 
   export default {
     props: {
-      type: String
+      mdSingle: String
     },
     mounted() {
       this.$children.forEach((child) => {
@@ -19,7 +19,7 @@
         let toggleClass = 'md-toggle';
 
         onClickButton = () => {
-          if (this.type === 'radio') {
+          if (this.mdSingle) {
             this.$children.forEach((child) => {
               child.$el.classList.remove(toggleClass);
             });

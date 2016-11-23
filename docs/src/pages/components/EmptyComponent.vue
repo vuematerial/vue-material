@@ -2,7 +2,7 @@
   <page-content page-title="Components - Name">
     <docs-component>
       <div slot="description">
-
+        <p>The following classes can be applied to change the color palette:</p>
         <ul class="md-body-2">
           <li><code>md-accent</code></li>
           <li><code>md-warn</code></li>

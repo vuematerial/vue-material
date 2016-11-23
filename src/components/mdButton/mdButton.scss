@@ -219,37 +219,9 @@ $button-icon-size: 40px;
   }
 }
 
-.md-button-group {
-  width: auto;
-  display: flex;
-
-  > .md-button {
-    margin: 0;
-    overflow: hidden;
-    border-width: 1px 0 1px 1px;
-    border-radius: 0;
-    text-align: center;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-
-    &:first-child {
-      border-radius: 2px 0 0 2px;
-    }
-
-    &:last-child {
-      border-right-width: 1px;
-      border-radius: 0 2px 2px 0;
-    }
-
-    .md-ink-ripple {
-      border-radius: $button-radius;
-    }
-  }
-}
-
 .md-button.md-icon-button,
 .md-button.md-fab {
-  md-icon {
+  .md-icon {
     display: block;
   }
 }
