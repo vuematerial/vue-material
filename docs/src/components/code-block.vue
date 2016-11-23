@@ -22,7 +22,7 @@
     color: #455A64;
     font-family: "Operator Mono", "Fira Code", Menlo, Hack, "Roboto Mono", "Liberation Mono", Monaco, monospace;
     font-size: 14px;
-    line-height: 24px;
+    line-height: 1.4em;
 
     &:hover {
       &:after {
@@ -96,14 +96,15 @@
   .copied {
     padding: 8px 16px;
     position: absolute;
-    right: -8px;
-    bottom: 8px;
+    right: 0;
+    bottom: 0;
     background-color: rgba(#000, .87);
     border-radius: 2px;
-    transform: translate3d(0, 40px, 0);
+    transform: translate3d(0, 36px, 0);
     transition: $swift-ease-in-out;
     color: #fff;
     font-family: $font-roboto;
+    font-size: 14px;
     line-height: 1em;
 
     &.active {
