@@ -7,6 +7,8 @@
     <md-button class="md-icon-button md-dense" ref="copy">
       <md-icon>content_copy</md-icon>
     </md-button>
+
+    <span class="copied" :class="{ 'active': showMessage }">Copied!</span>
   </div>
 </template>
 
@@ -75,7 +77,7 @@
 
   .code-block-wrapper {
     min-width: 100%;
-    max-height: 500px;
+    max-height: 550px;
     margin: -16px;
     padding: 0 16px;
     overflow: auto;
@@ -88,6 +90,25 @@
     z-index: 2;
     opacity: 0;
     transition: $swift-ease-out;
+  }
+
+  .copied {
+    padding: 8px 16px;
+    position: absolute;
+    right: -8px;
+    bottom: 8px;
+    background-color: rgba(#000, .87);
+    border-radius: 2px;
+    transform: translate3d(0, 40px, 0);
+    transition: $swift-ease-in-out;
+    color: #fff;
+    font-family: $font-roboto;
+    line-height: 1em;
+
+    &.active {
+      transition: $swift-ease-out;
+      transform: translate3d(0, 0, 0);
+    }
   }
 </style>
 
@@ -144,13 +165,21 @@
 
   export default {
     props: ['lang'],
+    data: () => ({
+      showMessage: false
+    }),
     mounted() {
       const clipboard = new Clipboard(this.$refs.copy.$el, {
         target: () => this.$refs.block
       });
 
-      clipboard.on('success', (e) => {
+      clipboard.on('success', (event) => {
+        event.clearSelection();
+        this.showMessage = true;
 
+        window.setTimeout(() => {
+          this.showMessage = false;
+        }, 2000);
       });
 
       highlight.highlightBlock(this.$refs.block);
