@@ -3,6 +3,7 @@
     <docs-component>
       <div slot="description">
         <p>Buttons communicate the action that will occur when the user touches them.</p>
+        <p>The following classes can be applied to change the color palette:</p>
         <ul class="md-body-2">
           <li><code>md-primary</code></li>
           <li><code>md-accent</code></li>
