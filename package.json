@@ -43,7 +43,6 @@
   },
   "dependencies": {
     "autosize": "^3.0.18",
-    "clipboard": "^1.5.15",
     "element.scrollintoviewifneeded-polyfill": "^1.0.1",
     "scopedQuerySelectorShim": "lazd/scopedQuerySelectorShim",
     "vue": "^2.1.0"
@@ -60,6 +59,7 @@
     "babel-preset-stage-0": "^6.16.0",
     "chalk": "^1.1.3",
     "chokidar": "^1.6.1",
+    "clipboard": "^1.5.15",
     "connect-history-api-fallback": "^1.3.0",
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.26.0",
