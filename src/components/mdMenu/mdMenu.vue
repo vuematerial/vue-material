@@ -104,12 +104,8 @@
             position = this.getPosition('bottom', 'left', true);
             break;
 
-          case 'top right':
-            position = this.getPosition('top', 'right');
-            break;
-
-          case 'top right align':
-            position = this.getPosition('top', 'right', 'align');
+          case 'bottom right align':
+            position = this.getPosition('bottom', 'right', true);
             break;
 
           case 'top left':
@@ -120,8 +116,12 @@
             position = this.getPosition('top', 'left', true);
             break;
 
-          case 'bottom right align':
-            position = this.getPosition('bottom', 'right', true);
+          case 'top right':
+            position = this.getPosition('top', 'right');
+            break;
+
+          case 'top right align':
+            position = this.getPosition('top', 'right', 'align');
             break;
 
           default:

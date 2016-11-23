@@ -53,7 +53,6 @@
           </md-menu-content>
         </md-menu>
 
-
         <md-menu md-direction="bottom left align">
           <md-button md-menu-trigger>Bottom Left Align</md-button>
 
