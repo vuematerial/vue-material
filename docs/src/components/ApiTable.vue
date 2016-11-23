@@ -7,6 +7,10 @@
         <slot name="properties"></slot>
       </md-tab>
 
+      <md-tab class="api-tab" md-label="Classes" v-if="$slots.classes">
+        <slot name="classes"></slot>
+      </md-tab>
+
       <md-tab class="api-tab" md-label="Events" v-if="$slots.events">
         <slot name="events"></slot>
       </md-tab>

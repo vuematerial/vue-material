@@ -13,11 +13,10 @@
 
       <div slot="api">
         <api-table name="md-avatar">
-          <md-table slot="properties">
+          <md-table slot="classes">
             <md-table-header>
               <md-table-row>
                 <md-table-head>Name</md-table-head>
-                <md-table-head>Type</md-table-head>
                 <md-table-head>Description</md-table-head>
               </md-table-row>
             </md-table-header>
@@ -25,13 +24,11 @@
             <md-table-body>
               <md-table-row>
                 <md-table-cell>md-avatar-icon</md-table-cell>
-                <md-table-cell><code>Boolean</code></md-table-cell>
                 <md-table-cell>Display an icon using md-icon component</md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-large</md-table-cell>
-                <md-table-cell><code>Boolean</code></md-table-cell>
                 <md-table-cell>Display large avatar</md-table-cell>
               </md-table-row>
             </md-table-body>
