@@ -25,6 +25,12 @@ $tab-max-width: 264px;
     }
   }
 
+  &.md-right {
+    .md-tabs-navigation {
+      justify-content: flex-end;
+    }
+  }
+
   &.md-fixed {
     .md-tab-header {
       flex: 1;
@@ -133,5 +139,11 @@ $tab-max-width: 264px;
       pointer-events: auto;
       transition: none;
     }
+  }
+}
+
+.md-tabs.md-no-transition {
+  .md-tabs-content {
+    transition: none !important;
   }
 }

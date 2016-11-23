@@ -45,7 +45,7 @@
     "autosize": "^3.0.18",
     "element.scrollintoviewifneeded-polyfill": "^1.0.1",
     "scopedQuerySelectorShim": "lazd/scopedQuerySelectorShim",
-    "vue": "^2.0.8"
+    "vue": "^2.1.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.5.3",
@@ -78,10 +78,10 @@
     "sass-loader": "^4.0.2",
     "vue-hot-reload-api": "^2.0.6",
     "vue-html-loader": "^1.2.3",
-    "vue-loader": "^9.9.5",
+    "vue-loader": "^10.0.0",
     "vue-router": "^2.0.3",
     "vue-style-loader": "^1.0.0",
-    "vue-template-compiler": "^2.0.8",
+    "vue-template-compiler": "^2.1.0",
     "webpack": "^1.13.3",
     "webpack-dev-middleware": "^1.8.4",
     "webpack-hot-middleware": "^2.13.2",
