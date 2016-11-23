@@ -19,15 +19,12 @@
     position: relative;
     overflow: hidden;
     border-radius: 2px;
-    transition: $swift-ease-out;
     color: #455A64;
     font-family: "Operator Mono", "Fira Code", Menlo, Hack, "Roboto Mono", "Liberation Mono", Monaco, monospace;
     font-size: 14px;
     line-height: 24px;
 
     &:hover {
-      background-color: #f5f5f5;
-
       &:after {
         opacity: 0;
       }
