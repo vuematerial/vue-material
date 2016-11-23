@@ -1,24 +1,62 @@
 <template>
-  <div class="code-block">
-    <pre><code :class="lang" ref="block"><slot></slot></code></pre>
+  <div class="code-block" :data-lang="lang">
+    <div class="code-block-wrapper">
+      <pre><code :class="lang" ref="block"><slot></slot></code></pre>
+    </div>
+
+    <md-button class="md-icon-button md-dense" ref="copy">
+      <md-icon>content_copy</md-icon>
+    </md-button>
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
   @import '../../../src/core/stylesheets/variables.scss';
 
   .code-block {
-    width: 100%;
-    padding: 4px 32px;
-    margin: 0;
     position: relative;
-    overflow: auto;
     border-radius: 2px;
-    background-color: #eee;
     color: #455A64;
     font-family: "Operator Mono", "Fira Code", Menlo, Hack, "Roboto Mono", "Liberation Mono", Monaco, monospace;
     font-size: 14px;
     line-height: 24px;
+
+    &:hover {
+      &:after {
+        opacity: 0;
+      }
+
+      .md-icon-button {
+        opacity: 1;
+      }
+    }
+
+    &:after {
+      position: absolute;
+      top: 20px;
+      right: 12px;
+      transition: $swift-ease-out;
+      color: rgba(#000, .26);
+      font-family: $font-roboto;
+      font-size: 11px;
+      line-height: 1em;
+    }
+
+    &[data-lang="html"]:after {
+      content: 'HTML';
+    }
+
+    &[data-lang="javascript"]:after {
+      content: 'Javascript';
+    }
+
+    &[data-lang="xml"]:after {
+      content: 'HTML';
+    }
+
+    &[data-lang="scss"]:after {
+      content: 'SCSS';
+    }
 
     + .code-block {
       margin-top: 16px;
@@ -26,40 +64,37 @@
 
     pre {
       margin: 0;
-      white-space: pre-wrap;
+      white-space: pre;
     }
 
     code {
       padding: 0;
       background: none;
     }
+  }
 
-    .hljs:after {
-      position: absolute;
-      top: 8px;
-      right: 8px;
-      color: rgba(#000, .26);
-      font-family: $font-roboto;
-      font-size: 11px;
-      line-height: 1em;
-    }
+  .code-block-wrapper {
+    min-width: 100%;
+    max-height: 500px;
+    margin: -16px;
+    padding: 0 16px;
+    overflow: auto;
+  }
 
-    .hljs.html:after {
-      content: 'HTML';
-    }
+  .md-icon-button {
+    position: absolute;
+    top: 8px;
+    right: 0;
+    z-index: 2;
+    opacity: 0;
+    transition: $swift-ease-out;
+  }
+</style>
 
-    .hljs.javascript:after {
-      content: 'Javascript';
-    }
+<style lang="scss">
+  @import '../../../src/core/stylesheets/variables.scss';
 
-    .hljs.xml:after {
-      content: 'HTML';
-    }
-
-    .hljs.scss:after {
-      content: 'SCSS';
-    }
-
+  .code-block {
     .hljs-keyword,
     .hljs-selector-tag,
     .hljs-selector-class,
@@ -98,10 +133,26 @@
 
 <script>
   import highlight from 'highlight.js/lib/highlight.js';
+  import highlightSCSS from 'highlight.js/lib/languages/scss';
+  import highlightXML from 'highlight.js/lib/languages/xml';
+  import highlightJS from 'highlight.js/lib/languages/javascript';
+  import Clipboard from 'clipboard';
+
+  highlight.registerLanguage('scss', highlightSCSS);
+  highlight.registerLanguage('xml', highlightXML);
+  highlight.registerLanguage('javascript', highlightJS);
 
   export default {
     props: ['lang'],
     mounted() {
+      const clipboard = new Clipboard(this.$refs.copy.$el, {
+        target: () => this.$refs.block
+      });
+
+      clipboard.on('success', (e) => {
+
+      });
+
       highlight.highlightBlock(this.$refs.block);
     }
   };
