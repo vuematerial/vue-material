@@ -2,7 +2,7 @@
   <div class="api-table">
     <h3 class="md-title">{{ name }}</h3>
 
-    <md-tabs class="md-transparent">
+    <md-tabs :md-dynamic-height="false" class="md-transparent">
       <md-tab class="api-tab" md-label="Properties" v-if="$slots.properties">
         <slot name="properties"></slot>
       </md-tab>
