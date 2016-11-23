@@ -154,10 +154,15 @@
       }
     }
 
+    &.md-has-action {
+      .md-table-cell-container {
+        justify-content: space-between;
+      }
+    }
+
     .md-table-cell-container {
       padding: 0 32px 0 24px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
     }
 
