@@ -1,14 +1,6 @@
 /* Third Party */
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import highlight from 'highlight.js/lib/highlight.js';
-import highlightSCSS from 'highlight.js/lib/languages/scss';
-import highlightXML from 'highlight.js/lib/languages/xml';
-import highlightJS from 'highlight.js/lib/languages/javascript';
-
-highlight.registerLanguage('scss', highlightSCSS);
-highlight.registerLanguage('xml', highlightXML);
-highlight.registerLanguage('javascript', highlightJS);
 
 /* Configs */
 import './config.js';

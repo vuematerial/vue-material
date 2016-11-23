@@ -43,6 +43,7 @@
   },
   "dependencies": {
     "autosize": "^3.0.18",
+    "clipboard": "^1.5.15",
     "element.scrollintoviewifneeded-polyfill": "^1.0.1",
     "scopedQuerySelectorShim": "lazd/scopedQuerySelectorShim",
     "vue": "^2.1.0"

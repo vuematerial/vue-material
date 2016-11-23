@@ -107,7 +107,62 @@
           </div>
 
           <div slot="code">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos dicta maxime quibusdam voluptas. Eum atque sint, voluptates illo maxime nihil quisquam quae, et quia qui aut, suscipit deserunt corporis cupiditate?</p>
+            <code-block lang="xml">
+&lt;md-card&gt;
+  &lt;md-card-media&gt;
+    &lt;img src=&quot;assets/card-image-1.jpg&quot; alt=&quot;People&quot;&gt;
+  &lt;/md-card-media&gt;
+
+  &lt;md-card-header&gt;
+    &lt;div class=&quot;md-title&quot;&gt;Title goes here&lt;/div&gt;
+    &lt;div class=&quot;md-subhead&quot;&gt;Subtitle here&lt;/div&gt;
+  &lt;/md-card-header&gt;
+
+  &lt;md-card-actions&gt;
+    &lt;md-button&gt;Action&lt;/md-button&gt;
+    &lt;md-button&gt;Action&lt;/md-button&gt;
+  &lt;/md-card-actions&gt;
+
+  &lt;md-card-content&gt;
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non, voluptas eius illo quas, saepe voluptate pariatur in deleniti minus sint. Excepturi.
+  &lt;/md-card-content&gt;
+&lt;/md-card&gt;
+
+&lt;md-card&gt;
+  &lt;md-card-header&gt;
+    &lt;md-card-header-text&gt;
+      &lt;div class=&quot;md-title&quot;&gt;Title goes here&lt;/div&gt;
+      &lt;div class=&quot;md-subhead&quot;&gt;Subtitle here&lt;/div&gt;
+    &lt;/md-card-header-text&gt;
+
+    &lt;md-menu md-size=&quot;4&quot; md-direction=&quot;bottom left&quot;&gt;
+      &lt;md-button class=&quot;md-icon-button&quot; md-menu-trigger&gt;
+        &lt;md-icon&gt;more_vert&lt;/md-icon&gt;
+      &lt;/md-button&gt;
+
+      &lt;md-menu-content&gt;
+        &lt;md-menu-item&gt;
+          &lt;span&gt;Call&lt;/span&gt;
+          &lt;md-icon&gt;phone&lt;/md-icon&gt;
+        &lt;/md-menu-item&gt;
+
+        &lt;md-menu-item&gt;
+          &lt;span&gt;Send a message&lt;/span&gt;
+          &lt;md-icon&gt;message&lt;/md-icon&gt;
+        &lt;/md-menu-item&gt;
+      &lt;/md-menu-content&gt;
+    &lt;/md-menu&gt;
+  &lt;/md-card-header&gt;
+
+  &lt;md-card-media&gt;
+    &lt;img src=&quot;assets/card-image-1.jpg&quot; alt=&quot;People&quot;&gt;
+  &lt;/md-card-media&gt;
+
+  &lt;md-card-content&gt;
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non, voluptas eius illo quas, saepe voluptate pariatur in deleniti minus sint. Excepturi.
+  &lt;/md-card-content&gt;
+&lt;/md-card&gt;
+            </code-block>
           </div>
         </example-box>
 
