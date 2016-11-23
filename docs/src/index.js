@@ -41,12 +41,10 @@ let router = new VueRouter({
 
 let Docs = Vue.component('app', App);
 let handleSectionTheme = (currentRoute) => {
-  if (currentRoute.name.indexOf('introduction') >= 0) {
-    Docs.theme = 'blue';
-  } else if (currentRoute.name.indexOf('components') >= 0) {
+  if (currentRoute.name.indexOf('getting') >= 0) {
     Docs.theme = 'indigo';
   } else if (currentRoute.name.indexOf('themes') >= 0) {
-    Docs.theme = 'blue';
+    Docs.theme = 'teal';
   } else if (currentRoute.name.indexOf('ui-elements') >= 0) {
     Docs.theme = 'blue-grey';
   } else if (currentRoute.name.indexOf('changelog') >= 0) {
