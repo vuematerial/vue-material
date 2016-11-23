@@ -145,27 +145,41 @@ $button-icon-size: 40px;
       box-shadow: $material-shadow-5dp;
     }
 
-    &.md-fab-top-right {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-    }
-
     &.md-fab-top-left {
       position: absolute;
       top: 16px;
       left: 16px;
     }
 
-    &.md-fab-bottom-right {
+    &.md-fab-top-center {
       position: absolute;
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    &.md-fab-top-right {
+      position: absolute;
+      top: 16px;
       right: 16px;
-      bottom: 16px;
     }
 
     &.md-fab-bottom-left {
       position: absolute;
+      bottom: 16px;
       left: 16px;
+    }
+
+    &.md-fab-bottom-center {
+      position: absolute;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    &.md-fab-bottom-right {
+      position: absolute;
+      right: 16px;
       bottom: 16px;
     }
 
