@@ -38,8 +38,6 @@
         });
 
         this.active = !!active;
-
-        this.$emit('click');
       }
     },
     mounted() {

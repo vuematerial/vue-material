@@ -2,13 +2,13 @@
   <div class="code-block" :data-lang="lang">
     <div class="code-block-wrapper">
       <pre><code :class="lang" ref="block"><slot></slot></code></pre>
+
+      <span class="copied" :class="{ 'active': showMessage }">Copied!</span>
     </div>
 
     <md-button class="md-icon-button md-dense" ref="copy">
       <md-icon>content_copy</md-icon>
     </md-button>
-
-    <span class="copied" :class="{ 'active': showMessage }">Copied!</span>
   </div>
 </template>
 
@@ -16,8 +16,9 @@
   @import '../../../src/core/stylesheets/variables.scss';
 
   .code-block {
-    position: relative;
+    margin: -16px;
     overflow: hidden;
+    position: relative;
     border-radius: 2px;
     color: #455A64;
     font-family: "Operator Mono", "Fira Code", Menlo, Hack, "Roboto Mono", "Liberation Mono", Monaco, monospace;
@@ -37,7 +38,7 @@
     &:after {
       position: absolute;
       top: 20px;
-      right: 12px;
+      right: 30px;
       transition: $swift-ease-out;
       color: rgba(#000, .26);
       font-family: $font-roboto;
@@ -79,15 +80,14 @@
   .code-block-wrapper {
     min-width: 100%;
     max-height: 550px;
-    margin: -16px;
-    padding: 0 16px;
+    padding: 16px;
     overflow: auto;
   }
 
   .md-icon-button {
     position: absolute;
     top: 8px;
-    right: 0;
+    right: 20px;
     z-index: 2;
     opacity: 0;
     transition: $swift-ease-out;
@@ -96,11 +96,11 @@
   .copied {
     padding: 8px 16px;
     position: absolute;
-    right: 0;
-    bottom: 0;
+    top: 14px;
+    left: 12px;
     background-color: rgba(#000, .87);
     border-radius: 2px;
-    transform: translate3d(0, 36px, 0);
+    transform: translate3d(0, -48px, 0);
     transition: $swift-ease-in-out;
     color: #fff;
     font-family: $font-roboto;
@@ -170,19 +170,46 @@
     data: () => ({
       showMessage: false
     }),
+    methods: {
+      enableCopy() {
+        const clipboard = new Clipboard(this.$refs.copy.$el, {
+          target: () => this.$refs.block
+        });
+
+        clipboard.on('success', (event) => {
+          event.clearSelection();
+          this.showMessage = true;
+
+          window.setTimeout(() => {
+            this.showMessage = false;
+          }, 2000);
+        });
+      },
+      reindent() {
+        const block = this.$refs.block;
+        let lines = block.textContent.split('\n');
+        let matches;
+
+        if (lines[0] === '') {
+          lines.shift();
+        }
+
+        let indentation = (matches = (/^[\s\t]+/).exec(lines[0])) !== null ? matches[0] : null;
+
+        if (indentation) {
+          lines = lines.map(function(line) {
+            line = line.replace(indentation, '');
+
+            return line.replace(/\t/g, '  ');
+          });
+
+          block.textContent = lines.join('\n').trim();
+        }
+      }
+    },
     mounted() {
-      const clipboard = new Clipboard(this.$refs.copy.$el, {
-        target: () => this.$refs.block
-      });
-
-      clipboard.on('success', (event) => {
-        event.clearSelection();
-        this.showMessage = true;
-
-        window.setTimeout(() => {
-          this.showMessage = false;
-        }, 2000);
-      });
+      this.reindent();
+      this.enableCopy();
 
       highlight.highlightBlock(this.$refs.block);
     }

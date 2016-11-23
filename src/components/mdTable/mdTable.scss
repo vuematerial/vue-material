@@ -149,6 +149,8 @@
     }
 
     &.md-numeric {
+      text-align: right;
+
       .md-table-cell-container {
         justify-content: flex-end;
       }
@@ -156,14 +158,14 @@
 
     &.md-has-action {
       .md-table-cell-container {
+        display: flex;
+        align-items: center;
         justify-content: space-between;
       }
     }
 
     .md-table-cell-container {
       padding: 0 32px 0 24px;
-      display: flex;
-      align-items: center;
     }
 
     .md-button {
