@@ -245,6 +245,46 @@
     &lt;md-menu-item&gt;My Item 3&lt;/md-menu-item&gt;
   &lt;/md-menu-content&gt;
 &lt;/md-menu&gt;
+
+&lt;md-menu md-direction=&quot;bottom right align&quot;&gt;
+  &lt;md-button md-menu-trigger&gt;Bottom Right Align&lt;/md-button&gt;
+
+  &lt;md-menu-content&gt;
+    &lt;md-menu-item&gt;My Item 1&lt;/md-menu-item&gt;
+    &lt;md-menu-item&gt;My Item 2&lt;/md-menu-item&gt;
+    &lt;md-menu-item&gt;My Item 3&lt;/md-menu-item&gt;
+  &lt;/md-menu-content&gt;
+&lt;/md-menu&gt;
+
+&lt;md-menu md-direction=&quot;bottom left align&quot;&gt;
+  &lt;md-button md-menu-trigger&gt;Bottom Left Align&lt;/md-button&gt;
+
+  &lt;md-menu-content&gt;
+    &lt;md-menu-item&gt;My Item 1&lt;/md-menu-item&gt;
+    &lt;md-menu-item&gt;My Item 2&lt;/md-menu-item&gt;
+    &lt;md-menu-item&gt;My Item 3&lt;/md-menu-item&gt;
+  &lt;/md-menu-content&gt;
+&lt;/md-menu&gt;
+
+&lt;md-menu md-direction=&quot;top left align&quot;&gt;
+  &lt;md-button md-menu-trigger&gt;Top Left Align&lt;/md-button&gt;
+
+  &lt;md-menu-content&gt;
+    &lt;md-menu-item&gt;My Item 1&lt;/md-menu-item&gt;
+    &lt;md-menu-item&gt;My Item 2&lt;/md-menu-item&gt;
+    &lt;md-menu-item&gt;My Item 3&lt;/md-menu-item&gt;
+  &lt;/md-menu-content&gt;
+&lt;/md-menu&gt;
+
+&lt;md-menu md-direction=&quot;top right align&quot;&gt;
+  &lt;md-button md-menu-trigger&gt;Top Right Align&lt;/md-button&gt;
+
+  &lt;md-menu-content&gt;
+    &lt;md-menu-item&gt;My Item 1&lt;/md-menu-item&gt;
+    &lt;md-menu-item&gt;My Item 2&lt;/md-menu-item&gt;
+    &lt;md-menu-item&gt;My Item 3&lt;/md-menu-item&gt;
+  &lt;/md-menu-content&gt;
+&lt;/md-menu&gt;
 </code-block>
       </demo-example>
 
