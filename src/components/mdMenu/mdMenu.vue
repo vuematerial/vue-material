@@ -203,6 +203,15 @@
         this.menuContent.parentNode.removeChild(this.menuContent);
         this.menuTrigger.addEventListener('click', this.toggle);
       });
+    },
+    beforeDestroy() {
+      if (this.rootElement.contains(this.menuContent)) {
+        this.rootElement.removeChild(this.menuContent);
+        this.rootElement.removeChild(this.backdropElement);
+      }
+
+      this.menuTrigger.removeEventListener('click', this.toggle);
+      window.removeEventListener('resize', this.recalculateOnResize);
     }
   };
 </script>

@@ -11,11 +11,20 @@
     props: {
       mdNumeric: Boolean
     },
+    data: () => ({
+      hasAction: false
+    }),
     computed: {
       classes() {
         return {
-          'md-numeric': this.mdNumeric
+          'md-numeric': this.mdNumeric,
+          'md-has-action': this.hasAction
         };
+      }
+    },
+    mounted() {
+      if (this.$children.length > 0) {
+        this.hasAction = true;
       }
     }
   };

@@ -87,8 +87,10 @@
       this.parentSelect.options[this.index] = this;
     },
     beforeDestroy() {
-      delete this.parentSelect.options[this.index];
-      delete this.parentSelect.multipleOptions[this.index];
+      if (this.parentSelect) {
+        delete this.parentSelect.options[this.index];
+        delete this.parentSelect.multipleOptions[this.index];
+      }
     }
   };
 </script>
