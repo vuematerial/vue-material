@@ -1,5 +1,5 @@
 <template>
-  <page-content>
+  <page-content page-title="Configuration">
     <docs-component>
       <div slot="description">
         <p>Adipisicing elit. Perspiciatis dolorum, culpa veniam voluptatem nam. Animi sint incidunt cum, ut quod consectetur repellat eos. Tempore officia voluptas, commodi impedit quos animi.</p>
