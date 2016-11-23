@@ -20,10 +20,16 @@
     overflow: hidden;
     position: relative;
     border-radius: 2px;
+    background-color: #fbfbfb;
     color: #455A64;
     font-family: "Operator Mono", "Fira Code", Menlo, Hack, "Roboto Mono", "Liberation Mono", Monaco, monospace;
     font-size: 14px;
     line-height: 1.4em;
+
+    + .code-block {
+      margin-top: 48px;
+      border-top: 1px solid rgba(0, 0, 0, .12);
+    }
 
     &:hover {
       &:after {
@@ -60,10 +66,6 @@
 
     &[data-lang="scss"]:after {
       content: 'SCSS';
-    }
-
-    + .code-block {
-      margin-top: 16px;
     }
 
     pre {

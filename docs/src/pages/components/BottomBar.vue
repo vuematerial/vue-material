@@ -311,6 +311,23 @@
                 &lt;/md-bottom-bar&gt;
               &lt;/div&gt;
             </code-block>
+
+            <code-block lang="javascript">
+              export default {
+                data() {
+                  return {
+                    playground: {
+                      theme: &#039;brown&#039;
+                    }
+                  };
+                },
+                methods: {
+                  setTheme(theme) {
+                    this.playground.theme = theme;
+                  }
+                }
+              };
+            </code-block>
           </div>
         </example-box>
       </div>
