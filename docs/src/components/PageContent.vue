@@ -2,7 +2,7 @@
   <div class="page-content">
     <md-whiteframe md-elevation="1">
       <md-toolbar>
-        <md-button class="md-icon-button nav-trigger">
+        <md-button class="md-icon-button nav-trigger" @click="toggleSidenav">
           <md-icon>menu</md-icon>
         </md-button>
 
@@ -75,7 +75,13 @@
     methods: {
       changeDocs() {
         console.log(this.currentDocs);
+      },
+      toggleSidenav() {
+        this.$root.toggleSidenav();
       }
+    },
+    mounted() {
+      document.title = this.pageTitle + ' - Vue Material';
     }
   };
 </script>
