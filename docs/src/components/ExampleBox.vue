@@ -17,8 +17,8 @@
 </template>
 
 <style lang="scss" scoped>
-  .example-box + .example-box {
-    margin-top: 16px;
+  .example-box {
+    margin-bottom: 16px;
   }
 
   .example-title {

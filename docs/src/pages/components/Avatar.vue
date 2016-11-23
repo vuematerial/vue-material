@@ -38,7 +38,7 @@
 
       <div slot="example">
         <example-box card-title="Default">
-          <div class="card-holder" slot="demo">
+          <div class="avatar-holder" slot="demo">
             <md-avatar>
               <img src="assets/avatar.png" alt="Avatar">
             </md-avatar>
@@ -86,7 +86,7 @@
         </example-box>
 
         <example-box card-title="Large">
-          <div class="card-holder" slot="demo">
+          <div class="avatar-holder" slot="demo">
             <md-avatar class="md-large">
               <img src="assets/avatar-2.jpg" alt="People">
             </md-avatar>
@@ -136,3 +136,9 @@
     </docs-component>
   </page-content>
 </template>
+
+<style lang="scss" scoped>
+  .md-avatar + .md-avatar {
+    margin-left: 8px;
+  }
+</style>
