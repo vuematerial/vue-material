@@ -3,12 +3,12 @@ let getClosestVueParent = ($parent, cssClass) => {
     return false;
   }
 
-  if ($parent.$el.classList.contains(cssClass)) {
-    return $parent;
-  }
-
   if ($parent._uid === 0) {
     return false;
+  }
+
+  if ($parent.$el.classList.contains(cssClass)) {
+    return $parent;
   }
 
   return getClosestVueParent($parent.$parent, cssClass);

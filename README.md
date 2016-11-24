@@ -1,15 +1,31 @@
-# Vue.js Material
+<p align="center">
+  <a href="https://marcosmoura.github.io/vue-material/" target="_blank">
+    <img width="150" src="https://marcosmoura.github.io/vue-material/assets/logo-vue-material-blue.png">
+  </a>
+</p>
 
-> Material Design for Vue.js
+<p align="center">Material Design for Vue.js</p>
 
-Vue Material is lightweight framework built exactly according to the <a href="http://material.google.com" target="_blank">Material Design</a> specs. It aims to deliver a collection of reusable components and a series of UI Elements to build applications with support to <a href="https://saucelabs.com/u/vuejs" target="_blank">modern Web Browsers</a> through Vue 2.0. Build powerful and well-designed web apps that can can fit on every screen. You can generate and use themes dynamically, use components on demand, take advantage of UI Elements and Components with an ease-to-use API.
+<p align="center">
+  <a href="https://www.npmjs.com/package/vue-material"><img src="https://img.shields.io/npm/dt/vue-material.svg" alt="Downloads"></a>
+
+  <a href="https://www.npmjs.com/package/vue-material"><img src="https://img.shields.io/npm/v/vue-material.svg" alt="Version"></a>
+
+  <a href="https://www.npmjs.com/package/vue-material"><img src="https://img.shields.io/npm/l/vue-material.svg" alt="License"></a> <br>
+</p>
+
+Vue Material is lightweight framework built exactly according to the <a href="http://material.google.com" target="_blank">Material Design</a> specs. 
+
+It aims to deliver a collection of reusable components and a series of UI Elements to build applications with support to <a href="https://saucelabs.com/u/vuejs" target="_blank">modern Web Browsers</a> through Vue 2.0. 
+
+Build powerful and well-designed web apps that can can fit on every screen. You can generate and use themes dynamically, use components on demand, take advantage of UI Elements and Components with an ease-to-use API.
 
 ## Demo and Documentation
 <a href="https://marcosmoura.github.io/vue-material/" target="_blank">Demo</a>
 
 ## Installation
 
-Import Roboto and Google Icons from Google CDN:
+Import Roboto and Material Icons from Google CDN:
 
 ``` html
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
@@ -92,25 +108,9 @@ Apply your theme using <code>v-md-theme</code> directive:
 ## Changelog
 <a href="https://marcosmoura.github.io/vue-material/#/changelog" target="_blank">Changelog</a>
 
-## Build Setup
+## Contributing
 
-``` bash
-### Install dependencies
-npm install
-yarn
-
-### Start dev server with hot reload
-npm run dev
-
-### Build everything
-npm run build
-
-### Build docs only
-npm run build:docs
-
-### Build lib only
-npm run build:lib
-```
+Please make sure to read the [Contributing Guide](https://github.com/marcosmoura/vue-material/blob/master/.github/CONTRIBUTING.md) before making a pull request.
 
 ## Credits and Thanks
 * This library aims to delivery components using almost the same API of <a href="https://material.angularjs.org/latest/" target="_blank">Angular Material</a>
