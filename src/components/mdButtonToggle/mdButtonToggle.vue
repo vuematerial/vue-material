@@ -11,7 +11,7 @@
 
   export default {
     props: {
-      mdSingle: String
+      mdSingle: Boolean
     },
     mounted() {
       this.$children.forEach((child) => {
