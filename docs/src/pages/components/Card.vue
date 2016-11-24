@@ -6,11 +6,6 @@
         <p>The card components are very granular. Every single part of a card is a component. You can combine them in any order that you want, following the same logic of the examples.</p>
         <p>You can also use other Material components inside the card, like the "Complete Example".</p>
         <p>The following classes can be applied to change the color palette:</p>
-        <ul class="md-body-2">
-          <li><code>md-accent</code></li>
-          <li><code>md-warn</code></li>
-          <li><code>md-transparent</code></li>
-        </ul>
       </div>
 
       <div slot="api">

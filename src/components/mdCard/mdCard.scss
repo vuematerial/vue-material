@@ -296,6 +296,7 @@ $card-radius: 2px;
 
     [md-expand-trigger] {
       transition: $swift-ease-out;
+      will-change: transform;
     }
 
     .md-card-content {
@@ -305,6 +306,7 @@ $card-radius: 2px;
       opacity: 0;
       transform: translate3D(0, 0, 0);
       transition: $swift-ease-out;
+      will-change: margin;
     }
   }
 }
