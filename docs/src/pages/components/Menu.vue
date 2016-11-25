@@ -44,7 +44,7 @@
         </md-menu>
       </demo-example>
 
-      <demo-example label="Alignment">
+      <demo-example label="Alignments">
         <md-menu>
           <md-button md-menu-trigger>Default</md-button>
 
