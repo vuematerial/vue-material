@@ -1,5 +1,5 @@
 <template>
-  <page-content page-title="Components - Name">
+  <page-content page-title="Components - Dialog">
     <docs-component>
       <div slot="description">
         <p>Dialogs inform users about a specific task and may contain critical information, require decisions, or involve multiple tasks.</p>

@@ -11,7 +11,7 @@
         <div class="release-version">
           <span>Version:</span>
           <md-select id="docs-select" v-model="currentDocs" @change="changeDocs">
-            <md-option v-for="doc in availableDocs" :value="doc">{{ doc }}</md-option>
+            <md-option v-for="doc in availableDocs" :value="doc" v-once>{{ doc }}</md-option>
           </md-select>
         </div>
 
