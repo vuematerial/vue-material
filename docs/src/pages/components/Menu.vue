@@ -42,19 +42,11 @@
             <md-menu-item>My Item 3</md-menu-item>
           </md-menu-content>
         </md-menu>
+      </demo-example>
 
-        <md-menu md-direction="bottom right align">
-          <md-button md-menu-trigger>Bottom Right Align</md-button>
-
-          <md-menu-content>
-            <md-menu-item>My Item 1</md-menu-item>
-            <md-menu-item>My Item 2</md-menu-item>
-            <md-menu-item>My Item 3</md-menu-item>
-          </md-menu-content>
-        </md-menu>
-
-        <md-menu md-direction="bottom left align">
-          <md-button md-menu-trigger>Bottom Left Align</md-button>
+      <demo-example label="Alignment">
+        <md-menu>
+          <md-button md-menu-trigger>Default</md-button>
 
           <md-menu-content>
             <md-menu-item>My Item 1</md-menu-item>
@@ -63,8 +55,8 @@
           </md-menu-content>
         </md-menu>
 
-        <md-menu md-direction="top left align">
-          <md-button md-menu-trigger>Top Left Align</md-button>
+        <md-menu md-align-trigger>
+          <md-button md-menu-trigger>Align trigger</md-button>
 
           <md-menu-content>
             <md-menu-item>My Item 1</md-menu-item>
@@ -72,9 +64,8 @@
             <md-menu-item>My Item 3</md-menu-item>
           </md-menu-content>
         </md-menu>
-
-        <md-menu md-direction="top right align">
-          <md-button md-menu-trigger>Top Right Align</md-button>
+        <md-menu :md-offset-x="154" md-offset-y="12">
+          <md-button md-menu-trigger>Custom offset</md-button>
 
           <md-menu-content>
             <md-menu-item>My Item 1</md-menu-item>

@@ -22,6 +22,18 @@
         type: String,
         default: 'bottom right'
       },
+      mdAlignTrigger: {
+        type: Boolean,
+        default: false
+      },
+      mdOffsetX: {
+        type: [Number, String],
+        default: 0
+      },
+      mdOffsetY: {
+        type: [Number, String],
+        default: 0
+      },
       mdCloseOnSelect: {
         type: Boolean,
         default: true
@@ -69,9 +81,11 @@
         this.menuContent.classList.add('md-size-' + size);
       },
       addNewDirectionMenuContentClass(direction) {
-        this.menuContent.classList.add('md-direction-' + direction.replace(/ /g, '-'));
+        if (!this.mdAlignTrigger) {
+          this.menuContent.classList.add('md-direction-' + direction.replace(/ /g, '-'));
+        }
       },
-      getPosition(vertical, horizontal, align) {
+      getPosition(vertical, horizontal) {
         let menuTriggerRect = this.menuTrigger.getBoundingClientRect();
 
         let top = vertical === 'top'
@@ -82,7 +96,10 @@
           ? menuTriggerRect.left - this.menuContent.offsetWidth + menuTriggerRect.width
           : menuTriggerRect.left;
 
-        if (align) {
+        top += parseInt(this.mdOffsetY, 10);
+        left += parseInt(this.mdOffsetX, 10);
+
+        if (this.mdAlignTrigger) {
           if (vertical === 'top') {
             top -= menuTriggerRect.height;
           } else {
@@ -100,28 +117,12 @@
             position = this.getPosition('bottom', 'left');
             break;
 
-          case 'bottom left align':
-            position = this.getPosition('bottom', 'left', true);
-            break;
-
-          case 'bottom right align':
-            position = this.getPosition('bottom', 'right', true);
-            break;
-
           case 'top left':
             position = this.getPosition('top', 'left');
             break;
 
-          case 'top left align':
-            position = this.getPosition('top', 'left', true);
-            break;
-
           case 'top right':
             position = this.getPosition('top', 'right');
-            break;
-
-          case 'top right align':
-            position = this.getPosition('top', 'right', 'align');
             break;
 
           default:
