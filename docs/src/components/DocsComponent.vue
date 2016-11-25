@@ -24,11 +24,17 @@
 
 <style lang="scss" scoped>
   .component-docs {
+    position: relative;
+    z-index: 1;
     display: flex;
 
     @media (max-width: 1024px) {
       flex-direction: column;
     }
+  }
+
+  .api-documentation {
+    padding-bottom: 24px;
   }
 
   .md-headline {

@@ -184,7 +184,7 @@
     flex: 1;
     transition: $swift-ease-out;
 
-    @media (min-width: 1280px) {
+    @media (min-width: 1281px) {
       padding-left: $sizebar-size;
     }
   }
@@ -194,7 +194,7 @@
     z-index: 3;
 
     .md-button:first-child {
-      @media (min-width: 1280px) {
+      @media (min-width: 1281px) {
         display: none;
       }
     }
@@ -208,13 +208,13 @@
       .page-title {
         margin-left: 0;
 
-        @media (min-width: 1280px) {
+        @media (min-width: 1281px) {
           margin-left: 8px;
         }
       }
 
       span:not(.page-title) {
-        @media (min-width: 1280px) {
+        @media (min-width: 1281px) {
           display: none;
         }
       }
@@ -227,7 +227,7 @@
       display: flex;
       flex-flow: column;
 
-      @media (min-width: 1280px) {
+      @media (min-width: 1281px) {
         top: 0;
         pointer-events: auto;
         transform: translate3d(0, 0, 0);
@@ -236,7 +236,7 @@
     }
 
     .md-backdrop {
-      @media (min-width: 1280px) {
+      @media (min-width: 1281px) {
         opacity: 0;
         pointer-events: none;
       }
@@ -309,7 +309,7 @@
     left: 0;
     transition: $swift-ease-out;
 
-    @media (min-width: 1280px) {
+    @media (min-width: 1281px) {
       left: 280px;
     }
   }

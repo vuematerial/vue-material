@@ -1,6 +1,6 @@
 <template>
   <div class="page-content">
-    <md-whiteframe md-elevation="1">
+    <md-whiteframe md-elevation="1" class="main-header">
       <md-toolbar>
         <md-button class="md-icon-button nav-trigger" @click="toggleSidenav">
           <md-icon>menu</md-icon>
@@ -26,8 +26,13 @@
 </template>
 
 <style lang="scss" scoped>
+  .main-header {
+    position: relative;
+    z-index: 2;
+  }
+
   .nav-trigger {
-    @media (min-width: 1280px) {
+    @media (min-width: 1281px) {
       display: none;
     }
   }
@@ -35,7 +40,7 @@
   .md-title {
     flex: 1;
 
-    @media (min-width: 1280px) {
+    @media (min-width: 1281px) {
       margin-left: 8px;
     }
   }
