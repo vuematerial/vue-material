@@ -26,19 +26,19 @@
               <md-table-row>
                 <md-table-cell>disabled</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Disable the button and prevent his actions</md-table-cell>
+                <md-table-cell>Disable the button and prevent his actions. Default <code>false</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>type</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
-                <md-table-cell>Apply a type to button - Doesn't apply for links</md-table-cell>
+                <md-table-cell>Apply a type to button - Doesn't apply for links.</md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>href</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
-                <md-table-cell>Create a anchor on the button - In this case the generated tag will be &lt;a&gt;</md-table-cell>
+                <md-table-cell>Create a anchor on the button - In this case the generated tag will be <code>&lt;a&gt;</code>.</md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>

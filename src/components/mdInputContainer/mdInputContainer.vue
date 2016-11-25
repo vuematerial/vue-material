@@ -18,7 +18,6 @@
   export default {
     props: {
       mdInline: Boolean,
-      mdDisabled: Boolean,
       mdHasPassword: Boolean
     },
     data() {
