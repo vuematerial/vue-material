@@ -48,7 +48,8 @@
       dialogClasses() {
         return {
           'md-fullscreen': this.mdFullscreen,
-          'md-transition-off': this.transitionOff
+          'md-transition-off': this.transitionOff,
+          'md-reference': this.mdOpenFrom || this.mdCloseTo
         };
       },
       styles() {

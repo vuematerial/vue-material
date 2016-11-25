@@ -23,6 +23,12 @@
 
             <md-table-body>
               <md-table-row>
+                <md-table-cell>v-model</md-table-cell>
+                <md-table-cell><code>String</code></md-table-cell>
+                <md-table-cell>A required model object to bind the value.</md-table-cell>
+              </md-table-row>
+
+              <md-table-row>
                 <md-table-cell>name</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
                 <md-table-cell>Set the checkbox name</md-table-cell>
@@ -38,6 +44,24 @@
                 <md-table-cell>disabled</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
                 <md-table-cell>Disable the checkbox and prevent his actions</md-table-cell>
+              </md-table-row>
+            </md-table-body>
+          </md-table>
+
+          <md-table slot="events">
+            <md-table-header>
+              <md-table-row>
+                <md-table-head>Name</md-table-head>
+                <md-table-head>Value</md-table-head>
+                <md-table-head>Description</md-table-head>
+              </md-table-row>
+            </md-table-header>
+
+            <md-table-body>
+              <md-table-row>
+                <md-table-cell>change</md-table-cell>
+                <md-table-cell>Receive the state of the checkbox</md-table-cell>
+                <md-table-cell>Triggered when the checkbox changes his value.</md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>

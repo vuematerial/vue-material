@@ -4606,10 +4606,6 @@ vm-browserify@0.0.4:
   dependencies:
     indexof "0.0.1"
 
-vue:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/vue/-/vue-2.1.0.tgz#293ba3efaaca846aa6bcbfac45cf8524cc597e3d"
-
 vue-hot-reload-api, vue-hot-reload-api@^2.0.1:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.0.6.tgz#817d4bfb30f55428aa1012d029499e07f3147d21"
@@ -4641,7 +4637,7 @@ vue-loader:
     vue-style-loader "^1.0.0"
     vue-template-es2015-compiler "^1.2.2"
 
-vue-router:
+vue-router@2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-2.0.3.tgz#444e246fd42d65a34dea6c3be8fde3315c4ba6f7"
 
@@ -4651,9 +4647,9 @@ vue-style-loader, vue-style-loader@^1.0.0:
   dependencies:
     loader-utils "^0.2.7"
 
-vue-template-compiler:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/vue-template-compiler/-/vue-template-compiler-2.1.0.tgz#b920111b239b2c4234a5ffd78ca42cb664f06559"
+vue-template-compiler@2.1.3:
+  version "2.1.3"
+  resolved "https://registry.yarnpkg.com/vue-template-compiler/-/vue-template-compiler-2.1.3.tgz#af252df5848c15980cbf32d88a253db053290949"
   dependencies:
     de-indent "^1.0.2"
     he "^1.1.0"
@@ -4661,6 +4657,10 @@ vue-template-compiler:
 vue-template-es2015-compiler@^1.2.2:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.3.0.tgz#4a0f2a0bbef8b5731f78add8263cd86fe4f643ca"
+
+vue@2.1.3:
+  version "2.1.3"
+  resolved "https://registry.yarnpkg.com/vue/-/vue-2.1.3.tgz#20161b8684777754fd9823134b38f13c1e197882"
 
 watchpack@^0.2.1:
   version "0.2.9"
