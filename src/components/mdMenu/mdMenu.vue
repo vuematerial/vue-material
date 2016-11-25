@@ -22,6 +22,18 @@
         type: String,
         default: 'bottom right'
       },
+      mdAlignTrigger: {
+        type: Boolean,
+        default: false
+      },
+      mdOffsetX: {
+        type: [Number, String],
+        default: 0
+      },
+      mdOffsetY: {
+        type: [Number, String],
+        default: 0
+      },
       mdCloseOnSelect: {
         type: Boolean,
         default: true
@@ -63,80 +75,61 @@
         this.menuContent.classList.remove('md-size-' + size);
       },
       removeLastDirectionMenuContentClass(direction) {
-        this.menuContent.classList.remove('md-direction-' + direction.replace(' ', '-'));
+        this.menuContent.classList.remove('md-direction-' + direction.replace(/ /g, '-'));
       },
       addNewSizeMenuContentClass(size) {
         this.menuContent.classList.add('md-size-' + size);
       },
       addNewDirectionMenuContentClass(direction) {
-        this.menuContent.classList.add('md-direction-' + direction.replace(' ', '-'));
+        if (!this.mdAlignTrigger) {
+          this.menuContent.classList.add('md-direction-' + direction.replace(/ /g, '-'));
+        }
       },
-      getBottomRightPos() {
+      getPosition(vertical, horizontal) {
         let menuTriggerRect = this.menuTrigger.getBoundingClientRect();
-        let position = {
-          top: menuTriggerRect.top,
-          left: menuTriggerRect.left
-        };
 
-        position = getInViewPosition(this.menuContent, position);
+        let top = vertical === 'top'
+          ? menuTriggerRect.top + menuTriggerRect.height - this.menuContent.offsetHeight
+          : menuTriggerRect.top;
 
-        return position;
-      },
-      getBottomLeftPos() {
-        let menuTriggerRect = this.menuTrigger.getBoundingClientRect();
-        let position = {
-          top: menuTriggerRect.top,
-          left: menuTriggerRect.left - this.menuContent.offsetWidth + menuTriggerRect.width
-        };
+        let left = horizontal === 'left'
+          ? menuTriggerRect.left - this.menuContent.offsetWidth + menuTriggerRect.width
+          : menuTriggerRect.left;
 
-        position = getInViewPosition(this.menuContent, position);
+        top += parseInt(this.mdOffsetY, 10);
+        left += parseInt(this.mdOffsetX, 10);
 
-        return position;
-      },
-      getTopRightPos() {
-        let menuTriggerRect = this.menuTrigger.getBoundingClientRect();
-        let position = {
-          top: menuTriggerRect.top + menuTriggerRect.height - this.menuContent.offsetHeight,
-          left: menuTriggerRect.left
-        };
+        if (this.mdAlignTrigger) {
+          if (vertical === 'top') {
+            top -= menuTriggerRect.height;
+          } else {
+            top += menuTriggerRect.height;
+          }
+        }
 
-        position = getInViewPosition(this.menuContent, position);
-
-        return position;
-      },
-      getTopLeftPos() {
-        let menuTriggerRect = this.menuTrigger.getBoundingClientRect();
-        let position = {
-          top: menuTriggerRect.top + menuTriggerRect.height - this.menuContent.offsetHeight,
-          left: menuTriggerRect.left - this.menuContent.offsetWidth + menuTriggerRect.width
-        };
-
-        position = getInViewPosition(this.menuContent, position);
-
-        return position;
+        return {top, left};
       },
       calculateMenuContentPos() {
         let position;
 
         switch (this.mdDirection) {
           case 'bottom left':
-            position = this.getBottomLeftPos();
-
-            break;
-
-          case 'top right':
-            position = this.getTopRightPos();
-
+            position = this.getPosition('bottom', 'left');
             break;
 
           case 'top left':
-            position = this.getTopLeftPos();
+            position = this.getPosition('top', 'left');
+            break;
 
+          case 'top right':
+            position = this.getPosition('top', 'right');
             break;
 
           default:
-            position = this.getBottomRightPos();
+            position = this.getPosition('bottom', 'right');
         }
+
+        position = getInViewPosition(this.menuContent, position);
 
         this.menuContent.style.top = position.top + 'px';
         this.menuContent.style.left = position.left + 'px';
