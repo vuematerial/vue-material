@@ -23,7 +23,7 @@
               <md-table-row>
                 <md-table-cell>md-with-hover</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Enable full hover elevation in card</md-table-cell>
+                <md-table-cell>Enable full hover elevation in card. Default <code>false</code></md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>
@@ -67,7 +67,7 @@
                 <md-table-row>
                   <md-table-cell>md-inset</md-table-cell>
                   <md-table-cell><code>Boolean</code></md-table-cell>
-                  <md-table-cell>Apply a inset border</md-table-cell>
+                  <md-table-cell>Apply a inset border. Default <code>false</code></md-table-cell>
                 </md-table-row>
               </md-table-body>
             </md-table>
@@ -97,13 +97,13 @@
                 <md-table-row>
                   <md-table-cell>md-medium</md-table-cell>
                   <md-table-cell><code>Boolean</code></md-table-cell>
-                  <md-table-cell>Applies medium size to the media. Works only inside md-card-header.</md-table-cell>
+                  <md-table-cell>Applies medium size to the media. Works only inside md-card-header. Default <code>false</code></md-table-cell>
                 </md-table-row>
 
                 <md-table-row>
                   <md-table-cell>md-big</md-table-cell>
                   <md-table-cell><code>Boolean</code></md-table-cell>
-                  <md-table-cell>Applies big size to the media. Works only inside md-card-header.</md-table-cell>
+                  <md-table-cell>Applies big size to the media. Works only inside md-card-header. Default <code>false</code></md-table-cell>
                 </md-table-row>
               </md-table-body>
             </md-table>
@@ -133,13 +133,13 @@
                 <md-table-row>
                   <md-table-cell>md-text-scrim</md-table-cell>
                   <md-table-cell><code>Boolean</code></md-table-cell>
-                  <md-table-cell>Apply a gradient background based on the image. This option increase the legibility of the text applying background colors by extracting the amount of lightness on the image. If the image is dark so the background of the text will be lighter. If it's not dark then the background will be darker. This will be calculated automatically.</md-table-cell>
+                  <md-table-cell>Apply a gradient background based on the image. This option increase the legibility of the text applying background colors by extracting the amount of lightness on the image. If the image is dark so the background of the text will be lighter. If it's not dark then the background will be darker. This will be calculated automatically. Default <code>false</code></md-table-cell>
                 </md-table-row>
 
                 <md-table-row>
                   <md-table-cell>md-solid</md-table-cell>
                   <md-table-cell><code>Boolean</code></md-table-cell>
-                  <md-table-cell>Applies a solid background with the same calculation logic of the md-text-scrim.</md-table-cell>
+                  <md-table-cell>Applies a solid background with the same calculation logic of the md-text-scrim. Default <code>false</code></md-table-cell>
                 </md-table-row>
               </md-table-body>
             </md-table>

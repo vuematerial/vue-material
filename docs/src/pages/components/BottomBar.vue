@@ -26,7 +26,7 @@
               <md-table-row>
                 <md-table-cell>md-shift</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Enable the shifting variant</md-table-cell>
+                <md-table-cell>Enable the shifting variant. Default <code>false</code></md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>
@@ -46,13 +46,13 @@
               <md-table-row>
                 <md-table-cell>md-icon</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
-                <md-table-cell>Icon name on the <a href="https://material.io/icons/" target="_blank" rel="noopener">Material Icons</a> docs</md-table-cell>
+                <md-table-cell>Icon name on the <a href="https://material.io/icons/" target="_blank" rel="noopener">Material Icons</a> docs.</md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-active</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Set initial selection</md-table-cell>
+                <md-table-cell>Set initial selection. Default <code>false</code></md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>

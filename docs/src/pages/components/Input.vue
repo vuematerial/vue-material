@@ -1,246 +1,386 @@
 <template>
-  <demo-page label="Components - Input">
-    <div slot="examples">
-      <demo-example label="Regular fields" size="4">
-        <form novalidate @submit.stop.prevent="submit">
-          <md-input-container>
-            <label>Initial value</label>
-            <md-input v-model="initialValue"></md-input>
-          </md-input-container>
+  <page-content page-title="Components - Input">
+    <docs-component>
+      <div slot="description">
+        <p>Inputs allow users to input text and usually appear in forms. Users may enter text, numbers, or mixed-format types of input.</p>
+      </div>
 
-          <md-input-container>
-            <label>With label</label>
-            <md-input placeholder="My nice placeholder"></md-input>
-          </md-input-container>
+      <div slot="api">
+        <api-table name="md-input-container">
+          <md-table slot="properties">
+            <md-table-header>
+              <md-table-row>
+                <md-table-head>Name</md-table-head>
+                <md-table-head>Type</md-table-head>
+                <md-table-head>Description</md-table-head>
+              </md-table-row>
+            </md-table-header>
 
-          <md-input-container md-inline>
-            <label>Inline field</label>
-            <md-input></md-input>
-          </md-input-container>
+            <md-table-body>
+              <md-table-row>
+                <md-table-cell>md-inline</md-table-cell>
+                <md-table-cell><code>Boolean</code></md-table-cell>
+                <md-table-cell>Create inline field with a label or placeholder. Default <code>false</code></md-table-cell>
+              </md-table-row>
 
-          <md-input-container>
-            <label>Number</label>
-            <md-input type="number"></md-input>
-          </md-input-container>
+              <md-table-row>
+                <md-table-cell>md-has-password</md-table-cell>
+                <md-table-cell><code>Boolean</code></md-table-cell>
+                <md-table-cell>Show a button to toggle the password visibility. Default <code>false</code></md-table-cell>
+              </md-table-row>
+            </md-table-body>
+          </md-table>
+        </api-table>
 
-          <md-input-container>
-            <label>Textarea</label>
-            <md-textarea></md-textarea>
-          </md-input-container>
+        <api-table name="md-input">
+          <md-table slot="properties">
+            <md-table-header>
+              <md-table-row>
+                <md-table-head>Name</md-table-head>
+                <md-table-head>Type</md-table-head>
+                <md-table-head>Description</md-table-head>
+              </md-table-row>
+            </md-table-header>
 
-          <md-input-container>
-            <label>Disabled</label>
-            <md-input disabled></md-input>
-          </md-input-container>
-        </form>
-      </demo-example>
+            <md-table-body>
+              <md-table-row>
+                <md-table-cell>v-model</md-table-cell>
+                <md-table-cell><code>String</code></md-table-cell>
+                <md-table-cell>A required model object to bind the value.</md-table-cell>
+              </md-table-row>
 
-      <demo-example label="Password" size="4">
-        <form novalidate @submit.stop.prevent="submit">
-          <md-input-container>
-            <label>Regular Password</label>
-            <md-input type="password"></md-input>
-          </md-input-container>
+              <md-table-row>
+                <md-table-cell>type</md-table-cell>
+                <md-table-cell><code>String</code></md-table-cell>
+                <md-table-cell>Sets the type. Default <code>text</code></md-table-cell>
+              </md-table-row>
 
-          <md-input-container md-has-password>
-            <label>Password Reveal</label>
-            <md-input type="password"></md-input>
-          </md-input-container>
-        </form>
-      </demo-example>
+              <md-table-row>
+                <md-table-cell>disabled</md-table-cell>
+                <md-table-cell><code>Boolean</code></md-table-cell>
+                <md-table-cell>Disable the input and prevent his actions. Default <code>false</code></md-table-cell>
+              </md-table-row>
 
-      <demo-example label="Required and Errors" size="4">
-        <form novalidate @submit.stop.prevent="submit">
-          <md-input-container>
-            <label>Required</label>
-            <md-input required></md-input>
-          </md-input-container>
+              <md-table-row>
+                <md-table-cell>required</md-table-cell>
+                <md-table-cell><code>Boolean</code></md-table-cell>
+                <md-table-cell>Apply the required rule to style the label with an "*". Default <code>false</code></md-table-cell>
+              </md-table-row>
 
-          <md-input-container class="md-input-invalid">
-            <label>Error</label>
-            <md-input required></md-input>
-          </md-input-container>
+              <md-table-row>
+                <md-table-cell>placeholder</md-table-cell>
+                <md-table-cell><code>String</code></md-table-cell>
+                <md-table-cell>Sets the placeholder.</md-table-cell>
+              </md-table-row>
 
-          <md-input-container class="md-input-invalid">
-            <label>Error with message</label>
-            <md-input required></md-input>
+              <md-table-row>
+                <md-table-cell>maxlength</md-table-cell>
+                <md-table-cell><code>Number</code></md-table-cell>
+                <md-table-cell>Sets the maxlength and enable the text counter.</md-table-cell>
+              </md-table-row>
+            </md-table-body>
+          </md-table>
+        </api-table>
 
-            <span class="md-error">Validation message</span>
-          </md-input-container>
+        <api-table name="md-textarea">
+          <md-table slot="properties">
+            <md-table-header>
+              <md-table-row>
+                <md-table-head>Name</md-table-head>
+                <md-table-head>Type</md-table-head>
+                <md-table-head>Description</md-table-head>
+              </md-table-row>
+            </md-table-header>
 
-          <md-input-container class="md-input-invalid">
-            <label>Textarea with error</label>
-            <md-textarea></md-textarea>
+            <md-table-body>
+              <md-table-row>
+                <md-table-cell>v-model</md-table-cell>
+                <md-table-cell><code>String</code></md-table-cell>
+                <md-table-cell>A required model object to bind the value.</md-table-cell>
+              </md-table-row>
 
-            <span class="md-error">Textarea validation message</span>
-          </md-input-container>
-        </form>
-      </demo-example>
+              <md-table-row>
+                <md-table-cell>disabled</md-table-cell>
+                <md-table-cell><code>Boolean</code></md-table-cell>
+                <md-table-cell>Disable the textarea and prevent his actions. Default <code>false</code></md-table-cell>
+              </md-table-row>
 
-      <demo-example label="Character counter" size="4">
-        <form novalidate @submit.stop.prevent="submit">
-          <md-input-container>
-            <label>Textarea</label>
-            <md-textarea maxlength="70"></md-textarea>
-          </md-input-container>
+              <md-table-row>
+                <md-table-cell>required</md-table-cell>
+                <md-table-cell><code>Boolean</code></md-table-cell>
+                <md-table-cell>Apply the required rule to style the label with an "*". Default <code>false</code></md-table-cell>
+              </md-table-row>
 
-          <md-input-container>
-            <label>Input</label>
-            <md-input maxlength="20"></md-input>
-          </md-input-container>
-        </form>
-      </demo-example>
+              <md-table-row>
+                <md-table-cell>placeholder</md-table-cell>
+                <md-table-cell><code>String</code></md-table-cell>
+                <md-table-cell>Sets the placeholder.</md-table-cell>
+              </md-table-row>
 
-      <demo-example label="Themed" size="4">
-        <form novalidate @submit.stop.prevent="submit">
-          <div v-md-theme="'green'">
-            <md-input-container>
-              <label>Green - Input</label>
-              <md-input></md-input>
-            </md-input-container>
+              <md-table-row>
+                <md-table-cell>maxlength</md-table-cell>
+                <md-table-cell><code>Number</code></md-table-cell>
+                <md-table-cell>Sets the maxlength and enable the text counter.</md-table-cell>
+              </md-table-row>
+            </md-table-body>
+          </md-table>
+        </api-table>
+      </div>
+
+      <div slot="example">
+        <example-box card-title="Regular fields">
+          <div slot="demo">
+            <form novalidate @submit.stop.prevent="submit">
+              <md-input-container>
+                <label>Initial value</label>
+                <md-input v-model="initialValue"></md-input>
+              </md-input-container>
+
+              <md-input-container>
+                <label>With label</label>
+                <md-input placeholder="My nice placeholder"></md-input>
+              </md-input-container>
+
+              <md-input-container md-inline>
+                <label>Inline field</label>
+                <md-input></md-input>
+              </md-input-container>
+
+              <md-input-container>
+                <label>Number</label>
+                <md-input type="number"></md-input>
+              </md-input-container>
+
+              <md-input-container>
+                <label>Textarea</label>
+                <md-textarea></md-textarea>
+              </md-input-container>
+
+              <md-input-container>
+                <label>Disabled</label>
+                <md-input disabled></md-input>
+              </md-input-container>
+            </form>
           </div>
 
-          <div v-md-theme="'cyan'">
-            <md-input-container>
-              <label>Cyan - Textarea</label>
-              <md-textarea></md-textarea>
-            </md-input-container>
+          <div slot="code">
+            <code-block lang="xml">
+              &lt;form novalidate @submit.stop.prevent=&quot;submit&quot;&gt;
+                &lt;md-input-container&gt;
+                  &lt;label&gt;Initial value&lt;/label&gt;
+                  &lt;md-input v-model=&quot;initialValue&quot;&gt;&lt;/md-input&gt;
+                &lt;/md-input-container&gt;
+
+                &lt;md-input-container&gt;
+                  &lt;label&gt;With label&lt;/label&gt;
+                  &lt;md-input placeholder=&quot;My nice placeholder&quot;&gt;&lt;/md-input&gt;
+                &lt;/md-input-container&gt;
+
+                &lt;md-input-container md-inline&gt;
+                  &lt;label&gt;Inline field&lt;/label&gt;
+                  &lt;md-input&gt;&lt;/md-input&gt;
+                &lt;/md-input-container&gt;
+
+                &lt;md-input-container&gt;
+                  &lt;label&gt;Number&lt;/label&gt;
+                  &lt;md-input type=&quot;number&quot;&gt;&lt;/md-input&gt;
+                &lt;/md-input-container&gt;
+
+                &lt;md-input-container&gt;
+                  &lt;label&gt;Textarea&lt;/label&gt;
+                  &lt;md-textarea&gt;&lt;/md-textarea&gt;
+                &lt;/md-input-container&gt;
+
+                &lt;md-input-container&gt;
+                  &lt;label&gt;Disabled&lt;/label&gt;
+                  &lt;md-input disabled&gt;&lt;/md-input&gt;
+                &lt;/md-input-container&gt;
+              &lt;/form&gt;
+            </code-block>
+
+            <code-block lang="javascript">
+              export default {
+                data() {
+                  return {
+                    initialValue: &apos;My initial value&apos;
+                  };
+                }
+              };
+            </code-block>
           </div>
-        </form>
-      </demo-example>
-    </div>
+        </example-box>
 
-    <div slot="code">
-      <demo-example label="Regular fields">
-        <code-block lang="xml">
-&lt;form novalidate @submit.stop.prevent=&quot;submit&quot;&gt;
-  &lt;md-input-container&gt;
-    &lt;label&gt;Initial value&lt;/label&gt;
-    &lt;md-input v-model=&quot;initialValue&quot;&gt;&lt;/md-input&gt;
-  &lt;/md-input-container&gt;
+        <example-box card-title="Passwords">
+          <div slot="demo">
+            <form novalidate @submit.stop.prevent="submit">
+              <md-input-container>
+                <label>Regular Password</label>
+                <md-input type="password"></md-input>
+              </md-input-container>
 
-  &lt;md-input-container&gt;
-    &lt;label&gt;With label&lt;/label&gt;
-    &lt;md-input placeholder=&quot;My nice placeholder&quot;&gt;&lt;/md-input&gt;
-  &lt;/md-input-container&gt;
+              <md-input-container md-has-password>
+                <label>Password Reveal</label>
+                <md-input type="password"></md-input>
+              </md-input-container>
+            </form>
+          </div>
 
-  &lt;md-input-container md-inline&gt;
-    &lt;label&gt;Inline field&lt;/label&gt;
-    &lt;md-input&gt;&lt;/md-input&gt;
-  &lt;/md-input-container&gt;
+          <div slot="code">
+            <code-block lang="xml">
+              &lt;form novalidate @submit.stop.prevent=&quot;submit&quot;&gt;
+                &lt;md-input-container&gt;
+                  &lt;label&gt;Regular Password&lt;/label&gt;
+                  &lt;md-input type=&quot;password&quot;&gt;&lt;/md-input&gt;
+                &lt;/md-input-container&gt;
 
-  &lt;md-input-container&gt;
-    &lt;label&gt;Number&lt;/label&gt;
-    &lt;md-input type=&quot;number&quot;&gt;&lt;/md-input&gt;
-  &lt;/md-input-container&gt;
+                &lt;md-input-container md-has-password&gt;
+                  &lt;label&gt;Password Reveal&lt;/label&gt;
+                  &lt;md-input type=&quot;password&quot;&gt;&lt;/md-input&gt;
+                &lt;/md-input-container&gt;
+              &lt;/form&gt;
+            </code-block>
+          </div>
+        </example-box>
 
-  &lt;md-input-container&gt;
-    &lt;label&gt;Textarea&lt;/label&gt;
-    &lt;md-textarea&gt;&lt;/md-textarea&gt;
-  &lt;/md-input-container&gt;
+        <example-box card-title="Required and Errors">
+          <div slot="demo">
+            <form novalidate @submit.stop.prevent="submit">
+              <md-input-container>
+                <label>Required</label>
+                <md-input required></md-input>
+              </md-input-container>
 
-  &lt;md-input-container&gt;
-    &lt;label&gt;Disabled&lt;/label&gt;
-    &lt;md-input disabled&gt;&lt;/md-input&gt;
-  &lt;/md-input-container&gt;
-&lt;/form&gt;
-        </code-block>
+              <md-input-container class="md-input-invalid">
+                <label>Error</label>
+                <md-input required></md-input>
+              </md-input-container>
 
-        <code-block lang="javascript">
-export default {
-  data() {
-    return {
-      initialValue: 'My initial value'
-    };
-  }
-};
-        </code-block>
-      </demo-example>
+              <md-input-container class="md-input-invalid">
+                <label>Error with message</label>
+                <md-input required></md-input>
 
-      <demo-example label="Password">
-        <code-block lang="xml">
-&lt;form novalidate @submit.stop.prevent=&quot;submit&quot;&gt;
-  &lt;md-input-container&gt;
-    &lt;label&gt;Regular Password&lt;/label&gt;
-    &lt;md-input type=&quot;password&quot;&gt;&lt;/md-input&gt;
-  &lt;/md-input-container&gt;
+                <span class="md-error">Validation message</span>
+              </md-input-container>
 
-  &lt;md-input-container md-has-password&gt;
-    &lt;label&gt;Password Reveal&lt;/label&gt;
-    &lt;md-input type=&quot;password&quot;&gt;&lt;/md-input&gt;
-  &lt;/md-input-container&gt;
-&lt;/form&gt;
-        </code-block>
-      </demo-example>
+              <md-input-container class="md-input-invalid">
+                <label>Textarea with error</label>
+                <md-textarea></md-textarea>
 
-      <demo-example label="Required and Errors">
-        <code-block lang="xml">
-&lt;form novalidate @submit.stop.prevent=&quot;submit&quot;&gt;
-  &lt;md-input-container&gt;
-    &lt;label&gt;Required&lt;/label&gt;
-    &lt;md-input required&gt;&lt;/md-input&gt;
-  &lt;/md-input-container&gt;
+                <span class="md-error">Textarea validation message</span>
+              </md-input-container>
+            </form>
+          </div>
 
-  &lt;md-input-container class=&quot;md-input-invalid&quot;&gt;
-    &lt;label&gt;Error&lt;/label&gt;
-    &lt;md-input required&gt;&lt;/md-input&gt;
-  &lt;/md-input-container&gt;
+          <div slot="code">
+            <code-block lang="xml">
+              &lt;form novalidate @submit.stop.prevent=&quot;submit&quot;&gt;
+                &lt;md-input-container&gt;
+                  &lt;label&gt;Required&lt;/label&gt;
+                  &lt;md-input required&gt;&lt;/md-input&gt;
+                &lt;/md-input-container&gt;
 
-  &lt;md-input-container class=&quot;md-input-invalid&quot;&gt;
-    &lt;label&gt;Error with message&lt;/label&gt;
-    &lt;md-input required&gt;&lt;/md-input&gt;
+                &lt;md-input-container class=&quot;md-input-invalid&quot;&gt;
+                  &lt;label&gt;Error&lt;/label&gt;
+                  &lt;md-input required&gt;&lt;/md-input&gt;
+                &lt;/md-input-container&gt;
 
-    &lt;span class=&quot;md-error&quot;&gt;Validation message&lt;/span&gt;
-  &lt;/md-input-container&gt;
+                &lt;md-input-container class=&quot;md-input-invalid&quot;&gt;
+                  &lt;label&gt;Error with message&lt;/label&gt;
+                  &lt;md-input required&gt;&lt;/md-input&gt;
 
-  &lt;md-input-container class=&quot;md-input-invalid&quot;&gt;
-    &lt;label&gt;Textarea with error&lt;/label&gt;
-    &lt;md-textarea&gt;&lt;/md-textarea&gt;
+                  &lt;span class=&quot;md-error&quot;&gt;Validation message&lt;/span&gt;
+                &lt;/md-input-container&gt;
 
-    &lt;span class=&quot;md-error&quot;&gt;Textarea validation message&lt;/span&gt;
-  &lt;/md-input-container&gt;
-&lt;/form&gt;
-        </code-block>
-      </demo-example>
+                &lt;md-input-container class=&quot;md-input-invalid&quot;&gt;
+                  &lt;label&gt;Textarea with error&lt;/label&gt;
+                  &lt;md-textarea&gt;&lt;/md-textarea&gt;
 
-      <demo-example label="Character counter">
-        <code-block lang="xml">
-&lt;form novalidate @submit.stop.prevent=&quot;submit&quot;&gt;
-  &lt;md-input-container&gt;
-    &lt;label&gt;Textarea&lt;/label&gt;
-    &lt;md-textarea maxlength=&quot;70&quot;&gt;&lt;/md-textarea&gt;
-  &lt;/md-input-container&gt;
+                  &lt;span class=&quot;md-error&quot;&gt;Textarea validation message&lt;/span&gt;
+                &lt;/md-input-container&gt;
+              &lt;/form&gt;
+            </code-block>
+          </div>
+        </example-box>
 
-  &lt;md-input-container&gt;
-    &lt;label&gt;Input&lt;/label&gt;
-    &lt;md-input maxlength=&quot;20&quot;&gt;&lt;/md-input&gt;
-  &lt;/md-input-container&gt;
-&lt;/form&gt;
-        </code-block>
-      </demo-example>
+        <example-box card-title="Character counter">
+          <div slot="demo">
+            <form novalidate @submit.stop.prevent="submit">
+              <md-input-container>
+                <label>Textarea</label>
+                <md-textarea maxlength="70"></md-textarea>
+              </md-input-container>
 
-      <demo-example label="Themed" size="4">
-        <code-block lang="xml">
-&lt;form novalidate @submit.stop.prevent=&quot;submit&quot;&gt;
-  &lt;md-input-container v-md-theme=&quot;&#039;green&#039;&quot;&gt;
-    &lt;label&gt;Themable - Input&lt;/label&gt;
-    &lt;md-input&gt;&lt;/md-input&gt;
-  &lt;/md-input-container&gt;
+              <md-input-container>
+                <label>Input</label>
+                <md-input maxlength="20"></md-input>
+              </md-input-container>
+            </form>
+          </div>
 
-  &lt;md-input-container v-md-theme=&quot;&#039;brown&#039;&quot;&gt;
-    &lt;label&gt;Themable - Textarea&lt;/label&gt;
-    &lt;md-textarea&gt;&lt;/md-textarea&gt;
-  &lt;/md-input-container&gt;
-&lt;/form&gt;
-        </code-block>
-      </demo-example>
-    </div>
+          <div slot="code">
+            <code-block lang="xml">
+              &lt;form novalidate @submit.stop.prevent=&quot;submit&quot;&gt;
+                &lt;md-input-container&gt;
+                  &lt;label&gt;Textarea&lt;/label&gt;
+                  &lt;md-textarea maxlength=&quot;70&quot;&gt;&lt;/md-textarea&gt;
+                &lt;/md-input-container&gt;
 
-    <div slot="api">
+                &lt;md-input-container&gt;
+                  &lt;label&gt;Input&lt;/label&gt;
+                  &lt;md-input maxlength=&quot;20&quot;&gt;&lt;/md-input&gt;
+                &lt;/md-input-container&gt;
+              &lt;/form&gt;
+            </code-block>
+          </div>
+        </example-box>
 
-    </div>
-  </demo-page>
+        <example-box card-title="Themes">
+          <div slot="demo">
+            <form novalidate @submit.stop.prevent="submit">
+              <div v-md-theme="'green'">
+                <md-input-container>
+                  <label>Green - Input</label>
+                  <md-input></md-input>
+                </md-input-container>
+              </div>
+
+              <div v-md-theme="'cyan'">
+                <md-input-container>
+                  <label>Cyan - Textarea</label>
+                  <md-textarea></md-textarea>
+                </md-input-container>
+              </div>
+            </form>
+          </div>
+
+          <div slot="code">
+            <code-block lang="xml">
+              &lt;form novalidate @submit.stop.prevent=&quot;submit&quot;&gt;
+                &lt;div v-md-theme=&quot;&apos;green&apos;&quot;&gt;
+                  &lt;md-input-container&gt;
+                    &lt;label&gt;Green - Input&lt;/label&gt;
+                    &lt;md-input&gt;&lt;/md-input&gt;
+                  &lt;/md-input-container&gt;
+                &lt;/div&gt;
+
+                &lt;div v-md-theme=&quot;&apos;cyan&apos;&quot;&gt;
+                  &lt;md-input-container&gt;
+                    &lt;label&gt;Cyan - Textarea&lt;/label&gt;
+                    &lt;md-textarea&gt;&lt;/md-textarea&gt;
+                  &lt;/md-input-container&gt;
+                &lt;/div&gt;
+              &lt;/form&gt;
+            </code-block>
+          </div>
+        </example-box>
+      </div>
+    </docs-component>
+  </page-content>
 </template>
+
+<style lang="scss" scoped>
+
+</style>
 
 <script>
   export default {
