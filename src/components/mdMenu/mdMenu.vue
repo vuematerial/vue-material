@@ -112,21 +112,10 @@
       calculateMenuContentPos() {
         let position;
 
-        switch (this.mdDirection) {
-          case 'bottom left':
-            position = this.getPosition('bottom', 'left');
-            break;
-
-          case 'top left':
-            position = this.getPosition('top', 'left');
-            break;
-
-          case 'top right':
-            position = this.getPosition('top', 'right');
-            break;
-
-          default:
-            position = this.getPosition('bottom', 'right');
+        if (!this.mdDirection) {
+          position = this.getPosition('bottom', 'right');
+        } else {
+          position = this.getPosition.apply(this, this.mdDirection.trim().split(' '));
         }
 
         position = getInViewPosition(this.menuContent, position);
