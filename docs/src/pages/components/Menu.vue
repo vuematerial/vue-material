@@ -44,6 +44,37 @@
         </md-menu>
       </demo-example>
 
+      <demo-example label="Alignments">
+        <md-menu>
+          <md-button md-menu-trigger>Default</md-button>
+
+          <md-menu-content>
+            <md-menu-item>My Item 1</md-menu-item>
+            <md-menu-item>My Item 2</md-menu-item>
+            <md-menu-item>My Item 3</md-menu-item>
+          </md-menu-content>
+        </md-menu>
+
+        <md-menu md-align-trigger>
+          <md-button md-menu-trigger>Align trigger</md-button>
+
+          <md-menu-content>
+            <md-menu-item>My Item 1</md-menu-item>
+            <md-menu-item>My Item 2</md-menu-item>
+            <md-menu-item>My Item 3</md-menu-item>
+          </md-menu-content>
+        </md-menu>
+        <md-menu :md-offset-x="154" md-offset-y="12">
+          <md-button md-menu-trigger>Custom offset</md-button>
+
+          <md-menu-content>
+            <md-menu-item>My Item 1</md-menu-item>
+            <md-menu-item>My Item 2</md-menu-item>
+            <md-menu-item>My Item 3</md-menu-item>
+          </md-menu-content>
+        </md-menu>
+      </demo-example>
+
       <demo-example label="Sizes">
         <md-menu>
           <md-button md-menu-trigger>Default</md-button>
@@ -198,6 +229,40 @@
 
 &lt;md-menu md-direction=&quot;top right&quot;&gt;
   &lt;md-button md-menu-trigger&gt;Top Right&lt;/md-button&gt;
+
+  &lt;md-menu-content&gt;
+    &lt;md-menu-item&gt;My Item 1&lt;/md-menu-item&gt;
+    &lt;md-menu-item&gt;My Item 2&lt;/md-menu-item&gt;
+    &lt;md-menu-item&gt;My Item 3&lt;/md-menu-item&gt;
+  &lt;/md-menu-content&gt;
+&lt;/md-menu&gt;
+</code-block>
+      </demo-example>
+
+      <demo-example label="Alignments">
+<code-block lang="xml">
+&lt;md-menu&gt;
+  &lt;md-button md-menu-trigger&gt;Default&lt;/md-button&gt;
+
+  &lt;md-menu-content&gt;
+    &lt;md-menu-item&gt;My Item 1&lt;/md-menu-item&gt;
+    &lt;md-menu-item&gt;My Item 2&lt;/md-menu-item&gt;
+    &lt;md-menu-item&gt;My Item 3&lt;/md-menu-item&gt;
+  &lt;/md-menu-content&gt;
+&lt;/md-menu&gt;
+
+&lt;md-menu md-align-trigger&gt;
+  &lt;md-button md-menu-trigger&gt;Align trigger&lt;/md-button&gt;
+
+  &lt;md-menu-content&gt;
+    &lt;md-menu-item&gt;My Item 1&lt;/md-menu-item&gt;
+    &lt;md-menu-item&gt;My Item 2&lt;/md-menu-item&gt;
+    &lt;md-menu-item&gt;My Item 3&lt;/md-menu-item&gt;
+  &lt;/md-menu-content&gt;
+&lt;/md-menu&gt;
+
+&lt;md-menu :md-offset-x=&quot;154&quot; md-offset-y=&quot;12&quot;&gt;
+  &lt;md-button md-menu-trigger&gt;Custom offset&lt;/md-button&gt;
 
   &lt;md-menu-content&gt;
     &lt;md-menu-item&gt;My Item 1&lt;/md-menu-item&gt;
