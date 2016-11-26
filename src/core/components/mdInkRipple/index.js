@@ -8,8 +8,8 @@ export default function install(Vue) {
   let registeredMouseFunction;
   let referenceElement;
 
-  let unregisterMouseEvent = () => {
-    referenceElement.removeEventListener('mousedown', registeredMouseFunction);
+  let unregisterMouseEvent = (el = referenceElement) => {
+    el.removeEventListener('mousedown', registeredMouseFunction);
   };
 
   let registerMouseEvent = (element, holder) => {
