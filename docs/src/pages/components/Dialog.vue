@@ -76,6 +76,27 @@
               </md-table-row>
             </md-table-body>
           </md-table>
+
+          <md-table slot="methods">
+            <md-table-header>
+              <md-table-row>
+                <md-table-head>Name</md-table-head>
+                <md-table-head>Description</md-table-head>
+              </md-table-row>
+            </md-table-header>
+
+            <md-table-body>
+              <md-table-row>
+                <md-table-cell>open</md-table-cell>
+                <md-table-cell>Open the dialog.</md-table-cell>
+              </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>close</md-table-cell>
+                <md-table-cell>Close the dialog.</md-table-cell>
+              </md-table-row>
+            </md-table-body>
+          </md-table>
         </api-table>
 
         <api-table name="md-dialog-title">
