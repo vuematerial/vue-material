@@ -37,19 +37,19 @@
               <md-table-row>
                 <md-table-cell>name</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
-                <md-table-cell>Set the checkbox name.</md-table-cell>
+                <md-table-cell>Set the radio name.</md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>id</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
-                <md-table-cell>Set the checkbox id.</md-table-cell>
+                <md-table-cell>Set the radio id.</md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>disabled</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Disable the checkbox and prevent his actions. Default <code>false</code></md-table-cell>
+                <md-table-cell>Disable the radio and prevent his actions. Default <code>false</code></md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>
@@ -66,8 +66,8 @@
             <md-table-body>
               <md-table-row>
                 <md-table-cell>change</md-table-cell>
-                <md-table-cell>Receive the state of the checkbox</md-table-cell>
-                <md-table-cell>Triggered when the checkbox changes his value.</md-table-cell>
+                <md-table-cell>Receive the state of the radio</md-table-cell>
+                <md-table-cell>Triggered when the radio changes his value.</md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>
