@@ -23,10 +23,10 @@
   export default {
     props: {
       name: String,
+      id: String,
       required: Boolean,
       multiple: Boolean,
       value: [String, Number, Array],
-      id: String,
       disabled: Boolean,
       placeholder: String,
       mdMenuClass: String
@@ -57,7 +57,7 @@
     },
     watch: {
       value(value) {
-        this.setTextAndvalue(value);
+        this.setTextAndValue(value);
       }
     },
     methods: {
@@ -103,7 +103,7 @@
 
         return {};
       },
-      setTextAndvalue(modelValue) {
+      setTextAndValue(modelValue) {
         const output = this.multiple ? this.getMultipleValue(modelValue) : this.getSingleValue(modelValue);
 
         this.selectedValue = output.value;
@@ -141,7 +141,7 @@
     mounted() {
       this.parentContainer = getClosestVueParent(this.$parent, 'md-input-container');
 
-      this.setTextAndvalue(this.value);
+      this.setTextAndValue(this.value);
 
       if (this.parentContainer) {
         this.parentContainer.setValue(this.value);

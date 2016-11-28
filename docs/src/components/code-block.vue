@@ -170,7 +170,10 @@
   export default {
     props: {
       lang: String,
-      height: [Number, String]
+      height: {
+        type: [Number, String],
+        default: '450px'
+      }
     },
     data: () => ({
       showMessage: false
