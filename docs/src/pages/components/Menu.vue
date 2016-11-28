@@ -70,13 +70,13 @@
               <md-table-row>
                 <md-table-cell>open</md-table-cell>
                 <md-table-cell>None</md-table-cell>
-                <md-table-cell>Triggered when the starts to open.</md-table-cell>
+                <md-table-cell>Triggered when the menu starts to open.</md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>close</md-table-cell>
                 <md-table-cell>None</md-table-cell>
-                <md-table-cell>Triggered when the starts to close.</md-table-cell>
+                <md-table-cell>Triggered when the menu starts to close.</md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>

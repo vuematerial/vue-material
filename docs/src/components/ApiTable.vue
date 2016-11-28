@@ -4,7 +4,7 @@
 
     <slot v-if="$slots.default"></slot>
 
-    <md-tabs :md-dynamic-height="false" class="md-transparent" v-if="slotNames.length > 1">
+    <md-tabs :md-dynamic-height="false" class="md-transparent" v-if="slotNames.length > 1 || !$slots.default">
       <md-tab class="api-tab" md-label="Properties" v-if="$slots.properties">
         <slot name="properties"></slot>
       </md-tab>
