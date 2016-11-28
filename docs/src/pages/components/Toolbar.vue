@@ -47,7 +47,7 @@
         </api-table>
 
         <api-table name="md-account-header">
-          <code-block lang="xml">
+          <code-block lang="xml" height="none">
             &lt;md-toolbar class=&quot;md-account-header&quot;&gt;
               &lt;md-list class=&quot;md-transparent&quot;&gt;
                 &lt;md-list-item class=&quot;md-avatar-list&quot;&gt;
