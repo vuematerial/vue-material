@@ -45,19 +45,23 @@
     }
   }
 
+  .md-toolbar {
+    .md-select {
+      &:after {
+        color: rgba(#fff, .87);
+      }
+    }
+  }
+
   .release-version {
     display: flex;
     align-items: center;
     font-size: 15px;
-  }
 
-  .md-select {
-    width: auto;
-    min-width: auto;
-    margin: 0 8px;
-
-    &:after {
-      color: rgba(#fff, .87);
+    .md-select {
+      width: auto;
+      min-width: auto;
+      margin: 0 8px;
     }
   }
 

@@ -68,6 +68,10 @@
       content: 'SCSS';
     }
 
+    &[data-lang="bash"]:after {
+      content: 'Shell';
+    }
+
     pre {
       margin: 0;
       white-space: pre;
@@ -160,12 +164,14 @@
   import highlight from 'highlight.js/lib/highlight.js';
   import highlightSCSS from 'highlight.js/lib/languages/scss';
   import highlightXML from 'highlight.js/lib/languages/xml';
-  import highlightJS from 'highlight.js/lib/languages/javascript';
+  import highlightJavascript from 'highlight.js/lib/languages/javascript';
+  import highlightBash from 'highlight.js/lib/languages/bash';
   import Clipboard from 'clipboard';
 
   highlight.registerLanguage('scss', highlightSCSS);
   highlight.registerLanguage('xml', highlightXML);
-  highlight.registerLanguage('javascript', highlightJS);
+  highlight.registerLanguage('javascript', highlightJavascript);
+  highlight.registerLanguage('bash', highlightBash);
 
   export default {
     props: {
