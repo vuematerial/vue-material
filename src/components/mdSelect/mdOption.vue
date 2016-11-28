@@ -50,12 +50,14 @@
       }
     },
     methods: {
-      selectOption() {
+      selectOption($event) {
         if (!this.parentSelect.multiple) {
           this.parentSelect.selectOption(this.value, this.$refs.item.textContent);
         } else {
           this.check = !this.check;
         }
+
+        this.$emit('selected', $event);
       }
     },
     watch: {
