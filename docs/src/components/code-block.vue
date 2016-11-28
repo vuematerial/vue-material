@@ -81,7 +81,7 @@
 
   .code-block-wrapper {
     min-width: 100%;
-    max-height: 550px;
+    max-height: 450px;
     padding: 16px;
     overflow: auto;
   }
