@@ -43,7 +43,7 @@
               </md-button>
 
               <md-avatar>
-                <img src="https://placeimg.com/40/40/people/1" alt="People">
+                <img src="assets/avatar-2.jpg" alt="People">
                 <md-tooltip md-direction="bottom">My tooltip</md-tooltip>
               </md-avatar>
             </div>
@@ -70,7 +70,7 @@
                 &lt;/md-button&gt;
 
                 &lt;md-avatar&gt;
-                  &lt;img src=&quot;https://placeimg.com/40/40/people/1&quot; alt=&quot;People&quot;&gt;
+                  &lt;img src=&quot;assets/avatar-2.jpg&quot; alt=&quot;People&quot;&gt;
                   &lt;md-tooltip md-direction=&quot;bottom&quot;&gt;My tooltip&lt;/md-tooltip&gt;
                 &lt;/md-avatar&gt;
               &lt;/div&gt;
@@ -99,7 +99,7 @@
               </md-button>
 
               <md-avatar>
-                <img src="https://placeimg.com/40/40/people/1" alt="People">
+                <img src="assets/avatar-2.jpg" alt="People">
                 <md-tooltip md-delay="400" md-direction="bottom">My tooltip</md-tooltip>
               </md-avatar>
             </div>
@@ -126,7 +126,7 @@
                 &lt;/md-button&gt;
 
                 &lt;md-avatar&gt;
-                  &lt;img src=&quot;https://placeimg.com/40/40/people/1&quot; alt=&quot;People&quot;&gt;
+                  &lt;img src=&quot;assets/avatar-2.jpg&quot; alt=&quot;People&quot;&gt;
                   &lt;md-tooltip md-delay=&quot;400&quot; md-direction=&quot;bottom&quot;&gt;My tooltip&lt;/md-tooltip&gt;
                 &lt;/md-avatar&gt;
               &lt;/div&gt;

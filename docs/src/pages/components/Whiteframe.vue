@@ -2,12 +2,7 @@
   <page-content page-title="Components - Whiteframe">
     <docs-component>
       <div slot="description">
-        <p>The following classes can be applied to change the color palette:</p>
-        <ul class="md-body-2">
-          <li><code>md-accent</code></li>
-          <li><code>md-warn</code></li>
-          <li><code>md-transparent</code></li>
-        </ul>
+        <p>In the physical world, objects can be stacked or affixed to one another, but cannot pass through each other. Objects also cast shadows and reflect light.</p>
       </div>
 
       <div slot="api">
