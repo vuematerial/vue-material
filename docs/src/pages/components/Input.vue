@@ -30,6 +30,22 @@
               </md-table-row>
             </md-table-body>
           </md-table>
+
+          <md-table slot="classes">
+            <md-table-header>
+              <md-table-row>
+                <md-table-head>Name</md-table-head>
+                <md-table-head>Description</md-table-head>
+              </md-table-row>
+            </md-table-header>
+
+            <md-table-body>
+              <md-table-row>
+                <md-table-cell>md-input-invalid</md-table-cell>
+                <md-table-cell>Set the error class</md-table-cell>
+              </md-table-row>
+            </md-table-body>
+          </md-table>
         </api-table>
 
         <api-table name="md-input">
