@@ -2,7 +2,9 @@
   <div class="api-table">
     <h3 class="md-title">{{ name }}</h3>
 
-    <md-tabs :md-dynamic-height="false" class="md-transparent" v-if="!$slots.default">
+    <slot v-if="$slots.default"></slot>
+
+    <md-tabs :md-dynamic-height="false" class="md-transparent" v-if="slotNames.length > 1">
       <md-tab class="api-tab" md-label="Properties" v-if="$slots.properties">
         <slot name="properties"></slot>
       </md-tab>
@@ -19,8 +21,6 @@
         <slot name="methods"></slot>
       </md-tab>
     </md-tabs>
-
-    <slot v-if="$slots.default"></slot>
   </div>
 </template>
 
@@ -42,6 +42,11 @@
   export default {
     props: {
       name: String
+    },
+    computed: {
+      slotNames() {
+        return Object.keys(this.$slots);
+      }
     }
   };
 </script>

@@ -144,6 +144,7 @@
         this.menuContent.classList.add('md-active');
         this.menuContent.focus();
         this.active = true;
+        this.$emit('open');
       },
       close() {
         let close = (event) => {
@@ -166,6 +167,7 @@
 
         this.menuContent.addEventListener(transitionEndEventName, close);
         this.menuContent.classList.remove('md-active');
+        this.$emit('close');
       },
       toggle() {
         if (this.active) {

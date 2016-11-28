@@ -51,13 +51,14 @@
       }
     },
     methods: {
-      close() {
+      close($event) {
         if (!this.disabled) {
           if (this.parentMenu.mdCloseOnSelect) {
             this.parentContent.close();
           }
 
           this.$emit('click');
+          this.$emit('selected', $event);
         }
       }
     },
