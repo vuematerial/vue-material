@@ -1,149 +1,241 @@
 <template>
-  <single-page class="single-page-home" label="Getting Started">
-    <single-page-banner label="Getting Started"></single-page-banner>
+  <page-content page-title="Getting Started">
+    <div class="main-content">
+      <div class="content">
+        <article>
+          <h2 class="md-headline">Installation</h2>
 
-    <single-page-section label="Installation">
-      <p>Import Roboto and Google Icons from Google CDN:</p>
-      <code-block lang="xml">
-&lt;link rel=&quot;stylesheet&quot; href=&quot;//fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic&quot;&gt;
-&lt;link rel=&quot;stylesheet&quot; href=&quot;//fonts.googleapis.com/icon?family=Material+Icons&quot;&gt;
-      </code-block>
+          <section>
+            <p>Vue Material supports the latest version of all Browsers. This means:</p>
+            <ul>
+              <li>Google Chrome 50+</li>
+              <li>Firefox 48+</li>
+              <li>Safari 9+</li>
+              <li>Opera 40+</li>
+              <li>IE 11</li>
+              <li>Edge</li>
+            </ul>
+          </section>
 
-      <p>
-        - Install Vue Material through npm or yarn: <br>
-        <code>npm install vue-material</code><br>
-        <code>yarn add vue-material</code>
-      </p>
-      <small>* Others package managers like JSPM and Bower are not supported yet.</small>
+          <section>
+            <h3 class="md-title">NPM</h3>
+            <p>Install Vue Material through npm or yarn <br><small>* Others package managers like JSPM and Bower are not supported yet.</small></p>
+            <code-block lang="bash">
+              $ npm install vue-material --save
+              $ yarn add vue-material
+            </code-block>
+          </section>
 
-      <md-tabs class="md-transparent">
-        <md-tab md-label="ES6">
-          <code-block lang="javascript">
-import Vue from 'vue'
-import VueMaterial from 'vue-material'
-import 'vue-material/dist/vue-material.css'
-          </code-block>
-        </md-tab>
+          <section>
+            <h3 class="md-title">Standalone</h3>
+            <p>Download from Github and reference the script and the stylesheet in your HTML:</p>
 
-        <md-tab md-label="AMD">
-          <code-block lang="javascript">
-var Vue = require('vue')
-var VueMaterial = require('vue-material')
-require('vue-material/dist/vue-material.css')
-          </code-block>
-        </md-tab>
-      </md-tabs>
+            <code-block lang="xml">
+              &lt;link rel=&quot;stylesheet&quot; href=&quot;path/to/vue-material.css&quot;&gt;
+              &lt;script src=&quot;path/to/vue-material.js&quot;&gt;&lt;/script&gt;
+            </code-block>
 
-      <p>Or <a href="https://github.com/marcosmoura/vue-material/archive/master.zip" target="_blank" rel="noopener">download</a> from Github and reference the script and the stylesheet in your HTML:</p>
-      <code-block lang="xml">
-&lt;link rel=&quot;stylesheet&quot; href=&quot;path/to/vue-material.css&quot;&gt;
-&lt;script src=&quot;path/to/vue-material.js&quot;&gt;&lt;/script&gt;
-      </code-block>
-    </single-page-section>
+            <p>
+              <md-button class="md-raised md-primary" href="https://github.com/marcosmoura/vue-material/archive/master.zip" target="_blank" rel="noopener">download</md-button>
+            </p>
+          </section>
+        </article>
 
-    <single-page-section label="Usage">
-      <p>Enable Vue Material in your application using <code>Vue.use()</code>. You can always enable individual components:</p>
-      <md-tabs class="md-transparent">
-        <md-tab md-label="ES6">
-          <code-block lang="javascript">
-// To import the whole library
-import Vue from 'vue'
-import VueMaterial from 'vue-material'
-import 'vue-material/dist/vue-material.css'
+        <article>
+          <h2 class="md-headline">Usage</h2>
 
-Vue.use(VueMaterial)
+          <section>
+            <h3 class="md-title">ES6</h3>
 
-// Or to import individual components
-import Vue from 'vue'
-import VueMaterial from 'vue-material'
-import 'vue-material/dist/components/mdCore/index.css' //Required to boot vue material
-import 'vue-material/dist/components/mdButton/index.css'
-import 'vue-material/dist/components/mdIcon/index.css'
-import 'vue-material/dist/components/mdSidenav/index.css'
-import 'vue-material/dist/components/mdToolbar/index.css'
+            <p>Import and use the whole library</p>
+            <code-block lang="javascript">
+              import Vue from 'vue'
+              import VueMaterial from 'vue-material'
+              import 'vue-material/dist/vue-material.css'
 
-Vue.use(VueMaterial.mdCore) //Required to boot vue material
-Vue.use(VueMaterial.mdButton)
-Vue.use(VueMaterial.mdIcon)
-Vue.use(VueMaterial.mdSidenav)
-Vue.use(VueMaterial.mdToolbar)
-          </code-block>
-        </md-tab>
+              Vue.use(VueMaterial)
+            </code-block>
 
-        <md-tab md-label="AMD">
-          <code-block lang="javascript">
-// To import the whole library
-var Vue = require('vue')
-var VueMaterial = require('vue-material')
-require('vue-material/dist/vue-material.css')
+            <p>Or to import individual components</p>
+            <code-block lang="javascript">
+              import Vue from 'vue'
+              import VueMaterial from 'vue-material'
+              import 'vue-material/dist/components/mdCore/index.css' //Required to boot vue material
+              import 'vue-material/dist/components/mdButton/index.css'
+              import 'vue-material/dist/components/mdIcon/index.css'
+              import 'vue-material/dist/components/mdSidenav/index.css'
+              import 'vue-material/dist/components/mdToolbar/index.css'
 
-Vue.use(VueMaterial)
+              Vue.use(VueMaterial.mdCore) //Required to boot vue material
+              Vue.use(VueMaterial.mdButton)
+              Vue.use(VueMaterial.mdIcon)
+              Vue.use(VueMaterial.mdSidenav)
+              Vue.use(VueMaterial.mdToolbar)
+            </code-block>
+          </section>
 
-// Or to import individual components
-var Vue = require('vue')
-var VueMaterial = require('vue-material')
-require('vue-material/dist/components/mdCore/index.css') //Required to boot vue material
-require('vue-material/dist/components/mdButton/index.css')
-require('vue-material/dist/components/mdIcon/index.css')
-require('vue-material/dist/components/mdSidenav/index.css')
-require('vue-material/dist/components/mdToolbar/index.css')
+          <section>
+            <h3 class="md-title">AMD</h3>
 
-Vue.use(VueMaterial.mdCore) //Required to boot vue material
-Vue.use(VueMaterial.mdButton)
-Vue.use(VueMaterial.mdIcon)
-Vue.use(VueMaterial.mdSidenav)
-Vue.use(VueMaterial.mdToolbar)
-          </code-block>
-        </md-tab>
-      </md-tabs>
-    </single-page-section>
+            <p>Import and use the whole library</p>
+            <code-block lang="xml">
+              &lt;link rel=&quot;stylesheet&quot; href=&quot;path/to/vue-material.css&quot;&gt;
+            </code-block>
 
-    <single-page-section label="Apply theme">
-      <p>To get Vue Material working properly, you'll need to configure a default theme. You can also register multiple themes at once.</p>
-      <md-tabs class="md-transparent">
-        <md-tab md-label="Single Theme">
-          <code-block lang="javascript">
-Vue.material.theme.register('default', {
-  primary: 'cyan',
-  accent: 'pink'
-})
-          </code-block>
-        </md-tab>
+            <code-block lang="javascript">
+              var Vue = require('vue')
+              var VueMaterial = require('vue-material')
 
-        <md-tab md-label="Multiple Themes">
-          <code-block lang="javascript">
-Vue.material.theme.registerAll({
-  default: {
-    primary: 'cyan',
-    accent: 'pink'
-  },
-  indigo: {
-    primary: 'indigo',
-    accent: 'pink'
-  }
-})
-          </code-block>
-        </md-tab>
-      </md-tabs>
+              Vue.use(VueMaterial)
+            </code-block>
 
-      <p>Apply your theme on each code part that you want using <code>v-md-theme</code> directive:</p>
+            <p>Or to import individual components</p>
+            <code-block lang="xml">
+              &lt;link rel=&quot;stylesheet&quot; href=&quot;path/to/vue-material/dist/components/mdCore.css&quot;&gt;
+              &lt;link rel=&quot;stylesheet&quot; href=&quot;path/to/vue-material/dist/components/mdButton.css&quot;&gt;
+              &lt;link rel=&quot;stylesheet&quot; href=&quot;path/to/vue-material/dist/components/mdIcon.css&quot;&gt;
+              &lt;link rel=&quot;stylesheet&quot; href=&quot;path/to/vue-material/dist/components/mdSidenav.css&quot;&gt;
+              &lt;link rel=&quot;stylesheet&quot; href=&quot;path/to/vue-material/dist/components/mdToolbar.css&quot;&gt;
+            </code-block>
 
-      <code-block lang="xml">
-&lt;div id=&quot;app&quot; v-md-theme=&quot;&#039;default&#039;&quot;&gt;
-  &lt;md-toolbar&gt;
-    &lt;div class=&quot;md-title&quot;&gt;My App&lt;/div&gt;
-  &lt;/md-toolbar&gt;
+            <code-block lang="javascript">
+              var Vue = require('vue')
+              var VueMaterial = require('vue-material')
 
-  &lt;md-button v-md-theme=&quot;&#039;indigo&#039;&quot;&gt;My Button&lt;/md-button&gt;
-&lt;/div&gt;
-      </code-block>
-    </single-page-section>
-  </single-page>
+              Vue.use(VueMaterial.mdCore) //Required to boot vue material
+              Vue.use(VueMaterial.mdButton)
+              Vue.use(VueMaterial.mdIcon)
+              Vue.use(VueMaterial.mdSidenav)
+              Vue.use(VueMaterial.mdToolbar)
+            </code-block>
+          </section>
+
+          <section>
+            <h3 class="md-title">Standalone</h3>
+
+            <code-block lang="xml">
+              &lt;link rel=&quot;stylesheet&quot; href=&quot;path/to/vue-material.css&quot;&gt;
+              &lt;script src=&quot;path/to/vue-material.js&quot;&gt;&lt;/script&gt;
+            </code-block>
+
+            <code-block lang="javascript">
+              // The VueMaterial library is global now
+              Vue.use(VueMaterial)
+            </code-block>
+          </section>
+        </article>
+
+        <article>
+          <section>
+            <h2 class="md-headline">Fonts and Icons</h2>
+
+            <p>Use Roboto and Google Icons from Google CDN:</p>
+            <code-block lang="xml">
+              &lt;link rel=&quot;stylesheet&quot; href=&quot;//fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic&quot;&gt;
+              &lt;link rel=&quot;stylesheet&quot; href=&quot;//fonts.googleapis.com/icon?family=Material+Icons&quot;&gt;
+            </code-block>
+          </section>
+        </article>
+
+        <article>
+          <section>
+            <h2 class="md-headline">Themes</h2>
+
+            <p>To get Vue Material working properly, you'll need to configure a default theme. You can also register multiple themes at once.</p>
+            <p>Apply your theme on each code part that you want using <code>v-md-theme</code> directive:</p>
+            <md-tabs :md-dynamic-height="false" class="md-transparent">
+              <md-tab md-label="Single Theme">
+                <code-block lang="javascript">
+                  Vue.material.theme.register('default', {
+                    primary: 'cyan',
+                    accent: 'pink'
+                  })
+                </code-block>
+
+                <code-block lang="xml">
+                  &lt;div id=&quot;app&quot; v-md-theme=&quot;&#039;default&#039;&quot;&gt;
+                    &lt;md-toolbar&gt;
+                      &lt;div class=&quot;md-title&quot;&gt;My App&lt;/div&gt;
+                    &lt;/md-toolbar&gt;
+
+                    &lt;md-button&gt;My Button&lt;/md-button&gt;
+                  &lt;/div&gt;
+                </code-block>
+              </md-tab>
+
+              <md-tab md-label="Multiple Themes">
+                <code-block lang="javascript">
+                  Vue.material.theme.registerAll({
+                    default: {
+                      primary: 'cyan',
+                      accent: 'pink'
+                    },
+                    indigo: {
+                      primary: 'indigo',
+                      accent: 'pink'
+                    }
+                  })
+                </code-block>
+
+                <code-block lang="xml">
+                  &lt;div id=&quot;app&quot; v-md-theme=&quot;&#039;default&#039;&quot;&gt;
+                    &lt;md-toolbar&gt;
+                      &lt;div class=&quot;md-title&quot;&gt;My App&lt;/div&gt;
+                    &lt;/md-toolbar&gt;
+
+                    &lt;md-button v-md-theme=&quot;&#039;indigo&#039;&quot;&gt;My Button&lt;/md-button&gt;
+                  &lt;/div&gt;
+                </code-block>
+              </md-tab>
+            </md-tabs>
+          </section>
+        </article>
+      </div>
+
+      <div class="example">
+        <iframe height="610" scrolling="no" title="Vue Material Example" src="//codepen.io/vue-material/embed/WoZpMR/?height=610&amp;theme-id=dark&amp;default-tab=result&amp;embed-version=2" frameborder="no" allowtransparency="true" allowfullscreen="true">See the Pen <a href="http://codepen.io/vue-material/pen/WoZpMR/">Vue Material Example</a> by Vue Material (<a href="http://codepen.io/vue-material">@vue-material</a>) on <a href="http://codepen.io">CodePen</a>.</iframe>
+      </div>
+    </div>
+  </page-content>
 </template>
 
 <style lang="scss" scoped>
-  .md-tab {
-    padding: 16px 0;
-    border-top: 1px solid rgba(#000, .12);
+  .main-content {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-flow: column;
+
+    @media (min-width: 1500px) {
+      flex-flow: row;
+    }
+  }
+
+  .content {
+    max-width: 768px;
+  }
+
+  section + section,
+  article + article {
+    margin-top: 36px;
+  }
+
+  iframe {
+    width: 360px;
+    min-width: 360px;
+    height: 610px;
+  }
+
+  .code-block,
+  .md-tabs {
+    max-width: 100%;
   }
 </style>
+
+<script>
+  export default {
+    data: () => ({
+      type: 'es6'
+    })
+  };
+</script>
