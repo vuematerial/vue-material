@@ -39,12 +39,9 @@
         default: true
       }
     },
-    data() {
-      return {
-        browserMargin: 8,
-        active: false
-      };
-    },
+    data: () => ({
+      active: false
+    }),
     watch: {
       mdSize(current, previous) {
         if (current >= 1 && current <= 7) {
@@ -55,6 +52,9 @@
       mdDirection(current, previous) {
         this.removeLastDirectionMenuContentClass(previous);
         this.addNewDirectionMenuContentClass(current);
+      },
+      mdAlignTrigger(trigger) {
+        this.handleAlignTriggerClass(trigger);
       }
     },
     methods: {
@@ -81,8 +81,11 @@
         this.menuContent.classList.add('md-size-' + size);
       },
       addNewDirectionMenuContentClass(direction) {
-        if (!this.mdAlignTrigger) {
-          this.menuContent.classList.add('md-direction-' + direction.replace(/ /g, '-'));
+        this.menuContent.classList.add('md-direction-' + direction.replace(/ /g, '-'));
+      },
+      handleAlignTriggerClass(trigger) {
+        if (trigger) {
+          this.menuContent.classList.add('md-align-trigger');
         }
       },
       getPosition(vertical, horizontal) {
@@ -107,7 +110,7 @@
           }
         }
 
-        return {top, left};
+        return { top, left };
       },
       calculateMenuContentPos() {
         let position;
@@ -179,6 +182,7 @@
         this.menuContent = this.$el.querySelector('.md-menu-content');
         this.backdropElement = this.$refs.backdrop.$el;
         this.validateMenu();
+        this.handleAlignTriggerClass(this.mdAlignTrigger);
         this.addNewSizeMenuContentClass(this.mdSize);
         this.addNewDirectionMenuContentClass(this.mdDirection);
         this.$el.removeChild(this.$refs.backdrop.$el);
