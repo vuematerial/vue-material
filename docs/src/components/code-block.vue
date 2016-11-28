@@ -1,6 +1,6 @@
 <template>
   <div class="code-block" :data-lang="lang">
-    <div class="code-block-wrapper">
+    <div class="code-block-wrapper" :style="{ 'max-height': height }">
       <pre><code :class="lang" ref="block"><slot></slot></code></pre>
 
       <span class="copied" :class="{ 'active': showMessage }">Copied!</span>
@@ -168,7 +168,10 @@
   highlight.registerLanguage('javascript', highlightJS);
 
   export default {
-    props: ['lang'],
+    props: {
+      lang: String,
+      height: [Number, String]
+    },
     data: () => ({
       showMessage: false
     }),
