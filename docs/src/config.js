@@ -51,6 +51,10 @@ Vue.material.theme.registerAll({
     primary: 'cyan',
     accent: 'pink'
   },
+  red: {
+    primary: 'red',
+    accent: 'pink'
+  },
   white: {
     primary: 'white',
     accent: 'blue'
