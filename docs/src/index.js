@@ -51,6 +51,8 @@ let handleSectionTheme = (currentRoute) => {
     Docs.theme = 'orange';
   } else if (currentRoute.name.indexOf('about') >= 0) {
     Docs.theme = 'green';
+  } else if (currentRoute.name.indexOf('error') >= 0) {
+    Docs.theme = 'red';
   } else {
     Docs.theme = 'default';
   }
