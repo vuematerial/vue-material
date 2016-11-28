@@ -52,6 +52,10 @@ $menu-base-width: 56px;
     clip-path: inset(16% -8px -8px 10%);
   }
 
+  &.md-align-trigger {
+    margin: 0;
+  }
+
   &.md-size-1 {
     width: $menu-base-width * 1.5;
   }

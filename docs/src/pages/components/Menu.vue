@@ -64,6 +64,7 @@
             <md-menu-item>My Item 3</md-menu-item>
           </md-menu-content>
         </md-menu>
+
         <md-menu :md-offset-x="154" md-offset-y="12">
           <md-button md-menu-trigger>Custom offset</md-button>
 
@@ -76,28 +77,28 @@
       </demo-example>
 
       <demo-example label="Sizes">
-        <md-menu>
-          <md-button md-menu-trigger>Default</md-button>
-
-          <md-menu-content>
-            <md-menu-item>My Item 1</md-menu-item>
-            <md-menu-item>My Item 2</md-menu-item>
-            <md-menu-item>My Item 3</md-menu-item>
-          </md-menu-content>
-        </md-menu>
-
         <md-menu md-size="1">
           <md-button md-menu-trigger>Size 1</md-button>
 
           <md-menu-content>
-            <md-menu-item>My Item 1</md-menu-item>
-            <md-menu-item>My Item 2</md-menu-item>
-            <md-menu-item>My Item 3</md-menu-item>
+            <md-menu-item>Item 1</md-menu-item>
+            <md-menu-item>Item 2</md-menu-item>
+            <md-menu-item>Item 3</md-menu-item>
           </md-menu-content>
         </md-menu>
 
         <md-menu md-size="2">
           <md-button md-menu-trigger>Size 2</md-button>
+
+          <md-menu-content>
+            <md-menu-item>My Item 1</md-menu-item>
+            <md-menu-item>My Item 2</md-menu-item>
+            <md-menu-item>My Item 3</md-menu-item>
+          </md-menu-content>
+        </md-menu>
+
+        <md-menu md-size="3">
+          <md-button md-menu-trigger>Size 3</md-button>
 
           <md-menu-content>
             <md-menu-item>My Item 1</md-menu-item>
@@ -126,6 +127,16 @@
           </md-menu-content>
         </md-menu>
 
+        <md-menu md-size="6">
+          <md-button md-menu-trigger>Size 6</md-button>
+
+          <md-menu-content>
+            <md-menu-item>My Item 1</md-menu-item>
+            <md-menu-item>My Item 2</md-menu-item>
+            <md-menu-item>My Item 3</md-menu-item>
+          </md-menu-content>
+        </md-menu>
+
         <md-menu md-size="7">
           <md-button md-menu-trigger>Size 7</md-button>
 
@@ -137,16 +148,26 @@
         </md-menu>
       </demo-example>
 
-      <demo-example label="List Icons">
-        <md-menu>
+      <demo-example label="Rich Content and List Icons">
+        <md-menu md-size="4" md-direction="top right" ref="menu">
           <md-button class="md-icon-button" md-menu-trigger>
-            <md-icon>more_vert</md-icon>
+            <md-icon>contacts</md-icon>
           </md-button>
 
           <md-menu-content>
-            <md-menu-item>My Item 1</md-menu-item>
-            <md-menu-item>My Item 2</md-menu-item>
-            <md-menu-item>My Item 3</md-menu-item>
+            <div class="author-card">
+              <md-avatar class="md-large">
+                <img src="assets/marcosmoura.jpg" alt="Marcos Moura">
+              </md-avatar>
+
+              <div class="author-card-info">
+                <span>Marcos Moura</span>
+                <div class="author-card-links">
+                  <a href="https://linkedin.com/in/marcosvmmoura" target="_blank" rel="noopener">Linkedin</a>
+                  <a href="https://github.com/marcosmoura" target="_blank" rel="noopener">GitHub</a>
+                </div>
+              </div>
+            </div>
           </md-menu-content>
         </md-menu>
 
@@ -190,213 +211,9 @@
             </md-menu-item>
           </md-menu-content>
         </md-menu>
+
+        <md-button class="md-raised md-primary" @click.native="$refs.menu.open">Open contact card</md-button>
       </demo-example>
-    </div>
-
-    <div slot="code">
-      <demo-example label="Directions">
-<code-block lang="xml">
-&lt;md-menu&gt;
-  &lt;md-button md-menu-trigger&gt;Bottom Right&lt;/md-button&gt;
-
-  &lt;md-menu-content&gt;
-    &lt;md-menu-item&gt;My Item 1&lt;/md-menu-item&gt;
-    &lt;md-menu-item&gt;My Item 2&lt;/md-menu-item&gt;
-    &lt;md-menu-item&gt;My Item 3&lt;/md-menu-item&gt;
-  &lt;/md-menu-content&gt;
-&lt;/md-menu&gt;
-
-&lt;md-menu md-direction=&quot;bottom left&quot;&gt;
-  &lt;md-button md-menu-trigger&gt;Bottom Left&lt;/md-button&gt;
-
-  &lt;md-menu-content&gt;
-    &lt;md-menu-item&gt;My Item 1&lt;/md-menu-item&gt;
-    &lt;md-menu-item&gt;My Item 2&lt;/md-menu-item&gt;
-    &lt;md-menu-item disabled&gt;My Item 3&lt;/md-menu-item&gt;
-    &lt;md-menu-item&gt;My Item 4&lt;/md-menu-item&gt;
-  &lt;/md-menu-content&gt;
-&lt;/md-menu&gt;
-
-&lt;md-menu md-direction=&quot;top left&quot;&gt;
-  &lt;md-button md-menu-trigger&gt;Top Left&lt;/md-button&gt;
-
-  &lt;md-menu-content&gt;
-    &lt;md-menu-item&gt;My Item 1&lt;/md-menu-item&gt;
-    &lt;md-menu-item&gt;My Item 2&lt;/md-menu-item&gt;
-    &lt;md-menu-item&gt;My Item 3&lt;/md-menu-item&gt;
-  &lt;/md-menu-content&gt;
-&lt;/md-menu&gt;
-
-&lt;md-menu md-direction=&quot;top right&quot;&gt;
-  &lt;md-button md-menu-trigger&gt;Top Right&lt;/md-button&gt;
-
-  &lt;md-menu-content&gt;
-    &lt;md-menu-item&gt;My Item 1&lt;/md-menu-item&gt;
-    &lt;md-menu-item&gt;My Item 2&lt;/md-menu-item&gt;
-    &lt;md-menu-item&gt;My Item 3&lt;/md-menu-item&gt;
-  &lt;/md-menu-content&gt;
-&lt;/md-menu&gt;
-</code-block>
-      </demo-example>
-
-      <demo-example label="Alignments">
-<code-block lang="xml">
-&lt;md-menu&gt;
-  &lt;md-button md-menu-trigger&gt;Default&lt;/md-button&gt;
-
-  &lt;md-menu-content&gt;
-    &lt;md-menu-item&gt;My Item 1&lt;/md-menu-item&gt;
-    &lt;md-menu-item&gt;My Item 2&lt;/md-menu-item&gt;
-    &lt;md-menu-item&gt;My Item 3&lt;/md-menu-item&gt;
-  &lt;/md-menu-content&gt;
-&lt;/md-menu&gt;
-
-&lt;md-menu md-align-trigger&gt;
-  &lt;md-button md-menu-trigger&gt;Align trigger&lt;/md-button&gt;
-
-  &lt;md-menu-content&gt;
-    &lt;md-menu-item&gt;My Item 1&lt;/md-menu-item&gt;
-    &lt;md-menu-item&gt;My Item 2&lt;/md-menu-item&gt;
-    &lt;md-menu-item&gt;My Item 3&lt;/md-menu-item&gt;
-  &lt;/md-menu-content&gt;
-&lt;/md-menu&gt;
-
-&lt;md-menu :md-offset-x=&quot;154&quot; md-offset-y=&quot;12&quot;&gt;
-  &lt;md-button md-menu-trigger&gt;Custom offset&lt;/md-button&gt;
-
-  &lt;md-menu-content&gt;
-    &lt;md-menu-item&gt;My Item 1&lt;/md-menu-item&gt;
-    &lt;md-menu-item&gt;My Item 2&lt;/md-menu-item&gt;
-    &lt;md-menu-item&gt;My Item 3&lt;/md-menu-item&gt;
-  &lt;/md-menu-content&gt;
-&lt;/md-menu&gt;
-</code-block>
-      </demo-example>
-
-      <demo-example label="Sizes">
-<code-block lang="xml">
-&lt;md-menu&gt;
-  &lt;md-button md-menu-trigger&gt;Default&lt;/md-button&gt;
-
-  &lt;md-menu-content&gt;
-    &lt;md-menu-item&gt;My Item 1&lt;/md-menu-item&gt;
-    &lt;md-menu-item&gt;My Item 2&lt;/md-menu-item&gt;
-    &lt;md-menu-item&gt;My Item 3&lt;/md-menu-item&gt;
-  &lt;/md-menu-content&gt;
-&lt;/md-menu&gt;
-
-&lt;md-menu md-size=&quot;1&quot;&gt;
-  &lt;md-button md-menu-trigger&gt;Size 1&lt;/md-button&gt;
-
-  &lt;md-menu-content&gt;
-    &lt;md-menu-item&gt;My Item 1&lt;/md-menu-item&gt;
-    &lt;md-menu-item&gt;My Item 2&lt;/md-menu-item&gt;
-    &lt;md-menu-item&gt;My Item 3&lt;/md-menu-item&gt;
-  &lt;/md-menu-content&gt;
-&lt;/md-menu&gt;
-
-&lt;md-menu md-size=&quot;2&quot;&gt;
-  &lt;md-button md-menu-trigger&gt;Size 2&lt;/md-button&gt;
-
-  &lt;md-menu-content&gt;
-    &lt;md-menu-item&gt;My Item 1&lt;/md-menu-item&gt;
-    &lt;md-menu-item&gt;My Item 2&lt;/md-menu-item&gt;
-    &lt;md-menu-item&gt;My Item 3&lt;/md-menu-item&gt;
-  &lt;/md-menu-content&gt;
-&lt;/md-menu&gt;
-
-&lt;md-menu md-size=&quot;4&quot;&gt;
-  &lt;md-button md-menu-trigger&gt;Size 4&lt;/md-button&gt;
-
-  &lt;md-menu-content&gt;
-    &lt;md-menu-item&gt;My Item 1&lt;/md-menu-item&gt;
-    &lt;md-menu-item&gt;My Item 2&lt;/md-menu-item&gt;
-    &lt;md-menu-item&gt;My Item 3&lt;/md-menu-item&gt;
-  &lt;/md-menu-content&gt;
-&lt;/md-menu&gt;
-
-&lt;md-menu md-size=&quot;5&quot;&gt;
-  &lt;md-button md-menu-trigger&gt;Size 5&lt;/md-button&gt;
-
-  &lt;md-menu-content&gt;
-    &lt;md-menu-item&gt;My Item 1&lt;/md-menu-item&gt;
-    &lt;md-menu-item&gt;My Item 2&lt;/md-menu-item&gt;
-    &lt;md-menu-item&gt;My Item 3&lt;/md-menu-item&gt;
-  &lt;/md-menu-content&gt;
-&lt;/md-menu&gt;
-
-&lt;md-menu md-size=&quot;7&quot;&gt;
-  &lt;md-button md-menu-trigger&gt;Size 7&lt;/md-button&gt;
-
-  &lt;md-menu-content&gt;
-    &lt;md-menu-item&gt;My Item 1&lt;/md-menu-item&gt;
-    &lt;md-menu-item&gt;My Item 2&lt;/md-menu-item&gt;
-    &lt;md-menu-item&gt;My Item 3&lt;/md-menu-item&gt;
-  &lt;/md-menu-content&gt;
-&lt;/md-menu&gt;
-</code-block>
-      </demo-example>
-
-      <demo-example label="List Icons">
-<code-block lang="xml">
-&lt;md-menu&gt;
-  &lt;md-button class=&quot;md-icon-button&quot; md-menu-trigger&gt;
-    &lt;md-icon&gt;more_vert&lt;/md-icon&gt;
-  &lt;/md-button&gt;
-
-  &lt;md-menu-content&gt;
-    &lt;md-menu-item&gt;My Item 1&lt;/md-menu-item&gt;
-    &lt;md-menu-item&gt;My Item 2&lt;/md-menu-item&gt;
-    &lt;md-menu-item&gt;My Item 3&lt;/md-menu-item&gt;
-  &lt;/md-menu-content&gt;
-&lt;/md-menu&gt;
-
-&lt;md-menu md-size=&quot;4&quot;&gt;
-  &lt;md-button class=&quot;md-icon-button&quot; md-menu-trigger&gt;
-    &lt;md-icon&gt;phone&lt;/md-icon&gt;
-  &lt;/md-button&gt;
-
-  &lt;md-menu-content&gt;
-    &lt;md-menu-item&gt;
-      &lt;md-icon&gt;phone&lt;/md-icon&gt;
-      &lt;span&gt;My Item 1&lt;/span&gt;
-    &lt;/md-menu-item&gt;
-
-    &lt;md-menu-item&gt;
-      &lt;md-icon&gt;phone&lt;/md-icon&gt;
-      &lt;span&gt;My Item 2&lt;/span&gt;
-    &lt;/md-menu-item&gt;
-
-    &lt;md-menu-item&gt;
-      &lt;md-icon&gt;phone&lt;/md-icon&gt;
-      &lt;span&gt;My Item 3&lt;/span&gt;
-    &lt;/md-menu-item&gt;
-  &lt;/md-menu-content&gt;
-&lt;/md-menu&gt;
-
-&lt;md-menu md-direction=&quot;bottom left&quot; md-size=&quot;4&quot;&gt;
-  &lt;md-button class=&quot;md-icon-button&quot; md-menu-trigger&gt;
-    &lt;md-icon&gt;near_me&lt;/md-icon&gt;
-  &lt;/md-button&gt;
-
-  &lt;md-menu-content&gt;
-    &lt;md-menu-item&gt;
-      &lt;span&gt;Find on map&lt;/span&gt;
-      &lt;md-icon&gt;near_me&lt;/md-icon&gt;
-    &lt;/md-menu-item&gt;
-
-    &lt;md-menu-item&gt;
-      &lt;span&gt;Call&lt;/span&gt;
-      &lt;md-icon&gt;phone&lt;/md-icon&gt;
-    &lt;/md-menu-item&gt;
-  &lt;/md-menu-content&gt;
-&lt;/md-menu&gt;
-</code-block>
-      </demo-example>
-    </div>
-
-    <div slot="api">
-
     </div>
   </demo-page>
 </template>
@@ -404,5 +221,33 @@
 <style lang="scss" scoped>
   .md-menu {
     margin-right: 36px;
+  }
+
+  .author-card {
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+
+    .md-avatar {
+      margin-right: 16px;
+    }
+
+    .author-card-info {
+      display: flex;
+      flex-flow: column;
+      flex: 1;
+    }
+
+    span {
+      font-size: 16px;
+    }
+
+    .author-card-links {
+      display: flex;
+
+      a + a {
+        margin-left: 8px;
+      }
+    }
   }
 </style>
