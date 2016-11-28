@@ -7,7 +7,7 @@
         <slot name="description"></slot>
       </section>
 
-      <section class="api-documentation">
+      <section class="api-documentation" v-if="$slots.api">
         <h2 class="md-headline">API Options</h2>
 
         <slot name="api"></slot>
