@@ -63,16 +63,16 @@ Docs = new Docs({
 
 handleSectionTheme(router.currentRoute);
 
-router.beforeEach((to, from, next) => {
-  let mainContent = document.querySelector('.main-content');
+router.afterEach((to) => {
+  Vue.nextTick(() => {
+    let mainContent = document.querySelector('.main-content');
 
-  if (mainContent) {
-    mainContent.scrollTop = 0;
-  }
+    if (mainContent) {
+      mainContent.scrollTop = 0;
+    }
 
-  Docs.closeSidenav();
+    Docs.closeSidenav();
 
-  handleSectionTheme(to);
-
-  next();
+    handleSectionTheme(to);
+  });
 });

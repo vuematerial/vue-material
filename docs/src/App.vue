@@ -72,7 +72,7 @@
                 </md-list-item>
 
                 <md-list-item class="md-inset">
-                  <router-link exact to="/components/ripple">Ripple</router-link>
+                  <router-link exact to="/components/ink-ripple">Ink Ripple</router-link>
                 </md-list-item>
 
                 <md-list-item class="md-inset">
