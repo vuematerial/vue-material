@@ -16,6 +16,18 @@
   </md-card>
 </template>
 
+<style lang="scss">
+  .example-box .code-content {
+    .code-block {
+      margin: -16px;
+
+      + .code-block {
+        margin-top: 40px;
+      }
+    }
+  }
+</style>
+
 <style lang="scss" scoped>
   .example-box {
     margin-bottom: 16px;
