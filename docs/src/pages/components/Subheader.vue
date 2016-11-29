@@ -22,6 +22,7 @@
               </md-table-row>
             </md-table-body>
           </md-table>
+        </api-table>
       </div>
 
       <div slot="example">
