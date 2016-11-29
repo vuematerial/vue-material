@@ -41,13 +41,21 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   rm -Rf tmp-docs
 
   # commit
-  #### git add -A
-  #### git commit -m "[build] $VERSION"
+  git add -A
+  git commit -m "[build] $VERSION"
   #### npm version $VERSION --message "[release] $VERSION"
 
   # publish
   #### git push origin refs/tags/v$VERSION
-  #### git push
-  #### npm run deploy-docs
+  git push
+
+  # deploy
+  if [ "`git remote| grep site`" == "site" ] ; then
+    git remote remove site
+  fi
+
+  git remote add site https://github.com/vuematerial/vuematerial.github.io.git
+  git push site `git subtree split --prefix dist/docs improvement/documentation`:master --force --progress
+
   #### npm publish
 fi

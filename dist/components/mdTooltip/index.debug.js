@@ -55,12 +55,12 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(196);
+	module.exports = __webpack_require__(222);
 
 
 /***/ },
 
-/***/ 113:
+/***/ 83:
 /***/ function(module, exports) {
 
 	'use strict';
@@ -89,7 +89,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 114:
+/***/ 140:
 /***/ function(module, exports) {
 
 	"use strict";
@@ -142,7 +142,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 196:
+/***/ 222:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -152,7 +152,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 	exports.default = install;
 	
-	var _mdTooltip = __webpack_require__(197);
+	var _mdTooltip = __webpack_require__(223);
 	
 	var _mdTooltip2 = _interopRequireDefault(_mdTooltip);
 	
@@ -165,20 +165,20 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 197:
+/***/ 223:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = {}
 	
 	/* styles */
-	__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"!!./../../../node_modules/extract-text-webpack-plugin/loader.js?{\"remove\":true}!css!vue-loader/lib/style-rewriter?id=data-v-3104dae7!sass!./mdTooltip.scss\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()))
+	__webpack_require__(224)
 	
 	/* script */
-	__vue_exports__ = __webpack_require__(199)
+	__vue_exports__ = __webpack_require__(225)
 	
 	/* template */
-	var __vue_template__ = __webpack_require__(200)
+	var __vue_template__ = __webpack_require__(226)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -213,7 +213,14 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 199:
+/***/ 224:
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+
+/***/ 225:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -222,17 +229,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	
-	var _transitionEndEventName = __webpack_require__(113);
+	var _transitionEndEventName = __webpack_require__(83);
 	
 	var _transitionEndEventName2 = _interopRequireDefault(_transitionEndEventName);
 	
-	var _getInViewPosition = __webpack_require__(114);
+	var _getInViewPosition = __webpack_require__(140);
 	
 	var _getInViewPosition2 = _interopRequireDefault(_getInViewPosition);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	//
+	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } } //
 	//
 	//
 	//
@@ -255,6 +262,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  data: function data() {
 	    return {
 	      active: false,
+	      parentClass: null,
 	      transitionOff: false,
 	      topPosition: false,
 	      leftPosition: false
@@ -262,7 +270,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  },
 	  computed: {
 	    classes: function classes() {
-	      return {
+	      var cssClasses = {
 	        'md-active': this.active,
 	        'md-transition-off': this.transitionOff,
 	        'md-tooltip-top': this.mdDirection === 'top',
@@ -270,6 +278,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	        'md-tooltip-bottom': this.mdDirection === 'bottom',
 	        'md-tooltip-left': this.mdDirection === 'left'
 	      };
+	
+	      if (this.parentClass) {
+	        cssClasses[this.parentClass] = true;
+	      }
+	
+	      return cssClasses;
 	    },
 	    style: function style() {
 	      return {
@@ -285,6 +299,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  },
 	  methods: {
+	    removeTooltips: function removeTooltips() {
+	      var tooltips = [].concat(_toConsumableArray(document.querySelectorAll('.md-tooltip')));
+	
+	      tooltips.forEach(function (tooltip) {
+	        tooltip.parentNode.removeChild(tooltip);
+	      });
+	    },
 	    calculateTooltipPosition: function calculateTooltipPosition() {
 	      var position = this.parentElement.getBoundingClientRect();
 	      var cssPosition = {};
@@ -323,18 +344,34 @@ return /******/ (function(modules) { // webpackBootstrap
 	      this.topPosition = cssPosition.top;
 	      this.leftPosition = cssPosition.left;
 	    },
+	    generateTooltipClasses: function generateTooltipClasses() {
+	      var classes = [];
+	
+	      this.parentElement.classList.forEach(function (cssClass) {
+	        if (cssClass.indexOf('md-') >= 0 && cssClass !== 'md-active') {
+	          classes.push(cssClass + '-tooltip');
+	        }
+	      });
+	
+	      this.parentClass = classes.join(' ');
+	    },
 	    open: function open() {
 	      var _this = this;
 	
-	      document.body.appendChild(this.tooltipElement);
-	      getComputedStyle(this.tooltipElement).top;
-	      this.transitionOff = true;
-	      this.calculateTooltipPosition();
+	      this.removeTooltips();
 	
-	      window.setTimeout(function () {
-	        _this.transitionOff = false;
-	        _this.active = true;
-	      }, 10);
+	      this.$nextTick(function () {
+	        _this.rootElement.appendChild(_this.tooltipElement);
+	        getComputedStyle(_this.tooltipElement).top;
+	        _this.transitionOff = true;
+	        _this.generateTooltipClasses();
+	        _this.calculateTooltipPosition();
+	
+	        window.setTimeout(function () {
+	          _this.transitionOff = false;
+	          _this.active = true;
+	        }, 10);
+	      });
 	    },
 	    close: function close() {
 	      var _this2 = this;
@@ -343,7 +380,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _this2.tooltipElement.removeEventListener(_transitionEndEventName2.default, cleanupElements);
 	
 	        if (_this2.tooltipElement.parentNode && !_this2.tooltipElement.classList.contains('md-active')) {
-	          document.body.removeChild(_this2.tooltipElement);
+	          _this2.rootElement.removeChild(_this2.tooltipElement);
 	        }
 	      };
 	
@@ -358,6 +395,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    this.$nextTick(function () {
 	      _this3.tooltipElement = _this3.$el;
 	      _this3.parentElement = _this3.tooltipElement.parentNode;
+	      _this3.rootElement = _this3.$root.$el;
 	
 	      _this3.$el.parentNode.removeChild(_this3.$el);
 	
@@ -370,9 +408,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  beforeDestroy: function beforeDestroy() {
 	    this.active = false;
 	
-	    if (this.$el.parentNode) {
-	      document.body.removeChild(this.$el);
-	    }
+	    this.removeTooltips();
 	
 	    if (this.parentElement) {
 	      this.parentElement.removeEventListener('mouseenter', this.open);
@@ -386,7 +422,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 200:
+/***/ 226:
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;
@@ -396,6 +432,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    style: (_vm.style)
 	  }, [_vm._t("default")])
 	},staticRenderFns: []}
+	module.exports.render._withStripped = true
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
