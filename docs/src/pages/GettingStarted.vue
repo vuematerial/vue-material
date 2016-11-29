@@ -161,8 +161,15 @@
       <article>
         <h2 class="md-headline">Codepen Examples</h2>
 
-        <h3 class="md-title">File Application UI</h3>
-        <iframe height="610" scrolling="no" title="File Application UI" src="//codepen.io/vue-material/embed/WoZpMR/?height=610&amp;theme-id=dark&amp;default-tab=result&amp;embed-version=2" frameborder="no" allowtransparency="true" allowfullscreen="true">See the Pen <a href="http://codepen.io/vue-material/pen/WoZpMR/">Vue Material Example</a> by Vue Material (<a href="http://codepen.io/vue-material">@vue-material</a>) on <a href="http://codepen.io">CodePen</a>.</iframe>
+        <section>
+          <h3 class="md-title">Playground</h3>
+          <iframe height="620" scrolling="no" title="Empty Setup" src="//codepen.io/vue-material/embed/VmMrYW/?height=620&amp;theme-id=dark&amp;default-tab=html,result&amp;embed-version=2" frameborder="no" allowtransparency="true" allowfullscreen="true" style="width: 100%;">See the Pen <a href="http://codepen.io/vue-material/pen/VmMrYW/">Empty Setup</a> by Vue Material (<a href="http://codepen.io/vue-material">@vue-material</a>) on <a href="http://codepen.io">CodePen</a>.</iframe>
+        </section>
+
+        <section>
+          <h3 class="md-title">File Application UI</h3>
+          <iframe width="360" height="610" scrolling="no" title="File Application UI" src="//codepen.io/vue-material/embed/WoZpMR/?height=610&amp;theme-id=dark&amp;default-tab=result&amp;embed-version=2" frameborder="no" allowtransparency="true" allowfullscreen="true">See the Pen <a href="http://codepen.io/vue-material/pen/WoZpMR/">Vue Material Example</a> by Vue Material (<a href="http://codepen.io/vue-material">@vue-material</a>) on <a href="http://codepen.io">CodePen</a>.</iframe>
+        </section>
       </article>
     </div>
   </page-content>
@@ -190,5 +197,10 @@
   .md-tab {
     border-top: 1px solid rgba(#000, .12);
     padding: 0;
+  }
+
+  iframe {
+    height: auto;
+    min-height: 620px;
   }
 </style>
