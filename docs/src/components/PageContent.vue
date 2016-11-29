@@ -29,6 +29,10 @@
   .main-header {
     position: relative;
     z-index: 2;
+
+    .md-toolbar {
+      color: #fff !important;
+    }
   }
 
   .nav-trigger {
