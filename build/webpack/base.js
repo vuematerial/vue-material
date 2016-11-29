@@ -62,6 +62,18 @@ export default {
         loaders: ['raw', 'sass-loader']
       },
       {
+        test: /\.json$/,
+        loaders: ['json-loader']
+      },
+      {
+        test: /\.(png|jpg|gif|svg)(\?.*)?$/,
+        loader: 'url',
+        query: {
+          limit: 10000,
+          name: '/assets/[name].[hash:8].[ext]'
+        }
+      },
+      {
         test: /\.html$/,
         loader: 'vue-html'
       }
