@@ -55,12 +55,12 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(26);
+	module.exports = __webpack_require__(20);
 
 
 /***/ },
 
-/***/ 26:
+/***/ 20:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -70,11 +70,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 	exports.default = install;
 	
-	var _mdButtonToggle = __webpack_require__(27);
+	var _mdButtonToggle = __webpack_require__(21);
 	
 	var _mdButtonToggle2 = _interopRequireDefault(_mdButtonToggle);
 	
-	var _mdButtonToggle3 = __webpack_require__(31);
+	var _mdButtonToggle3 = __webpack_require__(25);
 	
 	var _mdButtonToggle4 = _interopRequireDefault(_mdButtonToggle3);
 	
@@ -89,20 +89,20 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 27:
+/***/ 21:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = {}
 	
 	/* styles */
-	__webpack_require__(28)
+	__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"!!./../../../node_modules/extract-text-webpack-plugin/loader.js?{\"remove\":true}!css!vue-loader/lib/style-rewriter?id=data-v-106cf22d!sass!./mdButtonToggle.scss\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()))
 	
 	/* script */
-	__vue_exports__ = __webpack_require__(29)
+	__vue_exports__ = __webpack_require__(23)
 	
 	/* template */
-	var __vue_template__ = __webpack_require__(30)
+	var __vue_template__ = __webpack_require__(24)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -137,14 +137,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 28:
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-
-/***/ },
-
-/***/ 29:
+/***/ 23:
 /***/ function(module, exports) {
 
 	'use strict';
@@ -165,7 +158,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	exports.default = {
 	  props: {
-	    mdSingle: Boolean
+	    type: String
 	  },
 	  mounted: function mounted() {
 	    var _this = this;
@@ -175,7 +168,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      var toggleClass = 'md-toggle';
 	
 	      onClickButton = function onClickButton() {
-	        if (_this.mdSingle) {
+	        if (_this.type === 'radio') {
 	          _this.$children.forEach(function (child) {
 	            child.$el.classList.remove(toggleClass);
 	          });
@@ -205,7 +198,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 30:
+/***/ 24:
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;
@@ -213,7 +206,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    staticClass: "md-button-group md-button-toggle"
 	  }, [_vm._t("default")])
 	},staticRenderFns: []}
-	module.exports.render._withStripped = true
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
@@ -223,7 +215,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 31:
+/***/ 25:
 /***/ function(module, exports) {
 
 	module.exports = ".THEME_NAME .md-button-toggle .md-button:after, .THEME_NAME.md-button-toggle .md-button:after {\n  width: 1px;\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  content: \" \"; }\n\n.THEME_NAME .md-button-toggle .md-toggle, .THEME_NAME.md-button-toggle .md-toggle {\n  color: BACKGROUND-CONTRAST-600;\n  background-color: BACKGROUND-COLOR-500; }\n  .THEME_NAME .md-button-toggle .md-toggle:hover:not([disabled]), .THEME_NAME.md-button-toggle .md-toggle:hover:not([disabled]) {\n    background-color: BACKGROUND-COLOR-600; }\n  .THEME_NAME .md-button-toggle .md-toggle + .md-toggle:after, .THEME_NAME.md-button-toggle .md-toggle + .md-toggle:after {\n    background-color: BACKGROUND-COLOR-600; }\n\n.THEME_NAME .md-button-toggle.md-primary .md-toggle, .THEME_NAME.md-button-toggle.md-primary .md-toggle {\n  color: PRIMARY-CONTRAST;\n  background-color: PRIMARY-COLOR; }\n  .THEME_NAME .md-button-toggle.md-primary .md-toggle:hover:not([disabled]), .THEME_NAME.md-button-toggle.md-primary .md-toggle:hover:not([disabled]) {\n    background-color: PRIMARY-COLOR-600; }\n  .THEME_NAME .md-button-toggle.md-primary .md-toggle + .md-toggle:after, .THEME_NAME.md-button-toggle.md-primary .md-toggle + .md-toggle:after {\n    background-color: PRIMARY-COLOR-700; }\n\n.THEME_NAME .md-button-toggle.md-accent .md-toggle, .THEME_NAME.md-button-toggle.md-accent .md-toggle {\n  color: ACCENT-CONTRAST;\n  background-color: ACCENT-COLOR; }\n  .THEME_NAME .md-button-toggle.md-accent .md-toggle:hover:not([disabled]), .THEME_NAME.md-button-toggle.md-accent .md-toggle:hover:not([disabled]) {\n    background-color: ACCENT-COLOR-600; }\n  .THEME_NAME .md-button-toggle.md-accent .md-toggle + .md-toggle:after, .THEME_NAME.md-button-toggle.md-accent .md-toggle + .md-toggle:after {\n    background-color: ACCENT-COLOR-700; }\n\n.THEME_NAME .md-button-toggle.md-warn .md-toggle, .THEME_NAME.md-button-toggle.md-warn .md-toggle {\n  color: WARN-CONTRAST;\n  background-color: WARN-COLOR; }\n  .THEME_NAME .md-button-toggle.md-warn .md-toggle:hover:not([disabled]), .THEME_NAME.md-button-toggle.md-warn .md-toggle:hover:not([disabled]) {\n    background-color: WARN-COLOR-600; }\n  .THEME_NAME .md-button-toggle.md-warn .md-toggle + .md-toggle:after, .THEME_NAME.md-button-toggle.md-warn .md-toggle + .md-toggle:after {\n    background-color: WARN-COLOR-700; }\n\n.THEME_NAME .md-button-toggle [disabled], .THEME_NAME.md-button-toggle [disabled] {\n  color: rgba(0, 0, 0, 0.26); }\n  .THEME_NAME .md-button-toggle [disabled].md-toggle, .THEME_NAME.md-button-toggle [disabled].md-toggle {\n    color: BACKGROUND-CONTRAST-0.2;\n    background-color: rgba(0, 0, 0, 0.26); }\n"

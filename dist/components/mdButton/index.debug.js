@@ -55,12 +55,12 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(21);
+	module.exports = __webpack_require__(15);
 
 
 /***/ },
 
-/***/ 21:
+/***/ 15:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -70,11 +70,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 	exports.default = install;
 	
-	var _mdButton = __webpack_require__(22);
+	var _mdButton = __webpack_require__(16);
 	
 	var _mdButton2 = _interopRequireDefault(_mdButton);
 	
-	var _mdButton3 = __webpack_require__(25);
+	var _mdButton3 = __webpack_require__(19);
 	
 	var _mdButton4 = _interopRequireDefault(_mdButton3);
 	
@@ -89,17 +89,17 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 22:
+/***/ 16:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = {}
 	
 	/* styles */
-	__webpack_require__(23)
+	__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"!!./../../../node_modules/extract-text-webpack-plugin/loader.js?{\"remove\":true}!css!vue-loader/lib/style-rewriter?id=data-v-9b3983a6!sass!./mdButton.scss\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()))
 	
 	/* script */
-	__vue_exports__ = __webpack_require__(24)
+	__vue_exports__ = __webpack_require__(18)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -132,14 +132,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 23:
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-
-/***/ },
-
-/***/ 24:
+/***/ 18:
 /***/ function(module, exports) {
 
 	'use strict';
@@ -172,8 +165,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        disabled: isDisabled
 	      },
 	      on: {
-	        click: function click($event) {
-	          _this.$emit('click', $event);
+	        click: function click() {
+	          _this.$emit('click');
 	        }
 	      }
 	    };
@@ -196,7 +189,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 25:
+/***/ 19:
 /***/ function(module, exports) {
 
 	module.exports = ".THEME_NAME .md-button:not([disabled]).md-raised:not(.md-icon-button), .THEME_NAME.md-button:not([disabled]).md-raised:not(.md-icon-button) {\n  color: BACKGROUND-COLOR-900;\n  background-color: BACKGROUND-COLOR-50; }\n  .THEME_NAME .md-button:not([disabled]).md-raised:not(.md-icon-button):hover, .THEME_NAME.md-button:not([disabled]).md-raised:not(.md-icon-button):hover {\n    background-color: BACKGROUND-COLOR-200; }\n\n.THEME_NAME .md-button:not([disabled]).md-raised.md-icon-button:not(.md-raised), .THEME_NAME.md-button:not([disabled]).md-raised.md-icon-button:not(.md-raised) {\n  color: BACKGROUND-COLOR; }\n\n.THEME_NAME .md-button:not([disabled]).md-fab, .THEME_NAME.md-button:not([disabled]).md-fab {\n  color: ACCENT-CONTRAST;\n  background-color: ACCENT-COLOR; }\n  .THEME_NAME .md-button:not([disabled]).md-fab:hover, .THEME_NAME.md-button:not([disabled]).md-fab:hover {\n    background-color: ACCENT-COLOR-600; }\n  .THEME_NAME .md-button:not([disabled]).md-fab.md-clean, .THEME_NAME.md-button:not([disabled]).md-fab.md-clean {\n    color: BACKGROUND-COLOR-900;\n    background-color: BACKGROUND-COLOR-50; }\n    .THEME_NAME .md-button:not([disabled]).md-fab.md-clean:hover, .THEME_NAME.md-button:not([disabled]).md-fab.md-clean:hover {\n      background-color: BACKGROUND-COLOR-200; }\n\n.THEME_NAME .md-button:not([disabled]).md-primary:not(.md-icon-button), .THEME_NAME.md-button:not([disabled]).md-primary:not(.md-icon-button) {\n  color: PRIMARY-COLOR; }\n\n.THEME_NAME .md-button:not([disabled]).md-primary.md-raised, .THEME_NAME .md-button:not([disabled]).md-primary.md-fab, .THEME_NAME.md-button:not([disabled]).md-primary.md-raised, .THEME_NAME.md-button:not([disabled]).md-primary.md-fab {\n  background-color: PRIMARY-COLOR;\n  color: PRIMARY-CONTRAST; }\n  .THEME_NAME .md-button:not([disabled]).md-primary.md-raised:hover, .THEME_NAME .md-button:not([disabled]).md-primary.md-fab:hover, .THEME_NAME.md-button:not([disabled]).md-primary.md-raised:hover, .THEME_NAME.md-button:not([disabled]).md-primary.md-fab:hover {\n    background-color: PRIMARY-COLOR-600; }\n\n.THEME_NAME .md-button:not([disabled]).md-primary.md-icon-button:not(.md-raised), .THEME_NAME.md-button:not([disabled]).md-primary.md-icon-button:not(.md-raised) {\n  color: PRIMARY-COLOR; }\n\n.THEME_NAME .md-button:not([disabled]).md-accent:not(.md-icon-button), .THEME_NAME.md-button:not([disabled]).md-accent:not(.md-icon-button) {\n  color: ACCENT-COLOR; }\n\n.THEME_NAME .md-button:not([disabled]).md-accent.md-raised, .THEME_NAME.md-button:not([disabled]).md-accent.md-raised {\n  background-color: ACCENT-COLOR;\n  color: ACCENT-CONTRAST; }\n  .THEME_NAME .md-button:not([disabled]).md-accent.md-raised:hover, .THEME_NAME.md-button:not([disabled]).md-accent.md-raised:hover {\n    background-color: ACCENT-COLOR-600; }\n\n.THEME_NAME .md-button:not([disabled]).md-accent.md-icon-button:not(.md-raised), .THEME_NAME.md-button:not([disabled]).md-accent.md-icon-button:not(.md-raised) {\n  color: ACCENT-COLOR; }\n\n.THEME_NAME .md-button:not([disabled]).md-warn:not(.md-icon-button), .THEME_NAME.md-button:not([disabled]).md-warn:not(.md-icon-button) {\n  color: WARN-COLOR; }\n\n.THEME_NAME .md-button:not([disabled]).md-warn.md-raised, .THEME_NAME .md-button:not([disabled]).md-warn.md-fab, .THEME_NAME.md-button:not([disabled]).md-warn.md-raised, .THEME_NAME.md-button:not([disabled]).md-warn.md-fab {\n  background-color: WARN-COLOR;\n  color: WARN-CONTRAST; }\n  .THEME_NAME .md-button:not([disabled]).md-warn.md-raised:hover, .THEME_NAME .md-button:not([disabled]).md-warn.md-fab:hover, .THEME_NAME.md-button:not([disabled]).md-warn.md-raised:hover, .THEME_NAME.md-button:not([disabled]).md-warn.md-fab:hover {\n    background-color: WARN-COLOR-600; }\n\n.THEME_NAME .md-button:not([disabled]).md-warn.md-icon-button:not(.md-raised), .THEME_NAME.md-button:not([disabled]).md-warn.md-icon-button:not(.md-raised) {\n  color: WARN-COLOR; }\n"
