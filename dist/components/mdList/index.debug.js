@@ -55,12 +55,12 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(126);
+	module.exports = __webpack_require__(99);
 
 
 /***/ },
 
-/***/ 126:
+/***/ 99:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -70,19 +70,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 	exports.default = install;
 	
-	var _mdList = __webpack_require__(127);
+	var _mdList = __webpack_require__(100);
 	
 	var _mdList2 = _interopRequireDefault(_mdList);
 	
-	var _mdListItem = __webpack_require__(130);
+	var _mdListItem = __webpack_require__(103);
 	
 	var _mdListItem2 = _interopRequireDefault(_mdListItem);
 	
-	var _mdListExpand = __webpack_require__(132);
+	var _mdListExpand = __webpack_require__(105);
 	
 	var _mdListExpand2 = _interopRequireDefault(_mdListExpand);
 	
-	var _mdList3 = __webpack_require__(135);
+	var _mdList3 = __webpack_require__(108);
 	
 	var _mdList4 = _interopRequireDefault(_mdList3);
 	
@@ -99,17 +99,17 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 127:
+/***/ 100:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = {}
 	
 	/* styles */
-	__webpack_require__(128)
+	__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"!!./../../../node_modules/extract-text-webpack-plugin/loader.js?{\"remove\":true}!css!vue-loader/lib/style-rewriter?id=data-v-426a192d!sass!./mdList.scss\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()))
 	
 	/* template */
-	var __vue_template__ = __webpack_require__(129)
+	var __vue_template__ = __webpack_require__(102)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -144,14 +144,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 128:
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-
-/***/ },
-
-/***/ 129:
+/***/ 102:
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;
@@ -159,7 +152,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    staticClass: "md-list"
 	  }, [_vm._t("default")])
 	},staticRenderFns: []}
-	module.exports.render._withStripped = true
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
@@ -169,14 +161,14 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 130:
+/***/ 103:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = {}
 	
 	/* script */
-	__vue_exports__ = __webpack_require__(131)
+	__vue_exports__ = __webpack_require__(104)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -209,7 +201,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 131:
+/***/ 104:
 /***/ function(module, exports) {
 
 	'use strict';
@@ -355,17 +347,17 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 132:
+/***/ 105:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = {}
 	
 	/* script */
-	__vue_exports__ = __webpack_require__(133)
+	__vue_exports__ = __webpack_require__(106)
 	
 	/* template */
-	var __vue_template__ = __webpack_require__(134)
+	var __vue_template__ = __webpack_require__(107)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -400,7 +392,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 133:
+/***/ 106:
 /***/ function(module, exports) {
 
 	'use strict';
@@ -435,7 +427,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 134:
+/***/ 107:
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;
@@ -446,7 +438,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    })
 	  }, [_vm._t("default")])
 	},staticRenderFns: []}
-	module.exports.render._withStripped = true
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
@@ -456,7 +447,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 135:
+/***/ 108:
 /***/ function(module, exports) {
 
 	module.exports = ".THEME_NAME .md-list, .THEME_NAME.md-list {\n  background-color: BACKGROUND-COLOR-A100;\n  color: BACKGROUND-CONTRAST; }\n  .THEME_NAME .md-list.md-transparent, .THEME_NAME.md-list.md-transparent {\n    background-color: transparent;\n    color: inherit; }\n  .THEME_NAME .md-list .md-list-item .router-link-active.md-list-item-container, .THEME_NAME.md-list .md-list-item .router-link-active.md-list-item-container {\n    color: PRIMARY-COLOR; }\n    .THEME_NAME .md-list .md-list-item .router-link-active.md-list-item-container > .md-icon, .THEME_NAME.md-list .md-list-item .router-link-active.md-list-item-container > .md-icon {\n      color: PRIMARY-COLOR; }\n  .THEME_NAME .md-list .md-list-item.md-primary .md-list-item-container, .THEME_NAME.md-list .md-list-item.md-primary .md-list-item-container {\n    color: PRIMARY-COLOR; }\n    .THEME_NAME .md-list .md-list-item.md-primary .md-list-item-container > .md-icon, .THEME_NAME.md-list .md-list-item.md-primary .md-list-item-container > .md-icon {\n      color: PRIMARY-COLOR; }\n  .THEME_NAME .md-list .md-list-item.md-accent .md-list-item-container, .THEME_NAME.md-list .md-list-item.md-accent .md-list-item-container {\n    color: ACCENT-COLOR; }\n    .THEME_NAME .md-list .md-list-item.md-accent .md-list-item-container > .md-icon, .THEME_NAME.md-list .md-list-item.md-accent .md-list-item-container > .md-icon {\n      color: ACCENT-COLOR; }\n  .THEME_NAME .md-list .md-list-item.md-warn .md-list-item-container, .THEME_NAME.md-list .md-list-item.md-warn .md-list-item-container {\n    color: WARN-COLOR; }\n    .THEME_NAME .md-list .md-list-item.md-warn .md-list-item-container > .md-icon, .THEME_NAME.md-list .md-list-item.md-warn .md-list-item-container > .md-icon {\n      color: WARN-COLOR; }\n  .THEME_NAME .md-list .md-list-item-expand .md-list-item-container, .THEME_NAME.md-list .md-list-item-expand .md-list-item-container {\n    background-color: BACKGROUND-COLOR-A100; }\n    .THEME_NAME .md-list .md-list-item-expand .md-list-item-container:hover, .THEME_NAME .md-list .md-list-item-expand .md-list-item-container:focus, .THEME_NAME.md-list .md-list-item-expand .md-list-item-container:hover, .THEME_NAME.md-list .md-list-item-expand .md-list-item-container:focus {\n      background-color: rgba(153, 153, 153, 0.2); }\n"

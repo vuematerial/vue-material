@@ -55,12 +55,12 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(171);
+	module.exports = __webpack_require__(145);
 
 
 /***/ },
 
-/***/ 171:
+/***/ 145:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -70,11 +70,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 	exports.default = install;
 	
-	var _mdSubheader = __webpack_require__(172);
+	var _mdSubheader = __webpack_require__(146);
 	
 	var _mdSubheader2 = _interopRequireDefault(_mdSubheader);
 	
-	var _mdSubheader3 = __webpack_require__(175);
+	var _mdSubheader3 = __webpack_require__(149);
 	
 	var _mdSubheader4 = _interopRequireDefault(_mdSubheader3);
 	
@@ -89,17 +89,17 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 172:
+/***/ 146:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = {}
 	
 	/* styles */
-	__webpack_require__(173)
+	__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"!!./../../../node_modules/extract-text-webpack-plugin/loader.js?{\"remove\":true}!css!vue-loader/lib/style-rewriter?id=data-v-a2e7fe8a!sass!./mdSubheader.scss\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()))
 	
 	/* script */
-	__vue_exports__ = __webpack_require__(174)
+	__vue_exports__ = __webpack_require__(148)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -132,14 +132,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 173:
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-
-/***/ },
-
-/***/ 174:
+/***/ 148:
 /***/ function(module, exports) {
 
 	'use strict';
@@ -168,7 +161,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 175:
+/***/ 149:
 /***/ function(module, exports) {
 
 	module.exports = ".THEME_NAME .md-subheader.md-primary, .THEME_NAME.md-subheader.md-primary {\n  color: PRIMARY-COLOR; }\n\n.THEME_NAME .md-subheader.md-accent, .THEME_NAME.md-subheader.md-accent {\n  color: ACCENT-COLOR; }\n\n.THEME_NAME .md-subheader.md-warn, .THEME_NAME.md-subheader.md-warn {\n  color: WARN-COLOR; }\n"
