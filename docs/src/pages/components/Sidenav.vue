@@ -191,7 +191,7 @@
 </template>
 
 <style lang="scss" scoped>
-  p {
+  .phone-viewport p {
     padding: 8px 16px;
   }
 </style>
