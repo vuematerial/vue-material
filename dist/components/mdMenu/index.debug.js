@@ -55,41 +55,12 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(136);
+	module.exports = __webpack_require__(109);
 
 
 /***/ },
 
-/***/ 83:
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	function transitionEndEventName() {
-	  var el = document.createElement('span');
-	  var transitions = {
-	    transition: 'transitionend',
-	    OTransition: 'oTransitionEnd',
-	    MozTransition: 'transitionend',
-	    WebkitTransition: 'webkitTransitionEnd'
-	  };
-	
-	  for (var transition in transitions) {
-	    if (el.style[transition] !== undefined) {
-	      return transitions[transition];
-	    }
-	  }
-	}
-	
-	exports.default = transitionEndEventName();
-	module.exports = exports['default'];
-
-/***/ },
-
-/***/ 119:
+/***/ 92:
 /***/ function(module, exports) {
 
 	"use strict";
@@ -118,7 +89,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 136:
+/***/ 109:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -128,19 +99,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 	exports.default = install;
 	
-	var _mdMenu = __webpack_require__(137);
+	var _mdMenu = __webpack_require__(110);
 	
 	var _mdMenu2 = _interopRequireDefault(_mdMenu);
 	
-	var _mdMenuItem = __webpack_require__(142);
+	var _mdMenuItem = __webpack_require__(116);
 	
 	var _mdMenuItem2 = _interopRequireDefault(_mdMenuItem);
 	
-	var _mdMenuContent = __webpack_require__(146);
+	var _mdMenuContent = __webpack_require__(120);
 	
 	var _mdMenuContent2 = _interopRequireDefault(_mdMenuContent);
 	
-	var _mdMenu3 = __webpack_require__(149);
+	var _mdMenu3 = __webpack_require__(123);
 	
 	var _mdMenu4 = _interopRequireDefault(_mdMenu3);
 	
@@ -157,20 +128,20 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 137:
+/***/ 110:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = {}
 	
 	/* styles */
-	__webpack_require__(138)
+	__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"!!./../../../node_modules/extract-text-webpack-plugin/loader.js?{\"remove\":true}!css!vue-loader/lib/style-rewriter?id=data-v-008203e6!sass!./mdMenu.scss\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()))
 	
 	/* script */
-	__vue_exports__ = __webpack_require__(139)
+	__vue_exports__ = __webpack_require__(112)
 	
 	/* template */
-	var __vue_template__ = __webpack_require__(141)
+	var __vue_template__ = __webpack_require__(115)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -205,14 +176,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 138:
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-
-/***/ },
-
-/***/ 139:
+/***/ 112:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -221,18 +185,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	
-	var _transitionEndEventName = __webpack_require__(83);
+	var _transitionEndEventName = __webpack_require__(113);
 	
 	var _transitionEndEventName2 = _interopRequireDefault(_transitionEndEventName);
 	
-	var _getInViewPosition = __webpack_require__(140);
+	var _getInViewPosition = __webpack_require__(114);
 	
 	var _getInViewPosition2 = _interopRequireDefault(_getInViewPosition);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	//
-	//
 	//
 	//
 	//
@@ -252,18 +214,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	      type: String,
 	      default: 'bottom right'
 	    },
-	    mdAlignTrigger: {
-	      type: Boolean,
-	      default: false
-	    },
-	    mdOffsetX: {
-	      type: [Number, String],
-	      default: 0
-	    },
-	    mdOffsetY: {
-	      type: [Number, String],
-	      default: 0
-	    },
 	    mdCloseOnSelect: {
 	      type: Boolean,
 	      default: true
@@ -271,9 +221,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	  },
 	  data: function data() {
 	    return {
+	      browserMargin: 8,
 	      active: false
 	    };
 	  },
+	
 	  watch: {
 	    mdSize: function mdSize(current, previous) {
 	      if (current >= 1 && current <= 7) {
@@ -284,9 +236,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    mdDirection: function mdDirection(current, previous) {
 	      this.removeLastDirectionMenuContentClass(previous);
 	      this.addNewDirectionMenuContentClass(current);
-	    },
-	    mdAlignTrigger: function mdAlignTrigger(trigger) {
-	      this.handleAlignTriggerClass(trigger);
 	    }
 	  },
 	  methods: {
@@ -307,49 +256,85 @@ return /******/ (function(modules) { // webpackBootstrap
 	      this.menuContent.classList.remove('md-size-' + size);
 	    },
 	    removeLastDirectionMenuContentClass: function removeLastDirectionMenuContentClass(direction) {
-	      this.menuContent.classList.remove('md-direction-' + direction.replace(/ /g, '-'));
+	      this.menuContent.classList.remove('md-direction-' + direction.replace(' ', '-'));
 	    },
 	    addNewSizeMenuContentClass: function addNewSizeMenuContentClass(size) {
 	      this.menuContent.classList.add('md-size-' + size);
 	    },
 	    addNewDirectionMenuContentClass: function addNewDirectionMenuContentClass(direction) {
-	      this.menuContent.classList.add('md-direction-' + direction.replace(/ /g, '-'));
+	      this.menuContent.classList.add('md-direction-' + direction.replace(' ', '-'));
 	    },
-	    handleAlignTriggerClass: function handleAlignTriggerClass(trigger) {
-	      if (trigger) {
-	        this.menuContent.classList.add('md-align-trigger');
+	    closeOnOffClick: function closeOnOffClick(event) {
+	      if (!this.$el.contains(event.target) && !this.menuContent.contains(event.target)) {
+	        this.close();
 	      }
 	    },
-	    getPosition: function getPosition(vertical, horizontal) {
+	    getBottomRightPos: function getBottomRightPos() {
 	      var menuTriggerRect = this.menuTrigger.getBoundingClientRect();
+	      var position = {
+	        top: menuTriggerRect.top,
+	        left: menuTriggerRect.left
+	      };
 	
-	      var top = vertical === 'top' ? menuTriggerRect.top + menuTriggerRect.height - this.menuContent.offsetHeight : menuTriggerRect.top;
+	      position = (0, _getInViewPosition2.default)(this.menuContent, position);
 	
-	      var left = horizontal === 'left' ? menuTriggerRect.left - this.menuContent.offsetWidth + menuTriggerRect.width : menuTriggerRect.left;
+	      return position;
+	    },
+	    getBottomLeftPos: function getBottomLeftPos() {
+	      var menuTriggerRect = this.menuTrigger.getBoundingClientRect();
+	      var position = {
+	        top: menuTriggerRect.top,
+	        left: menuTriggerRect.left - this.menuContent.offsetWidth + menuTriggerRect.width
+	      };
 	
-	      top += parseInt(this.mdOffsetY, 10);
-	      left += parseInt(this.mdOffsetX, 10);
+	      position = (0, _getInViewPosition2.default)(this.menuContent, position);
 	
-	      if (this.mdAlignTrigger) {
-	        if (vertical === 'top') {
-	          top -= menuTriggerRect.height;
-	        } else {
-	          top += menuTriggerRect.height;
-	        }
-	      }
+	      return position;
+	    },
+	    getTopRightPos: function getTopRightPos() {
+	      var menuTriggerRect = this.menuTrigger.getBoundingClientRect();
+	      var position = {
+	        top: menuTriggerRect.top + menuTriggerRect.height - this.menuContent.offsetHeight,
+	        left: menuTriggerRect.left
+	      };
 	
-	      return { top: top, left: left };
+	      position = (0, _getInViewPosition2.default)(this.menuContent, position);
+	
+	      return position;
+	    },
+	    getTopLeftPos: function getTopLeftPos() {
+	      var menuTriggerRect = this.menuTrigger.getBoundingClientRect();
+	      var position = {
+	        top: menuTriggerRect.top + menuTriggerRect.height - this.menuContent.offsetHeight,
+	        left: menuTriggerRect.left - this.menuContent.offsetWidth + menuTriggerRect.width
+	      };
+	
+	      position = (0, _getInViewPosition2.default)(this.menuContent, position);
+	
+	      return position;
 	    },
 	    calculateMenuContentPos: function calculateMenuContentPos() {
 	      var position = void 0;
 	
-	      if (!this.mdDirection) {
-	        position = this.getPosition('bottom', 'right');
-	      } else {
-	        position = this.getPosition.apply(this, this.mdDirection.trim().split(' '));
-	      }
+	      switch (this.mdDirection) {
+	        case 'bottom left':
+	          position = this.getBottomLeftPos();
 	
-	      position = (0, _getInViewPosition2.default)(this.menuContent, position);
+	          break;
+	
+	        case 'top right':
+	          position = this.getTopRightPos();
+	
+	          break;
+	
+	        case 'top left':
+	          position = this.getTopLeftPos();
+	
+	          break;
+	
+	        default:
+	          position = this.getBottomRightPos();
+	      }
 	
 	      this.menuContent.style.top = position.top + 'px';
 	      this.menuContent.style.left = position.left + 'px';
@@ -358,12 +343,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	      window.requestAnimationFrame(this.calculateMenuContentPos);
 	    },
 	    open: function open() {
-	      if (this.rootElement.contains(this.menuContent)) {
-	        this.rootElement.removeChild(this.menuContent);
+	      if (this.$root.$el.contains(this.menuContent)) {
+	        this.$root.$el.removeChild(this.menuContent);
 	      }
 	
-	      this.rootElement.appendChild(this.menuContent);
-	      this.rootElement.appendChild(this.backdropElement);
+	      this.$root.$el.appendChild(this.menuContent);
+	      document.addEventListener('click', this.closeOnOffClick);
 	      window.addEventListener('resize', this.recalculateOnResize);
 	
 	      this.calculateMenuContentPos();
@@ -372,16 +357,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	      this.menuContent.classList.add('md-active');
 	      this.menuContent.focus();
 	      this.active = true;
-	      this.$emit('open');
 	    },
 	    close: function close() {
 	      var _this = this;
 	
+	      var menuContent = this.menuContent;
 	      var close = function close(event) {
-	        if (_this.menuContent && event.target === _this.menuContent) {
+	        if (menuContent && event.target === menuContent) {
 	          var activeRipple = _this.menuContent.querySelector('.md-ripple.md-active');
 	
-	          _this.menuContent.removeEventListener(_transitionEndEventName2.default, close);
+	          menuContent.removeEventListener(_transitionEndEventName2.default, close);
 	          _this.menuTrigger.focus();
 	          _this.active = false;
 	
@@ -389,15 +374,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	            activeRipple.classList.remove('md-active');
 	          }
 	
-	          _this.rootElement.removeChild(_this.menuContent);
-	          _this.rootElement.removeChild(_this.backdropElement);
+	          _this.$root.$el.removeChild(menuContent);
+	          document.removeEventListener('click', _this.closeOnOffClick);
 	          window.removeEventListener('resize', _this.recalculateOnResize);
 	        }
 	      };
 	
 	      this.menuContent.addEventListener(_transitionEndEventName2.default, close);
 	      this.menuContent.classList.remove('md-active');
-	      this.$emit('close');
 	    },
 	    toggle: function toggle() {
 	      if (this.active) {
@@ -408,37 +392,49 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  },
 	  mounted: function mounted() {
-	    var _this2 = this;
-	
-	    this.$nextTick(function () {
-	      _this2.rootElement = _this2.$root.$el;
-	      _this2.menuTrigger = _this2.$el.querySelector('[md-menu-trigger]');
-	      _this2.menuContent = _this2.$el.querySelector('.md-menu-content');
-	      _this2.backdropElement = _this2.$refs.backdrop.$el;
-	      _this2.validateMenu();
-	      _this2.handleAlignTriggerClass(_this2.mdAlignTrigger);
-	      _this2.addNewSizeMenuContentClass(_this2.mdSize);
-	      _this2.addNewDirectionMenuContentClass(_this2.mdDirection);
-	      _this2.$el.removeChild(_this2.$refs.backdrop.$el);
-	      _this2.menuContent.parentNode.removeChild(_this2.menuContent);
-	      _this2.menuTrigger.addEventListener('click', _this2.toggle);
-	    });
-	  },
-	  beforeDestroy: function beforeDestroy() {
-	    if (this.rootElement.contains(this.menuContent)) {
-	      this.rootElement.removeChild(this.menuContent);
-	      this.rootElement.removeChild(this.backdropElement);
-	    }
-	
-	    this.menuTrigger.removeEventListener('click', this.toggle);
-	    window.removeEventListener('resize', this.recalculateOnResize);
+	    this.menuTrigger = this.$el.querySelector('[md-menu-trigger]');
+	    this.menuContent = this.$el.querySelector('.md-menu-content');
+	    this.validateMenu();
+	    this.addNewSizeMenuContentClass(this.mdSize);
+	    this.addNewDirectionMenuContentClass(this.mdDirection);
+	    this.menuContent.parentNode.removeChild(this.menuContent);
+	    this.menuTrigger.addEventListener('click', this.toggle);
 	  }
 	};
 	module.exports = exports['default'];
 
 /***/ },
 
-/***/ 140:
+/***/ 113:
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	function transitionEndEventName() {
+	  var el = document.createElement('span');
+	  var transitions = {
+	    transition: 'transitionend',
+	    OTransition: 'oTransitionEnd',
+	    MozTransition: 'transitionend',
+	    WebkitTransition: 'webkitTransitionEnd'
+	  };
+	
+	  for (var transition in transitions) {
+	    if (el.style[transition] !== undefined) {
+	      return transitions[transition];
+	    }
+	  }
+	}
+	
+	exports.default = transitionEndEventName();
+	module.exports = exports['default'];
+
+/***/ },
+
+/***/ 114:
 /***/ function(module, exports) {
 
 	"use strict";
@@ -491,21 +487,14 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 141:
+/***/ 115:
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;
 	  return _vm._h('div', {
 	    staticClass: "md-menu"
-	  }, [_vm._t("default"), " ", _vm._h('md-backdrop', {
-	    ref: "backdrop",
-	    staticClass: "md-menu-backdrop md-transparent md-active",
-	    on: {
-	      "close": _vm.close
-	    }
-	  })])
+	  }, [_vm._t("default")])
 	},staticRenderFns: []}
-	module.exports.render._withStripped = true
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
@@ -515,17 +504,17 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 142:
+/***/ 116:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = {}
 	
 	/* script */
-	__vue_exports__ = __webpack_require__(143)
+	__vue_exports__ = __webpack_require__(117)
 	
 	/* template */
-	var __vue_template__ = __webpack_require__(145)
+	var __vue_template__ = __webpack_require__(119)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -560,7 +549,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 143:
+/***/ 117:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -569,11 +558,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	
-	var _getClosestVueParent = __webpack_require__(119);
+	var _getClosestVueParent = __webpack_require__(92);
 	
 	var _getClosestVueParent2 = _interopRequireDefault(_getClosestVueParent);
 	
-	__webpack_require__(144);
+	__webpack_require__(118);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -629,14 +618,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  },
 	  methods: {
-	    close: function close($event) {
+	    close: function close() {
 	      if (!this.disabled) {
 	        if (this.parentMenu.mdCloseOnSelect) {
 	          this.parentContent.close();
 	        }
 	
 	        this.$emit('click');
-	        this.$emit('selected', $event);
 	      }
 	    }
 	  },
@@ -658,7 +646,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 144:
+/***/ 118:
 /***/ function(module, exports) {
 
 	if (!Element.prototype.scrollIntoViewIfNeeded) {
@@ -691,7 +679,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 145:
+/***/ 119:
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;
@@ -706,7 +694,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  }, [_vm._t("default")])
 	},staticRenderFns: []}
-	module.exports.render._withStripped = true
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
@@ -716,17 +703,17 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 146:
+/***/ 120:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = {}
 	
 	/* script */
-	__vue_exports__ = __webpack_require__(147)
+	__vue_exports__ = __webpack_require__(121)
 	
 	/* template */
-	var __vue_template__ = __webpack_require__(148)
+	var __vue_template__ = __webpack_require__(122)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -761,7 +748,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 147:
+/***/ 121:
 /***/ function(module, exports) {
 
 	'use strict';
@@ -837,7 +824,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 148:
+/***/ 122:
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;
@@ -875,7 +862,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  }, [_vm._h('md-list', [_vm._t("default")])])
 	},staticRenderFns: []}
-	module.exports.render._withStripped = true
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
@@ -885,7 +871,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 149:
+/***/ 123:
 /***/ function(module, exports) {
 
 	module.exports = ""
