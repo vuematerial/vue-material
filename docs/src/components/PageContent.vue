@@ -107,6 +107,12 @@
       }
     },
     mounted() {
+      let normalizedPathname = location.pathname.replace(/\/|v/g, '');
+
+      if (normalizedPathname && this.availableDocs.indexOf(normalizedPathname) >= 0) {
+        this.currentDocs = normalizedPathname;
+      }
+
       document.title = this.pageTitle + ' - Vue Material';
     }
   };
