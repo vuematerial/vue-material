@@ -55,12 +55,12 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(124);
+	module.exports = __webpack_require__(150);
 
 
 /***/ },
 
-/***/ 124:
+/***/ 150:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -70,11 +70,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 	exports.default = install;
 	
-	var _mdRadio = __webpack_require__(125);
+	var _mdRadio = __webpack_require__(151);
 	
 	var _mdRadio2 = _interopRequireDefault(_mdRadio);
 	
-	var _mdRadio3 = __webpack_require__(129);
+	var _mdRadio3 = __webpack_require__(155);
 	
 	var _mdRadio4 = _interopRequireDefault(_mdRadio3);
 	
@@ -89,20 +89,20 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 125:
+/***/ 151:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = {}
 	
 	/* styles */
-	__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"!!./../../../node_modules/extract-text-webpack-plugin/loader.js?{\"remove\":true}!css!vue-loader/lib/style-rewriter?id=data-v-e87254d2!sass!./mdRadio.scss\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()))
+	__webpack_require__(152)
 	
 	/* script */
-	__vue_exports__ = __webpack_require__(127)
+	__vue_exports__ = __webpack_require__(153)
 	
 	/* template */
-	var __vue_template__ = __webpack_require__(128)
+	var __vue_template__ = __webpack_require__(154)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -137,7 +137,14 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 127:
+/***/ 152:
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+
+/***/ 153:
 /***/ function(module, exports) {
 
 	'use strict';
@@ -163,12 +170,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = {
 	  props: {
 	    name: String,
+	    id: String,
 	    value: [String, Boolean, Number],
 	    mdValue: {
 	      type: [String, Boolean, Number],
 	      required: true
 	    },
-	    id: String,
 	    disabled: Boolean
 	  },
 	  computed: {
@@ -192,7 +199,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 128:
+/***/ 154:
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;
@@ -227,6 +234,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  }, [_vm._t("default")]) : _vm._e()])
 	},staticRenderFns: []}
+	module.exports.render._withStripped = true
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
@@ -236,7 +244,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 129:
+/***/ 155:
 /***/ function(module, exports) {
 
 	module.exports = ".THEME_NAME .md-radio .md-radio-container:after, .THEME_NAME.md-radio .md-radio-container:after {\n  background-color: ACCENT-COLOR; }\n\n.THEME_NAME .md-radio.md-checked .md-radio-container, .THEME_NAME.md-radio.md-checked .md-radio-container {\n  border-color: ACCENT-COLOR; }\n\n.THEME_NAME .md-radio.md-checked .md-ink-ripple, .THEME_NAME.md-radio.md-checked .md-ink-ripple {\n  color: ACCENT-COLOR; }\n\n.THEME_NAME .md-radio.md-checked .md-ripple, .THEME_NAME.md-radio.md-checked .md-ripple {\n  opacity: .38; }\n\n.THEME_NAME .md-radio.md-primary .md-radio-container:after, .THEME_NAME.md-radio.md-primary .md-radio-container:after {\n  background-color: PRIMARY-COLOR; }\n\n.THEME_NAME .md-radio.md-primary.md-checked .md-radio-container, .THEME_NAME.md-radio.md-primary.md-checked .md-radio-container {\n  border-color: PRIMARY-COLOR; }\n\n.THEME_NAME .md-radio.md-primary.md-checked .md-ink-ripple, .THEME_NAME.md-radio.md-primary.md-checked .md-ink-ripple {\n  color: PRIMARY-COLOR; }\n\n.THEME_NAME .md-radio.md-warn .md-radio-container:after, .THEME_NAME.md-radio.md-warn .md-radio-container:after {\n  background-color: WARN-COLOR; }\n\n.THEME_NAME .md-radio.md-warn.md-checked .md-radio-container, .THEME_NAME.md-radio.md-warn.md-checked .md-radio-container {\n  border-color: WARN-COLOR; }\n\n.THEME_NAME .md-radio.md-warn.md-checked .md-ink-ripple, .THEME_NAME.md-radio.md-warn.md-checked .md-ink-ripple {\n  color: WARN-COLOR; }\n\n.THEME_NAME .md-radio.md-disabled .md-radio-container, .THEME_NAME.md-radio.md-disabled .md-radio-container {\n  border-color: rgba(0, 0, 0, 0.26); }\n  .THEME_NAME .md-radio.md-disabled .md-radio-container:after, .THEME_NAME.md-radio.md-disabled .md-radio-container:after {\n    background-color: rgba(0, 0, 0, 0.26); }\n\n.THEME_NAME .md-radio.md-disabled.md-checked .md-radio-container, .THEME_NAME.md-radio.md-disabled.md-checked .md-radio-container {\n  border-color: rgba(0, 0, 0, 0.26); }\n"

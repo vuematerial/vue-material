@@ -55,12 +55,12 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(150);
+	module.exports = __webpack_require__(176);
 
 
 /***/ },
 
-/***/ 150:
+/***/ 176:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -70,11 +70,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 	exports.default = install;
 	
-	var _mdSwitch = __webpack_require__(151);
+	var _mdSwitch = __webpack_require__(177);
 	
 	var _mdSwitch2 = _interopRequireDefault(_mdSwitch);
 	
-	var _mdSwitch3 = __webpack_require__(155);
+	var _mdSwitch3 = __webpack_require__(181);
 	
 	var _mdSwitch4 = _interopRequireDefault(_mdSwitch3);
 	
@@ -89,20 +89,20 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 151:
+/***/ 177:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = {}
 	
 	/* styles */
-	__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"!!./../../../node_modules/extract-text-webpack-plugin/loader.js?{\"remove\":true}!css!vue-loader/lib/style-rewriter?id=data-v-7e05ff26!sass!./mdSwitch.scss\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()))
+	__webpack_require__(178)
 	
 	/* script */
-	__vue_exports__ = __webpack_require__(153)
+	__vue_exports__ = __webpack_require__(179)
 	
 	/* template */
-	var __vue_template__ = __webpack_require__(154)
+	var __vue_template__ = __webpack_require__(180)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -137,7 +137,14 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 153:
+/***/ 178:
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+
+/***/ 179:
 /***/ function(module, exports) {
 
 	'use strict';
@@ -219,7 +226,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 154:
+/***/ 180:
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;
@@ -262,6 +269,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  }, [_vm._t("default")]) : _vm._e()])
 	},staticRenderFns: []}
+	module.exports.render._withStripped = true
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
@@ -271,7 +279,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 155:
+/***/ 181:
 /***/ function(module, exports) {
 
 	module.exports = ".THEME_NAME .md-switch.md-checked .md-switch-container, .THEME_NAME.md-switch.md-checked .md-switch-container {\n  background-color: ACCENT-COLOR-500-0.5; }\n\n.THEME_NAME .md-switch.md-checked .md-switch-thumb, .THEME_NAME.md-switch.md-checked .md-switch-thumb {\n  background-color: ACCENT-COLOR; }\n\n.THEME_NAME .md-switch.md-checked .md-ink-ripple, .THEME_NAME.md-switch.md-checked .md-ink-ripple {\n  color: ACCENT-COLOR; }\n\n.THEME_NAME .md-switch.md-checked .md-ripple, .THEME_NAME.md-switch.md-checked .md-ripple {\n  opacity: .38; }\n\n.THEME_NAME .md-switch.md-checked.md-primary .md-switch-container, .THEME_NAME.md-switch.md-checked.md-primary .md-switch-container {\n  background-color: PRIMARY-COLOR-500-0.5; }\n\n.THEME_NAME .md-switch.md-checked.md-primary .md-switch-thumb, .THEME_NAME.md-switch.md-checked.md-primary .md-switch-thumb {\n  background-color: PRIMARY-COLOR; }\n\n.THEME_NAME .md-switch.md-checked.md-primary .md-ink-ripple, .THEME_NAME.md-switch.md-checked.md-primary .md-ink-ripple {\n  color: PRIMARY-COLOR; }\n\n.THEME_NAME .md-switch.md-checked.md-warn .md-switch-container, .THEME_NAME.md-switch.md-checked.md-warn .md-switch-container {\n  background-color: WARN-COLOR-500-0.5; }\n\n.THEME_NAME .md-switch.md-checked.md-warn .md-switch-thumb, .THEME_NAME.md-switch.md-checked.md-warn .md-switch-thumb {\n  background-color: WARN-COLOR; }\n\n.THEME_NAME .md-switch.md-checked.md-warn .md-ink-ripple, .THEME_NAME.md-switch.md-checked.md-warn .md-ink-ripple {\n  color: WARN-COLOR; }\n\n.THEME_NAME .md-switch.md-disabled .md-switch-container, .THEME_NAME .md-switch.md-disabled.md-checked .md-switch-container, .THEME_NAME.md-switch.md-disabled .md-switch-container, .THEME_NAME.md-switch.md-disabled.md-checked .md-switch-container {\n  background-color: rgba(0, 0, 0, 0.12); }\n\n.THEME_NAME .md-switch.md-disabled .md-switch-thumb, .THEME_NAME .md-switch.md-disabled.md-checked .md-switch-thumb, .THEME_NAME.md-switch.md-disabled .md-switch-thumb, .THEME_NAME.md-switch.md-disabled.md-checked .md-switch-thumb {\n  background-color: #bdbdbd; }\n"
