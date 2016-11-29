@@ -55,12 +55,12 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(83);
+	module.exports = __webpack_require__(110);
 
 
 /***/ },
 
-/***/ 83:
+/***/ 110:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -70,19 +70,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 	exports.default = install;
 	
-	var _mdInputContainer = __webpack_require__(84);
+	var _mdInputContainer = __webpack_require__(111);
 	
 	var _mdInputContainer2 = _interopRequireDefault(_mdInputContainer);
 	
-	var _mdInput = __webpack_require__(89);
+	var _mdInput = __webpack_require__(116);
 	
 	var _mdInput2 = _interopRequireDefault(_mdInput);
 	
-	var _mdTextarea = __webpack_require__(94);
+	var _mdTextarea = __webpack_require__(121);
 	
 	var _mdTextarea2 = _interopRequireDefault(_mdTextarea);
 	
-	var _mdInputContainer3 = __webpack_require__(98);
+	var _mdInputContainer3 = __webpack_require__(125);
 	
 	var _mdInputContainer4 = _interopRequireDefault(_mdInputContainer3);
 	
@@ -99,20 +99,20 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 84:
+/***/ 111:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = {}
 	
 	/* styles */
-	__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"!!./../../../node_modules/extract-text-webpack-plugin/loader.js?{\"remove\":true}!css!vue-loader/lib/style-rewriter?id=data-v-4e747acd!sass!./mdInputContainer.scss\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()))
+	__webpack_require__(112)
 	
 	/* script */
-	__vue_exports__ = __webpack_require__(86)
+	__vue_exports__ = __webpack_require__(113)
 	
 	/* template */
-	var __vue_template__ = __webpack_require__(88)
+	var __vue_template__ = __webpack_require__(115)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -147,7 +147,14 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 86:
+/***/ 112:
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+
+/***/ 113:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -156,7 +163,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	
-	var _isArray = __webpack_require__(87);
+	var _isArray = __webpack_require__(114);
 	
 	var _isArray2 = _interopRequireDefault(_isArray);
 	
@@ -165,7 +172,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = {
 	  props: {
 	    mdInline: Boolean,
-	    mdDisabled: Boolean,
 	    mdHasPassword: Boolean
 	  },
 	  data: function data() {
@@ -254,7 +260,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 87:
+/***/ 114:
 /***/ function(module, exports) {
 
 	"use strict";
@@ -271,7 +277,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 88:
+/***/ 115:
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;
@@ -287,6 +293,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  }, [_vm._h('md-icon', [_vm._s(_vm.showPassword ? 'visibility_off' : 'visibility')])]) : _vm._e()])
 	},staticRenderFns: []}
+	module.exports.render._withStripped = true
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
@@ -296,17 +303,17 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 89:
+/***/ 116:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = {}
 	
 	/* script */
-	__vue_exports__ = __webpack_require__(90)
+	__vue_exports__ = __webpack_require__(117)
 	
 	/* template */
-	var __vue_template__ = __webpack_require__(93)
+	var __vue_template__ = __webpack_require__(120)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -341,7 +348,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 90:
+/***/ 117:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -350,11 +357,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	
-	var _common = __webpack_require__(91);
+	var _common = __webpack_require__(118);
 	
 	var _common2 = _interopRequireDefault(_common);
 	
-	var _getClosestVueParent = __webpack_require__(92);
+	var _getClosestVueParent = __webpack_require__(119);
 	
 	var _getClosestVueParent2 = _interopRequireDefault(_getClosestVueParent);
 	
@@ -405,7 +412,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 91:
+/***/ 118:
 /***/ function(module, exports) {
 
 	'use strict';
@@ -476,7 +483,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 92:
+/***/ 119:
 /***/ function(module, exports) {
 
 	"use strict";
@@ -505,7 +512,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 93:
+/***/ 120:
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;
@@ -535,6 +542,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  })
 	},staticRenderFns: []}
+	module.exports.render._withStripped = true
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
@@ -544,17 +552,17 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 94:
+/***/ 121:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = {}
 	
 	/* script */
-	__vue_exports__ = __webpack_require__(95)
+	__vue_exports__ = __webpack_require__(122)
 	
 	/* template */
-	var __vue_template__ = __webpack_require__(97)
+	var __vue_template__ = __webpack_require__(124)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -589,7 +597,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 95:
+/***/ 122:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -598,15 +606,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	
-	var _autosize = __webpack_require__(96);
+	var _autosize = __webpack_require__(123);
 	
 	var _autosize2 = _interopRequireDefault(_autosize);
 	
-	var _common = __webpack_require__(91);
+	var _common = __webpack_require__(118);
 	
 	var _common2 = _interopRequireDefault(_common);
 	
-	var _getClosestVueParent = __webpack_require__(92);
+	var _getClosestVueParent = __webpack_require__(119);
 	
 	var _getClosestVueParent2 = _interopRequireDefault(_getClosestVueParent);
 	
@@ -656,11 +664,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 96:
+/***/ 123:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-		Autosize 3.0.18
+		Autosize 3.0.19
 		license: MIT
 		http://www.jacklmoore.com/autosize
 	*/
@@ -679,7 +687,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	})(this, function (exports, module) {
 		'use strict';
 	
-		var map = typeof Map === 'function' ? new Map() : (function () {
+		var map = typeof Map === "function" ? new Map() : (function () {
 			var keys = [];
 			var values = [];
 	
@@ -702,11 +710,12 @@ return /******/ (function(modules) { // webpackBootstrap
 						keys.splice(index, 1);
 						values.splice(index, 1);
 					}
-				} };
+				}
+			};
 		})();
 	
 		var createEvent = function createEvent(name) {
-			return new Event(name);
+			return new Event(name, { bubbles: true });
 		};
 		try {
 			new Event('test');
@@ -774,7 +783,8 @@ return /******/ (function(modules) { // webpackBootstrap
 					if (el.parentNode.scrollTop) {
 						arr.push({
 							node: el.parentNode,
-							scrollTop: el.parentNode.scrollTop });
+							scrollTop: el.parentNode.scrollTop
+						});
 					}
 					el = el.parentNode;
 				}
@@ -837,7 +847,10 @@ return /******/ (function(modules) { // webpackBootstrap
 					var evt = createEvent('autosize:resized');
 					try {
 						ta.dispatchEvent(evt);
-					} catch (err) {}
+					} catch (err) {
+						// Firefox will throw an error on dispatchEvent for a detached element
+						// https://bugzilla.mozilla.org/show_bug.cgi?id=889376
+					}
 				}
 			}
 	
@@ -864,7 +877,8 @@ return /******/ (function(modules) { // webpackBootstrap
 				resize: ta.style.resize,
 				overflowY: ta.style.overflowY,
 				overflowX: ta.style.overflowX,
-				wordWrap: ta.style.wordWrap });
+				wordWrap: ta.style.wordWrap
+			});
 	
 			ta.addEventListener('autosize:destroy', destroy, false);
 	
@@ -883,7 +897,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 			map.set(ta, {
 				destroy: destroy,
-				update: update });
+				update: update
+			});
 	
 			init();
 		}
@@ -940,13 +955,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 		module.exports = autosize;
 	});
-	
-	// Firefox will throw an error on dispatchEvent for a detached element
-	// https://bugzilla.mozilla.org/show_bug.cgi?id=889376
 
 /***/ },
 
-/***/ 97:
+/***/ 124:
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;
@@ -968,6 +980,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  })
 	},staticRenderFns: []}
+	module.exports.render._withStripped = true
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
@@ -977,7 +990,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 98:
+/***/ 125:
 /***/ function(module, exports) {
 
 	module.exports = ".THEME_NAME .md-input-container.md-input-invalid:after, .THEME_NAME.md-input-container.md-input-invalid:after {\n  background-color: WARN-COLOR; }\n\n.THEME_NAME .md-input-container.md-input-invalid label,\n.THEME_NAME .md-input-container.md-input-invalid .md-error,\n.THEME_NAME .md-input-container.md-input-invalid .md-count,\n.THEME_NAME .md-input-container.md-input-invalid input,\n.THEME_NAME .md-input-container.md-input-invalid textarea, .THEME_NAME.md-input-container.md-input-invalid label,\n.THEME_NAME.md-input-container.md-input-invalid .md-error,\n.THEME_NAME.md-input-container.md-input-invalid .md-count,\n.THEME_NAME.md-input-container.md-input-invalid input,\n.THEME_NAME.md-input-container.md-input-invalid textarea {\n  color: WARN-COLOR; }\n\n.THEME_NAME .md-input-container.md-input-focused.md-input-inline label, .THEME_NAME.md-input-container.md-input-focused.md-input-inline label {\n  color: rgba(0, 0, 0, 0.54); }\n\n.THEME_NAME .md-input-container.md-input-focused.md-input-required label:after, .THEME_NAME.md-input-container.md-input-focused.md-input-required label:after {\n  color: WARN-COLOR; }\n\n.THEME_NAME .md-input-container.md-input-focused:after, .THEME_NAME.md-input-container.md-input-focused:after {\n  height: 2px;\n  background-color: PRIMARY-COLOR; }\n\n.THEME_NAME .md-input-container.md-input-focused input,\n.THEME_NAME .md-input-container.md-input-focused textarea, .THEME_NAME.md-input-container.md-input-focused input,\n.THEME_NAME.md-input-container.md-input-focused textarea {\n  color: PRIMARY-COLOR;\n  text-shadow: 0 0 0 BACKGROUND-CONTRAST;\n  -webkit-text-fill-color: transparent; }\n\n.THEME_NAME .md-input-container.md-input-focused label, .THEME_NAME.md-input-container.md-input-focused label {\n  color: PRIMARY-COLOR; }\n"

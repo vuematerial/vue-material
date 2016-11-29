@@ -54,7 +54,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(6);
+	module.exports = __webpack_require__(12);
 
 
 /***/ },
@@ -63,7 +63,13 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 3 */,
 /* 4 */,
 /* 5 */,
-/* 6 */
+/* 6 */,
+/* 7 */,
+/* 8 */,
+/* 9 */,
+/* 10 */,
+/* 11 */,
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -73,15 +79,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 	exports.default = install;
 	
-	var _mdBottomBar = __webpack_require__(7);
+	var _mdBottomBar = __webpack_require__(13);
 	
 	var _mdBottomBar2 = _interopRequireDefault(_mdBottomBar);
 	
-	var _mdBottomBarItem = __webpack_require__(11);
+	var _mdBottomBarItem = __webpack_require__(17);
 	
 	var _mdBottomBarItem2 = _interopRequireDefault(_mdBottomBarItem);
 	
-	var _mdBottomBar3 = __webpack_require__(14);
+	var _mdBottomBar3 = __webpack_require__(20);
 	
 	var _mdBottomBar4 = _interopRequireDefault(_mdBottomBar3);
 	
@@ -96,20 +102,20 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 7 */
+/* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = {}
 	
 	/* styles */
-	__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"!!./../../../node_modules/extract-text-webpack-plugin/loader.js?{\"remove\":true}!css!vue-loader/lib/style-rewriter?id=data-v-039c211e!sass!./mdBottomBar.scss\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()))
+	__webpack_require__(14)
 	
 	/* script */
-	__vue_exports__ = __webpack_require__(9)
+	__vue_exports__ = __webpack_require__(15)
 	
 	/* template */
-	var __vue_template__ = __webpack_require__(10)
+	var __vue_template__ = __webpack_require__(16)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -143,8 +149,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 8 */,
-/* 9 */
+/* 14 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 15 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -174,7 +185,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 10 */
+/* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;
@@ -183,6 +194,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    class: _vm.classes
 	  }, [_vm._t("default")])
 	},staticRenderFns: []}
+	module.exports.render._withStripped = true
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
@@ -191,17 +203,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 11 */
+/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = {}
 	
 	/* script */
-	__vue_exports__ = __webpack_require__(12)
+	__vue_exports__ = __webpack_require__(18)
 	
 	/* template */
-	var __vue_template__ = __webpack_require__(13)
+	var __vue_template__ = __webpack_require__(19)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -235,7 +247,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 12 */
+/* 18 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -284,8 +296,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	      });
 	
 	      this.active = !!active;
-	
-	      this.$emit('click');
 	    }
 	  },
 	  mounted: function mounted() {
@@ -303,7 +313,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 13 */
+/* 19 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;
@@ -324,6 +334,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    staticClass: "md-text"
 	  }, [_vm._t("default")])])
 	},staticRenderFns: []}
+	module.exports.render._withStripped = true
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
@@ -332,10 +343,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 14 */
+/* 20 */
 /***/ function(module, exports) {
 
-	module.exports = ".THEME_NAME .md-bottom-bar.md-fixed, .THEME_NAME.md-bottom-bar.md-fixed {\n  background-color: BACKGROUND-COLOR; }\n  .THEME_NAME .md-bottom-bar.md-fixed .md-bottom-bar-item, .THEME_NAME.md-bottom-bar.md-fixed .md-bottom-bar-item {\n    color: BACKGROUND-CONTRAST-0.54; }\n    .THEME_NAME .md-bottom-bar.md-fixed .md-bottom-bar-item.md-active, .THEME_NAME.md-bottom-bar.md-fixed .md-bottom-bar-item.md-active {\n      color: PRIMARY-COLOR; }\n\n.THEME_NAME .md-bottom-bar.md-shift, .THEME_NAME.md-bottom-bar.md-shift {\n  background-color: PRIMARY-COLOR;\n  color: PRIMARY-CONTRAST; }\n  .THEME_NAME .md-bottom-bar.md-shift .md-bottom-bar-item, .THEME_NAME.md-bottom-bar.md-shift .md-bottom-bar-item {\n    color: PRIMARY-CONTRAST-0.54; }\n    .THEME_NAME .md-bottom-bar.md-shift .md-bottom-bar-item.md-active, .THEME_NAME.md-bottom-bar.md-shift .md-bottom-bar-item.md-active {\n      color: PRIMARY-CONTRAST; }\n  .THEME_NAME .md-bottom-bar.md-shift.md-accent, .THEME_NAME.md-bottom-bar.md-shift.md-accent {\n    background-color: ACCENT-COLOR; }\n    .THEME_NAME .md-bottom-bar.md-shift.md-accent .md-bottom-bar-item, .THEME_NAME.md-bottom-bar.md-shift.md-accent .md-bottom-bar-item {\n      color: ACCENT-CONTRAST-0.54; }\n      .THEME_NAME .md-bottom-bar.md-shift.md-accent .md-bottom-bar-item.md-active, .THEME_NAME.md-bottom-bar.md-shift.md-accent .md-bottom-bar-item.md-active {\n        color: ACCENT-CONTRAST; }\n  .THEME_NAME .md-bottom-bar.md-shift.md-warn, .THEME_NAME.md-bottom-bar.md-shift.md-warn {\n    background-color: WARN-COLOR; }\n    .THEME_NAME .md-bottom-bar.md-shift.md-warn .md-bottom-bar-item, .THEME_NAME.md-bottom-bar.md-shift.md-warn .md-bottom-bar-item {\n      color: WARN-CONTRAST-0.54; }\n      .THEME_NAME .md-bottom-bar.md-shift.md-warn .md-bottom-bar-item.md-active, .THEME_NAME.md-bottom-bar.md-shift.md-warn .md-bottom-bar-item.md-active {\n        color: WARN-CONTRAST; }\n  .THEME_NAME .md-bottom-bar.md-shift.md-transparent, .THEME_NAME.md-bottom-bar.md-shift.md-transparent {\n    background-color: transparent; }\n    .THEME_NAME .md-bottom-bar.md-shift.md-transparent .md-bottom-bar-item, .THEME_NAME.md-bottom-bar.md-shift.md-transparent .md-bottom-bar-item {\n      color: BACKGROUND-CONTRAST-0.54; }\n      .THEME_NAME .md-bottom-bar.md-shift.md-transparent .md-bottom-bar-item.md-active, .THEME_NAME.md-bottom-bar.md-shift.md-transparent .md-bottom-bar-item.md-active {\n        color: BACKGROUND-CONTRAST; }\n"
+	module.exports = ".THEME_NAME .md-bottom-bar.md-fixed, .THEME_NAME.md-bottom-bar.md-fixed {\n  background-color: BACKGROUND-COLOR; }\n  .THEME_NAME .md-bottom-bar.md-fixed .md-bottom-bar-item, .THEME_NAME.md-bottom-bar.md-fixed .md-bottom-bar-item {\n    color: BACKGROUND-CONTRAST-0.54; }\n    .THEME_NAME .md-bottom-bar.md-fixed .md-bottom-bar-item.md-active, .THEME_NAME.md-bottom-bar.md-fixed .md-bottom-bar-item.md-active {\n      color: PRIMARY-COLOR; }\n  .THEME_NAME .md-bottom-bar.md-fixed.md-accent .md-bottom-bar-item.md-active, .THEME_NAME.md-bottom-bar.md-fixed.md-accent .md-bottom-bar-item.md-active {\n    color: ACCENT-COLOR; }\n  .THEME_NAME .md-bottom-bar.md-fixed.md-warn .md-bottom-bar-item.md-active, .THEME_NAME.md-bottom-bar.md-fixed.md-warn .md-bottom-bar-item.md-active {\n    color: WARN-COLOR; }\n  .THEME_NAME .md-bottom-bar.md-fixed.md-transparent .md-bottom-bar-item.md-active, .THEME_NAME.md-bottom-bar.md-fixed.md-transparent .md-bottom-bar-item.md-active {\n    color: BACKGROUND-CONTRAST; }\n\n.THEME_NAME .md-bottom-bar.md-shift, .THEME_NAME.md-bottom-bar.md-shift {\n  background-color: PRIMARY-COLOR;\n  color: PRIMARY-CONTRAST; }\n  .THEME_NAME .md-bottom-bar.md-shift .md-bottom-bar-item, .THEME_NAME.md-bottom-bar.md-shift .md-bottom-bar-item {\n    color: PRIMARY-CONTRAST-0.54; }\n    .THEME_NAME .md-bottom-bar.md-shift .md-bottom-bar-item.md-active, .THEME_NAME.md-bottom-bar.md-shift .md-bottom-bar-item.md-active {\n      color: PRIMARY-CONTRAST; }\n  .THEME_NAME .md-bottom-bar.md-shift.md-accent, .THEME_NAME.md-bottom-bar.md-shift.md-accent {\n    background-color: ACCENT-COLOR; }\n    .THEME_NAME .md-bottom-bar.md-shift.md-accent .md-bottom-bar-item, .THEME_NAME.md-bottom-bar.md-shift.md-accent .md-bottom-bar-item {\n      color: ACCENT-CONTRAST-0.54; }\n      .THEME_NAME .md-bottom-bar.md-shift.md-accent .md-bottom-bar-item.md-active, .THEME_NAME.md-bottom-bar.md-shift.md-accent .md-bottom-bar-item.md-active {\n        color: ACCENT-CONTRAST; }\n  .THEME_NAME .md-bottom-bar.md-shift.md-warn, .THEME_NAME.md-bottom-bar.md-shift.md-warn {\n    background-color: WARN-COLOR; }\n    .THEME_NAME .md-bottom-bar.md-shift.md-warn .md-bottom-bar-item, .THEME_NAME.md-bottom-bar.md-shift.md-warn .md-bottom-bar-item {\n      color: WARN-CONTRAST-0.54; }\n      .THEME_NAME .md-bottom-bar.md-shift.md-warn .md-bottom-bar-item.md-active, .THEME_NAME.md-bottom-bar.md-shift.md-warn .md-bottom-bar-item.md-active {\n        color: WARN-CONTRAST; }\n  .THEME_NAME .md-bottom-bar.md-shift.md-transparent, .THEME_NAME.md-bottom-bar.md-shift.md-transparent {\n    background-color: transparent; }\n    .THEME_NAME .md-bottom-bar.md-shift.md-transparent .md-bottom-bar-item, .THEME_NAME.md-bottom-bar.md-shift.md-transparent .md-bottom-bar-item {\n      color: BACKGROUND-CONTRAST-0.54; }\n      .THEME_NAME .md-bottom-bar.md-shift.md-transparent .md-bottom-bar-item.md-active, .THEME_NAME.md-bottom-bar.md-shift.md-transparent .md-bottom-bar-item.md-active {\n        color: BACKGROUND-CONTRAST; }\n"
 
 /***/ }
 /******/ ])

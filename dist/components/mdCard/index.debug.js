@@ -54,7 +54,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(26);
+	module.exports = __webpack_require__(32);
 
 
 /***/ },
@@ -83,7 +83,13 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 23 */,
 /* 24 */,
 /* 25 */,
-/* 26 */
+/* 26 */,
+/* 27 */,
+/* 28 */,
+/* 29 */,
+/* 30 */,
+/* 31 */,
+/* 32 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -93,47 +99,47 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 	exports.default = install;
 	
-	var _mdCard = __webpack_require__(27);
+	var _mdCard = __webpack_require__(33);
 	
 	var _mdCard2 = _interopRequireDefault(_mdCard);
 	
-	var _mdCardMedia = __webpack_require__(31);
+	var _mdCardMedia = __webpack_require__(37);
 	
 	var _mdCardMedia2 = _interopRequireDefault(_mdCardMedia);
 	
-	var _mdCardMediaCover = __webpack_require__(34);
+	var _mdCardMediaCover = __webpack_require__(40);
 	
 	var _mdCardMediaCover2 = _interopRequireDefault(_mdCardMediaCover);
 	
-	var _mdCardMediaActions = __webpack_require__(37);
+	var _mdCardMediaActions = __webpack_require__(43);
 	
 	var _mdCardMediaActions2 = _interopRequireDefault(_mdCardMediaActions);
 	
-	var _mdCardHeader = __webpack_require__(39);
+	var _mdCardHeader = __webpack_require__(45);
 	
 	var _mdCardHeader2 = _interopRequireDefault(_mdCardHeader);
 	
-	var _mdCardHeaderText = __webpack_require__(41);
+	var _mdCardHeaderText = __webpack_require__(47);
 	
 	var _mdCardHeaderText2 = _interopRequireDefault(_mdCardHeaderText);
 	
-	var _mdCardContent = __webpack_require__(44);
+	var _mdCardContent = __webpack_require__(50);
 	
 	var _mdCardContent2 = _interopRequireDefault(_mdCardContent);
 	
-	var _mdCardActions = __webpack_require__(46);
+	var _mdCardActions = __webpack_require__(52);
 	
 	var _mdCardActions2 = _interopRequireDefault(_mdCardActions);
 	
-	var _mdCardArea = __webpack_require__(48);
+	var _mdCardArea = __webpack_require__(54);
 	
 	var _mdCardArea2 = _interopRequireDefault(_mdCardArea);
 	
-	var _mdCardExpand = __webpack_require__(51);
+	var _mdCardExpand = __webpack_require__(57);
 	
 	var _mdCardExpand2 = _interopRequireDefault(_mdCardExpand);
 	
-	var _mdCard3 = __webpack_require__(54);
+	var _mdCard3 = __webpack_require__(60);
 	
 	var _mdCard4 = _interopRequireDefault(_mdCard3);
 	
@@ -156,20 +162,20 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 27 */
+/* 33 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = {}
 	
 	/* styles */
-	__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"!!./../../../node_modules/extract-text-webpack-plugin/loader.js?{\"remove\":true}!css!vue-loader/lib/style-rewriter?id=data-v-5074f4ed!sass!./mdCard.scss\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()))
+	__webpack_require__(34)
 	
 	/* script */
-	__vue_exports__ = __webpack_require__(29)
+	__vue_exports__ = __webpack_require__(35)
 	
 	/* template */
-	var __vue_template__ = __webpack_require__(30)
+	var __vue_template__ = __webpack_require__(36)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -203,8 +209,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 28 */,
-/* 29 */
+/* 34 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 35 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -236,7 +247,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 30 */
+/* 36 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;
@@ -245,6 +256,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    class: _vm.classes
 	  }, [_vm._t("default")])
 	},staticRenderFns: []}
+	module.exports.render._withStripped = true
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
@@ -253,17 +265,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 31 */
+/* 37 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = {}
 	
 	/* script */
-	__vue_exports__ = __webpack_require__(32)
+	__vue_exports__ = __webpack_require__(38)
 	
 	/* template */
-	var __vue_template__ = __webpack_require__(33)
+	var __vue_template__ = __webpack_require__(39)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -297,7 +309,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 32 */
+/* 38 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -340,7 +352,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 33 */
+/* 39 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;
@@ -349,6 +361,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    class: _vm.classes
 	  }, [_vm._t("default")])
 	},staticRenderFns: []}
+	module.exports.render._withStripped = true
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
@@ -357,17 +370,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 34 */
+/* 40 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = {}
 	
 	/* script */
-	__vue_exports__ = __webpack_require__(35)
+	__vue_exports__ = __webpack_require__(41)
 	
 	/* template */
-	var __vue_template__ = __webpack_require__(36)
+	var __vue_template__ = __webpack_require__(42)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -401,7 +414,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 35 */
+/* 41 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -516,7 +529,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 36 */
+/* 42 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;
@@ -525,10 +538,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	    class: _vm.classes
 	  }, [_vm._t("default"), " ", (_vm.mdTextScrim) ? _vm._h('div', {
 	    ref: "backdrop",
-	    staticClass: "md-backdrop",
+	    staticClass: "md-card-backdrop",
 	    style: (_vm.styles)
 	  }) : _vm._e()])
 	},staticRenderFns: []}
+	module.exports.render._withStripped = true
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
@@ -537,14 +551,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 37 */
+/* 43 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = {}
 	
 	/* template */
-	var __vue_template__ = __webpack_require__(38)
+	var __vue_template__ = __webpack_require__(44)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -578,7 +592,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 38 */
+/* 44 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;
@@ -586,6 +600,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    staticClass: "md-card-media-actions"
 	  }, [_vm._t("default")])
 	},staticRenderFns: []}
+	module.exports.render._withStripped = true
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
@@ -594,14 +609,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 39 */
+/* 45 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = {}
 	
 	/* template */
-	var __vue_template__ = __webpack_require__(40)
+	var __vue_template__ = __webpack_require__(46)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -635,7 +650,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 40 */
+/* 46 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;
@@ -643,6 +658,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    staticClass: "md-card-header"
 	  }, [_vm._t("default")])
 	},staticRenderFns: []}
+	module.exports.render._withStripped = true
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
@@ -651,17 +667,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 41 */
+/* 47 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = {}
 	
 	/* script */
-	__vue_exports__ = __webpack_require__(42)
+	__vue_exports__ = __webpack_require__(48)
 	
 	/* template */
-	var __vue_template__ = __webpack_require__(43)
+	var __vue_template__ = __webpack_require__(49)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -695,7 +711,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 42 */
+/* 48 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -726,7 +742,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 43 */
+/* 49 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;
@@ -734,6 +750,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    staticClass: "md-card-header-text"
 	  }, [_vm._t("default")])
 	},staticRenderFns: []}
+	module.exports.render._withStripped = true
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
@@ -742,14 +759,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 44 */
+/* 50 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = {}
 	
 	/* template */
-	var __vue_template__ = __webpack_require__(45)
+	var __vue_template__ = __webpack_require__(51)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -783,7 +800,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 45 */
+/* 51 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;
@@ -791,6 +808,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    staticClass: "md-card-content"
 	  }, [_vm._t("default")])
 	},staticRenderFns: []}
+	module.exports.render._withStripped = true
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
@@ -799,14 +817,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 46 */
+/* 52 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = {}
 	
 	/* template */
-	var __vue_template__ = __webpack_require__(47)
+	var __vue_template__ = __webpack_require__(53)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -840,7 +858,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 47 */
+/* 53 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;
@@ -848,6 +866,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    staticClass: "md-card-actions"
 	  }, [_vm._t("default")])
 	},staticRenderFns: []}
+	module.exports.render._withStripped = true
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
@@ -856,17 +875,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 48 */
+/* 54 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = {}
 	
 	/* script */
-	__vue_exports__ = __webpack_require__(49)
+	__vue_exports__ = __webpack_require__(55)
 	
 	/* template */
-	var __vue_template__ = __webpack_require__(50)
+	var __vue_template__ = __webpack_require__(56)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -900,7 +919,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 49 */
+/* 55 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -930,7 +949,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 50 */
+/* 56 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;
@@ -939,6 +958,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    class: _vm.classes
 	  }, [_vm._t("default")])
 	},staticRenderFns: []}
+	module.exports.render._withStripped = true
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
@@ -947,17 +967,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 51 */
+/* 57 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = {}
 	
 	/* script */
-	__vue_exports__ = __webpack_require__(52)
+	__vue_exports__ = __webpack_require__(58)
 	
 	/* template */
-	var __vue_template__ = __webpack_require__(53)
+	var __vue_template__ = __webpack_require__(59)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -991,7 +1011,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 52 */
+/* 58 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -1039,7 +1059,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 53 */
+/* 59 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;
@@ -1048,6 +1068,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    staticClass: "md-card-expand"
 	  }, [_vm._t("default")])
 	},staticRenderFns: []}
+	module.exports.render._withStripped = true
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
@@ -1056,10 +1077,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 54 */
+/* 60 */
 /***/ function(module, exports) {
 
-	module.exports = ".THEME_NAME .md-card, .THEME_NAME.md-card {\n  background-color: BACKGROUND-COLOR-A100; }\n  .THEME_NAME .md-card .md-icon-button .md-icon, .THEME_NAME.md-card .md-icon-button .md-icon {\n    color: BACKGROUND-CONTRAST-0.54; }\n  .THEME_NAME .md-card > .md-card-area:after, .THEME_NAME.md-card > .md-card-area:after {\n    background-color: BACKGROUND-CONTRAST-0.12; }\n  .THEME_NAME .md-card .md-card-media-cover.md-text-scrim .md-backdrop, .THEME_NAME.md-card .md-card-media-cover.md-text-scrim .md-backdrop {\n    background: linear-gradient(to bottom, BACKGROUND-CONTRAST-0.0 20%, BACKGROUND-CONTRAST-0.275 66%, BACKGROUND-CONTRAST-0.55 100%); }\n  .THEME_NAME .md-card .md-card-media-cover.md-solid .md-card-area, .THEME_NAME.md-card .md-card-media-cover.md-solid .md-card-area {\n    background-color: BACKGROUND-CONTRAST-0.4; }\n  .THEME_NAME .md-card .md-card-expand .md-card-actions, .THEME_NAME.md-card .md-card-expand .md-card-actions {\n    background-color: BACKGROUND-COLOR-A100; }\n"
+	module.exports = ".THEME_NAME .md-card, .THEME_NAME.md-card {\n  background-color: BACKGROUND-COLOR-A100; }\n  .THEME_NAME .md-card .md-card-header .md-icon-button .md-icon,\n  .THEME_NAME .md-card .md-card-actions .md-icon-button .md-icon, .THEME_NAME.md-card .md-card-header .md-icon-button .md-icon,\n  .THEME_NAME.md-card .md-card-actions .md-icon-button .md-icon {\n    color: BACKGROUND-CONTRAST-0.54; }\n  .THEME_NAME .md-card > .md-card-area:after, .THEME_NAME.md-card > .md-card-area:after {\n    background-color: BACKGROUND-CONTRAST-0.12; }\n  .THEME_NAME .md-card .md-card-media-cover.md-text-scrim .md-backdrop, .THEME_NAME.md-card .md-card-media-cover.md-text-scrim .md-backdrop {\n    background: linear-gradient(to bottom, BACKGROUND-CONTRAST-0.0 20%, BACKGROUND-CONTRAST-0.275 66%, BACKGROUND-CONTRAST-0.55 100%); }\n  .THEME_NAME .md-card .md-card-media-cover.md-solid .md-card-area, .THEME_NAME.md-card .md-card-media-cover.md-solid .md-card-area {\n    background-color: BACKGROUND-CONTRAST-0.4; }\n  .THEME_NAME .md-card .md-card-expand .md-card-actions, .THEME_NAME.md-card .md-card-expand .md-card-actions {\n    background-color: BACKGROUND-COLOR-A100; }\n"
 
 /***/ }
 /******/ ])

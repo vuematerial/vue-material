@@ -55,12 +55,12 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(182);
+	module.exports = __webpack_require__(208);
 
 
 /***/ },
 
-/***/ 182:
+/***/ 208:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -70,15 +70,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 	exports.default = install;
 	
-	var _mdTabs = __webpack_require__(183);
+	var _mdTabs = __webpack_require__(209);
 	
 	var _mdTabs2 = _interopRequireDefault(_mdTabs);
 	
-	var _mdTab = __webpack_require__(187);
+	var _mdTab = __webpack_require__(213);
 	
 	var _mdTab2 = _interopRequireDefault(_mdTab);
 	
-	var _mdTabs3 = __webpack_require__(190);
+	var _mdTabs3 = __webpack_require__(216);
 	
 	var _mdTabs4 = _interopRequireDefault(_mdTabs3);
 	
@@ -94,20 +94,20 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 183:
+/***/ 209:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = {}
 	
 	/* styles */
-	__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"!!./../../../node_modules/extract-text-webpack-plugin/loader.js?{\"remove\":true}!css!vue-loader/lib/style-rewriter?id=data-v-c28dc5a6!sass!./mdTabs.scss\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()))
+	__webpack_require__(210)
 	
 	/* script */
-	__vue_exports__ = __webpack_require__(185)
+	__vue_exports__ = __webpack_require__(211)
 	
 	/* template */
-	var __vue_template__ = __webpack_require__(186)
+	var __vue_template__ = __webpack_require__(212)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -142,7 +142,14 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 185:
+/***/ 210:
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+
+/***/ 211:
 /***/ function(module, exports) {
 
 	'use strict';
@@ -189,6 +196,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	  props: {
 	    mdFixed: Boolean,
 	    mdCentered: Boolean,
+	    mdRight: Boolean,
+	    mdDynamicHeight: {
+	      type: Boolean,
+	      default: true
+	    },
 	    mdElevation: [String, Number]
 	  },
 	  data: function data() {
@@ -217,7 +229,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        if (transitionCounter > 200) {
 	          window.clearInterval(transitionInterval);
 	        }
-	      }, 1);
+	      }, 10);
 	
 	      this.recalculateAllTabsPos();
 	    },
@@ -232,7 +244,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    tabClasses: function tabClasses() {
 	      return {
 	        'md-fixed': this.mdFixed,
+	        'md-right': !this.mdCentered && this.mdRight,
 	        'md-centered': this.mdCentered || this.mdFixed,
+	        'md-no-transition': !this.mdDynamicHeight,
 	        'md-has-icon': this.hasIcons,
 	        'md-has-label': this.hasLabel
 	      };
@@ -300,13 +314,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	      this.activeTab = id;
 	      this.activeTabNumber = index;
 	
-	      this.$nextTick(function () {
+	      this.$emit('change', index);
+	
+	      window.setTimeout(function () {
 	        _this3.calculateIndicatorPos();
 	        _this3.calculateTabPos(_this3.tabs[id].ref, index);
 	        _this3.setVisibleTab(_this3.tabs[id].ref);
 	      });
-	
-	      this.$emit('change', index);
 	    },
 	    handleTabData: function handleTabData(data) {
 	      var idList = Object.keys(this.tabs);
@@ -315,10 +329,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	      this.hasIcons = !!data.icon;
 	      this.hasLabel = !!data.label;
 	
-	      if (!data.disabled) {
-	        if (data.active) {
-	          this.changeTab(data.id);
-	        }
+	      if (!data.disabled && data.active) {
+	        this.changeTab(data.id);
 	      } else {
 	        this.changeTab(idList[index + 1]);
 	      }
@@ -326,13 +338,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	    registerTab: function registerTab(data) {
 	      this.tabs[data.id] = data;
 	      this.handleTabData(data);
-	      this.calculateTabPos(this.tabs[data.id].ref, Object.keys(this.tabs).length - 1);
 	    },
 	    updateTabData: function updateTabData(data) {
 	      this.tabs[data.id] = data;
 	      this.handleTabData(data);
-	      this.$forceUpdate();
 	      this.recalculateAllTabsPos();
+	      this.$forceUpdate();
 	    },
 	    recalculateAllTabsPos: function recalculateAllTabsPos(transitionOff) {
 	      var _this4 = this;
@@ -365,7 +376,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 186:
+/***/ 212:
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;
@@ -415,6 +426,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    staticClass: "md-tabs-wrapper"
 	  }, [_vm._t("default")])])])
 	},staticRenderFns: []}
+	module.exports.render._withStripped = true
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
@@ -424,17 +436,17 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 187:
+/***/ 213:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = {}
 	
 	/* script */
-	__vue_exports__ = __webpack_require__(188)
+	__vue_exports__ = __webpack_require__(214)
 	
 	/* template */
-	var __vue_template__ = __webpack_require__(189)
+	var __vue_template__ = __webpack_require__(215)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -469,7 +481,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 188:
+/***/ 214:
 /***/ function(module, exports) {
 
 	'use strict';
@@ -551,7 +563,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 189:
+/***/ 215:
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;
@@ -563,6 +575,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  }, [_vm._t("default")])
 	},staticRenderFns: []}
+	module.exports.render._withStripped = true
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
@@ -572,7 +585,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 190:
+/***/ 216:
 /***/ function(module, exports) {
 
 	module.exports = ".THEME_NAME .md-tabs .md-tabs-navigation, .THEME_NAME.md-tabs .md-tabs-navigation {\n  background-color: PRIMARY-COLOR; }\n\n.THEME_NAME .md-tabs .md-tab-header, .THEME_NAME.md-tabs .md-tab-header {\n  color: PRIMARY-CONTRAST-0.54; }\n  .THEME_NAME .md-tabs .md-tab-header.md-active, .THEME_NAME .md-tabs .md-tab-header:focus, .THEME_NAME.md-tabs .md-tab-header.md-active, .THEME_NAME.md-tabs .md-tab-header:focus {\n    color: PRIMARY-CONTRAST-0.99999; }\n  .THEME_NAME .md-tabs .md-tab-header.md-disabled, .THEME_NAME.md-tabs .md-tab-header.md-disabled {\n    color: PRIMARY-CONTRAST-0.26; }\n\n.THEME_NAME .md-tabs .md-tab-indicator, .THEME_NAME.md-tabs .md-tab-indicator {\n  background-color: ACCENT-COLOR; }\n\n.THEME_NAME .md-tabs.md-accent .md-tabs-navigation, .THEME_NAME.md-tabs.md-accent .md-tabs-navigation {\n  background-color: ACCENT-COLOR; }\n\n.THEME_NAME .md-tabs.md-accent .md-tab-header, .THEME_NAME.md-tabs.md-accent .md-tab-header {\n  color: ACCENT-CONTRAST-0.54; }\n  .THEME_NAME .md-tabs.md-accent .md-tab-header.md-active, .THEME_NAME .md-tabs.md-accent .md-tab-header:focus, .THEME_NAME.md-tabs.md-accent .md-tab-header.md-active, .THEME_NAME.md-tabs.md-accent .md-tab-header:focus {\n    color: ACCENT-CONTRAST-0.99999; }\n  .THEME_NAME .md-tabs.md-accent .md-tab-header.md-disabled, .THEME_NAME.md-tabs.md-accent .md-tab-header.md-disabled {\n    color: ACCENT-CONTRAST-0.26; }\n\n.THEME_NAME .md-tabs.md-accent .md-tab-indicator, .THEME_NAME.md-tabs.md-accent .md-tab-indicator {\n  background-color: BACKGROUND-COLOR; }\n\n.THEME_NAME .md-tabs.md-warn .md-tabs-navigation, .THEME_NAME.md-tabs.md-warn .md-tabs-navigation {\n  background-color: WARN-COLOR; }\n\n.THEME_NAME .md-tabs.md-warn .md-tab-header, .THEME_NAME.md-tabs.md-warn .md-tab-header {\n  color: WARN-CONTRAST-0.54; }\n  .THEME_NAME .md-tabs.md-warn .md-tab-header.md-active, .THEME_NAME .md-tabs.md-warn .md-tab-header:focus, .THEME_NAME.md-tabs.md-warn .md-tab-header.md-active, .THEME_NAME.md-tabs.md-warn .md-tab-header:focus {\n    color: WARN-CONTRAST-0.99999; }\n  .THEME_NAME .md-tabs.md-warn .md-tab-header.md-disabled, .THEME_NAME.md-tabs.md-warn .md-tab-header.md-disabled {\n    color: WARN-CONTRAST-0.26; }\n\n.THEME_NAME .md-tabs.md-warn .md-tab-indicator, .THEME_NAME.md-tabs.md-warn .md-tab-indicator {\n  background-color: BACKGROUND-COLOR; }\n\n.THEME_NAME .md-tabs.md-transparent .md-tabs-navigation, .THEME_NAME.md-tabs.md-transparent .md-tabs-navigation {\n  background-color: transparent; }\n\n.THEME_NAME .md-tabs.md-transparent .md-tab-header, .THEME_NAME.md-tabs.md-transparent .md-tab-header {\n  color: BACKGROUND-CONTRAST-0.54; }\n  .THEME_NAME .md-tabs.md-transparent .md-tab-header.md-active, .THEME_NAME .md-tabs.md-transparent .md-tab-header:focus, .THEME_NAME.md-tabs.md-transparent .md-tab-header.md-active, .THEME_NAME.md-tabs.md-transparent .md-tab-header:focus {\n    color: PRIMARY-COLOR; }\n  .THEME_NAME .md-tabs.md-transparent .md-tab-header.md-disabled, .THEME_NAME.md-tabs.md-transparent .md-tab-header.md-disabled {\n    color: BACKGROUND-CONTRAST-0.26; }\n\n.THEME_NAME .md-tabs.md-transparent .md-tab-indicator, .THEME_NAME.md-tabs.md-transparent .md-tab-indicator {\n  background-color: PRIMARY-COLOR; }\n"
