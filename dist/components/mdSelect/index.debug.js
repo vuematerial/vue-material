@@ -55,12 +55,12 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(156);
+	module.exports = __webpack_require__(130);
 
 
 /***/ },
 
-/***/ 114:
+/***/ 87:
 /***/ function(module, exports) {
 
 	"use strict";
@@ -77,7 +77,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 119:
+/***/ 92:
 /***/ function(module, exports) {
 
 	"use strict";
@@ -106,7 +106,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 156:
+/***/ 130:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -116,15 +116,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 	exports.default = install;
 	
-	var _mdSelect = __webpack_require__(157);
+	var _mdSelect = __webpack_require__(131);
 	
 	var _mdSelect2 = _interopRequireDefault(_mdSelect);
 	
-	var _mdOption = __webpack_require__(161);
+	var _mdOption = __webpack_require__(135);
 	
 	var _mdOption2 = _interopRequireDefault(_mdOption);
 	
-	var _mdSelect3 = __webpack_require__(164);
+	var _mdSelect3 = __webpack_require__(138);
 	
 	var _mdSelect4 = _interopRequireDefault(_mdSelect3);
 	
@@ -140,20 +140,20 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 157:
+/***/ 131:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = {}
 	
 	/* styles */
-	__webpack_require__(158)
+	__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"!!./../../../node_modules/extract-text-webpack-plugin/loader.js?{\"remove\":true}!css!vue-loader/lib/style-rewriter?id=data-v-1cdcfd26!sass!./mdSelect.scss\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()))
 	
 	/* script */
-	__vue_exports__ = __webpack_require__(159)
+	__vue_exports__ = __webpack_require__(133)
 	
 	/* template */
-	var __vue_template__ = __webpack_require__(160)
+	var __vue_template__ = __webpack_require__(134)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -188,14 +188,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 158:
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-
-/***/ },
-
-/***/ 159:
+/***/ 133:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -223,11 +216,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	//
 	//
 	
-	var _getClosestVueParent = __webpack_require__(119);
+	var _getClosestVueParent = __webpack_require__(92);
 	
 	var _getClosestVueParent2 = _interopRequireDefault(_getClosestVueParent);
 	
-	var _isArray = __webpack_require__(114);
+	var _isArray = __webpack_require__(87);
 	
 	var _isArray2 = _interopRequireDefault(_isArray);
 	
@@ -236,10 +229,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = {
 	  props: {
 	    name: String,
-	    id: String,
 	    required: Boolean,
 	    multiple: Boolean,
 	    value: [String, Number, Array],
+	    id: String,
 	    disabled: Boolean,
 	    placeholder: String,
 	    mdMenuClass: String
@@ -271,7 +264,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  },
 	  watch: {
 	    value: function value(_value) {
-	      this.setTextAndValue(_value);
+	      this.setTextAndvalue(_value);
 	    }
 	  },
 	  methods: {
@@ -327,7 +320,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	      return {};
 	    },
-	    setTextAndValue: function setTextAndValue(modelValue) {
+	    setTextAndvalue: function setTextAndvalue(modelValue) {
 	      var output = this.multiple ? this.getMultipleValue(modelValue) : this.getSingleValue(modelValue);
 	
 	      this.selectedValue = output.value;
@@ -365,7 +358,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  mounted: function mounted() {
 	    this.parentContainer = (0, _getClosestVueParent2.default)(this.$parent, 'md-input-container');
 	
-	    this.setTextAndValue(this.value);
+	    this.setTextAndvalue(this.value);
 	
 	    if (this.parentContainer) {
 	      this.parentContainer.setValue(this.value);
@@ -383,7 +376,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 160:
+/***/ 134:
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;
@@ -416,7 +409,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  }, [_vm._s(_vm.value)])])])
 	},staticRenderFns: []}
-	module.exports.render._withStripped = true
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
@@ -426,17 +418,17 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 161:
+/***/ 135:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = {}
 	
 	/* script */
-	__vue_exports__ = __webpack_require__(162)
+	__vue_exports__ = __webpack_require__(136)
 	
 	/* template */
-	var __vue_template__ = __webpack_require__(163)
+	var __vue_template__ = __webpack_require__(137)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -471,7 +463,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 162:
+/***/ 136:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -480,7 +472,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	
-	var _getClosestVueParent = __webpack_require__(119);
+	var _getClosestVueParent = __webpack_require__(92);
 	
 	var _getClosestVueParent2 = _interopRequireDefault(_getClosestVueParent);
 	
@@ -519,14 +511,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  },
 	  methods: {
-	    selectOption: function selectOption($event) {
+	    selectOption: function selectOption() {
 	      if (!this.parentSelect.multiple) {
 	        this.parentSelect.selectOption(this.value, this.$refs.item.textContent);
 	      } else {
 	        this.check = !this.check;
 	      }
-	
-	      this.$emit('selected', $event);
 	    }
 	  },
 	  watch: {
@@ -558,10 +548,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    this.parentSelect.options[this.index] = this;
 	  },
 	  beforeDestroy: function beforeDestroy() {
-	    if (this.parentSelect) {
-	      delete this.parentSelect.options[this.index];
-	      delete this.parentSelect.multipleOptions[this.index];
-	    }
+	    delete this.parentSelect.options[this.index];
+	    delete this.parentSelect.multipleOptions[this.index];
 	  }
 	}; //
 	//
@@ -586,7 +574,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 163:
+/***/ 137:
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;
@@ -621,7 +609,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    ref: "item"
 	  }, [_vm._t("default")]), " "])
 	},staticRenderFns: []}
-	module.exports.render._withStripped = true
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
@@ -631,7 +618,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 164:
+/***/ 138:
 /***/ function(module, exports) {
 
 	module.exports = ".THEME_NAME .md-select-content .md-menu-item.md-selected, .THEME_NAME .md-select-content .md-menu-item.md-checked, .THEME_NAME.md-select-content .md-menu-item.md-selected, .THEME_NAME.md-select-content .md-menu-item.md-checked {\n  color: PRIMARY-COLOR; }\n"

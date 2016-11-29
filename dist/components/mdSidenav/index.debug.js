@@ -55,12 +55,12 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(165);
+	module.exports = __webpack_require__(139);
 
 
 /***/ },
 
-/***/ 165:
+/***/ 139:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -70,11 +70,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 	exports.default = install;
 	
-	var _mdSidenav = __webpack_require__(166);
+	var _mdSidenav = __webpack_require__(140);
 	
 	var _mdSidenav2 = _interopRequireDefault(_mdSidenav);
 	
-	var _mdSidenav3 = __webpack_require__(170);
+	var _mdSidenav3 = __webpack_require__(144);
 	
 	var _mdSidenav4 = _interopRequireDefault(_mdSidenav3);
 	
@@ -89,20 +89,20 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 166:
+/***/ 140:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = {}
 	
 	/* styles */
-	__webpack_require__(167)
+	__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"!!./../../../node_modules/extract-text-webpack-plugin/loader.js?{\"remove\":true}!css!vue-loader/lib/style-rewriter?id=data-v-4904390e!sass!./mdSidenav.scss\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()))
 	
 	/* script */
-	__vue_exports__ = __webpack_require__(168)
+	__vue_exports__ = __webpack_require__(142)
 	
 	/* template */
-	var __vue_template__ = __webpack_require__(169)
+	var __vue_template__ = __webpack_require__(143)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -137,14 +137,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 167:
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-
-/***/ },
-
-/***/ 168:
+/***/ 142:
 /***/ function(module, exports) {
 
 	'use strict';
@@ -201,7 +194,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 169:
+/***/ 143:
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;
@@ -219,14 +212,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  }, [_vm._h('div', {
 	    staticClass: "md-sidenav-content"
-	  }, [_vm._t("default")]), " ", _vm._h('md-backdrop', {
-	    staticClass: "md-sidenav-backdrop",
+	  }, [_vm._t("default")]), " ", _vm._h('div', {
+	    staticClass: "md-backdrop",
 	    on: {
-	      "close": _vm.close
+	      "click": _vm.close
 	    }
 	  })])
 	},staticRenderFns: []}
-	module.exports.render._withStripped = true
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
@@ -236,7 +228,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 170:
+/***/ 144:
 /***/ function(module, exports) {
 
 	module.exports = ".THEME_NAME .md-sidenav .md-sidenav-content, .THEME_NAME.md-sidenav .md-sidenav-content {\n  background-color: BACKGROUND-COLOR-A100;\n  color: BACKGROUND-CONTRAST; }\n"

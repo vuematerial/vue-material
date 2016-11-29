@@ -55,12 +55,12 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(105);
+	module.exports = __webpack_require__(78);
 
 
 /***/ },
 
-/***/ 105:
+/***/ 78:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -70,11 +70,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 	exports.default = install;
 	
-	var _mdIcon = __webpack_require__(106);
+	var _mdIcon = __webpack_require__(79);
 	
 	var _mdIcon2 = _interopRequireDefault(_mdIcon);
 	
-	var _mdIcon3 = __webpack_require__(109);
+	var _mdIcon3 = __webpack_require__(82);
 	
 	var _mdIcon4 = _interopRequireDefault(_mdIcon3);
 	
@@ -89,17 +89,17 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 106:
+/***/ 79:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = {}
 	
 	/* styles */
-	__webpack_require__(107)
+	__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"!!./../../../node_modules/extract-text-webpack-plugin/loader.js?{\"remove\":true}!css!vue-loader/lib/style-rewriter?id=data-v-f5836666!sass!./mdIcon.scss\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()))
 	
 	/* template */
-	var __vue_template__ = __webpack_require__(108)
+	var __vue_template__ = __webpack_require__(81)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -134,14 +134,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 107:
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-
-/***/ },
-
-/***/ 108:
+/***/ 81:
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;
@@ -149,7 +142,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    staticClass: "md-icon material-icons"
 	  }, [_vm._t("default")])
 	},staticRenderFns: []}
-	module.exports.render._withStripped = true
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
@@ -159,7 +151,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 109:
+/***/ 82:
 /***/ function(module, exports) {
 
 	module.exports = ".THEME_NAME .md-icon.md-primary, .THEME_NAME.md-icon.md-primary {\n  color: PRIMARY-COLOR; }\n\n.THEME_NAME .md-icon.md-accent, .THEME_NAME.md-icon.md-accent {\n  color: ACCENT-COLOR; }\n\n.THEME_NAME .md-icon.md-warn, .THEME_NAME.md-icon.md-warn {\n  color: WARN-COLOR; }\n"
