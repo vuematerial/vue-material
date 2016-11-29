@@ -77,17 +77,31 @@
 </style>
 
 <script>
+  import versions from '../../../versions.json';
+
+  versions.sort((a, b) => a < b);
+
+  const latest = versions[0];
+
   export default {
     props: {
       pageTitle: String
     },
     data: () => ({
-      currentDocs: '0.4.0',
-      availableDocs: ['0.4.0', '0.3.0']
+      latest: latest,
+      currentDocs: latest,
+      availableDocs: versions
     }),
     methods: {
       changeDocs() {
-        console.log(this.currentDocs);
+        const location = window.location;
+        const redirect = location.origin + '/vue-material/';
+
+        if (this.currentDocs === this.latest) {
+          window.location.href = redirect + location.hash;
+        } else {
+          window.location.href = redirect + 'v' + this.currentDocs + '/' + location.hash;
+        }
       },
       toggleSidenav() {
         this.$root.toggleSidenav();
