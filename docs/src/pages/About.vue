@@ -10,8 +10,8 @@
           <div class="author-card-info">
             <span>Marcos Moura</span>
             <div class="author-card-links">
-              <a href="https://linkedin.com/in/marcosvmmoura" target="_blank" rel="noopener">Linkedin</a>
               <a href="https://github.com/marcosmoura" target="_blank" rel="noopener">GitHub</a>
+              <a href="https://linkedin.com/in/marcosvmmoura" target="_blank" rel="noopener">Linkedin</a>
             </div>
           </div>
         </div>
@@ -31,15 +31,19 @@
         You don't need to include any other library to work with vue-material. The focus of this project is to have a standalone build with no external dependence, but aiming to deliver the best experience without break the compatibility with the Vue.js core.
         <ul>
           <li>
-            <a href="http://www.jacklmoore.com/autosize/" target="_blank">autosize</a>
+            <a href="http://vuejs.org" rel="noopener" target="_blank">Vue</a>
           </li>
 
           <li>
-            <a href="https://www.npmjs.com/package/element.scrollintoviewifneeded-polyfill" target="_blank">element.scrollintoviewifneeded-polyfill</a>
+            <a href="http://www.jacklmoore.com/autosize/" rel="noopener" target="_blank">autosize</a>
           </li>
 
           <li>
-            <a href="https://github.com/lazd/scopedQuerySelectorShim" target="_blank">scopedQuerySelectorShim</a>
+            <a href="https://www.npmjs.com/package/element.scrollintoviewifneeded-polyfill" rel="noopener" target="_blank">element.scrollintoviewifneeded-polyfill</a>
+          </li>
+
+          <li>
+            <a href="https://github.com/lazd/scopedQuerySelectorShim" rel="noopener" target="_blank">scopedQuerySelectorShim</a>
           </li>
         </ul>
       </section>
@@ -53,8 +57,12 @@
 </template>
 
 <style lang="scss" scoped>
-  section + section {
-    margin-top: 36px;
+  section {
+    max-width: 960px;
+
+    + section {
+      margin-top: 56px;
+    }
   }
 
   .author-card {

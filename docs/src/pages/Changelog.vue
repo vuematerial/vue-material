@@ -132,7 +132,11 @@
 </template>
 
 <style lang="scss" scoped>
-  section + section {
-    margin-top: 56px;
+  section {
+    max-width: 960px;
+
+    + section {
+      margin-top: 56px;
+    }
   }
 </style>

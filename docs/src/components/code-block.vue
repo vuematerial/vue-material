@@ -16,19 +16,18 @@
   @import '../../../src/core/stylesheets/variables.scss';
 
   .code-block {
-    margin: -16px;
+    //margin: -16px;
     overflow: hidden;
     position: relative;
     border-radius: 2px;
-    background-color: #fbfbfb;
+    background-color: #f4f4f4;
     color: #455A64;
     font-family: "Operator Mono", "Fira Code", Menlo, Hack, "Roboto Mono", "Liberation Mono", Monaco, monospace;
     font-size: 14px;
     line-height: 1.4em;
 
     + .code-block {
-      margin-top: 48px;
-      border-top: 1px solid rgba(0, 0, 0, .12);
+      margin-top: 24px;
     }
 
     &:hover {
