@@ -95,12 +95,11 @@
     methods: {
       changeDocs() {
         const location = window.location;
-        const redirect = location.origin + '/vue-material/';
 
         if (this.currentDocs === this.latest) {
-          window.location.href = redirect + location.hash;
+          window.location.href = location.origin + '/' + location.hash;
         } else {
-          window.location.href = redirect + 'v' + this.currentDocs + '/' + location.hash;
+          window.location.href = location.origin + '/v' + this.currentDocs + '/' + location.hash;
         }
       },
       toggleSidenav() {
