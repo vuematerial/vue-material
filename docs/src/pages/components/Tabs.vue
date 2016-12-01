@@ -322,8 +322,7 @@
               disabled: false
             }
           ]
-        },
-        firstTabName: 'Movies'
+        }
       };
     }
   };
