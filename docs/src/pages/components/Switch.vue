@@ -1,111 +1,155 @@
 <template>
-  <demo-page label="Components - Switch">
-    <div slot="examples">
-      <demo-example label="Default">
-        <div>
-          <md-switch v-model="checked0" id="my-test0" name="my-test0"></md-switch>
-        </div>
+  <page-content page-title="Components - Switch">
+    <docs-component>
+      <div slot="description">
+        <p>On/off switches toggle the state of a single settings option. The option that the switch controls, as well as the state it’s in, should be made clear from the corresponding inline label.</p>
+        <p>The following classes can be applied to change the color palette:</p>
+        <ul class="md-body-2">
+          <li><code>md-primary</code></li>
+          <li><code>md-warn</code></li>
+        </ul>
+      </div>
 
-        <div>
-          <md-switch v-model="checked1" id="my-test1" name="my-test1" class="md-primary">Primary Color</md-switch>
-        </div>
+      <div slot="api">
+        <api-table name="md-switch">
+          <md-table slot="properties">
+            <md-table-header>
+              <md-table-row>
+                <md-table-head>Name</md-table-head>
+                <md-table-head>Type</md-table-head>
+                <md-table-head>Description</md-table-head>
+              </md-table-row>
+            </md-table-header>
 
-        <div>
-          <md-switch v-model="checked2" id="my-test2" name="my-test2" class="md-warn">Warn Color</md-switch>
-        </div>
+            <md-table-body>
+              <md-table-row>
+                <md-table-cell>v-model</md-table-cell>
+                <md-table-cell><code>String</code></md-table-cell>
+                <md-table-cell>A required model object to bind the value.</md-table-cell>
+              </md-table-row>
 
-        <div>
-          <md-switch v-model="checked3" id="my-test3" name="my-test3" disabled>Disabled</md-switch>
-        </div>
-      </demo-example>
+              <md-table-row>
+                <md-table-cell>type</md-table-cell>
+                <md-table-cell><code>String</code></md-table-cell>
+                <md-table-cell>Sets the type. Default <code>button</code></md-table-cell>
+              </md-table-row>
 
-      <demo-example label="Themed">
-        <div v-md-theme="'orange'">
-          <md-switch v-model="checked4" id="my-test4" name="my-test4" class="md-primary"></md-switch>
-        </div>
+              <md-table-row>
+                <md-table-cell>name</md-table-cell>
+                <md-table-cell><code>String</code></md-table-cell>
+                <md-table-cell>Set the switch name.</md-table-cell>
+              </md-table-row>
 
-        <div v-md-theme="'green'">
-          <md-switch v-model="checked5" id="my-test5" name="my-test5" class="md-primary">Green Primary Color</md-switch>
-        </div>
+              <md-table-row>
+                <md-table-cell>id</md-table-cell>
+                <md-table-cell><code>String</code></md-table-cell>
+                <md-table-cell>Set the switch id.</md-table-cell>
+              </md-table-row>
 
-        <div v-md-theme="'brown'">
-          <md-switch v-model="checked6" id="my-test6" name="my-test6" class="md-primary">Brown Primary Color</md-switch>
-        </div>
+              <md-table-row>
+                <md-table-cell>disabled</md-table-cell>
+                <md-table-cell><code>Boolean</code></md-table-cell>
+                <md-table-cell>Disable the switch and prevent his actions. Default <code>false</code></md-table-cell>
+              </md-table-row>
+            </md-table-body>
+          </md-table>
 
-        <div v-md-theme="'light-blue'">
-          <md-switch v-model="checked7" id="my-test7" name="my-test7" class="md-primary" disabled>Light Blue Primary Color Disabled</md-switch>
-        </div>
-      </demo-example>
+          <md-table slot="events">
+            <md-table-header>
+              <md-table-row>
+                <md-table-head>Name</md-table-head>
+                <md-table-head>Value</md-table-head>
+                <md-table-head>Description</md-table-head>
+              </md-table-row>
+            </md-table-header>
 
-      <demo-example label="Typed">
-        <md-switch v-model="checked8" id="my-test8" name="my-test8">Button (default)</md-switch>
+            <md-table-body>
+              <md-table-row>
+                <md-table-cell>change</md-table-cell>
+                <md-table-cell>Receive the state of the switch</md-table-cell>
+                <md-table-cell>Triggered when the switch changes his value.</md-table-cell>
+              </md-table-row>
+            </md-table-body>
+          </md-table>
+        </api-table>
+      </div>
 
-        <div>
-          <form @click.stop.prevent="submit">
-            <md-switch type="submit" v-model="checked9" id="my-test9" name="my-test9" class="md-primary">Submit</md-switch>
-          </form>
-        </div>
-      </demo-example>
-    </div>
+      <div slot="example">
+        <example-box card-title="Default">
+          <div slot="demo">
+            <div>
+              <md-switch v-model="checked0" id="my-test0" name="my-test0"></md-switch>
+            </div>
 
-    <div slot="code">
-      <demo-example label="Default">
-        <code-block lang="xml">
-&lt;md-switch v-model=&quot;checked0&quot; id=&quot;my-test0&quot; name=&quot;my-test0&quot;&gt;&lt;/md-switch&gt;
-&lt;md-switch v-model=&quot;checked1&quot; id=&quot;my-test1&quot; name=&quot;my-test1&quot; class=&quot;md-primary&quot;&gt;Primary Color&lt;/md-switch&gt;
-&lt;md-switch v-model=&quot;checked2&quot; id=&quot;my-test2&quot; name=&quot;my-test2&quot; class=&quot;md-warn&quot;&gt;Warn Color&lt;/md-switch&gt;
-&lt;md-switch v-model=&quot;checked3&quot; id=&quot;my-test3&quot; name=&quot;my-test3&quot; disabled&gt;Disabled&lt;/md-switch&gt;
-        </code-block>
-      </demo-example>
+            <div>
+              <md-switch v-model="checked1" id="my-test1" name="my-test1" class="md-primary">Primary Color</md-switch>
+            </div>
 
-      <demo-example label="Themed">
-        <code-block lang="xml">
-&lt;div v-md-theme=&quot;&#039;orange&#039;&quot;&gt;
-  &lt;md-switch v-model=&quot;checked4&quot; id=&quot;my-test4&quot; name=&quot;my-test4&quot; class=&quot;md-primary&quot;&gt;&lt;/md-switch&gt;
-&lt;/div&gt;
+            <div>
+              <md-switch v-model="checked2" id="my-test2" name="my-test2" class="md-warn">Warn Color</md-switch>
+            </div>
 
-&lt;div v-md-theme=&quot;&#039;green&#039;&quot;&gt;
-  &lt;md-switch v-model=&quot;checked5&quot; id=&quot;my-test5&quot; name=&quot;my-test5&quot; class=&quot;md-primary&quot;&gt;Green Primary Color&lt;/md-switch&gt;
-&lt;/div&gt;
+            <div>
+              <md-switch v-model="checked3" id="my-test3" name="my-test3" disabled>Disabled</md-switch>
+            </div>
+          </div>
 
-&lt;div v-md-theme=&quot;&#039;brown&#039;&quot;&gt;
-  &lt;md-switch v-model=&quot;checked6&quot; id=&quot;my-test6&quot; name=&quot;my-test6&quot; class=&quot;md-primary&quot;&gt;Brown Primary Color&lt;/md-switch&gt;
-&lt;/div&gt;
+          <div slot="code">
+            <code-block lang="xml">
 
-&lt;div v-md-theme=&quot;&#039;light-blue&#039;&quot;&gt;
-  &lt;md-switch v-model=&quot;checked7&quot; id=&quot;my-test7&quot; name=&quot;my-test7&quot; class=&quot;md-primary&quot; disabled&gt;Light Blue Primary Color Disabled&lt;/md-switch&gt;
-&lt;/div&gt;
-        </code-block>
-      </demo-example>
+            </code-block>
+          </div>
+        </example-box>
 
-      <demo-example label="Typed">
-        <code-block lang="xml">
-&lt;div&gt;
-  &lt;md-switch v-model=&quot;checked8&quot; id=&quot;my-test8&quot; name=&quot;my-test8&quot; class=&quot;md-primary&quot;&gt;Button (default)&lt;/md-switch&gt;
-&lt;/div&gt;
+        <example-box card-title="With type">
+          <div slot="demo">
+            <md-switch v-model="checked8" id="my-test8" name="my-test8">Default</md-switch>
 
-&lt;form @click.stop.prevent=&quot;submit&quot;&gt;
-  &lt;md-switch type=&quot;submit&quot; v-model=&quot;checked9&quot; id=&quot;my-test9&quot; name=&quot;my-test9&quot;&gt;Submit&lt;/md-switch&gt;
-&lt;/form&gt;
-        </code-block>
+            <form @click.stop.prevent="submit">
+              <md-switch type="submit" v-model="checked9" id="my-test9" name="my-test9" class="md-primary">Submit</md-switch>
+            </form>
+          </div>
 
-        <code-block lang="javascript">
-export default {
-  methods: {
-    submit(e) {
-      alert('This switch submits the form');
-    }
-  }
-};
-        </code-block>
-      </demo-example>
-    </div>
+          <div slot="code">
+            <code-block lang="xml">
 
-    <div slot="api">
+            </code-block>
+          </div>
+        </example-box>
 
-    </div>
-  </demo-page>
+        <example-box card-title="Themes">
+          <div slot="demo">
+            <div v-md-theme="'orange'">
+              <md-switch v-model="checked4" id="my-test4" name="my-test4" class="md-primary"></md-switch>
+            </div>
+
+            <div v-md-theme="'green'">
+              <md-switch v-model="checked5" id="my-test5" name="my-test5" class="md-primary">Green Primary Color</md-switch>
+            </div>
+
+            <div v-md-theme="'brown'">
+              <md-switch v-model="checked6" id="my-test6" name="my-test6" class="md-primary">Brown Primary Color</md-switch>
+            </div>
+
+            <div v-md-theme="'light-blue'">
+              <md-switch v-model="checked7" id="my-test7" name="my-test7" class="md-primary" disabled>Light Blue Primary Color Disabled</md-switch>
+            </div>
+          </div>
+
+          <div slot="code">
+            <code-block lang="xml">
+
+            </code-block>
+          </div>
+        </example-box>
+      </div>
+    </docs-component>
+  </page-content>
 </template>
+
+<style lang="scss" scoped>
+
+</style>
 
 <script>
   export default {

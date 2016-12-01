@@ -27,9 +27,9 @@
     pointer-events: none;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
-    box-shadow: $material-shadow-16dp;
-    will-change: transform;
     transition: $swift-ease-out;
+    transition-property: transform;
+    will-change: transform;
   }
 
   .md-backdrop {
@@ -42,13 +42,15 @@
     pointer-events: none;
     background-color: rgba(#000, .54);
     opacity: 0;
-    will-change: opacity;
     transition: $swift-ease-in-out;
+    transition-property: opacity;
+    will-change: opacity;
   }
 }
 
 .md-sidenav.md-active {
   .md-sidenav-content {
+    box-shadow: $material-shadow-16dp;
     pointer-events: auto;
     transform: translate3D(0, 0, 0);
   }

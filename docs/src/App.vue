@@ -19,6 +19,24 @@
           </md-list-item>
 
           <md-list-item>
+            <router-link exact to="/themes/configuration">Themes</router-link>
+
+            <!-- <span>Themes</span>
+
+            <md-list-expand>
+              <md-list>
+                <md-list-item class="md-inset">
+                  <router-link exact to="/themes/configuration">Configuration</router-link>
+                </md-list-item>
+
+                <md-list-item class="md-inset">
+                  <router-link exact to="/themes/dynamic-themes">Dynamic Theme</router-link>
+                </md-list-item>
+              </md-list>
+            </md-list-expand> -->
+          </md-list-item>
+
+          <md-list-item>
             <span>Components</span>
 
             <md-list-expand>
@@ -72,7 +90,7 @@
                 </md-list-item>
 
                 <md-list-item class="md-inset">
-                  <router-link exact to="/components/ripple">Ripple</router-link>
+                  <router-link exact to="/components/ink-ripple">Ink Ripple</router-link>
                 </md-list-item>
 
                 <md-list-item class="md-inset">
@@ -130,22 +148,6 @@
             </md-list-expand> -->
           </md-list-item>
 
-          <!-- <md-list-item>
-            <span>Themes</span>
-
-            <md-list-expand>
-              <md-list>
-                <md-list-item class="md-inset">
-                  <router-link exact to="/themes/configuration">Configuration</router-link>
-                </md-list-item>
-
-                <md-list-item class="md-inset">
-                  <router-link exact to="/themes/dynamic-themes">Dynamic Theme</router-link>
-                </md-list-item>
-              </md-list>
-            </md-list-expand>
-          </md-list-item> -->
-
           <md-list-item>
             <router-link exact to="/changelog">Changelog</router-link>
           </md-list-item>
@@ -184,40 +186,8 @@
     flex: 1;
     transition: $swift-ease-out;
 
-    @media (min-width: 1280px) {
+    @media (min-width: 1281px) {
       padding-left: $sizebar-size;
-    }
-  }
-
-  .main-header {
-    position: relative;
-    z-index: 3;
-
-    .md-button:first-child {
-      @media (min-width: 1280px) {
-        display: none;
-      }
-    }
-
-    .md-toolbar,
-    .md-title {
-      color: #fff;
-    }
-
-    .md-title {
-      .page-title {
-        margin-left: 0;
-
-        @media (min-width: 1280px) {
-          margin-left: 8px;
-        }
-      }
-
-      span:not(.page-title) {
-        @media (min-width: 1280px) {
-          display: none;
-        }
-      }
     }
   }
 
@@ -227,7 +197,7 @@
       display: flex;
       flex-flow: column;
 
-      @media (min-width: 1280px) {
+      @media (min-width: 1281px) {
         top: 0;
         pointer-events: auto;
         transform: translate3d(0, 0, 0);
@@ -236,7 +206,7 @@
     }
 
     .md-backdrop {
-      @media (min-width: 1280px) {
+      @media (min-width: 1281px) {
         opacity: 0;
         pointer-events: none;
       }
@@ -280,21 +250,6 @@
     }
   }
 
-  .page-content {
-    display: flex;
-    flex-flow: column;
-    flex: 1;
-    overflow: auto;
-    position: relative;
-    z-index: 1;
-  }
-
-  .page-content-wrapper {
-    display: flex;
-    flex-flow: column;
-    flex: 1;
-  }
-
   .main-content {
     padding: 16px;
     flex: 1;
@@ -309,7 +264,7 @@
     left: 0;
     transition: $swift-ease-out;
 
-    @media (min-width: 1280px) {
+    @media (min-width: 1281px) {
       left: 280px;
     }
   }
@@ -317,12 +272,6 @@
   .md-router-enter,
   .md-router-leave-active {
     opacity: 0;
-  }
-
-  .md-router-enter {
-    .md-display-2 {
-      transform: translate3D(0, -36px, 0);
-    }
   }
 
   code {

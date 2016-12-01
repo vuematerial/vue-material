@@ -117,16 +117,19 @@
       },
       open() {
         this.removeTooltips();
-        this.rootElement.appendChild(this.tooltipElement);
-        getComputedStyle(this.tooltipElement).top;
-        this.transitionOff = true;
-        this.generateTooltipClasses();
-        this.calculateTooltipPosition();
 
-        window.setTimeout(() => {
-          this.transitionOff = false;
-          this.active = true;
-        }, 10);
+        this.$nextTick(() => {
+          this.rootElement.appendChild(this.tooltipElement);
+          getComputedStyle(this.tooltipElement).top;
+          this.transitionOff = true;
+          this.generateTooltipClasses();
+          this.calculateTooltipPosition();
+
+          window.setTimeout(() => {
+            this.transitionOff = false;
+            this.active = true;
+          }, 10);
+        });
       },
       close() {
         let cleanupElements = () => {
