@@ -39,12 +39,9 @@
         default: true
       }
     },
-    data() {
-      return {
-        browserMargin: 8,
-        active: false
-      };
-    },
+    data: () => ({
+      active: false
+    }),
     watch: {
       mdSize(current, previous) {
         if (current >= 1 && current <= 7) {
@@ -55,6 +52,9 @@
       mdDirection(current, previous) {
         this.removeLastDirectionMenuContentClass(previous);
         this.addNewDirectionMenuContentClass(current);
+      },
+      mdAlignTrigger(trigger) {
+        this.handleAlignTriggerClass(trigger);
       }
     },
     methods: {
@@ -81,8 +81,11 @@
         this.menuContent.classList.add('md-size-' + size);
       },
       addNewDirectionMenuContentClass(direction) {
-        if (!this.mdAlignTrigger) {
-          this.menuContent.classList.add('md-direction-' + direction.replace(/ /g, '-'));
+        this.menuContent.classList.add('md-direction-' + direction.replace(/ /g, '-'));
+      },
+      handleAlignTriggerClass(trigger) {
+        if (trigger) {
+          this.menuContent.classList.add('md-align-trigger');
         }
       },
       getPosition(vertical, horizontal) {
@@ -107,26 +110,15 @@
           }
         }
 
-        return {top, left};
+        return { top, left };
       },
       calculateMenuContentPos() {
         let position;
 
-        switch (this.mdDirection) {
-          case 'bottom left':
-            position = this.getPosition('bottom', 'left');
-            break;
-
-          case 'top left':
-            position = this.getPosition('top', 'left');
-            break;
-
-          case 'top right':
-            position = this.getPosition('top', 'right');
-            break;
-
-          default:
-            position = this.getPosition('bottom', 'right');
+        if (!this.mdDirection) {
+          position = this.getPosition('bottom', 'right');
+        } else {
+          position = this.getPosition.apply(this, this.mdDirection.trim().split(' '));
         }
 
         position = getInViewPosition(this.menuContent, position);
@@ -152,6 +144,7 @@
         this.menuContent.classList.add('md-active');
         this.menuContent.focus();
         this.active = true;
+        this.$emit('open');
       },
       close() {
         let close = (event) => {
@@ -174,6 +167,7 @@
 
         this.menuContent.addEventListener(transitionEndEventName, close);
         this.menuContent.classList.remove('md-active');
+        this.$emit('close');
       },
       toggle() {
         if (this.active) {
@@ -190,12 +184,22 @@
         this.menuContent = this.$el.querySelector('.md-menu-content');
         this.backdropElement = this.$refs.backdrop.$el;
         this.validateMenu();
+        this.handleAlignTriggerClass(this.mdAlignTrigger);
         this.addNewSizeMenuContentClass(this.mdSize);
         this.addNewDirectionMenuContentClass(this.mdDirection);
         this.$el.removeChild(this.$refs.backdrop.$el);
         this.menuContent.parentNode.removeChild(this.menuContent);
         this.menuTrigger.addEventListener('click', this.toggle);
       });
+    },
+    beforeDestroy() {
+      if (this.rootElement.contains(this.menuContent)) {
+        this.rootElement.removeChild(this.menuContent);
+        this.rootElement.removeChild(this.backdropElement);
+      }
+
+      this.menuTrigger.removeEventListener('click', this.toggle);
+      window.removeEventListener('resize', this.recalculateOnResize);
     }
   };
 </script>

@@ -11,6 +11,30 @@
           color: #{'PRIMARY-COLOR'};
         }
       }
+
+      &.md-accent {
+        .md-bottom-bar-item {
+          &.md-active {
+            color: #{'ACCENT-COLOR'};
+          }
+        }
+      }
+
+      &.md-warn {
+        .md-bottom-bar-item {
+          &.md-active {
+            color: #{'WARN-COLOR'};
+          }
+        }
+      }
+
+      &.md-transparent {
+        .md-bottom-bar-item {
+          &.md-active {
+            color: #{'BACKGROUND-CONTRAST'};
+          }
+        }
+      }
     }
 
     &.md-shift {

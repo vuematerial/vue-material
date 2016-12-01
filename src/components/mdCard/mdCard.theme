@@ -3,9 +3,12 @@
   &.md-card {
     background-color: #{'BACKGROUND-COLOR-A100'};
 
-    .md-icon-button {
-      .md-icon {
-        color: #{'BACKGROUND-CONTRAST-0.54'};
+    .md-card-header,
+    .md-card-actions {
+      .md-icon-button {
+        .md-icon {
+          color: #{'BACKGROUND-CONTRAST-0.54'};
+        }
       }
     }
 

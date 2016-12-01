@@ -12,7 +12,7 @@
       <md-icon>keyboard_arrow_left</md-icon>
     </md-button>
 
-    <md-button class="md-icon-button md-table-pagination-next" @click="changePage" :disabled="currentSize * currentPage >= mdTotal">
+    <md-button class="md-icon-button md-table-pagination-next" @click="changePage" :disabled="currentSize * currentPage >= totalItems">
       <md-icon>keyboard_arrow_right</md-icon>
     </md-button>
   </div>
@@ -46,7 +46,8 @@
     data() {
       return {
         currentSize: parseInt(this.mdSize, 10),
-        currentPage: parseInt(this.mdPage, 10)
+        currentPage: parseInt(this.mdPage, 10),
+        totalItems: !isNaN(this.mdTotal) && Number.MAX_SAFE_INTEGER
       };
     },
     computed: {

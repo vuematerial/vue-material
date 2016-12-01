@@ -5,7 +5,7 @@ Vue.use(VueMaterial);
 
 Vue.material.theme.registerAll({
   default: {
-    primary: 'cyan',
+    primary: 'blue',
     accent: 'pink'
   },
   indigo: {
@@ -51,9 +51,13 @@ Vue.material.theme.registerAll({
     primary: 'cyan',
     accent: 'pink'
   },
+  red: {
+    primary: 'red',
+    accent: 'pink'
+  },
   white: {
     primary: 'white',
-    accent: 'indigo'
+    accent: 'blue'
   },
   grey: {
     primary: {

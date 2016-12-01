@@ -16,6 +16,7 @@ $menu-base-width: 56px;
   overflow-y: auto;
   position: fixed;
   z-index: 120;
+  clip-path: inset(-8px 10% 16% -8px);
   background-color: #fff;
   border-radius: 2px;
   filter: drop-shadow(0 1px 1px rgba(#000, $shadow-key-umbra-opacity))
@@ -42,13 +43,17 @@ $menu-base-width: 56px;
   &.md-direction-top-right {
     margin-top: 11px;
     margin-left: -8px;
-    clip-path: inset(-8px 16% -8px 10%);
+    clip-path: inset(16% 10% -8px -8px);
   }
 
   &.md-direction-top-left {
     margin-top: 11px;
     margin-left: 8px;
     clip-path: inset(16% -8px -8px 10%);
+  }
+
+  &.md-align-trigger {
+    margin: 0;
   }
 
   &.md-size-1 {
