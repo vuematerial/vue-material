@@ -9,34 +9,6 @@ $tab-max-width: 264px;
   flex-flow: column;
   position: relative;
 
-  &.md-has-icon.md-has-label {
-    .md-tabs-navigation {
-      min-height: 72px;
-
-      .md-icon {
-        margin-bottom: 10px;
-      }
-    }
-  }
-
-  &.md-centered {
-    .md-tabs-navigation {
-      justify-content: center;
-    }
-  }
-
-  &.md-right {
-    .md-tabs-navigation {
-      justify-content: flex-end;
-    }
-  }
-
-  &.md-fixed {
-    .md-tab-header {
-      flex: 1;
-    }
-  }
-
   .md-tabs-navigation {
     height: 48px;
     min-height: 48px;
@@ -44,6 +16,28 @@ $tab-max-width: 264px;
     z-index: 1;
     display: flex;
     transition: $swift-ease-out;
+
+    &.md-has-icon.md-has-label {
+      min-height: 72px;
+
+      .md-icon {
+        margin-bottom: 10px;
+      }
+    }
+
+    &.md-centered {
+      justify-content: center;
+    }
+
+    &.md-fixed {
+      .md-tab-header {
+        flex: 1;
+      }
+    }
+
+    &.md-right {
+      justify-content: flex-end;
+    }
   }
 
   .md-tab-header {

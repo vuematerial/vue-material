@@ -1,6 +1,6 @@
 <template>
   <md-card class="example-box">
-    <md-toolbar class="md-dense example-title" v-md-theme="'white'">
+    <md-toolbar class="md-dense" v-md-theme="'white'">
       <h3 class="md-title">{{ cardTitle }}</h3>
     </md-toolbar>
 
@@ -33,13 +33,9 @@
     margin-bottom: 16px;
   }
 
-  .example-title {
-    border-bottom: 1px solid rgba(#000, .12);
-
-    .md-title {
-      position: relative;
-      z-index: 3;
-    }
+  .md-title {
+    position: relative;
+    z-index: 3;
   }
 
   .example-tabs {
