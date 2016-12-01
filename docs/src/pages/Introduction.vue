@@ -25,7 +25,7 @@
 
         <div class="column">
           <h2 class="md-headline">Compatible</h2>
-          <p>It aims to deliver a collection of reusable components and a series of UI Elements to build applications with support to <a href="https://saucelabs.com/u/vuejs" target="_blank" rel="noopener">modern Web Browsers</a> through Vue 2.0.</p>
+          <p>It aims to deliver a collection of reusable components and a series of UI Elements to build applications with support to all modern Web Browsers through Vue 2.0.</p>
         </div>
       </div>
     </div>

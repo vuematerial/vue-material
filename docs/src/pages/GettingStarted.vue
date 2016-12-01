@@ -143,22 +143,6 @@
       </article>
 
       <article>
-        <h2 class="md-headline">Browser Support</h2>
-
-        <section>
-          <p>Vue Material supports the latest version of all Browsers. This means:</p>
-          <ul>
-            <li>Google Chrome 50+</li>
-            <li>Firefox 48+</li>
-            <li>Safari 9+</li>
-            <li>Opera 40+</li>
-            <li>IE 11</li>
-            <li>Edge</li>
-          </ul>
-        </section>
-      </article>
-
-      <article>
         <h2 class="md-headline">Codepen Examples</h2>
 
         <section>
