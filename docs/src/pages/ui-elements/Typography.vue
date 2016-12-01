@@ -26,16 +26,17 @@
 
           <div slot="code">
             <code-block lang="xml">
-              &lt;h1 class=&quot;md-display-4&quot;&gt;Display 4&lt;/h1&gt;
-              &lt;h1 class=&quot;md-display-3&quot;&gt;Display 3&lt;/h1&gt;
-              &lt;h1 class=&quot;md-display-2&quot;&gt;Display 2&lt;/h1&gt;
-              &lt;h1 class=&quot;md-display-1&quot;&gt;Display 1&lt;/h1&gt;
-              &lt;h1 class=&quot;md-headline&quot;&gt;Headline&lt;/h1&gt;
-              &lt;h1 class=&quot;md-title&quot;&gt;Title&lt;/h1&gt;
-              &lt;h1 class=&quot;md-subheading&quot;&gt;Subheading&lt;/h1&gt;
-              &lt;h1 class=&quot;md-body-2&quot;&gt;Body 2&lt;/h1&gt;
-              &lt;h1 class=&quot;md-body-1&quot;&gt;Body 1&lt;/h1&gt;
-              &lt;h1 class=&quot;md-caption&quot;&gt;Caption&lt;/h1&gt;
+              &lt;span class=&quot;md-display-4&quot;&gt;Display 4&lt;/span&gt;
+              &lt;span class=&quot;md-display-3&quot;&gt;Display 3&lt;/span&gt;
+              &lt;span class=&quot;md-display-2&quot;&gt;Display 2&lt;/span&gt;
+              &lt;span class=&quot;md-display-1&quot;&gt;Display 1&lt;/span&gt;
+              &lt;span class=&quot;md-headline&quot;&gt;Headline&lt;/span&gt;
+              &lt;span class=&quot;md-title&quot;&gt;Title&lt;/span&gt;
+              &lt;span class=&quot;md-subheading&quot;&gt;Subheading&lt;/span&gt;
+              &lt;span class=&quot;md-body-2&quot;&gt;Body 2&lt;/span&gt;
+              &lt;span class=&quot;md-body-1&quot;&gt;Body 1&lt;/span&gt;
+              &lt;span class=&quot;md-caption&quot;&gt;Caption&lt;/span&gt;
+              &lt;a href=&quot;#/typography&quot;&gt;Link&lt;/a&gt;
             </code-block>
           </div>
         </example-box>
