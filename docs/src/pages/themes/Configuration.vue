@@ -2,13 +2,6 @@
   <page-content page-title="Themes">
     <article class="main-content">
       <section>
-        <h2 class="md-headline">Color palette</h2>
-
-        <p>Color in material design is inspired by bold hues juxtaposed with muted environments, deep shadows, and bright highlights.</p>
-        <p>Theming allows changing the color of your application. The <a href="https://material.google.com/style/color.html#color-color-palette" target="_blank" rel="noopener">Material Design palette</a> can be fully applied using Vue Material.</p>
-      </section>
-
-      <section>
         <h2 class="md-headline">Theme Engine</h2>
 
         <p>When you create a theme the Vue Material will generate all of the styles ondemand so you don't need to create any css file to create them. Everything is generated when the API is called and this is great because you can create a theme anytime you want. After that you can use the declarative directive to apply the theme inside an element.</p>
@@ -18,7 +11,8 @@
 
       <section>
         <h2 class="md-headline">Color Intentions</h2>
-        <p>You can pass all intentions or just change the intention that you want. The default colors are:</p>
+        <p>Color in material design is inspired by bold hues juxtaposed with muted environments, deep shadows, and bright highlights.</p>
+        <p>Theming allows changing the color of your application. The <a href="https://material.google.com/style/color.html#color-color-palette" target="_blank" rel="noopener">Material Design palette</a> can be fully applied using Vue Material. You can pass all intentions or just change the intention that you want. The default colors are:</p>
         <ul>
           <li>primary - indigo</li>
           <li>accent - pink</li>
@@ -131,6 +125,6 @@
   }
 
   iframe {
-    width: 550px;
+    height: 550px;
   }
 </style>
