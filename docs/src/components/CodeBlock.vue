@@ -16,7 +16,6 @@
   @import '../../../src/core/stylesheets/variables.scss';
 
   .code-block {
-    //margin: -16px;
     overflow: hidden;
     position: relative;
     border-radius: 2px;
@@ -166,6 +165,7 @@
   import highlightJavascript from 'highlight.js/lib/languages/javascript';
   import highlightBash from 'highlight.js/lib/languages/bash';
   import Clipboard from 'clipboard';
+  import getClosestVueParent from '../../../src/core/utils/getClosestVueParent';
 
   highlight.registerLanguage('scss', highlightSCSS);
   highlight.registerLanguage('xml', highlightXML);
@@ -221,8 +221,16 @@
       }
     },
     mounted() {
+      this.exampleBoxParent = getClosestVueParent(this.$parent, 'example-box');
       this.reindent();
       this.enableCopy();
+
+      if (this.exampleBoxParent) {
+        this.exampleBoxParent.codeBlocks.push({
+          lang: this.lang,
+          code: this.$refs.block.innerHTML
+        });
+      }
 
       highlight.highlightBlock(this.$refs.block);
     }
