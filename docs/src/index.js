@@ -12,17 +12,12 @@ import DocsComponent from './components/DocsComponent';
 import ExampleBox from './components/ExampleBox';
 import ApiTable from './components/ApiTable';
 import CodeBlock from './components/CodeBlock';
-import DemoPage from './components/DemoPage';
-import DemoExample from './components/DemoExample';
-
 
 Vue.component('page-content', PageContent);
 Vue.component('docs-component', DocsComponent);
 Vue.component('example-box', ExampleBox);
 Vue.component('api-table', ApiTable);
 Vue.component('code-block', CodeBlock);
-Vue.component('demo-page', DemoPage);
-Vue.component('demo-example', DemoExample);
 
 Vue.use(VueRouter);
 

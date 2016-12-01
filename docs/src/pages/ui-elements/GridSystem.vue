@@ -1,5 +1,9 @@
 <template>
-  <single-page class="single-page-home" label="UI Elements - Grid System">
+  <page-content page-title="UI Elements - Grid System">
 
-  </single-page>
+  </page-content>
 </template>
+
+<style lang="scss" scoped>
+
+</style>

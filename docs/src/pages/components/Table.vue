@@ -415,7 +415,7 @@
                   &lt;md-table-body&gt;
                     &lt;md-table-row v-for=&quot;(row, rowIndex) in nutrition&quot; :key=&quot;rowIndex&quot; :md-item=&quot;row&quot; md-auto-select md-selection&gt;
                       &lt;md-table-cell v-for=&quot;(column, columnIndex) in row&quot; :key=&quot;columnIndex&quot; :md-numeric=&quot;columnIndex !== &#039;dessert&#039; &amp;&amp; columnIndex !== &#039;comment&#039;&quot; v-if=&quot;columnIndex !== &#039;type&#039;&quot;&gt;
-                        {{ column }}
+                        {{ '{{ column }\}' }}
                       &lt;/md-table-cell&gt;
                     &lt;/md-table-row&gt;
                   &lt;/md-table-body&gt;
@@ -585,7 +585,7 @@
                   &lt;md-table-body&gt;
                     &lt;md-table-row v-for=&quot;(row, rowIndex) in nutrition&quot; :key=&quot;rowIndex&quot; :md-item=&quot;row&quot; md-selection&gt;
                       &lt;md-table-cell v-for=&quot;(column, columnIndex) in row&quot; :key=&quot;columnIndex&quot; :md-numeric=&quot;columnIndex !== &#039;dessert&#039; &amp;&amp; columnIndex !== &#039;comment&#039; &amp;&amp; columnIndex !== &#039;type&#039;&quot;&gt;
-                        &lt;span v-if=&quot;columnIndex === &#039;comment&#039;&quot;&gt;{{ column }}&lt;/span&gt;
+                        &lt;span v-if=&quot;columnIndex === &#039;comment&#039;&quot;&gt;{{ '{{ column }\}' }}&lt;/span&gt;
 
                         &lt;md-button class=&quot;md-icon-button&quot; v-if=&quot;columnIndex === &#039;comment&#039;&quot;&gt;
                           &lt;md-icon&gt;edit&lt;/md-icon&gt;
@@ -602,7 +602,7 @@
                           &lt;md-option value=&quot;other&quot;&gt;Other&lt;/md-option&gt;
                         &lt;/md-select&gt;
 
-                        &lt;span v-if=&quot;columnIndex !== &#039;type&#039; &amp;&amp; columnIndex !== &#039;comment&#039;&quot;&gt;{{ column }}&lt;/span&gt;
+                        &lt;span v-if=&quot;columnIndex !== &#039;type&#039; &amp;&amp; columnIndex !== &#039;comment&#039;&quot;&gt;{{ '{{ column }\}' }}&lt;/span&gt;
                       &lt;/md-table-cell&gt;
                     &lt;/md-table-row&gt;
                   &lt;/md-table-body&gt;

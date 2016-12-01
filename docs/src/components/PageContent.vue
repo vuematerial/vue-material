@@ -26,6 +26,12 @@
 </template>
 
 <style lang="scss" scoped>
+  .page-content {
+    flex: 1;
+    display: flex;
+    flex-flow: column
+  }
+
   .main-header {
     position: relative;
     z-index: 2;
