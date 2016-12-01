@@ -1,7 +1,7 @@
 <template>
   <div class="md-tabs" :class="tabClasses">
     <md-whiteframe :md-elevation="elevation || 0">
-      <div class="md-tabs-navigation">
+      <div class="md-tabs-navigation" :class="navigationClasses">
         <button
           v-for="header in tabs"
           :key="header.id"
@@ -81,10 +81,14 @@
     computed: {
       tabClasses() {
         return {
+          'md-no-transition': !this.mdDynamicHeight
+        };
+      },
+      navigationClasses() {
+        return {
           'md-fixed': this.mdFixed,
           'md-right': !this.mdCentered && this.mdRight,
           'md-centered': this.mdCentered || this.mdFixed,
-          'md-no-transition': !this.mdDynamicHeight,
           'md-has-icon': this.hasIcons,
           'md-has-label': this.hasLabel
         };
