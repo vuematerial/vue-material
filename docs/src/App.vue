@@ -19,6 +19,24 @@
           </md-list-item>
 
           <md-list-item>
+            <router-link exact to="/themes/configuration">Themes</router-link>
+
+            <!-- <span>Themes</span>
+
+            <md-list-expand>
+              <md-list>
+                <md-list-item class="md-inset">
+                  <router-link exact to="/themes/configuration">Configuration</router-link>
+                </md-list-item>
+
+                <md-list-item class="md-inset">
+                  <router-link exact to="/themes/dynamic-themes">Dynamic Theme</router-link>
+                </md-list-item>
+              </md-list>
+            </md-list-expand> -->
+          </md-list-item>
+
+          <md-list-item>
             <span>Components</span>
 
             <md-list-expand>
@@ -129,22 +147,6 @@
               </md-list>
             </md-list-expand> -->
           </md-list-item>
-
-          <!-- <md-list-item>
-            <span>Themes</span>
-
-            <md-list-expand>
-              <md-list>
-                <md-list-item class="md-inset">
-                  <router-link exact to="/themes/configuration">Configuration</router-link>
-                </md-list-item>
-
-                <md-list-item class="md-inset">
-                  <router-link exact to="/themes/dynamic-themes">Dynamic Theme</router-link>
-                </md-list-item>
-              </md-list>
-            </md-list-expand>
-          </md-list-item> -->
 
           <md-list-item>
             <router-link exact to="/changelog">Changelog</router-link>

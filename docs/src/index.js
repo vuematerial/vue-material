@@ -30,7 +30,7 @@ let handleSectionTheme = (currentRoute) => {
   if (currentRoute.name === 'getting-started') {
     Docs.theme = 'indigo';
   } else if (currentRoute.name.indexOf('themes') >= 0) {
-    Docs.theme = 'teal';
+    Docs.theme = 'cyan';
   } else if (currentRoute.name.indexOf('ui-elements') >= 0) {
     Docs.theme = 'blue-grey';
   } else if (currentRoute.name === 'changelog') {
