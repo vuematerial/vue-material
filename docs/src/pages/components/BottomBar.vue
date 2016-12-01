@@ -97,37 +97,29 @@
 
           <div slot="code">
             <code-block lang="xml">
-              &lt;div class=&quot;phone-viewport&quot;&gt;
-                &lt;md-bottom-bar&gt;
-                  &lt;md-bottom-bar-item md-icon=&quot;history&quot;&gt;Recents&lt;/md-bottom-bar-item&gt;
-                  &lt;md-bottom-bar-item md-icon=&quot;favorite&quot; md-active&gt;Favorites&lt;/md-bottom-bar-item&gt;
-                  &lt;md-bottom-bar-item md-icon=&quot;near_me&quot;&gt;Nearby&lt;/md-bottom-bar-item&gt;
-                &lt;/md-bottom-bar&gt;
-              &lt;/div&gt;
+              &lt;md-bottom-bar&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;history&quot;&gt;Recents&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;favorite&quot; md-active&gt;Favorites&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;near_me&quot;&gt;Nearby&lt;/md-bottom-bar-item&gt;
+              &lt;/md-bottom-bar&gt;
 
-              &lt;div class=&quot;phone-viewport&quot;&gt;
-                &lt;md-bottom-bar class=&quot;md-accent&quot;&gt;
-                  &lt;md-bottom-bar-item md-icon=&quot;history&quot;&gt;Recents&lt;/md-bottom-bar-item&gt;
-                  &lt;md-bottom-bar-item md-icon=&quot;favorite&quot; md-active&gt;Favorites&lt;/md-bottom-bar-item&gt;
-                  &lt;md-bottom-bar-item md-icon=&quot;near_me&quot;&gt;Nearby&lt;/md-bottom-bar-item&gt;
-                &lt;/md-bottom-bar&gt;
-              &lt;/div&gt;
+              &lt;md-bottom-bar class=&quot;md-accent&quot;&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;history&quot;&gt;Recents&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;favorite&quot; md-active&gt;Favorites&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;near_me&quot;&gt;Nearby&lt;/md-bottom-bar-item&gt;
+              &lt;/md-bottom-bar&gt;
 
-              &lt;div class=&quot;phone-viewport&quot;&gt;
-                &lt;md-bottom-bar class=&quot;md-warn&quot;&gt;
-                  &lt;md-bottom-bar-item md-icon=&quot;history&quot;&gt;Recents&lt;/md-bottom-bar-item&gt;
-                  &lt;md-bottom-bar-item md-icon=&quot;favorite&quot; md-active&gt;Favorites&lt;/md-bottom-bar-item&gt;
-                  &lt;md-bottom-bar-item md-icon=&quot;near_me&quot;&gt;Nearby&lt;/md-bottom-bar-item&gt;
-                &lt;/md-bottom-bar&gt;
-              &lt;/div&gt;
+              &lt;md-bottom-bar class=&quot;md-warn&quot;&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;history&quot;&gt;Recents&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;favorite&quot; md-active&gt;Favorites&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;near_me&quot;&gt;Nearby&lt;/md-bottom-bar-item&gt;
+              &lt;/md-bottom-bar&gt;
 
-              &lt;div class=&quot;phone-viewport&quot;&gt;
-                &lt;md-bottom-bar class=&quot;md-transparent&quot;&gt;
-                  &lt;md-bottom-bar-item md-icon=&quot;history&quot;&gt;Recents&lt;/md-bottom-bar-item&gt;
-                  &lt;md-bottom-bar-item md-icon=&quot;favorite&quot; md-active&gt;Favorites&lt;/md-bottom-bar-item&gt;
-                  &lt;md-bottom-bar-item md-icon=&quot;near_me&quot;&gt;Nearby&lt;/md-bottom-bar-item&gt;
-                &lt;/md-bottom-bar&gt;
-              &lt;/div&gt;
+              &lt;md-bottom-bar class=&quot;md-transparent&quot;&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;history&quot;&gt;Recents&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;favorite&quot; md-active&gt;Favorites&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;near_me&quot;&gt;Nearby&lt;/md-bottom-bar-item&gt;
+              &lt;/md-bottom-bar&gt;
             </code-block>
           </div>
         </example-box>
@@ -173,41 +165,33 @@
 
           <div slot="code">
             <code-block lang="xml">
-              &lt;div class=&quot;phone-viewport&quot;&gt;
-                &lt;md-bottom-bar md-shift&gt;
-                  &lt;md-bottom-bar-item md-icon=&quot;ondemand_video&quot;&gt;Movies&lt;/md-bottom-bar-item&gt;
-                  &lt;md-bottom-bar-item md-icon=&quot;music_note&quot;&gt;Music&lt;/md-bottom-bar-item&gt;
-                  &lt;md-bottom-bar-item md-icon=&quot;books&quot; md-active&gt;Books&lt;/md-bottom-bar-item&gt;
-                  &lt;md-bottom-bar-item md-icon=&quot;photo&quot;&gt;Pictures&lt;/md-bottom-bar-item&gt;
-                &lt;/md-bottom-bar&gt;
-              &lt;/div&gt;
+              &lt;md-bottom-bar md-shift&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;ondemand_video&quot;&gt;Movies&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;music_note&quot;&gt;Music&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;books&quot; md-active&gt;Books&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;photo&quot;&gt;Pictures&lt;/md-bottom-bar-item&gt;
+              &lt;/md-bottom-bar&gt;
 
-              &lt;div class=&quot;phone-viewport&quot;&gt;
-                &lt;md-bottom-bar class=&quot;md-accent&quot; md-shift&gt;
-                  &lt;md-bottom-bar-item md-icon=&quot;ondemand_video&quot;&gt;Movies&lt;/md-bottom-bar-item&gt;
-                  &lt;md-bottom-bar-item md-icon=&quot;music_note&quot;&gt;Music&lt;/md-bottom-bar-item&gt;
-                  &lt;md-bottom-bar-item md-icon=&quot;books&quot; md-active&gt;Books&lt;/md-bottom-bar-item&gt;
-                  &lt;md-bottom-bar-item md-icon=&quot;photo&quot;&gt;Pictures&lt;/md-bottom-bar-item&gt;
-                &lt;/md-bottom-bar&gt;
-              &lt;/div&gt;
+              &lt;md-bottom-bar class=&quot;md-accent&quot; md-shift&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;ondemand_video&quot;&gt;Movies&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;music_note&quot;&gt;Music&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;books&quot; md-active&gt;Books&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;photo&quot;&gt;Pictures&lt;/md-bottom-bar-item&gt;
+              &lt;/md-bottom-bar&gt;
 
-              &lt;div class=&quot;phone-viewport&quot;&gt;
-                &lt;md-bottom-bar class=&quot;md-warn&quot; md-shift&gt;
-                  &lt;md-bottom-bar-item md-icon=&quot;ondemand_video&quot;&gt;Movies&lt;/md-bottom-bar-item&gt;
-                  &lt;md-bottom-bar-item md-icon=&quot;music_note&quot;&gt;Music&lt;/md-bottom-bar-item&gt;
-                  &lt;md-bottom-bar-item md-icon=&quot;books&quot; md-active&gt;Books&lt;/md-bottom-bar-item&gt;
-                  &lt;md-bottom-bar-item md-icon=&quot;photo&quot;&gt;Pictures&lt;/md-bottom-bar-item&gt;
-                &lt;/md-bottom-bar&gt;
-              &lt;/div&gt;
+              &lt;md-bottom-bar class=&quot;md-warn&quot; md-shift&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;ondemand_video&quot;&gt;Movies&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;music_note&quot;&gt;Music&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;books&quot; md-active&gt;Books&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;photo&quot;&gt;Pictures&lt;/md-bottom-bar-item&gt;
+              &lt;/md-bottom-bar&gt;
 
-              &lt;div class=&quot;phone-viewport&quot;&gt;
-                &lt;md-bottom-bar class=&quot;md-transparent&quot; md-shift&gt;
-                  &lt;md-bottom-bar-item md-icon=&quot;ondemand_video&quot;&gt;Movies&lt;/md-bottom-bar-item&gt;
-                  &lt;md-bottom-bar-item md-icon=&quot;music_note&quot;&gt;Music&lt;/md-bottom-bar-item&gt;
-                  &lt;md-bottom-bar-item md-icon=&quot;books&quot; md-active&gt;Books&lt;/md-bottom-bar-item&gt;
-                  &lt;md-bottom-bar-item md-icon=&quot;photo&quot;&gt;Pictures&lt;/md-bottom-bar-item&gt;
-                &lt;/md-bottom-bar&gt;
-              &lt;/div&gt;
+              &lt;md-bottom-bar class=&quot;md-transparent&quot; md-shift&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;ondemand_video&quot;&gt;Movies&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;music_note&quot;&gt;Music&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;books&quot; md-active&gt;Books&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;photo&quot;&gt;Pictures&lt;/md-bottom-bar-item&gt;
+              &lt;/md-bottom-bar&gt;
             </code-block>
           </div>
         </example-box>
@@ -251,39 +235,31 @@
 
           <div slot="code">
             <code-block lang="xml">
-              &lt;div class=&quot;phone-viewport&quot; v-md-theme=&quot;&#039;orange&#039;&quot;&gt;
-                &lt;md-bottom-bar&gt;
-                  &lt;md-bottom-bar-item md-icon=&quot;history&quot;&gt;Recents&lt;/md-bottom-bar-item&gt;
-                  &lt;md-bottom-bar-item md-icon=&quot;favorite&quot; md-active&gt;Favorites&lt;/md-bottom-bar-item&gt;
-                  &lt;md-bottom-bar-item md-icon=&quot;near_me&quot;&gt;Nearby&lt;/md-bottom-bar-item&gt;
-                &lt;/md-bottom-bar&gt;
-              &lt;/div&gt;
+              &lt;md-bottom-bar&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;history&quot;&gt;Recents&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;favorite&quot; md-active&gt;Favorites&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;near_me&quot;&gt;Nearby&lt;/md-bottom-bar-item&gt;
+              &lt;/md-bottom-bar&gt;
 
-              &lt;div class=&quot;phone-viewport&quot; v-md-theme=&quot;&#039;teal&#039;&quot;&gt;
-                &lt;md-bottom-bar&gt;
-                  &lt;md-bottom-bar-item md-icon=&quot;history&quot;&gt;Recents&lt;/md-bottom-bar-item&gt;
-                  &lt;md-bottom-bar-item md-icon=&quot;favorite&quot; md-active&gt;Favorites&lt;/md-bottom-bar-item&gt;
-                  &lt;md-bottom-bar-item md-icon=&quot;near_me&quot;&gt;Nearby&lt;/md-bottom-bar-item&gt;
-                &lt;/md-bottom-bar&gt;
-              &lt;/div&gt;
+              &lt;md-bottom-bar&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;history&quot;&gt;Recents&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;favorite&quot; md-active&gt;Favorites&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;near_me&quot;&gt;Nearby&lt;/md-bottom-bar-item&gt;
+              &lt;/md-bottom-bar&gt;
 
-              &lt;div class=&quot;phone-viewport&quot; v-md-theme=&quot;&#039;green&#039;&quot;&gt;
-                &lt;md-bottom-bar md-shift&gt;
-                  &lt;md-bottom-bar-item md-icon=&quot;ondemand_video&quot;&gt;Movies&lt;/md-bottom-bar-item&gt;
-                  &lt;md-bottom-bar-item md-icon=&quot;music_note&quot;&gt;Music&lt;/md-bottom-bar-item&gt;
-                  &lt;md-bottom-bar-item md-icon=&quot;books&quot; md-active&gt;Books&lt;/md-bottom-bar-item&gt;
-                  &lt;md-bottom-bar-item md-icon=&quot;photo&quot;&gt;Pictures&lt;/md-bottom-bar-item&gt;
-                &lt;/md-bottom-bar&gt;
-              &lt;/div&gt;
+              &lt;md-bottom-bar md-shift&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;ondemand_video&quot;&gt;Movies&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;music_note&quot;&gt;Music&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;books&quot; md-active&gt;Books&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;photo&quot;&gt;Pictures&lt;/md-bottom-bar-item&gt;
+              &lt;/md-bottom-bar&gt;
 
-              &lt;div class=&quot;phone-viewport&quot; v-md-theme=&quot;&#039;indigo&#039;&quot;&gt;
-                &lt;md-bottom-bar md-shift&gt;
-                  &lt;md-bottom-bar-item md-icon=&quot;ondemand_video&quot;&gt;Movies&lt;/md-bottom-bar-item&gt;
-                  &lt;md-bottom-bar-item md-icon=&quot;music_note&quot;&gt;Music&lt;/md-bottom-bar-item&gt;
-                  &lt;md-bottom-bar-item md-icon=&quot;books&quot; md-active&gt;Books&lt;/md-bottom-bar-item&gt;
-                  &lt;md-bottom-bar-item md-icon=&quot;photo&quot;&gt;Pictures&lt;/md-bottom-bar-item&gt;
-                &lt;/md-bottom-bar&gt;
-              &lt;/div&gt;
+              &lt;md-bottom-bar md-shift&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;ondemand_video&quot;&gt;Movies&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;music_note&quot;&gt;Music&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;books&quot; md-active&gt;Books&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;photo&quot;&gt;Pictures&lt;/md-bottom-bar-item&gt;
+              &lt;/md-bottom-bar&gt;
             </code-block>
           </div>
         </example-box>
@@ -302,14 +278,12 @@
 
           <div slot="code">
             <code-block lang="xml">
-              &lt;div class=&quot;phone-viewport&quot;&gt;
-                &lt;md-bottom-bar md-shift v-md-theme=&quot;playground.theme&quot;&gt;
-                  &lt;md-bottom-bar-item @click.native=&quot;setTheme(&#039;blue&#039;)&quot; md-icon=&quot;ondemand_video&quot;&gt;Movies&lt;/md-bottom-bar-item&gt;
-                  &lt;md-bottom-bar-item @click.native=&quot;setTheme(&#039;teal&#039;)&quot; md-icon=&quot;music_note&quot;&gt;Music&lt;/md-bottom-bar-item&gt;
-                  &lt;md-bottom-bar-item @click.native=&quot;setTheme(&#039;brown&#039;)&quot; md-icon=&quot;books&quot; md-active&gt;Books&lt;/md-bottom-bar-item&gt;
-                  &lt;md-bottom-bar-item @click.native=&quot;setTheme(&#039;indigo&#039;)&quot; md-icon=&quot;photo&quot;&gt;Pictures&lt;/md-bottom-bar-item&gt;
-                &lt;/md-bottom-bar&gt;
-              &lt;/div&gt;
+              &lt;md-bottom-bar md-shift v-md-theme=&quot;playground.theme&quot;&gt;
+                &lt;md-bottom-bar-item @click.native=&quot;setTheme(&#039;blue&#039;)&quot; md-icon=&quot;ondemand_video&quot;&gt;Movies&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item @click.native=&quot;setTheme(&#039;teal&#039;)&quot; md-icon=&quot;music_note&quot;&gt;Music&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item @click.native=&quot;setTheme(&#039;brown&#039;)&quot; md-icon=&quot;books&quot; md-active&gt;Books&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item @click.native=&quot;setTheme(&#039;indigo&#039;)&quot; md-icon=&quot;photo&quot;&gt;Pictures&lt;/md-bottom-bar-item&gt;
+              &lt;/md-bottom-bar&gt;
             </code-block>
 
             <code-block lang="javascript">

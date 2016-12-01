@@ -62,25 +62,25 @@
 
           <div slot="code">
             <code-block lang="xml">
-&lt;md-avatar&gt;
-  &lt;img src=&quot;assets/avatar.png&quot; alt=&quot;Avatar&quot;&gt;
-&lt;/md-avatar&gt;
+              &lt;md-avatar&gt;
+                &lt;img src=&quot;assets/avatar.png&quot; alt=&quot;Avatar&quot;&gt;
+              &lt;/md-avatar&gt;
 
-&lt;md-avatar class=&quot;md-avatar-icon&quot;&gt;
-  &lt;md-icon&gt;home&lt;/md-icon&gt;
-&lt;/md-avatar&gt;
+              &lt;md-avatar class=&quot;md-avatar-icon&quot;&gt;
+                &lt;md-icon&gt;home&lt;/md-icon&gt;
+              &lt;/md-avatar&gt;
 
-&lt;md-avatar class=&quot;md-avatar-icon md-primary&quot;&gt;
-  &lt;md-icon&gt;folder&lt;/md-icon&gt;
-&lt;/md-avatar&gt;
+              &lt;md-avatar class=&quot;md-avatar-icon md-primary&quot;&gt;
+                &lt;md-icon&gt;folder&lt;/md-icon&gt;
+              &lt;/md-avatar&gt;
 
-&lt;md-avatar class=&quot;md-avatar-icon md-accent&quot;&gt;
-  &lt;md-icon&gt;favorite&lt;/md-icon&gt;
-&lt;/md-avatar&gt;
+              &lt;md-avatar class=&quot;md-avatar-icon md-accent&quot;&gt;
+                &lt;md-icon&gt;favorite&lt;/md-icon&gt;
+              &lt;/md-avatar&gt;
 
-&lt;md-avatar class=&quot;md-avatar-icon md-warn&quot;&gt;
-  &lt;md-icon&gt;notes&lt;/md-icon&gt;
-&lt;/md-avatar&gt;
+              &lt;md-avatar class=&quot;md-avatar-icon md-warn&quot;&gt;
+                &lt;md-icon&gt;notes&lt;/md-icon&gt;
+              &lt;/md-avatar&gt;
             </code-block>
           </div>
         </example-box>
@@ -110,25 +110,25 @@
 
           <div slot="code">
             <code-block lang="xml">
-&lt;md-avatar class=&quot;md-large&quot;&gt;
-  &lt;img src=&quot;assets/avatar-2.jpg&quot; alt=&quot;People&quot;&gt;
-&lt;/md-avatar&gt;
+              &lt;md-avatar class=&quot;md-large&quot;&gt;
+                &lt;img src=&quot;assets/avatar-2.jpg&quot; alt=&quot;People&quot;&gt;
+              &lt;/md-avatar&gt;
 
-&lt;md-avatar class=&quot;md-avatar-icon md-large&quot;&gt;
-  &lt;md-icon&gt;home&lt;/md-icon&gt;
-&lt;/md-avatar&gt;
+              &lt;md-avatar class=&quot;md-avatar-icon md-large&quot;&gt;
+                &lt;md-icon&gt;home&lt;/md-icon&gt;
+              &lt;/md-avatar&gt;
 
-&lt;md-avatar class=&quot;md-avatar-icon md-large md-primary&quot;&gt;
-  &lt;md-icon&gt;folder&lt;/md-icon&gt;
-&lt;/md-avatar&gt;
+              &lt;md-avatar class=&quot;md-avatar-icon md-large md-primary&quot;&gt;
+                &lt;md-icon&gt;folder&lt;/md-icon&gt;
+              &lt;/md-avatar&gt;
 
-&lt;md-avatar class=&quot;md-avatar-icon md-large md-accent&quot;&gt;
-  &lt;md-icon&gt;favorite&lt;/md-icon&gt;
-&lt;/md-avatar&gt;
+              &lt;md-avatar class=&quot;md-avatar-icon md-large md-accent&quot;&gt;
+                &lt;md-icon&gt;favorite&lt;/md-icon&gt;
+              &lt;/md-avatar&gt;
 
-&lt;md-avatar class=&quot;md-avatar-icon md-large md-warn&quot;&gt;
-  &lt;md-icon&gt;notes&lt;/md-icon&gt;
-&lt;/md-avatar&gt;
+              &lt;md-avatar class=&quot;md-avatar-icon md-large md-warn&quot;&gt;
+                &lt;md-icon&gt;notes&lt;/md-icon&gt;
+              &lt;/md-avatar&gt;
             </code-block>
           </div>
         </example-box>
