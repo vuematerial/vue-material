@@ -3,11 +3,11 @@
     <docs-component>
       <div slot="description">
         <p>Lists are best suited to presenting a homogeneous data type or sets of data types, such as images and text. They are optimized for reading comprehension while differentiating either between similar data types, or qualities within a single data type.</p>
-        <p>The <code>md-list</code> component have some auxiliary elements to align content and display actions:</p>
+        <p>The <code>md-list</code> component have some auxiliary classes to align content and display actions. All of them can be any HTML tag:</p>
         <ul>
-          <li><code>md-list-action</code>: Used to display a action on the right side of a list item. Commonly used to display a button with a single action.</li>
-          <li><code>md-list-text-container</code>: Used to align text horizontally with icons and actions. Used in double and triple lines.</li>
-          <li><code>md-divider</code>: Add a horizontal line between list items.</li>
+          <li><code>.md-list-action</code>: Used to display a action on the right side of a list item. Commonly used to display a button with a single action.</li>
+          <li><code>.md-list-text-container</code>: Used to align text horizontally with icons and actions. Used in double and triple lines.</li>
+          <li><code>.md-divider</code>: Add a horizontal line between list items.</li>
         </ul>
       </div>
 
