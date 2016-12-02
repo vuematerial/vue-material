@@ -101,13 +101,13 @@ $tab-max-width: 264px;
 
   .md-tabs-content {
     width: 100%;
-    height: 0;
+    //height: 0;
     position: relative;
     overflow: hidden;
     transition: height $swift-ease-out-duration $swift-ease-out-timing-function;
   }
 
-  .md-tabs-wrapper {
+  /*.md-tabs-wrapper {
     width: 9999em;
     position: absolute;
     top: 0;
@@ -116,16 +116,16 @@ $tab-max-width: 264px;
     left: 0;
     transform: translate3d(0, 0, 0);
     transition: transform $swift-ease-out-duration $swift-ease-out-timing-function;
-  }
+  }*/
 
   .md-tab {
     padding: 16px;
-    position: absolute;
+    /* position: absolute;
     top: 0;
     left: 0;
-    right: 0;
+    right: 0; */
     pointer-events: none;
-    transform: translate3d(0, -100%, 0);
+    //transform: translate3d(0, -100%, 0);
     transition: transform 0s $swift-ease-out-duration;
 
     &.md-active {

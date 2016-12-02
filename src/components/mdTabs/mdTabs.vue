@@ -1,24 +1,24 @@
 <template>
   <div class="md-tabs" :class="tabClasses">
-    <md-whiteframe :md-elevation="elevation || 0">
-      <div class="md-tabs-navigation" :class="navigationClasses">
+    <md-whiteframe :md-elevation="mdElevation">
+      <div class="md-tabs-navigation" :class="navigationClasses" ref="tabNavigation">
         <button
-          v-for="header in tabs"
+          v-for="header in tabList"
           :key="header.id"
           type="button"
           class="md-tab-header"
           :class="getHeaderClass(header)"
           :disabled="header.disabled"
-          @click="changeTab(header.id)"
-          v-md-ink-ripple="header.disabled"
+          @click="setActiveTab(header)"
           ref="tabHeader">
+          <md-ink-ripple :md-disabled="header.disabled"></md-ink-ripple>
           <div class="md-tab-header-container">
             <md-icon v-if="header.icon">{{ header.icon }}</md-icon>
             <span v-if="header.label">{{ header.label }}</span>
           </div>
         </button>
 
-        <span class="md-tab-indicator" :class="indicatorClass" ref="indicator"></span>
+        <span class="md-tab-indicator" :class="indicatorClasses" ref="indicator"></span>
       </div>
     </md-whiteframe>
 
@@ -33,6 +33,8 @@
 <style lang="scss" src="./mdTabs.scss"></style>
 
 <script>
+  import throttle from '../../core/utils/throttle';
+
   export default {
     props: {
       mdFixed: Boolean,
@@ -42,42 +44,17 @@
         type: Boolean,
         default: true
       },
-      mdElevation: [String, Number]
-    },
-    data() {
-      return {
-        hasIcons: false,
-        hasLabel: false,
-        elevation: this.mdElevation,
-        activeTab: '',
-        activeTabNumber: 0,
-        tabs: {}
-      };
-    },
-    watch: {
-      mdFixed() {
-        let transitionCounter = 0;
-        let transitionInterval = window.setInterval(() => {
-          transitionCounter++;
-
-          window.requestAnimationFrame(() => {
-            this.calculateIndicatorPos(true);
-          });
-
-          if (transitionCounter > 200) {
-            window.clearInterval(transitionInterval);
-          }
-        }, 10);
-
-        this.recalculateAllTabsPos();
-      },
-      mdCentered() {
-        this.recalculateAllTabsPos();
-      },
-      mdElevation() {
-        this.elevation = this.mdElevation;
+      mdElevation: {
+        type: [String, Number],
+        default: 0
       }
     },
+    data: () => ({
+      tabList: {},
+      activeTab: null,
+      activeTabNumber: 0,
+      transitionControl: null
+    }),
     computed: {
       tabClasses() {
         return {
@@ -93,7 +70,7 @@
           'md-has-label': this.hasLabel
         };
       },
-      indicatorClass() {
+      indicatorClasses() {
         let toLeft = this.lastIndicatorNumber > this.activeTabNumber;
 
         this.lastIndicatorNumber = this.activeTabNumber;
@@ -111,102 +88,85 @@
           'md-disabled': header.disabled
         };
       },
-      calculateIndicatorPos(recalculate) {
-        let indicator = this.$refs.indicator;
-        let tabsWidth = this.$el.offsetWidth;
-
-        if (recalculate) {
-          indicator.classList.add('md-transition-off');
-        }
-
-        this.$nextTick(() => {
-          let activeTab = this.$refs.tabHeader[this.activeTabNumber];
-          let left = activeTab.offsetLeft;
-          let right = tabsWidth - left - activeTab.offsetWidth;
-
-          indicator.style.left = left + 'px';
-          indicator.style.right = right + 'px';
-
-          if (recalculate) {
-            window.setTimeout(() => {
-              indicator.classList.remove('md-transition-off');
-            }, 100);
-          }
-        });
-      },
-      calculateTabPos(ref, index) {
-        this.$refs.tabWrapper.style.transform = 'translate3D(' + -this.$refs.tabContent.offsetWidth * this.activeTabNumber + 'px, 0, 0)';
-        ref.style.width = this.$refs.tabContent.offsetWidth + 'px';
-        ref.style.left = this.$refs.tabContent.offsetWidth * index + 'px';
-      },
-      setVisibleTab(ref) {
-        this.$refs.tabContent.style.height = ref.offsetHeight + 'px';
-        ref.classList.add('md-active');
-      },
-      changeTab(tabId) {
-        let idList = Object.keys(this.tabs);
-        let id = tabId || idList[0];
-        let index = idList.indexOf(id);
-
-        this.tabs[this.activeTab || id].ref.classList.remove('md-active');
-        this.activeTab = id;
-        this.activeTabNumber = index;
-
-        this.$emit('change', index);
-
-        window.setTimeout(() => {
-          this.calculateIndicatorPos();
-          this.calculateTabPos(this.tabs[id].ref, index);
-          this.setVisibleTab(this.tabs[id].ref);
-        });
-      },
-      handleTabData(data) {
-        let idList = Object.keys(this.tabs);
-        let index = idList.indexOf(data.id);
-
-        this.hasIcons = !!data.icon;
-        this.hasLabel = !!data.label;
-
-        if (!data.disabled && data.active) {
-          this.changeTab(data.id);
-        } else {
-          this.changeTab(idList[index + 1]);
-        }
-      },
-      registerTab(data) {
-        this.tabs[data.id] = data;
-        this.handleTabData(data);
-      },
-      updateTabData(data) {
-        this.tabs[data.id] = data;
-        this.handleTabData(data);
-        this.recalculateAllTabsPos();
+      registerTab(tabData) {
+        this.tabList[tabData.id] = tabData;
         this.$forceUpdate();
       },
-      recalculateAllTabsPos(transitionOff) {
-        if (typeof transitionOff === 'undefined') {
-          transitionOff = true;
-        }
-
-        window.requestAnimationFrame(() => {
-          this.calculateIndicatorPos(!transitionOff);
-
-          Object.keys(this.tabs).forEach((tab, index) => {
-            this.calculateTabPos(this.tabs[tab].ref, index);
-          });
+      unregisterTab(tabData) {
+        console.log(tabData);
+      },
+      updateTab(tabData) {
+        this.registerTab(tabData);
+      },
+      observeElementChanges() {
+        this.contentObserver = new MutationObserver(throttle(this.debounceTransition, 50));
+        this.navigationObserver = new MutationObserver(throttle(this.debounceTransition, 50));
+        this.contentObserver.observe(this.$refs.tabContent, {
+          childList: true,
+          attributes: true,
+          characterData: true,
+          subtree: true,
+          attributeOldValue: true,
+          characterDataOldValue: true
         });
+        this.navigationObserver.observe(this.$refs.tabNavigation, {
+          attributes: true
+        });
+      },
+      getTabIndex(id) {
+        let idList = Object.keys(this.tabList);
+
+        return idList.indexOf(id);
+      },
+      debounceTransition() {
+        window.clearTimeout(this.transitionControl);
+        this.transitionControl = window.setTimeout(() => {
+          this.calculateIndicatorPos();
+          this.$refs.indicator.classList.remove('md-transition-off');
+        }, 200);
+      },
+      calculateIndicatorPos() {
+        let tabsWidth = this.$el.offsetWidth;
+        let activeTab = this.$refs.tabHeader[this.activeTabNumber];
+        let left = activeTab.offsetLeft;
+        let right = tabsWidth - left - activeTab.offsetWidth;
+
+        this.$refs.indicator.style.left = left + 'px';
+        this.$refs.indicator.style.right = right + 'px';
+      },
+      calculatePosition() {
+        window.requestAnimationFrame(() => {
+          this.calculateIndicatorPos();
+        });
+      },
+      onWindowResize() {
+        this.$refs.indicator.classList.add('md-transition-off');
+        this.calculatePosition();
+        this.debounceTransition();
+      },
+      setActiveTab(tabData) {
+        this.hasIcons = !!tabData.icon;
+        this.hasLabel = !!tabData.label;
+        this.activeTab = tabData.id;
+        this.activeTabNumber = this.getTabIndex(this.activeTab);
+        this.calculatePosition();
       }
     },
     mounted() {
-      if (!this.activeTab) {
-        this.changeTab();
-      }
+      this.$nextTick(() => {
+        this.observeElementChanges();
+        window.addEventListener('resize', this.onWindowResize);
 
+        if (!this.activeTab) {
+          let firstTab = Object.keys(this.tabList)[0];
 
-      window.addEventListener('resize', this.recalculateAllTabsPos);
+          this.setActiveTab(this.tabList[firstTab]);
+        }
+      });
     },
     beforeDestroy() {
-      window.removeEventListener('resize', this.recalculateAllTabsPos);
+      this.contentObserver.disconnect();
+      window.removeEventListener('resize', this.onWindowResize);
     }
   };
 </script>

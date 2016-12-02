@@ -10,7 +10,7 @@
 
       &.md-active,
       &:focus {
-        color: #{'PRIMARY-CONTRAST-0.99999'};
+        color: #{'PRIMARY-CONTRAST'};
       }
 
       &.md-disabled {
@@ -56,7 +56,7 @@
 
         &.md-active,
         &:focus {
-          color: #{'ACCENT-CONTRAST-0.99999'};
+          color: #{'ACCENT-CONTRAST'};
         }
 
         &.md-disabled {
@@ -79,7 +79,7 @@
 
         &.md-active,
         &:focus {
-          color: #{'WARN-CONTRAST-0.99999'};
+          color: #{'WARN-CONTRAST'};
         }
 
         &.md-disabled {
