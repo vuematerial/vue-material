@@ -1,6 +1,6 @@
 <template>
   <page-content page-title="Components - Tabs">
-    <docs-component>
+    <!-- <docs-component>
       <div slot="description">
         <p>Tabs enable content organization at a high level, such as switching between views, data sets, or functional aspects of an app.</p>
         <p>The following classes can be applied to change the color palette:</p>
@@ -439,7 +439,21 @@
           </div>
         </example-box>
       </div>
-    </docs-component>
+    </docs-component> -->
+
+    <md-tabs>
+      <md-tab id="tab-1" md-label="Test 1">
+        <p>Optio, assumenda placeat laboriosam incidunt obcaecati nisi, ipsa earum rem cumque nesciunt iste animi recusandae! Nostrum vero quod consequuntur enim quo cum.</p>
+      </md-tab>
+
+      <md-tab id="tab-2" md-label="Test 2">
+        <p>Animi architecto blanditiis nihil aliquam nemo aperiam quo asperiores quam suscipit quae labore in, qui odit beatae assumenda, accusamus, ex sapiente fugit?</p>
+      </md-tab>
+
+      <md-tab id="tab-3" md-label="Test 3">
+        <p>Excepturi, blanditiis in a non ipsa. Praesentium atque maxime officia amet porro veritatis, vitae quisquam ex magni nisi sed. Asperiores, vel aut.</p>
+      </md-tab>
+    </md-tabs>
   </page-content>
 </template>
 

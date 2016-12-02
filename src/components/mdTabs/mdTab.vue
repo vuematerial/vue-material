@@ -1,10 +1,13 @@
 <template>
-  <div class="md-tab" :id="tabId" ref="tab">
+  <div class="md-tab" :id="tabId">
     <slot></slot>
   </div>
 </template>
 
 <script>
+  import uniqueId from '../../core/utils/uniqueId';
+  import getClosestVueParent from '../../core/utils/getClosestVueParent';
+
   export default {
     props: {
       id: [String, Number],
@@ -14,57 +17,40 @@
       mdDisabled: Boolean
     },
     data() {
-      let id;
-
-      if (!this.id) {
-        id = 'tab-' + Math.random().toString(36).substr(2, 10);
-      }
-
       return {
-        tabId: this.id || id
+        mounted: false,
+        tabId: this.id || 'tab-' + uniqueId()
       };
     },
-    watch: {
-      mdActive() {
-        this.updateTabData();
-      },
-      mdDisabled() {
-        this.updateTabData();
-      },
-      mdIcon() {
-        this.updateTabData();
-      },
-      mdLabel() {
-        this.updateTabData();
-      }
-    },
     methods: {
-      updateTabData() {
-        this.$parent.updateTabData({
+      getTabData() {
+        return {
           id: this.tabId,
           label: this.mdLabel,
           icon: this.mdIcon,
           active: this.mdActive,
-          disabled: this.mdDisabled,
-          ref: this.$refs.tab
-        });
+          disabled: this.mdDisabled
+        };
       }
     },
     mounted() {
-      if (!this.$parent.$el.classList.contains('md-tabs')) {
-        this.$destroy();
+      this.parentTabs = getClosestVueParent(this.$parent, 'md-tabs');
 
-        throw new Error('You should wrap the md-tab in a md-tabs');
+      if (!this.parentTabs) {
+        throw new Error('You must wrap the md-tab in a md-tabs');
       }
 
-      this.$parent.registerTab({
-        id: this.tabId,
-        label: this.mdLabel,
-        icon: this.mdIcon,
-        active: this.mdActive,
-        disabled: this.mdDisabled,
-        ref: this.$refs.tab
+      this.$nextTick(() => {
+        this.mounted = true;
+        this.parentTabs.registerTab(this.getTabData());
+
+        if (this.mdActive) {
+          this.parentTabs.activeTab = this.tabId;
+        }
       });
+    },
+    beforeDestroy() {
+      this.parentTabs.unregisterTab(this.getTabData());
     }
   };
 </script>
