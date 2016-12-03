@@ -1,5 +1,5 @@
 <template>
-  <div class="md-tab" :id="tabId">
+  <div class="md-tab" :id="tabId" :style="styles">
     <slot></slot>
   </div>
 </template>
@@ -19,8 +19,32 @@
     data() {
       return {
         mounted: false,
-        tabId: this.id || 'tab-' + uniqueId()
+        tabId: this.id || 'tab-' + uniqueId(),
+        width: '0px',
+        left: '0px'
       };
+    },
+    watch: {
+      mdActive() {
+        this.updateTabData();
+      },
+      mdDisabled() {
+        this.updateTabData();
+      },
+      mdIcon() {
+        this.updateTabData();
+      },
+      mdLabel() {
+        this.updateTabData();
+      }
+    },
+    computed: {
+      styles() {
+        return {
+          width: this.width,
+          left: this.left
+        };
+      }
     },
     methods: {
       getTabData() {
@@ -29,8 +53,12 @@
           label: this.mdLabel,
           icon: this.mdIcon,
           active: this.mdActive,
-          disabled: this.mdDisabled
+          disabled: this.mdDisabled,
+          ref: this
         };
+      },
+      updateTabData() {
+        this.parentTabs.updateTab(this.getTabData());
       }
     },
     mounted() {

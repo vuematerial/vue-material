@@ -22,8 +22,8 @@
       </div>
     </md-whiteframe>
 
-    <div class="md-tabs-content" ref="tabContent">
-      <div class="md-tabs-wrapper" ref="tabWrapper">
+    <div class="md-tabs-content" ref="tabContent" :style="{ height: contentHeight }">
+      <div class="md-tabs-wrapper" :style="{ transform: `translate3D(-${contentWidth}, 0, 0)` }">
         <slot></slot>
       </div>
     </div>
@@ -33,8 +33,6 @@
 <style lang="scss" src="./mdTabs.scss"></style>
 
 <script>
-  import throttle from '../../core/utils/throttle';
-
   export default {
     props: {
       mdFixed: Boolean,
@@ -53,21 +51,26 @@
       tabList: {},
       activeTab: null,
       activeTabNumber: 0,
-      transitionControl: null
+      hasIcons: false,
+      hasLabel: false,
+      transitionControl: null,
+      contentHeight: '0px',
+      contentWidth: '0px'
     }),
     computed: {
       tabClasses() {
         return {
-          'md-no-transition': !this.mdDynamicHeight
+          'md-dynamic-height': this.mdDynamicHeight,
+          'md-transition-off': this.transitionOff
         };
       },
       navigationClasses() {
         return {
+          'md-has-icon': this.hasIcons,
+          'md-has-label': this.hasLabel,
           'md-fixed': this.mdFixed,
           'md-right': !this.mdCentered && this.mdRight,
-          'md-centered': this.mdCentered || this.mdFixed,
-          'md-has-icon': this.hasIcons,
-          'md-has-label': this.hasLabel
+          'md-centered': this.mdCentered || this.mdFixed
         };
       },
       indicatorClasses() {
@@ -76,6 +79,7 @@
         this.lastIndicatorNumber = this.activeTabNumber;
 
         return {
+          'md-transition-off': this.transitionOff,
           'md-to-right': !toLeft,
           'md-to-left': toLeft
         };
@@ -93,14 +97,30 @@
         this.$forceUpdate();
       },
       unregisterTab(tabData) {
-        console.log(tabData);
+        delete this.tabList[tabData.id];
       },
       updateTab(tabData) {
         this.registerTab(tabData);
+
+        if (tabData.active) {
+          if (!tabData.disabled) {
+            this.setActiveTab(tabData);
+          } else {
+            let tabsIds = Object.keys(this.tabList);
+            let targetIndex = tabsIds.indexOf(tabData.id) + 1;
+            let target = tabsIds[targetIndex];
+
+            if (target) {
+              this.setActiveTab(this.tabList[target]);
+            } else {
+              this.setActiveTab(this.tabList[0]);
+            }
+          }
+        }
       },
       observeElementChanges() {
-        this.contentObserver = new MutationObserver(throttle(this.debounceTransition, 50));
-        this.navigationObserver = new MutationObserver(throttle(this.debounceTransition, 50));
+        this.contentObserver = new MutationObserver(this.calculateOnWatch);
+        this.navigationObserver = new MutationObserver(this.calculateOnWatch);
         this.contentObserver.observe(this.$refs.tabContent, {
           childList: true,
           attributes: true,
@@ -118,13 +138,6 @@
 
         return idList.indexOf(id);
       },
-      debounceTransition() {
-        window.clearTimeout(this.transitionControl);
-        this.transitionControl = window.setTimeout(() => {
-          this.calculateIndicatorPos();
-          this.$refs.indicator.classList.remove('md-transition-off');
-        }, 200);
-      },
       calculateIndicatorPos() {
         let tabsWidth = this.$el.offsetWidth;
         let activeTab = this.$refs.tabHeader[this.activeTabNumber];
@@ -134,13 +147,39 @@
         this.$refs.indicator.style.left = left + 'px';
         this.$refs.indicator.style.right = right + 'px';
       },
+      calculateTabsWidthAndPosition() {
+        const width = this.$el.offsetWidth;
+
+        this.contentWidth = width * this.activeTabNumber + 'px';
+
+        Object.values(this.tabList).forEach((tab, index) => {
+          tab.ref.width = width + 'px';
+          tab.ref.left = width * index + 'px';
+        });
+      },
+      calculateContentHeight() {
+        this.$nextTick(() => {
+          let height = this.tabList[this.activeTab].ref.$el.offsetHeight;
+
+          this.contentHeight = height + 'px';
+        });
+      },
       calculatePosition() {
         window.requestAnimationFrame(() => {
           this.calculateIndicatorPos();
+          this.calculateTabsWidthAndPosition();
+          this.calculateContentHeight();
         });
       },
-      onWindowResize() {
-        this.$refs.indicator.classList.add('md-transition-off');
+      debounceTransition() {
+        window.clearTimeout(this.transitionControl);
+        this.transitionControl = window.setTimeout(() => {
+          this.calculatePosition();
+          this.transitionOff = false;
+        }, 200);
+      },
+      calculateOnWatch() {
+        this.transitionOff = true;
         this.calculatePosition();
         this.debounceTransition();
       },
@@ -155,7 +194,7 @@
     mounted() {
       this.$nextTick(() => {
         this.observeElementChanges();
-        window.addEventListener('resize', this.onWindowResize);
+        window.addEventListener('resize', this.calculateOnWatch);
 
         if (!this.activeTab) {
           let firstTab = Object.keys(this.tabList)[0];
@@ -166,7 +205,7 @@
     },
     beforeDestroy() {
       this.contentObserver.disconnect();
-      window.removeEventListener('resize', this.onWindowResize);
+      window.removeEventListener('resize', this.calculateOnWatch);
     }
   };
 </script>

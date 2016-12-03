@@ -9,6 +9,16 @@ $tab-max-width: 264px;
   flex-flow: column;
   position: relative;
 
+  &.md-transition-off * {
+    transition: none !important;
+  }
+
+  &.md-dynamic-height {
+    .md-tabs-content {
+      transition: height $swift-ease-out-duration $swift-ease-out-timing-function;
+    }
+  }
+
   .md-tabs-navigation {
     height: 48px;
     min-height: 48px;
@@ -82,6 +92,10 @@ $tab-max-width: 264px;
     left: 0;
     transform: translate3D(0, 0, 0);
 
+    &.md-transition-off {
+      transition: none !important;
+    }
+
     &.md-to-right {
       transition: $swift-ease-out,
                   left .3s $swift-ease-in-out-timing-function,
@@ -95,19 +109,14 @@ $tab-max-width: 264px;
     }
   }
 
-  .md-transition-off {
-    transition: none !important;
-  }
-
   .md-tabs-content {
     width: 100%;
-    //height: 0;
+    height: 0;
     position: relative;
     overflow: hidden;
-    transition: height $swift-ease-out-duration $swift-ease-out-timing-function;
   }
 
-  /*.md-tabs-wrapper {
+  .md-tabs-wrapper {
     width: 9999em;
     position: absolute;
     top: 0;
@@ -116,28 +125,13 @@ $tab-max-width: 264px;
     left: 0;
     transform: translate3d(0, 0, 0);
     transition: transform $swift-ease-out-duration $swift-ease-out-timing-function;
-  }*/
+  }
 
   .md-tab {
     padding: 16px;
-    /* position: absolute;
+    position: absolute;
     top: 0;
     left: 0;
-    right: 0; */
-    pointer-events: none;
-    //transform: translate3d(0, -100%, 0);
-    transition: transform 0s $swift-ease-out-duration;
-
-    &.md-active {
-      transform: translate3d(0, 0, 0);
-      pointer-events: auto;
-      transition: none;
-    }
-  }
-}
-
-.md-tabs.md-no-transition {
-  .md-tabs-content {
-    transition: none !important;
+    right: 0;
   }
 }
