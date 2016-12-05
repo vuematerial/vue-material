@@ -14,39 +14,62 @@ $menu-base-width: 56px;
   max-height: calc(100vh - 32px);
   overflow-x: hidden;
   overflow-y: auto;
-  position: fixed;
+  position: absolute;
   z-index: 120;
+  transform: scale(.9, .85) translateZ(0);
   background-color: #fff;
   border-radius: 2px;
-  filter: drop-shadow(0 1px 1px rgba(#000, $shadow-key-umbra-opacity)) drop-shadow(0 2px 2px rgba(#000, $shadow-key-penumbra-opacity)) drop-shadow(0 1px 1px rgba(#000, $shadow-ambient-shadow-opacity));
+  box-shadow: $material-shadow-2dp;
   opacity: 0;
   transition: width $swift-ease-out-duration $swift-ease-out-timing-function,
               opacity .25s $swift-ease-in-timing-function,
-              clip-path .17s .08s $swift-ease-in-timing-function;
+              margin .2s $swift-ease-in-timing-function,
+              transform 0s .25s $swift-ease-in-timing-function;
+  will-change: transform, opacity, width;
   color: rgba(#212121, .87);
 
   &.md-direction-bottom-right {
-    margin-top: -11px;
+    margin-top: -20px;
     margin-left: -8px;
-    clip-path: inset(-8px 10% 16% -8px);
+    transform-origin: top left;
+
+    &.md-active {
+      margin-top: -11px;
+    }
   }
 
   &.md-direction-bottom-left {
-    margin-top: -11px;
+    margin-top: -20px;
     margin-left: 8px;
-    clip-path: inset(-8px -8px 16% 10%);
+    transform-origin: top right;
+
+    &.md-active {
+      margin-top: -11px;
+    }
   }
 
   &.md-direction-top-right {
-    margin-top: 11px;
+    margin-top: 20px;
     margin-left: -8px;
-    clip-path: inset(-8px 16% -8px 10%);
+    transform-origin: bottom left;
+
+    &.md-active {
+      margin-top: 11px;
+    }
   }
 
   &.md-direction-top-left {
-    margin-top: 11px;
+    margin-top: 20px;
     margin-left: 8px;
-    clip-path: inset(16% -8px -8px 10%);
+    transform-origin: bottom right;
+
+    &.md-active {
+      margin-top: 11px;
+    }
+  }
+
+  &.md-align-trigger {
+    margin: 0;
   }
 
   &.md-size-1 {
@@ -62,10 +85,20 @@ $menu-base-width: 56px;
   &.md-active {
     pointer-events: auto;
     opacity: 1;
-    clip-path: inset(-8px -8px -8px -8px);
+    transform: scale(1) translateZ(0);
     transition: width $swift-ease-out-duration $swift-ease-out-timing-function,
-                opacity .4s $swift-ease-out-timing-function,
-                clip-path .27s .08s $swift-ease-out-timing-function;
+                opacity .35s $swift-ease-out-timing-function,
+                transform .25s .05s $swift-ease-out-timing-function;
+
+    .md-list {
+      opacity: 1;
+      transition: opacity .2s .15s $swift-ease-out-timing-function;
+    }
+  }
+
+  .md-list {
+    opacity: 0;
+    transition: opacity .2s $swift-ease-out-timing-function;
   }
 }
 

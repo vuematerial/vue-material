@@ -1,6 +1,8 @@
 <template>
   <div class="md-menu">
     <slot></slot>
+
+    <md-backdrop class="md-menu-backdrop md-transparent md-active" ref="backdrop" @close="close"></md-backdrop>
   </div>
 </template>
 
@@ -20,17 +22,26 @@
         type: String,
         default: 'bottom right'
       },
+      mdAlignTrigger: {
+        type: Boolean,
+        default: false
+      },
+      mdOffsetX: {
+        type: [Number, String],
+        default: 0
+      },
+      mdOffsetY: {
+        type: [Number, String],
+        default: 0
+      },
       mdCloseOnSelect: {
         type: Boolean,
         default: true
       }
     },
-    data() {
-      return {
-        browserMargin: 8,
-        active: false
-      };
-    },
+    data: () => ({
+      active: false
+    }),
     watch: {
       mdSize(current, previous) {
         if (current >= 1 && current <= 7) {
@@ -41,6 +52,9 @@
       mdDirection(current, previous) {
         this.removeLastDirectionMenuContentClass(previous);
         this.addNewDirectionMenuContentClass(current);
+      },
+      mdAlignTrigger(trigger) {
+        this.handleAlignTriggerClass(trigger);
       }
     },
     methods: {
@@ -61,85 +75,53 @@
         this.menuContent.classList.remove('md-size-' + size);
       },
       removeLastDirectionMenuContentClass(direction) {
-        this.menuContent.classList.remove('md-direction-' + direction.replace(' ', '-'));
+        this.menuContent.classList.remove('md-direction-' + direction.replace(/ /g, '-'));
       },
       addNewSizeMenuContentClass(size) {
         this.menuContent.classList.add('md-size-' + size);
       },
       addNewDirectionMenuContentClass(direction) {
-        this.menuContent.classList.add('md-direction-' + direction.replace(' ', '-'));
+        this.menuContent.classList.add('md-direction-' + direction.replace(/ /g, '-'));
       },
-      closeOnOffClick(event) {
-        if (!this.$el.contains(event.target) && !this.menuContent.contains(event.target)) {
-          this.close();
+      handleAlignTriggerClass(trigger) {
+        if (trigger) {
+          this.menuContent.classList.add('md-align-trigger');
         }
       },
-      getBottomRightPos() {
+      getPosition(vertical, horizontal) {
         let menuTriggerRect = this.menuTrigger.getBoundingClientRect();
-        let position = {
-          top: menuTriggerRect.top,
-          left: menuTriggerRect.left
-        };
 
-        position = getInViewPosition(this.menuContent, position);
+        let top = vertical === 'top'
+          ? menuTriggerRect.top + menuTriggerRect.height - this.menuContent.offsetHeight
+          : menuTriggerRect.top;
 
-        return position;
-      },
-      getBottomLeftPos() {
-        let menuTriggerRect = this.menuTrigger.getBoundingClientRect();
-        let position = {
-          top: menuTriggerRect.top,
-          left: menuTriggerRect.left - this.menuContent.offsetWidth + menuTriggerRect.width
-        };
+        let left = horizontal === 'left'
+          ? menuTriggerRect.left - this.menuContent.offsetWidth + menuTriggerRect.width
+          : menuTriggerRect.left;
 
-        position = getInViewPosition(this.menuContent, position);
+        top += parseInt(this.mdOffsetY, 10);
+        left += parseInt(this.mdOffsetX, 10);
 
-        return position;
-      },
-      getTopRightPos() {
-        let menuTriggerRect = this.menuTrigger.getBoundingClientRect();
-        let position = {
-          top: menuTriggerRect.top + menuTriggerRect.height - this.menuContent.offsetHeight,
-          left: menuTriggerRect.left
-        };
+        if (this.mdAlignTrigger) {
+          if (vertical === 'top') {
+            top -= menuTriggerRect.height;
+          } else {
+            top += menuTriggerRect.height;
+          }
+        }
 
-        position = getInViewPosition(this.menuContent, position);
-
-        return position;
-      },
-      getTopLeftPos() {
-        let menuTriggerRect = this.menuTrigger.getBoundingClientRect();
-        let position = {
-          top: menuTriggerRect.top + menuTriggerRect.height - this.menuContent.offsetHeight,
-          left: menuTriggerRect.left - this.menuContent.offsetWidth + menuTriggerRect.width
-        };
-
-        position = getInViewPosition(this.menuContent, position);
-
-        return position;
+        return { top, left };
       },
       calculateMenuContentPos() {
         let position;
 
-        switch (this.mdDirection) {
-          case 'bottom left':
-            position = this.getBottomLeftPos();
-
-            break;
-
-          case 'top right':
-            position = this.getTopRightPos();
-
-            break;
-
-          case 'top left':
-            position = this.getTopLeftPos();
-
-            break;
-
-          default:
-            position = this.getBottomRightPos();
+        if (!this.mdDirection) {
+          position = this.getPosition('bottom', 'right');
+        } else {
+          position = this.getPosition.apply(this, this.mdDirection.trim().split(' '));
         }
+
+        position = getInViewPosition(this.menuContent, position);
 
         this.menuContent.style.top = position.top + 'px';
         this.menuContent.style.left = position.left + 'px';
@@ -148,12 +130,12 @@
         window.requestAnimationFrame(this.calculateMenuContentPos);
       },
       open() {
-        if (this.$root.$el.contains(this.menuContent)) {
-          this.$root.$el.removeChild(this.menuContent);
+        if (this.rootElement.contains(this.menuContent)) {
+          this.rootElement.removeChild(this.menuContent);
         }
 
-        this.$root.$el.appendChild(this.menuContent);
-        document.addEventListener('click', this.closeOnOffClick);
+        this.rootElement.appendChild(this.menuContent);
+        this.rootElement.appendChild(this.backdropElement);
         window.addEventListener('resize', this.recalculateOnResize);
 
         this.calculateMenuContentPos();
@@ -162,14 +144,14 @@
         this.menuContent.classList.add('md-active');
         this.menuContent.focus();
         this.active = true;
+        this.$emit('open');
       },
       close() {
-        let menuContent = this.menuContent;
         let close = (event) => {
-          if (menuContent && event.target === menuContent) {
+          if (this.menuContent && event.target === this.menuContent) {
             let activeRipple = this.menuContent.querySelector('.md-ripple.md-active');
 
-            menuContent.removeEventListener(transitionEndEventName, close);
+            this.menuContent.removeEventListener(transitionEndEventName, close);
             this.menuTrigger.focus();
             this.active = false;
 
@@ -177,14 +159,15 @@
               activeRipple.classList.remove('md-active');
             }
 
-            this.$root.$el.removeChild(menuContent);
-            document.removeEventListener('click', this.closeOnOffClick);
+            this.rootElement.removeChild(this.menuContent);
+            this.rootElement.removeChild(this.backdropElement);
             window.removeEventListener('resize', this.recalculateOnResize);
           }
         };
 
         this.menuContent.addEventListener(transitionEndEventName, close);
         this.menuContent.classList.remove('md-active');
+        this.$emit('close');
       },
       toggle() {
         if (this.active) {
@@ -195,13 +178,28 @@
       }
     },
     mounted() {
-      this.menuTrigger = this.$el.querySelector('[md-menu-trigger]');
-      this.menuContent = this.$el.querySelector('.md-menu-content');
-      this.validateMenu();
-      this.addNewSizeMenuContentClass(this.mdSize);
-      this.addNewDirectionMenuContentClass(this.mdDirection);
-      this.menuContent.parentNode.removeChild(this.menuContent);
-      this.menuTrigger.addEventListener('click', this.toggle);
+      this.$nextTick(() => {
+        this.rootElement = this.$root.$el;
+        this.menuTrigger = this.$el.querySelector('[md-menu-trigger]');
+        this.menuContent = this.$el.querySelector('.md-menu-content');
+        this.backdropElement = this.$refs.backdrop.$el;
+        this.validateMenu();
+        this.handleAlignTriggerClass(this.mdAlignTrigger);
+        this.addNewSizeMenuContentClass(this.mdSize);
+        this.addNewDirectionMenuContentClass(this.mdDirection);
+        this.$el.removeChild(this.$refs.backdrop.$el);
+        this.menuContent.parentNode.removeChild(this.menuContent);
+        this.menuTrigger.addEventListener('click', this.toggle);
+      });
+    },
+    beforeDestroy() {
+      if (this.rootElement.contains(this.menuContent)) {
+        this.rootElement.removeChild(this.menuContent);
+        this.rootElement.removeChild(this.backdropElement);
+      }
+
+      this.menuTrigger.removeEventListener('click', this.toggle);
+      window.removeEventListener('resize', this.recalculateOnResize);
     }
   };
 </script>

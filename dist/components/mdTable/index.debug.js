@@ -55,12 +55,12 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(156);
+	module.exports = __webpack_require__(182);
 
 
 /***/ },
 
-/***/ 92:
+/***/ 119:
 /***/ function(module, exports) {
 
 	"use strict";
@@ -69,7 +69,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	var getClosestVueParent = function getClosestVueParent($parent, cssClass) {
-	  if (!$parent.$el) {
+	  if (!$parent || !$parent.$el) {
 	    return false;
 	  }
 	
@@ -89,7 +89,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 156:
+/***/ 182:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -99,39 +99,39 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 	exports.default = install;
 	
-	var _mdTable = __webpack_require__(157);
+	var _mdTable = __webpack_require__(183);
 	
 	var _mdTable2 = _interopRequireDefault(_mdTable);
 	
-	var _mdTableRow = __webpack_require__(161);
+	var _mdTableRow = __webpack_require__(187);
 	
 	var _mdTableRow2 = _interopRequireDefault(_mdTableRow);
 	
-	var _mdTableHead = __webpack_require__(164);
+	var _mdTableHead = __webpack_require__(190);
 	
 	var _mdTableHead2 = _interopRequireDefault(_mdTableHead);
 	
-	var _mdTableCell = __webpack_require__(167);
+	var _mdTableCell = __webpack_require__(193);
 	
 	var _mdTableCell2 = _interopRequireDefault(_mdTableCell);
 	
-	var _mdTableEdit = __webpack_require__(170);
+	var _mdTableEdit = __webpack_require__(196);
 	
 	var _mdTableEdit2 = _interopRequireDefault(_mdTableEdit);
 	
-	var _mdTableCard = __webpack_require__(173);
+	var _mdTableCard = __webpack_require__(199);
 	
 	var _mdTableCard2 = _interopRequireDefault(_mdTableCard);
 	
-	var _mdTableAlternateHeader = __webpack_require__(175);
+	var _mdTableAlternateHeader = __webpack_require__(201);
 	
 	var _mdTableAlternateHeader2 = _interopRequireDefault(_mdTableAlternateHeader);
 	
-	var _mdTablePagination = __webpack_require__(178);
+	var _mdTablePagination = __webpack_require__(204);
 	
 	var _mdTablePagination2 = _interopRequireDefault(_mdTablePagination);
 	
-	var _mdTable3 = __webpack_require__(181);
+	var _mdTable3 = __webpack_require__(207);
 	
 	var _mdTable4 = _interopRequireDefault(_mdTable3);
 	
@@ -169,20 +169,20 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 157:
+/***/ 183:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = {}
 	
 	/* styles */
-	__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"!!./../../../node_modules/extract-text-webpack-plugin/loader.js?{\"remove\":true}!css!vue-loader/lib/style-rewriter?id=data-v-dda64186!sass!./mdTable.scss\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()))
+	__webpack_require__(184)
 	
 	/* script */
-	__vue_exports__ = __webpack_require__(159)
+	__vue_exports__ = __webpack_require__(185)
 	
 	/* template */
-	var __vue_template__ = __webpack_require__(160)
+	var __vue_template__ = __webpack_require__(186)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -217,7 +217,14 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 159:
+/***/ 184:
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+
+/***/ 185:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -226,7 +233,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	
-	var _getClosestVueParent = __webpack_require__(92);
+	var _getClosestVueParent = __webpack_require__(119);
 	
 	var _getClosestVueParent2 = _interopRequireDefault(_getClosestVueParent);
 	
@@ -283,14 +290,15 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 160:
+/***/ 186:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports={render:function (){var _vm=this;
-	  return _vm._h('div', {
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
+	  return _h('div', {
 	    staticClass: "md-table"
-	  }, [_vm._h('table', [_vm._t("default")])])
+	  }, [_h('table', [_vm._t("default")])])
 	},staticRenderFns: []}
+	module.exports.render._withStripped = true
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
@@ -300,17 +308,17 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 161:
+/***/ 187:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = {}
 	
 	/* script */
-	__vue_exports__ = __webpack_require__(162)
+	__vue_exports__ = __webpack_require__(188)
 	
 	/* template */
-	var __vue_template__ = __webpack_require__(163)
+	var __vue_template__ = __webpack_require__(189)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -345,7 +353,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 162:
+/***/ 188:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -354,7 +362,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	
-	var _getClosestVueParent = __webpack_require__(92);
+	var _getClosestVueParent = __webpack_require__(119);
 	
 	var _getClosestVueParent2 = _interopRequireDefault(_getClosestVueParent);
 	
@@ -397,6 +405,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	      return {
 	        'md-selected': this.checkbox
 	      };
+	    }
+	  },
+	  watch: {
+	    mdItem: function mdItem(newValue, oldValue) {
+	      this.parentTable.data[this.index] = this.mdItem;
+	      this.handleMultipleSelection(newValue === oldValue);
 	    }
 	  },
 	  methods: {
@@ -457,11 +471,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	      }
 	    }
 	  },
-	  watch: {
-	    data: function data() {
-	      this.parentTable.data[this.index] = this.item;
-	    }
-	  },
 	  mounted: function mounted() {
 	    this.parentTable = (0, _getClosestVueParent2.default)(this.$parent, 'md-table');
 	
@@ -485,19 +494,19 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 163:
+/***/ 189:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports={render:function (){var _vm=this;
-	  return _vm._h('tr', {
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
+	  return _h('tr', {
 	    staticClass: "md-table-row",
 	    class: _vm.classes,
 	    on: {
 	      "click": _vm.autoSelect
 	    }
-	  }, [(_vm.hasSelection) ? _vm._h('md-table-cell', {
+	  }, [(_vm.hasSelection) ? _h('md-table-cell', {
 	    staticClass: "md-table-selection"
-	  }, [_vm._h('md-checkbox', {
+	  }, [_h('md-checkbox', {
 	    directives: [{
 	      name: "model",
 	      rawName: "v-model",
@@ -518,6 +527,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  })]) : _vm._e(), " ", _vm._t("default")])
 	},staticRenderFns: []}
+	module.exports.render._withStripped = true
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
@@ -527,17 +537,17 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 164:
+/***/ 190:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = {}
 	
 	/* script */
-	__vue_exports__ = __webpack_require__(165)
+	__vue_exports__ = __webpack_require__(191)
 	
 	/* template */
-	var __vue_template__ = __webpack_require__(166)
+	var __vue_template__ = __webpack_require__(192)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -572,7 +582,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 165:
+/***/ 191:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -581,7 +591,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	
-	var _getClosestVueParent = __webpack_require__(92);
+	var _getClosestVueParent = __webpack_require__(119);
 	
 	var _getClosestVueParent2 = _interopRequireDefault(_getClosestVueParent);
 	
@@ -663,17 +673,17 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 166:
+/***/ 192:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports={render:function (){var _vm=this;
-	  return _vm._h('th', {
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
+	  return _h('th', {
 	    staticClass: "md-table-head",
 	    class: _vm.classes,
 	    on: {
 	      "click": _vm.changeSort
 	    }
-	  }, [_vm._h('div', {
+	  }, [_h('div', {
 	    directives: [{
 	      name: "md-ink-ripple",
 	      rawName: "v-md-ink-ripple",
@@ -681,12 +691,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	      expression: "!mdSortBy"
 	    }],
 	    staticClass: "md-table-head-container"
-	  }, [_vm._h('div', {
+	  }, [_h('div', {
 	    staticClass: "md-table-head-text md-test"
-	  }, [(_vm.mdSortBy) ? _vm._h('md-icon', {
+	  }, [(_vm.mdSortBy) ? _h('md-icon', {
 	    staticClass: "md-sortable-icon"
-	  }, ["arrow_downward"]) : _vm._e(), " ", _vm._t("default"), " ", (_vm.mdTooltip) ? _vm._h('md-tooltip', [_vm._s(_vm.mdTooltip)]) : _vm._e()])])])
+	  }, ["arrow_downward"]) : _vm._e(), " ", _vm._t("default"), " ", (_vm.mdTooltip) ? _h('md-tooltip', [_vm._s(_vm.mdTooltip)]) : _vm._e()])])])
 	},staticRenderFns: []}
+	module.exports.render._withStripped = true
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
@@ -696,17 +707,17 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 167:
+/***/ 193:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = {}
 	
 	/* script */
-	__vue_exports__ = __webpack_require__(168)
+	__vue_exports__ = __webpack_require__(194)
 	
 	/* template */
-	var __vue_template__ = __webpack_require__(169)
+	var __vue_template__ = __webpack_require__(195)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -741,7 +752,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 168:
+/***/ 194:
 /***/ function(module, exports) {
 
 	'use strict';
@@ -762,11 +773,22 @@ return /******/ (function(modules) { // webpackBootstrap
 	  props: {
 	    mdNumeric: Boolean
 	  },
+	  data: function data() {
+	    return {
+	      hasAction: false
+	    };
+	  },
 	  computed: {
 	    classes: function classes() {
 	      return {
-	        'md-numeric': this.mdNumeric
+	        'md-numeric': this.mdNumeric,
+	        'md-has-action': this.hasAction
 	      };
+	    }
+	  },
+	  mounted: function mounted() {
+	    if (this.$children.length > 0) {
+	      this.hasAction = true;
 	    }
 	  }
 	};
@@ -774,17 +796,18 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 169:
+/***/ 195:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports={render:function (){var _vm=this;
-	  return _vm._h('td', {
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
+	  return _h('td', {
 	    staticClass: "md-table-cell",
 	    class: _vm.classes
-	  }, [_vm._h('div', {
+	  }, [_h('div', {
 	    staticClass: "md-table-cell-container"
 	  }, [_vm._t("default")])])
 	},staticRenderFns: []}
+	module.exports.render._withStripped = true
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
@@ -794,17 +817,17 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 170:
+/***/ 196:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = {}
 	
 	/* script */
-	__vue_exports__ = __webpack_require__(171)
+	__vue_exports__ = __webpack_require__(197)
 	
 	/* template */
-	var __vue_template__ = __webpack_require__(172)
+	var __vue_template__ = __webpack_require__(198)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -839,7 +862,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 171:
+/***/ 197:
 /***/ function(module, exports) {
 
 	'use strict';
@@ -871,7 +894,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	exports.default = {
 	  props: {
-	    value: String,
+	    value: [String, Number],
 	    mdLarge: Boolean,
 	    mdId: String,
 	    mdName: String,
@@ -931,19 +954,19 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 172:
+/***/ 198:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports={render:function (){var _vm=this;
-	  return _vm._h('div', {
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
+	  return _h('div', {
 	    staticClass: "md-table-edit",
 	    on: {
 	      "keydown": function($event) {
-	        if ($event.keyCode !== 27) { return; }
+	        if (_vm._k($event.keyCode, "esc", 27)) { return; }
 	        _vm.closeDialog($event)
 	      }
 	    }
-	  }, [_vm._h('div', {
+	  }, [_h('div', {
 	    staticClass: "md-table-edit-trigger",
 	    class: _vm.triggerClasses,
 	    on: {
@@ -952,11 +975,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _vm.openDialog($event)
 	      }
 	    }
-	  }, ["\n    " + _vm._s(_vm.value || _vm.mdPlaceholder) + "\n  "]), " ", _vm._h('div', {
+	  }, ["\n    " + _vm._s(_vm.value || _vm.mdPlaceholder) + "\n  "]), " ", _h('div', {
 	    ref: "dialog",
 	    staticClass: "md-table-dialog",
 	    class: _vm.dialogClasses
-	  }, [_vm._h('md-input-container', [_vm._h('md-input', {
+	  }, [_h('md-input-container', [_h('md-input', {
 	    ref: "input",
 	    attrs: {
 	      "id": _vm.mdId,
@@ -967,12 +990,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	    },
 	    nativeOn: {
 	      "keydown": function($event) {
-	        if ($event.keyCode !== 13) { return; }
+	        if (_vm._k($event.keyCode, "enter", 13)) { return; }
 	        _vm.confirmDialog($event)
 	      }
 	    }
 	  })])])])
 	},staticRenderFns: []}
+	module.exports.render._withStripped = true
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
@@ -982,14 +1006,14 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 173:
+/***/ 199:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = {}
 	
 	/* template */
-	var __vue_template__ = __webpack_require__(174)
+	var __vue_template__ = __webpack_require__(200)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -1024,14 +1048,15 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 174:
+/***/ 200:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports={render:function (){var _vm=this;
-	  return _vm._h('md-card', {
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
+	  return _h('md-card', {
 	    staticClass: "md-table-card"
 	  }, [_vm._t("default")])
 	},staticRenderFns: []}
+	module.exports.render._withStripped = true
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
@@ -1041,17 +1066,17 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 175:
+/***/ 201:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = {}
 	
 	/* script */
-	__vue_exports__ = __webpack_require__(176)
+	__vue_exports__ = __webpack_require__(202)
 	
 	/* template */
-	var __vue_template__ = __webpack_require__(177)
+	var __vue_template__ = __webpack_require__(203)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -1086,7 +1111,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 176:
+/***/ 202:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1095,7 +1120,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	
-	var _getClosestVueParent = __webpack_require__(92);
+	var _getClosestVueParent = __webpack_require__(119);
 	
 	var _getClosestVueParent2 = _interopRequireDefault(_getClosestVueParent);
 	
@@ -1103,7 +1128,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	exports.default = {
 	  props: {
-	    mdSelectedLabel: String
+	    mdSelectedLabel: {
+	      type: String,
+	      default: 'selected'
+	    }
 	  },
 	  data: function data() {
 	    return {
@@ -1145,19 +1173,20 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 177:
+/***/ 203:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports={render:function (){var _vm=this;
-	  return _vm._h('div', {
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
+	  return _h('div', {
 	    staticClass: "md-table-alternate-header",
 	    class: _vm.classes
-	  }, [_vm._h('md-toolbar', [_vm._h('div', {
+	  }, [_h('md-toolbar', [_h('div', {
 	    staticClass: "md-counter"
-	  }, [_vm._h('span', {
+	  }, [_h('span', {
 	    ref: "counter"
-	  }, [_vm._s(_vm.tableInstance.numberOfSelected)]), " ", _vm._h('span', [_vm._s(_vm.mdSelectedLabel)])]), " ", _vm._t("default")])])
+	  }, [_vm._s(_vm.tableInstance.numberOfSelected)]), " ", _h('span', [_vm._s(_vm.mdSelectedLabel)])]), " ", _vm._t("default")])])
 	},staticRenderFns: []}
+	module.exports.render._withStripped = true
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
@@ -1167,17 +1196,17 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 178:
+/***/ 204:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = {}
 	
 	/* script */
-	__vue_exports__ = __webpack_require__(179)
+	__vue_exports__ = __webpack_require__(205)
 	
 	/* template */
-	var __vue_template__ = __webpack_require__(180)
+	var __vue_template__ = __webpack_require__(206)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -1212,7 +1241,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 179:
+/***/ 205:
 /***/ function(module, exports) {
 
 	'use strict';
@@ -1268,7 +1297,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	  data: function data() {
 	    return {
 	      currentSize: parseInt(this.mdSize, 10),
-	      currentPage: parseInt(this.mdPage, 10)
+	      currentPage: parseInt(this.mdPage, 10),
+	      totalItems: !isNaN(this.mdTotal) && Number.MAX_SAFE_INTEGER
 	    };
 	  },
 	
@@ -1313,15 +1343,15 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 180:
+/***/ 206:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports={render:function (){var _vm=this;
-	  return _vm._h('div', {
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
+	  return _h('div', {
 	    staticClass: "md-table-pagination"
-	  }, [_vm._h('span', {
+	  }, [_h('span', {
 	    staticClass: "md-table-pagination-label"
-	  }, [_vm._s(_vm.mdLabel) + ":"]), " ", (_vm.mdPageOptions) ? _vm._h('md-select', {
+	  }, [_vm._s(_vm.mdLabel) + ":"]), " ", (_vm.mdPageOptions) ? _h('md-select', {
 	    directives: [{
 	      name: "model",
 	      rawName: "v-model",
@@ -1341,12 +1371,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	      }
 	    }
 	  }, [_vm._l((_vm.mdPageOptions), function(amount) {
-	    return _vm._h('md-option', {
+	    return _h('md-option', {
 	      attrs: {
 	        "value": amount
 	      }
 	    }, [_vm._s(amount)])
-	  })]) : _vm._e(), " ", _vm._h('span', [_vm._s((_vm.currentSize - _vm.currentSize + 1) * _vm.currentPage) + "-" + _vm._s(_vm.currentSize) + " " + _vm._s(_vm.mdSeparator) + " " + _vm._s(_vm.mdTotal)]), " ", _vm._h('md-button', {
+	  })]) : _vm._e(), " ", _h('span', [_vm._s((_vm.currentSize - _vm.currentSize + 1) * _vm.currentPage) + "-" + _vm._s(_vm.currentSize) + " " + _vm._s(_vm.mdSeparator) + " " + _vm._s(_vm.mdTotal)]), " ", _h('md-button', {
 	    staticClass: "md-icon-button md-table-pagination-previous",
 	    attrs: {
 	      "disabled": _vm.currentPage === 1
@@ -1354,16 +1384,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	    on: {
 	      "click": _vm.changePage
 	    }
-	  }, [_vm._h('md-icon', ["keyboard_arrow_left"])]), " ", _vm._h('md-button', {
+	  }, [_h('md-icon', ["keyboard_arrow_left"])]), " ", _h('md-button', {
 	    staticClass: "md-icon-button md-table-pagination-next",
 	    attrs: {
-	      "disabled": _vm.currentSize * _vm.currentPage >= _vm.mdTotal
+	      "disabled": _vm.currentSize * _vm.currentPage >= _vm.totalItems
 	    },
 	    on: {
 	      "click": _vm.changePage
 	    }
-	  }, [_vm._h('md-icon', ["keyboard_arrow_right"])])])
+	  }, [_h('md-icon', ["keyboard_arrow_right"])])])
 	},staticRenderFns: []}
+	module.exports.render._withStripped = true
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
@@ -1373,7 +1404,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 181:
+/***/ 207:
 /***/ function(module, exports) {
 
 	module.exports = ".THEME_NAME .md-table-card .md-toolbar, .THEME_NAME.md-table-card .md-toolbar {\n  background-color: BACKGROUND-COLOR-A100;\n  color: BACKGROUND-CONTRAST-A100; }\n\n.THEME_NAME .md-table-alternate-header, .THEME_NAME.md-table-alternate-header {\n  background-color: BACKGROUND-COLOR-A100; }\n  .THEME_NAME .md-table-alternate-header .md-toolbar, .THEME_NAME.md-table-alternate-header .md-toolbar {\n    background-color: ACCENT-COLOR-A100-0.2;\n    color: ACCENT-CONTRAST-A100; }\n  .THEME_NAME .md-table-alternate-header .md-counter, .THEME_NAME.md-table-alternate-header .md-counter {\n    color: ACCENT-COLOR; }\n"

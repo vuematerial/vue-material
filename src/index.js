@@ -1,49 +1,53 @@
-import mdCore from './core';
-import mdAvatar from './components/mdAvatar';
-import mdBottomBar from './components/mdBottomBar';
-import mdButton from './components/mdButton';
-import mdButtonToggle from './components/mdButtonToggle';
-import mdCheckbox from './components/mdCheckbox';
-import mdCard from './components/mdCard';
-import mdDivider from './components/mdDivider';
-import mdIcon from './components/mdIcon';
-import mdInputContainer from './components/mdInputContainer';
-import mdList from './components/mdList';
-import mdMenu from './components/mdMenu';
-import mdRadio from './components/mdRadio';
-import mdSelect from './components/mdSelect';
-import mdSidenav from './components/mdSidenav';
-import mdSubheader from './components/mdSubheader';
-import mdSwitch from './components/mdSwitch';
-import mdTable from './components/mdTable';
-import mdTabs from './components/mdTabs';
-import mdToolbar from './components/mdToolbar';
-import mdTooltip from './components/mdTooltip';
-import mdWhiteframe from './components/mdWhiteframe';
+import MdCore from './core';
+import MdAvatar from './components/mdAvatar';
+import MdBackdrop from './components/mdBackdrop';
+import MdBottomBar from './components/mdBottomBar';
+import MdButton from './components/mdButton';
+import MdButtonToggle from './components/mdButtonToggle';
+import MdCard from './components/mdCard';
+import MdCheckbox from './components/mdCheckbox';
+import MdDialog from './components/mdDialog';
+import MdDivider from './components/mdDivider';
+import MdIcon from './components/mdIcon';
+import MdInputContainer from './components/mdInputContainer';
+import MdList from './components/mdList';
+import MdMenu from './components/mdMenu';
+import MdRadio from './components/mdRadio';
+import MdSelect from './components/mdSelect';
+import MdSidenav from './components/mdSidenav';
+import MdSubheader from './components/mdSubheader';
+import MdSwitch from './components/mdSwitch';
+import MdTable from './components/mdTable';
+import MdTabs from './components/mdTabs';
+import MdToolbar from './components/mdToolbar';
+import MdTooltip from './components/mdTooltip';
+import MdWhiteframe from './components/mdWhiteframe';
 
 const options = {
-  mdCore,
-  mdAvatar,
-  mdBottomBar,
-  mdButton,
-  mdButtonToggle,
-  mdCheckbox,
-  mdCard,
-  mdDivider,
-  mdIcon,
-  mdInputContainer,
-  mdList,
-  mdMenu,
-  mdRadio,
-  mdSelect,
-  mdSidenav,
-  mdSubheader,
-  mdSwitch,
-  mdTable,
-  mdTabs,
-  mdToolbar,
-  mdTooltip,
-  mdWhiteframe
+  MdCore,
+  MdAvatar,
+  MdBackdrop,
+  MdBottomBar,
+  MdButton,
+  MdButtonToggle,
+  MdCard,
+  MdCheckbox,
+  MdDialog,
+  MdDivider,
+  MdIcon,
+  MdInputContainer,
+  MdList,
+  MdMenu,
+  MdRadio,
+  MdSelect,
+  MdSidenav,
+  MdSubheader,
+  MdSwitch,
+  MdTable,
+  MdTabs,
+  MdToolbar,
+  MdTooltip,
+  MdWhiteframe
 };
 
 options.install = (Vue) => {

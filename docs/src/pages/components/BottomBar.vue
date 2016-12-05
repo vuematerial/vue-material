@@ -1,220 +1,318 @@
 <template>
-  <demo-page label="Components - Bottom Bar">
-    <div slot="examples">
-      <demo-example label="Default">
-        <div class="phone-viewport">
-          <md-bottom-bar>
-            <md-bottom-bar-item md-icon="history">Recents</md-bottom-bar-item>
-            <md-bottom-bar-item md-icon="favorite" md-active>Favorites</md-bottom-bar-item>
-            <md-bottom-bar-item md-icon="near_me">Nearby</md-bottom-bar-item>
-          </md-bottom-bar>
-        </div>
-      </demo-example>
+  <page-content page-title="Components - Bottom Bar">
+    <docs-component>
+      <div slot="description">
+        <p>Bottom navigation bars make it easy to explore and switch between top-level views in a single tap.</p>
+        <p>The following classes can be applied to change the color palette:</p>
+        <ul class="md-body-2">
+          <li><code>md-accent</code></li>
+          <li><code>md-warn</code></li>
+          <li><code>md-transparent</code></li>
+        </ul>
+      </div>
 
-      <demo-example label="Shifting">
-        <div class="phone-viewport">
-          <md-bottom-bar md-shift>
-            <md-bottom-bar-item md-icon="ondemand_video">Movies</md-bottom-bar-item>
-            <md-bottom-bar-item md-icon="music_note">Music</md-bottom-bar-item>
-            <md-bottom-bar-item md-icon="books" md-active>Books</md-bottom-bar-item>
-            <md-bottom-bar-item md-icon="photo">Pictures</md-bottom-bar-item>
-          </md-bottom-bar>
-        </div>
+      <div slot="api">
+        <api-table name="md-bottom-bar">
+          <md-table slot="properties">
+            <md-table-header>
+              <md-table-row>
+                <md-table-head>Name</md-table-head>
+                <md-table-head>Type</md-table-head>
+                <md-table-head>Description</md-table-head>
+              </md-table-row>
+            </md-table-header>
 
-        <div class="phone-viewport">
-          <md-bottom-bar class="md-accent" md-shift>
-            <md-bottom-bar-item md-icon="ondemand_video">Movies</md-bottom-bar-item>
-            <md-bottom-bar-item md-icon="music_note">Music</md-bottom-bar-item>
-            <md-bottom-bar-item md-icon="books" md-active>Books</md-bottom-bar-item>
-            <md-bottom-bar-item md-icon="photo">Pictures</md-bottom-bar-item>
-          </md-bottom-bar>
-        </div>
+            <md-table-body>
+              <md-table-row>
+                <md-table-cell>md-shift</md-table-cell>
+                <md-table-cell><code>Boolean</code></md-table-cell>
+                <md-table-cell>Enable the shifting variant. Default <code>false</code></md-table-cell>
+              </md-table-row>
+            </md-table-body>
+          </md-table>
+        </api-table>
 
-        <div class="phone-viewport">
-          <md-bottom-bar class="md-warn" md-shift>
-            <md-bottom-bar-item md-icon="ondemand_video">Movies</md-bottom-bar-item>
-            <md-bottom-bar-item md-icon="music_note">Music</md-bottom-bar-item>
-            <md-bottom-bar-item md-icon="books" md-active>Books</md-bottom-bar-item>
-            <md-bottom-bar-item md-icon="photo">Pictures</md-bottom-bar-item>
-          </md-bottom-bar>
-        </div>
+        <api-table name="md-bottom-bar-item">
+          <md-table slot="properties">
+            <md-table-header>
+              <md-table-row>
+                <md-table-head>Name</md-table-head>
+                <md-table-head>Type</md-table-head>
+                <md-table-head>Description</md-table-head>
+              </md-table-row>
+            </md-table-header>
 
-        <div class="phone-viewport">
-          <md-bottom-bar class="md-transparent" md-shift>
-            <md-bottom-bar-item md-icon="ondemand_video">Movies</md-bottom-bar-item>
-            <md-bottom-bar-item md-icon="music_note">Music</md-bottom-bar-item>
-            <md-bottom-bar-item md-icon="books" md-active>Books</md-bottom-bar-item>
-            <md-bottom-bar-item md-icon="photo">Pictures</md-bottom-bar-item>
-          </md-bottom-bar>
-        </div>
-      </demo-example>
+            <md-table-body>
+              <md-table-row>
+                <md-table-cell>md-icon</md-table-cell>
+                <md-table-cell><code>String</code></md-table-cell>
+                <md-table-cell>Icon name on the <a href="https://material.io/icons/" target="_blank" rel="noopener">Material Icons</a> docs.</md-table-cell>
+              </md-table-row>
 
-      <demo-example label="Themed">
-        <div class="phone-viewport">
-          <md-bottom-bar v-md-theme="'indigo'">
-            <md-bottom-bar-item md-icon="history">Recents</md-bottom-bar-item>
-            <md-bottom-bar-item md-icon="favorite" md-active>Favorites</md-bottom-bar-item>
-            <md-bottom-bar-item md-icon="near_me">Nearby</md-bottom-bar-item>
-          </md-bottom-bar>
-        </div>
+              <md-table-row>
+                <md-table-cell>md-active</md-table-cell>
+                <md-table-cell><code>Boolean</code></md-table-cell>
+                <md-table-cell>Set initial selection. Default <code>false</code></md-table-cell>
+              </md-table-row>
 
-        <div class="phone-viewport">
-          <md-bottom-bar v-md-theme="'orange'">
-            <md-bottom-bar-item md-icon="history">Recents</md-bottom-bar-item>
-            <md-bottom-bar-item md-icon="favorite" md-active>Favorites</md-bottom-bar-item>
-            <md-bottom-bar-item md-icon="near_me">Nearby</md-bottom-bar-item>
-          </md-bottom-bar>
-        </div>
+              <md-table-row>
+                <md-table-cell>href</md-table-cell>
+                <md-table-cell><code>String</code></md-table-cell>
+                <md-table-cell>Create a anchor on the item - In this case the generated tag will be <code>&lt;a&gt;</code>.</md-table-cell>
+              </md-table-row>
+            </md-table-body>
+          </md-table>
+        </api-table>
+      </div>
 
-        <div class="phone-viewport">
-          <md-bottom-bar md-shift v-md-theme="'green'">
-            <md-bottom-bar-item md-icon="ondemand_video">Movies</md-bottom-bar-item>
-            <md-bottom-bar-item md-icon="music_note">Music</md-bottom-bar-item>
-            <md-bottom-bar-item md-icon="books" md-active>Books</md-bottom-bar-item>
-            <md-bottom-bar-item md-icon="photo">Pictures</md-bottom-bar-item>
-          </md-bottom-bar>
-        </div>
+      <div slot="example">
+        <example-box card-title="Default">
+          <div slot="demo">
+            <div class="phone-viewport">
+              <md-bottom-bar>
+                <md-bottom-bar-item md-icon="history">Recents</md-bottom-bar-item>
+                <md-bottom-bar-item md-icon="favorite" md-active>Favorites</md-bottom-bar-item>
+                <md-bottom-bar-item md-icon="near_me">Nearby</md-bottom-bar-item>
+              </md-bottom-bar>
+            </div>
 
-        <div class="phone-viewport">
-          <md-bottom-bar md-shift v-md-theme="'brown'">
-            <md-bottom-bar-item md-icon="ondemand_video">Movies</md-bottom-bar-item>
-            <md-bottom-bar-item md-icon="music_note">Music</md-bottom-bar-item>
-            <md-bottom-bar-item md-icon="books" md-active>Books</md-bottom-bar-item>
-            <md-bottom-bar-item md-icon="photo">Pictures</md-bottom-bar-item>
-          </md-bottom-bar>
-        </div>
-      </demo-example>
+            <div class="phone-viewport">
+              <md-bottom-bar class="md-accent">
+                <md-bottom-bar-item href="#/components/bottom-bar" md-icon="history">Recents</md-bottom-bar-item>
+                <md-bottom-bar-item href="#/components/bottom-bar" md-icon="favorite" md-active>Favorites</md-bottom-bar-item>
+                <md-bottom-bar-item href="#/components/bottom-bar" md-icon="near_me">Nearby</md-bottom-bar-item>
+              </md-bottom-bar>
+            </div>
 
-      <demo-example label="Dynamic Theme">
-        <div class="phone-viewport">
-          <md-bottom-bar md-shift v-md-theme="playground.theme">
-            <md-bottom-bar-item @click="setTheme('blue')" md-icon="ondemand_video">Movies</md-bottom-bar-item>
-            <md-bottom-bar-item @click="setTheme('teal')" md-icon="music_note">Music</md-bottom-bar-item>
-            <md-bottom-bar-item @click="setTheme('brown')" md-icon="books" md-active>Books</md-bottom-bar-item>
-            <md-bottom-bar-item @click="setTheme('indigo')" md-icon="photo">Pictures</md-bottom-bar-item>
-          </md-bottom-bar>
-        </div>
-      </demo-example>
-    </div>
+            <div class="phone-viewport">
+              <md-bottom-bar class="md-warn">
+                <md-bottom-bar-item md-icon="history">Recents</md-bottom-bar-item>
+                <md-bottom-bar-item md-icon="favorite" md-active>Favorites</md-bottom-bar-item>
+                <md-bottom-bar-item md-icon="near_me">Nearby</md-bottom-bar-item>
+              </md-bottom-bar>
+            </div>
 
-    <div slot="code">
-      <demo-example label="Default">
-        <code-block lang="xml">
-&lt;md-bottom-bar&gt;
-  &lt;md-bottom-bar-item md-icon=&quot;history&quot;&gt;Recents&lt;/md-bottom-bar-item&gt;
-  &lt;md-bottom-bar-item md-icon=&quot;favorite&quot; md-active&gt;Favorites&lt;/md-bottom-bar-item&gt;
-  &lt;md-bottom-bar-item md-icon=&quot;near_me&quot;&gt;Nearby&lt;/md-bottom-bar-item&gt;
-&lt;/md-bottom-bar&gt;
-        </code-block>
-      </demo-example>
+            <div class="phone-viewport">
+              <md-bottom-bar class="md-transparent">
+                <md-bottom-bar-item md-icon="history">Recents</md-bottom-bar-item>
+                <md-bottom-bar-item md-icon="favorite" md-active>Favorites</md-bottom-bar-item>
+                <md-bottom-bar-item md-icon="near_me">Nearby</md-bottom-bar-item>
+              </md-bottom-bar>
+            </div>
+          </div>
 
-      <demo-example label="Shifting">
-        <code-block lang="xml">
-&lt;md-bottom-bar md-shift&gt;
-  &lt;md-bottom-bar-item md-icon=&quot;ondemand_video&quot;&gt;Movies&lt;/md-bottom-bar-item&gt;
-  &lt;md-bottom-bar-item md-icon=&quot;music_note&quot;&gt;Music&lt;/md-bottom-bar-item&gt;
-  &lt;md-bottom-bar-item md-icon=&quot;books&quot; md-active&gt;Books&lt;/md-bottom-bar-item&gt;
-  &lt;md-bottom-bar-item md-icon=&quot;photo&quot;&gt;Pictures&lt;/md-bottom-bar-item&gt;
-&lt;/md-bottom-bar&gt;
-        </code-block>
+          <div slot="code">
+            <code-block lang="xml">
+              &lt;md-bottom-bar&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;history&quot;&gt;Recents&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;favorite&quot; md-active&gt;Favorites&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;near_me&quot;&gt;Nearby&lt;/md-bottom-bar-item&gt;
+              &lt;/md-bottom-bar&gt;
 
-        <code-block lang="xml">
-&lt;md-bottom-bar class=&quot;md-accent&quot; md-shift&gt;
-  &lt;md-bottom-bar-item md-icon=&quot;ondemand_video&quot;&gt;Movies&lt;/md-bottom-bar-item&gt;
-  &lt;md-bottom-bar-item md-icon=&quot;music_note&quot;&gt;Music&lt;/md-bottom-bar-item&gt;
-  &lt;md-bottom-bar-item md-icon=&quot;books&quot; md-active&gt;Books&lt;/md-bottom-bar-item&gt;
-  &lt;md-bottom-bar-item md-icon=&quot;photo&quot;&gt;Pictures&lt;/md-bottom-bar-item&gt;
-&lt;/md-bottom-bar&gt;
-        </code-block>
+              &lt;md-bottom-bar class=&quot;md-accent&quot;&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;history&quot;&gt;Recents&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;favorite&quot; md-active&gt;Favorites&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;near_me&quot;&gt;Nearby&lt;/md-bottom-bar-item&gt;
+              &lt;/md-bottom-bar&gt;
 
-        <code-block lang="xml">
-&lt;md-bottom-bar class=&quot;md-warn&quot; md-shift&gt;
-  &lt;md-bottom-bar-item md-icon=&quot;ondemand_video&quot;&gt;Movies&lt;/md-bottom-bar-item&gt;
-  &lt;md-bottom-bar-item md-icon=&quot;music_note&quot;&gt;Music&lt;/md-bottom-bar-item&gt;
-  &lt;md-bottom-bar-item md-icon=&quot;books&quot; md-active&gt;Books&lt;/md-bottom-bar-item&gt;
-  &lt;md-bottom-bar-item md-icon=&quot;photo&quot;&gt;Pictures&lt;/md-bottom-bar-item&gt;
-&lt;/md-bottom-bar&gt;
-        </code-block>
+              &lt;md-bottom-bar class=&quot;md-warn&quot;&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;history&quot;&gt;Recents&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;favorite&quot; md-active&gt;Favorites&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;near_me&quot;&gt;Nearby&lt;/md-bottom-bar-item&gt;
+              &lt;/md-bottom-bar&gt;
 
-        <code-block lang="xml">
-&lt;md-bottom-bar class=&quot;md-transparent&quot; md-shift&gt;
-  &lt;md-bottom-bar-item md-icon=&quot;ondemand_video&quot;&gt;Movies&lt;/md-bottom-bar-item&gt;
-  &lt;md-bottom-bar-item md-icon=&quot;music_note&quot;&gt;Music&lt;/md-bottom-bar-item&gt;
-  &lt;md-bottom-bar-item md-icon=&quot;books&quot; md-active&gt;Books&lt;/md-bottom-bar-item&gt;
-  &lt;md-bottom-bar-item md-icon=&quot;photo&quot;&gt;Pictures&lt;/md-bottom-bar-item&gt;
-&lt;/md-bottom-bar&gt;
-        </code-block>
-      </demo-example>
+              &lt;md-bottom-bar class=&quot;md-transparent&quot;&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;history&quot;&gt;Recents&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;favorite&quot; md-active&gt;Favorites&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;near_me&quot;&gt;Nearby&lt;/md-bottom-bar-item&gt;
+              &lt;/md-bottom-bar&gt;
+            </code-block>
+          </div>
+        </example-box>
 
-      <demo-example label="Themed">
-        <code-block lang="xml">
-&lt;md-bottom-bar v-md-theme=&quot;&#039;indigo&#039;&quot;&gt;
-  &lt;md-bottom-bar-item md-icon=&quot;history&quot;&gt;Recents&lt;/md-bottom-bar-item&gt;
-  &lt;md-bottom-bar-item md-icon=&quot;favorite&quot; md-active&gt;Favorites&lt;/md-bottom-bar-item&gt;
-  &lt;md-bottom-bar-item md-icon=&quot;near_me&quot;&gt;Nearby&lt;/md-bottom-bar-item&gt;
-&lt;/md-bottom-bar&gt;
-        </code-block>
+        <example-box card-title="Shifting">
+          <div slot="demo">
+            <div class="phone-viewport">
+              <md-bottom-bar md-shift>
+                <md-bottom-bar-item md-icon="ondemand_video">Movies</md-bottom-bar-item>
+                <md-bottom-bar-item md-icon="music_note">Music</md-bottom-bar-item>
+                <md-bottom-bar-item md-icon="books" md-active>Books</md-bottom-bar-item>
+                <md-bottom-bar-item md-icon="photo">Pictures</md-bottom-bar-item>
+              </md-bottom-bar>
+            </div>
 
-        <code-block lang="xml">
-&lt;md-bottom-bar v-md-theme=&quot;&#039;orange&#039;&quot;&gt;
-  &lt;md-bottom-bar-item md-icon=&quot;history&quot;&gt;Recents&lt;/md-bottom-bar-item&gt;
-  &lt;md-bottom-bar-item md-icon=&quot;favorite&quot; md-active&gt;Favorites&lt;/md-bottom-bar-item&gt;
-  &lt;md-bottom-bar-item md-icon=&quot;near_me&quot;&gt;Nearby&lt;/md-bottom-bar-item&gt;
-&lt;/md-bottom-bar&gt;
-        </code-block>
+            <div class="phone-viewport">
+              <md-bottom-bar class="md-accent" md-shift>
+                <md-bottom-bar-item md-icon="ondemand_video">Movies</md-bottom-bar-item>
+                <md-bottom-bar-item md-icon="music_note">Music</md-bottom-bar-item>
+                <md-bottom-bar-item md-icon="books" md-active>Books</md-bottom-bar-item>
+                <md-bottom-bar-item md-icon="photo">Pictures</md-bottom-bar-item>
+              </md-bottom-bar>
+            </div>
 
-        <code-block lang="xml">
-&lt;md-bottom-bar md-shift v-md-theme=&quot;&#039;green&#039;&quot;&gt;
-  &lt;md-bottom-bar-item md-icon=&quot;ondemand_video&quot;&gt;Movies&lt;/md-bottom-bar-item&gt;
-  &lt;md-bottom-bar-item md-icon=&quot;music_note&quot;&gt;Music&lt;/md-bottom-bar-item&gt;
-  &lt;md-bottom-bar-item md-icon=&quot;books&quot; md-active&gt;Books&lt;/md-bottom-bar-item&gt;
-  &lt;md-bottom-bar-item md-icon=&quot;photo&quot;&gt;Pictures&lt;/md-bottom-bar-item&gt;
-&lt;/md-bottom-bar&gt;
-        </code-block>
+            <div class="phone-viewport">
+              <md-bottom-bar class="md-warn" md-shift>
+                <md-bottom-bar-item md-icon="ondemand_video">Movies</md-bottom-bar-item>
+                <md-bottom-bar-item md-icon="music_note">Music</md-bottom-bar-item>
+                <md-bottom-bar-item md-icon="books" md-active>Books</md-bottom-bar-item>
+                <md-bottom-bar-item md-icon="photo">Pictures</md-bottom-bar-item>
+              </md-bottom-bar>
+            </div>
 
-        <code-block lang="xml">
-&lt;md-bottom-bar md-shift v-md-theme=&quot;&#039;brown&#039;&quot;&gt;
-  &lt;md-bottom-bar-item md-icon=&quot;ondemand_video&quot;&gt;Movies&lt;/md-bottom-bar-item&gt;
-  &lt;md-bottom-bar-item md-icon=&quot;music_note&quot;&gt;Music&lt;/md-bottom-bar-item&gt;
-  &lt;md-bottom-bar-item md-icon=&quot;books&quot; md-active&gt;Books&lt;/md-bottom-bar-item&gt;
-  &lt;md-bottom-bar-item md-icon=&quot;photo&quot;&gt;Pictures&lt;/md-bottom-bar-item&gt;
-&lt;/md-bottom-bar&gt;
-        </code-block>
-      </demo-example>
+            <div class="phone-viewport">
+              <md-bottom-bar class="md-transparent" md-shift>
+                <md-bottom-bar-item md-icon="ondemand_video">Movies</md-bottom-bar-item>
+                <md-bottom-bar-item md-icon="music_note">Music</md-bottom-bar-item>
+                <md-bottom-bar-item md-icon="books" md-active>Books</md-bottom-bar-item>
+                <md-bottom-bar-item md-icon="photo">Pictures</md-bottom-bar-item>
+              </md-bottom-bar>
+            </div>
+          </div>
 
-      <demo-example label="Dynamic Theme">
-        <code-block lang="xml">
-&lt;md-bottom-bar md-shift v-md-theme=&quot;playground.theme&quot;&gt;
-  &lt;md-bottom-bar-item @click=&quot;setTheme(&#039;blue&#039;)&quot; md-icon=&quot;ondemand_video&quot;&gt;Movies&lt;/md-bottom-bar-item&gt;
-  &lt;md-bottom-bar-item @click=&quot;setTheme(&#039;teal&#039;)&quot; md-icon=&quot;music_note&quot;&gt;Music&lt;/md-bottom-bar-item&gt;
-  &lt;md-bottom-bar-item @click=&quot;setTheme(&#039;brown&#039;)&quot; md-icon=&quot;books&quot; md-active&gt;Books&lt;/md-bottom-bar-item&gt;
-  &lt;md-bottom-bar-item @click=&quot;setTheme(&#039;indigo&#039;)&quot; md-icon=&quot;photo&quot;&gt;Pictures&lt;/md-bottom-bar-item&gt;
-&lt;/md-bottom-bar&gt;
-        </code-block>
+          <div slot="code">
+            <code-block lang="xml">
+              &lt;md-bottom-bar md-shift&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;ondemand_video&quot;&gt;Movies&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;music_note&quot;&gt;Music&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;books&quot; md-active&gt;Books&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;photo&quot;&gt;Pictures&lt;/md-bottom-bar-item&gt;
+              &lt;/md-bottom-bar&gt;
 
-        <code-block lang="javascript">
-export default {
-  data() {
-    return {
-      playground: {
-        theme: 'brown'
-      }
-    };
-  },
-  methods: {
-    setTheme(theme) {
-      this.playground.theme = theme;
-    }
-  }
-};
-        </code-block>
-      </demo-example>
-    </div>
+              &lt;md-bottom-bar class=&quot;md-accent&quot; md-shift&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;ondemand_video&quot;&gt;Movies&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;music_note&quot;&gt;Music&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;books&quot; md-active&gt;Books&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;photo&quot;&gt;Pictures&lt;/md-bottom-bar-item&gt;
+              &lt;/md-bottom-bar&gt;
 
-    <div slot="api">
+              &lt;md-bottom-bar class=&quot;md-warn&quot; md-shift&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;ondemand_video&quot;&gt;Movies&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;music_note&quot;&gt;Music&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;books&quot; md-active&gt;Books&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;photo&quot;&gt;Pictures&lt;/md-bottom-bar-item&gt;
+              &lt;/md-bottom-bar&gt;
 
-    </div>
-  </demo-page>
+              &lt;md-bottom-bar class=&quot;md-transparent&quot; md-shift&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;ondemand_video&quot;&gt;Movies&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;music_note&quot;&gt;Music&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;books&quot; md-active&gt;Books&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;photo&quot;&gt;Pictures&lt;/md-bottom-bar-item&gt;
+              &lt;/md-bottom-bar&gt;
+            </code-block>
+          </div>
+        </example-box>
+
+        <example-box card-title="Themes">
+          <div slot="demo">
+            <div class="phone-viewport" v-md-theme="'orange'">
+              <md-bottom-bar>
+                <md-bottom-bar-item md-icon="history">Recents</md-bottom-bar-item>
+                <md-bottom-bar-item md-icon="favorite" md-active>Favorites</md-bottom-bar-item>
+                <md-bottom-bar-item md-icon="near_me">Nearby</md-bottom-bar-item>
+              </md-bottom-bar>
+            </div>
+
+            <div class="phone-viewport" v-md-theme="'teal'">
+              <md-bottom-bar>
+                <md-bottom-bar-item md-icon="history">Recents</md-bottom-bar-item>
+                <md-bottom-bar-item md-icon="favorite" md-active>Favorites</md-bottom-bar-item>
+                <md-bottom-bar-item md-icon="near_me">Nearby</md-bottom-bar-item>
+              </md-bottom-bar>
+            </div>
+
+            <div class="phone-viewport" v-md-theme="'green'">
+              <md-bottom-bar md-shift>
+                <md-bottom-bar-item md-icon="ondemand_video">Movies</md-bottom-bar-item>
+                <md-bottom-bar-item md-icon="music_note">Music</md-bottom-bar-item>
+                <md-bottom-bar-item md-icon="books" md-active>Books</md-bottom-bar-item>
+                <md-bottom-bar-item md-icon="photo">Pictures</md-bottom-bar-item>
+              </md-bottom-bar>
+            </div>
+
+            <div class="phone-viewport" v-md-theme="'indigo'">
+              <md-bottom-bar md-shift>
+                <md-bottom-bar-item md-icon="ondemand_video">Movies</md-bottom-bar-item>
+                <md-bottom-bar-item md-icon="music_note">Music</md-bottom-bar-item>
+                <md-bottom-bar-item md-icon="books" md-active>Books</md-bottom-bar-item>
+                <md-bottom-bar-item md-icon="photo">Pictures</md-bottom-bar-item>
+              </md-bottom-bar>
+            </div>
+          </div>
+
+          <div slot="code">
+            <code-block lang="xml">
+              &lt;md-bottom-bar&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;history&quot;&gt;Recents&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;favorite&quot; md-active&gt;Favorites&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;near_me&quot;&gt;Nearby&lt;/md-bottom-bar-item&gt;
+              &lt;/md-bottom-bar&gt;
+
+              &lt;md-bottom-bar&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;history&quot;&gt;Recents&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;favorite&quot; md-active&gt;Favorites&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;near_me&quot;&gt;Nearby&lt;/md-bottom-bar-item&gt;
+              &lt;/md-bottom-bar&gt;
+
+              &lt;md-bottom-bar md-shift&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;ondemand_video&quot;&gt;Movies&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;music_note&quot;&gt;Music&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;books&quot; md-active&gt;Books&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;photo&quot;&gt;Pictures&lt;/md-bottom-bar-item&gt;
+              &lt;/md-bottom-bar&gt;
+
+              &lt;md-bottom-bar md-shift&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;ondemand_video&quot;&gt;Movies&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;music_note&quot;&gt;Music&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;books&quot; md-active&gt;Books&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon=&quot;photo&quot;&gt;Pictures&lt;/md-bottom-bar-item&gt;
+              &lt;/md-bottom-bar&gt;
+            </code-block>
+          </div>
+        </example-box>
+
+        <example-box card-title="Dynamic Theme Example">
+          <div slot="demo">
+            <div class="phone-viewport">
+              <md-bottom-bar md-shift v-md-theme="playground.theme">
+                <md-bottom-bar-item @click.native="setTheme('blue')" md-icon="ondemand_video">Movies</md-bottom-bar-item>
+                <md-bottom-bar-item @click.native="setTheme('teal')" md-icon="music_note">Music</md-bottom-bar-item>
+                <md-bottom-bar-item @click.native="setTheme('brown')" md-icon="books" md-active>Books</md-bottom-bar-item>
+                <md-bottom-bar-item @click.native="setTheme('indigo')" md-icon="photo">Pictures</md-bottom-bar-item>
+              </md-bottom-bar>
+            </div>
+          </div>
+
+          <div slot="code">
+            <code-block lang="xml">
+              &lt;md-bottom-bar md-shift v-md-theme=&quot;playground.theme&quot;&gt;
+                &lt;md-bottom-bar-item @click.native=&quot;setTheme(&#039;blue&#039;)&quot; md-icon=&quot;ondemand_video&quot;&gt;Movies&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item @click.native=&quot;setTheme(&#039;teal&#039;)&quot; md-icon=&quot;music_note&quot;&gt;Music&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item @click.native=&quot;setTheme(&#039;brown&#039;)&quot; md-icon=&quot;books&quot; md-active&gt;Books&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item @click.native=&quot;setTheme(&#039;indigo&#039;)&quot; md-icon=&quot;photo&quot;&gt;Pictures&lt;/md-bottom-bar-item&gt;
+              &lt;/md-bottom-bar&gt;
+            </code-block>
+
+            <code-block lang="javascript">
+              export default {
+                data() {
+                  return {
+                    playground: {
+                      theme: &#039;brown&#039;
+                    }
+                  };
+                },
+                methods: {
+                  setTheme(theme) {
+                    this.playground.theme = theme;
+                  }
+                }
+              };
+            </code-block>
+          </div>
+        </example-box>
+      </div>
+    </docs-component>
+  </page-content>
 </template>
 
 <style lang="scss" scoped>
@@ -227,7 +325,7 @@ export default {
 
   .phone-viewport {
     width: 320px;
-    height: 480px;
+    height: 150px;
     margin-right: 16px;
     display: inline-block;
     position: relative;

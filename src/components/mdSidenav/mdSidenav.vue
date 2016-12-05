@@ -4,7 +4,7 @@
       <slot></slot>
     </div>
 
-    <div class="md-backdrop" @click="close"></div>
+    <md-backdrop class="md-sidenav-backdrop" @close="close"></md-backdrop>
   </div>
 </template>
 
