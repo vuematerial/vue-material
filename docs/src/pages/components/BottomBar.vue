@@ -54,6 +54,12 @@
                 <md-table-cell><code>Boolean</code></md-table-cell>
                 <md-table-cell>Set initial selection. Default <code>false</code></md-table-cell>
               </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>href</md-table-cell>
+                <md-table-cell><code>String</code></md-table-cell>
+                <md-table-cell>Create a anchor on the item - In this case the generated tag will be <code>&lt;a&gt;</code>.</md-table-cell>
+              </md-table-row>
             </md-table-body>
           </md-table>
         </api-table>
@@ -72,9 +78,9 @@
 
             <div class="phone-viewport">
               <md-bottom-bar class="md-accent">
-                <md-bottom-bar-item md-icon="history">Recents</md-bottom-bar-item>
-                <md-bottom-bar-item md-icon="favorite" md-active>Favorites</md-bottom-bar-item>
-                <md-bottom-bar-item md-icon="near_me">Nearby</md-bottom-bar-item>
+                <md-bottom-bar-item href="#/components/bottom-bar" md-icon="history">Recents</md-bottom-bar-item>
+                <md-bottom-bar-item href="#/components/bottom-bar" md-icon="favorite" md-active>Favorites</md-bottom-bar-item>
+                <md-bottom-bar-item href="#/components/bottom-bar" md-icon="near_me">Nearby</md-bottom-bar-item>
               </md-bottom-bar>
             </div>
 
