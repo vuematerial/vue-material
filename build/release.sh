@@ -43,10 +43,10 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   # commit
   git add -A
   git commit -m "[build] $VERSION"
-  #### npm version $VERSION --message "[release] $VERSION"
+  npm version $VERSION --message "[release] $VERSION"
 
   # publish
-  #### git push origin refs/tags/v$VERSION
+  git push origin refs/tags/v$VERSION
   git push
 
   # deploy
@@ -57,5 +57,5 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   git remote add site https://github.com/vuematerial/vuematerial.github.io.git
   git push site `git subtree split --prefix dist/docs master`:master --force --progress
 
-  #### npm publish
+  npm publish
 fi
