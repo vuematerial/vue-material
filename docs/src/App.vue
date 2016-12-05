@@ -254,6 +254,7 @@
     padding: 16px;
     flex: 1;
     overflow: auto;
+    transform: translate3D(0, 0, 0);
   }
 
   .md-router-enter-active,

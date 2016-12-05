@@ -8,7 +8,6 @@
 
 <script>
   import transitionEndEventName from '../../core/utils/transitionEndEventName';
-  import getInViewPosition from '../../core/utils/getInViewPosition';
 
   export default {
     props: {
@@ -63,8 +62,12 @@
         const tooltips = [...document.querySelectorAll('.md-tooltip')];
 
         tooltips.forEach((tooltip) => {
-          tooltip.parentNode.removeChild(tooltip);
+          if (tooltip.parentNode) {
+            this.rootElement.removeChild(tooltip);
+          }
         });
+
+        this.tooltipElement.removeEventListener(transitionEndEventName, this.removeTooltips);
       },
       calculateTooltipPosition() {
         let position = this.parentElement.getBoundingClientRect();
@@ -99,8 +102,6 @@
             console.warn(`Invalid ${this.mdDirection} option to md-direction option`);
         }
 
-        cssPosition = getInViewPosition(this.tooltipElement, cssPosition);
-
         this.topPosition = cssPosition.top;
         this.leftPosition = cssPosition.left;
       },
@@ -132,17 +133,9 @@
         });
       },
       close() {
-        let cleanupElements = () => {
-          this.tooltipElement.removeEventListener(transitionEndEventName, cleanupElements);
-
-          if (this.tooltipElement.parentNode && !this.tooltipElement.classList.contains('md-active')) {
-            this.rootElement.removeChild(this.tooltipElement);
-          }
-        };
-
         this.active = false;
-        this.tooltipElement.removeEventListener(transitionEndEventName, cleanupElements);
-        this.tooltipElement.addEventListener(transitionEndEventName, cleanupElements);
+        this.tooltipElement.removeEventListener(transitionEndEventName, this.removeTooltips);
+        this.tooltipElement.addEventListener(transitionEndEventName, this.removeTooltips);
       }
     },
     mounted() {
