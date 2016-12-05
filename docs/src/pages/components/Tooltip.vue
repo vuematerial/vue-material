@@ -59,10 +59,6 @@
                 <md-tooltip md-direction="right">My tooltip</md-tooltip>
               </md-avatar>
             </div>
-
-            <div class="test">
-              <span v-for="index in 50">{{index}} <md-tooltip md-direction="bottom">My tooltip</md-tooltip></span>
-            </div>
           </div>
 
           <div slot="code">
@@ -158,13 +154,5 @@
   .md-button,
   .md-avatar {
     margin: 24px;
-  }
-
-  .test {
-    width: 100px;
-
-    span {
-      display: inline-block;
-    }
   }
 </style>
