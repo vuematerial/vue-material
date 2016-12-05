@@ -57,5 +57,5 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   git remote add site https://github.com/vuematerial/vuematerial.github.io.git
   git push site `git subtree split --prefix dist/docs master`:master --force --progress
 
-  #### npm publish
+  npm publish
 fi
