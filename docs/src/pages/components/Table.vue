@@ -323,7 +323,7 @@
           </div>
         </example-box>
 
-        <example-box card-title="Within cards with pagination and inline edit">
+        <example-box card-title="Within cards with pagination">
           <div slot="demo">
             <md-table-card>
               <md-toolbar>
