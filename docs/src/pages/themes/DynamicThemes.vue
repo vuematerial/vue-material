@@ -1,5 +1,9 @@
 <template>
-  <single-page class="single-page-home" label="Themes - Dynamic Themes">
+  <page-content page-title="Themes - Dynamic Themes">
 
-  </single-page>
+  </page-content>
 </template>
+
+<style lang="scss" scoped>
+
+</style>

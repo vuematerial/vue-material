@@ -16,12 +16,12 @@
   export default {
     props: {
       name: String,
+      id: String,
       value: [String, Boolean, Number],
       mdValue: {
         type: [String, Boolean, Number],
         required: true
       },
-      id: String,
       disabled: Boolean
     },
     computed: {

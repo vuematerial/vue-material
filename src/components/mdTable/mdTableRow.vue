@@ -40,6 +40,12 @@
         };
       }
     },
+    watch: {
+      mdItem(newValue, oldValue) {
+        this.parentTable.data[this.index] = this.mdItem;
+        this.handleMultipleSelection(newValue === oldValue);
+      }
+    },
     methods: {
       setSelectedRow(value, index) {
         if (value) {
@@ -92,11 +98,6 @@
           this.handleSingleSelection(this.checkbox);
           this.parentTable.emitSelection();
         }
-      }
-    },
-    watch: {
-      data() {
-        this.parentTable.data[this.index] = this.item;
       }
     },
     mounted() {

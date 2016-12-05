@@ -3,17 +3,17 @@
 .md-sidenav {
   &.md-left .md-sidenav-content {
     left: 0;
-    transform: translate3d(-100%, 0, 0);
+    transform: translate3D(-100%, 0, 0);
   }
 
   &.md-right .md-sidenav-content {
     right: 0;
-    transform: translate3d(100%, 0, 0);
+    transform: translate3D(100%, 0, 0);
   }
 
   &.md-fixed {
     .md-sidenav-content,
-    .md-backdrop {
+    .md-sidenav-backdrop {
       position: fixed;
     }
   }
@@ -26,7 +26,10 @@
     z-index: 100;
     pointer-events: none;
     overflow: auto;
+    -webkit-overflow-scrolling: touch;
     transition: $swift-ease-out;
+    transition-property: transform;
+    will-change: transform;
   }
 
   .md-backdrop {
@@ -38,20 +41,21 @@
     z-index: 99;
     pointer-events: none;
     background-color: rgba(#000, .54);
-    transform: translate3d(0, 0, 0);
     opacity: 0;
     transition: $swift-ease-in-out;
+    transition-property: opacity;
+    will-change: opacity;
   }
 }
 
 .md-sidenav.md-active {
   .md-sidenav-content {
-    pointer-events: auto;
     box-shadow: $material-shadow-16dp;
-    transform: translate3d(0, 0, 0);
+    pointer-events: auto;
+    transform: translate3D(0, 0, 0);
   }
 
-  .md-backdrop {
+  .md-sidenav-backdrop {
     opacity: 1;
     pointer-events: auto;
   }

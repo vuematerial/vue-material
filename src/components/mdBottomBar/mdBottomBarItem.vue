@@ -1,5 +1,13 @@
 <template>
-  <button type="button" class="md-bottom-bar-item" :class="classes" v-md-ink-ripple @click="setActive">
+  <a :href="href" class="md-bottom-bar-item" :class="classes" v-md-ink-ripple @click="setActive" v-if="href">
+    <md-icon>{{ mdIcon }}</md-icon>
+
+    <span class="md-text">
+      <slot></slot>
+    </span>
+  </a>
+
+  <button type="button" class="md-bottom-bar-item" :class="classes" v-md-ink-ripple @click="setActive" v-else>
     <md-icon>{{ mdIcon }}</md-icon>
 
     <span class="md-text">
@@ -12,7 +20,8 @@
   export default {
     props: {
       mdIcon: String,
-      mdActive: Boolean
+      mdActive: Boolean,
+      href: String
     },
     data() {
       return {
@@ -38,8 +47,6 @@
         });
 
         this.active = !!active;
-
-        this.$emit('click');
       }
     },
     mounted() {

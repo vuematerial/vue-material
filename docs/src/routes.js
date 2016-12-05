@@ -12,12 +12,13 @@ import Buttons from './pages/components/Buttons';
 import ButtonToggle from './pages/components/ButtonToggle';
 import Card from './pages/components/Card';
 import Checkbox from './pages/components/Checkbox';
+import Dialog from './pages/components/Dialog';
 import Icon from './pages/components/Icon';
 import Input from './pages/components/Input';
 import List from './pages/components/List';
 import Menu from './pages/components/Menu';
 import Radio from './pages/components/Radio';
-import Ripple from './pages/components/Ripple';
+import InkRipple from './pages/components/InkRipple';
 import Select from './pages/components/Select';
 import Sidenav from './pages/components/Sidenav';
 import Subheader from './pages/components/Subheader';
@@ -96,6 +97,11 @@ const components = [
     component: Checkbox
   },
   {
+    path: '/components/dialog',
+    name: 'components:dialog',
+    component: Dialog
+  },
+  {
     path: '/components/icon',
     name: 'components:icon',
     component: Icon
@@ -121,9 +127,9 @@ const components = [
     component: Radio
   },
   {
-    path: '/components/ripple',
-    name: 'components:ripple',
-    component: Ripple
+    path: '/components/ink-ripple',
+    name: 'components:ink-ripple',
+    component: InkRipple
   },
   {
     path: '/components/select',

@@ -50,12 +50,14 @@
       }
     },
     methods: {
-      selectOption() {
+      selectOption($event) {
         if (!this.parentSelect.multiple) {
           this.parentSelect.selectOption(this.value, this.$refs.item.textContent);
         } else {
           this.check = !this.check;
         }
+
+        this.$emit('selected', $event);
       }
     },
     watch: {
@@ -87,8 +89,10 @@
       this.parentSelect.options[this.index] = this;
     },
     beforeDestroy() {
-      delete this.parentSelect.options[this.index];
-      delete this.parentSelect.multipleOptions[this.index];
+      if (this.parentSelect) {
+        delete this.parentSelect.options[this.index];
+        delete this.parentSelect.multipleOptions[this.index];
+      }
     }
   };
 </script>

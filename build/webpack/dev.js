@@ -9,7 +9,7 @@ Object.keys(baseWebpackConfig.entry).forEach((name) => {
 });
 
 export default merge(baseWebpackConfig, {
-  devtool: '#inline-source-map',
+  devtool: 'source-map',
   plugins: [
     new webpack.WatchIgnorePlugin([config.nodePath]),
     new webpack.HotModuleReplacementPlugin(),

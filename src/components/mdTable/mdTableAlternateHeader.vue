@@ -16,7 +16,10 @@
 
   export default {
     props: {
-      mdSelectedLabel: String
+      mdSelectedLabel: {
+        type: String,
+        default: 'selected'
+      }
     },
     data() {
       return {

@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="https://marcosmoura.github.io/vue-material/" target="_blank">
-    <img width="150" src="https://marcosmoura.github.io/vue-material/assets/logo-vue-material-blue.png">
+  <a href="https://vuematerial.github.io/" target="_blank">
+    <img width="150" src="https://vuematerial.github.io/assets/logo-vue-material-blue.png">
   </a>
 </p>
 
@@ -16,12 +16,12 @@
 
 Vue Material is lightweight framework built exactly according to the <a href="http://material.google.com" target="_blank">Material Design</a> specs. 
 
-It aims to deliver a collection of reusable components and a series of UI Elements to build applications with support to <a href="https://saucelabs.com/u/vuejs" target="_blank">modern Web Browsers</a> through Vue 2.0. 
+It aims to deliver a collection of reusable components and a series of UI Elements to build applications with support to all modern Web Browsers through Vue 2. 
 
 Build powerful and well-designed web apps that can can fit on every screen. You can generate and use themes dynamically, use components on demand, take advantage of UI Elements and Components with an ease-to-use API.
 
 ## Demo and Documentation
-<a href="https://marcosmoura.github.io/vue-material/" target="_blank">Demo</a>
+<a href="https://vuematerial.github.io/" target="_blank">Demo</a>
 
 ## Installation
 
@@ -105,8 +105,18 @@ Apply your theme using <code>v-md-theme</code> directive:
 <div v-md-theme="'phone'"></div>
 ```
 
+## Browser Support
+Vue Material supports the latest version of all Browsers. This means:
+* Google Chrome 50+
+* Firefox 48+
+* Safari 9+
+* Opera 40+
+* IE 11
+* Edge
+<small>May work in other browsers but it's untested.</small>
+
 ## Changelog
-<a href="https://marcosmoura.github.io/vue-material/#/changelog" target="_blank">Changelog</a>
+<a href="https://vuematerial.github.io/#/changelog" target="_blank">Changelog</a>
 
 ## Contributing
 
