@@ -48,7 +48,7 @@
 		}
 	],
 	"theme_color": "#2196f3",
-	"start_url": "https:\/\/marcosmoura.github.io\/vue-material",
+	"start_url": "https:\/\/vuematerial.github.io",
 	"display": "standalone",
 	"orientation": "portrait"
 }
