@@ -2,6 +2,30 @@
   <page-content page-title="Changelog">
     <div class="main-content">
       <section>
+        <h2 class="md-headline">v0.4.0 - New Documentation Website</h2>
+        <h3 class="md-title">New Documentation:</h3>
+        <ul>
+          <li>Better Getting started</li>
+          <li>Themes guide</li>
+          <li>Version selector</li>
+          <li>API Guide</li>
+          <li>Better Examples</li>
+        </ul>
+
+        <h3 class="md-title">New Components:</h3>
+        <ul>
+          <li>Dialog</li>
+        </ul>
+
+        <h3 class="md-title">Fixes:</h3>
+        <ul>
+          <li>fix shadow transition inside menus <strong><a href="https://github.com/marcosmoura/vue-material/issues/141" target="_blank" rel="noopener"></a>#141</strong><strong><a href="https://github.com/marcosmoura/vue-material/issues/129" target="_blank" rel="noopener"></a>#129</strong></li>
+          <li>fix table row not watching item <strong><a href="https://github.com/marcosmoura/vue-material/issues/116" target="_blank" rel="noopener"></a>#116</strong><strong><a href="https://github.com/marcosmoura/vue-material/issues/113" target="_blank" rel="noopener"></a>#113</strong></li>
+          <li>add href support for mdBottomBar <strong><a href="https://github.com/marcosmoura/vue-material/issues/121" target="_blank" rel="noopener"></a>#121</strong></li>
+        </ul>
+      </section>
+
+      <section>
         <h2 class="md-headline">v0.3.3 - Bugfixes</h2>
         <h3 class="md-title">Fixes:</h3>
         <ul>
