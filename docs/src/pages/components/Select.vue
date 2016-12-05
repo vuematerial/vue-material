@@ -251,47 +251,49 @@
 
         <example-box card-title="Multiple">
           <div class="multiple" slot="demo">
-            <md-input-container>
-              <label for="food">Food</label>
-              <md-select name="food" id="food" v-model="food">
-                <md-subheader>Fruits</md-subheader>
-                <md-option value="apples">Apples</md-option>
-                <md-option value="bananas">Bananas</md-option>
-                <md-option value="peaches">Peaches</md-option>
-                <md-option value="oranges">Oranges</md-option>
+            <div class="field-group">
+              <md-input-container>
+                <label for="food">Food</label>
+                <md-select name="food" id="food" v-model="food">
+                  <md-subheader>Fruits</md-subheader>
+                  <md-option value="apples">Apples</md-option>
+                  <md-option value="bananas">Bananas</md-option>
+                  <md-option value="peaches">Peaches</md-option>
+                  <md-option value="oranges">Oranges</md-option>
 
-                <md-subheader>Vegetables</md-subheader>
-                <md-option value="carrots">Carrots</md-option>
-                <md-option value="cucumbers">Cucumbers</md-option>
+                  <md-subheader>Vegetables</md-subheader>
+                  <md-option value="carrots">Carrots</md-option>
+                  <md-option value="cucumbers">Cucumbers</md-option>
 
-                <md-subheader>Baked Goods</md-subheader>
-                <md-option value="apple_pie">Apple Pie</md-option>
-                <md-option value="chocolate_cake">Chocolate Cake</md-option>
-              </md-select>
-            </md-input-container>
+                  <md-subheader>Baked Goods</md-subheader>
+                  <md-option value="apple_pie">Apple Pie</md-option>
+                  <md-option value="chocolate_cake">Chocolate Cake</md-option>
+                </md-select>
+              </md-input-container>
 
-            <md-input-container>
-              <label for="users">Users</label>
-              <md-select name="users" id="users" multiple v-model="users">
-                <md-subheader>Managers</md-subheader>
-                <md-option value="jim_halpert">Jim Halpert</md-option>
-                <md-option value="dwight_schrute">Dwight Schrute</md-option>
-                <md-option value="michael_scott">Michael Scott</md-option>
+              <md-input-container>
+                <label for="users">Users</label>
+                <md-select name="users" id="users" multiple v-model="users">
+                  <md-subheader>Managers</md-subheader>
+                  <md-option value="jim_halpert">Jim Halpert</md-option>
+                  <md-option value="dwight_schrute">Dwight Schrute</md-option>
+                  <md-option value="michael_scott">Michael Scott</md-option>
 
-                <md-subheader>Employees</md-subheader>
-                <md-option value="pam_beesly">Pam Beesly</md-option>
-                <md-option value="angela_martin">Angela Martin</md-option>
-                <md-option value="kelly_kapoor">Kelly Kapoor</md-option>
-                <md-option value="ryan_howard">Ryan Howard</md-option>
-                <md-option value="kevin_malone">Kevin Malone</md-option>
-                <md-option value="creed_bratton">Creed Bratton</md-option>
-                <md-option value="oscar_nunez">Oscar Nunez</md-option>
-                <md-option value="toby_flenderson">Toby Flenderson</md-option>
-                <md-option value="stanley_hudson">Stanley Hudson</md-option>
-                <md-option value="meredith_palmer">Meredith Palmer</md-option>
-                <md-option value="phyllis_lapin_vance">Phyllis Lapin-Vance</md-option>
-              </md-select>
-            </md-input-container>
+                  <md-subheader>Employees</md-subheader>
+                  <md-option value="pam_beesly">Pam Beesly</md-option>
+                  <md-option value="angela_martin">Angela Martin</md-option>
+                  <md-option value="kelly_kapoor">Kelly Kapoor</md-option>
+                  <md-option value="ryan_howard">Ryan Howard</md-option>
+                  <md-option value="kevin_malone">Kevin Malone</md-option>
+                  <md-option value="creed_bratton">Creed Bratton</md-option>
+                  <md-option value="oscar_nunez">Oscar Nunez</md-option>
+                  <md-option value="toby_flenderson">Toby Flenderson</md-option>
+                  <md-option value="stanley_hudson">Stanley Hudson</md-option>
+                  <md-option value="meredith_palmer">Meredith Palmer</md-option>
+                  <md-option value="phyllis_lapin_vance">Phyllis Lapin-Vance</md-option>
+                </md-select>
+              </md-input-container>
+            </div>
 
             <div>Selected users: {{ users }}</div>
           </div>
@@ -366,8 +368,12 @@
     display: flex;
   }
 
-  .md-input-container + .md-input-container {
-    margin-left: 4px;
+  .md-input-container {
+    max-width: 300px;
+
+    + .md-input-container {
+      margin-left: 4px;
+    }
   }
 
   .multiple {
