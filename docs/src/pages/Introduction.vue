@@ -6,7 +6,7 @@
           <img src="assets/vue-material-example.png" alt="Material Design">
         </div>
 
-        <div class="introduction">Build well-crafted apps with Material Design and Vue 2.0</div>
+        <div class="introduction">Build well-crafted apps with Material Design and Vue 2</div>
 
         <md-button class="md-primary md-raised" href="#/getting-started">Getting Started</md-button>
         <md-button class="md-primary md-raised" href="https://github.com/marcosmoura/vue-material" target="_blank" rel="noopener">Github</md-button>
