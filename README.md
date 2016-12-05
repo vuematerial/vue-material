@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="https://marcosmoura.github.io/vue-material/" target="_blank">
-    <img width="150" src="https://marcosmoura.github.io/vue-material/assets/logo-vue-material-blue.png">
+  <a href="https://vuematerial.github.io/" target="_blank">
+    <img width="150" src="https://vuematerial.github.io/assets/logo-vue-material-blue.png">
   </a>
 </p>
 
@@ -21,7 +21,7 @@ It aims to deliver a collection of reusable components and a series of UI Elemen
 Build powerful and well-designed web apps that can can fit on every screen. You can generate and use themes dynamically, use components on demand, take advantage of UI Elements and Components with an ease-to-use API.
 
 ## Demo and Documentation
-<a href="https://marcosmoura.github.io/vue-material/" target="_blank">Demo</a>
+<a href="https://vuematerial.github.io/" target="_blank">Demo</a>
 
 ## Installation
 
@@ -116,7 +116,7 @@ Vue Material supports the latest version of all Browsers. This means:
 <small>May work in other browsers but it's untested.</small>
 
 ## Changelog
-<a href="https://marcosmoura.github.io/vue-material/#/changelog" target="_blank">Changelog</a>
+<a href="https://vuematerial.github.io/#/changelog" target="_blank">Changelog</a>
 
 ## Contributing
 
