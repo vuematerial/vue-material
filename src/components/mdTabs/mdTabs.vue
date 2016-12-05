@@ -94,7 +94,6 @@
       },
       registerTab(tabData) {
         this.tabList[tabData.id] = tabData;
-        this.$forceUpdate();
       },
       unregisterTab(tabData) {
         delete this.tabList[tabData.id];
@@ -196,7 +195,7 @@
         this.observeElementChanges();
         window.addEventListener('resize', this.calculateOnWatch);
 
-        if (!this.activeTab) {
+        if (this.tabList.length && !this.activeTab) {
           let firstTab = Object.keys(this.tabList)[0];
 
           this.setActiveTab(this.tabList[firstTab]);

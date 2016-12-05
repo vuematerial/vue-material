@@ -7,7 +7,7 @@
 
       <md-card-area>
         <md-tabs md-right :md-dynamic-height="false" class="md-transparent example-tabs">
-          <md-tab class="example-content" md-label="Demo">
+          <md-tab class="example-content" md-label="Demo" md-active>
             <slot name="demo"></slot>
           </md-tab>
 
