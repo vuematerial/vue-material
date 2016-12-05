@@ -34,10 +34,7 @@ Vue.material.theme.registerAll({
   },
   'light-blue': {
     primary: 'light-blue',
-    accent: {
-      color: 'cyan',
-      hue: 'A200'
-    }
+    accent: 'yellow'
   },
   teal: {
     primary: 'teal',
