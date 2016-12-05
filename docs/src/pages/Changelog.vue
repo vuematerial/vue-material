@@ -19,9 +19,9 @@
 
         <h3 class="md-title">Fixes:</h3>
         <ul>
-          <li>fix shadow transition inside menus <strong><a href="https://github.com/marcosmoura/vue-material/issues/141" target="_blank" rel="noopener"></a>#141</strong><strong><a href="https://github.com/marcosmoura/vue-material/issues/129" target="_blank" rel="noopener"></a>#129</strong></li>
-          <li>fix table row not watching item <strong><a href="https://github.com/marcosmoura/vue-material/issues/116" target="_blank" rel="noopener"></a>#116</strong><strong><a href="https://github.com/marcosmoura/vue-material/issues/113" target="_blank" rel="noopener"></a>#113</strong></li>
-          <li>add href support for mdBottomBar <strong><a href="https://github.com/marcosmoura/vue-material/issues/121" target="_blank" rel="noopener"></a>#121</strong></li>
+          <li>fix shadow transition inside menus <strong><a href="https://github.com/marcosmoura/vue-material/issues/141" target="_blank" rel="noopener">#141</a></strong> <strong><a href="https://github.com/marcosmoura/vue-material/issues/129" target="_blank" rel="noopener">#129</a></strong></li>
+          <li>fix table row not watching item <strong><a href="https://github.com/marcosmoura/vue-material/issues/116" target="_blank" rel="noopener">#116</a></strong> <strong><a href="https://github.com/marcosmoura/vue-material/issues/113" target="_blank" rel="noopener">#113</a></strong></li>
+          <li>add href support for mdBottomBar <strong><a href="https://github.com/marcosmoura/vue-material/issues/121" target="_blank" rel="noopener">#121</a></strong></li>
         </ul>
       </section>
 
