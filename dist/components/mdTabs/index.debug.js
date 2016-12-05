@@ -55,12 +55,41 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(182);
+	module.exports = __webpack_require__(208);
 
 
 /***/ },
 
-/***/ 182:
+/***/ 119:
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var getClosestVueParent = function getClosestVueParent($parent, cssClass) {
+	  if (!$parent || !$parent.$el) {
+	    return false;
+	  }
+	
+	  if ($parent._uid === 0) {
+	    return false;
+	  }
+	
+	  if ($parent.$el.classList.contains(cssClass)) {
+	    return $parent;
+	  }
+	
+	  return getClosestVueParent($parent.$parent, cssClass);
+	};
+	
+	exports.default = getClosestVueParent;
+	module.exports = exports["default"];
+
+/***/ },
+
+/***/ 208:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -70,15 +99,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 	exports.default = install;
 	
-	var _mdTabs = __webpack_require__(183);
+	var _mdTabs = __webpack_require__(209);
 	
 	var _mdTabs2 = _interopRequireDefault(_mdTabs);
 	
-	var _mdTab = __webpack_require__(187);
+	var _mdTab = __webpack_require__(213);
 	
 	var _mdTab2 = _interopRequireDefault(_mdTab);
 	
-	var _mdTabs3 = __webpack_require__(190);
+	var _mdTabs3 = __webpack_require__(217);
 	
 	var _mdTabs4 = _interopRequireDefault(_mdTabs3);
 	
@@ -94,20 +123,20 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 183:
+/***/ 209:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = {}
 	
 	/* styles */
-	__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"!!./../../../node_modules/extract-text-webpack-plugin/loader.js?{\"remove\":true}!css!vue-loader/lib/style-rewriter?id=data-v-c28dc5a6!sass!./mdTabs.scss\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()))
+	__webpack_require__(210)
 	
 	/* script */
-	__vue_exports__ = __webpack_require__(185)
+	__vue_exports__ = __webpack_require__(211)
 	
 	/* template */
-	var __vue_template__ = __webpack_require__(186)
+	var __vue_template__ = __webpack_require__(212)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -142,7 +171,14 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 185:
+/***/ 210:
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+
+/***/ 211:
 /***/ function(module, exports) {
 
 	'use strict';
@@ -189,60 +225,51 @@ return /******/ (function(modules) { // webpackBootstrap
 	  props: {
 	    mdFixed: Boolean,
 	    mdCentered: Boolean,
-	    mdElevation: [String, Number]
+	    mdRight: Boolean,
+	    mdDynamicHeight: {
+	      type: Boolean,
+	      default: true
+	    },
+	    mdElevation: {
+	      type: [String, Number],
+	      default: 0
+	    }
 	  },
 	  data: function data() {
 	    return {
+	      tabList: {},
+	      activeTab: null,
+	      activeTabNumber: 0,
 	      hasIcons: false,
 	      hasLabel: false,
-	      elevation: this.mdElevation,
-	      activeTab: '',
-	      activeTabNumber: 0,
-	      tabs: {}
+	      transitionControl: null,
+	      contentHeight: '0px',
+	      contentWidth: '0px'
 	    };
-	  },
-	
-	  watch: {
-	    mdFixed: function mdFixed() {
-	      var _this = this;
-	
-	      var transitionCounter = 0;
-	      var transitionInterval = window.setInterval(function () {
-	        transitionCounter++;
-	
-	        window.requestAnimationFrame(function () {
-	          _this.calculateIndicatorPos(true);
-	        });
-	
-	        if (transitionCounter > 200) {
-	          window.clearInterval(transitionInterval);
-	        }
-	      }, 1);
-	
-	      this.recalculateAllTabsPos();
-	    },
-	    mdCentered: function mdCentered() {
-	      this.recalculateAllTabsPos();
-	    },
-	    mdElevation: function mdElevation() {
-	      this.elevation = this.mdElevation;
-	    }
 	  },
 	  computed: {
 	    tabClasses: function tabClasses() {
 	      return {
-	        'md-fixed': this.mdFixed,
-	        'md-centered': this.mdCentered || this.mdFixed,
-	        'md-has-icon': this.hasIcons,
-	        'md-has-label': this.hasLabel
+	        'md-dynamic-height': this.mdDynamicHeight,
+	        'md-transition-off': this.transitionOff
 	      };
 	    },
-	    indicatorClass: function indicatorClass() {
+	    navigationClasses: function navigationClasses() {
+	      return {
+	        'md-has-icon': this.hasIcons,
+	        'md-has-label': this.hasLabel,
+	        'md-fixed': this.mdFixed,
+	        'md-right': !this.mdCentered && this.mdRight,
+	        'md-centered': this.mdCentered || this.mdFixed
+	      };
+	    },
+	    indicatorClasses: function indicatorClasses() {
 	      var toLeft = this.lastIndicatorNumber > this.activeTabNumber;
 	
 	      this.lastIndicatorNumber = this.activeTabNumber;
 	
 	      return {
+	        'md-transition-off': this.transitionOff,
 	        'md-to-right': !toLeft,
 	        'md-to-left': toLeft
 	      };
@@ -255,137 +282,151 @@ return /******/ (function(modules) { // webpackBootstrap
 	        'md-disabled': header.disabled
 	      };
 	    },
-	    calculateIndicatorPos: function calculateIndicatorPos(recalculate) {
+	    registerTab: function registerTab(tabData) {
+	      this.tabList[tabData.id] = tabData;
+	      this.$forceUpdate();
+	    },
+	    unregisterTab: function unregisterTab(tabData) {
+	      delete this.tabList[tabData.id];
+	    },
+	    updateTab: function updateTab(tabData) {
+	      this.registerTab(tabData);
+	
+	      if (tabData.active) {
+	        if (!tabData.disabled) {
+	          this.setActiveTab(tabData);
+	        } else {
+	          var tabsIds = Object.keys(this.tabList);
+	          var targetIndex = tabsIds.indexOf(tabData.id) + 1;
+	          var target = tabsIds[targetIndex];
+	
+	          if (target) {
+	            this.setActiveTab(this.tabList[target]);
+	          } else {
+	            this.setActiveTab(this.tabList[0]);
+	          }
+	        }
+	      }
+	    },
+	    observeElementChanges: function observeElementChanges() {
+	      this.contentObserver = new MutationObserver(this.calculateOnWatch);
+	      this.navigationObserver = new MutationObserver(this.calculateOnWatch);
+	      this.contentObserver.observe(this.$refs.tabContent, {
+	        childList: true,
+	        attributes: true,
+	        characterData: true,
+	        subtree: true,
+	        attributeOldValue: true,
+	        characterDataOldValue: true
+	      });
+	      this.navigationObserver.observe(this.$refs.tabNavigation, {
+	        attributes: true
+	      });
+	    },
+	    getTabIndex: function getTabIndex(id) {
+	      var idList = Object.keys(this.tabList);
+	
+	      return idList.indexOf(id);
+	    },
+	    calculateIndicatorPos: function calculateIndicatorPos() {
+	      var tabsWidth = this.$el.offsetWidth;
+	      var activeTab = this.$refs.tabHeader[this.activeTabNumber];
+	      var left = activeTab.offsetLeft;
+	      var right = tabsWidth - left - activeTab.offsetWidth;
+	
+	      this.$refs.indicator.style.left = left + 'px';
+	      this.$refs.indicator.style.right = right + 'px';
+	    },
+	    calculateTabsWidthAndPosition: function calculateTabsWidthAndPosition() {
+	      var width = this.$el.offsetWidth;
+	
+	      this.contentWidth = width * this.activeTabNumber + 'px';
+	
+	      Object.values(this.tabList).forEach(function (tab, index) {
+	        tab.ref.width = width + 'px';
+	        tab.ref.left = width * index + 'px';
+	      });
+	    },
+	    calculateContentHeight: function calculateContentHeight() {
+	      var _this = this;
+	
+	      this.$nextTick(function () {
+	        var height = _this.tabList[_this.activeTab].ref.$el.offsetHeight;
+	
+	        _this.contentHeight = height + 'px';
+	      });
+	    },
+	    calculatePosition: function calculatePosition() {
 	      var _this2 = this;
 	
-	      var indicator = this.$refs.indicator;
-	      var tabsWidth = this.$el.offsetWidth;
-	
-	      if (recalculate) {
-	        indicator.classList.add('md-transition-off');
-	      }
-	
-	      this.$nextTick(function () {
-	        var activeTab = _this2.$refs.tabHeader[_this2.activeTabNumber];
-	        var left = activeTab.offsetLeft;
-	        var right = tabsWidth - left - activeTab.offsetWidth;
-	
-	        indicator.style.left = left + 'px';
-	        indicator.style.right = right + 'px';
-	
-	        if (recalculate) {
-	          window.setTimeout(function () {
-	            indicator.classList.remove('md-transition-off');
-	          }, 100);
-	        }
+	      window.requestAnimationFrame(function () {
+	        _this2.calculateIndicatorPos();
+	        _this2.calculateTabsWidthAndPosition();
+	        _this2.calculateContentHeight();
 	      });
 	    },
-	    calculateTabPos: function calculateTabPos(ref, index) {
-	      this.$refs.tabWrapper.style.transform = 'translate3D(' + -this.$refs.tabContent.offsetWidth * this.activeTabNumber + 'px, 0, 0)';
-	      ref.style.width = this.$refs.tabContent.offsetWidth + 'px';
-	      ref.style.left = this.$refs.tabContent.offsetWidth * index + 'px';
-	    },
-	    setVisibleTab: function setVisibleTab(ref) {
-	      this.$refs.tabContent.style.height = ref.offsetHeight + 'px';
-	      ref.classList.add('md-active');
-	    },
-	    changeTab: function changeTab(tabId) {
+	    debounceTransition: function debounceTransition() {
 	      var _this3 = this;
 	
-	      var idList = Object.keys(this.tabs);
-	      var id = tabId || idList[0];
-	      var index = idList.indexOf(id);
-	
-	      this.tabs[this.activeTab || id].ref.classList.remove('md-active');
-	      this.activeTab = id;
-	      this.activeTabNumber = index;
-	
-	      this.$nextTick(function () {
-	        _this3.calculateIndicatorPos();
-	        _this3.calculateTabPos(_this3.tabs[id].ref, index);
-	        _this3.setVisibleTab(_this3.tabs[id].ref);
-	      });
-	
-	      this.$emit('change', index);
+	      window.clearTimeout(this.transitionControl);
+	      this.transitionControl = window.setTimeout(function () {
+	        _this3.calculatePosition();
+	        _this3.transitionOff = false;
+	      }, 200);
 	    },
-	    handleTabData: function handleTabData(data) {
-	      var idList = Object.keys(this.tabs);
-	      var index = idList.indexOf(data.id);
-	
-	      this.hasIcons = !!data.icon;
-	      this.hasLabel = !!data.label;
-	
-	      if (!data.disabled) {
-	        if (data.active) {
-	          this.changeTab(data.id);
-	        }
-	      } else {
-	        this.changeTab(idList[index + 1]);
-	      }
+	    calculateOnWatch: function calculateOnWatch() {
+	      this.transitionOff = true;
+	      this.calculatePosition();
+	      this.debounceTransition();
 	    },
-	    registerTab: function registerTab(data) {
-	      this.tabs[data.id] = data;
-	      this.handleTabData(data);
-	      this.calculateTabPos(this.tabs[data.id].ref, Object.keys(this.tabs).length - 1);
-	    },
-	    updateTabData: function updateTabData(data) {
-	      this.tabs[data.id] = data;
-	      this.handleTabData(data);
-	      this.$forceUpdate();
-	      this.recalculateAllTabsPos();
-	    },
-	    recalculateAllTabsPos: function recalculateAllTabsPos(transitionOff) {
-	      var _this4 = this;
-	
-	      if (typeof transitionOff === 'undefined') {
-	        transitionOff = true;
-	      }
-	
-	      window.requestAnimationFrame(function () {
-	        _this4.calculateIndicatorPos(!transitionOff);
-	
-	        Object.keys(_this4.tabs).forEach(function (tab, index) {
-	          _this4.calculateTabPos(_this4.tabs[tab].ref, index);
-	        });
-	      });
+	    setActiveTab: function setActiveTab(tabData) {
+	      this.hasIcons = !!tabData.icon;
+	      this.hasLabel = !!tabData.label;
+	      this.activeTab = tabData.id;
+	      this.activeTabNumber = this.getTabIndex(this.activeTab);
+	      this.calculatePosition();
 	    }
 	  },
 	  mounted: function mounted() {
-	    if (!this.activeTab) {
-	      this.changeTab();
-	    }
+	    var _this4 = this;
 	
-	    window.addEventListener('resize', this.recalculateAllTabsPos);
+	    this.$nextTick(function () {
+	      _this4.observeElementChanges();
+	      window.addEventListener('resize', _this4.calculateOnWatch);
+	
+	      if (!_this4.activeTab) {
+	        var firstTab = Object.keys(_this4.tabList)[0];
+	
+	        _this4.setActiveTab(_this4.tabList[firstTab]);
+	      }
+	    });
 	  },
 	  beforeDestroy: function beforeDestroy() {
-	    window.removeEventListener('resize', this.recalculateAllTabsPos);
+	    this.contentObserver.disconnect();
+	    window.removeEventListener('resize', this.calculateOnWatch);
 	  }
 	};
 	module.exports = exports['default'];
 
 /***/ },
 
-/***/ 186:
+/***/ 212:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports={render:function (){var _vm=this;
-	  return _vm._h('div', {
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
+	  return _h('div', {
 	    staticClass: "md-tabs",
 	    class: _vm.tabClasses
-	  }, [_vm._h('md-whiteframe', {
+	  }, [_h('md-whiteframe', {
 	    attrs: {
-	      "md-elevation": _vm.elevation || 0
+	      "md-elevation": _vm.mdElevation
 	    }
-	  }, [_vm._h('div', {
-	    staticClass: "md-tabs-navigation"
-	  }, [_vm._l((_vm.tabs), function(header) {
-	    return _vm._h('button', {
-	      directives: [{
-	        name: "md-ink-ripple",
-	        rawName: "v-md-ink-ripple",
-	        value: (header.disabled),
-	        expression: "header.disabled"
-	      }],
+	  }, [_h('div', {
+	    ref: "tabNavigation",
+	    staticClass: "md-tabs-navigation",
+	    class: _vm.navigationClasses
+	  }, [_vm._l((_vm.tabList), function(header) {
+	    return _h('button', {
 	      key: header.id,
 	      ref: "tabHeader",
 	      refInFor: true,
@@ -397,24 +438,34 @@ return /******/ (function(modules) { // webpackBootstrap
 	      },
 	      on: {
 	        "click": function($event) {
-	          _vm.changeTab(header.id)
+	          _vm.setActiveTab(header)
 	        }
 	      }
-	    }, [_vm._h('div', {
+	    }, [_h('md-ink-ripple', {
+	      attrs: {
+	        "md-disabled": header.disabled
+	      }
+	    }), " ", _h('div', {
 	      staticClass: "md-tab-header-container"
-	    }, [(header.icon) ? _vm._h('md-icon', [_vm._s(header.icon)]) : _vm._e(), " ", (header.label) ? _vm._h('span', [_vm._s(header.label)]) : _vm._e()])])
-	  }), " ", _vm._h('span', {
+	    }, [(header.icon) ? _h('md-icon', [_vm._s(header.icon)]) : _vm._e(), " ", (header.label) ? _h('span', [_vm._s(header.label)]) : _vm._e()])])
+	  }), " ", _h('span', {
 	    ref: "indicator",
 	    staticClass: "md-tab-indicator",
-	    class: _vm.indicatorClass
-	  })])]), " ", _vm._h('div', {
+	    class: _vm.indicatorClasses
+	  })])]), " ", _h('div', {
 	    ref: "tabContent",
-	    staticClass: "md-tabs-content"
-	  }, [_vm._h('div', {
-	    ref: "tabWrapper",
-	    staticClass: "md-tabs-wrapper"
+	    staticClass: "md-tabs-content",
+	    style: ({
+	      height: _vm.contentHeight
+	    })
+	  }, [_h('div', {
+	    staticClass: "md-tabs-wrapper",
+	    style: ({
+	      transform: ("translate3D(-" + _vm.contentWidth + ", 0, 0)")
+	    })
 	  }, [_vm._t("default")])])])
 	},staticRenderFns: []}
+	module.exports.render._withStripped = true
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
@@ -424,17 +475,17 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 187:
+/***/ 213:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = {}
 	
 	/* script */
-	__vue_exports__ = __webpack_require__(188)
+	__vue_exports__ = __webpack_require__(214)
 	
 	/* template */
-	var __vue_template__ = __webpack_require__(189)
+	var __vue_template__ = __webpack_require__(216)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -469,14 +520,25 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 188:
-/***/ function(module, exports) {
+/***/ 214:
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	
+	var _uniqueId = __webpack_require__(215);
+	
+	var _uniqueId2 = _interopRequireDefault(_uniqueId);
+	
+	var _getClosestVueParent = __webpack_require__(119);
+	
+	var _getClosestVueParent2 = _interopRequireDefault(_getClosestVueParent);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
 	//
 	//
 	//
@@ -493,14 +555,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	    mdDisabled: Boolean
 	  },
 	  data: function data() {
-	    var id = void 0;
-	
-	    if (!this.id) {
-	      id = 'tab-' + Math.random().toString(36).substr(2, 10);
-	    }
-	
 	    return {
-	      tabId: this.id || id
+	      mounted: false,
+	      tabId: this.id || 'tab-' + (0, _uniqueId2.default)(),
+	      width: '0px',
+	      left: '0px'
 	    };
 	  },
 	
@@ -518,51 +577,85 @@ return /******/ (function(modules) { // webpackBootstrap
 	      this.updateTabData();
 	    }
 	  },
+	  computed: {
+	    styles: function styles() {
+	      return {
+	        width: this.width,
+	        left: this.left
+	      };
+	    }
+	  },
 	  methods: {
-	    updateTabData: function updateTabData() {
-	      this.$parent.updateTabData({
+	    getTabData: function getTabData() {
+	      return {
 	        id: this.tabId,
 	        label: this.mdLabel,
 	        icon: this.mdIcon,
 	        active: this.mdActive,
 	        disabled: this.mdDisabled,
-	        ref: this.$refs.tab
-	      });
+	        ref: this
+	      };
+	    },
+	    updateTabData: function updateTabData() {
+	      this.parentTabs.updateTab(this.getTabData());
 	    }
 	  },
 	  mounted: function mounted() {
-	    if (!this.$parent.$el.classList.contains('md-tabs')) {
-	      this.$destroy();
+	    var _this = this;
 	
-	      throw new Error('You should wrap the md-tab in a md-tabs');
+	    this.parentTabs = (0, _getClosestVueParent2.default)(this.$parent, 'md-tabs');
+	
+	    if (!this.parentTabs) {
+	      throw new Error('You must wrap the md-tab in a md-tabs');
 	    }
 	
-	    this.$parent.registerTab({
-	      id: this.tabId,
-	      label: this.mdLabel,
-	      icon: this.mdIcon,
-	      active: this.mdActive,
-	      disabled: this.mdDisabled,
-	      ref: this.$refs.tab
+	    this.$nextTick(function () {
+	      _this.mounted = true;
+	      _this.parentTabs.registerTab(_this.getTabData());
+	
+	      if (_this.mdActive) {
+	        _this.parentTabs.activeTab = _this.tabId;
+	      }
 	    });
+	  },
+	  beforeDestroy: function beforeDestroy() {
+	    this.parentTabs.unregisterTab(this.getTabData());
 	  }
 	};
 	module.exports = exports['default'];
 
 /***/ },
 
-/***/ 189:
+/***/ 215:
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var uniqueId = function uniqueId() {
+	  return Math.random().toString(36).slice(4);
+	};
+	
+	exports.default = uniqueId;
+	module.exports = exports["default"];
+
+/***/ },
+
+/***/ 216:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports={render:function (){var _vm=this;
-	  return _vm._h('div', {
-	    ref: "tab",
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
+	  return _h('div', {
 	    staticClass: "md-tab",
+	    style: (_vm.styles),
 	    attrs: {
 	      "id": _vm.tabId
 	    }
 	  }, [_vm._t("default")])
 	},staticRenderFns: []}
+	module.exports.render._withStripped = true
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
@@ -572,10 +665,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 190:
+/***/ 217:
 /***/ function(module, exports) {
 
-	module.exports = ".THEME_NAME .md-tabs .md-tabs-navigation, .THEME_NAME.md-tabs .md-tabs-navigation {\n  background-color: PRIMARY-COLOR; }\n\n.THEME_NAME .md-tabs .md-tab-header, .THEME_NAME.md-tabs .md-tab-header {\n  color: PRIMARY-CONTRAST-0.54; }\n  .THEME_NAME .md-tabs .md-tab-header.md-active, .THEME_NAME .md-tabs .md-tab-header:focus, .THEME_NAME.md-tabs .md-tab-header.md-active, .THEME_NAME.md-tabs .md-tab-header:focus {\n    color: PRIMARY-CONTRAST-0.99999; }\n  .THEME_NAME .md-tabs .md-tab-header.md-disabled, .THEME_NAME.md-tabs .md-tab-header.md-disabled {\n    color: PRIMARY-CONTRAST-0.26; }\n\n.THEME_NAME .md-tabs .md-tab-indicator, .THEME_NAME.md-tabs .md-tab-indicator {\n  background-color: ACCENT-COLOR; }\n\n.THEME_NAME .md-tabs.md-accent .md-tabs-navigation, .THEME_NAME.md-tabs.md-accent .md-tabs-navigation {\n  background-color: ACCENT-COLOR; }\n\n.THEME_NAME .md-tabs.md-accent .md-tab-header, .THEME_NAME.md-tabs.md-accent .md-tab-header {\n  color: ACCENT-CONTRAST-0.54; }\n  .THEME_NAME .md-tabs.md-accent .md-tab-header.md-active, .THEME_NAME .md-tabs.md-accent .md-tab-header:focus, .THEME_NAME.md-tabs.md-accent .md-tab-header.md-active, .THEME_NAME.md-tabs.md-accent .md-tab-header:focus {\n    color: ACCENT-CONTRAST-0.99999; }\n  .THEME_NAME .md-tabs.md-accent .md-tab-header.md-disabled, .THEME_NAME.md-tabs.md-accent .md-tab-header.md-disabled {\n    color: ACCENT-CONTRAST-0.26; }\n\n.THEME_NAME .md-tabs.md-accent .md-tab-indicator, .THEME_NAME.md-tabs.md-accent .md-tab-indicator {\n  background-color: BACKGROUND-COLOR; }\n\n.THEME_NAME .md-tabs.md-warn .md-tabs-navigation, .THEME_NAME.md-tabs.md-warn .md-tabs-navigation {\n  background-color: WARN-COLOR; }\n\n.THEME_NAME .md-tabs.md-warn .md-tab-header, .THEME_NAME.md-tabs.md-warn .md-tab-header {\n  color: WARN-CONTRAST-0.54; }\n  .THEME_NAME .md-tabs.md-warn .md-tab-header.md-active, .THEME_NAME .md-tabs.md-warn .md-tab-header:focus, .THEME_NAME.md-tabs.md-warn .md-tab-header.md-active, .THEME_NAME.md-tabs.md-warn .md-tab-header:focus {\n    color: WARN-CONTRAST-0.99999; }\n  .THEME_NAME .md-tabs.md-warn .md-tab-header.md-disabled, .THEME_NAME.md-tabs.md-warn .md-tab-header.md-disabled {\n    color: WARN-CONTRAST-0.26; }\n\n.THEME_NAME .md-tabs.md-warn .md-tab-indicator, .THEME_NAME.md-tabs.md-warn .md-tab-indicator {\n  background-color: BACKGROUND-COLOR; }\n\n.THEME_NAME .md-tabs.md-transparent .md-tabs-navigation, .THEME_NAME.md-tabs.md-transparent .md-tabs-navigation {\n  background-color: transparent; }\n\n.THEME_NAME .md-tabs.md-transparent .md-tab-header, .THEME_NAME.md-tabs.md-transparent .md-tab-header {\n  color: BACKGROUND-CONTRAST-0.54; }\n  .THEME_NAME .md-tabs.md-transparent .md-tab-header.md-active, .THEME_NAME .md-tabs.md-transparent .md-tab-header:focus, .THEME_NAME.md-tabs.md-transparent .md-tab-header.md-active, .THEME_NAME.md-tabs.md-transparent .md-tab-header:focus {\n    color: PRIMARY-COLOR; }\n  .THEME_NAME .md-tabs.md-transparent .md-tab-header.md-disabled, .THEME_NAME.md-tabs.md-transparent .md-tab-header.md-disabled {\n    color: BACKGROUND-CONTRAST-0.26; }\n\n.THEME_NAME .md-tabs.md-transparent .md-tab-indicator, .THEME_NAME.md-tabs.md-transparent .md-tab-indicator {\n  background-color: PRIMARY-COLOR; }\n"
+	module.exports = ".THEME_NAME .md-tabs .md-tabs-navigation, .THEME_NAME.md-tabs .md-tabs-navigation {\n  background-color: PRIMARY-COLOR; }\n\n.THEME_NAME .md-tabs .md-tab-header, .THEME_NAME.md-tabs .md-tab-header {\n  color: PRIMARY-CONTRAST-0.54; }\n  .THEME_NAME .md-tabs .md-tab-header.md-active, .THEME_NAME .md-tabs .md-tab-header:focus, .THEME_NAME.md-tabs .md-tab-header.md-active, .THEME_NAME.md-tabs .md-tab-header:focus {\n    color: PRIMARY-CONTRAST; }\n  .THEME_NAME .md-tabs .md-tab-header.md-disabled, .THEME_NAME.md-tabs .md-tab-header.md-disabled {\n    color: PRIMARY-CONTRAST-0.26; }\n\n.THEME_NAME .md-tabs .md-tab-indicator, .THEME_NAME.md-tabs .md-tab-indicator {\n  background-color: ACCENT-COLOR; }\n\n.THEME_NAME .md-tabs.md-transparent .md-tabs-navigation, .THEME_NAME.md-tabs.md-transparent .md-tabs-navigation {\n  background-color: transparent;\n  border-bottom: 1px solid BACKGROUND-CONTRAST-0.12; }\n\n.THEME_NAME .md-tabs.md-transparent .md-tab-header, .THEME_NAME.md-tabs.md-transparent .md-tab-header {\n  color: BACKGROUND-CONTRAST-0.54; }\n  .THEME_NAME .md-tabs.md-transparent .md-tab-header.md-active, .THEME_NAME .md-tabs.md-transparent .md-tab-header:focus, .THEME_NAME.md-tabs.md-transparent .md-tab-header.md-active, .THEME_NAME.md-tabs.md-transparent .md-tab-header:focus {\n    color: PRIMARY-COLOR; }\n  .THEME_NAME .md-tabs.md-transparent .md-tab-header.md-disabled, .THEME_NAME.md-tabs.md-transparent .md-tab-header.md-disabled {\n    color: BACKGROUND-CONTRAST-0.26; }\n\n.THEME_NAME .md-tabs.md-transparent .md-tab-indicator, .THEME_NAME.md-tabs.md-transparent .md-tab-indicator {\n  background-color: PRIMARY-COLOR; }\n\n.THEME_NAME .md-tabs.md-accent .md-tabs-navigation, .THEME_NAME.md-tabs.md-accent .md-tabs-navigation {\n  background-color: ACCENT-COLOR; }\n\n.THEME_NAME .md-tabs.md-accent .md-tab-header, .THEME_NAME.md-tabs.md-accent .md-tab-header {\n  color: ACCENT-CONTRAST-0.54; }\n  .THEME_NAME .md-tabs.md-accent .md-tab-header.md-active, .THEME_NAME .md-tabs.md-accent .md-tab-header:focus, .THEME_NAME.md-tabs.md-accent .md-tab-header.md-active, .THEME_NAME.md-tabs.md-accent .md-tab-header:focus {\n    color: ACCENT-CONTRAST; }\n  .THEME_NAME .md-tabs.md-accent .md-tab-header.md-disabled, .THEME_NAME.md-tabs.md-accent .md-tab-header.md-disabled {\n    color: ACCENT-CONTRAST-0.26; }\n\n.THEME_NAME .md-tabs.md-accent .md-tab-indicator, .THEME_NAME.md-tabs.md-accent .md-tab-indicator {\n  background-color: BACKGROUND-COLOR; }\n\n.THEME_NAME .md-tabs.md-warn .md-tabs-navigation, .THEME_NAME.md-tabs.md-warn .md-tabs-navigation {\n  background-color: WARN-COLOR; }\n\n.THEME_NAME .md-tabs.md-warn .md-tab-header, .THEME_NAME.md-tabs.md-warn .md-tab-header {\n  color: WARN-CONTRAST-0.54; }\n  .THEME_NAME .md-tabs.md-warn .md-tab-header.md-active, .THEME_NAME .md-tabs.md-warn .md-tab-header:focus, .THEME_NAME.md-tabs.md-warn .md-tab-header.md-active, .THEME_NAME.md-tabs.md-warn .md-tab-header:focus {\n    color: WARN-CONTRAST; }\n  .THEME_NAME .md-tabs.md-warn .md-tab-header.md-disabled, .THEME_NAME.md-tabs.md-warn .md-tab-header.md-disabled {\n    color: WARN-CONTRAST-0.26; }\n\n.THEME_NAME .md-tabs.md-warn .md-tab-indicator, .THEME_NAME.md-tabs.md-warn .md-tab-indicator {\n  background-color: BACKGROUND-COLOR; }\n"
 
 /***/ }
 
