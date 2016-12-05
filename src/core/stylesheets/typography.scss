@@ -75,7 +75,7 @@
 /*  Links & Buttons
    ========================================================================== */
 
-a:not(.md-button) {
+a:not(.md-button):not(.md-bottom-bar-item) {
   text-decoration: none;
 
   &:hover {
