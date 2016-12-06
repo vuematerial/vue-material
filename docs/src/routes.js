@@ -11,6 +11,7 @@ import BottomBar from './pages/components/BottomBar';
 import Buttons from './pages/components/Buttons';
 import ButtonToggle from './pages/components/ButtonToggle';
 import Card from './pages/components/Card';
+import Chips from './pages/components/Chips';
 import Checkbox from './pages/components/Checkbox';
 import Dialog from './pages/components/Dialog';
 import Icon from './pages/components/Icon';
@@ -90,6 +91,11 @@ const components = [
     path: '/components/card',
     name: 'components:card',
     component: Card
+  },
+  {
+    path: '/components/chips',
+    name: 'components:chips',
+    component: Chips
   },
   {
     path: '/components/checkbox',
