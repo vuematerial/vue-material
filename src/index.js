@@ -5,7 +5,6 @@ import MdBottomBar from './components/mdBottomBar';
 import MdButton from './components/mdButton';
 import MdButtonToggle from './components/mdButtonToggle';
 import MdCard from './components/mdCard';
-import MdChips from './components/mdChips';
 import MdCheckbox from './components/mdCheckbox';
 import MdDialog from './components/mdDialog';
 import MdDivider from './components/mdDivider';
@@ -32,7 +31,6 @@ const options = {
   MdButton,
   MdButtonToggle,
   MdCard,
-  MdChips,
   MdCheckbox,
   MdDialog,
   MdDivider,
