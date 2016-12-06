@@ -6,13 +6,13 @@
       <md-option v-for="amount in mdPageOptions" :value="amount">{{ amount }}</md-option>
     </md-select>
 
-    <span>{{ (currentSize - currentSize + 1) * currentPage }}-{{ currentSize }} {{ mdSeparator }} {{ mdTotal }}</span>
+    <span>{{ ((currentPage - 1) * currentSize) + 1 }}-{{ subTotal }} {{ mdSeparator }} {{ mdTotal }}</span>
 
-    <md-button class="md-icon-button md-table-pagination-previous" @click="changePage" :disabled="currentPage === 1">
+    <md-button class="md-icon-button md-table-pagination-previous" @click="previousPage" :disabled="currentPage === 1">
       <md-icon>keyboard_arrow_left</md-icon>
     </md-button>
 
-    <md-button class="md-icon-button md-table-pagination-next" @click="changePage" :disabled="currentSize * currentPage >= totalItems">
+    <md-button class="md-icon-button md-table-pagination-next" @click="nextPage" :disabled="currentSize * currentPage >= mdTotal">
       <md-icon>keyboard_arrow_right</md-icon>
     </md-button>
   </div>
@@ -45,6 +45,7 @@
     },
     data() {
       return {
+        subTotal: 0,
         currentSize: parseInt(this.mdSize, 10),
         currentPage: parseInt(this.mdPage, 10),
         totalItems: !isNaN(this.mdTotal) && Number.MAX_SAFE_INTEGER
@@ -58,6 +59,9 @@
     methods: {
       emitPaginationEvent() {
         if (this.canFireEvents) {
+          const sub = this.currentPage * this.currentSize;
+
+          this.subTotal = sub > this.mdTotal ? this.mdTotal : sub;
           this.$emit('pagination', {
             size: this.currentSize,
             page: this.currentPage
@@ -70,8 +74,16 @@
           this.emitPaginationEvent();
         }
       },
-      changePage() {
+      previousPage() {
         if (this.canFireEvents) {
+          this.currentPage--;
+          this.$emit('page', this.currentPage);
+          this.emitPaginationEvent();
+        }
+      },
+      nextPage() {
+        if (this.canFireEvents) {
+          this.currentPage++;
           this.$emit('page', this.currentPage);
           this.emitPaginationEvent();
         }
@@ -79,6 +91,7 @@
     },
     mounted() {
       this.$nextTick(() => {
+        this.subTotal = this.currentPage * this.currentSize;
         this.mdPageOptions = this.mdPageOptions || [10, 25, 50, 100];
         this.currentSize = this.mdPageOptions[0];
         this.canFireEvents = true;
