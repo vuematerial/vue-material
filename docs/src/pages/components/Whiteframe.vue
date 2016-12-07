@@ -64,7 +64,7 @@
 
           <div slot="code">
             <code-block lang="xml">
-              &lt;md-whiteframe&gt;1dp&lt;/md-whiteframe&gt;
+              &lt;md-whiteframe md-tag=&quot;section&quot;&gt;1dp&lt;/md-whiteframe&gt;
               &lt;md-whiteframe md-elevation=&quot;2&quot;&gt;2dp&lt;/md-whiteframe&gt;
               &lt;md-whiteframe md-elevation=&quot;3&quot;&gt;3dp&lt;/md-whiteframe&gt;
               &lt;md-whiteframe md-elevation=&quot;4&quot;&gt;4dp&lt;/md-whiteframe&gt;
