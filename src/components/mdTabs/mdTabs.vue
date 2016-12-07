@@ -154,7 +154,7 @@
 
         let index = 0;
 
-        for (var tabId in this.tabList) {
+        for (const tabId in this.tabList) {
           let tab = this.tabList[tabId];
 
           tab.ref.width = width + 'px';
