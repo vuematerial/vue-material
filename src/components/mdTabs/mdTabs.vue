@@ -13,6 +13,7 @@
           ref="tabHeader">
           <md-ink-ripple :md-disabled="header.disabled"></md-ink-ripple>
           <div class="md-tab-header-container">
+            <md-tooltip v-if="header.tooltip" :md-direction="header.tooltipDirection">{{ header.tooltip }}</md-tooltip>
             <md-icon v-if="header.icon">{{ header.icon }}</md-icon>
             <span v-if="header.label">{{ header.label }}</span>
           </div>
