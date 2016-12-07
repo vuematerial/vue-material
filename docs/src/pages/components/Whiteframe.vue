@@ -30,7 +30,7 @@
       <div slot="example">
         <example-box card-title="Default">
           <div slot="demo">
-            <md-whiteframe>1dp</md-whiteframe>
+            <md-whiteframe md-tag="section">1dp</md-whiteframe>
             <md-whiteframe md-elevation="2">2dp</md-whiteframe>
             <md-whiteframe md-elevation="3">3dp</md-whiteframe>
             <md-whiteframe md-elevation="4">4dp</md-whiteframe>
