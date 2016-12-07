@@ -22,6 +22,12 @@
                 <md-table-cell><code>Number</code></md-table-cell>
                 <md-table-cell>The amount of elevation. From 0 to 24. <br>Default: <code>1</code></md-table-cell>
               </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>md-tag</md-table-cell>
+                <md-table-cell><code>String</code></md-table-cell>
+                <md-table-cell>The generated html tag <br>Default: <code>div</code></md-table-cell>
+              </md-table-row>
             </md-table-body>
           </md-table>
         </api-table>
