@@ -152,10 +152,15 @@
 
         this.contentWidth = width * this.activeTabNumber + 'px';
 
-        Object.values(this.tabList).forEach((tab, index) => {
+        let index = 0;
+
+        for (const tabId in this.tabList) {
+          let tab = this.tabList[tabId];
+
           tab.ref.width = width + 'px';
           tab.ref.left = width * index + 'px';
-        });
+          index++;
+        }
       },
       calculateContentHeight() {
         this.$nextTick(() => {
@@ -189,6 +194,7 @@
         this.activeTab = tabData.id;
         this.activeTabNumber = this.getTabIndex(this.activeTab);
         this.calculatePosition();
+        this.$emit('change', this.activeTabNumber);
       }
     },
     mounted() {
