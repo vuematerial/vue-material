@@ -34,6 +34,8 @@
   min-width: 280px;
   max-width: 80%;
   max-height: 80%;
+  display: flex;
+  flex-flow: column;
   overflow: hidden;
   position: relative;
   z-index: 110;
@@ -67,6 +69,13 @@
 
 .md-dialog-content {
   padding: 0 24px 24px;
+  flex: 1;
+  overflow: auto;
+  background: linear-gradient(to bottom, #fff 0, #fff 1px, transparent 1px),
+              linear-gradient(to bottom, rgba(0, 0, 0, .12) 0, rgba(0, 0, 0, .12) 1px, transparent 1px),
+              linear-gradient(to top, #fff 0, #fff 1px, transparent 1px),
+              linear-gradient(to top, rgba(0, 0, 0, .12) 0, rgba(0, 0, 0, .12) 1px, transparent 1px);
+  background-attachment: local, scroll, local, scroll;
 
   &:first-child {
     padding-top: 24px;
