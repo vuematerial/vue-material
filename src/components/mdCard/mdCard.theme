@@ -10,58 +10,11 @@
           color: #{'BACKGROUND-CONTRAST-0.54'};
         }
       }
-
-      &.md-primary {
-        background-color: #{'PRIMARY-COLOR'};
-        color: #{'PRIMARY-CONTRAST'};
-      }
-
-      &.md-accent {
-          background-color: #{'ACCENT-COLOR'};
-          color: #{'ACCENT-CONTRAST'};
-      }
-
-      &.md-warn {
-          background-color: #{'WARN-COLOR'};
-          color: #{'WARN-CONTRAST'};
-      }
-    }
-
-    .md-card-content{
-      &.md-primary {
-        background-color: #{'PRIMARY-COLOR'};
-        color: #{'PRIMARY-CONTRAST'};
-      }
-
-      &.md-accent {
-          background-color: #{'ACCENT-COLOR'};
-          color: #{'ACCENT-CONTRAST'};
-      }
-
-      &.md-warn {
-          background-color: #{'WARN-COLOR'};
-          color: #{'WARN-CONTRAST'};
-      }
     }
 
     > .md-card-area {
       &:after {
         background-color: #{'BACKGROUND-CONTRAST-0.12'};
-      }
-
-      &.md-primary {
-        background-color: #{'PRIMARY-COLOR'};
-        color: #{'PRIMARY-CONTRAST'};
-      }
-
-      &.md-accent {
-          background-color: #{'ACCENT-COLOR'};
-          color: #{'ACCENT-CONTRAST'};
-      }
-
-      &.md-warn {
-          background-color: #{'WARN-COLOR'};
-          color: #{'WARN-CONTRAST'};
       }
     }
 
@@ -82,21 +35,6 @@
     .md-card-expand {
       .md-card-actions {
         background-color: #{'BACKGROUND-COLOR-A100'};
-      }
-
-      &.md-primary {
-        background-color: #{'PRIMARY-COLOR'};
-        color: #{'PRIMARY-CONTRAST'};
-      }
-
-      &.md-accent {
-          background-color: #{'ACCENT-COLOR'};
-          color: #{'ACCENT-CONTRAST'};
-      }
-
-      &.md-warn {
-          background-color: #{'WARN-COLOR'};
-          color: #{'WARN-CONTRAST'};
       }
     }
 
