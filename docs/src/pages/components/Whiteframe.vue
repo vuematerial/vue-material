@@ -22,6 +22,12 @@
                 <md-table-cell><code>Number</code></md-table-cell>
                 <md-table-cell>The amount of elevation. From 0 to 24. <br>Default: <code>1</code></md-table-cell>
               </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>md-tag</md-table-cell>
+                <md-table-cell><code>String</code></md-table-cell>
+                <md-table-cell>The generated html tag <br>Default: <code>div</code></md-table-cell>
+              </md-table-row>
             </md-table-body>
           </md-table>
         </api-table>
@@ -30,7 +36,7 @@
       <div slot="example">
         <example-box card-title="Default">
           <div slot="demo">
-            <md-whiteframe>1dp</md-whiteframe>
+            <md-whiteframe md-tag="section">1dp</md-whiteframe>
             <md-whiteframe md-elevation="2">2dp</md-whiteframe>
             <md-whiteframe md-elevation="3">3dp</md-whiteframe>
             <md-whiteframe md-elevation="4">4dp</md-whiteframe>
@@ -58,7 +64,7 @@
 
           <div slot="code">
             <code-block lang="xml">
-              &lt;md-whiteframe&gt;1dp&lt;/md-whiteframe&gt;
+              &lt;md-whiteframe md-tag=&quot;section&quot;&gt;1dp&lt;/md-whiteframe&gt;
               &lt;md-whiteframe md-elevation=&quot;2&quot;&gt;2dp&lt;/md-whiteframe&gt;
               &lt;md-whiteframe md-elevation=&quot;3&quot;&gt;3dp&lt;/md-whiteframe&gt;
               &lt;md-whiteframe md-elevation=&quot;4&quot;&gt;4dp&lt;/md-whiteframe&gt;

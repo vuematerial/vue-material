@@ -8,7 +8,7 @@
       </md-menu-content>
     </md-menu>
 
-    <select :name="name" :id="id" :required="required" tabindex="-1">
+    <select :name="name" :id="id" :required="required" :disabled="disabled" tabindex="-1">
       <option :value="value">{{ value }}</option>
     </select>
   </div>
@@ -43,6 +43,8 @@
     },
     computed: {
       classes() {
+        console.log(this.disabled);
+
         return {
           'md-disabled': this.disabled
         };
@@ -58,9 +60,27 @@
     watch: {
       value(value) {
         this.setTextAndValue(value);
+      },
+      disabled() {
+        this.setParentDisabled();
+      },
+      required() {
+        this.setParentRequired();
+      },
+      placeholder() {
+        this.setParentPlaceholder();
       }
     },
     methods: {
+      setParentDisabled() {
+        this.parentContainer.isDisabled = this.disabled;
+      },
+      setParentRequired() {
+        this.parentContainer.isRequired = this.required;
+      },
+      setParentPlaceholder() {
+        this.parentContainer.hasPlaceholder = !!this.placeholder;
+      },
       getSingleValue(value) {
         let output = {};
 
@@ -144,6 +164,9 @@
       this.setTextAndValue(this.value);
 
       if (this.parentContainer) {
+        this.setParentDisabled();
+        this.setParentRequired();
+        this.setParentPlaceholder();
         this.parentContainer.setValue(this.value);
         this.parentContainer.hasSelect = true;
       }

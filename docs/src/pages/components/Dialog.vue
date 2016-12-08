@@ -528,17 +528,16 @@
 
           <div slot="code">
             <code-block lang="xml">
-              &lt;md-dialog-confirm
-                :md-title=&quot;confirm.title&quot;
-                :md-content-html=&quot;confirm.contentHtml&quot;
-                :md-ok-text=&quot;confirm.ok&quot;
-                :md-cancel-text=&quot;confirm.cancel&quot;
+              &lt;md-dialog-prompt
+                :md-title=&quot;prompt.title&quot;
+                :md-ok-text=&quot;prompt.ok&quot;
+                :md-cancel-text=&quot;prompt.cancel&quot;
                 @open=&quot;onOpen&quot;
                 @close=&quot;onClose&quot;
-                ref=&quot;dialog5&quot;&gt;
-              &lt;/md-dialog-confirm&gt;
+                ref=&quot;dialog6&quot;&gt;
+              &lt;/md-dialog-prompt&gt;
 
-              &lt;md-button class=&quot;md-primary md-raised&quot; @click=&quot;openDialog(&apos;dialog5&apos;)&quot;&gt;Confirm&lt;/md-button&gt;
+              &lt;md-button class=&quot;md-primary md-raised&quot; @click=&quot;openDialog(&apos;dialog6&apos;)&quot;&gt;Prompt&lt;/md-button&gt;
             </code-block>
 
             <code-block lang="javascript">
