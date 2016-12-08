@@ -845,8 +845,8 @@
               </md-card-content>
             </md-card>
 
-            <md-card>
-              <md-card-header class="md-primary">
+            <md-card class="md-accent">
+              <md-card-header>
                 <md-card-header-text>
                   <div class="md-title">Title goes here</div>
                   <div class="md-subhead">Subtitle here</div>
@@ -875,12 +875,12 @@
                 <img src="assets/card-image-1.jpg" alt="People">
               </md-card-media>
 
-              <md-card-content class="md-accent">
+              <md-card-content>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non, voluptas eius illo quas, saepe voluptate pariatur in deleniti minus sint. Excepturi.
               </md-card-content>
             </md-card>
 
-            <md-card>
+            <md-card class="md-warn">
               <md-card-media>
                 <img src="assets/card-image-2.jpg" alt="People">
               </md-card-media>
@@ -890,7 +890,7 @@
                 <div class="md-subhead">Subtitle here</div>
               </md-card-header>
 
-              <md-card-actions class="md-warn">
+              <md-card-actions>
                 <md-button>Action</md-button>
                 <md-button>Action</md-button>
               </md-card-actions>
@@ -919,8 +919,8 @@
                 &lt;/md-card-content&gt;
               &lt;/md-card&gt;
 
-              &lt;md-card&gt;
-                &lt;md-card-header class="md-primary"&gt;
+              &lt;md-card class="md-accent"&gt;
+                &lt;md-card-header&gt;
                   &lt;md-card-header-text&gt;
                     &lt;div class=&quot;md-title&quot;&gt;Title goes here&lt;/div&gt;
                     &lt;div class=&quot;md-subhead&quot;&gt;Subtitle here&lt;/div&gt;
@@ -949,12 +949,12 @@
                   &lt;img src=&quot;assets/card-image-1.jpg&quot; alt=&quot;People&quot;&gt;
                 &lt;/md-card-media&gt;
 
-                &lt;md-card-content class="md-accent"&gt;
+                &lt;md-card-content&gt;
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non, voluptas eius illo quas, saepe voluptate pariatur in deleniti minus sint. Excepturi.
                 &lt;/md-card-content&gt;
               &lt;/md-card&gt;
 
-              &lt;md-card&gt;
+              &lt;md-card class="md-warn"&gt;
                 &lt;md-card-media&gt;
                   &lt;img src=&quot;assets/card-image-2.jpg&quot; alt=&quot;People&quot;&gt;
                 &lt;/md-card-media&gt;
@@ -964,7 +964,7 @@
                   &lt;div class=&quot;md-subhead&quot;&gt;Subtitle here&lt;/div&gt;
                 &lt;/md-card-header&gt;
 
-                &lt;md-card-actions class="md-warn"&gt;
+                &lt;md-card-actions &gt;
                   &lt;md-button&gt;Action&lt;/md-button&gt;
                   &lt;md-button&gt;Action&lt;/md-button&gt;
                 &lt;/md-card-actions&gt;
