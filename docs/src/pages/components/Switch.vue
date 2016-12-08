@@ -96,7 +96,21 @@
 
           <div slot="code">
             <code-block lang="xml">
+              &lt;div&gt;
+                &lt;md-switch v-model=&quot;checked0&quot; id=&quot;my-test0&quot; name=&quot;my-test0&quot;&gt;&lt;/md-switch&gt;
+              &lt;/div&gt;
 
+              &lt;div&gt;
+                &lt;md-switch v-model=&quot;checked1&quot; id=&quot;my-test1&quot; name=&quot;my-test1&quot; class=&quot;md-primary&quot;&gt;Primary Color&lt;/md-switch&gt;
+              &lt;/div&gt;
+
+              &lt;div&gt;
+                &lt;md-switch v-model=&quot;checked2&quot; id=&quot;my-test2&quot; name=&quot;my-test2&quot; class=&quot;md-warn&quot;&gt;Warn Color&lt;/md-switch&gt;
+              &lt;/div&gt;
+
+              &lt;div&gt;
+                &lt;md-switch v-model=&quot;checked3&quot; id=&quot;my-test3&quot; name=&quot;my-test3&quot; disabled&gt;Disabled&lt;/md-switch&gt;
+              &lt;/div&gt;
             </code-block>
           </div>
         </example-box>
@@ -112,7 +126,11 @@
 
           <div slot="code">
             <code-block lang="xml">
+              &lt;md-switch v-model=&quot;checked8&quot; id=&quot;my-test8&quot; name=&quot;my-test8&quot;&gt;Default&lt;/md-switch&gt;
 
+              &lt;form @click.stop.prevent=&quot;submit&quot;&gt;
+                &lt;md-switch type=&quot;submit&quot; v-model=&quot;checked9&quot; id=&quot;my-test9&quot; name=&quot;my-test9&quot; class=&quot;md-primary&quot;&gt;Submit&lt;/md-switch&gt;
+              &lt;/form&gt;
             </code-block>
           </div>
         </example-box>
@@ -138,7 +156,22 @@
 
           <div slot="code">
             <code-block lang="xml">
+              &lt;div v-md-theme=&quot;'orange'&quot;&gt;
+                &lt;md-switch v-model=&quot;checked4&quot; id=&quot;my-test4&quot; name=&quot;my-test4&quot; class=&quot;md-primary&quot;&gt;&lt;/md-switch&gt;
+              &lt;/div&gt;
 
+              &lt;div v-md-theme=&quot;'green'&quot;&gt;
+                &lt;md-switch v-model=&quot;checked5&quot; id=&quot;my-test5&quot; name=&quot;my-test5&quot; class=&quot;md-primary&quot;&gt;Green Primary Color&lt;/md-switch&gt;
+              &lt;/div&gt;
+
+              &lt;div v-md-theme=&quot;'brown'&quot;&gt;
+                &lt;md-switch v-model=&quot;checked6&quot; id=&quot;my-test6&quot; name=&quot;my-test6&quot; class=&quot;md-primary&quot;&gt;Brown Primary Color&lt;/md-switch&gt;
+              &lt;/div&gt;
+
+              &lt;div v-md-theme=&quot;'light-blue'&quot;&gt;
+                &lt;md-switch v-model=&quot;checked7&quot; id=&quot;my-test7&quot; name=&quot;my-test7&quot; class=&quot;md-primary&quot; disabled&gt;Light Blue Primary Color Disabled&lt;/md-switch&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
             </code-block>
           </div>
         </example-box>
