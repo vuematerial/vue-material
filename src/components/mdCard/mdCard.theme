@@ -37,5 +37,20 @@
         background-color: #{'BACKGROUND-COLOR-A100'};
       }
     }
+
+    &.md-primary {
+        background-color: #{'PRIMARY-COLOR'};
+        color: #{'PRIMARY-CONTRAST'};
+    }
+
+    &.md-accent {
+        background-color: #{'ACCENT-COLOR'};
+        color: #{'ACCENT-CONTRAST'};
+    }
+
+    &.md-warn {
+        background-color: #{'WARN-COLOR'};
+        color: #{'WARN-CONTRAST'};
+    }
   }
 }

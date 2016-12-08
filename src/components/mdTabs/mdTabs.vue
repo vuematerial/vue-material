@@ -1,26 +1,23 @@
 <template>
   <div class="md-tabs" :class="tabClasses">
-    <md-whiteframe :md-elevation="mdElevation">
-      <div class="md-tabs-navigation" :class="navigationClasses" ref="tabNavigation">
-        <button
-          v-for="header in tabList"
-          :key="header.id"
-          type="button"
-          class="md-tab-header"
-          :class="getHeaderClass(header)"
-          :disabled="header.disabled"
-          @click="setActiveTab(header)"
-          ref="tabHeader">
-          <md-ink-ripple :md-disabled="header.disabled"></md-ink-ripple>
-          <div class="md-tab-header-container">
-            <md-tooltip v-if="header.tooltip" :md-direction="header.tooltipDirection">{{ header.tooltip }}</md-tooltip>
-            <md-icon v-if="header.icon">{{ header.icon }}</md-icon>
-            <span v-if="header.label">{{ header.label }}</span>
-          </div>
-        </button>
+    <md-whiteframe md-tag="nav" class="md-tabs-navigation" :md-elevation="mdElevation" :class="navigationClasses" ref="tabNavigation">
+      <button
+        v-for="header in tabList"
+        :key="header.id"
+        type="button"
+        class="md-tab-header"
+        :class="getHeaderClass(header)"
+        :disabled="header.disabled"
+        @click="setActiveTab(header)"
+        ref="tabHeader">
+        <md-ink-ripple :md-disabled="header.disabled"></md-ink-ripple>
+        <div class="md-tab-header-container">
+          <md-icon v-if="header.icon">{{ header.icon }}</md-icon>
+          <span v-if="header.label">{{ header.label }}</span>
+        </div>
+      </button>
 
-        <span class="md-tab-indicator" :class="indicatorClasses" ref="indicator"></span>
-      </div>
+      <span class="md-tab-indicator" :class="indicatorClasses" ref="indicator"></span>
     </md-whiteframe>
 
     <div class="md-tabs-content" ref="tabContent" :style="{ height: contentHeight }">
@@ -130,7 +127,7 @@
           attributeOldValue: true,
           characterDataOldValue: true
         });
-        this.navigationObserver.observe(this.$refs.tabNavigation, {
+        this.navigationObserver.observe(this.$refs.tabNavigation.$el, {
           attributes: true
         });
       },
@@ -153,10 +150,15 @@
 
         this.contentWidth = width * this.activeTabNumber + 'px';
 
-        Object.values(this.tabList).forEach((tab, index) => {
+        let index = 0;
+
+        for (const tabId in this.tabList) {
+          let tab = this.tabList[tabId];
+
           tab.ref.width = width + 'px';
           tab.ref.left = width * index + 'px';
-        });
+          index++;
+        }
       },
       calculateContentHeight() {
         this.$nextTick(() => {
@@ -190,6 +192,7 @@
         this.activeTab = tabData.id;
         this.activeTabNumber = this.getTabIndex(this.activeTab);
         this.calculatePosition();
+        this.$emit('change', this.activeTabNumber);
       }
     },
     mounted() {
