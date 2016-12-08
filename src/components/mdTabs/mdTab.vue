@@ -16,7 +16,10 @@
       mdActive: Boolean,
       mdDisabled: Boolean,
       mdTooltip: String,
-      mdTooltipDirection: String
+      mdTooltipDirection: {
+        type: String,
+        default: 'bottom'
+      }
     },
     data() {
       return {
@@ -63,7 +66,7 @@
           active: this.mdActive,
           disabled: this.mdDisabled,
           tooltip: this.mdTooltip,
-          tooltipDirection: this.mdTooltipDirection || 'bottom',
+          tooltipDirection: this.mdTooltipDirection,
           ref: this
         };
       },
