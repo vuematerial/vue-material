@@ -94,9 +94,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	/* script */
 	__vue_exports__ = __webpack_require__(231)
-	
-	/* template */
-	var __vue_template__ = __webpack_require__(232)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -108,9 +105,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (typeof __vue_options__ === "function") {
 	  __vue_options__ = __vue_options__.options
 	}
-	__vue_options__.__file = "/Users/marcosmoura/Projects/github/vue-material/src/components/mdWhiteframe/mdWhiteframe.vue"
-	__vue_options__.render = __vue_template__.render
-	__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+	__vue_options__.__file = "/Users/mrufino/Projects/personal/github/vue-material/src/components/mdWhiteframe/mdWhiteframe.vue"
 	
 	/* hot reload */
 	if (false) {(function () {
@@ -119,9 +114,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
 	  if (!module.hot.data) {
-	    hotAPI.createRecord("data-v-01d6d326", __vue_options__)
+	    hotAPI.createRecord("data-v-5fea99e3", __vue_options__)
 	  } else {
-	    hotAPI.reload("data-v-01d6d326", __vue_options__)
+	    hotAPI.reload("data-v-5fea99e3", __vue_options__)
 	  }
 	})()}
 	if (__vue_options__.functional) {console.error("[vue-loader] mdWhiteframe.vue: functional components are not supported and should be defined in plain js files using render functions.")}
@@ -148,64 +143,41 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 	//
 	//
-	//
-	//
-	//
-	//
-	//
-	//
 	
 	exports.default = {
 	  props: {
-	    mdElevation: [String, Number]
-	  },
-	  data: function data() {
-	    return {
-	      elevation: this.mdElevation === 0 ? 0 : this.mdElevation || 1
-	    };
-	  },
-	
-	  watch: {
-	    mdElevation: function mdElevation() {
-	      this.elevation = this.mdElevation;
+	    mdElevation: {
+	      type: [String, Number],
+	      default: 1
+	    },
+	    mdTag: {
+	      type: String,
+	      default: 'div'
 	    }
 	  },
 	  computed: {
 	    classes: function classes() {
-	      var numberedElevation = parseInt(this.elevation, 10);
+	      var numberedElevation = parseInt(this.mdElevation, 10);
 	      var elevationClass = 'md-whiteframe-';
 	
 	      if (!isNaN(numberedElevation) && typeof numberedElevation === 'number') {
 	        elevationClass += numberedElevation;
 	        elevationClass += 'dp';
-	      } else if (this.elevation.indexOf('dp') > -1) {
-	        elevationClass += this.elevation;
+	      } else if (this.mdElevation.indexOf('dp') > -1) {
+	        elevationClass += this.mdElevation;
 	      }
 	
 	      return elevationClass;
 	    }
+	  },
+	  render: function render(createElement) {
+	    return createElement(this.mdTag, {
+	      staticClass: 'md-whiteframe',
+	      class: this.classes
+	    }, this.$slots.default);
 	  }
 	};
 	module.exports = exports['default'];
-
-/***/ },
-
-/***/ 232:
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
-	  return _h('div', {
-	    staticClass: "md-whiteframe",
-	    class: _vm.classes
-	  }, [_vm._t("default")])
-	},staticRenderFns: []}
-	module.exports.render._withStripped = true
-	if (false) {
-	  module.hot.accept()
-	  if (module.hot.data) {
-	     require("vue-hot-reload-api").rerender("data-v-01d6d326", module.exports)
-	  }
-	}
 
 /***/ }
 
