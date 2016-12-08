@@ -280,51 +280,10 @@
       <div slot="example">
         <example-box card-title="Custom">
           <div class="dialog-fab" slot="demo">
-            <!-- <md-dialog md-open-from="#custom" md-close-to="#custom" ref="dialog1">
-              <md-dialog-title>Lorem ipsum dolor sit amet</md-dialog-title>
-
-              <md-dialog-content>Nemo, nobis necessitatibus ut illo, ducimus ex.</md-dialog-content>
-
-              <md-dialog-actions>
-                <md-button class="md-primary" @click="closeDialog('dialog1')">Cancel</md-button>
-                <md-button class="md-primary" @click="closeDialog('dialog1')">Ok</md-button>
-              </md-dialog-actions>
-            </md-dialog> -->
-
             <md-dialog md-open-from="#custom" md-close-to="#custom" ref="dialog1">
               <md-dialog-title>Lorem ipsum dolor sit amet</md-dialog-title>
 
-              <md-dialog-content>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor adipisci quos consectetur eligendi deleniti, voluptatibus officia a, ut voluptas repudiandae recusandae commodi illum labore tempora ex quis quisquam doloremque sit.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor adipisci quos consectetur eligendi deleniti, voluptatibus officia a, ut voluptas repudiandae recusandae commodi illum labore tempora ex quis quisquam doloremque sit.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor adipisci quos consectetur eligendi deleniti, voluptatibus officia a, ut voluptas repudiandae recusandae commodi illum labore tempora ex quis quisquam doloremque sit.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor adipisci quos consectetur eligendi deleniti, voluptatibus officia a, ut voluptas repudiandae recusandae commodi illum labore tempora ex quis quisquam doloremque sit.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor adipisci quos consectetur eligendi deleniti, voluptatibus officia a, ut voluptas repudiandae recusandae commodi illum labore tempora ex quis quisquam doloremque sit.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor adipisci quos consectetur eligendi deleniti, voluptatibus officia a, ut voluptas repudiandae recusandae commodi illum labore tempora ex quis quisquam doloremque sit.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor adipisci quos consectetur eligendi deleniti, voluptatibus officia a, ut voluptas repudiandae recusandae commodi illum labore tempora ex quis quisquam doloremque sit.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor adipisci quos consectetur eligendi deleniti, voluptatibus officia a, ut voluptas repudiandae recusandae commodi illum labore tempora ex quis quisquam doloremque sit.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor adipisci quos consectetur eligendi deleniti, voluptatibus officia a, ut voluptas repudiandae recusandae commodi illum labore tempora ex quis quisquam doloremque sit.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor adipisci quos consectetur eligendi deleniti, voluptatibus officia a, ut voluptas repudiandae recusandae commodi illum labore tempora ex quis quisquam doloremque sit.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor adipisci quos consectetur eligendi deleniti, voluptatibus officia a, ut voluptas repudiandae recusandae commodi illum labore tempora ex quis quisquam doloremque sit.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor adipisci quos consectetur eligendi deleniti, voluptatibus officia a, ut voluptas repudiandae recusandae commodi illum labore tempora ex quis quisquam doloremque sit.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor adipisci quos consectetur eligendi deleniti, voluptatibus officia a, ut voluptas repudiandae recusandae commodi illum labore tempora ex quis quisquam doloremque sit.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor adipisci quos consectetur eligendi deleniti, voluptatibus officia a, ut voluptas repudiandae recusandae commodi illum labore tempora ex quis quisquam doloremque sit.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor adipisci quos consectetur eligendi deleniti, voluptatibus officia a, ut voluptas repudiandae recusandae commodi illum labore tempora ex quis quisquam doloremque sit.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor adipisci quos consectetur eligendi deleniti, voluptatibus officia a, ut voluptas repudiandae recusandae commodi illum labore tempora ex quis quisquam doloremque sit.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor adipisci quos consectetur eligendi deleniti, voluptatibus officia a, ut voluptas repudiandae recusandae commodi illum labore tempora ex quis quisquam doloremque sit.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor adipisci quos consectetur eligendi deleniti, voluptatibus officia a, ut voluptas repudiandae recusandae commodi illum labore tempora ex quis quisquam doloremque sit.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor adipisci quos consectetur eligendi deleniti, voluptatibus officia a, ut voluptas repudiandae recusandae commodi illum labore tempora ex quis quisquam doloremque sit.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor adipisci quos consectetur eligendi deleniti, voluptatibus officia a, ut voluptas repudiandae recusandae commodi illum labore tempora ex quis quisquam doloremque sit.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor adipisci quos consectetur eligendi deleniti, voluptatibus officia a, ut voluptas repudiandae recusandae commodi illum labore tempora ex quis quisquam doloremque sit.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor adipisci quos consectetur eligendi deleniti, voluptatibus officia a, ut voluptas repudiandae recusandae commodi illum labore tempora ex quis quisquam doloremque sit.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor adipisci quos consectetur eligendi deleniti, voluptatibus officia a, ut voluptas repudiandae recusandae commodi illum labore tempora ex quis quisquam doloremque sit.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor adipisci quos consectetur eligendi deleniti, voluptatibus officia a, ut voluptas repudiandae recusandae commodi illum labore tempora ex quis quisquam doloremque sit.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor adipisci quos consectetur eligendi deleniti, voluptatibus officia a, ut voluptas repudiandae recusandae commodi illum labore tempora ex quis quisquam doloremque sit.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor adipisci quos consectetur eligendi deleniti, voluptatibus officia a, ut voluptas repudiandae recusandae commodi illum labore tempora ex quis quisquam doloremque sit.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor adipisci quos consectetur eligendi deleniti, voluptatibus officia a, ut voluptas repudiandae recusandae commodi illum labore tempora ex quis quisquam doloremque sit.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor adipisci quos consectetur eligendi deleniti, voluptatibus officia a, ut voluptas repudiandae recusandae commodi illum labore tempora ex quis quisquam doloremque sit.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor adipisci quos consectetur eligendi deleniti, voluptatibus officia a, ut voluptas repudiandae recusandae commodi illum labore tempora ex quis quisquam doloremque sit.</p>
-              </md-dialog-content>
+              <md-dialog-content>Nemo, nobis necessitatibus ut illo, ducimus ex.</md-dialog-content>
 
               <md-dialog-actions>
                 <md-button class="md-primary" @click="closeDialog('dialog1')">Cancel</md-button>
