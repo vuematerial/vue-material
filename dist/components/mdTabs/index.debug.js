@@ -148,7 +148,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (typeof __vue_options__ === "function") {
 	  __vue_options__ = __vue_options__.options
 	}
-	__vue_options__.__file = "/Users/marcosmoura/Projects/github/vue-material/src/components/mdTabs/mdTabs.vue"
+	__vue_options__.__file = "/Users/mrufino/Projects/personal/github/vue-material/src/components/mdTabs/mdTabs.vue"
 	__vue_options__.render = __vue_template__.render
 	__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 	
@@ -159,9 +159,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
 	  if (!module.hot.data) {
-	    hotAPI.createRecord("data-v-c28dc5a6", __vue_options__)
+	    hotAPI.createRecord("data-v-e4dfbcba", __vue_options__)
 	  } else {
-	    hotAPI.reload("data-v-c28dc5a6", __vue_options__)
+	    hotAPI.reload("data-v-e4dfbcba", __vue_options__)
 	  }
 	})()}
 	if (__vue_options__.functional) {console.error("[vue-loader] mdTabs.vue: functional components are not supported and should be defined in plain js files using render functions.")}
@@ -186,8 +186,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	//
-	//
 	//
 	//
 	//
@@ -319,7 +317,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        attributeOldValue: true,
 	        characterDataOldValue: true
 	      });
-	      this.navigationObserver.observe(this.$refs.tabNavigation, {
+	      this.navigationObserver.observe(this.$refs.tabNavigation.$el, {
 	        attributes: true
 	      });
 	    },
@@ -342,10 +340,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	      this.contentWidth = width * this.activeTabNumber + 'px';
 	
-	      Object.values(this.tabList).forEach(function (tab, index) {
+	      var index = 0;
+	
+	      for (var tabId in this.tabList) {
+	        var tab = this.tabList[tabId];
+	
 	        tab.ref.width = width + 'px';
 	        tab.ref.left = width * index + 'px';
-	      });
+	        index++;
+	      }
 	    },
 	    calculateContentHeight: function calculateContentHeight() {
 	      var _this = this;
@@ -385,6 +388,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      this.activeTab = tabData.id;
 	      this.activeTabNumber = this.getTabIndex(this.activeTab);
 	      this.calculatePosition();
+	      this.$emit('change', this.activeTabNumber);
 	    }
 	  },
 	  mounted: function mounted() {
@@ -418,13 +422,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	    staticClass: "md-tabs",
 	    class: _vm.tabClasses
 	  }, [_h('md-whiteframe', {
-	    attrs: {
-	      "md-elevation": _vm.mdElevation
-	    }
-	  }, [_h('div', {
 	    ref: "tabNavigation",
 	    staticClass: "md-tabs-navigation",
-	    class: _vm.navigationClasses
+	    class: _vm.navigationClasses,
+	    attrs: {
+	      "md-tag": "nav",
+	      "md-elevation": _vm.mdElevation
+	    }
 	  }, [_vm._l((_vm.tabList), function(header) {
 	    return _h('button', {
 	      key: header.id,
@@ -452,7 +456,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    ref: "indicator",
 	    staticClass: "md-tab-indicator",
 	    class: _vm.indicatorClasses
-	  })])]), " ", _h('div', {
+	  })]), " ", _h('div', {
 	    ref: "tabContent",
 	    staticClass: "md-tabs-content",
 	    style: ({
@@ -469,7 +473,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-hot-reload-api").rerender("data-v-c28dc5a6", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-e4dfbcba", module.exports)
 	  }
 	}
 
@@ -497,7 +501,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (typeof __vue_options__ === "function") {
 	  __vue_options__ = __vue_options__.options
 	}
-	__vue_options__.__file = "/Users/marcosmoura/Projects/github/vue-material/src/components/mdTabs/mdTab.vue"
+	__vue_options__.__file = "/Users/mrufino/Projects/personal/github/vue-material/src/components/mdTabs/mdTab.vue"
 	__vue_options__.render = __vue_template__.render
 	__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 	
@@ -508,9 +512,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
 	  if (!module.hot.data) {
-	    hotAPI.createRecord("data-v-8aa44a94", __vue_options__)
+	    hotAPI.createRecord("data-v-5f496f80", __vue_options__)
 	  } else {
-	    hotAPI.reload("data-v-8aa44a94", __vue_options__)
+	    hotAPI.reload("data-v-5f496f80", __vue_options__)
 	  }
 	})()}
 	if (__vue_options__.functional) {console.error("[vue-loader] mdTab.vue: functional components are not supported and should be defined in plain js files using render functions.")}
@@ -659,7 +663,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-hot-reload-api").rerender("data-v-8aa44a94", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-5f496f80", module.exports)
 	  }
 	}
 
