@@ -193,7 +193,7 @@ $input-size: 32px;
   }
 
   &.md-has-select:hover {
-    .md-select:after {
+    .md-select:not(.md-disabled):after {
       color: rgba(#000, .87);
     }
   }
