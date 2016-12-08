@@ -71,11 +71,12 @@
   padding: 0 24px 24px;
   flex: 1;
   overflow: auto;
+  position: relative;
   background: linear-gradient(to bottom, #fff 0, #fff 1px, transparent 1px),
-              linear-gradient(to bottom, rgba(0, 0, 0, .12) 0, rgba(0, 0, 0, .12) 1px, transparent 1px),
-              linear-gradient(to top, #fff 0, #fff 1px, transparent 1px),
-              linear-gradient(to top, rgba(0, 0, 0, .12) 0, rgba(0, 0, 0, .12) 1px, transparent 1px);
-  background-attachment: local, scroll, local, scroll;
+              linear-gradient(to top, #fff 0, #fff 3px, transparent 3px),
+              linear-gradient(to bottom, rgba(#000, .12) 0, rgba(#000, .12) 1px, transparent 1px),
+              linear-gradient(to top, rgba(#000, .2) 1px, rgba(#000, .2) 2px, transparent 2px);
+  background-attachment: local, local, scroll, scroll;
 
   &:first-child {
     padding-top: 24px;
@@ -100,8 +101,19 @@
   min-height: 52px;
   padding: 8px 8px 8px 24px;
   display: flex;
-  justify-content: flex-end;
   align-items: center;
+  justify-content: flex-end;
+  position: relative;
+
+  &:before {
+    height: 1px;
+    position: absolute;
+    top: -1px;
+    right: 0;
+    left: 0;
+    background-color: #fff;
+    content: " ";
+  }
 
   .md-button {
     min-width: 64px;
