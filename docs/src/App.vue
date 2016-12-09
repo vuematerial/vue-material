@@ -102,6 +102,10 @@
                 </md-list-item>
 
                 <md-list-item class="md-inset">
+                  <router-link exact to="/components/spinner">Spinner</router-link>
+                </md-list-item>
+
+                <md-list-item class="md-inset">
                   <router-link exact to="/components/subheader">Subheader</router-link>
                 </md-list-item>
 
