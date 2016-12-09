@@ -21,6 +21,7 @@ import Radio from './pages/components/Radio';
 import InkRipple from './pages/components/InkRipple';
 import Select from './pages/components/Select';
 import Sidenav from './pages/components/Sidenav';
+import Spinner from './pages/components/Spinner.vue';
 import Subheader from './pages/components/Subheader';
 import Switch from './pages/components/Switch';
 import Table from './pages/components/Table';
@@ -140,6 +141,11 @@ const components = [
     path: '/components/sidenav',
     name: 'components:sidenav',
     component: Sidenav
+  },
+  {
+    path: '/components/spinner',
+    name: 'components:spinner',
+    component: Spinner
   },
   {
     path: '/components/switch',
