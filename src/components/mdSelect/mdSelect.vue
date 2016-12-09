@@ -43,8 +43,6 @@
     },
     computed: {
       classes() {
-        console.log(this.disabled);
-
         return {
           'md-disabled': this.disabled
         };

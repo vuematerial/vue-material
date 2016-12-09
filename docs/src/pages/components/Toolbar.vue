@@ -418,32 +418,30 @@
         <example-box card-title="Complete example">
           <div slot="demo">
             <div class="phone-viewport complete-example">
-              <md-whiteframe md-elevation="2">
-                <md-toolbar class="md-large" v-md-theme="'light-blue'">
-                  <div class="md-toolbar-container">
-                    <md-button class="md-icon-button" @click="$refs.sidenav.toggle()">
-                      <md-icon>menu</md-icon>
-                    </md-button>
+              <md-whiteframe md-elevation="2" md-tag="md-toolbar" class="md-large" v-md-theme="'light-blue'">
+                <div class="md-toolbar-container">
+                  <md-button class="md-icon-button" @click="$refs.sidenav.toggle()">
+                    <md-icon>menu</md-icon>
+                  </md-button>
 
-                    <span style="flex: 1"></span>
+                  <span style="flex: 1"></span>
 
-                    <md-button class="md-icon-button">
-                      <md-icon>search</md-icon>
-                    </md-button>
+                  <md-button class="md-icon-button">
+                    <md-icon>search</md-icon>
+                  </md-button>
 
-                    <md-button class="md-icon-button">
-                      <md-icon>view_module</md-icon>
-                    </md-button>
-                  </div>
+                  <md-button class="md-icon-button">
+                    <md-icon>view_module</md-icon>
+                  </md-button>
+                </div>
 
-                  <div class="md-toolbar-container">
-                    <h2 class="md-title">My Files</h2>
+                <div class="md-toolbar-container">
+                  <h2 class="md-title">My Files</h2>
 
-                    <md-button class="md-fab md-mini">
-                      <md-icon>add</md-icon>
-                    </md-button>
-                  </div>
-                </md-toolbar>
+                  <md-button class="md-fab md-mini">
+                    <md-icon>add</md-icon>
+                  </md-button>
+                </div>
               </md-whiteframe>
 
               <md-list class="md-double-line">
@@ -619,32 +617,30 @@
           <div slot="code">
             <code-block lang="xml">
               &lt;div class=&quot;phone-viewport complete-example&quot;&gt;
-                &lt;md-whiteframe md-elevation=&quot;2&quot;&gt;
-                  &lt;md-toolbar class=&quot;md-large&quot; v-md-theme=&quot;&#039;light-blue&#039;&quot;&gt;
-                    &lt;div class=&quot;md-toolbar-container&quot;&gt;
-                      &lt;md-button class=&quot;md-icon-button&quot; @click=&quot;$refs.sidenav.toggle()&quot;&gt;
-                        &lt;md-icon&gt;menu&lt;/md-icon&gt;
-                      &lt;/md-button&gt;
+                &lt;md-whiteframe md-elevation=&quot;2&quot; md-tag=&quot;md-toolbar&quot; class=&quot;md-large&quot; v-md-theme=&quot;&#039;light-blue&#039;&quot;&gt;
+                  &lt;div class=&quot;md-toolbar-container&quot;&gt;
+                    &lt;md-button class=&quot;md-icon-button&quot; @click=&quot;$refs.sidenav.toggle()&quot;&gt;
+                      &lt;md-icon&gt;menu&lt;/md-icon&gt;
+                    &lt;/md-button&gt;
 
-                      &lt;span style=&quot;flex: 1&quot;&gt;&lt;/span&gt;
+                    &lt;span style=&quot;flex: 1&quot;&gt;&lt;/span&gt;
 
-                      &lt;md-button class=&quot;md-icon-button&quot;&gt;
-                        &lt;md-icon&gt;search&lt;/md-icon&gt;
-                      &lt;/md-button&gt;
+                    &lt;md-button class=&quot;md-icon-button&quot;&gt;
+                      &lt;md-icon&gt;search&lt;/md-icon&gt;
+                    &lt;/md-button&gt;
 
-                      &lt;md-button class=&quot;md-icon-button&quot;&gt;
-                        &lt;md-icon&gt;view_module&lt;/md-icon&gt;
-                      &lt;/md-button&gt;
-                    &lt;/div&gt;
+                    &lt;md-button class=&quot;md-icon-button&quot;&gt;
+                      &lt;md-icon&gt;view_module&lt;/md-icon&gt;
+                    &lt;/md-button&gt;
+                  &lt;/div&gt;
 
-                    &lt;div class=&quot;md-toolbar-container&quot;&gt;
-                      &lt;h2 class=&quot;md-title&quot;&gt;My Files&lt;/h2&gt;
+                  &lt;div class=&quot;md-toolbar-container&quot;&gt;
+                    &lt;h2 class=&quot;md-title&quot;&gt;My Files&lt;/h2&gt;
 
-                      &lt;md-button class=&quot;md-fab md-mini&quot;&gt;
-                        &lt;md-icon&gt;add&lt;/md-icon&gt;
-                      &lt;/md-button&gt;
-                    &lt;/div&gt;
-                  &lt;/md-toolbar&gt;
+                    &lt;md-button class=&quot;md-fab md-mini&quot;&gt;
+                      &lt;md-icon&gt;add&lt;/md-icon&gt;
+                    &lt;/md-button&gt;
+                  &lt;/div&gt;
                 &lt;/md-whiteframe&gt;
 
                 &lt;md-list class=&quot;md-double-line&quot;&gt;
