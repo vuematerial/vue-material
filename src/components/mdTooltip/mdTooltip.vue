@@ -59,11 +59,11 @@
     },
     methods: {
       removeTooltips() {
-        const tooltips = [...document.querySelectorAll('.md-tooltip')];
+        const tooltips = [...this.rootElement.querySelectorAll('.md-tooltip')];
 
         tooltips.forEach((tooltip) => {
           if (tooltip.parentNode) {
-            this.rootElement.removeChild(tooltip);
+            tooltip.parentNode.removeChild(tooltip);
           }
         });
 

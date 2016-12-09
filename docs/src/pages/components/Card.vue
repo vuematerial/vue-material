@@ -6,6 +6,11 @@
         <p>The card components are very granular. Every single part of a card is a component. You can combine them in any order that you want, following the same logic of the examples.</p>
         <p>You can also use other Material components inside the card, like the "Complete Example".</p>
         <p>The following classes can be applied to change the color palette:</p>
+        <ul class="md-body-2">
+          <li><code>md-primary</code></li>
+          <li><code>md-accent</code></li>
+          <li><code>md-warn</code></li>
+        </ul>
       </div>
 
       <div slot="api">
@@ -813,6 +818,156 @@
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non, voluptas eius illo quas, saepe voluptate pariatur in deleniti minus sint. Excepturi.
                   &lt;/md-card-content&gt;
                 &lt;/md-card-expand&gt;
+              &lt;/md-card&gt;
+            </code-block>
+          </div>
+        </example-box>
+
+        <example-box card-title="Themed Cards">
+          <div class="card-holder" slot="demo">
+            <md-card class="md-primary">
+              <md-card-media>
+                <img src="assets/card-image-1.jpg" alt="People">
+              </md-card-media>
+
+              <md-card-header>
+                <div class="md-title">Title goes here</div>
+                <div class="md-subhead">Subtitle here</div>
+              </md-card-header>
+
+              <md-card-actions>
+                <md-button>Action</md-button>
+                <md-button>Action</md-button>
+              </md-card-actions>
+
+              <md-card-content>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non, voluptas eius illo quas, saepe voluptate pariatur in deleniti minus sint. Excepturi.
+              </md-card-content>
+            </md-card>
+
+            <md-card class="md-accent">
+              <md-card-header>
+                <md-card-header-text>
+                  <div class="md-title">Title goes here</div>
+                  <div class="md-subhead">Subtitle here</div>
+                </md-card-header-text>
+
+                <md-menu md-size="4" md-direction="bottom left">
+                  <md-button class="md-icon-button" md-menu-trigger>
+                    <md-icon>more_vert</md-icon>
+                  </md-button>
+
+                  <md-menu-content>
+                    <md-menu-item>
+                      <span>Call</span>
+                      <md-icon>phone</md-icon>
+                    </md-menu-item>
+
+                    <md-menu-item>
+                      <span>Send a message</span>
+                      <md-icon>message</md-icon>
+                    </md-menu-item>
+                  </md-menu-content>
+                </md-menu>
+              </md-card-header>
+
+              <md-card-media>
+                <img src="assets/card-image-1.jpg" alt="People">
+              </md-card-media>
+
+              <md-card-content>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non, voluptas eius illo quas, saepe voluptate pariatur in deleniti minus sint. Excepturi.
+              </md-card-content>
+            </md-card>
+
+            <md-card class="md-warn">
+              <md-card-media>
+                <img src="assets/card-image-2.jpg" alt="People">
+              </md-card-media>
+
+              <md-card-header>
+                <div class="md-title">Title goes here</div>
+                <div class="md-subhead">Subtitle here</div>
+              </md-card-header>
+
+              <md-card-actions>
+                <md-button>Action</md-button>
+                <md-button>Action</md-button>
+              </md-card-actions>
+            </md-card>
+          </div>
+
+          <div slot="code">
+            <code-block lang="xml">
+              &lt;md-card class="md-primary"&gt;
+                &lt;md-card-media&gt;
+                  &lt;img src=&quot;assets/card-image-1.jpg&quot; alt=&quot;People&quot;&gt;
+                &lt;/md-card-media&gt;
+
+                &lt;md-card-header&gt;
+                  &lt;div class=&quot;md-title&quot;&gt;Title goes here&lt;/div&gt;
+                  &lt;div class=&quot;md-subhead&quot;&gt;Subtitle here&lt;/div&gt;
+                &lt;/md-card-header&gt;
+
+                &lt;md-card-actions&gt;
+                  &lt;md-button&gt;Action&lt;/md-button&gt;
+                  &lt;md-button&gt;Action&lt;/md-button&gt;
+                &lt;/md-card-actions&gt;
+
+                &lt;md-card-content&gt;
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non, voluptas eius illo quas, saepe voluptate pariatur in deleniti minus sint. Excepturi.
+                &lt;/md-card-content&gt;
+              &lt;/md-card&gt;
+
+              &lt;md-card class="md-accent"&gt;
+                &lt;md-card-header&gt;
+                  &lt;md-card-header-text&gt;
+                    &lt;div class=&quot;md-title&quot;&gt;Title goes here&lt;/div&gt;
+                    &lt;div class=&quot;md-subhead&quot;&gt;Subtitle here&lt;/div&gt;
+                  &lt;/md-card-header-text&gt;
+
+                  &lt;md-menu md-size=&quot;4&quot; md-direction=&quot;bottom left&quot;&gt;
+                    &lt;md-button class=&quot;md-icon-button&quot; md-menu-trigger&gt;
+                      &lt;md-icon&gt;more_vert&lt;/md-icon&gt;
+                    &lt;/md-button&gt;
+
+                    &lt;md-menu-content&gt;
+                      &lt;md-menu-item&gt;
+                        &lt;span&gt;Call&lt;/span&gt;
+                        &lt;md-icon&gt;phone&lt;/md-icon&gt;
+                      &lt;/md-menu-item&gt;
+
+                      &lt;md-menu-item&gt;
+                        &lt;span&gt;Send a message&lt;/span&gt;
+                        &lt;md-icon&gt;message&lt;/md-icon&gt;
+                      &lt;/md-menu-item&gt;
+                    &lt;/md-menu-content&gt;
+                  &lt;/md-menu&gt;
+                &lt;/md-card-header&gt;
+
+                &lt;md-card-media&gt;
+                  &lt;img src=&quot;assets/card-image-1.jpg&quot; alt=&quot;People&quot;&gt;
+                &lt;/md-card-media&gt;
+
+                &lt;md-card-content&gt;
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non, voluptas eius illo quas, saepe voluptate pariatur in deleniti minus sint. Excepturi.
+                &lt;/md-card-content&gt;
+              &lt;/md-card&gt;
+
+              &lt;md-card class="md-warn"&gt;
+                &lt;md-card-media&gt;
+                  &lt;img src=&quot;assets/card-image-2.jpg&quot; alt=&quot;People&quot;&gt;
+                &lt;/md-card-media&gt;
+
+                &lt;md-card-header&gt;
+                  &lt;div class=&quot;md-title&quot;&gt;Title goes here&lt;/div&gt;
+                  &lt;div class=&quot;md-subhead&quot;&gt;Subtitle here&lt;/div&gt;
+                &lt;/md-card-header&gt;
+
+                &lt;md-card-actions &gt;
+                  &lt;md-button&gt;Action&lt;/md-button&gt;
+                  &lt;md-button&gt;Action&lt;/md-button&gt;
+                &lt;/md-card-actions&gt;
               &lt;/md-card&gt;
             </code-block>
           </div>

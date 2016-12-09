@@ -18,6 +18,13 @@
 
   export default {
     mixins: [common],
+    watch: {
+      value() {
+        this.$nextTick(() => {
+          autosize.update(this.$el);
+        });
+      }
+    },
     mounted() {
       this.parentContainer = getClosestVueParent(this.$parent, 'md-input-container');
 
