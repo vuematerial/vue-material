@@ -105,7 +105,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (typeof __vue_options__ === "function") {
 	  __vue_options__ = __vue_options__.options
 	}
-	__vue_options__.__file = "/Users/marcosmoura/Projects/github/vue-material/src/components/mdDivider/mdDivider.vue"
+	__vue_options__.__file = "/Users/mrufino/Projects/personal/github/vue-material/src/components/mdDivider/mdDivider.vue"
 	__vue_options__.render = __vue_template__.render
 	__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 	
@@ -116,9 +116,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
 	  if (!module.hot.data) {
-	    hotAPI.createRecord("data-v-30e870da", __vue_options__)
+	    hotAPI.createRecord("data-v-142f1b89", __vue_options__)
 	  } else {
-	    hotAPI.reload("data-v-30e870da", __vue_options__)
+	    hotAPI.reload("data-v-142f1b89", __vue_options__)
 	  }
 	})()}
 	if (__vue_options__.functional) {console.error("[vue-loader] mdDivider.vue: functional components are not supported and should be defined in plain js files using render functions.")}
@@ -147,7 +147,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-hot-reload-api").rerender("data-v-30e870da", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-142f1b89", module.exports)
 	  }
 	}
 

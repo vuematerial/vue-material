@@ -71,7 +71,7 @@
       }
 
       this.mounted = true;
-      this.parentTabs.registerTab(tabData);
+      this.parentTabs.updateTab(tabData);
 
       if (this.mdActive) {
         this.parentTabs.setActiveTab(tabData);

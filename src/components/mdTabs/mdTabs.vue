@@ -1,25 +1,23 @@
 <template>
   <div class="md-tabs" :class="tabClasses">
-    <md-whiteframe :md-elevation="mdElevation">
-      <div class="md-tabs-navigation" :class="navigationClasses" ref="tabNavigation">
-        <button
-          v-for="header in tabList"
-          :key="header.id"
-          type="button"
-          class="md-tab-header"
-          :class="getHeaderClass(header)"
-          :disabled="header.disabled"
-          @click="setActiveTab(header)"
-          ref="tabHeader">
-          <md-ink-ripple :md-disabled="header.disabled"></md-ink-ripple>
-          <div class="md-tab-header-container">
-            <md-icon v-if="header.icon">{{ header.icon }}</md-icon>
-            <span v-if="header.label">{{ header.label }}</span>
-          </div>
-        </button>
+    <md-whiteframe md-tag="nav" class="md-tabs-navigation" :md-elevation="mdElevation" :class="navigationClasses" ref="tabNavigation">
+      <button
+        v-for="header in tabList"
+        :key="header.id"
+        type="button"
+        class="md-tab-header"
+        :class="getHeaderClass(header)"
+        :disabled="header.disabled"
+        @click="setActiveTab(header)"
+        ref="tabHeader">
+        <md-ink-ripple :md-disabled="header.disabled"></md-ink-ripple>
+        <div class="md-tab-header-container">
+          <md-icon v-if="header.icon">{{ header.icon }}</md-icon>
+          <span v-if="header.label">{{ header.label }}</span>
+        </div>
+      </button>
 
-        <span class="md-tab-indicator" :class="indicatorClasses" ref="indicator"></span>
-      </div>
+      <span class="md-tab-indicator" :class="indicatorClasses" ref="indicator"></span>
     </md-whiteframe>
 
     <div class="md-tabs-content" ref="tabContent" :style="{ height: contentHeight }">
@@ -104,7 +102,7 @@
         if (tabData.active) {
           if (!tabData.disabled) {
             this.setActiveTab(tabData);
-          } else {
+          } else if (Object.keys(this.tabList).length) {
             let tabsIds = Object.keys(this.tabList);
             let targetIndex = tabsIds.indexOf(tabData.id) + 1;
             let target = tabsIds[targetIndex];
@@ -128,7 +126,7 @@
           attributeOldValue: true,
           characterDataOldValue: true
         });
-        this.navigationObserver.observe(this.$refs.tabNavigation, {
+        this.navigationObserver.observe(this.$refs.tabNavigation.$el, {
           attributes: true
         });
       },
@@ -138,29 +136,38 @@
         return idList.indexOf(id);
       },
       calculateIndicatorPos() {
-        let tabsWidth = this.$el.offsetWidth;
-        let activeTab = this.$refs.tabHeader[this.activeTabNumber];
-        let left = activeTab.offsetLeft;
-        let right = tabsWidth - left - activeTab.offsetWidth;
+        if (this.$refs.tabHeader) {
+          let tabsWidth = this.$el.offsetWidth;
+          let activeTab = this.$refs.tabHeader[this.activeTabNumber];
+          let left = activeTab.offsetLeft;
+          let right = tabsWidth - left - activeTab.offsetWidth;
 
-        this.$refs.indicator.style.left = left + 'px';
-        this.$refs.indicator.style.right = right + 'px';
+          this.$refs.indicator.style.left = left + 'px';
+          this.$refs.indicator.style.right = right + 'px';
+        }
       },
       calculateTabsWidthAndPosition() {
         const width = this.$el.offsetWidth;
 
         this.contentWidth = width * this.activeTabNumber + 'px';
 
-        Object.values(this.tabList).forEach((tab, index) => {
+        let index = 0;
+
+        for (const tabId in this.tabList) {
+          let tab = this.tabList[tabId];
+
           tab.ref.width = width + 'px';
           tab.ref.left = width * index + 'px';
-        });
+          index++;
+        }
       },
       calculateContentHeight() {
         this.$nextTick(() => {
-          let height = this.tabList[this.activeTab].ref.$el.offsetHeight;
+          if (Object.keys(this.tabList).length) {
+            let height = this.tabList[this.activeTab].ref.$el.offsetHeight;
 
-          this.contentHeight = height + 'px';
+            this.contentHeight = height + 'px';
+          }
         });
       },
       calculatePosition() {
@@ -188,6 +195,7 @@
         this.activeTab = tabData.id;
         this.activeTabNumber = this.getTabIndex(this.activeTab);
         this.calculatePosition();
+        this.$emit('change', this.activeTabNumber);
       }
     },
     mounted() {
@@ -195,7 +203,7 @@
         this.observeElementChanges();
         window.addEventListener('resize', this.calculateOnWatch);
 
-        if (this.tabList.length && !this.activeTab) {
+        if (Object.keys(this.tabList).length && !this.activeTab) {
           let firstTab = Object.keys(this.tabList)[0];
 
           this.setActiveTab(this.tabList[firstTab]);
@@ -204,6 +212,7 @@
     },
     beforeDestroy() {
       this.contentObserver.disconnect();
+      this.navigationObserver.disconnect();
       window.removeEventListener('resize', this.calculateOnWatch);
     }
   };

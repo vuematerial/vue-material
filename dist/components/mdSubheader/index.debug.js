@@ -111,7 +111,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (typeof __vue_options__ === "function") {
 	  __vue_options__ = __vue_options__.options
 	}
-	__vue_options__.__file = "/Users/marcosmoura/Projects/github/vue-material/src/components/mdSubheader/mdSubheader.vue"
+	__vue_options__.__file = "/Users/mrufino/Projects/personal/github/vue-material/src/components/mdSubheader/mdSubheader.vue"
 	
 	/* hot reload */
 	if (false) {(function () {
@@ -120,9 +120,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
 	  if (!module.hot.data) {
-	    hotAPI.createRecord("data-v-a2e7fe8a", __vue_options__)
+	    hotAPI.createRecord("data-v-70d869b1", __vue_options__)
 	  } else {
-	    hotAPI.reload("data-v-a2e7fe8a", __vue_options__)
+	    hotAPI.reload("data-v-70d869b1", __vue_options__)
 	  }
 	})()}
 	if (__vue_options__.functional) {console.error("[vue-loader] mdSubheader.vue: functional components are not supported and should be defined in plain js files using render functions.")}

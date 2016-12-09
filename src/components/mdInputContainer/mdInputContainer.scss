@@ -62,8 +62,8 @@ $input-size: 32px;
     min-height: 32px;
     max-height: 230px;
     padding: 5px 0;
-    line-height: 1.3em;
     resize: none;
+    line-height: 1.3em;
   }
 
   .md-error {
@@ -193,7 +193,7 @@ $input-size: 32px;
   }
 
   &.md-has-select:hover {
-    .md-select:after {
+    .md-select:not(.md-disabled):after {
       color: rgba(#000, .87);
     }
   }

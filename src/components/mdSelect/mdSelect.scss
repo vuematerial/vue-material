@@ -43,6 +43,16 @@ $select-height: 32px;
     }
   }
 
+  &.md-disabled {
+    pointer-events: none;
+    user-select: none;
+    user-drag: none;
+
+    &:after {
+      color: rgba(#000, .38);
+    }
+  }
+
   select {
     position: absolute;
     left: -999em;
