@@ -2,6 +2,22 @@
   <page-content page-title="Changelog">
     <div class="main-content">
       <section>
+        <h2 class="md-headline">v0.4.1 - Bugfixes</h2>
+        <h3 class="md-title">Fixes:</h3>
+        <ul>
+          <li>create custom tags in whiteframe component <strong><a href="https://github.com/marcosmoura/vue-material/issues/169" target="_blank" rel="noopener">#169</a></strong></li>
+          <li>fix undefined object.values method and emit @change event <strong><a href="https://github.com/marcosmoura/vue-material/issues/167" target="_blank" rel="noopener">#167</a></strong> <strong><a href="https://github.com/marcosmoura/vue-material/issues/165" target="_blank" rel="noopener">#165</a></strong> <strong>(Thanks to <a href="https://github.com/jtouzy" target="_blank" rel="noopener">@jtouzy</a>)</strong></li>
+          <li>add reference of currentPage in mdTablePagination <strong><a href="https://github.com/marcosmoura/vue-material/issues/163" target="_blank" rel="noopener">#163</a></strong> <strong>(Thanks to <a href="https://github.com/jonataswalker" target="_blank" rel="noopener">@jonataswalker</a>)</strong></li>
+          <li>add scrollbar behaviour in dialog content <strong><a href="https://github.com/marcosmoura/vue-material/issues/161" target="_blank" rel="noopener">#161</a></strong></li>
+          <li>resize textarea when a value change <strong><a href="https://github.com/marcosmoura/vue-material/issues/160" target="_blank" rel="noopener">#160</a></strong></li>
+          <li>fix disabled selects being selectable <strong><a href="https://github.com/marcosmoura/vue-material/issues/159" target="_blank" rel="noopener">#159</a></strong></li>
+          <li>add code sample to switch <strong><a href="https://github.com/marcosmoura/vue-material/issues/157" target="_blank" rel="noopener">#157</a></strong> <strong>(Thanks to <a href="https://github.com/vuchl" target="_blank" rel="noopener">@vuchl</a>)</strong></li>
+          <li>fix tooltip not being removed <strong><a href="https://github.com/marcosmoura/vue-material/issues/156" target="_blank" rel="noopener">#156</a></strong></li>
+          <li>update prompt code example to be a prompt <strong><a href="https://github.com/marcosmoura/vue-material/issues/150" target="_blank" rel="noopener">#150</a></strong> <strong>(Thanks to <a href="https://github.com/vuchl" target="_blank" rel="noopener">@vuchl</a>)</strong></li>
+        </ul>
+      </section>
+
+      <section>
         <h2 class="md-headline">v0.4.0 - New Documentation Website</h2>
         <h3 class="md-title">New Documentation:</h3>
         <ul>
