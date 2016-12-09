@@ -14,7 +14,12 @@
       mdLabel: [String, Number],
       mdIcon: String,
       mdActive: Boolean,
-      mdDisabled: Boolean
+      mdDisabled: Boolean,
+      mdTooltip: String,
+      mdTooltipDirection: {
+        type: String,
+        default: 'bottom'
+      }
     },
     data() {
       return {
@@ -36,6 +41,12 @@
       },
       mdLabel() {
         this.updateTabData();
+      },
+      mdTooltip() {
+        this.updateTabData();
+      },
+      mdTooltipDirection() {
+        this.updateTabData();
       }
     },
     computed: {
@@ -54,6 +65,8 @@
           icon: this.mdIcon,
           active: this.mdActive,
           disabled: this.mdDisabled,
+          tooltip: this.mdTooltip,
+          tooltipDirection: this.mdTooltipDirection,
           ref: this
         };
       },
