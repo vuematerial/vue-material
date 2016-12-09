@@ -137,7 +137,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (typeof __vue_options__ === "function") {
 	  __vue_options__ = __vue_options__.options
 	}
-	__vue_options__.__file = "/Users/marcosmoura/Projects/github/vue-material/src/components/mdTooltip/mdTooltip.vue"
+	__vue_options__.__file = "/Users/mrufino/Projects/personal/github/vue-material/src/components/mdTooltip/mdTooltip.vue"
 	__vue_options__.render = __vue_template__.render
 	__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 	
@@ -148,9 +148,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
 	  if (!module.hot.data) {
-	    hotAPI.createRecord("data-v-3104dae7", __vue_options__)
+	    hotAPI.createRecord("data-v-5da82edd", __vue_options__)
 	  } else {
-	    hotAPI.reload("data-v-3104dae7", __vue_options__)
+	    hotAPI.reload("data-v-5da82edd", __vue_options__)
 	  }
 	})()}
 	if (__vue_options__.functional) {console.error("[vue-loader] mdTooltip.vue: functional components are not supported and should be defined in plain js files using render functions.")}
@@ -243,13 +243,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	  },
 	  methods: {
 	    removeTooltips: function removeTooltips() {
-	      var _this = this;
-	
-	      var tooltips = [].concat(_toConsumableArray(document.querySelectorAll('.md-tooltip')));
+	      var tooltips = [].concat(_toConsumableArray(this.rootElement.querySelectorAll('.md-tooltip')));
 	
 	      tooltips.forEach(function (tooltip) {
 	        if (tooltip.parentNode) {
-	          _this.rootElement.removeChild(tooltip);
+	          tooltip.parentNode.removeChild(tooltip);
 	        }
 	      });
 	
@@ -303,20 +301,20 @@ return /******/ (function(modules) { // webpackBootstrap
 	      this.parentClass = classes.join(' ');
 	    },
 	    open: function open() {
-	      var _this2 = this;
+	      var _this = this;
 	
 	      this.removeTooltips();
 	
 	      this.$nextTick(function () {
-	        _this2.rootElement.appendChild(_this2.tooltipElement);
-	        getComputedStyle(_this2.tooltipElement).top;
-	        _this2.transitionOff = true;
-	        _this2.generateTooltipClasses();
-	        _this2.calculateTooltipPosition();
+	        _this.rootElement.appendChild(_this.tooltipElement);
+	        getComputedStyle(_this.tooltipElement).top;
+	        _this.transitionOff = true;
+	        _this.generateTooltipClasses();
+	        _this.calculateTooltipPosition();
 	
 	        window.setTimeout(function () {
-	          _this2.transitionOff = false;
-	          _this2.active = true;
+	          _this.transitionOff = false;
+	          _this.active = true;
 	        }, 10);
 	      });
 	    },
@@ -327,19 +325,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  },
 	  mounted: function mounted() {
-	    var _this3 = this;
+	    var _this2 = this;
 	
 	    this.$nextTick(function () {
-	      _this3.tooltipElement = _this3.$el;
-	      _this3.parentElement = _this3.tooltipElement.parentNode;
-	      _this3.rootElement = _this3.$root.$el;
+	      _this2.tooltipElement = _this2.$el;
+	      _this2.parentElement = _this2.tooltipElement.parentNode;
+	      _this2.rootElement = _this2.$root.$el;
 	
-	      _this3.$el.parentNode.removeChild(_this3.$el);
+	      _this2.$el.parentNode.removeChild(_this2.$el);
 	
-	      _this3.parentElement.addEventListener('mouseenter', _this3.open);
-	      _this3.parentElement.addEventListener('focus', _this3.open);
-	      _this3.parentElement.addEventListener('mouseleave', _this3.close);
-	      _this3.parentElement.addEventListener('blur', _this3.close);
+	      _this2.parentElement.addEventListener('mouseenter', _this2.open);
+	      _this2.parentElement.addEventListener('focus', _this2.open);
+	      _this2.parentElement.addEventListener('mouseleave', _this2.close);
+	      _this2.parentElement.addEventListener('blur', _this2.close);
 	    });
 	  },
 	  beforeDestroy: function beforeDestroy() {
@@ -373,7 +371,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-hot-reload-api").rerender("data-v-3104dae7", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-5da82edd", module.exports)
 	  }
 	}
 

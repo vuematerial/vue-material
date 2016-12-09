@@ -124,7 +124,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (typeof __vue_options__ === "function") {
 	  __vue_options__ = __vue_options__.options
 	}
-	__vue_options__.__file = "/Users/marcosmoura/Projects/github/vue-material/src/components/mdInputContainer/mdInputContainer.vue"
+	__vue_options__.__file = "/Users/mrufino/Projects/personal/github/vue-material/src/components/mdInputContainer/mdInputContainer.vue"
 	__vue_options__.render = __vue_template__.render
 	__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 	
@@ -135,9 +135,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
 	  if (!module.hot.data) {
-	    hotAPI.createRecord("data-v-4e747acd", __vue_options__)
+	    hotAPI.createRecord("data-v-c3baaf7a", __vue_options__)
 	  } else {
-	    hotAPI.reload("data-v-4e747acd", __vue_options__)
+	    hotAPI.reload("data-v-c3baaf7a", __vue_options__)
 	  }
 	})()}
 	if (__vue_options__.functional) {console.error("[vue-loader] mdInputContainer.vue: functional components are not supported and should be defined in plain js files using render functions.")}
@@ -297,7 +297,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-hot-reload-api").rerender("data-v-4e747acd", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-c3baaf7a", module.exports)
 	  }
 	}
 
@@ -325,7 +325,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (typeof __vue_options__ === "function") {
 	  __vue_options__ = __vue_options__.options
 	}
-	__vue_options__.__file = "/Users/marcosmoura/Projects/github/vue-material/src/components/mdInputContainer/mdInput.vue"
+	__vue_options__.__file = "/Users/mrufino/Projects/personal/github/vue-material/src/components/mdInputContainer/mdInput.vue"
 	__vue_options__.render = __vue_template__.render
 	__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 	
@@ -336,9 +336,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
 	  if (!module.hot.data) {
-	    hotAPI.createRecord("data-v-53a56078", __vue_options__)
+	    hotAPI.createRecord("data-v-5d6e058e", __vue_options__)
 	  } else {
-	    hotAPI.reload("data-v-53a56078", __vue_options__)
+	    hotAPI.reload("data-v-5d6e058e", __vue_options__)
 	  }
 	})()}
 	if (__vue_options__.functional) {console.error("[vue-loader] mdInput.vue: functional components are not supported and should be defined in plain js files using render functions.")}
@@ -546,7 +546,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-hot-reload-api").rerender("data-v-53a56078", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-5d6e058e", module.exports)
 	  }
 	}
 
@@ -574,7 +574,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (typeof __vue_options__ === "function") {
 	  __vue_options__ = __vue_options__.options
 	}
-	__vue_options__.__file = "/Users/marcosmoura/Projects/github/vue-material/src/components/mdInputContainer/mdTextarea.vue"
+	__vue_options__.__file = "/Users/mrufino/Projects/personal/github/vue-material/src/components/mdInputContainer/mdTextarea.vue"
 	__vue_options__.render = __vue_template__.render
 	__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 	
@@ -585,9 +585,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
 	  if (!module.hot.data) {
-	    hotAPI.createRecord("data-v-62d24f30", __vue_options__)
+	    hotAPI.createRecord("data-v-339565b4", __vue_options__)
 	  } else {
-	    hotAPI.reload("data-v-62d24f30", __vue_options__)
+	    hotAPI.reload("data-v-339565b4", __vue_options__)
 	  }
 	})()}
 	if (__vue_options__.functional) {console.error("[vue-loader] mdTextarea.vue: functional components are not supported and should be defined in plain js files using render functions.")}
@@ -622,6 +622,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	exports.default = {
 	  mixins: [_common2.default],
+	  watch: {
+	    value: function value() {
+	      var _this = this;
+	
+	      this.$nextTick(function () {
+	        _autosize2.default.update(_this.$el);
+	      });
+	    }
+	  },
 	  mounted: function mounted() {
 	    this.parentContainer = (0, _getClosestVueParent2.default)(this.$parent, 'md-input-container');
 	
@@ -986,7 +995,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-hot-reload-api").rerender("data-v-62d24f30", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-339565b4", module.exports)
 	  }
 	}
 
