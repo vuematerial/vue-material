@@ -16,8 +16,8 @@
       let listItemSpec = {
         staticClass: 'md-list-item',
         on: {
-          click: () => {
-            this.$emit('click');
+          click: ($event) => {
+            this.$emit('click', $event);
           }
         }
       };
