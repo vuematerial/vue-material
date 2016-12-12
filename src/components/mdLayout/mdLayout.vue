@@ -1,10 +1,13 @@
 <style lang="scss" src="./mdLayout.scss"></style>
 
 <script>
-  import tag from './tag';
-
   export default {
-    mixins: [tag],
+    props: {
+      mdTag: {
+        type: String,
+        default: 'div'
+      }
+    },
     render(createElement) {
       return createElement(this.mdTag, {
         staticClass: 'md-layout',
