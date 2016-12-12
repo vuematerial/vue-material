@@ -1,5 +1,5 @@
 <template>
-  <div class="md-button-group md-button-toggle">
+  <div class="md-button-toggle" :class="[themeClass]" >
     <slot></slot>
   </div>
 </template>
@@ -7,12 +7,15 @@
 <style lang="scss" src="./mdButtonToggle.scss"></style>
 
 <script>
+  import theme from '../../core/components/mdTheme/mixin';
+
   let onClickButton;
 
   export default {
     props: {
       mdSingle: Boolean
     },
+    mixins: [theme],
     mounted() {
       this.$children.forEach((child) => {
         let element = child.$el;

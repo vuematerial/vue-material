@@ -1,5 +1,5 @@
 <template>
-  <div class="md-sidenav" :class="classes" @keyup.esc="close" tabindex="0">
+  <div class="md-sidenav" :class="[themeClass, classes]" @keyup.esc="close" tabindex="0">
     <div class="md-sidenav-content">
       <slot></slot>
     </div>
@@ -11,12 +11,15 @@
 <style lang="scss" src="./mdSidenav.scss"></style>
 
 <script>
+  import theme from '../../core/components/mdTheme/mixin';
+
   export default {
     data() {
       return {
         mdVisible: false
       };
     },
+    mixins: [theme],
     computed: {
       classes() {
         return this.mdVisible && 'md-active';

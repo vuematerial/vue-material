@@ -137,6 +137,27 @@ const registerDirective = (element, { value, oldValue }) => {
 
 export default function install(Vue) {
   Vue.directive('mdTheme', registerDirective);
+  Vue.component('md-theme', {
+    props: {
+      mdTag: String,
+      mdName: {
+        type: String,
+        default: 'default'
+      }
+    },
+    data: () => ({
+      name: 'md-theme'
+    }),
+    render(render) {
+      if (this.mdTag || this.$slots.default.length > 1) {
+        return render(this.mdTag || 'div', {
+          staticClass: 'md-theme'
+        }, this.$slots.default);
+      }
+
+      return this.$slots.default[0];
+    }
+  });
 
   Vue.material.theme = {
     register(name, spec) {

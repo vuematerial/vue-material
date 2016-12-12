@@ -3,6 +3,12 @@
     <docs-component>
       <div slot="description">
         <p>Subheaders may be displayed inline with tiles or associated with content. They are typically related to filtering or sorting criteria.</p>
+        <p>The following classes can be applied to change the color palette:</p>
+        <ul class="md-body-2">
+          <li><code>md-primary</code></li>
+          <li><code>md-accent</code></li>
+          <li><code>md-warn</code></li>
+        </ul>
       </div>
 
       <div slot="api">

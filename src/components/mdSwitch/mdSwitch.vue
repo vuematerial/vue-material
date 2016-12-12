@@ -1,5 +1,5 @@
 <template>
-  <div class="md-switch" :class="classes">
+  <div class="md-switch" :class="[themeClass, classes]">
     <div class="md-switch-container" @click="toggleSwitch">
       <div class="md-switch-thumb" :style="styles" v-md-ink-ripple="disabled">
         <input type="checkbox" :name="name" :id="id" :disabled="disabled" :value="value">
@@ -16,6 +16,8 @@
 <style lang="scss" src="./mdSwitch.scss"></style>
 
 <script>
+  import theme from '../../core/components/mdTheme/mixin';
+
   let fullThreshold = 75;
   let initialThreshold = '-1px';
 
@@ -30,6 +32,7 @@
         default: 'button'
       }
     },
+    mixins: [theme],
     data() {
       return {
         leftPos: initialThreshold,

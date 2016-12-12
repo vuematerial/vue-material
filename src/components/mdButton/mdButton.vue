@@ -1,41 +1,40 @@
+<template>
+  <button class="md-button" :class="[themeClass]" :type="type" :disabled="disabled" @click="$emit('click', $event)" v-if="!href">
+    <md-ink-ripple :md-disabled="disabled"></md-ink-ripple>
+    <slot></slot>
+  </button>
+
+  <a class="md-button" :class="[themeClass]" :href="href" :disabled="disabled" :target="target" :rel="newRel" @click="$emit('click', $event)" v-else>
+    <md-ink-ripple :md-disabled="disabled"></md-ink-ripple>
+    <slot></slot>
+  </a>
+</template>
+
 <style lang="scss" src="./mdButton.scss"></style>
 
 <script>
+  import theme from '../../core/components/mdTheme/mixin';
+
   export default {
     props: {
       href: String,
-      type: String,
+      target: String,
+      rel: String,
+      type: {
+        type: String,
+        default: 'button'
+      },
       disabled: Boolean
     },
-    render(createElement) {
-      let isDisabled = Boolean(this.disabled);
-      let hasLink = Boolean(this.href);
-      let tag = 'button';
-      let options = {
-        staticClass: 'md-button',
-        attrs: {
-          type: this.type || 'button',
-          disabled: isDisabled
-        },
-        on: {
-          click: ($event) => {
-            this.$emit('click', $event);
-          }
+    mixins: [theme],
+    computed: {
+      newRel() {
+        if (this.target === '_blank') {
+          return this.rel || 'noopener';
         }
-      };
-      let ripple = createElement('md-ink-ripple', {
-        attrs: {
-          mdDisabled: isDisabled
-        }
-      });
 
-      if (hasLink) {
-        tag = 'a';
-        options.attrs.href = this.href;
-        delete options.attrs.type;
+        return this.rel;
       }
-
-      return createElement(tag, options, [...this.$slots.default, ripple]);
     }
   };
 </script>
