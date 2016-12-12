@@ -137,19 +137,18 @@
           </md-list-item>
 
           <md-list-item>
-            <router-link exact to="/ui-elements/typography">Typography</router-link>
-
-            <!-- <span>UI Elements</span>
+            <span>UI Elements</span>
             <md-list-expand>
               <md-list>
                 <md-list-item class="md-inset">
+                  <router-link exact to="/ui-elements/typography">Typography</router-link>
                 </md-list-item>
 
                 <md-list-item class="md-inset">
-                  <router-link exact to="/ui-elements/grid-system">Grid System</router-link>
+                  <router-link exact to="/ui-elements/layout">Layout</router-link>
                 </md-list-item>
               </md-list>
-            </md-list-expand> -->
+            </md-list-expand>
           </md-list-item>
 
           <md-list-item>
