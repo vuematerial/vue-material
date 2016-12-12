@@ -8,6 +8,10 @@ Vue.material.theme.registerAll({
     primary: 'blue',
     accent: 'pink'
   },
+  blue: {
+    primary: 'blue',
+    accent: 'pink'
+  },
   indigo: {
     primary: 'indigo',
     accent: 'pink'
@@ -21,12 +25,8 @@ Vue.material.theme.registerAll({
     accent: 'blue'
   },
   orange: {
-    primary: 'orange',
-    accent: 'green'
-  },
-  blue: {
-    primary: 'blue',
-    accent: 'pink'
+    primary: 'deep-orange',
+    accent: 'purple'
   },
   green: {
     primary: 'green',
