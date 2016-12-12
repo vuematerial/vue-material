@@ -1,6 +1,20 @@
 .THEME_NAME {
-  .md-menu,
-  &.md-menu {
+  &.md-menu-content {
+    background-color: #{'BACKGROUND-COLOR-A100'};
+    color: #{'BACKGROUND-CONTRAST'};
 
+    .md-menu-item {
+      &:hover,
+      &:focus,
+      &.md-highlighted {
+        .md-button:not([disabled]) {
+          background-color: #{'BACKGROUND-CONTRAST-0.12'};
+        }
+      }
+
+      &[disabled] {
+        color: #{'BACKGROUND-CONTRAST-0.38'};
+      }
+    }
   }
 }

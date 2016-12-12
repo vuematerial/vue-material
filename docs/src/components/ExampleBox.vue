@@ -1,9 +1,11 @@
 <template>
   <div class="example-box">
     <md-card class="example-box-card">
-      <md-toolbar class="md-dense" v-md-theme="'white'">
-        <h3 class="md-title">{{ cardTitle }}</h3>
-      </md-toolbar>
+      <md-theme md-name="white">
+        <md-toolbar class="md-dense">
+          <h3 class="md-title">{{ cardTitle }}</h3>
+        </md-toolbar>
+      </md-theme>
 
       <md-card-area>
         <md-tabs md-right :md-dynamic-height="false" class="md-transparent example-tabs">

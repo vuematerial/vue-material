@@ -1,172 +1,176 @@
 <template>
-  <div class="container" v-md-theme="theme">
-    <md-sidenav class="main-sidebar md-left md-fixed" ref="main-sidebar">
-      <md-toolbar class="vue-material-logo" v-md-theme="'white'">
-        <router-link exact to="/">
-          <img :src="logo" alt="Vue">
-          <span>Vue Material</span>
-        </router-link>
-      </md-toolbar>
+  <md-theme :md-name="theme">
+    <div class="container">
+      <md-sidenav class="main-sidebar md-left md-fixed" ref="main-sidebar">
+        <md-theme md-name="white">
+          <md-toolbar class="vue-material-logo">
+            <router-link exact to="/">
+              <img :src="logo" alt="Vue">
+              <span>Vue Material</span>
+            </router-link>
+          </md-toolbar>
+        </md-theme>
 
-      <div class="main-sidebar-links">
-        <md-list class="md-dense">
-          <md-list-item>
-            <router-link exact to="/">Introduction</router-link>
-          </md-list-item>
+        <div class="main-sidebar-links">
+          <md-list class="md-dense">
+            <md-list-item>
+              <router-link exact to="/">Introduction</router-link>
+            </md-list-item>
 
-          <md-list-item>
-            <router-link exact to="/getting-started">Getting Started</router-link>
-          </md-list-item>
+            <md-list-item>
+              <router-link exact to="/getting-started">Getting Started</router-link>
+            </md-list-item>
 
-          <md-list-item>
-            <router-link exact to="/themes/configuration">Themes</router-link>
+            <md-list-item>
+              <router-link exact to="/themes/configuration">Themes</router-link>
 
-            <!-- <span>Themes</span>
+              <!-- <span>Themes</span>
 
-            <md-list-expand>
-              <md-list>
-                <md-list-item class="md-inset">
-                  <router-link exact to="/themes/configuration">Configuration</router-link>
-                </md-list-item>
+              <md-list-expand>
+                <md-list>
+                  <md-list-item class="md-inset">
+                    <router-link exact to="/themes/configuration">Configuration</router-link>
+                  </md-list-item>
 
-                <md-list-item class="md-inset">
-                  <router-link exact to="/themes/dynamic-themes">Dynamic Theme</router-link>
-                </md-list-item>
-              </md-list>
-            </md-list-expand> -->
-          </md-list-item>
+                  <md-list-item class="md-inset">
+                    <router-link exact to="/themes/dynamic-themes">Dynamic Theme</router-link>
+                  </md-list-item>
+                </md-list>
+              </md-list-expand> -->
+            </md-list-item>
 
-          <md-list-item>
-            <span>Components</span>
+            <md-list-item>
+              <span>Components</span>
 
-            <md-list-expand>
-              <md-list>
-                <md-list-item class="md-inset">
-                  <router-link exact to="/components/avatar">Avatar</router-link>
-                </md-list-item>
+              <md-list-expand>
+                <md-list>
+                  <md-list-item class="md-inset">
+                    <router-link exact to="/components/avatar">Avatar</router-link>
+                  </md-list-item>
 
-                <md-list-item class="md-inset">
-                  <router-link exact to="/components/bottom-bar">Bottom Bar</router-link>
-                </md-list-item>
+                  <md-list-item class="md-inset">
+                    <router-link exact to="/components/bottom-bar">Bottom Bar</router-link>
+                  </md-list-item>
 
-                <md-list-item class="md-inset">
-                  <router-link exact to="/components/button">Button</router-link>
-                </md-list-item>
+                  <md-list-item class="md-inset">
+                    <router-link exact to="/components/button">Button</router-link>
+                  </md-list-item>
 
-                <md-list-item class="md-inset">
-                  <router-link exact to="/components/button-toggle">Button Toggle</router-link>
-                </md-list-item>
+                  <md-list-item class="md-inset">
+                    <router-link exact to="/components/button-toggle">Button Toggle</router-link>
+                  </md-list-item>
 
-                <md-list-item class="md-inset">
-                  <router-link exact to="/components/card">Card</router-link>
-                </md-list-item>
+                  <md-list-item class="md-inset">
+                    <router-link exact to="/components/card">Card</router-link>
+                  </md-list-item>
 
-                <md-list-item class="md-inset">
-                  <router-link exact to="/components/checkbox">Checkbox</router-link>
-                </md-list-item>
+                  <md-list-item class="md-inset">
+                    <router-link exact to="/components/checkbox">Checkbox</router-link>
+                  </md-list-item>
 
-                <md-list-item class="md-inset">
-                  <router-link exact to="/components/dialog">Dialog</router-link>
-                </md-list-item>
+                  <md-list-item class="md-inset">
+                    <router-link exact to="/components/dialog">Dialog</router-link>
+                  </md-list-item>
 
-                <md-list-item class="md-inset">
-                  <router-link exact to="/components/icon">Icon</router-link>
-                </md-list-item>
+                  <md-list-item class="md-inset">
+                    <router-link exact to="/components/icon">Icon</router-link>
+                  </md-list-item>
 
-                <md-list-item class="md-inset">
-                  <router-link exact to="/components/input">Input</router-link>
-                </md-list-item>
+                  <md-list-item class="md-inset">
+                    <router-link exact to="/components/input">Input</router-link>
+                  </md-list-item>
 
-                <md-list-item class="md-inset">
-                  <router-link exact to="/components/list">List</router-link>
-                </md-list-item>
+                  <md-list-item class="md-inset">
+                    <router-link exact to="/components/list">List</router-link>
+                  </md-list-item>
 
-                <md-list-item class="md-inset">
-                  <router-link exact to="/components/menu">Menu</router-link>
-                </md-list-item>
+                  <md-list-item class="md-inset">
+                    <router-link exact to="/components/menu">Menu</router-link>
+                  </md-list-item>
 
-                <md-list-item class="md-inset">
-                  <router-link exact to="/components/radio">Radio</router-link>
-                </md-list-item>
+                  <md-list-item class="md-inset">
+                    <router-link exact to="/components/radio">Radio</router-link>
+                  </md-list-item>
 
-                <md-list-item class="md-inset">
-                  <router-link exact to="/components/ink-ripple">Ink Ripple</router-link>
-                </md-list-item>
+                  <md-list-item class="md-inset">
+                    <router-link exact to="/components/ink-ripple">Ink Ripple</router-link>
+                  </md-list-item>
 
-                <md-list-item class="md-inset">
-                  <router-link exact to="/components/select">Select</router-link>
-                </md-list-item>
+                  <md-list-item class="md-inset">
+                    <router-link exact to="/components/select">Select</router-link>
+                  </md-list-item>
 
-                <md-list-item class="md-inset">
-                  <router-link exact to="/components/sidenav">Sidenav</router-link>
-                </md-list-item>
+                  <md-list-item class="md-inset">
+                    <router-link exact to="/components/sidenav">Sidenav</router-link>
+                  </md-list-item>
 
-                <md-list-item class="md-inset">
-                  <router-link exact to="/components/spinner">Spinner</router-link>
-                </md-list-item>
+                  <md-list-item class="md-inset">
+                    <router-link exact to="/components/spinner">Spinner</router-link>
+                  </md-list-item>
 
-                <md-list-item class="md-inset">
-                  <router-link exact to="/components/subheader">Subheader</router-link>
-                </md-list-item>
+                  <md-list-item class="md-inset">
+                    <router-link exact to="/components/subheader">Subheader</router-link>
+                  </md-list-item>
 
-                <md-list-item class="md-inset">
-                  <router-link exact to="/components/switch">Switch</router-link>
-                </md-list-item>
+                  <md-list-item class="md-inset">
+                    <router-link exact to="/components/switch">Switch</router-link>
+                  </md-list-item>
 
-                <md-list-item class="md-inset">
-                  <router-link exact to="/components/tabs">Tabs</router-link>
-                </md-list-item>
+                  <md-list-item class="md-inset">
+                    <router-link exact to="/components/tabs">Tabs</router-link>
+                  </md-list-item>
 
-                <md-list-item class="md-inset">
-                  <router-link exact to="/components/table">Table</router-link>
-                </md-list-item>
+                  <md-list-item class="md-inset">
+                    <router-link exact to="/components/table">Table</router-link>
+                  </md-list-item>
 
-                <md-list-item class="md-inset">
-                  <router-link exact to="/components/toolbar">Toolbar</router-link>
-                </md-list-item>
+                  <md-list-item class="md-inset">
+                    <router-link exact to="/components/toolbar">Toolbar</router-link>
+                  </md-list-item>
 
-                <md-list-item class="md-inset">
-                  <router-link exact to="/components/tooltip">Tooltip</router-link>
-                </md-list-item>
+                  <md-list-item class="md-inset">
+                    <router-link exact to="/components/tooltip">Tooltip</router-link>
+                  </md-list-item>
 
-                <md-list-item class="md-inset">
-                  <router-link exact to="/components/whiteframe">Whiteframe</router-link>
-                </md-list-item>
-              </md-list>
-            </md-list-expand>
-          </md-list-item>
+                  <md-list-item class="md-inset">
+                    <router-link exact to="/components/whiteframe">Whiteframe</router-link>
+                  </md-list-item>
+                </md-list>
+              </md-list-expand>
+            </md-list-item>
 
-          <md-list-item>
-            <router-link exact to="/ui-elements/typography">Typography</router-link>
+            <md-list-item>
+              <router-link exact to="/ui-elements/typography">Typography</router-link>
 
-            <!-- <span>UI Elements</span>
-            <md-list-expand>
-              <md-list>
-                <md-list-item class="md-inset">
-                </md-list-item>
+              <!-- <span>UI Elements</span>
+              <md-list-expand>
+                <md-list>
+                  <md-list-item class="md-inset">
+                  </md-list-item>
 
-                <md-list-item class="md-inset">
-                  <router-link exact to="/ui-elements/grid-system">Grid System</router-link>
-                </md-list-item>
-              </md-list>
-            </md-list-expand> -->
-          </md-list-item>
+                  <md-list-item class="md-inset">
+                    <router-link exact to="/ui-elements/grid-system">Grid System</router-link>
+                  </md-list-item>
+                </md-list>
+              </md-list-expand> -->
+            </md-list-item>
 
-          <md-list-item>
-            <router-link exact to="/changelog">Changelog</router-link>
-          </md-list-item>
+            <md-list-item>
+              <router-link exact to="/changelog">Changelog</router-link>
+            </md-list-item>
 
-          <md-list-item>
-            <router-link exact to="/about">About</router-link>
-          </md-list-item>
-        </md-list>
-      </div>
-    </md-sidenav>
+            <md-list-item>
+              <router-link exact to="/about">About</router-link>
+            </md-list-item>
+          </md-list>
+        </div>
+      </md-sidenav>
 
-    <transition name="md-router">
-      <router-view></router-view>
-    </transition>
-  </div>
+      <transition name="md-router">
+        <router-view></router-view>
+      </transition>
+    </div>
+  </md-theme>
 </template>
 
 <style lang="scss">

@@ -353,19 +353,19 @@
         <example-box card-title="Themes">
           <div slot="demo">
             <form novalidate @submit.stop.prevent="submit">
-              <div v-md-theme="'green'">
+              <md-theme md-name="green">
                 <md-input-container>
                   <label>Green - Input</label>
                   <md-input></md-input>
                 </md-input-container>
-              </div>
+              </md-theme>
 
-              <div v-md-theme="'cyan'">
+              <md-theme md-name="red">
                 <md-input-container>
-                  <label>Cyan - Textarea</label>
+                  <label>Red - Textarea</label>
                   <md-textarea></md-textarea>
                 </md-input-container>
-              </div>
+              </md-theme>
             </form>
           </div>
 
