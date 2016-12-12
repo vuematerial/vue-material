@@ -27,32 +27,32 @@
             </div>
 
             <md-snackbar md-position="bottom center" ref="snackbar1">
-              Connection timeout. Showing limited messages.
+              <span>Connection timeout. Showing limited messages.</span>
               <md-button class="md-accent" v-md-theme="'light-blue'" @click="$refs.snackbar1.close()">Retry</md-button>
             </md-snackbar>
 
             <md-snackbar md-position="bottom left" ref="snackbar2">
-              Connection timeout. Showing limited messages.
+              <span>Connection timeout. Showing limited messages.</span>
               <md-button class="md-accent" v-md-theme="'light-blue'" @click="$refs.snackbar2.close()">Retry</md-button>
             </md-snackbar>
 
             <md-snackbar md-position="bottom right" ref="snackbar3">
-              Connection timeout. Showing limited messages.
+              <span>Connection timeout. Showing limited messages.</span>
               <md-button class="md-accent" v-md-theme="'light-blue'" @click="$refs.snackbar3.close()">Retry</md-button>
             </md-snackbar>
 
             <md-snackbar md-position="top center" ref="snackbar4">
-              Connection timeout. Showing limited messages.
+              <span>Connection timeout. Showing limited messages.</span>
               <md-button class="md-accent" v-md-theme="'light-blue'" @click="$refs.snackbar4.close()">Retry</md-button>
             </md-snackbar>
 
             <md-snackbar md-position="top left" ref="snackbar5">
-              Connection timeout. Showing limited messages.
+              <span>Connection timeout. Showing limited messages.</span>
               <md-button class="md-accent" v-md-theme="'light-blue'" @click="$refs.snackbar5.close()">Retry</md-button>
             </md-snackbar>
 
             <md-snackbar md-position="top right" ref="snackbar6">
-              Connection timeout. Showing limited messages.
+              <span>Connection timeout. Showing limited messages.</span>
               <md-button class="md-accent" v-md-theme="'light-blue'" @click="$refs.snackbar6.close()">Retry</md-button>
             </md-snackbar>
           </div>
