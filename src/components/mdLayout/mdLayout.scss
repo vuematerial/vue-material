@@ -2,5 +2,63 @@
 
 .md-layout {
   display: flex;
+  flex-direction: row;
   flex: 1;
+}
+
+.md-column {
+  flex-direction: column;
+}
+
+
+/* Gutter Size */
+
+$sizes: (8, 16, 24, 40);
+
+@each $item in $sizes {
+  $padding: $item / 2 + px;
+  $margin: -$item / 2 + px;
+
+  .md-gutter-#{$item}:not(.md-column) {
+    margin-right: $margin;
+    margin-left: $margin;
+
+    > .md-layout {
+      padding-right: $padding;
+      padding-left: $padding;
+    }
+  }
+
+  .md-column.md-gutter-#{$item} {
+    margin-top: $margin;
+    margin-bottom: $margin;
+
+    > .md-layout {
+      padding-top: $padding;
+      padding-bottom: $padding;
+    }
+  }
+}
+
+
+/* Flex Size */
+
+.md-flex {
+  flex: 1;
+}
+
+.md-flex-33 {
+  flex: 0 1 33.33333%;
+}
+
+.md-flex-66 {
+  flex: 0 1 66.66666%;
+}
+
+@for $i from 0 through 20 {
+  $counter: $i * 5;
+
+  .md-flex-#{$counter} {
+    flex: 0 1 #{$counter + '%'};
+  }
 }
