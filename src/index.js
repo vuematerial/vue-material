@@ -10,6 +10,7 @@ import MdDialog from './components/mdDialog';
 import MdDivider from './components/mdDivider';
 import MdIcon from './components/mdIcon';
 import MdInputContainer from './components/mdInputContainer';
+import MdLayout from './components/mdLayout';
 import MdList from './components/mdList';
 import MdMenu from './components/mdMenu';
 import MdRadio from './components/mdRadio';
@@ -37,6 +38,7 @@ const options = {
   MdDivider,
   MdIcon,
   MdInputContainer,
+  MdLayout,
   MdList,
   MdMenu,
   MdRadio,
