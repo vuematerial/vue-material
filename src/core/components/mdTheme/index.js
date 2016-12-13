@@ -25,8 +25,9 @@ const DEFAULT_THEME_COLORS = {
 const createNewStyleElement = (style, name) => {
   let head = document.head;
   let styleId = 'md-theme-' + name;
+  let styleElement = head.querySelector('#' + styleId);
 
-  if (!head.querySelector('#' + styleId)) {
+  if (!styleElement) {
     let newTag = document.createElement('style');
 
     style = style.replace(/THEME_NAME/g, styleId);
@@ -36,6 +37,8 @@ const createNewStyleElement = (style, name) => {
     newTag.textContent = style;
 
     head.appendChild(newTag);
+  } else {
+    styleElement.textContent = style;
   }
 };
 
@@ -108,11 +111,6 @@ const registerTheme = (theme, name, themeStyles) => {
 const registerAllThemes = (themes, themeStyles) => {
   let themeNames = themes ? Object.keys(themes) : [];
 
-  if (themeNames.indexOf('default') === -1) {
-    registerTheme(DEFAULT_THEME_COLORS, 'default', themeStyles);
-    registeredThemes.push('default');
-  }
-
   themeNames.forEach((name) => {
     registerTheme(themes[name], name, themeStyles);
     registeredThemes.push(name);
@@ -137,10 +135,23 @@ export default function install(Vue) {
 
         registerAllThemes(theme, this.styles);
       },
-      setCurrentTheme(themeName) {
+      applyCurrentTheme(themeName) {
         document.body.classList.remove('md-theme-' + this.currentTheme);
         document.body.classList.add('md-theme-' + themeName);
         this.currentTheme = themeName;
+      },
+      setCurrentTheme(themeName) {
+        if (registeredThemes.indexOf(themeName) >= 0) {
+          this.applyCurrentTheme(themeName);
+        } else {
+          if (registeredThemes.indexOf('default') === -1) {
+            this.registerTheme('default', DEFAULT_THEME_COLORS);
+          } else {
+            console.warn(`The theme '${themeName}' doesn't exists. You need to register it first in order to use.`);
+          }
+
+          this.applyCurrentTheme('default');
+        }
       }
     }
   });
