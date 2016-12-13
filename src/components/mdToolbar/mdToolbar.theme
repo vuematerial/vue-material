@@ -1,5 +1,4 @@
 .THEME_NAME {
-  .md-toolbar,
   &.md-toolbar {
     background-color: #{'PRIMARY-COLOR'};
     color: #{'PRIMARY-CONTRAST'};

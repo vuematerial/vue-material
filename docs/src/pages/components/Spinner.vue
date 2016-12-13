@@ -96,26 +96,45 @@
 
         <example-box card-title="Complete Example">
           <div slot="demo">
-            <div class="complete-example" v-md-theme="'orange'">
+            <md-theme class="complete-example" md-name="orange">
               <md-button class="md-fab" @click.native="restartProgress" :class="{ 'md-primary': done }">
                 <md-icon v-show="!done">cloud_upload</md-icon>
                 <md-icon v-show="done">done</md-icon>
               </md-button>
 
               <md-spinner :md-size="75" :md-progress="progress" v-show="transition && progress < 115"></md-spinner>
-            </div>
+            </md-theme>
           </div>
 
           <div slot="code">
             <code-block lang="xml">
-              &lt;div class=&quot;complete-example&quot; v-md-theme=&quot;&#039;orange&#039;&quot;&gt;
+              &lt;md-theme class=&quot;complete-example&quot; md-name=&quot;orange&quot;&gt;
                 &lt;md-button class=&quot;md-fab&quot; @click.native=&quot;restartProgress&quot; :class=&quot;{ &#039;md-primary&#039;: done }&quot;&gt;
                   &lt;md-icon v-show=&quot;!done&quot;&gt;cloud_upload&lt;/md-icon&gt;
                   &lt;md-icon v-show=&quot;done&quot;&gt;done&lt;/md-icon&gt;
                 &lt;/md-button&gt;
 
                 &lt;md-spinner :md-size=&quot;75&quot; :md-progress=&quot;progress&quot; v-show=&quot;transition &amp;&amp; progress &lt; 115&quot;&gt;&lt;/md-spinner&gt;
-              &lt;/div&gt;
+              &lt;/md-theme&gt;
+            </code-block>
+
+            <code-block lang="scss">
+              .complete-example {
+                width: 56px;
+                height: 56px;
+                position: relative;
+
+                .md-fab {
+                  margin: 0;
+                }
+
+                .md-spinner {
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                }
+              }
             </code-block>
 
             <code-block lang="javascript">

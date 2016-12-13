@@ -19,7 +19,6 @@ $select-height: 32px;
     right: 0;
     transform: translateY(-50%) scaleY(0.45) scaleX(0.85);
     transition: $swift-linear;
-    color: rgba(#000, .54);
     content: "\25BC";
   }
 
@@ -47,10 +46,6 @@ $select-height: 32px;
     pointer-events: none;
     user-select: none;
     user-drag: none;
-
-    &:after {
-      color: rgba(#000, .38);
-    }
   }
 
   select {
@@ -78,47 +73,6 @@ $select-height: 32px;
     line-height: $select-height + 1px;
     text-overflow: ellipsis;
     white-space: nowrap;
-  }
-
-  .md-select-menu {
-    min-width: 156px;
-    max-width: 100%;
-    min-height: 48px;
-    display: flex;
-    flex-flow: column;
-    justify-content: stretch;
-    align-content: stretch;
-    pointer-events: none;
-    position: absolute;
-    top: -16px;
-    left: -16px;
-    z-index: 7;
-    background-color: #fff;
-    border-radius: 2px;
-    box-shadow: $material-shadow-2dp;
-    opacity: 0;
-    transform: scale3D(.85, .7, 1);
-    transition: opacity .25s $swift-ease-in-timing-function,
-                top .25s $swift-ease-in-timing-function,
-                transform 0s .25s $swift-ease-in-timing-function;
-    color: rgba(#212121, .87);
-
-    > * {
-      opacity: 0;
-      transition: $swift-ease-out;
-      transition-duration: .25s;
-    }
-  }
-
-  .md-select-menu-container {
-    margin: 0;
-    padding: 8px 0;
-    display: flex;
-    flex-flow: column;
-    justify-content: stretch;
-    align-content: stretch;
-    overflow-x: hidden;
-    overflow-y: auto;
   }
 
   .md-subheader {
