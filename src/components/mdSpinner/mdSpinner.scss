@@ -26,10 +26,10 @@
 
   &:not(.md-indeterminate) {
     &.md-spinner-enter-active {
-      transition-duration: 1.8s;
+      transition-duration: 2s;
 
       .md-spinner-draw {
-        animation: spinner-initial-rotate 1.75s $swift-ease-out-timing-function infinite;
+        animation: spinner-initial-rotate 1.98s $swift-ease-out-timing-function forwards;
       }
     }
   }
@@ -74,7 +74,6 @@
   }
 
   100% {
-    opacity: 1;
     transform: rotate(270deg) translateZ(0);
   }
 }
