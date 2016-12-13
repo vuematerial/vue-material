@@ -1,5 +1,5 @@
 <template>
-  <page-content page-title="Layout">
+  <page-content page-title="UI Elements - Layout">
     <docs-component>
       <div slot="description">
         <p>Responsive layouts in material design adapt to any possible screen size. This UI guidance includes a flexible grid that ensures consistency across layouts, breakpoint details about how content reflows on different screens, and a description of how an app can scale from small to extra-large screens.</p>
@@ -96,19 +96,6 @@
               <md-layout md-column :md-gutter="16" class="color">
                 <md-layout :md-flex="50"></md-layout>
                 <md-layout></md-layout>
-                <md-layout></md-layout>
-              </md-layout>
-            </md-layout>
-
-            <md-layout class="column-size" :md-gutter="24">
-              <md-layout md-column :md-gutter="24" class="color">
-                <md-layout :md-flex="25"></md-layout>
-                <md-layout></md-layout>
-              </md-layout>
-
-              <md-layout md-column :md-gutter="24" class="color">
-                <md-layout :md-flex="25"></md-layout>
-                <md-layout :md-flex="50"></md-layout>
                 <md-layout></md-layout>
               </md-layout>
             </md-layout>

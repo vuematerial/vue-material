@@ -139,11 +139,11 @@
             <md-list-expand>
               <md-list>
                 <md-list-item class="md-inset">
-                  <router-link exact to="/ui-elements/typography">Typography</router-link>
+                  <router-link exact to="/ui-elements/layout">Layout</router-link>
                 </md-list-item>
 
                 <md-list-item class="md-inset">
-                  <router-link exact to="/ui-elements/layout">Layout</router-link>
+                  <router-link exact to="/ui-elements/typography">Typography</router-link>
                 </md-list-item>
               </md-list>
             </md-list-expand>
@@ -170,6 +170,10 @@
   @import '../../src/core/stylesheets/variables.scss';
 
   $sizebar-size: 280px;
+
+  [v-cloak] {
+    display: none;
+  }
 
   html,
   body {
@@ -293,6 +297,8 @@
 </style>
 
 <script>
+  import Vue from 'vue';
+
   export default {
     data() {
       return {
@@ -303,7 +309,7 @@
     },
     computed: {
       logo() {
-        return 'assets/logo-vue-material-' + this.theme + '.png';
+        return 'assets/logo-vue-material-' + Vue.material.currentTheme + '.png';
       }
     },
     methods: {
