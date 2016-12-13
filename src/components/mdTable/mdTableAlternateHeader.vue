@@ -1,5 +1,5 @@
 <template>
-  <div class="md-table-alternate-header" :class="classes">
+  <div class="md-table-alternate-header" :class="[themeClass, classes]">
     <md-toolbar>
       <div class="md-counter">
         <span ref="counter">{{ tableInstance.numberOfSelected }}</span>
@@ -12,6 +12,7 @@
 </template>
 
 <script>
+  import theme from '../../core/components/mdTheme/mixin';
   import getClosestVueParent from '../../core/utils/getClosestVueParent';
 
   export default {
@@ -21,6 +22,7 @@
         default: 'selected'
       }
     },
+    mixins: [theme],
     data() {
       return {
         classes: {},

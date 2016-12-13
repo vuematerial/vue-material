@@ -1,5 +1,5 @@
 <template>
-  <page-content page-title="Themes">
+  <page-content page-title="Themes - Configuration">
     <article class="main-content">
       <section>
         <h2 class="md-headline">Theme Engine</h2>
@@ -47,20 +47,24 @@
 
       <section>
         <h3 class="md-headline">Registering themes</h3>
-        <p>To configure the colors of your application you can use the API.</p>
+        <p>The default colors will be applied without any change in your code base. But you can change the colors of the <code>default</code> theme calling the Vue Material API.</p>
         <code-block lang="javascript">
-          Vue.material.theme.register('default', {
-            primary: 'cyan',
-            accent: 'pink',
+          Vue.material.registerTheme('default', {
+            primary: 'blue',
+            accent: 'red',
             warn: 'red',
             background: 'grey'
           })
         </code-block>
+      </section>
+
+      <section>
+        <h3 class="md-headline">Multiple themes</h3>
         <p>
-          You can call the <code>register</code> function how many times you want. However Vue Material have a <code>registerAll</code> function to create multiple themes:
+          You can call the <code>registerTheme</code> function how many times you want. However you can pass an object containing all the themes that you need to create:
         </p>
         <code-block lang="javascript">
-          Vue.material.theme.registerAll({
+          Vue.material.registerTheme({
             app: {
               primary: 'cyan'
             },
@@ -79,7 +83,7 @@
         <h3 class="md-headline">Custom Shades</h3>
         <p>To have a full use of the Material Design palette you can specify different shades for each color:</p>
         <code-block lang="javascript">
-          Vue.material.theme.register('app', {
+          Vue.material.registerTheme('about', {
             primary: {
               color: 'indigo',
               hue: 'A200'
@@ -94,22 +98,15 @@
 
       <section>
         <h3 class="md-headline">Applying a theme</h3>
-        <p>You can apply a single theme for your entire application and another for a single piece of your code. This makes easy to theme single components or to change colors between pages.</p>
-        <p>Vue Material exposes an directive called <code>v-md-theme</code> which will set the theme on an element:</p>
-        <code-block lang="html">
-          &lt;div id=&quot;app&quot; v-md-theme=&quot;&#039;default&#039;&quot;&gt; &lt;!-- Closest element in a Vue Instance --&gt;
-            &lt;md-toolbar&gt;
-              &lt;div class=&quot;md-title&quot;&gt;My App&lt;/div&gt;
-            &lt;/md-toolbar&gt;
-
-            &lt;md-button v-md-theme=&quot;&#039;indigo&#039;&quot;&gt;My Button&lt;/md-button&gt;
-          &lt;/div&gt;
+        <p>To change the current theme in your application just call the <code>setCurrentTheme</code> method from anywhere in your application:</p>
+        <code-block lang="javascript">
+          Vue.material.setCurrentTheme('about')
         </code-block>
       </section>
 
       <section>
         <h3 class="md-headline">Codepen example</h3>
-        <iframe height="550" scrolling="no" title="Theme Example" src="//codepen.io/vue-material/embed/WGavBE/?height=550&theme-id=dark&default-tab=html,result&embed-version=2" frameborder="no" allowtransparency="true" allowfullscreen="true" style="width: 100%;">See the Pen <a href="http://codepen.io/vue-material/pen/WGavBE/">Theme Example</a> by Vue Material (<a href="http://codepen.io/vue-material">@vue-material</a>) on <a href="http://codepen.io">CodePen</a>.</iframe>
+        <iframe height="550" scrolling="no" title="Theme Example" src="//codepen.io/vue-material/embed/WGavBE/?height=550&amp;theme-id=dark&amp;default-tab=html,result&amp;embed-version=2" frameborder="no" allowtransparency="true" allowfullscreen="true" style="width: 100%;">See the Pen <a href="http://codepen.io/vue-material/pen/WGavBE/">Theme Example</a> by Vue Material (<a href="http://codepen.io/vue-material">@vue-material</a>) on <a href="http://codepen.io">CodePen</a>.</iframe>
       </section>
     </article>
   </page-content>

@@ -1,5 +1,5 @@
 <template>
-  <div class="md-checkbox" :class="classes">
+  <div class="md-checkbox" :class="[themeClass, classes]">
     <div class="md-checkbox-container" @click.stop="toggleCheck" v-md-ink-ripple="disabled" tabindex="0">
       <input type="checkbox" :name="name" :id="id" :disabled="disabled" :value="value" tabindex="-1">
     </div>
@@ -13,6 +13,8 @@
 <style lang="scss" src="./mdCheckbox.scss"></style>
 
 <script>
+  import theme from '../../core/components/mdTheme/mixin';
+
   export default {
     props: {
       name: String,
@@ -20,6 +22,7 @@
       id: String,
       disabled: Boolean
     },
+    mixins: [theme],
     data() {
       return {
         checked: this.value

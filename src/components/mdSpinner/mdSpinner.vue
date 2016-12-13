@@ -1,6 +1,6 @@
 <template>
   <transition name="md-spinner" appear>
-    <div class="md-spinner" :class="classes" :style="styles">
+    <div class="md-spinner" :class="[themeClass, classes]":style="styles">
       <svg class="md-spinner-draw" viewBox="25 25 50 50">
         <circle class="md-spinner-path" cx="50" cy="50" r="20" :stroke-dasharray="dashProgress">
       </svg>
@@ -11,6 +11,8 @@
 <style lang="scss" src="./mdSpinner.scss"></style>
 
 <script>
+  import theme from '../../core/components/mdTheme/mixin';
+
   export default {
     props: {
       mdSize: {
@@ -23,6 +25,7 @@
         default: 0
       }
     },
+    mixins: [theme],
     computed: {
       classes() {
         return {

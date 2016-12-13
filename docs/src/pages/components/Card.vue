@@ -823,7 +823,7 @@
           </div>
         </example-box>
 
-        <example-box card-title="Themed Cards">
+        <example-box card-title="Themes">
           <div class="card-holder" slot="demo">
             <md-card class="md-primary">
               <md-card-media>
@@ -975,7 +975,7 @@
 
         <example-box card-title="Complete Example">
           <div class="card-holder" slot="demo">
-            <md-card class="card-example" v-md-theme="'blue'">
+            <md-card class="card-example">
               <md-card-area md-inset>
                 <md-card-media md-ratio="16:9">
                   <img src="assets/card-example.jpg" alt="Coffee House">
@@ -1014,7 +1014,7 @@
 
           <div slot="code">
             <code-block lang="xml">
-              &lt;md-card class=&quot;card-example&quot; v-md-theme=&quot;&#039;blue&#039;&quot;&gt;
+              &lt;md-card class=&quot;card-example&quot;&gt;
                 &lt;md-card-area md-inset&gt;
                   &lt;md-card-media md-ratio=&quot;16:9&quot;&gt;
                     &lt;img src=&quot;assets/card-example.jpg&quot; alt=&quot;Coffee House&quot;&gt;
