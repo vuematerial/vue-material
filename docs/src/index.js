@@ -34,7 +34,7 @@ let handleSectionTheme = (currentRoute) => {
   } else if (currentRoute.name.indexOf('themes') >= 0) {
     theme = 'cyan';
   } else if (currentRoute.name.indexOf('ui-elements') >= 0) {
-    theme = 'blue-grey';
+    theme = 'purple';
   } else if (currentRoute.name === 'changelog') {
     theme = 'orange';
   } else if (currentRoute.name === 'about') {
