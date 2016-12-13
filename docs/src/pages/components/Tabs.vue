@@ -181,7 +181,7 @@
 
         <example-box card-title="Fixed">
           <div slot="demo">
-            <md-tabs :md-dynamic-height="false" md-fixed>
+            <md-tabs :md-dynamic-height="false" md-fixed class="md-accent">
               <md-tab id="movies" md-label="Movies">
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
               </md-tab>
@@ -227,7 +227,7 @@
 
         <example-box card-title="Centered with Text and Icon">
           <div slot="demo">
-            <md-tabs :md-dynamic-height="false" md-centered>
+            <md-tabs :md-dynamic-height="false" md-centered class="md-warn">
               <md-tab md-label="Movies" md-icon="ondemand_video">
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
               </md-tab>
@@ -273,7 +273,7 @@
 
         <example-box card-title="Aligned to the right with only icons">
           <div slot="demo">
-            <md-tabs :md-dynamic-height="false" md-right>
+            <md-tabs :md-dynamic-height="false" md-right class="md-transparent">
               <md-tab md-icon="phone">
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
               </md-tab>

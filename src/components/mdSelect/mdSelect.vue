@@ -1,9 +1,9 @@
 <template>
-  <div class="md-select" :class="classes">
+  <div class="md-select" :class="[themeClass, classes]">
     <md-menu :md-close-on-select="!multiple">
       <span class="md-select-value" md-menu-trigger ref="value">{{ selectedText || multipleText || placeholder }}</span>
 
-      <md-menu-content class="md-select-content" :class="contentClasses">
+      <md-menu-content class="md-select-content" :class="[themeClass, contentClasses]">
         <slot></slot>
       </md-menu-content>
     </md-menu>
@@ -17,6 +17,7 @@
 <style lang="scss" src="./mdSelect.scss"></style>
 
 <script>
+  import theme from '../../core/components/mdTheme/mixin';
   import getClosestVueParent from '../../core/utils/getClosestVueParent';
   import isArray from '../../core/utils/isArray';
 
@@ -31,6 +32,7 @@
       placeholder: String,
       mdMenuClass: String
     },
+    mixins: [theme],
     data() {
       return {
         selectedValue: null,

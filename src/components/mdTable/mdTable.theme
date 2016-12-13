@@ -1,10 +1,8 @@
 .THEME_NAME {
-  .md-table,
   &.md-table {
 
   }
 
-  .md-table-card,
   &.md-table-card {
     .md-toolbar {
       background-color: #{'BACKGROUND-COLOR-A100'};
@@ -12,7 +10,6 @@
     }
   }
 
-  .md-table-alternate-header,
   &.md-table-alternate-header {
     background-color: #{'BACKGROUND-COLOR-A100'};
 
