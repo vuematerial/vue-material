@@ -1,3 +1,5 @@
+import Vue from 'vue';
+
 export default {
   props: {
     mdTheme: String
@@ -30,7 +32,10 @@ export default {
         theme = this.closestThemedParent.mdName;
       }
 
-      return 'md-theme-' + (theme || 'default');
+      return 'md-theme-' + (theme || this.defaultTheme);
+    },
+    defaultTheme() {
+      return Vue.material.currentTheme;
     }
   },
   mounted() {
