@@ -19,9 +19,7 @@
           </md-list-item>
 
           <md-list-item>
-            <router-link exact to="/themes/configuration">Themes</router-link>
-
-            <!-- <span>Themes</span>
+            <span>Themes</span>
 
             <md-list-expand>
               <md-list>
@@ -33,7 +31,7 @@
                   <router-link exact to="/themes/dynamic-themes">Dynamic Theme</router-link>
                 </md-list-item>
               </md-list>
-            </md-list-expand> -->
+            </md-list-expand>
           </md-list-item>
 
           <md-list-item>
