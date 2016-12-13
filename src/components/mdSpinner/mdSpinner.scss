@@ -20,7 +20,7 @@
 
   &.md-spinner-leave-active {
     opacity: 0;
-    transform: scale(.9) translateZ(0);
+    transform: scale(.8) translateZ(0);
     transition: $swift-ease-out;
   }
 
@@ -53,7 +53,6 @@
   fill: none;
   stroke-dashoffset: 0;
   stroke-miterlimit: 10;
-  stroke-width: 3.2;
   transition: $swift-ease-out;
 }
 

@@ -29,6 +29,12 @@
               </md-table-row>
 
               <md-table-row>
+                <md-table-cell>md-stroke</md-table-cell>
+                <md-table-cell><code>Number</code></md-table-cell>
+                <md-table-cell>The line width. Default <code>3.5</code></md-table-cell>
+              </md-table-row>
+
+              <md-table-row>
                 <md-table-cell>md-indeterminate</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
                 <md-table-cell>Enable the indeterminate state. Default <code>false</code></md-table-cell>
@@ -48,9 +54,9 @@
         <example-box card-title="Determinate">
           <div class="spinner-demo" slot="demo">
             <md-button class="md-primary md-raised" @click.native="restartProgress">Restart</md-button>
-            <md-spinner :md-progress="progress" v-show="transition"></md-spinner>
-            <md-spinner :md-progress="progress" v-show="transition" class="md-accent"></md-spinner>
-            <md-spinner :md-progress="progress" v-show="transition" class="md-warn"></md-spinner>
+            <md-spinner :md-progress="progress" v-if="transition"></md-spinner>
+            <md-spinner :md-progress="progress" v-if="transition" class="md-accent"></md-spinner>
+            <md-spinner :md-progress="progress" v-if="transition" class="md-warn"></md-spinner>
           </div>
 
           <div slot="code">
@@ -83,6 +89,10 @@
             <md-spinner :md-size="20" md-indeterminate class="md-accent"></md-spinner>
             <md-spinner :md-size="60" md-indeterminate class="md-warn"></md-spinner>
             <md-spinner :md-size="150" md-indeterminate></md-spinner>
+
+            <md-spinner :md-size="20" :md-stroke="2.5" md-indeterminate class="md-accent"></md-spinner>
+            <md-spinner :md-size="60" :md-stroke="1.5" md-indeterminate class="md-warn"></md-spinner>
+            <md-spinner :md-size="150" :md-stroke="1" md-indeterminate></md-spinner>
           </div>
 
           <div slot="code">
@@ -90,6 +100,10 @@
               &lt;md-spinner :md-size=&quot;20&quot; md-indeterminate class=&quot;md-accent&quot;&gt;&lt;/md-spinner&gt;
               &lt;md-spinner :md-size=&quot;60&quot; md-indeterminate class=&quot;md-warn&quot;&gt;&lt;/md-spinner&gt;
               &lt;md-spinner :md-size=&quot;150&quot; md-indeterminate&gt;&lt;/md-spinner&gt;
+
+              &lt;md-spinner :md-size=&quot;20&quot; :md-stroke=&quot;2&quot; md-indeterminate class=&quot;md-accent&quot;&gt;&lt;/md-spinner&gt;
+              &lt;md-spinner :md-size=&quot;60&quot; :md-stroke=&quot;1.5&quot; md-indeterminate class=&quot;md-warn&quot;&gt;&lt;/md-spinner&gt;
+              &lt;md-spinner :md-size=&quot;150&quot; :md-stroke=&quot;1&quot; md-indeterminate&gt;&lt;/md-spinner&gt;
             </code-block>
           </div>
         </example-box>
@@ -98,11 +112,11 @@
           <div slot="demo">
             <md-theme class="complete-example" md-name="orange">
               <md-button class="md-fab" @click.native="restartProgress" :class="{ 'md-primary': done }">
-                <md-icon v-show="!done">cloud_upload</md-icon>
-                <md-icon v-show="done">done</md-icon>
+                <md-icon v-if="!done">cloud_upload</md-icon>
+                <md-icon v-if="done">done</md-icon>
               </md-button>
 
-              <md-spinner :md-size="75" :md-progress="progress" v-show="transition && progress < 115"></md-spinner>
+              <md-spinner :md-size="74" :md-stroke="2.2" :md-progress="progress" v-if="transition && progress < 115"></md-spinner>
             </md-theme>
           </div>
 
@@ -110,11 +124,11 @@
             <code-block lang="xml">
               &lt;md-theme class=&quot;complete-example&quot; md-name=&quot;orange&quot;&gt;
                 &lt;md-button class=&quot;md-fab&quot; @click.native=&quot;restartProgress&quot; :class=&quot;{ &#039;md-primary&#039;: done }&quot;&gt;
-                  &lt;md-icon v-show=&quot;!done&quot;&gt;cloud_upload&lt;/md-icon&gt;
-                  &lt;md-icon v-show=&quot;done&quot;&gt;done&lt;/md-icon&gt;
+                  &lt;md-icon v-if=&quot;!done&quot;&gt;cloud_upload&lt;/md-icon&gt;
+                  &lt;md-icon v-if=&quot;done&quot;&gt;done&lt;/md-icon&gt;
                 &lt;/md-button&gt;
 
-                &lt;md-spinner :md-size=&quot;75&quot; :md-progress=&quot;progress&quot; v-show=&quot;transition &amp;&amp; progress &lt; 115&quot;&gt;&lt;/md-spinner&gt;
+                &lt;md-spinner :md-size=&quot;74&quot; :md-stroke=&quot;2.2&quot; :md-progress=&quot;progress&quot; v-if=&quot;transition &amp;&amp; progress &lt; 115&quot;&gt;&lt;/md-spinner&gt;
               &lt;/md-theme&gt;
             </code-block>
 
