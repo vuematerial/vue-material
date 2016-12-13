@@ -118,25 +118,7 @@ const registerAllThemes = (themes, themeStyles) => {
   });
 };
 
-const registerDirective = (element, { value, oldValue }) => {
-  let theme = value;
-  let newClass = 'md-theme-' + theme;
-  let oldClass = 'md-theme-' + oldValue;
-
-  if (!element.classList.contains(newClass)) {
-    element.classList.remove(oldClass);
-
-    if (theme && registeredThemes.indexOf(theme) >= 0) {
-      element.classList.add(newClass);
-    } else {
-      element.classList.add(oldClass);
-      console.warn('Attempted to use unregistered theme "' + theme + '\".');
-    }
-  }
-};
-
 export default function install(Vue) {
-  Vue.directive('mdTheme', registerDirective);
   Vue.component('md-theme', {
     props: {
       mdTag: String,
