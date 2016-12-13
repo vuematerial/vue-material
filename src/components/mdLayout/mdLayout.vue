@@ -19,6 +19,16 @@
       mdColumnMedium: Boolean,
       mdColumnLarge: Boolean,
       mdColumnXlarge: Boolean,
+      mdHideXsmall: Boolean,
+      mdHideSmall: Boolean,
+      mdHideMedium: Boolean,
+      mdHideLarge: Boolean,
+      mdHideXlarge: Boolean,
+      mdShowXsmall: Boolean,
+      mdShowSmall: Boolean,
+      mdShowMedium: Boolean,
+      mdShowLarge: Boolean,
+      mdShowXlarge: Boolean,
       mdGutter: [Number, Boolean],
       mdFlex: [Number, Boolean]
     },
@@ -36,7 +46,17 @@
           'md-column-small': this.mdColumnSmall,
           'md-column-medium': this.mdColumnMedium,
           'md-column-large': this.mdColumnLarge,
-          'md-column-xlarge': this.mdColumnXlarge
+          'md-column-xlarge': this.mdColumnXlarge,
+          'md-hide-xsmall': this.mdHideXsmall,
+          'md-hide-small': this.mdHideSmall,
+          'md-hide-medium': this.mdHideMedium,
+          'md-hide-large': this.mdHideLarge,
+          'md-hide-xlarge': this.mdHideXlarge,
+          'md-show-xsmall': this.mdShowXsmall,
+          'md-show-small': this.mdShowSmall,
+          'md-show-medium': this.mdShowMedium,
+          'md-show-large': this.mdShowLarge,
+          'md-show-xlarge': this.mdShowXlarge
         };
 
         if (this.mdGutter) {
