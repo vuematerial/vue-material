@@ -49,7 +49,7 @@
         <h3 class="md-headline">Registering themes</h3>
         <p>To configure the colors of your application you can use the API.</p>
         <code-block lang="javascript">
-          Vue.material.theme.register('default', {
+          Vue.material.registerTheme('default', {
             primary: 'cyan',
             accent: 'pink',
             warn: 'red',
@@ -57,10 +57,10 @@
           })
         </code-block>
         <p>
-          You can call the <code>register</code> function how many times you want. However Vue Material have a <code>registerAll</code> function to create multiple themes:
+          You can call the <code>registerTheme</code> function how many times you want. However you can pass a object containing all the themes that you want to create:
         </p>
         <code-block lang="javascript">
-          Vue.material.theme.registerAll({
+          Vue.material.registerTheme({
             app: {
               primary: 'cyan'
             },
