@@ -1,19 +1,34 @@
 @import '../../core/stylesheets/variables.scss';
 @import '../../core/stylesheets/mixins.scss';
 
+
+/* Rows and Columns */
+
 .md-layout {
   display: flex;
   flex-direction: row;
   flex: 1;
 }
 
-.md-row {
-  flex-direction: row;
+@mixin layout($size: null) {
+  @if $size == null {
+    $size : '';
+  }
+
+  @if $size != '' {
+    $size : '-#{$size}';
+  }
+
+  .md-row#{$size} {
+    flex-direction: row;
+  }
+
+  .md-column#{$size} {
+    flex-direction: column;
+  }
 }
 
-.md-column {
-  flex-direction: column;
-}
+@include layout();
 
 
 /* Gutter Size */
@@ -84,19 +99,12 @@ $sizes: (8, 16, 24, 40);
 /* Responsive Breakpoints */
 
 @mixin breakpoint-layout($size) {
-  .md-column-#{$size} {
-    flex-direction: column;
-  }
-
-  .md-row-#{$size} {
-    flex-direction: row;
-  }
+  @include layout($size);
+  @include layout-flex($size);
 
   .md-hide-#{$size} {
     display: none;
   }
-
-  @include layout-flex($size);
 }
 
 @include layout-xlarge {
