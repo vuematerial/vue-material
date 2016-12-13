@@ -1,12 +1,18 @@
-/*  Common
-   ========================================================================== */
+/* Common */
 
 $font-roboto: Roboto, Lato, sans-serif;
 
 
+/* Responsive Breakpoints */
 
-/*  Transitions - Based on Angular Material
-   ========================================================================== */
+$breakpoint-xsmall: 600px !default;
+$breakpoint-small: 1024px !default;
+$breakpoint-medium: 1440px !default;
+$breakpoint-large: 1600px !default;
+$breakpoint-xlarge: 1920px !default;
+
+
+/* Transitions - Based on Angular Material */
 
 $swift-ease-out-duration: .4s !default;
 $swift-ease-out-timing-function: cubic-bezier(.25, .8, .25, 1) !default;
@@ -33,9 +39,7 @@ $material-leave-timing-function: cubic-bezier(.4, .0, 1, 1);
 $material-leave: all $material-leave-duration $material-leave-timing-function;
 
 
-
-/*  Elevation - Based on Angular Material
-   ========================================================================== */
+/* Elevation - Based on Angular Material */
 
 $shadow-key-umbra-opacity: .2 !default;
 $shadow-key-penumbra-opacity: .14 !default;

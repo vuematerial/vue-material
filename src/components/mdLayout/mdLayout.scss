@@ -1,9 +1,14 @@
 @import '../../core/stylesheets/variables.scss';
+@import '../../core/stylesheets/mixins.scss';
 
 .md-layout {
   display: flex;
   flex-direction: row;
   flex: 1;
+}
+
+.md-row {
+  flex-direction: row;
 }
 
 .md-column {
@@ -62,3 +67,41 @@ $sizes: (8, 16, 24, 40);
     flex: 0 1 #{$counter + '%'};
   }
 }
+
+
+/* Responsive Breakpoints */
+
+@mixin breakpoint-layout($size) {
+  .md-column-#{$size} {
+    flex-direction: column;
+  }
+
+  .md-row-#{$size} {
+    flex-direction: row;
+  }
+
+  .md-hide-#{$size} {
+    display: none;
+  }
+}
+
+@include layout-xsmall {
+  @include breakpoint-layout(xsmall);
+}
+
+@include layout-small {
+  @include breakpoint-layout(small);
+}
+
+@include layout-medium {
+  @include breakpoint-layout(medium);
+}
+
+@include layout-large {
+  @include breakpoint-layout(large);
+}
+
+@include layout-xlarge {
+  @include breakpoint-layout(xlarge);
+}
+
