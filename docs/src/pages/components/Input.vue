@@ -353,38 +353,30 @@
         <example-box card-title="Themes">
           <div slot="demo">
             <form novalidate @submit.stop.prevent="submit">
-              <md-theme md-name="green">
-                <md-input-container>
-                  <label>Green - Input</label>
-                  <md-input></md-input>
-                </md-input-container>
-              </md-theme>
+              <md-input-container md-theme="green">
+                <label>Green - Input</label>
+                <md-input></md-input>
+              </md-input-container>
 
-              <md-theme md-name="red">
-                <md-input-container>
-                  <label>Red - Textarea</label>
-                  <md-textarea></md-textarea>
-                </md-input-container>
-              </md-theme>
+              <md-input-container md-theme="red">
+                <label>Red - Textarea</label>
+                <md-textarea></md-textarea>
+              </md-input-container>
             </form>
           </div>
 
           <div slot="code">
             <code-block lang="xml">
               &lt;form novalidate @submit.stop.prevent=&quot;submit&quot;&gt;
-                &lt;div v-md-theme=&quot;&apos;green&apos;&quot;&gt;
-                  &lt;md-input-container&gt;
-                    &lt;label&gt;Green - Input&lt;/label&gt;
-                    &lt;md-input&gt;&lt;/md-input&gt;
-                  &lt;/md-input-container&gt;
-                &lt;/div&gt;
+                &lt;md-input-container md-theme=&quot;green&quot;&gt;
+                  &lt;label&gt;Green - Input&lt;/label&gt;
+                  &lt;md-input&gt;&lt;/md-input&gt;
+                &lt;/md-input-container&gt;
 
-                &lt;div v-md-theme=&quot;&apos;cyan&apos;&quot;&gt;
-                  &lt;md-input-container&gt;
-                    &lt;label&gt;Cyan - Textarea&lt;/label&gt;
-                    &lt;md-textarea&gt;&lt;/md-textarea&gt;
-                  &lt;/md-input-container&gt;
-                &lt;/div&gt;
+                &lt;md-input-container md-theme=&quot;red&quot;&gt;
+                  &lt;label&gt;Red - Textarea&lt;/label&gt;
+                  &lt;md-textarea&gt;&lt;/md-textarea&gt;
+                &lt;/md-input-container&gt;
               &lt;/form&gt;
             </code-block>
           </div>

@@ -51,7 +51,7 @@ Docs = new Docs({
 
 handleSectionTheme(router.currentRoute);
 
-router.afterEach((to) => {
+router.beforeEach((to, from, next) => {
   Vue.nextTick(() => {
     let mainContent = document.querySelector('.main-content');
 
@@ -62,5 +62,7 @@ router.afterEach((to) => {
     Docs.closeSidenav();
 
     handleSectionTheme(to);
+
+    next();
   });
 });

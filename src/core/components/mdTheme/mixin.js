@@ -1,4 +1,7 @@
 export default {
+  props: {
+    mdTheme: String
+  },
   data: () => ({
     closestThemedParent: false
   }),
@@ -8,7 +11,7 @@ export default {
         return false;
       }
 
-      if ($parent.name === 'md-theme' && $parent.mdName) {
+      if ($parent.mdTheme || $parent.mdName) {
         return $parent;
       }
 
@@ -17,7 +20,17 @@ export default {
   },
   computed: {
     themeClass() {
-      return 'md-theme-' + (this.closestThemedParent.mdName || 'default');
+      if (this.mdTheme) {
+        return 'md-theme-' + this.mdTheme;
+      }
+
+      let theme = this.closestThemedParent.mdTheme;
+
+      if (!theme) {
+        theme = this.closestThemedParent.mdName;
+      }
+
+      return 'md-theme-' + (theme || 'default');
     }
   },
   mounted() {
