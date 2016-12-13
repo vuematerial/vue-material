@@ -24,11 +24,6 @@
       mdHideMedium: Boolean,
       mdHideLarge: Boolean,
       mdHideXlarge: Boolean,
-      mdShowXsmall: Boolean,
-      mdShowSmall: Boolean,
-      mdShowMedium: Boolean,
-      mdShowLarge: Boolean,
-      mdShowXlarge: Boolean,
       mdGutter: [Number, Boolean],
       mdFlex: [Number, Boolean]
     },
@@ -51,12 +46,7 @@
           'md-hide-small': this.mdHideSmall,
           'md-hide-medium': this.mdHideMedium,
           'md-hide-large': this.mdHideLarge,
-          'md-hide-xlarge': this.mdHideXlarge,
-          'md-show-xsmall': this.mdShowXsmall,
-          'md-show-small': this.mdShowSmall,
-          'md-show-medium': this.mdShowMedium,
-          'md-show-large': this.mdShowLarge,
-          'md-show-xlarge': this.mdShowXlarge
+          'md-hide-xlarge': this.mdHideXlarge
         };
 
         if (this.mdGutter) {
