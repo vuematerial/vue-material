@@ -82,6 +82,7 @@ Vue Material supports the latest version of all Browsers. This means:
 * Opera 40+
 * IE 11
 * Edge
+
 <small>May work in other browsers but it's untested.</small>
 
 ## Changelog
