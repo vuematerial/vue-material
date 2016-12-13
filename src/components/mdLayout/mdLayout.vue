@@ -67,7 +67,7 @@
           }
         }
 
-        this.generateFlexClasses(null, 'mdFlex', classes);
+        this.generateFlexClasses('', 'mdFlex', classes);
         this.generateFlexClasses('xsmall', 'mdFlexXsmall', classes);
         this.generateFlexClasses('small', 'mdFlexSmall', classes);
         this.generateFlexClasses('medium', 'mdFlexMedium', classes);
