@@ -32,13 +32,14 @@ export default {
         theme = this.closestThemedParent.mdName;
       }
 
-      return 'md-theme-' + (theme || this.defaultTheme);
-    },
-    defaultTheme() {
-      return Vue.material.currentTheme;
+      return 'md-theme-' + (theme || Vue.material.currentTheme);
     }
   },
   mounted() {
     this.closestThemedParent = this.getClosestThemedParent(this.$parent);
+
+    if (!Vue.material.currentTheme) {
+      Vue.material.setCurrentTheme('default');
+    }
   }
 };

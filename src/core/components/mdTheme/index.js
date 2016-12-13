@@ -1,6 +1,6 @@
 import palette from './palette';
 import rgba from './rgba';
-import component from './component';
+import MdTheme from './MdTheme';
 
 const VALID_THEME_TYPE = ['primary', 'accent', 'background', 'warn', 'hue-1', 'hue-2', 'hue-3'];
 const DEFAULT_THEME_COLORS = {
@@ -120,30 +120,30 @@ const registerAllThemes = (themes, themeStyles) => {
 };
 
 export default function install(Vue) {
-  const registerTheme = (name, spec) => {
-    let theme = {};
+  Vue.material = new Vue({
+    data: () => ({
+      styles: [],
+      currentTheme: null
+    }),
+    methods: {
+      registerTheme(name, spec) {
+        let theme = {};
 
-    if (typeof name === 'string') {
-      theme[name] = spec;
-    } else {
-      theme = name;
+        if (typeof name === 'string') {
+          theme[name] = spec;
+        } else {
+          theme = name;
+        }
+
+        registerAllThemes(theme, this.styles);
+      },
+      setCurrentTheme(themeName) {
+        document.body.classList.remove('md-theme-' + this.currentTheme);
+        document.body.classList.add('md-theme-' + themeName);
+        this.currentTheme = themeName;
+      }
     }
+  });
 
-    registerAllThemes(theme, Vue.material.styles);
-  };
-
-  const setCurrentTheme = (themeName) => {
-    document.body.classList.remove('md-theme-' + Vue.material.currentTheme);
-    document.body.classList.add('md-theme-' + themeName);
-    Vue.material.currentTheme = themeName;
-  };
-
-  Vue.material = {
-    styles: [],
-    registerTheme,
-    setCurrentTheme
-  };
-
-  Vue.component('md-theme', component);
-  setCurrentTheme('default');
+  Vue.component('md-theme', MdTheme);
 }
