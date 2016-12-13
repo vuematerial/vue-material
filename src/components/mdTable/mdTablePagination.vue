@@ -48,7 +48,7 @@
         subTotal: 0,
         currentSize: parseInt(this.mdSize, 10),
         currentPage: parseInt(this.mdPage, 10),
-        totalItems: !isNaN(this.mdTotal) && Number.MAX_SAFE_INTEGER
+        totalItems: isNaN(this.mdTotal)?Number.MAX_SAFE_INTEGER:parseInt(this.mdTotal, 10)
       };
     },
     computed: {
