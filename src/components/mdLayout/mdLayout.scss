@@ -48,25 +48,37 @@ $sizes: (8, 16, 24, 40);
 
 /* Flex Size */
 
-.md-flex {
-  flex: 1;
-}
+@mixin layout-flex($size: null) {
+  @if $size == null {
+    $size : '';
+  }
 
-.md-flex-33 {
-  flex: 0 1 33.33333%;
-}
+  @if $size != '' {
+    $size : '-#{$size}';
+  }
 
-.md-flex-66 {
-  flex: 0 1 66.66666%;
-}
+  .md-flex#{$size} {
+    flex: 1;
+  }
 
-@for $i from 0 through 20 {
-  $counter: $i * 5;
+  .md-flex#{$size}-33 {
+    flex: 0 1 33.33333%;
+  }
 
-  .md-flex-#{$counter} {
-    flex: 0 1 #{$counter + '%'};
+  .md-flex#{$size}-66 {
+    flex: 0 1 66.66666%;
+  }
+
+  @for $i from 0 through 20 {
+    $counter: $i * 5;
+
+    .md-flex#{$size}-#{$counter} {
+      flex: 0 1 #{$counter + '%'};
+    }
   }
 }
+
+@include layout-flex();
 
 
 /* Responsive Breakpoints */
@@ -83,25 +95,26 @@ $sizes: (8, 16, 24, 40);
   .md-hide-#{$size} {
     display: none;
   }
-}
 
-@include layout-xsmall {
-  @include breakpoint-layout(xsmall);
-}
-
-@include layout-small {
-  @include breakpoint-layout(small);
-}
-
-@include layout-medium {
-  @include breakpoint-layout(medium);
-}
-
-@include layout-large {
-  @include breakpoint-layout(large);
+  @include layout-flex($size);
 }
 
 @include layout-xlarge {
   @include breakpoint-layout(xlarge);
 }
 
+@include layout-large {
+  @include breakpoint-layout(large);
+}
+
+@include layout-medium {
+  @include breakpoint-layout(medium);
+}
+
+@include layout-small {
+  @include breakpoint-layout(small);
+}
+
+@include layout-xsmall {
+  @include breakpoint-layout(xsmall);
+}

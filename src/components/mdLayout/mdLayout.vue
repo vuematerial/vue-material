@@ -25,7 +25,12 @@
       mdHideLarge: Boolean,
       mdHideXlarge: Boolean,
       mdGutter: [Number, Boolean],
-      mdFlex: [Number, Boolean]
+      mdFlex: [Number, Boolean],
+      mdFlexXsmall: Number,
+      mdFlexSmall: Number,
+      mdFlexMedium: Number,
+      mdFlexLarge: Number,
+      mdFlexXlarge: Number
     },
     computed: {
       classes() {
@@ -46,7 +51,12 @@
           'md-hide-small': this.mdHideSmall,
           'md-hide-medium': this.mdHideMedium,
           'md-hide-large': this.mdHideLarge,
-          'md-hide-xlarge': this.mdHideXlarge
+          'md-hide-xlarge': this.mdHideXlarge,
+          'md-flex-xsmall': this.mdFlexXsmall,
+          'md-flex-small': this.mdFlexSmall,
+          'md-flex-medium': this.mdFlexMedium,
+          'md-flex-large': this.mdFlexLarge,
+          'md-flex-xlarge': this.mdFlexXlarge
         };
 
         if (this.mdGutter) {
@@ -57,15 +67,29 @@
           }
         }
 
-        if (this.mdFlex) {
-          if (typeof this.mdFlex === 'boolean') {
-            classes['md-flex'] = true;
-          } else {
-            classes['md-flex-' + this.mdFlex] = true;
-          }
-        }
+        this.generateFlexClasses(null, 'mdFlex', classes);
+        this.generateFlexClasses('xsmall', 'mdFlexXsmall', classes);
+        this.generateFlexClasses('small', 'mdFlexSmall', classes);
+        this.generateFlexClasses('medium', 'mdFlexMedium', classes);
+        this.generateFlexClasses('large', 'mdFlexLarge', classes);
+        this.generateFlexClasses('xlarge', 'mdFlexXlarge', classes);
 
         return classes;
+      }
+    },
+    methods: {
+      generateFlexClasses(size, name, object) {
+        if (size) {
+          size = '-' + size;
+        }
+
+        if (this[name]) {
+          if (typeof this[name] === 'boolean') {
+            object['md-flex' + size] = true;
+          } else {
+            object['md-flex-' + size + this[name]] = true;
+          }
+        }
       }
     },
     render(createElement) {
