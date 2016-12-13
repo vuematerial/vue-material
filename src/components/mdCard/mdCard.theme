@@ -5,16 +5,43 @@
     &.md-primary {
       background-color: #{'PRIMARY-COLOR'};
       color: #{'PRIMARY-CONTRAST'};
+
+      .md-card-header,
+      .md-card-actions {
+        .md-icon-button {
+          .md-icon {
+            color: #{'PRIMARY-CONTRAST-0.87'};
+          }
+        }
+      }
     }
 
     &.md-accent {
       background-color: #{'ACCENT-COLOR'};
       color: #{'ACCENT-CONTRAST'};
+
+      .md-card-header,
+      .md-card-actions {
+        .md-icon-button {
+          .md-icon {
+            color: #{'ACCENT-CONTRAST-0.87'};
+          }
+        }
+      }
     }
 
     &.md-warn {
       background-color: #{'WARN-COLOR'};
       color: #{'WARN-CONTRAST'};
+
+      .md-card-header,
+      .md-card-actions {
+        .md-icon-button {
+          .md-icon {
+            color: #{'WARN-CONTRAST-0.87'};
+          }
+        }
+      }
     }
 
     .md-card-header,
