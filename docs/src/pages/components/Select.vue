@@ -176,6 +176,25 @@
                   <md-option value="verdana">Verdana</md-option>
                 </md-select>
               </md-input-container>
+
+              <md-input-container>
+                <label for="food">Food</label>
+                <md-select name="food" id="food" v-model="food">
+                  <md-subheader>Fruits</md-subheader>
+                  <md-option value="apples">Apples</md-option>
+                  <md-option value="bananas">Bananas</md-option>
+                  <md-option value="peaches">Peaches</md-option>
+                  <md-option value="oranges">Oranges</md-option>
+
+                  <md-subheader>Vegetables</md-subheader>
+                  <md-option value="carrots">Carrots</md-option>
+                  <md-option value="cucumbers">Cucumbers</md-option>
+
+                  <md-subheader>Baked Goods</md-subheader>
+                  <md-option value="apple_pie">Apple Pie</md-option>
+                  <md-option value="chocolate_cake">Chocolate Cake</md-option>
+                </md-select>
+              </md-input-container>
             </div>
 
             <md-button class="md-raised md-primary" @click="setPulpFiction">Set Pulp Fiction</md-button>
@@ -227,6 +246,25 @@
                     &lt;md-option value=&quot;verdana&quot;&gt;Verdana&lt;/md-option&gt;
                   &lt;/md-select&gt;
                 &lt;/md-input-container&gt;
+
+                &lt;md-input-container&gt;
+                  &lt;label for=&quot;food&quot;&gt;Food&lt;/label&gt;
+                  &lt;md-select name=&quot;food&quot; id=&quot;food&quot; v-model=&quot;food&quot;&gt;
+                    &lt;md-subheader&gt;Fruits&lt;/md-subheader&gt;
+                    &lt;md-option value=&quot;apples&quot;&gt;Apples&lt;/md-option&gt;
+                    &lt;md-option value=&quot;bananas&quot;&gt;Bananas&lt;/md-option&gt;
+                    &lt;md-option value=&quot;peaches&quot;&gt;Peaches&lt;/md-option&gt;
+                    &lt;md-option value=&quot;oranges&quot;&gt;Oranges&lt;/md-option&gt;
+
+                    &lt;md-subheader&gt;Vegetables&lt;/md-subheader&gt;
+                    &lt;md-option value=&quot;carrots&quot;&gt;Carrots&lt;/md-option&gt;
+                    &lt;md-option value=&quot;cucumbers&quot;&gt;Cucumbers&lt;/md-option&gt;
+
+                    &lt;md-subheader&gt;Baked Goods&lt;/md-subheader&gt;
+                    &lt;md-option value=&quot;apple_pie&quot;&gt;Apple Pie&lt;/md-option&gt;
+                    &lt;md-option value=&quot;chocolate_cake&quot;&gt;Chocolate Cake&lt;/md-option&gt;
+                  &lt;/md-select&gt;
+                &lt;/md-input-container&gt;
               &lt;/div&gt;
 
               &lt;md-button class=&quot;md-raised md-primary&quot; @click=&quot;setPulpFiction&quot;&gt;Set Pulp Fiction&lt;/md-button&gt;
@@ -252,25 +290,6 @@
         <example-box card-title="Multiple">
           <div class="multiple" slot="demo">
             <div class="field-group">
-              <md-input-container>
-                <label for="food">Food</label>
-                <md-select name="food" id="food" v-model="food">
-                  <md-subheader>Fruits</md-subheader>
-                  <md-option value="apples">Apples</md-option>
-                  <md-option value="bananas">Bananas</md-option>
-                  <md-option value="peaches">Peaches</md-option>
-                  <md-option value="oranges">Oranges</md-option>
-
-                  <md-subheader>Vegetables</md-subheader>
-                  <md-option value="carrots">Carrots</md-option>
-                  <md-option value="cucumbers">Cucumbers</md-option>
-
-                  <md-subheader>Baked Goods</md-subheader>
-                  <md-option value="apple_pie">Apple Pie</md-option>
-                  <md-option value="chocolate_cake">Chocolate Cake</md-option>
-                </md-select>
-              </md-input-container>
-
               <md-input-container>
                 <label for="users">Users</label>
                 <md-select name="users" id="users" multiple v-model="users">
@@ -300,25 +319,6 @@
 
           <div slot="code">
             <code-block lang="xml">
-              &lt;md-input-container&gt;
-                &lt;label for=&quot;food&quot;&gt;Food&lt;/label&gt;
-                &lt;md-select name=&quot;food&quot; id=&quot;food&quot; v-model=&quot;food&quot;&gt;
-                  &lt;md-subheader&gt;Fruits&lt;/md-subheader&gt;
-                  &lt;md-option value=&quot;apples&quot;&gt;Apples&lt;/md-option&gt;
-                  &lt;md-option value=&quot;bananas&quot;&gt;Bananas&lt;/md-option&gt;
-                  &lt;md-option value=&quot;peaches&quot;&gt;Peaches&lt;/md-option&gt;
-                  &lt;md-option value=&quot;oranges&quot;&gt;Oranges&lt;/md-option&gt;
-
-                  &lt;md-subheader&gt;Vegetables&lt;/md-subheader&gt;
-                  &lt;md-option value=&quot;carrots&quot;&gt;Carrots&lt;/md-option&gt;
-                  &lt;md-option value=&quot;cucumbers&quot;&gt;Cucumbers&lt;/md-option&gt;
-
-                  &lt;md-subheader&gt;Baked Goods&lt;/md-subheader&gt;
-                  &lt;md-option value=&quot;apple_pie&quot;&gt;Apple Pie&lt;/md-option&gt;
-                  &lt;md-option value=&quot;chocolate_cake&quot;&gt;Chocolate Cake&lt;/md-option&gt;
-                &lt;/md-select&gt;
-              &lt;/md-input-container&gt;
-
               &lt;md-input-container&gt;
                 &lt;label for=&quot;users&quot;&gt;Users&lt;/label&gt;
                 &lt;md-select name=&quot;users&quot; id=&quot;users&quot; multiple v-model=&quot;users&quot;&gt;

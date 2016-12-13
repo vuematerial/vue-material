@@ -1,6 +1,7 @@
 <template>
   <div
     class="md-menu-content"
+    :class="[themeClass]"
     @keydown.esc.prevent="close"
     @keydown.tab.prevent="close"
     @keydown.up.prevent="highlightItem('up')"
@@ -15,6 +16,8 @@
 </template>
 
 <script>
+  import theme from '../../core/components/mdTheme/mixin';
+
   export default {
     data() {
       return {
@@ -23,6 +26,7 @@
         itemsAmount: 0
       };
     },
+    mixins: [theme],
     methods: {
       close() {
         this.highlighted = false;

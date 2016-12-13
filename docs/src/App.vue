@@ -1,7 +1,7 @@
 <template>
-  <div class="container" v-md-theme="theme">
+  <div class="container">
     <md-sidenav class="main-sidebar md-left md-fixed" ref="main-sidebar">
-      <md-toolbar class="vue-material-logo" v-md-theme="'white'">
+      <md-toolbar class="vue-material-logo" md-theme="white">
         <router-link exact to="/">
           <img :src="logo" alt="Vue">
           <span>Vue Material</span>
@@ -19,9 +19,7 @@
           </md-list-item>
 
           <md-list-item>
-            <router-link exact to="/themes/configuration">Themes</router-link>
-
-            <!-- <span>Themes</span>
+            <span>Themes</span>
 
             <md-list-expand>
               <md-list>
@@ -33,7 +31,7 @@
                   <router-link exact to="/themes/dynamic-themes">Dynamic Theme</router-link>
                 </md-list-item>
               </md-list>
-            </md-list-expand> -->
+            </md-list-expand>
           </md-list-item>
 
           <md-list-item>
