@@ -2,14 +2,12 @@
   <md-theme :md-name="theme">
     <div class="container">
       <md-sidenav class="main-sidebar md-left md-fixed" ref="main-sidebar">
-        <md-theme md-name="white">
-          <md-toolbar class="vue-material-logo">
-            <router-link exact to="/">
-              <img :src="logo" alt="Vue">
-              <span>Vue Material</span>
-            </router-link>
-          </md-toolbar>
-        </md-theme>
+        <md-toolbar class="vue-material-logo" md-theme="white">
+          <router-link exact to="/">
+            <img :src="logo" alt="Vue">
+            <span>Vue Material</span>
+          </router-link>
+        </md-toolbar>
 
         <div class="main-sidebar-links">
           <md-list class="md-dense">

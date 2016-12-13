@@ -40,18 +40,18 @@
 
         <example-box card-title="Themes">
           <div slot="demo">
-            <md-icon v-md-theme="'light-blue'" class="md-primary">home</md-icon>
-            <md-icon v-md-theme="'green'" class="md-primary">home</md-icon>
-            <md-icon v-md-theme="'brown'" class="md-primary">home</md-icon>
-            <md-icon v-md-theme="'orange'" class="md-primary">home</md-icon>
+            <md-icon md-theme="light-blue" class="md-primary">home</md-icon>
+            <md-icon md-theme="green" class="md-primary">home</md-icon>
+            <md-icon md-theme="brown" class="md-primary">home</md-icon>
+            <md-icon md-theme="orange" class="md-primary">home</md-icon>
           </div>
 
           <div slot="code">
             <code-block lang="xml">
-              &lt;md-icon v-md-theme=&quot;&apos;light-blue&apos;&quot; class=&quot;md-primary&quot;&gt;home&lt;/md-icon&gt;
-              &lt;md-icon v-md-theme=&quot;&apos;green&apos;&quot; class=&quot;md-primary&quot;&gt;home&lt;/md-icon&gt;
-              &lt;md-icon v-md-theme=&quot;&apos;brown&apos;&quot; class=&quot;md-primary&quot;&gt;home&lt;/md-icon&gt;
-              &lt;md-icon v-md-theme=&quot;&apos;orange&apos;&quot; class=&quot;md-primary&quot;&gt;home&lt;/md-icon&gt;
+              &lt;md-icon md-theme=&quot;light-blue&quot; class=&quot;md-primary&quot;&gt;home&lt;/md-icon&gt;
+              &lt;md-icon md-theme=&quot;green&quot; class=&quot;md-primary&quot;&gt;home&lt;/md-icon&gt;
+              &lt;md-icon md-theme=&quot;brown&quot; class=&quot;md-primary&quot;&gt;home&lt;/md-icon&gt;
+              &lt;md-icon md-theme=&quot;orange&quot; class=&quot;md-primary&quot;&gt;home&lt;/md-icon&gt;
             </code-block>
           </div>
         </example-box>
@@ -59,30 +59,3 @@
     </docs-component>
   </page-content>
 </template>
-
-<style lang="scss" scoped>
-
-</style>
-
-
-
-
-<!-- <template>
-  <demo-page label="Components - Icon">
-    <div slot="examples">
-      <demo-example label="Default" size="2">
-        <md-icon>home</md-icon>
-        <md-icon class="md-primary">home</md-icon>
-        <md-icon class="md-accent">home</md-icon>
-        <md-icon class="md-warn">home</md-icon>
-      </demo-example>
-
-      <demo-example label="Themed" size="2">
-        <md-icon v-md-theme="'light-blue'" class="md-primary">home</md-icon>
-        <md-icon v-md-theme="'green'" class="md-primary">home</md-icon>
-        <md-icon v-md-theme="'brown'" class="md-primary">home</md-icon>
-        <md-icon v-md-theme="'orange'" class="md-primary">home</md-icon>
-      </demo-example>
-    </div>
-  </demo-page>
-</template> -->
