@@ -2,6 +2,17 @@
   <page-content page-title="Changelog">
     <div class="main-content">
       <section>
+        <h2 class="md-headline">v0.4.2 - Bugfixes</h2>
+        <h3 class="md-title">Fixes:</h3>
+        <ul>
+          <li>fix switch not updating state after value change <strong><a href="https://github.com/marcosmoura/vue-material/issues/200" target="_blank" rel="noopener">#200</a></strong></li>
+          <li>fix dialog with input closing after typing <strong><a href="https://github.com/marcosmoura/vue-material/issues/183" target="_blank" rel="noopener">#183</a></strong></li>
+          <li>fix tooltip errors in console <strong><a href="https://github.com/marcosmoura/vue-material/issues/188" target="_blank" rel="noopener">#188</a></strong></li>
+          <li>fix value in select with option with v-if <strong><a href="https://github.com/marcosmoura/vue-material/issues/198" target="_blank" rel="noopener">#198</a></strong></li>
+        </ul>
+      </section>
+
+      <section>
         <h2 class="md-headline">v0.4.1 - Bugfixes</h2>
         <h3 class="md-title">Fixes:</h3>
         <ul>
