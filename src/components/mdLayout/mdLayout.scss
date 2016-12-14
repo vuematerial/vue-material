@@ -7,6 +7,7 @@
 .md-layout {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   flex: 1;
 }
 
@@ -33,13 +34,8 @@
 
 /* Gutter Size */
 
-$sizes: (8, 16, 24, 40);
-
-@each $item in $sizes {
-  $padding: $item / 2 + px;
-  $margin: -$item / 2 + px;
-
-  .md-gutter-#{$item}:not(.md-column) {
+@mixin layout-gutter($margin: -12px, $padding: 12px) {
+  &:not(.md-column) {
     margin-right: $margin;
     margin-left: $margin;
 
@@ -49,7 +45,7 @@ $sizes: (8, 16, 24, 40);
     }
   }
 
-  .md-column.md-gutter-#{$item} {
+  .md-column {
     margin-top: $margin;
     margin-bottom: $margin;
 
@@ -57,6 +53,25 @@ $sizes: (8, 16, 24, 40);
       padding-top: $padding;
       padding-bottom: $padding;
     }
+  }
+}
+
+.md-gutter {
+  @include layout-gutter();
+
+  @include layout-small {
+    @include layout-gutter(-8px, 8px);
+  }
+}
+
+$sizes: (8, 16, 24, 40);
+
+@each $item in $sizes {
+  $margin: -$item / 2 + px;
+  $padding: $item / 2 + px;
+
+  .md-gutter-#{$item} {
+    @include layout-gutter($margin, $padding);
   }
 }
 
@@ -73,14 +88,18 @@ $sizes: (8, 16, 24, 40);
   }
 
   .md-flex#{$size} {
-    flex: 1;
+    flex: 1 1;
   }
 
   .md-flex#{$size}-33 {
+    min-width: 33.33333%;
+    max-width: 33.33333%;
     flex: 0 1 33.33333%;
   }
 
   .md-flex#{$size}-66 {
+    min-width: 33.33333%;
+    max-width: 33.33333%;
     flex: 0 1 66.66666%;
   }
 
@@ -88,6 +107,8 @@ $sizes: (8, 16, 24, 40);
     $counter: $i * 5;
 
     .md-flex#{$size}-#{$counter} {
+      min-width: #{$counter + '%'};
+      max-width: #{$counter + '%'};
       flex: 0 1 #{$counter + '%'};
     }
   }

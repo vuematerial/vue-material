@@ -6,10 +6,9 @@ $font-roboto: Roboto, Lato, sans-serif;
 /* Responsive Breakpoints */
 
 $breakpoint-xsmall: 600px !default;
-$breakpoint-small: 1024px !default;
-$breakpoint-medium: 1440px !default;
-$breakpoint-large: 1600px !default;
-$breakpoint-xlarge: 1920px !default;
+$breakpoint-small: 960px !default;
+$breakpoint-medium: 1280px !default;
+$breakpoint-large: 1920px !default;
 
 
 /* Transitions - Based on Angular Material */

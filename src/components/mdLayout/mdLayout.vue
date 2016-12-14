@@ -24,13 +24,13 @@
       mdHideMedium: Boolean,
       mdHideLarge: Boolean,
       mdHideXlarge: Boolean,
-      mdGutter: [Number, Boolean],
-      mdFlex: [Number, Boolean],
-      mdFlexXsmall: Number,
-      mdFlexSmall: Number,
-      mdFlexMedium: Number,
-      mdFlexLarge: Number,
-      mdFlexXlarge: Number
+      mdGutter: [String, Number, Boolean],
+      mdFlex: [String, Number, Boolean],
+      mdFlexXsmall: [String, Number, Boolean],
+      mdFlexSmall: [String, Number, Boolean],
+      mdFlexMedium: [String, Number, Boolean],
+      mdFlexLarge: [String, Number, Boolean],
+      mdFlexXlarge: [String, Number, Boolean]
     },
     computed: {
       classes() {
@@ -51,18 +51,13 @@
           'md-hide-small': this.mdHideSmall,
           'md-hide-medium': this.mdHideMedium,
           'md-hide-large': this.mdHideLarge,
-          'md-hide-xlarge': this.mdHideXlarge,
-          'md-flex-xsmall': this.mdFlexXsmall,
-          'md-flex-small': this.mdFlexSmall,
-          'md-flex-medium': this.mdFlexMedium,
-          'md-flex-large': this.mdFlexLarge,
-          'md-flex-xlarge': this.mdFlexXlarge
+          'md-hide-xlarge': this.mdHideXlarge
         };
 
         if (this.mdGutter) {
           if (typeof this.mdGutter === 'boolean') {
-            classes['md-gutter-8'] = true;
-          } else {
+            classes['md-gutter'] = true;
+          } else if (this.mdGutter) {
             classes['md-gutter-' + this.mdGutter] = true;
           }
         }
@@ -87,7 +82,7 @@
           if (typeof this[name] === 'boolean') {
             object['md-flex' + size] = true;
           } else {
-            object['md-flex-' + size + this[name]] = true;
+            object['md-flex' + size + '-' + this[name]] = true;
           }
         }
       }
