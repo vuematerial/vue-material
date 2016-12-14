@@ -30,7 +30,8 @@
       mdFlexSmall: [String, Number, Boolean],
       mdFlexMedium: [String, Number, Boolean],
       mdFlexLarge: [String, Number, Boolean],
-      mdFlexXlarge: [String, Number, Boolean]
+      mdFlexXlarge: [String, Number, Boolean],
+      mdFlexOffset: [String, Number]
     },
     computed: {
       classes() {
@@ -60,6 +61,10 @@
           } else if (this.mdGutter) {
             classes['md-gutter-' + this.mdGutter] = true;
           }
+        }
+
+        if (this.mdFlexOffset) {
+          classes['md-flex-offset-' + this.mdFlexOffset] = true;
         }
 
         this.generateFlexClasses('', 'mdFlex', classes);

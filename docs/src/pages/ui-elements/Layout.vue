@@ -64,6 +64,72 @@
           </div>
         </example-box>
 
+        <example-box card-title="Sizes and Offset">
+          <div class="layout-demo grid" slot="demo">
+            <md-layout md-gutter class="color">
+              <md-layout md-flex="50"></md-layout>
+              <md-layout></md-layout>
+              <md-layout></md-layout>
+              <md-layout></md-layout>
+            </md-layout>
+
+            <md-layout md-gutter class="color">
+              <md-layout md-flex="33"></md-layout>
+              <md-layout></md-layout>
+            </md-layout>
+
+            <md-layout md-gutter class="color">
+              <md-layout></md-layout>
+              <md-layout md-flex="33" md-flex-offset="33"></md-layout>
+            </md-layout>
+
+            <md-layout md-gutter class="color">
+              <md-layout md-flex="75"></md-layout>
+              <md-layout></md-layout>
+            </md-layout>
+
+            <md-layout md-gutter class="color">
+              <md-layout md-flex="50"></md-layout>
+              <md-layout></md-layout>
+              <md-layout></md-layout>
+            </md-layout>
+
+            <md-layout md-gutter class="color">
+              <md-layout md-flex="25" md-flex-offset="25"></md-layout>
+              <md-layout md-flex="25"></md-layout>
+            </md-layout>
+          </div>
+
+          <div slot="code">
+            <code-block lang="xml">
+
+            </code-block>
+          </div>
+        </example-box>
+
+        <example-box card-title="Direction">
+          <div class="layout-demo grid" slot="demo">
+            <md-layout class="column-size" md-gutter>
+              <md-layout md-column md-gutter class="color">
+                <md-layout md-flex="20"></md-layout>
+                <md-layout></md-layout>
+              </md-layout>
+
+              <md-layout md-column md-gutter class="color">
+                <md-layout md-flex="50"></md-layout>
+                <md-layout></md-layout>
+                <md-layout></md-layout>
+              </md-layout>
+            </md-layout>
+          </div>
+
+          <div slot="code">
+            <code-block lang="xml">
+
+            </code-block>
+          </div>
+        </example-box>
+
         <example-box card-title="Gutters">
           <div class="layout-demo grid" slot="demo">
             <md-layout class="no-gutter color">
@@ -95,67 +161,6 @@
             <md-layout :md-gutter="40" class="color">
               <md-layout></md-layout>
               <md-layout></md-layout>
-            </md-layout>
-          </div>
-
-          <div slot="code">
-            <code-block lang="xml">
-
-            </code-block>
-          </div>
-        </example-box>
-
-        <example-box card-title="Sizes">
-          <div class="layout-demo grid" slot="demo">
-            <md-layout md-gutter class="color">
-              <md-layout md-flex="50"></md-layout>
-              <md-layout></md-layout>
-              <md-layout></md-layout>
-              <md-layout></md-layout>
-            </md-layout>
-
-            <md-layout md-gutter class="color">
-              <md-layout md-flex="33"></md-layout>
-              <md-layout></md-layout>
-            </md-layout>
-
-            <md-layout md-gutter class="color">
-              <md-layout></md-layout>
-              <md-layout md-flex="66"></md-layout>
-            </md-layout>
-
-            <md-layout md-gutter class="color">
-              <md-layout md-flex="75"></md-layout>
-              <md-layout></md-layout>
-            </md-layout>
-
-            <md-layout md-gutter class="color">
-              <md-layout md-flex="50"></md-layout>
-              <md-layout></md-layout>
-              <md-layout></md-layout>
-            </md-layout>
-          </div>
-
-          <div slot="code">
-            <code-block lang="xml">
-
-            </code-block>
-          </div>
-        </example-box>
-
-        <example-box card-title="Direction">
-          <div class="layout-demo grid" slot="demo">
-            <md-layout class="column-size" md-gutter>
-              <md-layout md-column md-gutter class="color">
-                <md-layout md-flex="20"></md-layout>
-                <md-layout></md-layout>
-              </md-layout>
-
-              <md-layout md-column md-gutter class="color">
-                <md-layout md-flex="50"></md-layout>
-                <md-layout></md-layout>
-                <md-layout></md-layout>
-              </md-layout>
             </md-layout>
           </div>
 

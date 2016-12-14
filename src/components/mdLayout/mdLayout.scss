@@ -93,23 +93,36 @@ $sizes: (8, 16, 24, 40);
 
   .md-flex#{$size}-33 {
     min-width: 33.33333%;
-    max-width: 33.33333%;
     flex: 0 1 33.33333%;
   }
 
   .md-flex#{$size}-66 {
     min-width: 33.33333%;
-    max-width: 33.33333%;
     flex: 0 1 66.66666%;
   }
 
-  @for $i from 0 through 20 {
+  @if $size == '' {
+    .md-flex-offset-33 {
+      margin-left: 33.33333%;
+    }
+
+    .md-flex-offset-66 {
+      margin-left: 66.66666%;
+    }
+  }
+
+  @for $i from 1 through 20 {
     $counter: $i * 5;
 
     .md-flex#{$size}-#{$counter} {
       min-width: #{$counter + '%'};
-      max-width: #{$counter + '%'};
       flex: 0 1 #{$counter + '%'};
+    }
+
+    @if $size == '' {
+      .md-flex-offset-#{$counter} {
+        margin-left: #{$counter + '%'};
+      }
     }
   }
 }
