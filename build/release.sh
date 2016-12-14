@@ -3,7 +3,6 @@
 
 set -e
 
-# get latest version of package json
 function get_package_version {
   echo $(cat package.json \
     | grep version \
@@ -28,17 +27,18 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   # check errors
   npm run lint
 
-  # generate docs tree
+  # generate old docs tree
   PACKAGE_VERSION=$(get_package_version)
-  cp -Rf dist/docs tmp-docs
+  cp -Rf dist/docs/releases tmp-releases
+  cp -Rf dist/docs tmp-releases/v$PACKAGE_VERSION
 
   # append version
-  sed -i '' -e "s|\"]|\", \"$VERSION\"]|g" versions.json
+  sed -i '' -e "s|\"]|\", \"$VERSION\"]|g" docs/versions.json
 
   # build
   VERSION=$VERSION npm run build
-  cp -Rf tmp-docs dist/docs/v$PACKAGE_VERSION
-  rm -Rf tmp-docs
+  cp -Rf tmp-releases dist/docs/releases
+  rm -Rf tmp-releases
 
   # commit
   git add -A
