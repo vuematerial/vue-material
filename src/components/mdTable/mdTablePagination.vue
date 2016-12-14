@@ -6,7 +6,7 @@
       <md-option v-for="amount in mdPageOptions" :value="amount">{{ amount }}</md-option>
     </md-select>
 
-    <span>{{ ((currentPage - 1) * currentSize) + 1 }}-{{ subTotal }} {{ mdSeparator }} {{ totalItems }}</span>
+    <span>{{ ((currentPage - 1) * currentSize) + 1 }}-{{ subTotal }} {{ mdSeparator }} {{ mdTotal }}</span>
 
     <md-button class="md-icon-button md-table-pagination-previous" @click="previousPage" :disabled="currentPage === 1">
       <md-icon>keyboard_arrow_left</md-icon>
