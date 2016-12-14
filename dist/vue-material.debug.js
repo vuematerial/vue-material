@@ -3537,6 +3537,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	      this.$emit('open');
 	    },
+	    closeOnEsc: function closeOnEsc() {
+	      if (this.mdEscToClose) {
+	        this.close();
+	      }
+	    },
 	    close: function close() {
 	      var _this2 = this;
 	
@@ -3639,7 +3644,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    on: {
 	      "keyup": function($event) {
 	        if (_vm._k($event.keyCode, "esc", 27)) { return; }
-	        _vm.mdEscToClose && _vm.close()
+	        $event.stopPropagation();
+	        _vm.closeOnEsc($event)
 	      }
 	    }
 	  }, [_h('div', {
@@ -6941,8 +6947,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	  computed: {
 	    classes: function classes() {
-	      console.log(this.disabled);
-	
 	      return {
 	        'md-disabled': this.disabled
 	      };
@@ -7037,8 +7041,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	      this.selectedValue = output.value;
 	      this.selectedText = output.text;
 	
-	      if (this.parentContainer) {
-	        this.$parent.setValue(output.text);
+	      if (this.selectedText && this.parentContainer) {
+	        this.parentContainer.setValue(this.selectedText);
 	      }
 	    },
 	    changeValue: function changeValue(value) {
@@ -7063,21 +7067,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	    },
 	    selectOption: function selectOption(value, text) {
 	      this.selectedText = text;
+	      this.setTextAndValue(value);
 	      this.changeValue(value);
 	    }
 	  },
 	  mounted: function mounted() {
 	    this.parentContainer = (0, _getClosestVueParent2.default)(this.$parent, 'md-input-container');
 	
-	    this.setTextAndValue(this.value);
-	
 	    if (this.parentContainer) {
 	      this.setParentDisabled();
 	      this.setParentRequired();
 	      this.setParentPlaceholder();
-	      this.parentContainer.setValue(this.value);
 	      this.parentContainer.hasSelect = true;
 	    }
+	
+	    this.setTextAndValue(this.value);
 	  },
 	  beforeDestroy: function beforeDestroy() {
 	    if (this.parentContainer) {
@@ -7224,13 +7228,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  },
 	  methods: {
-	    selectOption: function selectOption($event) {
+	    setParentOption: function setParentOption() {
 	      if (!this.parentSelect.multiple) {
 	        this.parentSelect.selectOption(this.value, this.$refs.item.textContent);
 	      } else {
 	        this.check = !this.check;
 	      }
-	
+	    },
+	    selectOption: function selectOption($event) {
+	      this.setParentOption();
 	      this.$emit('selected', $event);
 	    }
 	  },
@@ -7261,6 +7267,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	    this.parentSelect.multipleOptions[this.index] = {};
 	    this.parentSelect.options[this.index] = this;
+	
+	    if (this.parentSelect.value === this.value) {
+	      this.setParentOption();
+	    }
 	  },
 	  beforeDestroy: function beforeDestroy() {
 	    if (this.parentSelect) {
@@ -7734,8 +7744,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	//
 	//
 	
-	var fullThreshold = 75;
-	var initialThreshold = '-1px';
+	var checkedPosition = 75;
+	var initialPosition = '-1px';
 	
 	exports.default = {
 	  props: {
@@ -7750,7 +7760,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  },
 	  data: function data() {
 	    return {
-	      leftPos: initialThreshold,
+	      leftPos: initialPosition,
 	      checked: this.value
 	    };
 	  },
@@ -7770,20 +7780,29 @@ return /******/ (function(modules) { // webpackBootstrap
 	  },
 	  watch: {
 	    checked: function checked() {
-	      this.leftPos = this.value ? fullThreshold + '%' : initialThreshold;
+	      this.setPosition();
+	    },
+	    value: function value(_value) {
+	      this.changeState(_value);
 	    }
 	  },
 	  methods: {
-	    toggleSwitch: function toggleSwitch() {
+	    setPosition: function setPosition() {
+	      this.leftPos = this.checked ? checkedPosition + '%' : initialPosition;
+	    },
+	    changeState: function changeState(checked, $event) {
+	      this.checked = checked;
+	      this.$emit('change', this.checked, $event);
+	      this.$emit('input', this.checked, $event);
+	    },
+	    toggle: function toggle($event) {
 	      if (!this.disabled) {
-	        this.checked = !this.checked;
-	        this.$emit('change', this.checked);
-	        this.$emit('input', this.checked);
+	        this.changeState(!this.checked, $event);
 	      }
 	    }
 	  },
 	  mounted: function mounted() {
-	    this.leftPos = this.value ? fullThreshold + '%' : initialThreshold;
+	    this.$nextTick(this.setPosition);
 	  }
 	};
 	module.exports = exports['default'];
@@ -7799,7 +7818,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, [_h('div', {
 	    staticClass: "md-switch-container",
 	    on: {
-	      "click": _vm.toggleSwitch
+	      "click": function($event) {
+	        _vm.toggle($event)
+	      }
 	    }
 	  }, [_h('div', {
 	    directives: [{
@@ -9470,7 +9491,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	    });
 	  },
 	  beforeDestroy: function beforeDestroy() {
-	    this.contentObserver.disconnect();
+	    if (this.contentObserver) {
+	      this.contentObserver.disconnect();
+	    }
+	
+	    if (this.navigationObserver) {
+	      this.navigationObserver.disconnect();
+	    }
+	
 	    window.removeEventListener('resize', this.calculateOnWatch);
 	  }
 	};
@@ -10034,7 +10062,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    generateTooltipClasses: function generateTooltipClasses() {
 	      var classes = [];
 	
-	      this.parentElement.classList.forEach(function (cssClass) {
+	      [].concat(_toConsumableArray(this.parentElement.classList)).forEach(function (cssClass) {
 	        if (cssClass.indexOf('md-') >= 0 && cssClass !== 'md-active') {
 	          classes.push(cssClass + '-tooltip');
 	        }

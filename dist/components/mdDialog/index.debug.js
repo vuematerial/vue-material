@@ -283,6 +283,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	      this.$emit('open');
 	    },
+	    closeOnEsc: function closeOnEsc() {
+	      if (this.mdEscToClose) {
+	        this.close();
+	      }
+	    },
 	    close: function close() {
 	      var _this2 = this;
 	
@@ -387,7 +392,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    on: {
 	      "keyup": function($event) {
 	        if (_vm._k($event.keyCode, "esc", 27)) { return; }
-	        _vm.mdEscToClose && _vm.close()
+	        $event.stopPropagation();
+	        _vm.closeOnEsc($event)
 	      }
 	    }
 	  }, [_h('div', {
