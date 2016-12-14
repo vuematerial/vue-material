@@ -108,7 +108,7 @@
       generateTooltipClasses() {
         let classes = [];
 
-        this.parentElement.classList.forEach((cssClass) => {
+        [...this.parentElement.classList].forEach((cssClass) => {
           if (cssClass.indexOf('md-') >= 0 && cssClass !== 'md-active') {
             classes.push(cssClass + '-tooltip');
           }
