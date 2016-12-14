@@ -160,7 +160,7 @@
       </div>
     </md-sidenav>
 
-    <transition name="md-router">
+    <transition name="md-router" appear>
       <router-view></router-view>
     </transition>
   </div>
@@ -178,6 +178,7 @@
   html,
   body {
     height: 100%;
+    overflow: hidden;
   }
 
   body {
@@ -259,7 +260,10 @@
     padding: 16px;
     flex: 1;
     overflow: auto;
+    background-color: #fff;
     transform: translate3D(0, 0, 0);
+    transition: $swift-ease-out;
+    transition-delay: .2s;
   }
 
   .md-router-enter-active,
@@ -268,16 +272,30 @@
     top: 0;
     right: 0;
     left: 0;
-    transition: $swift-ease-out;
 
     @media (min-width: 1281px) {
-      left: 280px;
+      left: $sizebar-size;
+    }
+
+    .main-content {
+      opacity: 0;
+      overflow: hidden;
     }
   }
 
-  .md-router-enter,
   .md-router-leave-active {
-    opacity: 0;
+    z-index: 1;
+    transition: $swift-ease-in;
+    transition-duration: .25s;
+  }
+
+  .md-router-enter-active {
+    z-index: 2;
+    transition: $swift-ease-out;
+
+    .main-content {
+      transform: translate3D(0, 7%, 0);
+    }
   }
 
   code {
