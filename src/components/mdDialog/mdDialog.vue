@@ -1,5 +1,5 @@
 <template>
-  <div class="md-dialog-container" :class="classes" @keyup.esc="mdEscToClose && close()" tabindex="0">
+  <div class="md-dialog-container" :class="classes" @keyup.esc.stop="closeOnEsc" tabindex="0">
     <div class="md-dialog" ref="dialog" :style="styles" :class="dialogClasses">
       <slot></slot>
     </div>
@@ -100,6 +100,11 @@
         });
 
         this.$emit('open');
+      },
+      closeOnEsc() {
+        if (this.mdEscToClose) {
+          this.close();
+        }
       },
       close() {
         if (this.rootElement.contains(this.dialogElement)) {
