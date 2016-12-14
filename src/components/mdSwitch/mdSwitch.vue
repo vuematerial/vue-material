@@ -1,6 +1,6 @@
 <template>
   <div class="md-switch" :class="classes">
-    <div class="md-switch-container" @click="toggleSwitch">
+    <div class="md-switch-container" @click="toggle($event)">
       <div class="md-switch-thumb" :style="styles" v-md-ink-ripple="disabled">
         <input type="checkbox" :name="name" :id="id" :disabled="disabled" :value="value">
         <button :type="type" class="md-switch-holder"></button>
@@ -16,8 +16,8 @@
 <style lang="scss" src="./mdSwitch.scss"></style>
 
 <script>
-  let fullThreshold = 75;
-  let initialThreshold = '-1px';
+  const checkedPosition = 75;
+  const initialPosition = '-1px';
 
   export default {
     props: {
@@ -32,7 +32,7 @@
     },
     data() {
       return {
-        leftPos: initialThreshold,
+        leftPos: initialPosition,
         checked: this.value
       };
     },
@@ -51,20 +51,29 @@
     },
     watch: {
       checked() {
-        this.leftPos = this.value ? fullThreshold + '%' : initialThreshold;
+        this.setPosition();
+      },
+      value(value) {
+        this.changeState(value);
       }
     },
     methods: {
-      toggleSwitch() {
+      setPosition() {
+        this.leftPos = this.checked ? checkedPosition + '%' : initialPosition;
+      },
+      changeState(checked, $event) {
+        this.checked = checked;
+        this.$emit('change', this.checked, $event);
+        this.$emit('input', this.checked, $event);
+      },
+      toggle($event) {
         if (!this.disabled) {
-          this.checked = !this.checked;
-          this.$emit('change', this.checked);
-          this.$emit('input', this.checked);
+          this.changeState(!this.checked, $event);
         }
       }
     },
     mounted() {
-      this.leftPos = this.value ? fullThreshold + '%' : initialThreshold;
+      this.$nextTick(this.setPosition);
     }
   };
 </script>

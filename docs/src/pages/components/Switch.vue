@@ -180,10 +180,6 @@
   </page-content>
 </template>
 
-<style lang="scss" scoped>
-
-</style>
-
 <script>
   export default {
     data() {
@@ -201,7 +197,6 @@
         checked10: true
       };
     },
-
     methods: {
       submit() {
         alert('This switch submits the form');
