@@ -42,7 +42,7 @@ export default merge(baseConfig, {
       },
       {
         context: config.docsPath,
-        from: 'versions.js',
+        from: 'versions.json',
         to: path.join(config.rootPath, 'docs')
       }
     ]),
