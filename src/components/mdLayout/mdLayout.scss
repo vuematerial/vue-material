@@ -101,14 +101,12 @@ $sizes: (8, 16, 24, 40);
     flex: 0 1 66.66666%;
   }
 
-  @if $size == '' {
-    .md-flex-offset-33 {
-      margin-left: 33.33333%;
-    }
+  .md-flex-offset#{$size}-33 {
+    margin-left: 33.33333%;
+  }
 
-    .md-flex-offset-66 {
-      margin-left: 66.66666%;
-    }
+  .md-flex-offset#{$size}-66 {
+    margin-left: 66.66666%;
   }
 
   @for $i from 1 through 20 {
@@ -119,10 +117,8 @@ $sizes: (8, 16, 24, 40);
       flex: 0 1 #{$counter + '%'};
     }
 
-    @if $size == '' {
-      .md-flex-offset-#{$counter} {
-        margin-left: #{$counter + '%'};
-      }
+    .md-flex-offset#{$size}-#{$counter} {
+      margin-left: #{$counter + '%'};
     }
   }
 }
