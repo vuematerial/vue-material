@@ -406,7 +406,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	    });
 	  },
 	  beforeDestroy: function beforeDestroy() {
-	    this.contentObserver.disconnect();
+	    if (this.contentObserver) {
+	      this.contentObserver.disconnect();
+	    }
+	
+	    if (this.navigationObserver) {
+	      this.navigationObserver.disconnect();
+	    }
+	
 	    window.removeEventListener('resize', this.calculateOnWatch);
 	  }
 	};
