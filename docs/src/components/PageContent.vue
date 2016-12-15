@@ -10,8 +10,8 @@
 
         <div class="release-version">
           <span>Version:</span>
-          <md-select id="docs-select" v-model="currentDocs" @change="changeDocs">
-            <md-option v-for="doc in availableDocs" :value="doc" v-once>{{ doc }}</md-option>
+          <md-select id="docs-select" v-model="currentDocs" @change="changeDocs" v-if="availableDocs.length" v-once>
+            <md-option v-for="doc in availableDocs" :value="doc">{{ doc }}</md-option>
           </md-select>
         </div>
 
@@ -83,20 +83,14 @@
 </style>
 
 <script>
-  import versions from '../../../versions.json';
-
-  versions.sort((a, b) => a < b);
-
-  const latest = versions[0];
-
   export default {
     props: {
       pageTitle: String
     },
     data: () => ({
-      latest: latest,
-      currentDocs: latest,
-      availableDocs: versions
+      latest: null,
+      currentDocs: null,
+      availableDocs: []
     }),
     methods: {
       changeDocs() {
@@ -105,19 +99,42 @@
         if (this.currentDocs === this.latest) {
           window.location.href = location.origin + '/' + location.hash;
         } else {
-          window.location.href = location.origin + '/v' + this.currentDocs + '/' + location.hash;
+          window.location.href = location.origin + '/releases/v' + this.currentDocs + '/' + location.hash;
         }
       },
       toggleSidenav() {
         this.$root.toggleSidenav();
+      },
+      getVersions(callback) {
+        const request = new XMLHttpRequest();
+
+        request.open('GET', '/versions.json', true);
+        request.setRequestHeader('Content-Type', 'application/json');
+        request.onload = function() {
+          callback(JSON.parse(this.response));
+        };
+        request.send();
+      },
+      setVersion(versions) {
+        versions.sort((a, b) => a < b);
+
+        this.latest = versions[0];
+        this.currentDocs = versions[0];
+        this.availableDocs = versions;
+      },
+      setCurrentByLocation() {
+        let normalizedPathname = location.pathname.replace(/\/|v/g, '');
+
+        if (normalizedPathname && this.availableDocs.indexOf(normalizedPathname) >= 0) {
+          this.currentDocs = normalizedPathname;
+        }
       }
     },
     mounted() {
-      let normalizedPathname = location.pathname.replace(/\/|v/g, '');
-
-      if (normalizedPathname && this.availableDocs.indexOf(normalizedPathname) >= 0) {
-        this.currentDocs = normalizedPathname;
-      }
+      this.getVersions((response) => {
+        this.setVersion(response);
+        this.setCurrentByLocation();
+      });
 
       document.title = this.pageTitle + ' - Vue Material';
     }
