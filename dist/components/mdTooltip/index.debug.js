@@ -292,7 +292,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    generateTooltipClasses: function generateTooltipClasses() {
 	      var classes = [];
 	
-	      this.parentElement.classList.forEach(function (cssClass) {
+	      [].concat(_toConsumableArray(this.parentElement.classList)).forEach(function (cssClass) {
 	        if (cssClass.indexOf('md-') >= 0 && cssClass !== 'md-active') {
 	          classes.push(cssClass + '-tooltip');
 	        }

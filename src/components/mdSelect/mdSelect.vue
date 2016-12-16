@@ -45,8 +45,6 @@
     },
     computed: {
       classes() {
-        console.log(this.disabled);
-
         return {
           'md-disabled': this.disabled
         };
@@ -131,8 +129,8 @@
         this.selectedValue = output.value;
         this.selectedText = output.text;
 
-        if (this.parentContainer) {
-          this.$parent.setValue(output.text);
+        if (this.selectedText && this.parentContainer) {
+          this.parentContainer.setValue(this.selectedText);
         }
       },
       changeValue(value) {
@@ -157,21 +155,21 @@
       },
       selectOption(value, text) {
         this.selectedText = text;
+        this.setTextAndValue(value);
         this.changeValue(value);
       }
     },
     mounted() {
       this.parentContainer = getClosestVueParent(this.$parent, 'md-input-container');
 
-      this.setTextAndValue(this.value);
-
       if (this.parentContainer) {
         this.setParentDisabled();
         this.setParentRequired();
         this.setParentPlaceholder();
-        this.parentContainer.setValue(this.value);
         this.parentContainer.hasSelect = true;
       }
+
+      this.setTextAndValue(this.value);
     },
     beforeDestroy() {
       if (this.parentContainer) {

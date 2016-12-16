@@ -170,8 +170,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	//
 	//
 	
-	var fullThreshold = 75;
-	var initialThreshold = '-1px';
+	var checkedPosition = 75;
+	var initialPosition = '-1px';
 	
 	exports.default = {
 	  props: {
@@ -186,7 +186,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  },
 	  data: function data() {
 	    return {
-	      leftPos: initialThreshold,
+	      leftPos: initialPosition,
 	      checked: this.value
 	    };
 	  },
@@ -206,20 +206,29 @@ return /******/ (function(modules) { // webpackBootstrap
 	  },
 	  watch: {
 	    checked: function checked() {
-	      this.leftPos = this.value ? fullThreshold + '%' : initialThreshold;
+	      this.setPosition();
+	    },
+	    value: function value(_value) {
+	      this.changeState(_value);
 	    }
 	  },
 	  methods: {
-	    toggleSwitch: function toggleSwitch() {
+	    setPosition: function setPosition() {
+	      this.leftPos = this.checked ? checkedPosition + '%' : initialPosition;
+	    },
+	    changeState: function changeState(checked, $event) {
+	      this.checked = checked;
+	      this.$emit('change', this.checked, $event);
+	      this.$emit('input', this.checked, $event);
+	    },
+	    toggle: function toggle($event) {
 	      if (!this.disabled) {
-	        this.checked = !this.checked;
-	        this.$emit('change', this.checked);
-	        this.$emit('input', this.checked);
+	        this.changeState(!this.checked, $event);
 	      }
 	    }
 	  },
 	  mounted: function mounted() {
-	    this.leftPos = this.value ? fullThreshold + '%' : initialThreshold;
+	    this.$nextTick(this.setPosition);
 	  }
 	};
 	module.exports = exports['default'];
@@ -236,7 +245,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, [_h('div', {
 	    staticClass: "md-switch-container",
 	    on: {
-	      "click": _vm.toggleSwitch
+	      "click": function($event) {
+	        _vm.toggle($event)
+	      }
 	    }
 	  }, [_h('div', {
 	    directives: [{

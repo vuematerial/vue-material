@@ -32,7 +32,7 @@ import Whiteframe from './pages/components/Whiteframe';
 
 /* UI Elements */
 import Typography from './pages/ui-elements/Typography';
-import GridSystem from './pages/ui-elements/GridSystem';
+import Layout from './pages/ui-elements/Layout';
 
 /* Themes */
 import Configuration from './pages/themes/Configuration';
@@ -214,9 +214,9 @@ const uiElements = [
     component: Typography
   },
   {
-    path: '/ui-elements/grid-system',
-    name: 'ui-elements:grid-system',
-    component: GridSystem
+    path: '/ui-elements/layout',
+    name: 'ui-elements:layout',
+    component: Layout
   }
 ];
 

@@ -257,8 +257,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	  computed: {
 	    classes: function classes() {
-	      console.log(this.disabled);
-	
 	      return {
 	        'md-disabled': this.disabled
 	      };
@@ -353,8 +351,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	      this.selectedValue = output.value;
 	      this.selectedText = output.text;
 	
-	      if (this.parentContainer) {
-	        this.$parent.setValue(output.text);
+	      if (this.selectedText && this.parentContainer) {
+	        this.parentContainer.setValue(this.selectedText);
 	      }
 	    },
 	    changeValue: function changeValue(value) {
@@ -379,21 +377,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	    },
 	    selectOption: function selectOption(value, text) {
 	      this.selectedText = text;
+	      this.setTextAndValue(value);
 	      this.changeValue(value);
 	    }
 	  },
 	  mounted: function mounted() {
 	    this.parentContainer = (0, _getClosestVueParent2.default)(this.$parent, 'md-input-container');
 	
-	    this.setTextAndValue(this.value);
-	
 	    if (this.parentContainer) {
 	      this.setParentDisabled();
 	      this.setParentRequired();
 	      this.setParentPlaceholder();
-	      this.parentContainer.setValue(this.value);
 	      this.parentContainer.hasSelect = true;
 	    }
+	
+	    this.setTextAndValue(this.value);
 	  },
 	  beforeDestroy: function beforeDestroy() {
 	    if (this.parentContainer) {
@@ -543,13 +541,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  },
 	  methods: {
-	    selectOption: function selectOption($event) {
+	    setParentOption: function setParentOption() {
 	      if (!this.parentSelect.multiple) {
 	        this.parentSelect.selectOption(this.value, this.$refs.item.textContent);
 	      } else {
 	        this.check = !this.check;
 	      }
-	
+	    },
+	    selectOption: function selectOption($event) {
+	      this.setParentOption();
 	      this.$emit('selected', $event);
 	    }
 	  },
@@ -580,6 +580,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	    this.parentSelect.multipleOptions[this.index] = {};
 	    this.parentSelect.options[this.index] = this;
+	
+	    if (this.parentSelect.value === this.value) {
+	      this.setParentOption();
+	    }
 	  },
 	  beforeDestroy: function beforeDestroy() {
 	    if (this.parentSelect) {
