@@ -1,5 +1,6 @@
 import palette from './palette';
 import rgba from './rgba';
+import MdTheme from './MdTheme';
 
 const VALID_THEME_TYPE = ['primary', 'accent', 'background', 'warn', 'hue-1', 'hue-2', 'hue-3'];
 const DEFAULT_THEME_COLORS = {
@@ -24,8 +25,9 @@ const DEFAULT_THEME_COLORS = {
 const createNewStyleElement = (style, name) => {
   let head = document.head;
   let styleId = 'md-theme-' + name;
+  let styleElement = head.querySelector('#' + styleId);
 
-  if (!head.querySelector('#' + styleId)) {
+  if (!styleElement) {
     let newTag = document.createElement('style');
 
     style = style.replace(/THEME_NAME/g, styleId);
@@ -35,6 +37,8 @@ const createNewStyleElement = (style, name) => {
     newTag.textContent = style;
 
     head.appendChild(newTag);
+  } else {
+    styleElement.textContent = style;
   }
 };
 
@@ -107,47 +111,50 @@ const registerTheme = (theme, name, themeStyles) => {
 const registerAllThemes = (themes, themeStyles) => {
   let themeNames = themes ? Object.keys(themes) : [];
 
-  if (themeNames.indexOf('default') === -1) {
-    registerTheme(DEFAULT_THEME_COLORS, 'default', themeStyles);
-    registeredThemes.push('default');
-  }
-
   themeNames.forEach((name) => {
     registerTheme(themes[name], name, themeStyles);
     registeredThemes.push(name);
   });
 };
 
-const registerDirective = (element, { value, oldValue }) => {
-  let theme = value;
-  let newClass = 'md-theme-' + theme;
-  let oldClass = 'md-theme-' + oldValue;
-
-  if (!element.classList.contains(newClass)) {
-    element.classList.remove(oldClass);
-
-    if (theme && registeredThemes.indexOf(theme) >= 0) {
-      element.classList.add(newClass);
-    } else {
-      element.classList.add(oldClass);
-      console.warn('Attempted to use unregistered theme "' + theme + '\".');
-    }
-  }
-};
-
 export default function install(Vue) {
-  Vue.directive('mdTheme', registerDirective);
+  Vue.material = new Vue({
+    data: () => ({
+      styles: [],
+      currentTheme: null
+    }),
+    methods: {
+      registerTheme(name, spec) {
+        let theme = {};
 
-  Vue.material.theme = {
-    register(name, spec) {
-      let theme = {};
+        if (typeof name === 'string') {
+          theme[name] = spec;
+        } else {
+          theme = name;
+        }
 
-      theme[name] = spec;
+        registerAllThemes(theme, this.styles);
+      },
+      applyCurrentTheme(themeName) {
+        document.body.classList.remove('md-theme-' + this.currentTheme);
+        document.body.classList.add('md-theme-' + themeName);
+        this.currentTheme = themeName;
+      },
+      setCurrentTheme(themeName) {
+        if (registeredThemes.indexOf(themeName) >= 0) {
+          this.applyCurrentTheme(themeName);
+        } else {
+          if (registeredThemes.indexOf('default') === -1) {
+            this.registerTheme('default', DEFAULT_THEME_COLORS);
+          } else {
+            console.warn(`The theme '${themeName}' doesn't exists. You need to register it first in order to use.`);
+          }
 
-      registerAllThemes(theme, Vue.material.styles);
-    },
-    registerAll(themes) {
-      registerAllThemes(themes, Vue.material.styles);
+          this.applyCurrentTheme('default');
+        }
+      }
     }
-  };
+  });
+
+  Vue.component('md-theme', MdTheme);
 }

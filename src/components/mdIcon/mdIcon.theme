@@ -1,5 +1,4 @@
 .THEME_NAME {
-  .md-icon,
   &.md-icon {
     &.md-primary {
       color: #{'PRIMARY-COLOR'};

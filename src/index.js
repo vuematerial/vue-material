@@ -10,11 +10,13 @@ import MdDialog from './components/mdDialog';
 import MdDivider from './components/mdDivider';
 import MdIcon from './components/mdIcon';
 import MdInputContainer from './components/mdInputContainer';
+import MdLayout from './components/mdLayout';
 import MdList from './components/mdList';
 import MdMenu from './components/mdMenu';
 import MdRadio from './components/mdRadio';
 import MdSelect from './components/mdSelect';
 import MdSidenav from './components/mdSidenav';
+import MdSpinner from './components/mdSpinner';
 import MdSubheader from './components/mdSubheader';
 import MdSwitch from './components/mdSwitch';
 import MdTable from './components/mdTable';
@@ -36,11 +38,13 @@ const options = {
   MdDivider,
   MdIcon,
   MdInputContainer,
+  MdLayout,
   MdList,
   MdMenu,
   MdRadio,
   MdSelect,
   MdSidenav,
+  MdSpinner,
   MdSubheader,
   MdSwitch,
   MdTable,

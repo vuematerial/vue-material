@@ -115,6 +115,18 @@
                 <md-table-cell><code>Boolean</code></md-table-cell>
                 <md-table-cell>Disable the tab and prevent his actions. Default <code>false</code></md-table-cell>
               </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>md-tooltip</md-table-cell>
+                <md-table-cell><code>String</code></md-table-cell>
+                <md-table-cell>Add a tooltip on the tab header. Default: No tooltip.</md-table-cell>
+              </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>md-tooltip-direction</md-table-cell>
+                <md-table-cell><code>String</code></md-table-cell>
+                <md-table-cell>Direction of the tab header tooltip. Default: <code>bottom</code></md-table-cell>
+              </md-table-row>
             </md-table-body>
           </md-table>
         </api-table>
@@ -137,7 +149,7 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.</p>
               </md-tab>
 
-              <md-tab id="pictures" md-label="Pictures">
+              <md-tab id="pictures" md-label="Pictures" md-tooltip="This is the pictures tab!">
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.</p>
               </md-tab>
             </md-tabs>
@@ -159,7 +171,7 @@
                   &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.&lt;/p&gt;
                 &lt;/md-tab&gt;
 
-                &lt;md-tab id=&quot;pictures&quot; md-label=&quot;Pictures&quot;&gt;
+                &lt;md-tab id=&quot;pictures&quot; md-label=&quot;Pictures&quot; md-tooltip=&quot;This is the pictures tab!&quot;&gt;
                   &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.&lt;/p&gt;
                 &lt;/md-tab&gt;
               &lt;/md-tabs&gt;
@@ -169,7 +181,7 @@
 
         <example-box card-title="Fixed">
           <div slot="demo">
-            <md-tabs :md-dynamic-height="false" md-fixed>
+            <md-tabs :md-dynamic-height="false" md-fixed class="md-accent">
               <md-tab id="movies" md-label="Movies">
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
               </md-tab>
@@ -215,7 +227,7 @@
 
         <example-box card-title="Centered with Text and Icon">
           <div slot="demo">
-            <md-tabs :md-dynamic-height="false" md-centered>
+            <md-tabs :md-dynamic-height="false" md-centered class="md-warn">
               <md-tab md-label="Movies" md-icon="ondemand_video">
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
               </md-tab>
@@ -261,7 +273,7 @@
 
         <example-box card-title="Aligned to the right with only icons">
           <div slot="demo">
-            <md-tabs :md-dynamic-height="false" md-right>
+            <md-tabs :md-dynamic-height="false" md-right class="md-transparent">
               <md-tab md-icon="phone">
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
               </md-tab>

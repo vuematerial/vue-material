@@ -89,48 +89,20 @@
 
         <example-box card-title="Themes">
           <div slot="demo">
-            <div class="themed" v-md-theme="'orange'">
-              <md-checkbox id="my-test5" name="my-test5" v-model="checkbox2" class="md-primary">Primary Orange</md-checkbox>
-            </div>
-
-            <div class="themed" v-md-theme="'green'">
-              <md-checkbox id="my-test6" name="my-test6" v-model="checkbox2" class="md-primary">Primary Green</md-checkbox>
-            </div>
-
-            <div class="themed" v-md-theme="'light-blue'">
-              <md-checkbox id="my-test7" name="my-test7" v-model="checkbox2" class="md-primary">Primary Light Blue</md-checkbox>
-            </div>
-
-            <div class="themed" v-md-theme="'indigo'">
-              <md-checkbox id="my-test8" name="my-test8" v-model="checkbox2" class="md-primary">Primary Indigo</md-checkbox>
-            </div>
-
-            <div class="themed" v-md-theme="'brown'">
-              <md-checkbox id="my-test9" name="my-test9" v-model="checkbox2" class="md-primary" disabled>Primary Brown Disabled</md-checkbox>
-            </div>
+            <md-checkbox md-name="orange"  id="my-test5" name="my-test5" v-model="checkbox2" class="md-primary">Primary Orange</md-checkbox>
+            <md-checkbox md-name="green"  id="my-test6" name="my-test6" v-model="checkbox2" class="md-primary">Primary Green</md-checkbox>
+            <md-checkbox md-name="light-blue" id="my-test7" name="my-test7" v-model="checkbox2" class="md-primary">Primary Light Blue</md-checkbox>
+            <md-checkbox md-name="indigo"  id="my-test8" name="my-test8" v-model="checkbox2" class="md-primary">Primary Indigo</md-checkbox>
+            <md-checkbox md-name="brown"  id="my-test9" name="my-test9" v-model="checkbox2" class="md-primary" disabled>Primary Brown Disabled</md-checkbox>
           </div>
 
           <div slot="code">
             <code-block lang="xml">
-              &lt;div v-md-theme=&quot;&#039;orange&#039;&quot;&gt;
-                &lt;md-checkbox id=&quot;my-test5&quot; name=&quot;my-test5&quot; v-model=&quot;checkbox2&quot; class=&quot;md-primary&quot;&gt;Primary Orange&lt;/md-checkbox&gt;
-              &lt;/div&gt;
-
-              &lt;div v-md-theme=&quot;&#039;green&#039;&quot;&gt;
-                &lt;md-checkbox id=&quot;my-test6&quot; name=&quot;my-test6&quot; v-model=&quot;checkbox2&quot; class=&quot;md-primary&quot;&gt;Primary Green&lt;/md-checkbox&gt;
-              &lt;/div&gt;
-
-              &lt;div v-md-theme=&quot;&#039;light-blue&#039;&quot;&gt;
-                &lt;md-checkbox id=&quot;my-test7&quot; name=&quot;my-test7&quot; v-model=&quot;checkbox2&quot; class=&quot;md-primary&quot;&gt;Primary Light Blue&lt;/md-checkbox&gt;
-              &lt;/div&gt;
-
-              &lt;div v-md-theme=&quot;&#039;indigo&#039;&quot;&gt;
-                &lt;md-checkbox id=&quot;my-test8&quot; name=&quot;my-test8&quot; v-model=&quot;checkbox2&quot; class=&quot;md-primary&quot;&gt;Primary Indigo&lt;/md-checkbox&gt;
-              &lt;/div&gt;
-
-              &lt;div v-md-theme=&quot;&#039;brown&#039;&quot;&gt;
-                &lt;md-checkbox id=&quot;my-test9&quot; name=&quot;my-test9&quot; v-model=&quot;checkbox2&quot; class=&quot;md-primary&quot; disabled&gt;Primary Brown Disabled&lt;/md-checkbox&gt;
-              &lt;/div&gt;
+              &lt;md-checkbox md-name=&quot;orange&quot;  id=&quot;my-test5&quot; name=&quot;my-test5&quot; v-model=&quot;checkbox2&quot; class=&quot;md-primary&quot;&gt;Primary Orange&lt;/md-checkbox&gt;
+              &lt;md-checkbox md-name=&quot;green&quot;  id=&quot;my-test6&quot; name=&quot;my-test6&quot; v-model=&quot;checkbox2&quot; class=&quot;md-primary&quot;&gt;Primary Green&lt;/md-checkbox&gt;
+              &lt;md-checkbox md-name=&quot;light-blue&quot; id=&quot;my-test7&quot; name=&quot;my-test7&quot; v-model=&quot;checkbox2&quot; class=&quot;md-primary&quot;&gt;Primary Light Blue&lt;/md-checkbox&gt;
+              &lt;md-checkbox md-name=&quot;indigo&quot;  id=&quot;my-test8&quot; name=&quot;my-test8&quot; v-model=&quot;checkbox2&quot; class=&quot;md-primary&quot;&gt;Primary Indigo&lt;/md-checkbox&gt;
+              &lt;md-checkbox md-name=&quot;brown&quot;  id=&quot;my-test9&quot; name=&quot;my-test9&quot; v-model=&quot;checkbox2&quot; class=&quot;md-primary&quot; disabled&gt;Primary Brown Disabled&lt;/md-checkbox&gt;
             </code-block>
           </div>
         </example-box>
@@ -138,12 +110,6 @@
     </docs-component>
   </page-content>
 </template>
-
-<style lang="scss" scoped>
-  .themed {
-    display: inline-block;
-  }
-</style>
 
 <script>
   export default {
