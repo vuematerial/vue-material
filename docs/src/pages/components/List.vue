@@ -92,22 +92,7 @@
 
         <api-table name="md-list-expand">
           <p>Create a expansion accordion automatically inside lists</p>
-
-          <md-table slot="methods">
-            <md-table-header>
-              <md-table-row>
-                <md-table-head>Name</md-table-head>
-                <md-table-head>Description</md-table-head>
-              </md-table-row>
-            </md-table-header>
-
-            <md-table-body>
-              <md-table-row>
-                <md-table-cell>toggle</md-table-cell>
-                <md-table-cell>Toggle the expansion item.</md-table-cell>
-              </md-table-row>
-            </md-table-body>
-          </md-table>
+          <p>No options available</p>
         </api-table>
       </div>
 
