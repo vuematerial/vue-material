@@ -125,7 +125,7 @@
         this.availableDocs = versions;
       },
       setCurrentByLocation() {
-        let normalizedPathname = location.pathname.replace(/\/|v/g, '');
+        let normalizedPathname = location.pathname.replace(/\/|releases\/v/g, '');
 
         if (normalizedPathname && this.availableDocs.indexOf(normalizedPathname) >= 0) {
           this.currentDocs = normalizedPathname;

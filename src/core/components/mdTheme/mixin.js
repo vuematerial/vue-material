@@ -1,5 +1,3 @@
-import Vue from 'vue';
-
 export default {
   props: {
     mdTheme: String
@@ -29,17 +27,21 @@ export default {
       let theme = this.closestThemedParent.mdTheme;
 
       if (!theme) {
-        theme = this.closestThemedParent.mdName;
+        if (this.closestThemedParent) {
+          theme = this.closestThemedParent.mdName;
+        } else {
+          theme = this.$material.currentTheme;
+        }
       }
 
-      return 'md-theme-' + (theme || Vue.material.currentTheme);
+      return 'md-theme-' + theme;
     }
   },
   mounted() {
     this.closestThemedParent = this.getClosestThemedParent(this.$parent);
 
-    if (!Vue.material.currentTheme) {
-      Vue.material.setCurrentTheme('default');
+    if (!this.$material.currentTheme) {
+      this.$material.setCurrentTheme('default');
     }
   }
 };
