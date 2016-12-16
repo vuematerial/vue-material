@@ -55,7 +55,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(67);
+	module.exports = __webpack_require__(72);
 
 
 /***/ },
@@ -117,7 +117,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 67:
+/***/ 72:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -127,19 +127,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 	exports.default = install;
 	
-	var _mdTheme = __webpack_require__(68);
+	var _mdTheme = __webpack_require__(73);
 	
 	var _mdTheme2 = _interopRequireDefault(_mdTheme);
 	
-	var _mdInkRipple = __webpack_require__(71);
+	var _mdInkRipple = __webpack_require__(78);
 	
 	var _mdInkRipple2 = _interopRequireDefault(_mdInkRipple);
 	
-	var _core = __webpack_require__(75);
+	var _core = __webpack_require__(82);
 	
 	var _core2 = _interopRequireDefault(_core);
 	
-	__webpack_require__(76);
+	__webpack_require__(83);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -153,12 +153,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	  install.installed = true;
 	
-	  Vue.material = {
-	    styles: [_core2.default]
-	  };
-	
 	  Vue.use(_mdTheme2.default);
 	  Vue.use(_mdInkRipple2.default);
+	  Vue.material.styles.push(_core2.default);
 	}
 	
 	/* Core Stylesheets */
@@ -166,7 +163,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 68:
+/***/ 73:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -176,13 +173,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 	exports.default = install;
 	
-	var _palette = __webpack_require__(69);
+	var _palette = __webpack_require__(74);
 	
 	var _palette2 = _interopRequireDefault(_palette);
 	
-	var _rgba = __webpack_require__(70);
+	var _rgba = __webpack_require__(75);
 	
 	var _rgba2 = _interopRequireDefault(_rgba);
+	
+	var _MdTheme = __webpack_require__(76);
+	
+	var _MdTheme2 = _interopRequireDefault(_MdTheme);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -209,8 +210,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	var createNewStyleElement = function createNewStyleElement(style, name) {
 	  var head = document.head;
 	  var styleId = 'md-theme-' + name;
+	  var styleElement = head.querySelector('#' + styleId);
 	
-	  if (!head.querySelector('#' + styleId)) {
+	  if (!styleElement) {
 	    var newTag = document.createElement('style');
 	
 	    style = style.replace(/THEME_NAME/g, styleId);
@@ -220,6 +222,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    newTag.textContent = style;
 	
 	    head.appendChild(newTag);
+	  } else {
+	    styleElement.textContent = style;
 	  }
 	};
 	
@@ -292,58 +296,60 @@ return /******/ (function(modules) { // webpackBootstrap
 	var registerAllThemes = function registerAllThemes(themes, themeStyles) {
 	  var themeNames = themes ? Object.keys(themes) : [];
 	
-	  if (themeNames.indexOf('default') === -1) {
-	    registerTheme(DEFAULT_THEME_COLORS, 'default', themeStyles);
-	    registeredThemes.push('default');
-	  }
-	
 	  themeNames.forEach(function (name) {
 	    registerTheme(themes[name], name, themeStyles);
 	    registeredThemes.push(name);
 	  });
 	};
 	
-	var registerDirective = function registerDirective(element, _ref) {
-	  var value = _ref.value,
-	      oldValue = _ref.oldValue;
-	
-	  var theme = value;
-	  var newClass = 'md-theme-' + theme;
-	  var oldClass = 'md-theme-' + oldValue;
-	
-	  if (!element.classList.contains(newClass)) {
-	    element.classList.remove(oldClass);
-	
-	    if (theme && registeredThemes.indexOf(theme) >= 0) {
-	      element.classList.add(newClass);
-	    } else {
-	      element.classList.add(oldClass);
-	      console.warn('Attempted to use unregistered theme "' + theme + '\".');
-	    }
-	  }
-	};
-	
 	function install(Vue) {
-	  Vue.directive('mdTheme', registerDirective);
-	
-	  Vue.material.theme = {
-	    register: function register(name, spec) {
-	      var theme = {};
-	
-	      theme[name] = spec;
-	
-	      registerAllThemes(theme, Vue.material.styles);
+	  Vue.material = new Vue({
+	    data: function data() {
+	      return {
+	        styles: [],
+	        currentTheme: null
+	      };
 	    },
-	    registerAll: function registerAll(themes) {
-	      registerAllThemes(themes, Vue.material.styles);
+	    methods: {
+	      registerTheme: function registerTheme(name, spec) {
+	        var theme = {};
+	
+	        if (typeof name === 'string') {
+	          theme[name] = spec;
+	        } else {
+	          theme = name;
+	        }
+	
+	        registerAllThemes(theme, this.styles);
+	      },
+	      applyCurrentTheme: function applyCurrentTheme(themeName) {
+	        document.body.classList.remove('md-theme-' + this.currentTheme);
+	        document.body.classList.add('md-theme-' + themeName);
+	        this.currentTheme = themeName;
+	      },
+	      setCurrentTheme: function setCurrentTheme(themeName) {
+	        if (registeredThemes.indexOf(themeName) >= 0) {
+	          this.applyCurrentTheme(themeName);
+	        } else {
+	          if (registeredThemes.indexOf('default') === -1) {
+	            this.registerTheme('default', DEFAULT_THEME_COLORS);
+	          } else {
+	            console.warn('The theme \'' + themeName + '\' doesn\'t exists. You need to register it first in order to use.');
+	          }
+	
+	          this.applyCurrentTheme('default');
+	        }
+	      }
 	    }
-	  };
+	  });
+	
+	  Vue.component('md-theme', _MdTheme2.default);
 	}
 	module.exports = exports['default'];
 
 /***/ },
 
-/***/ 69:
+/***/ 74:
 /***/ function(module, exports) {
 
 	'use strict';
@@ -714,7 +720,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 70:
+/***/ 75:
 /***/ function(module, exports) {
 
 	'use strict';
@@ -764,7 +770,82 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 71:
+/***/ 76:
+/***/ function(module, exports, __webpack_require__) {
+
+	var __vue_exports__, __vue_options__
+	var __vue_styles__ = {}
+	
+	/* script */
+	__vue_exports__ = __webpack_require__(77)
+	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+	if (
+	  typeof __vue_exports__.default === "object" ||
+	  typeof __vue_exports__.default === "function"
+	) {
+	if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+	__vue_options__ = __vue_exports__ = __vue_exports__.default
+	}
+	if (typeof __vue_options__ === "function") {
+	  __vue_options__ = __vue_options__.options
+	}
+	__vue_options__.__file = "/Users/marcosmoura/Projects/github/vue-material/src/core/components/mdTheme/MdTheme.vue"
+	
+	/* hot reload */
+	if (false) {(function () {
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), false)
+	  if (!hotAPI.compatible) return
+	  module.hot.accept()
+	  if (!module.hot.data) {
+	    hotAPI.createRecord("data-v-7108c965", __vue_options__)
+	  } else {
+	    hotAPI.reload("data-v-7108c965", __vue_options__)
+	  }
+	})()}
+	if (__vue_options__.functional) {console.error("[vue-loader] MdTheme.vue: functional components are not supported and should be defined in plain js files using render functions.")}
+	
+	module.exports = __vue_exports__
+
+
+/***/ },
+
+/***/ 77:
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = {
+	  props: {
+	    mdTag: String,
+	    mdName: {
+	      type: String,
+	      default: 'default'
+	    }
+	  },
+	  data: function data() {
+	    return {
+	      name: 'md-theme'
+	    };
+	  },
+	  render: function render(_render) {
+	    if (this.mdTag || this.$slots.default.length > 1) {
+	      return _render(this.mdTag || 'div', {
+	        staticClass: 'md-theme'
+	      }, this.$slots.default);
+	    }
+	
+	    return this.$slots.default[0];
+	  }
+	};
+	module.exports = exports['default'];
+
+/***/ },
+
+/***/ 78:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -774,9 +855,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 	exports.default = install;
 	
-	__webpack_require__(72);
+	__webpack_require__(79);
 	
-	__webpack_require__(73);
+	__webpack_require__(80);
 	
 	function install(Vue) {
 	  var rippleParentClass = 'md-ink-ripple';
@@ -930,7 +1011,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 72:
+/***/ 79:
 /***/ function(module, exports) {
 
 	/* scopeQuerySelectorShim.js
@@ -1001,14 +1082,14 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 73:
+/***/ 80:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = {}
 	
 	/* styles */
-	__webpack_require__(74)
+	__webpack_require__(81)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -1020,7 +1101,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (typeof __vue_options__ === "function") {
 	  __vue_options__ = __vue_options__.options
 	}
-	__vue_options__.__file = "/Users/mrufino/Projects/personal/github/vue-material/src/core/components/mdInkRipple/mdInkRipple.vue"
+	__vue_options__.__file = "/Users/marcosmoura/Projects/github/vue-material/src/core/components/mdInkRipple/mdInkRipple.vue"
 	if (__vue_options__.functional) {console.error("[vue-loader] mdInkRipple.vue: functional components are not supported and should be defined in plain js files using render functions.")}
 	
 	module.exports = __vue_exports__
@@ -1028,30 +1109,30 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 74:
+/***/ 81:
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
 
-/***/ 75:
+/***/ 82:
 /***/ function(module, exports) {
 
-	module.exports = ".THEME_NAME :not(input):not(textarea)::selection {\n  background: ACCENT-COLOR;\n  color: ACCENT-CONTRAST; }\n\n.THEME_NAME a:not(.md-button) {\n  color: ACCENT-COLOR; }\n  .THEME_NAME a:not(.md-button):hover {\n    color: ACCENT-COLOR-800; }\n\nbody.THEME_NAME {\n  background-color: BACKGROUND-COLOR-50;\n  color: BACKGROUND-CONTRAST-0.87; }\n\n/* Typography */\n.THEME_NAME .md-caption,\n.THEME_NAME .md-display-1,\n.THEME_NAME .md-display-2,\n.THEME_NAME .md-display-3,\n.THEME_NAME .md-display-4 {\n  color: BACKGROUND-CONTRAST-0.57; }\n\n.THEME_NAME code:not(.hljs) {\n  background-color: ACCENT-COLOR-A100-0.2;\n  color: ACCENT-COLOR-800; }\n"
+	module.exports = ".THEME_NAME :not(input):not(textarea)::selection {\n  background: ACCENT-COLOR;\n  color: ACCENT-CONTRAST; }\n\n.THEME_NAME a:not(.md-button) {\n  color: ACCENT-COLOR; }\n  .THEME_NAME a:not(.md-button):hover {\n    color: ACCENT-COLOR-800; }\n\nbody.THEME_NAME {\n  background-color: BACKGROUND-COLOR-A100;\n  color: BACKGROUND-CONTRAST-0.87; }\n\n/* Typography */\n.THEME_NAME .md-caption,\n.THEME_NAME .md-display-1,\n.THEME_NAME .md-display-2,\n.THEME_NAME .md-display-3,\n.THEME_NAME .md-display-4 {\n  color: BACKGROUND-CONTRAST-0.57; }\n\n.THEME_NAME code:not(.hljs) {\n  background-color: ACCENT-COLOR-A100-0.2;\n  color: ACCENT-COLOR-800; }\n"
 
 /***/ },
 
-/***/ 76:
+/***/ 83:
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(77);
+	var content = __webpack_require__(84);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(78)(content, {});
+	var update = __webpack_require__(85)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -1069,7 +1150,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 77:
+/***/ 84:
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(4)();
@@ -1077,14 +1158,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	
 	// module
-	exports.push([module.id, "/*  Common\n   ========================================================================== */\n/*  Transitions - Based on Angular Material\n   ========================================================================== */\n/*  Elevation - Based on Angular Material\n   ========================================================================== */\n/*  Structure\n   ========================================================================== */\nhtml {\n  height: 100%;\n  box-sizing: border-box; }\n  html *,\n  html *:before,\n  html *:after {\n    box-sizing: inherit; }\n\nbody {\n  min-height: 100%;\n  margin: 0;\n  position: relative;\n  -webkit-tap-highlight-color: transparent;\n  -webkit-touch-callout: none;\n  -webkit-text-size-adjust: 100%;\n  -ms-text-size-adjust: 100%;\n  -moz-osx-font-smoothing: grayscale;\n  -webkit-font-smoothing: antialiased;\n  color: rgba(0, 0, 0, 0.87);\n  font-family: Roboto, Lato, sans-serif; }\n\n/*  Fluid Media\n   ========================================================================== */\naudio,\nimg,\nsvg,\nobject,\nembed,\ncanvas,\nvideo,\niframe {\n  max-width: 100%;\n  height: auto;\n  font-style: italic;\n  vertical-align: middle; }\n\n/*  Suppress the focus outline on links that cannot be accessed via keyboard.\n    This prevents an unwanted focus outline from appearing around elements\n    that might still respond to pointer events.\n   ========================================================================== */\n[tabindex=\"-1\"]:focus {\n  outline: none !important; }\n\n.md-scrollbar::-webkit-scrollbar,\n.md-scrollbar ::-webkit-scrollbar {\n  width: 10px;\n  height: 10px;\n  box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.12);\n  transition: all 0.5s cubic-bezier(0.35, 0, 0.25, 1);\n  background-color: rgba(0, 0, 0, 0.05); }\n  .md-scrollbar::-webkit-scrollbar:hover,\n  .md-scrollbar ::-webkit-scrollbar:hover {\n    box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.054), inset 0 -1px 0 rgba(0, 0, 0, 0.038);\n    background-color: rgba(0, 0, 0, 0.087); }\n\n.md-scrollbar::-webkit-scrollbar-button,\n.md-scrollbar ::-webkit-scrollbar-button {\n  display: none; }\n\n.md-scrollbar::-webkit-scrollbar-corner,\n.md-scrollbar ::-webkit-scrollbar-corner {\n  background-color: transparent; }\n\n.md-scrollbar::-webkit-scrollbar-thumb,\n.md-scrollbar ::-webkit-scrollbar-thumb {\n  background-color: rgba(0, 0, 0, 0.26);\n  box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.054), inset 0 -1px 0 rgba(0, 0, 0, 0.087);\n  transition: all 0.5s cubic-bezier(0.35, 0, 0.25, 1); }\n\n/*  Text and Titles\n   ========================================================================== */\n.md-caption {\n  font-size: 12px;\n  font-weight: 400;\n  letter-spacing: .02em;\n  line-height: 17px; }\n\n.md-body-1, body {\n  font-size: 14px;\n  font-weight: 400;\n  letter-spacing: .01em;\n  line-height: 20px; }\n\n.md-body-2 {\n  font-size: 14px;\n  font-weight: 500;\n  letter-spacing: .01em;\n  line-height: 24px; }\n\n.md-subheading {\n  font-size: 16px;\n  font-weight: 400;\n  letter-spacing: .01em;\n  line-height: 24px; }\n\n.md-title {\n  font-size: 20px;\n  font-weight: 500;\n  letter-spacing: .005em;\n  line-height: 26px; }\n\n.md-headline {\n  font-size: 24px;\n  font-weight: 400;\n  letter-spacing: 0;\n  line-height: 32px; }\n\n.md-display-1 {\n  font-size: 34px;\n  font-weight: 400;\n  letter-spacing: 0;\n  line-height: 40px; }\n\n.md-display-2 {\n  font-size: 45px;\n  font-weight: 400;\n  letter-spacing: 0;\n  line-height: 48px; }\n\n.md-display-3 {\n  font-size: 56px;\n  font-weight: 400;\n  letter-spacing: -.005em;\n  line-height: 58px; }\n\n.md-display-4 {\n  font-size: 112px;\n  font-weight: 300;\n  letter-spacing: -.01em;\n  line-height: 112px; }\n\n/*  Links & Buttons\n   ========================================================================== */\na:not(.md-button):not(.md-bottom-bar-item) {\n  text-decoration: none; }\n  a:not(.md-button):not(.md-bottom-bar-item):hover {\n    text-decoration: underline; }\n\nbutton:focus {\n  outline: none; }\n", ""]);
+	exports.push([module.id, "/* Common */\n/* Responsive Breakpoints */\n/* Transitions - Based on Angular Material */\n/* Elevation - Based on Angular Material */\n/*  Structure\n   ========================================================================== */\nhtml {\n  height: 100%;\n  box-sizing: border-box; }\n  html *,\n  html *:before,\n  html *:after {\n    box-sizing: inherit; }\n\nbody {\n  min-height: 100%;\n  margin: 0;\n  position: relative;\n  -webkit-tap-highlight-color: transparent;\n  -webkit-touch-callout: none;\n  -webkit-text-size-adjust: 100%;\n  -ms-text-size-adjust: 100%;\n  -moz-osx-font-smoothing: grayscale;\n  -webkit-font-smoothing: antialiased;\n  color: rgba(0, 0, 0, 0.87);\n  font-family: Roboto, \"Noto Sans\", Noto, sans-serif; }\n\n[tabindex='-1']:focus {\n  outline: none; }\n\n/*  Fluid Media\n   ========================================================================== */\naudio,\nimg,\nsvg,\nobject,\nembed,\ncanvas,\nvideo,\niframe {\n  max-width: 100%;\n  height: auto;\n  font-style: italic;\n  vertical-align: middle; }\n\n/*  Suppress the focus outline on links that cannot be accessed via keyboard.\n    This prevents an unwanted focus outline from appearing around elements\n    that might still respond to pointer events.\n   ========================================================================== */\n[tabindex=\"-1\"]:focus {\n  outline: none !important; }\n\n.md-scrollbar::-webkit-scrollbar,\n.md-scrollbar ::-webkit-scrollbar {\n  width: 10px;\n  height: 10px;\n  box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.12);\n  transition: all 0.5s cubic-bezier(0.35, 0, 0.25, 1);\n  background-color: rgba(0, 0, 0, 0.05); }\n  .md-scrollbar::-webkit-scrollbar:hover,\n  .md-scrollbar ::-webkit-scrollbar:hover {\n    box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.054), inset 0 -1px 0 rgba(0, 0, 0, 0.038);\n    background-color: rgba(0, 0, 0, 0.087); }\n\n.md-scrollbar::-webkit-scrollbar-button,\n.md-scrollbar ::-webkit-scrollbar-button {\n  display: none; }\n\n.md-scrollbar::-webkit-scrollbar-corner,\n.md-scrollbar ::-webkit-scrollbar-corner {\n  background-color: transparent; }\n\n.md-scrollbar::-webkit-scrollbar-thumb,\n.md-scrollbar ::-webkit-scrollbar-thumb {\n  background-color: rgba(0, 0, 0, 0.26);\n  box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.054), inset 0 -1px 0 rgba(0, 0, 0, 0.087);\n  transition: all 0.5s cubic-bezier(0.35, 0, 0.25, 1); }\n\n/*  Text and Titles\n   ========================================================================== */\n.md-caption {\n  font-size: 12px;\n  font-weight: 400;\n  letter-spacing: .02em;\n  line-height: 17px; }\n\n.md-body-1, body {\n  font-size: 14px;\n  font-weight: 400;\n  letter-spacing: .01em;\n  line-height: 20px; }\n\n.md-body-2 {\n  font-size: 14px;\n  font-weight: 500;\n  letter-spacing: .01em;\n  line-height: 24px; }\n\n.md-subheading {\n  font-size: 16px;\n  font-weight: 400;\n  letter-spacing: .01em;\n  line-height: 24px; }\n\n.md-title {\n  font-size: 20px;\n  font-weight: 500;\n  letter-spacing: .005em;\n  line-height: 26px; }\n\n.md-headline {\n  font-size: 24px;\n  font-weight: 400;\n  letter-spacing: 0;\n  line-height: 32px; }\n\n.md-display-1 {\n  font-size: 34px;\n  font-weight: 400;\n  letter-spacing: 0;\n  line-height: 40px; }\n\n.md-display-2 {\n  font-size: 45px;\n  font-weight: 400;\n  letter-spacing: 0;\n  line-height: 48px; }\n\n.md-display-3 {\n  font-size: 56px;\n  font-weight: 400;\n  letter-spacing: -.005em;\n  line-height: 58px; }\n\n.md-display-4 {\n  font-size: 112px;\n  font-weight: 300;\n  letter-spacing: -.01em;\n  line-height: 112px; }\n\n/*  Links & Buttons\n   ========================================================================== */\na:not(.md-button):not(.md-bottom-bar-item) {\n  text-decoration: none; }\n  a:not(.md-button):not(.md-bottom-bar-item):hover {\n    text-decoration: underline; }\n\nbutton:focus {\n  outline: none; }\n", ""]);
 	
 	// exports
 
 
 /***/ },
 
-/***/ 78:
+/***/ 85:
 /***/ function(module, exports, __webpack_require__) {
 
 	/*

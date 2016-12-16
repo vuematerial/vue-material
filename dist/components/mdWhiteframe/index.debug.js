@@ -55,12 +55,12 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(228);
+	module.exports = __webpack_require__(249);
 
 
 /***/ },
 
-/***/ 228:
+/***/ 249:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -70,7 +70,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 	exports.default = install;
 	
-	var _mdWhiteframe = __webpack_require__(229);
+	var _mdWhiteframe = __webpack_require__(250);
 	
 	var _mdWhiteframe2 = _interopRequireDefault(_mdWhiteframe);
 	
@@ -83,17 +83,17 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 229:
+/***/ 250:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = {}
 	
 	/* styles */
-	__webpack_require__(230)
+	__webpack_require__(251)
 	
 	/* script */
-	__vue_exports__ = __webpack_require__(231)
+	__vue_exports__ = __webpack_require__(252)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -105,7 +105,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (typeof __vue_options__ === "function") {
 	  __vue_options__ = __vue_options__.options
 	}
-	__vue_options__.__file = "/Users/mrufino/Projects/personal/github/vue-material/src/components/mdWhiteframe/mdWhiteframe.vue"
+	__vue_options__.__file = "/Users/marcosmoura/Projects/github/vue-material/src/components/mdWhiteframe/mdWhiteframe.vue"
 	
 	/* hot reload */
 	if (false) {(function () {
@@ -114,9 +114,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
 	  if (!module.hot.data) {
-	    hotAPI.createRecord("data-v-5fea99e3", __vue_options__)
+	    hotAPI.createRecord("data-v-01d6d326", __vue_options__)
 	  } else {
-	    hotAPI.reload("data-v-5fea99e3", __vue_options__)
+	    hotAPI.reload("data-v-01d6d326", __vue_options__)
 	  }
 	})()}
 	if (__vue_options__.functional) {console.error("[vue-loader] mdWhiteframe.vue: functional components are not supported and should be defined in plain js files using render functions.")}
@@ -126,14 +126,14 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 230:
+/***/ 251:
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
 
-/***/ 231:
+/***/ 252:
 /***/ function(module, exports) {
 
 	'use strict';

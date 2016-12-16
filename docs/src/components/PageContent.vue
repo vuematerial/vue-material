@@ -8,7 +8,7 @@
 
         <div class="md-title">{{ pageTitle }}</div>
 
-        <div class="release-version" v-if="availableDocs.length">
+        <div class="release-version" v-if="availableDocs.length > 1">
           <span>Version:</span>
           <md-select id="docs-select" v-model="currentDocs" @change="changeDocs">
             <md-option v-for="doc in availableDocs" :value="doc" v-once>{{ doc }}</md-option>
