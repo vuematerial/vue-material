@@ -95,6 +95,8 @@ export default function install(Vue) {
         let rippleParent = currentRipple || createElement(ripple, rippleParentClass);
         let rippleElement = createElement(ripple, rippleClass, elementSize);
 
+        rippleElement.classList.remove(rippleActiveClass);
+
         rippleParent.appendChild(rippleElement);
         holder.appendChild(rippleParent);
 
