@@ -179,7 +179,41 @@
 
           <div slot="code">
             <code-block lang="xml">
+              &lt;md-layout md-gutter&gt;
+                &lt;md-layout md-flex-xsmall=&quot;100&quot; md-flex-small=&quot;50&quot; md-flex-medium=&quot;33&quot;&gt;
+                  md-flex-xsmall &lt;br&gt;
+                  md-flex-small=&quot;50&quot; &lt;br&gt;
+                  md-flex-medium=&quot;33&quot;
+                &lt;/md-layout&gt;
 
+                &lt;md-layout md-flex-xsmall=&quot;100&quot; md-flex-small=&quot;50&quot; md-flex-medium=&quot;33&quot;&gt;
+                  md-flex-xsmall &lt;br&gt;
+                  md-flex-small=&quot;50&quot; &lt;br&gt;
+                  md-flex-medium=&quot;33&quot;
+                &lt;/md-layout&gt;
+
+                &lt;md-layout md-flex-xsmall=&quot;100&quot; md-flex-small=&quot;50&quot; md-flex-medium=&quot;33&quot;&gt;
+                  md-flex-xsmall &lt;br&gt;
+                  md-flex-small=&quot;50&quot; &lt;br&gt;
+                  md-flex-medium=&quot;33&quot;
+                &lt;/md-layout&gt;
+
+                &lt;md-layout md-flex-xsmall=&quot;100&quot; md-flex-small=&quot;50&quot; md-flex-medium=&quot;33&quot;&gt;
+                  md-flex-xsmall &lt;br&gt;
+                  md-flex-small=&quot;50&quot; &lt;br&gt;
+                  md-flex-medium=&quot;33&quot;
+                &lt;/md-layout&gt;
+
+                &lt;md-layout md-flex-small=&quot;100&quot; md-flex-medium=&quot;33&quot; md-hide-xsmall&gt;
+                  md-flex-medium=&quot;33&quot; &lt;br&gt;
+                  md-hide-xsmall
+                &lt;/md-layout&gt;
+
+                &lt;md-layout md-flex md-flex-medium=&quot;33&quot; md-hide-small&gt;
+                  md-flex-medium=&quot;33&quot; &lt;br&gt;
+                  md-hide-small
+                &lt;/md-layout&gt;
+              &lt;/md-layout&gt;
             </code-block>
           </div>
         </example-box>
@@ -222,7 +256,38 @@
 
           <div slot="code">
             <code-block lang="xml">
+              &lt;md-layout md-gutter&gt;
+                &lt;md-layout md-flex=&quot;50&quot;&gt;&lt;/md-layout&gt;
+                &lt;md-layout&gt;&lt;/md-layout&gt;
+                &lt;md-layout&gt;&lt;/md-layout&gt;
+                &lt;md-layout&gt;&lt;/md-layout&gt;
+              &lt;/md-layout&gt;
 
+              &lt;md-layout md-gutter&gt;
+                &lt;md-layout md-flex=&quot;33&quot;&gt;&lt;/md-layout&gt;
+                &lt;md-layout&gt;&lt;/md-layout&gt;
+              &lt;/md-layout&gt;
+
+              &lt;md-layout md-gutter&gt;
+                &lt;md-layout&gt;&lt;/md-layout&gt;
+                &lt;md-layout md-flex=&quot;33&quot; md-flex-offset=&quot;33&quot;&gt;&lt;/md-layout&gt;
+              &lt;/md-layout&gt;
+
+              &lt;md-layout md-gutter&gt;
+                &lt;md-layout md-flex=&quot;75&quot;&gt;&lt;/md-layout&gt;
+                &lt;md-layout&gt;&lt;/md-layout&gt;
+              &lt;/md-layout&gt;
+
+              &lt;md-layout md-gutter&gt;
+                &lt;md-layout md-flex=&quot;50&quot;&gt;&lt;/md-layout&gt;
+                &lt;md-layout&gt;&lt;/md-layout&gt;
+                &lt;md-layout&gt;&lt;/md-layout&gt;
+              &lt;/md-layout&gt;
+
+              &lt;md-layout md-gutter&gt;
+                &lt;md-layout md-flex=&quot;25&quot; md-flex-offset=&quot;25&quot;&gt;&lt;/md-layout&gt;
+                &lt;md-layout md-flex=&quot;25&quot;&gt;&lt;/md-layout&gt;
+              &lt;/md-layout&gt;
             </code-block>
           </div>
         </example-box>
@@ -245,7 +310,18 @@
 
           <div slot="code">
             <code-block lang="xml">
+              &lt;md-layout md-gutter&gt;
+                &lt;md-layout md-column md-gutter&gt;
+                  &lt;md-layout md-flex=&quot;20&quot;&gt;&lt;/md-layout&gt;
+                  &lt;md-layout&gt;&lt;/md-layout&gt;
+                &lt;/md-layout&gt;
 
+                &lt;md-layout md-column md-gutter&gt;
+                  &lt;md-layout md-flex=&quot;50&quot;&gt;&lt;/md-layout&gt;
+                  &lt;md-layout&gt;&lt;/md-layout&gt;
+                  &lt;md-layout&gt;&lt;/md-layout&gt;
+                &lt;/md-layout&gt;
+              &lt;/md-layout&gt;
             </code-block>
           </div>
         </example-box>
@@ -350,7 +426,100 @@
 
           <div slot="code">
             <code-block lang="xml">
+              &lt;md-layout&gt;
+                &lt;md-layout&gt;&lt;/md-layout&gt;
+                &lt;md-layout&gt;&lt;/md-layout&gt;
+              &lt;/md-layout&gt;
 
+              &lt;md-layout :md-gutter=&quot;8&quot;&gt;
+                &lt;md-layout&gt;
+                  &lt;span&gt;8px&lt;/span&gt;
+                &lt;/md-layout&gt;
+
+                &lt;md-layout&gt;
+                  &lt;span&gt;8px&lt;/span&gt;
+                &lt;/md-layout&gt;
+
+                &lt;md-layout&gt;
+                  &lt;span&gt;8px&lt;/span&gt;
+                &lt;/md-layout&gt;
+
+                &lt;md-layout&gt;
+                  &lt;span&gt;8px&lt;/span&gt;
+                &lt;/md-layout&gt;
+
+                &lt;md-layout&gt;
+                  &lt;span&gt;8px&lt;/span&gt;
+                &lt;/md-layout&gt;
+
+                &lt;md-layout&gt;
+                  &lt;span&gt;8px&lt;/span&gt;
+                &lt;/md-layout&gt;
+              &lt;/md-layout&gt;
+
+              &lt;md-layout md-gutter=&quot;16&quot;&gt;
+                &lt;md-layout&gt;
+                  &lt;span&gt;16px&lt;/span&gt;
+                &lt;/md-layout&gt;
+
+                &lt;md-layout&gt;
+                  &lt;span&gt;16px&lt;/span&gt;
+                &lt;/md-layout&gt;
+
+                &lt;md-layout&gt;
+                  &lt;span&gt;16px&lt;/span&gt;
+                &lt;/md-layout&gt;
+
+                &lt;md-layout&gt;
+                  &lt;span&gt;16px&lt;/span&gt;
+                &lt;/md-layout&gt;
+
+                &lt;md-layout&gt;
+                  &lt;span&gt;16px&lt;/span&gt;
+                &lt;/md-layout&gt;
+              &lt;/md-layout&gt;
+
+              &lt;md-layout :md-gutter=&quot;24&quot;&gt;
+                &lt;md-layout&gt;
+                  &lt;span&gt;24px&lt;/span&gt;
+                &lt;/md-layout&gt;
+
+                &lt;md-layout&gt;
+                  &lt;span&gt;24px&lt;/span&gt;
+                &lt;/md-layout&gt;
+
+                &lt;md-layout&gt;
+                  &lt;span&gt;24px&lt;/span&gt;
+                &lt;/md-layout&gt;
+
+                &lt;md-layout&gt;
+                  &lt;span&gt;24px&lt;/span&gt;
+                &lt;/md-layout&gt;
+              &lt;/md-layout&gt;
+
+              &lt;md-layout :md-gutter=&quot;40&quot;&gt;
+                &lt;md-layout&gt;
+                  &lt;span&gt;40px&lt;/span&gt;
+                &lt;/md-layout&gt;
+
+                &lt;md-layout&gt;
+                  &lt;span&gt;40px&lt;/span&gt;
+                &lt;/md-layout&gt;
+
+                &lt;md-layout&gt;
+                  &lt;span&gt;40px&lt;/span&gt;
+                &lt;/md-layout&gt;
+              &lt;/md-layout&gt;
+
+              &lt;md-layout md-gutter&gt;
+                &lt;md-layout&gt;
+                  &lt;span&gt;Automatic&lt;/span&gt;
+                &lt;/md-layout&gt;
+
+                &lt;md-layout&gt;
+                  &lt;span&gt;Automatic&lt;/span&gt;
+                &lt;/md-layout&gt;
+              &lt;/md-layout&gt;
             </code-block>
           </div>
         </example-box>
