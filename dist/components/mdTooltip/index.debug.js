@@ -55,12 +55,12 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(223);
+	module.exports = __webpack_require__(244);
 
 
 /***/ },
 
-/***/ 83:
+/***/ 90:
 /***/ function(module, exports) {
 
 	'use strict';
@@ -89,7 +89,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 223:
+/***/ 244:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -99,7 +99,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 	exports.default = install;
 	
-	var _mdTooltip = __webpack_require__(224);
+	var _mdTooltip = __webpack_require__(245);
 	
 	var _mdTooltip2 = _interopRequireDefault(_mdTooltip);
 	
@@ -112,20 +112,20 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 224:
+/***/ 245:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = {}
 	
 	/* styles */
-	__webpack_require__(225)
+	__webpack_require__(246)
 	
 	/* script */
-	__vue_exports__ = __webpack_require__(226)
+	__vue_exports__ = __webpack_require__(247)
 	
 	/* template */
-	var __vue_template__ = __webpack_require__(227)
+	var __vue_template__ = __webpack_require__(248)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -137,7 +137,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (typeof __vue_options__ === "function") {
 	  __vue_options__ = __vue_options__.options
 	}
-	__vue_options__.__file = "/Users/mrufino/Projects/personal/github/vue-material/src/components/mdTooltip/mdTooltip.vue"
+	__vue_options__.__file = "/Users/marcosmoura/Projects/github/vue-material/src/components/mdTooltip/mdTooltip.vue"
 	__vue_options__.render = __vue_template__.render
 	__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 	
@@ -148,9 +148,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
 	  if (!module.hot.data) {
-	    hotAPI.createRecord("data-v-5da82edd", __vue_options__)
+	    hotAPI.createRecord("data-v-3104dae7", __vue_options__)
 	  } else {
-	    hotAPI.reload("data-v-5da82edd", __vue_options__)
+	    hotAPI.reload("data-v-3104dae7", __vue_options__)
 	  }
 	})()}
 	if (__vue_options__.functional) {console.error("[vue-loader] mdTooltip.vue: functional components are not supported and should be defined in plain js files using render functions.")}
@@ -160,14 +160,14 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 225:
+/***/ 246:
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
 
-/***/ 226:
+/***/ 247:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -176,7 +176,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	
-	var _transitionEndEventName = __webpack_require__(83);
+	var _transitionEndEventName = __webpack_require__(90);
 	
 	var _transitionEndEventName2 = _interopRequireDefault(_transitionEndEventName);
 	
@@ -357,21 +357,21 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 227:
+/***/ 248:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
-	  return _h('span', {
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._c;
+	  return _c('span', {
 	    staticClass: "md-tooltip",
 	    class: _vm.classes,
 	    style: (_vm.style)
-	  }, [_vm._t("default")])
+	  }, [_vm._t("default")], true)
 	},staticRenderFns: []}
 	module.exports.render._withStripped = true
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-hot-reload-api").rerender("data-v-5da82edd", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-3104dae7", module.exports)
 	  }
 	}
 
