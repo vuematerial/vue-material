@@ -32,6 +32,18 @@
 @include layout();
 
 
+/* Container */
+
+.md-layout.md-container {
+  width: 100%;
+  max-width: 1200px;
+
+  &.md-centered {
+    margin: 0 auto;
+  }
+}
+
+
 /* Gutter Size */
 
 @mixin layout-gutter($margin: -12px, $padding: 12px) {
