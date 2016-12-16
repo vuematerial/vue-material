@@ -14,6 +14,7 @@
         <div class="md-tab-header-container">
           <md-icon v-if="header.icon">{{ header.icon }}</md-icon>
           <span v-if="header.label">{{ header.label }}</span>
+          <md-tooltip v-if="header.tooltip" :md-direction="header.tooltipDirection" :md-delay="header.tooltipDelay">{{ header.tooltip }}</md-tooltip>
         </div>
       </button>
 

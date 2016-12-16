@@ -119,7 +119,13 @@
               <md-table-row>
                 <md-table-cell>md-tooltip</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
-                <md-table-cell>Add a tooltip on the tab header. Default: No tooltip.</md-table-cell>
+                <md-table-cell>Add a tooltip on the tab header. Optional.</md-table-cell>
+              </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>md-tooltip-delay</md-table-cell>
+                <md-table-cell><code>String</code></md-table-cell>
+                <md-table-cell>Delay of the tab header tooltip. Default: <code>0</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
