@@ -1,3 +1,5 @@
+/* Image aspect ratio calculator */
+
 @mixin image-aspect-ratio($width, $height) {
   overflow: hidden;
 
@@ -14,5 +16,38 @@
     right: 0;
     left: 0;
     transform: translateY(-50%);
+  }
+}
+
+
+/* Responsive breakpoints */
+
+@mixin layout-xsmall {
+  @media (max-width: #{$breakpoint-xsmall}) {
+    @content;
+  }
+}
+
+@mixin layout-small {
+  @media (max-width: #{$breakpoint-small - 16px}) {
+    @content;
+  }
+}
+
+@mixin layout-medium {
+  @media (max-width: #{$breakpoint-medium - 16px}) {
+    @content;
+  }
+}
+
+@mixin layout-large {
+  @media (max-width: #{$breakpoint-large - 17px}) {
+    @content;
+  }
+}
+
+@mixin layout-xlarge {
+  @media (min-width: #{$breakpoint-large - 16px}) {
+    @content;
   }
 }

@@ -20,16 +20,16 @@
 
   &.md-spinner-leave-active {
     opacity: 0;
-    transform: scale(.9) translateZ(0);
+    transform: scale(.8) translateZ(0);
     transition: $swift-ease-out;
   }
 
   &:not(.md-indeterminate) {
     &.md-spinner-enter-active {
-      transition-duration: 1.8s;
+      transition-duration: 2s;
 
       .md-spinner-draw {
-        animation: spinner-initial-rotate 1.75s $swift-ease-out-timing-function infinite;
+        animation: spinner-initial-rotate 1.98s $swift-ease-out-timing-function forwards;
       }
     }
   }
@@ -53,7 +53,6 @@
   fill: none;
   stroke-dashoffset: 0;
   stroke-miterlimit: 10;
-  stroke-width: 3.2;
   transition: $swift-ease-out;
 }
 
@@ -69,12 +68,11 @@
     transform: rotate(-90deg) translateZ(0);
   }
 
-  10% {
+  20% {
     opacity: 1;
   }
 
   100% {
-    opacity: 1;
     transform: rotate(270deg) translateZ(0);
   }
 }

@@ -135,19 +135,18 @@
           </md-list-item>
 
           <md-list-item>
-            <router-link exact to="/ui-elements/typography">Typography</router-link>
-
-            <!-- <span>UI Elements</span>
+            <span>UI Elements</span>
             <md-list-expand>
               <md-list>
                 <md-list-item class="md-inset">
+                  <router-link exact to="/ui-elements/layout">Layout</router-link>
                 </md-list-item>
 
                 <md-list-item class="md-inset">
-                  <router-link exact to="/ui-elements/grid-system">Grid System</router-link>
+                  <router-link exact to="/ui-elements/typography">Typography</router-link>
                 </md-list-item>
               </md-list>
-            </md-list-expand> -->
+            </md-list-expand>
           </md-list-item>
 
           <md-list-item>
@@ -161,7 +160,7 @@
       </div>
     </md-sidenav>
 
-    <transition name="md-router">
+    <transition name="md-router" appear>
       <router-view></router-view>
     </transition>
   </div>
@@ -172,9 +171,14 @@
 
   $sizebar-size: 280px;
 
+  [v-cloak] {
+    display: none;
+  }
+
   html,
   body {
     height: 100%;
+    overflow: hidden;
   }
 
   body {
@@ -256,7 +260,10 @@
     padding: 16px;
     flex: 1;
     overflow: auto;
+    background-color: #fff;
     transform: translate3D(0, 0, 0);
+    transition: $swift-ease-out;
+    transition-delay: .2s;
   }
 
   .md-router-enter-active,
@@ -265,16 +272,30 @@
     top: 0;
     right: 0;
     left: 0;
-    transition: $swift-ease-out;
 
     @media (min-width: 1281px) {
-      left: 280px;
+      left: $sizebar-size;
+    }
+
+    .main-content {
+      opacity: 0;
+      overflow: hidden;
     }
   }
 
-  .md-router-enter,
   .md-router-leave-active {
-    opacity: 0;
+    z-index: 1;
+    transition: $swift-ease-in;
+    transition-duration: .25s;
+  }
+
+  .md-router-enter-active {
+    z-index: 2;
+    transition: $swift-ease-out;
+
+    .main-content {
+      transform: translate3D(0, 7%, 0);
+    }
   }
 
   code {
@@ -294,6 +315,8 @@
 </style>
 
 <script>
+  import Vue from 'vue';
+
   export default {
     data() {
       return {
@@ -304,7 +327,7 @@
     },
     computed: {
       logo() {
-        return 'assets/logo-vue-material-' + this.theme + '.png';
+        return 'assets/logo-vue-material-' + Vue.material.currentTheme + '.png';
       }
     },
     methods: {
