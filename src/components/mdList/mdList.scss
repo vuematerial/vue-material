@@ -280,7 +280,7 @@
     transition: $swift-ease-in-out;
 
     &.md-transition-off {
-      transition: none;
+      transition: none !important;
     }
 
     .md-list {
