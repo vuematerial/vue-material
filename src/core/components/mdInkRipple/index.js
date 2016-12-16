@@ -100,17 +100,17 @@ export default function install(Vue) {
 
         // sometime the element's size hasnt been ready yet
         if (elementSize === '0px' && document.readyState !== 'complete') {
-          let giveOfTime = false;
+          let giveUpTime = false;
           let lazySizeUpdate = () => {
             let finalElementSize = Math.round(Math.max(holder.offsetWidth, holder.offsetHeight)) + 'px';
 
             if (finalElementSize === '0px') {
               if (document.readyState !== 'complete') {
                 // try again later
-              } else if (!giveOfTime) {
+              } else if (!giveUpTime) {
                 //keep retrying for 3s
-                giveOfTime = new Date(new Date().getTime() + 3000);
-              } else if (new Date() >= giveOfTime) {
+                giveUpTime = new Date(new Date().getTime() + 3000);
+              } else if (new Date() >= giveUpTime) {
                 //failed...
                 return;
               }
