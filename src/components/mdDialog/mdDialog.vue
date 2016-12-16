@@ -1,5 +1,5 @@
 <template>
-  <div class="md-dialog-container" :class="classes" @keyup.esc.stop="closeOnEsc" tabindex="0">
+  <div class="md-dialog-container" :class="[themeClass, classes]" @keyup.esc.stop="closeOnEsc" tabindex="0">
     <div class="md-dialog" ref="dialog" :style="styles" :class="dialogClasses">
       <slot></slot>
     </div>
@@ -11,6 +11,7 @@
 <style lang="scss" src="./mdDialog.scss"></style>
 
 <script>
+  import theme from '../../core/components/mdTheme/mixin';
   import transitionEndEventName from '../../core/utils/transitionEndEventName';
 
   export default {
@@ -34,6 +35,7 @@
         default: false
       }
     },
+    mixins: [theme],
     data: () => ({
       active: false,
       transitionOff: false,

@@ -21,6 +21,7 @@ import Radio from './pages/components/Radio';
 import InkRipple from './pages/components/InkRipple';
 import Select from './pages/components/Select';
 import Sidenav from './pages/components/Sidenav';
+import Spinner from './pages/components/Spinner';
 import Subheader from './pages/components/Subheader';
 import Switch from './pages/components/Switch';
 import Table from './pages/components/Table';
@@ -31,7 +32,7 @@ import Whiteframe from './pages/components/Whiteframe';
 
 /* UI Elements */
 import Typography from './pages/ui-elements/Typography';
-import GridSystem from './pages/ui-elements/GridSystem';
+import Layout from './pages/ui-elements/Layout';
 
 /* Themes */
 import Configuration from './pages/themes/Configuration';
@@ -142,6 +143,11 @@ const components = [
     component: Sidenav
   },
   {
+    path: '/components/spinner',
+    name: 'components:spinner',
+    component: Spinner
+  },
+  {
     path: '/components/switch',
     name: 'components:switch',
     component: Switch
@@ -208,9 +214,9 @@ const uiElements = [
     component: Typography
   },
   {
-    path: '/ui-elements/grid-system',
-    name: 'ui-elements:grid-system',
-    component: GridSystem
+    path: '/ui-elements/layout',
+    name: 'ui-elements:layout',
+    component: Layout
   }
 ];
 

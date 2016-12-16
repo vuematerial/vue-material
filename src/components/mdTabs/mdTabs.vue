@@ -1,5 +1,5 @@
 <template>
-  <div class="md-tabs" :class="tabClasses">
+  <div class="md-tabs" :class="[themeClass, tabClasses]">
     <md-whiteframe md-tag="nav" class="md-tabs-navigation" :md-elevation="mdElevation" :class="navigationClasses" ref="tabNavigation">
       <button
         v-for="header in tabList"
@@ -31,6 +31,8 @@
 <style lang="scss" src="./mdTabs.scss"></style>
 
 <script>
+  import theme from '../../core/components/mdTheme/mixin';
+
   export default {
     props: {
       mdFixed: Boolean,
@@ -45,6 +47,7 @@
         default: 0
       }
     },
+    mixins: [theme],
     data: () => ({
       tabList: {},
       activeTab: null,
