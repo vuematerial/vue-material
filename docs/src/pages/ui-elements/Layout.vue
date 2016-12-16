@@ -179,7 +179,53 @@
 
           <div slot="code">
             <code-block lang="xml">
+              &lt;md-layout class=&quot;color&quot; md-gutter&gt;
+                &lt;md-layout class=&quot;color-red&quot; md-flex-xsmall=&quot;100&quot; md-flex-small=&quot;50&quot; md-flex-medium=&quot;33&quot;&gt;
+                  &lt;div class=&quot;grid-content&quot;&gt;
+                    md-flex-xsmall &lt;br&gt;
+                    md-flex-small=&quot;50&quot; &lt;br&gt;
+                    md-flex-medium=&quot;33&quot;
+                  &lt;/div&gt;
+                &lt;/md-layout&gt;
 
+                &lt;md-layout class=&quot;color-blue&quot; md-flex-xsmall=&quot;100&quot; md-flex-small=&quot;50&quot; md-flex-medium=&quot;33&quot;&gt;
+                  &lt;div class=&quot;grid-content&quot;&gt;
+                    md-flex-xsmall &lt;br&gt;
+                    md-flex-small=&quot;50&quot; &lt;br&gt;
+                    md-flex-medium=&quot;33&quot;
+                  &lt;/div&gt;
+                &lt;/md-layout&gt;
+
+                &lt;md-layout class=&quot;color-pink&quot; md-flex-xsmall=&quot;100&quot; md-flex-small=&quot;50&quot; md-flex-medium=&quot;33&quot;&gt;
+                  &lt;div class=&quot;grid-content&quot;&gt;
+                    md-flex-xsmall &lt;br&gt;
+                    md-flex-small=&quot;50&quot; &lt;br&gt;
+                    md-flex-medium=&quot;33&quot;
+                  &lt;/div&gt;
+                &lt;/md-layout&gt;
+
+                &lt;md-layout class=&quot;color-teal&quot; md-flex-xsmall=&quot;100&quot; md-flex-small=&quot;50&quot; md-flex-medium=&quot;33&quot;&gt;
+                  &lt;div class=&quot;grid-content&quot;&gt;
+                    md-flex-xsmall &lt;br&gt;
+                    md-flex-small=&quot;50&quot; &lt;br&gt;
+                    md-flex-medium=&quot;33&quot;
+                  &lt;/div&gt;
+                &lt;/md-layout&gt;
+
+                &lt;md-layout class=&quot;color-green&quot; md-flex-small=&quot;100&quot; md-flex-medium=&quot;33&quot; md-hide-xsmall&gt;
+                  &lt;div class=&quot;grid-content&quot;&gt;
+                    md-flex-medium=&quot;33&quot; &lt;br&gt;
+                    md-hide-xsmall
+                  &lt;/div&gt;
+                &lt;/md-layout&gt;
+
+                &lt;md-layout class=&quot;color-yellow&quot; md-flex md-flex-medium=&quot;33&quot; md-hide-small&gt;
+                  &lt;div class=&quot;grid-content&quot;&gt;
+                    md-flex-medium=&quot;33&quot; &lt;br&gt;
+                    md-hide-small
+                  &lt;/div&gt;
+                &lt;/md-layout&gt;
+              &lt;/md-layout&gt;
             </code-block>
           </div>
         </example-box>
@@ -222,7 +268,38 @@
 
           <div slot="code">
             <code-block lang="xml">
+              &lt;md-layout md-gutter class=&quot;color&quot;&gt;
+                &lt;md-layout md-flex=&quot;50&quot;&gt;&lt;/md-layout&gt;
+                &lt;md-layout&gt;&lt;/md-layout&gt;
+                &lt;md-layout&gt;&lt;/md-layout&gt;
+                &lt;md-layout&gt;&lt;/md-layout&gt;
+              &lt;/md-layout&gt;
 
+              &lt;md-layout md-gutter class=&quot;color&quot;&gt;
+                &lt;md-layout md-flex=&quot;33&quot;&gt;&lt;/md-layout&gt;
+                &lt;md-layout&gt;&lt;/md-layout&gt;
+              &lt;/md-layout&gt;
+
+              &lt;md-layout md-gutter class=&quot;color&quot;&gt;
+                &lt;md-layout&gt;&lt;/md-layout&gt;
+                &lt;md-layout md-flex=&quot;33&quot; md-flex-offset=&quot;33&quot;&gt;&lt;/md-layout&gt;
+              &lt;/md-layout&gt;
+
+              &lt;md-layout md-gutter class=&quot;color&quot;&gt;
+                &lt;md-layout md-flex=&quot;75&quot;&gt;&lt;/md-layout&gt;
+                &lt;md-layout&gt;&lt;/md-layout&gt;
+              &lt;/md-layout&gt;
+
+              &lt;md-layout md-gutter class=&quot;color&quot;&gt;
+                &lt;md-layout md-flex=&quot;50&quot;&gt;&lt;/md-layout&gt;
+                &lt;md-layout&gt;&lt;/md-layout&gt;
+                &lt;md-layout&gt;&lt;/md-layout&gt;
+              &lt;/md-layout&gt;
+
+              &lt;md-layout md-gutter class=&quot;color&quot;&gt;
+                &lt;md-layout md-flex=&quot;25&quot; md-flex-offset=&quot;25&quot;&gt;&lt;/md-layout&gt;
+                &lt;md-layout md-flex=&quot;25&quot;&gt;&lt;/md-layout&gt;
+              &lt;/md-layout&gt;
             </code-block>
           </div>
         </example-box>
@@ -245,7 +322,18 @@
 
           <div slot="code">
             <code-block lang="xml">
+              &lt;md-layout class=&quot;column-size&quot; md-gutter&gt;
+                &lt;md-layout md-column md-gutter class=&quot;color&quot;&gt;
+                  &lt;md-layout md-flex=&quot;20&quot;&gt;&lt;/md-layout&gt;
+                  &lt;md-layout&gt;&lt;/md-layout&gt;
+                &lt;/md-layout&gt;
 
+                &lt;md-layout md-column md-gutter class=&quot;color&quot;&gt;
+                  &lt;md-layout md-flex=&quot;50&quot;&gt;&lt;/md-layout&gt;
+                  &lt;md-layout&gt;&lt;/md-layout&gt;
+                  &lt;md-layout&gt;&lt;/md-layout&gt;
+                &lt;/md-layout&gt;
+              &lt;/md-layout&gt;
             </code-block>
           </div>
         </example-box>
@@ -350,7 +438,100 @@
 
           <div slot="code">
             <code-block lang="xml">
+              &lt;md-layout class=&quot;no-gutter color&quot;&gt;
+                &lt;md-layout&gt;&lt;/md-layout&gt;
+                &lt;md-layout&gt;&lt;/md-layout&gt;
+              &lt;/md-layout&gt;
 
+              &lt;md-layout :md-gutter=&quot;8&quot; class=&quot;color&quot;&gt;
+                &lt;md-layout&gt;
+                  &lt;span&gt;8px&lt;/span&gt;
+                &lt;/md-layout&gt;
+
+                &lt;md-layout&gt;
+                  &lt;span&gt;8px&lt;/span&gt;
+                &lt;/md-layout&gt;
+
+                &lt;md-layout&gt;
+                  &lt;span&gt;8px&lt;/span&gt;
+                &lt;/md-layout&gt;
+
+                &lt;md-layout&gt;
+                  &lt;span&gt;8px&lt;/span&gt;
+                &lt;/md-layout&gt;
+
+                &lt;md-layout&gt;
+                  &lt;span&gt;8px&lt;/span&gt;
+                &lt;/md-layout&gt;
+
+                &lt;md-layout&gt;
+                  &lt;span&gt;8px&lt;/span&gt;
+                &lt;/md-layout&gt;
+              &lt;/md-layout&gt;
+
+              &lt;md-layout md-gutter=&quot;16&quot; class=&quot;color&quot;&gt;
+                &lt;md-layout&gt;
+                  &lt;span&gt;16px&lt;/span&gt;
+                &lt;/md-layout&gt;
+
+                &lt;md-layout&gt;
+                  &lt;span&gt;16px&lt;/span&gt;
+                &lt;/md-layout&gt;
+
+                &lt;md-layout&gt;
+                  &lt;span&gt;16px&lt;/span&gt;
+                &lt;/md-layout&gt;
+
+                &lt;md-layout&gt;
+                  &lt;span&gt;16px&lt;/span&gt;
+                &lt;/md-layout&gt;
+
+                &lt;md-layout&gt;
+                  &lt;span&gt;16px&lt;/span&gt;
+                &lt;/md-layout&gt;
+              &lt;/md-layout&gt;
+
+              &lt;md-layout :md-gutter=&quot;24&quot; class=&quot;color&quot;&gt;
+                &lt;md-layout&gt;
+                  &lt;span&gt;24px&lt;/span&gt;
+                &lt;/md-layout&gt;
+
+                &lt;md-layout&gt;
+                  &lt;span&gt;24px&lt;/span&gt;
+                &lt;/md-layout&gt;
+
+                &lt;md-layout&gt;
+                  &lt;span&gt;24px&lt;/span&gt;
+                &lt;/md-layout&gt;
+
+                &lt;md-layout&gt;
+                  &lt;span&gt;24px&lt;/span&gt;
+                &lt;/md-layout&gt;
+              &lt;/md-layout&gt;
+
+              &lt;md-layout :md-gutter=&quot;40&quot; class=&quot;color&quot;&gt;
+                &lt;md-layout&gt;
+                  &lt;span&gt;40px&lt;/span&gt;
+                &lt;/md-layout&gt;
+
+                &lt;md-layout&gt;
+                  &lt;span&gt;40px&lt;/span&gt;
+                &lt;/md-layout&gt;
+
+                &lt;md-layout&gt;
+                  &lt;span&gt;40px&lt;/span&gt;
+                &lt;/md-layout&gt;
+              &lt;/md-layout&gt;
+
+              &lt;md-layout md-gutter class=&quot;color&quot;&gt;
+                &lt;md-layout&gt;
+                  &lt;span&gt;Automatic&lt;/span&gt;
+                &lt;/md-layout&gt;
+
+                &lt;md-layout&gt;
+                  &lt;span&gt;Automatic&lt;/span&gt;
+                &lt;/md-layout&gt;
+              &lt;/md-layout&gt;
             </code-block>
           </div>
         </example-box>
