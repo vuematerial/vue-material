@@ -157,4 +157,6 @@ export default function install(Vue) {
   });
 
   Vue.component('md-theme', MdTheme);
+
+  Vue.prototype.$material = Vue.material;
 }
