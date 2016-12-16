@@ -55,12 +55,12 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(249);
+	module.exports = __webpack_require__(247);
 
 
 /***/ },
 
-/***/ 249:
+/***/ 247:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -70,7 +70,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 	exports.default = install;
 	
-	var _mdWhiteframe = __webpack_require__(250);
+	var _mdWhiteframe = __webpack_require__(248);
 	
 	var _mdWhiteframe2 = _interopRequireDefault(_mdWhiteframe);
 	
@@ -83,17 +83,17 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 250:
+/***/ 248:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = {}
 	
 	/* styles */
-	__webpack_require__(251)
+	__webpack_require__(249)
 	
 	/* script */
-	__vue_exports__ = __webpack_require__(252)
+	__vue_exports__ = __webpack_require__(250)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -126,14 +126,14 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 
-/***/ 251:
+/***/ 249:
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
 
-/***/ 252:
+/***/ 250:
 /***/ function(module, exports) {
 
 	'use strict';

@@ -102,7 +102,7 @@
         <code-block lang="javascript">
           Vue.material.setCurrentTheme('about')
         </code-block>
-        Or inside a Vue instance:
+        <p>Or inside a Vue instance:</p>
         <code-block lang="javascript">
           this.$material.setCurrentTheme('about')
         </code-block>
