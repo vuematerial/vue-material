@@ -234,6 +234,11 @@
         align-items: center;
         color: inherit;
         text-decoration: none;
+
+        &:hover {
+          color: inherit;
+          text-decoration: none;
+        }
       }
 
       img {
