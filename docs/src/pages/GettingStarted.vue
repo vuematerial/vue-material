@@ -30,6 +30,13 @@
           <p>Download from Github and reference the script and the stylesheet in your HTML:</p>
           <md-button class="md-raised md-primary" href="https://github.com/marcosmoura/vue-material/archive/master.zip" target="_blank" rel="noopener">download</md-button>
         </section>
+
+        <section>
+          <h3 class="md-title">CDN</h3>
+          <p>Include the Vue Material files from unpkg:</p>
+          <md-button class="md-raised md-primary" href="https://unpkg.com/vue-material" target="_blank" rel="noopener">Javascript</md-button>
+          <md-button class="md-raised md-primary" href="https://unpkg.com/vue-material/dist/vue-material.css" target="_blank" rel="noopener">CSS</md-button>
+        </section>
       </article>
 
       <article>
