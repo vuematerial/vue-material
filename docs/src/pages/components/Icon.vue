@@ -3,8 +3,8 @@
     <docs-component>
       <div slot="description">
         <p>A system icon, or UI icon, symbolizes a command, file, device, or directory. System icons are also used to represent common actions like trash, print, and save.</p>
-        <p>You can see the full list of icons on the <a href="https://material.io/icons/" target="_blank" rel="noopener">Material Icons</a> website.</p>
-        <p>The <code>&lt;md-icon&gt;</code></p>
+        <p>You can see the full list of icons on the <a href="https://material.io/icons/" target="_blank" rel="noopener">Material Icons</a> website. Replace the spaces in the icon name by underscores (for example, <code>arrow back</code> becomes <code>arrow_back</code>)</p>
+        
         <p>The following classes can be applied to change the color palette:</p>
         <ul class="md-body-2">
           <li><code>md-primary</code></li>
