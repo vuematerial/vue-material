@@ -1,3 +1,4 @@
+<template>
   <div class="md-switch" :class="[themeClass, classes]">
     <div class="md-switch-container" @click="toggle($event)">
       <div class="md-switch-thumb" :style="styles" v-md-ink-ripple="disabled">
