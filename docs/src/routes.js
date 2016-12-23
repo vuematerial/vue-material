@@ -21,7 +21,7 @@ import Menu from './pages/components/Menu';
 import Radio from './pages/components/Radio';
 import Select from './pages/components/Select';
 import Sidenav from './pages/components/Sidenav';
-import Snackbar from './pages/components/Snackbar';
+/*import Snackbar from './pages/components/Snackbar';*/
 import Spinner from './pages/components/Spinner';
 import Subheader from './pages/components/Subheader';
 import Switch from './pages/components/Switch';
@@ -143,11 +143,12 @@ const components = [
     name: 'components:sidenav',
     component: Sidenav
   },
-  {
+/*  {
     path: '/components/snackbar',
     name: 'components:snackbar',
     component: Snackbar
-  }, {
+  }, */
+  {
     path: '/components/spinner',
     name: 'components:spinner',
     component: Spinner
