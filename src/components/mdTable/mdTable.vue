@@ -1,5 +1,5 @@
 <template>
-  <div class="md-table">
+  <div class="md-table" :class="[themeClass]">
     <table>
       <slot></slot>
     </table>
@@ -9,6 +9,7 @@
 <style lang="scss" src="./mdTable.scss"></style>
 
 <script>
+  import theme from '../../core/components/mdTheme/mixin';
   import getClosestVueParent from '../../core/utils/getClosestVueParent';
 
   export default {
@@ -16,6 +17,7 @@
       mdSortType: String,
       mdSort: String
     },
+    mixins: [theme],
     data() {
       return {
         sortType: this.mdSortType,

@@ -3,8 +3,12 @@ import VueMaterial from '../../src';
 
 Vue.use(VueMaterial);
 
-Vue.material.theme.registerAll({
+Vue.material.registerTheme({
   default: {
+    primary: 'blue',
+    accent: 'pink'
+  },
+  blue: {
     primary: 'blue',
     accent: 'pink'
   },
@@ -22,11 +26,7 @@ Vue.material.theme.registerAll({
   },
   orange: {
     primary: 'orange',
-    accent: 'green'
-  },
-  blue: {
-    primary: 'blue',
-    accent: 'pink'
+    accent: 'purple'
   },
   green: {
     primary: 'green',

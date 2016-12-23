@@ -16,8 +16,8 @@
       let listItemSpec = {
         staticClass: 'md-list-item',
         on: {
-          click: () => {
-            this.$emit('click');
+          click: ($event) => {
+            this.$emit('click', $event);
           }
         }
       };
@@ -26,13 +26,14 @@
         return createElement('div', { staticClass: holderClass }, content);
       };
 
+      let createRipple = () => {
+        return createElement('md-ink-ripple');
+      };
+
       let createCompatibleRouterLink = () => {
         slot[0].data.staticClass = containerClass + ' ' + holderClass;
-        slot[0].data.directives = [{
-          name: 'md-ink-ripple'
-        }];
 
-        return createElement('li', listItemSpec, slot);
+        return createElement('li', listItemSpec, [...slot, createRipple()]);
       };
 
       let prepareExpandList = () => {
@@ -92,11 +93,8 @@
               handleExpandClick(this);
               this.$emit('click');
             }
-          },
-          directives: [{
-            name: 'md-ink-ripple'
-          }]
-        }, [createItemHolder(slot)]);
+          }
+        }, [createItemHolder(slot), createRipple()]);
       };
 
       let createExpandList = () => {

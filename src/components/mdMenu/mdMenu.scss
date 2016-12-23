@@ -17,7 +17,6 @@ $menu-base-width: 56px;
   position: absolute;
   z-index: 120;
   transform: scale(.9, .85) translateZ(0);
-  background-color: #fff;
   border-radius: 2px;
   box-shadow: $material-shadow-2dp;
   opacity: 0;
@@ -26,7 +25,6 @@ $menu-base-width: 56px;
               margin .2s $swift-ease-in-timing-function,
               transform 0s .25s $swift-ease-in-timing-function;
   will-change: transform, opacity, width;
-  color: rgba(#212121, .87);
 
   &.md-direction-bottom-right {
     margin-top: -20px;
@@ -107,17 +105,8 @@ $menu-base-width: 56px;
   font-size: 16px;
   line-height: 1.2em;
 
-  &:hover,
-  &:focus,
-  &.md-highlighted {
-    .md-button:not([disabled]) {
-      background-color: rgba(#000, .12);
-    }
-  }
-
   &[disabled] {
     cursor: default;
-    color: rgba(#000, .38);
   }
 
   .md-list-item-holder {

@@ -1,9 +1,9 @@
 <template>
-  <div class="md-select" :class="classes">
+  <div class="md-select" :class="[themeClass, classes]">
     <md-menu :md-close-on-select="!multiple">
       <span class="md-select-value" md-menu-trigger ref="value">{{ selectedText || multipleText || placeholder }}</span>
 
-      <md-menu-content class="md-select-content" :class="contentClasses">
+      <md-menu-content class="md-select-content" :class="[themeClass, contentClasses]">
         <slot></slot>
       </md-menu-content>
     </md-menu>
@@ -17,6 +17,7 @@
 <style lang="scss" src="./mdSelect.scss"></style>
 
 <script>
+  import theme from '../../core/components/mdTheme/mixin';
   import getClosestVueParent from '../../core/utils/getClosestVueParent';
   import isArray from '../../core/utils/isArray';
 
@@ -31,6 +32,7 @@
       placeholder: String,
       mdMenuClass: String
     },
+    mixins: [theme],
     data() {
       return {
         selectedValue: null,
@@ -127,8 +129,8 @@
         this.selectedValue = output.value;
         this.selectedText = output.text;
 
-        if (this.parentContainer) {
-          this.$parent.setValue(output.text);
+        if (this.selectedText && this.parentContainer) {
+          this.parentContainer.setValue(this.selectedText);
         }
       },
       changeValue(value) {
@@ -153,21 +155,21 @@
       },
       selectOption(value, text) {
         this.selectedText = text;
+        this.setTextAndValue(value);
         this.changeValue(value);
       }
     },
     mounted() {
       this.parentContainer = getClosestVueParent(this.$parent, 'md-input-container');
 
-      this.setTextAndValue(this.value);
-
       if (this.parentContainer) {
         this.setParentDisabled();
         this.setParentRequired();
         this.setParentPlaceholder();
-        this.parentContainer.setValue(this.value);
         this.parentContainer.hasSelect = true;
       }
+
+      this.setTextAndValue(this.value);
     },
     beforeDestroy() {
       if (this.parentContainer) {

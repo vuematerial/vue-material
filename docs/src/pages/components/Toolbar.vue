@@ -297,7 +297,7 @@
 
         <example-box card-title="Themes">
           <div slot="demo">
-            <md-toolbar v-md-theme="'green'">
+            <md-toolbar md-theme="green">
               <md-button class="md-icon-button">
                 <md-icon>menu</md-icon>
               </md-button>
@@ -309,7 +309,7 @@
               </md-button>
             </md-toolbar>
 
-            <md-toolbar class="md-large" v-md-theme="'brown'">
+            <md-toolbar class="md-large" md-theme="brown">
               <div class="md-toolbar-container">
                 <md-button class="md-icon-button">
                   <md-icon>menu</md-icon>
@@ -331,7 +331,7 @@
               </div>
             </md-toolbar>
 
-            <md-toolbar v-md-theme="'orange'">
+            <md-toolbar md-theme="orange">
               <md-button class="md-icon-button">
                 <md-icon>menu</md-icon>
               </md-button>
@@ -342,7 +342,7 @@
               <md-button>Remove</md-button>
             </md-toolbar>
 
-            <md-toolbar v-md-theme="'blue'">
+            <md-toolbar md-theme="blue">
               <md-button class="md-icon-button">
                 <md-icon>menu</md-icon>
               </md-button>
@@ -356,7 +356,7 @@
 
           <div slot="code">
             <code-block lang="xml">
-              &lt;md-toolbar v-md-theme=&quot;&#039;green&#039;&quot;&gt;
+              &lt;md-toolbar md-theme=&quot;green&quot;&gt;
                 &lt;md-button class=&quot;md-icon-button&quot;&gt;
                   &lt;md-icon&gt;menu&lt;/md-icon&gt;
                 &lt;/md-button&gt;
@@ -368,7 +368,7 @@
                 &lt;/md-button&gt;
               &lt;/md-toolbar&gt;
 
-              &lt;md-toolbar class=&quot;md-large&quot; v-md-theme=&quot;&#039;brown&#039;&quot;&gt;
+              &lt;md-toolbar class=&quot;md-large&quot; md-theme=&quot;brown&quot;&gt;
                 &lt;div class=&quot;md-toolbar-container&quot;&gt;
                   &lt;md-button class=&quot;md-icon-button&quot;&gt;
                     &lt;md-icon&gt;menu&lt;/md-icon&gt;
@@ -390,7 +390,7 @@
                 &lt;/div&gt;
               &lt;/md-toolbar&gt;
 
-              &lt;md-toolbar v-md-theme=&quot;&#039;orange&#039;&quot;&gt;
+              &lt;md-toolbar md-theme=&quot;orange&quot;&gt;
                 &lt;md-button class=&quot;md-icon-button&quot;&gt;
                   &lt;md-icon&gt;menu&lt;/md-icon&gt;
                 &lt;/md-button&gt;
@@ -401,7 +401,7 @@
                 &lt;md-button&gt;Remove&lt;/md-button&gt;
               &lt;/md-toolbar&gt;
 
-              &lt;md-toolbar v-md-theme=&quot;&#039;blue&#039;&quot;&gt;
+              &lt;md-toolbar md-theme=&quot;blue&quot;&gt;
                 &lt;md-button class=&quot;md-icon-button&quot;&gt;
                   &lt;md-icon&gt;menu&lt;/md-icon&gt;
                 &lt;/md-button&gt;
@@ -418,7 +418,7 @@
         <example-box card-title="Complete example">
           <div slot="demo">
             <div class="phone-viewport complete-example">
-              <md-whiteframe md-elevation="2" md-tag="md-toolbar" class="md-large" v-md-theme="'light-blue'">
+              <md-whiteframe md-tag="md-toolbar" md-elevation="2" md-theme="light-blue" class="md-large">
                 <div class="md-toolbar-container">
                   <md-button class="md-icon-button" @click="$refs.sidenav.toggle()">
                     <md-icon>menu</md-icon>
@@ -497,7 +497,7 @@
                 <md-subheader class="md-inset">Files</md-subheader>
 
                 <md-list-item>
-                  <md-avatar v-md-theme="'blue'" class="md-avatar-icon md-primary">
+                  <md-avatar md-theme="blue" class="md-avatar-icon md-primary">
                     <md-icon>insert_drive_file</md-icon>
                   </md-avatar>
 
@@ -512,7 +512,7 @@
                 </md-list-item>
 
                 <md-list-item>
-                  <md-avatar v-md-theme="'orange'" class="md-avatar-icon md-primary">
+                  <md-avatar md-theme="orange" class="md-avatar-icon md-primary">
                     <md-icon>collections</md-icon>
                   </md-avatar>
 
@@ -527,7 +527,7 @@
                 </md-list-item>
 
                 <md-list-item>
-                  <md-avatar v-md-theme="'green'" class="md-avatar-icon md-primary">
+                  <md-avatar md-theme="green" class="md-avatar-icon md-primary">
                     <md-icon>view_list</md-icon>
                   </md-avatar>
 
@@ -542,7 +542,7 @@
                 </md-list-item>
 
                 <md-list-item>
-                  <md-avatar v-md-theme="'orange'" class="md-avatar-icon md-primary">
+                  <md-avatar md-theme="orange" class="md-avatar-icon md-primary">
                     <md-icon>collections</md-icon>
                   </md-avatar>
 
@@ -557,8 +557,8 @@
                 </md-list-item>
               </md-list>
 
-              <md-sidenav class="md-left" ref="sidenav">
-                <md-toolbar class="md-account-header" v-md-theme="'blue'">
+              <md-sidenav md-theme="blue" class="md-left" ref="sidenav">
+                <md-toolbar class="md-account-header">
                   <md-list class="md-transparent">
                     <md-list-item class="md-avatar-list">
                       <md-avatar class="md-large">
@@ -589,7 +589,7 @@
                   </md-list>
                 </md-toolbar>
 
-                <md-list v-md-theme="'blue'">
+                <md-list>
                   <md-list-item @click="$refs.sidenav.toggle()" class="md-primary">
                     <md-icon>insert_drive_file</md-icon> <span>My files</span>
                   </md-list-item>
@@ -617,7 +617,7 @@
           <div slot="code">
             <code-block lang="xml">
               &lt;div class=&quot;phone-viewport complete-example&quot;&gt;
-                &lt;md-whiteframe md-elevation=&quot;2&quot; md-tag=&quot;md-toolbar&quot; class=&quot;md-large&quot; v-md-theme=&quot;&#039;light-blue&#039;&quot;&gt;
+                &lt;md-whiteframe md-tag=&quot;md-toolbar&quot; md-elevation=&quot;2&quot; md-theme=&quot;light-blue&quot; class=&quot;md-large&quot;&gt;
                   &lt;div class=&quot;md-toolbar-container&quot;&gt;
                     &lt;md-button class=&quot;md-icon-button&quot; @click=&quot;$refs.sidenav.toggle()&quot;&gt;
                       &lt;md-icon&gt;menu&lt;/md-icon&gt;
@@ -696,7 +696,7 @@
                   &lt;md-subheader class=&quot;md-inset&quot;&gt;Files&lt;/md-subheader&gt;
 
                   &lt;md-list-item&gt;
-                    &lt;md-avatar v-md-theme=&quot;&#039;blue&#039;&quot; class=&quot;md-avatar-icon md-primary&quot;&gt;
+                    &lt;md-avatar md-theme=&quot;blue&quot; class=&quot;md-avatar-icon md-primary&quot;&gt;
                       &lt;md-icon&gt;insert_drive_file&lt;/md-icon&gt;
                     &lt;/md-avatar&gt;
 
@@ -711,7 +711,7 @@
                   &lt;/md-list-item&gt;
 
                   &lt;md-list-item&gt;
-                    &lt;md-avatar v-md-theme=&quot;&#039;orange&#039;&quot; class=&quot;md-avatar-icon md-primary&quot;&gt;
+                    &lt;md-avatar md-theme=&quot;orange&quot; class=&quot;md-avatar-icon md-primary&quot;&gt;
                       &lt;md-icon&gt;collections&lt;/md-icon&gt;
                     &lt;/md-avatar&gt;
 
@@ -726,7 +726,7 @@
                   &lt;/md-list-item&gt;
 
                   &lt;md-list-item&gt;
-                    &lt;md-avatar v-md-theme=&quot;&#039;green&#039;&quot; class=&quot;md-avatar-icon md-primary&quot;&gt;
+                    &lt;md-avatar md-theme=&quot;green&quot; class=&quot;md-avatar-icon md-primary&quot;&gt;
                       &lt;md-icon&gt;view_list&lt;/md-icon&gt;
                     &lt;/md-avatar&gt;
 
@@ -741,7 +741,7 @@
                   &lt;/md-list-item&gt;
 
                   &lt;md-list-item&gt;
-                    &lt;md-avatar v-md-theme=&quot;&#039;orange&#039;&quot; class=&quot;md-avatar-icon md-primary&quot;&gt;
+                    &lt;md-avatar md-theme=&quot;orange&quot; class=&quot;md-avatar-icon md-primary&quot;&gt;
                       &lt;md-icon&gt;collections&lt;/md-icon&gt;
                     &lt;/md-avatar&gt;
 
@@ -756,8 +756,8 @@
                   &lt;/md-list-item&gt;
                 &lt;/md-list&gt;
 
-                &lt;md-sidenav class=&quot;md-left&quot; ref=&quot;sidenav&quot;&gt;
-                  &lt;md-toolbar class=&quot;md-account-header&quot; v-md-theme=&quot;&#039;blue&#039;&quot;&gt;
+                &lt;md-sidenav md-theme=&quot;blue&quot; class=&quot;md-left&quot; ref=&quot;sidenav&quot;&gt;
+                  &lt;md-toolbar class=&quot;md-account-header&quot;&gt;
                     &lt;md-list class=&quot;md-transparent&quot;&gt;
                       &lt;md-list-item class=&quot;md-avatar-list&quot;&gt;
                         &lt;md-avatar class=&quot;md-large&quot;&gt;
@@ -788,7 +788,7 @@
                     &lt;/md-list&gt;
                   &lt;/md-toolbar&gt;
 
-                  &lt;md-list v-md-theme=&quot;&#039;blue&#039;&quot;&gt;
+                  &lt;md-list&gt;
                     &lt;md-list-item @click=&quot;$refs.sidenav.toggle()&quot; class=&quot;md-primary&quot;&gt;
                       &lt;md-icon&gt;insert_drive_file&lt;/md-icon&gt; &lt;span&gt;My files&lt;/span&gt;
                     &lt;/md-list-item&gt;
@@ -827,12 +827,6 @@
                   position: absolute;
                   bottom: -20px;
                   left: 16px;
-                }
-
-                .md-toolbar {
-                  .md-icon {
-                    color: #014e70;
-                  }
                 }
 
                 .md-title {
@@ -891,12 +885,6 @@
       position: absolute;
       bottom: -20px;
       left: 16px;
-    }
-
-    .md-toolbar {
-      .md-icon {
-        color: #014e70;
-      }
     }
 
     .md-title {

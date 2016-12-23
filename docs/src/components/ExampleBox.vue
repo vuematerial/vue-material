@@ -1,7 +1,7 @@
 <template>
   <div class="example-box">
     <md-card class="example-box-card">
-      <md-toolbar class="md-dense" v-md-theme="'white'">
+      <md-toolbar md-theme="white" class="md-dense">
         <h3 class="md-title">{{ cardTitle }}</h3>
       </md-toolbar>
 
@@ -41,7 +41,7 @@ var App = new Vue({
     </pre>
 
     <pre ref="initialHtml">
-&lt;div id=&quot;app&quot; v-md-theme=&quot;&#039;default&#039;&quot;&gt;
+&lt;div id=&quot;app&quot;&gt;
   ### TEMPLATE ###
 &lt;/div&gt;
     </pre>

@@ -1,5 +1,5 @@
 <template>
-  <div class="md-input-container" :class="classes">
+  <div class="md-input-container" :class="[themeClass, classes]">
     <slot></slot>
 
     <span class="md-count" v-if="enableCounter">{{ inputLength }} / {{ counterLength }}</span>
@@ -13,6 +13,7 @@
 <style lang="scss" src="./mdInputContainer.scss"></style>
 
 <script>
+  import theme from '../../core/components/mdTheme/mixin';
   import isArray from '../../core/utils/isArray';
 
   export default {
@@ -20,6 +21,7 @@
       mdInline: Boolean,
       mdHasPassword: Boolean
     },
+    mixins: [theme],
     data() {
       return {
         value: '',

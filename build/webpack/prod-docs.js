@@ -34,6 +34,16 @@ export default merge(baseConfig, {
         context: config.assetsPath,
         from: '**/*',
         to: path.join(config.rootPath, 'docs', 'assets')
+      },
+      {
+        context: config.docsPath,
+        from: 'changelog.html',
+        to: path.join(config.rootPath, 'docs')
+      },
+      {
+        context: config.docsPath,
+        from: 'versions.json',
+        to: path.join(config.rootPath, 'docs')
       }
     ]),
     new HtmlWebpackPlugin({

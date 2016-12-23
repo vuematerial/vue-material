@@ -1,5 +1,4 @@
 .THEME_NAME {
-  .md-switch,
   &.md-switch {
     &.md-checked {
       .md-switch-container {
