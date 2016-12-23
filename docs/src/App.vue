@@ -99,9 +99,9 @@
                   <router-link exact to="/components/sidenav">Sidenav</router-link>
                 </md-list-item>
 
-                <md-list-item class="md-inset">
+                <!-- <md-list-item class="md-inset">
                   <router-link exact to="/components/snackbar">Snackbar</router-link>
-                </md-list-item>
+                </md-list-item> -->
 
                 <md-list-item class="md-inset">
                   <router-link exact to="/components/spinner">Spinner</router-link>
