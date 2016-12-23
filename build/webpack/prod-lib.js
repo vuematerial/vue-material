@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import webpack from 'webpack';
 import merge from 'webpack-merge';
+import autoprefixer from 'autoprefixer';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import config from '../config';
 import baseConfig from './base';
@@ -35,7 +36,12 @@ export default merge(baseConfig, {
     loaders: {
       css: ExtractTextPlugin.extract('css'),
       scss: ExtractTextPlugin.extract(['css', 'sass'])
-    }
+    },
+    postcss: [
+      autoprefixer({
+        browsers: ['last 2 versions']
+      })
+    ]
   },
   plugins: [
     new webpack.optimize.UglifyJsPlugin({

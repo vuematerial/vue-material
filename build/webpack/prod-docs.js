@@ -1,6 +1,7 @@
 import webpack from 'webpack';
 import path from 'path';
 import merge from 'webpack-merge';
+import autoprefixer from 'autoprefixer';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
@@ -19,7 +20,12 @@ export default merge(baseConfig, {
     loaders: {
       css: ExtractTextPlugin.extract('css'),
       scss: ExtractTextPlugin.extract(['css', 'sass'])
-    }
+    },
+    postcss: [
+      autoprefixer({
+        browsers: ['last 3 versions']
+      })
+    ]
   },
   plugins: [
     new webpack.optimize.UglifyJsPlugin({

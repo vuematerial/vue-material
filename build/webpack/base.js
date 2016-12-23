@@ -1,6 +1,5 @@
 import path from 'path';
 import webpack from 'webpack';
-import autoprefixer from 'autoprefixer';
 import eslintFormatter from 'eslint-friendly-formatter';
 import config from '../config';
 
@@ -87,12 +86,7 @@ export default {
     loaders: {
       css: 'vue-style-loader!css-loader',
       scss: 'vue-style-loader!css-loader!sass-loader'
-    },
-    postcss: [
-      autoprefixer({
-        browsers: ['last 2 versions']
-      })
-    ]
+    }
   },
   plugins: [
     new webpack.DefinePlugin({

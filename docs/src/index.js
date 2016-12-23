@@ -22,6 +22,7 @@ Vue.component('code-block', CodeBlock);
 Vue.use(VueRouter);
 
 let router = new VueRouter({
+  mode: 'hash',
   base: window.location.pathname,
   routes
 });
