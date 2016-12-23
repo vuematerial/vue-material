@@ -22,7 +22,7 @@ Vue.component('code-block', CodeBlock);
 Vue.use(VueRouter);
 
 let router = new VueRouter({
-  base: location.pathname,
+  base: window.location.pathname,
   routes
 });
 
