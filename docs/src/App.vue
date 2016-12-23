@@ -336,7 +336,13 @@
     },
     computed: {
       logo() {
-        return 'assets/logo-vue-material-' + Vue.material.currentTheme + '.png';
+        let theme = Vue.material.currentTheme;
+
+        if (theme) {
+          return `assets/logo-vue-material-${theme}.png`;
+        }
+
+        return 'assets/logo-vue-material-default.png';
       }
     },
     methods: {

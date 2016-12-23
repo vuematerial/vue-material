@@ -14,7 +14,7 @@ export default merge(baseConfig, {
     path: path.join(config.rootPath, 'docs'),
     publicPath: '',
     filename: '[name].[chunkhash:8].js',
-    chunkFilename: '[id].[chunkhash:8].js'
+    chunkFilename: '[name].[chunkhash:8].js'
   },
   vue: {
     loaders: {
