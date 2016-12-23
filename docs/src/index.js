@@ -30,19 +30,22 @@ let router = new VueRouter({
 let Docs = Vue.component('app', App);
 let handleSectionTheme = (currentRoute) => {
   let theme = 'default';
+  let name = currentRoute.name;
 
-  if (currentRoute.name === 'getting-started') {
-    theme = 'indigo';
-  } else if (currentRoute.name.indexOf('themes') >= 0) {
-    theme = 'cyan';
-  } else if (currentRoute.name.indexOf('ui-elements') >= 0) {
-    theme = 'purple';
-  } else if (currentRoute.name === 'changelog') {
-    theme = 'orange';
-  } else if (currentRoute.name === 'about') {
-    theme = 'green';
-  } else if (currentRoute.name === 'error') {
-    theme = 'red';
+  if (name) {
+    if (name === 'getting-started') {
+      theme = 'indigo';
+    } else if (name.indexOf('themes') >= 0) {
+      theme = 'cyan';
+    } else if (name.indexOf('ui-elements') >= 0) {
+      theme = 'purple';
+    } else if (name === 'changelog') {
+      theme = 'orange';
+    } else if (name === 'about') {
+      theme = 'green';
+    } else if (name === 'error') {
+      theme = 'red';
+    }
   }
 
   Vue.material.setCurrentTheme(theme);

@@ -1,43 +1,43 @@
-/* main */
-import Introduction from './pages/Introduction';
-import GettingStarted from './pages/GettingStarted';
-import About from './pages/About';
-import Changelog from './pages/Changelog';
-import Error404 from './pages/Error';
+/* Root */
+const Introduction = require('./pages/Introduction');
+const GettingStarted = require('./pages/GettingStarted');
+const About = require('./pages/About');
+const Changelog = require('./pages/Changelog');
+const Error404 = require('./pages/Error');
 
 /* Components */
-import Avatar from './pages/components/Avatar';
-import BottomBar from './pages/components/BottomBar';
-import Buttons from './pages/components/Buttons';
-import ButtonToggle from './pages/components/ButtonToggle';
-import Card from './pages/components/Card';
-import Checkbox from './pages/components/Checkbox';
-import Dialog from './pages/components/Dialog';
-import Icon from './pages/components/Icon';
-import InkRipple from './pages/components/InkRipple';
-import Input from './pages/components/Input';
-import List from './pages/components/List';
-import Menu from './pages/components/Menu';
-import Radio from './pages/components/Radio';
-import Select from './pages/components/Select';
-import Sidenav from './pages/components/Sidenav';
-/*import Snackbar from './pages/components/Snackbar';*/
-import Spinner from './pages/components/Spinner';
-import Subheader from './pages/components/Subheader';
-import Switch from './pages/components/Switch';
-import Table from './pages/components/Table';
-import Tabs from './pages/components/Tabs';
-import Toolbar from './pages/components/Toolbar';
-import Tooltip from './pages/components/Tooltip';
-import Whiteframe from './pages/components/Whiteframe';
+const Avatar = (resolve) => require(['./pages/components/Avatar'], resolve);
+const BottomBar = (resolve) => require(['./pages/components/BottomBar'], resolve);
+const Buttons = (resolve) => require(['./pages/components/Buttons'], resolve);
+const ButtonToggle = (resolve) => require(['./pages/components/ButtonToggle'], resolve);
+const Card = (resolve) => require(['./pages/components/Card'], resolve);
+const Checkbox = (resolve) => require(['./pages/components/Checkbox'], resolve);
+const Dialog = (resolve) => require(['./pages/components/Dialog'], resolve);
+const Icon = (resolve) => require(['./pages/components/Icon'], resolve);
+const InkRipple = (resolve) => require(['./pages/components/InkRipple'], resolve);
+const Input = (resolve) => require(['./pages/components/Input'], resolve);
+const List = (resolve) => require(['./pages/components/List'], resolve);
+const Menu = (resolve) => require(['./pages/components/Menu'], resolve);
+const Radio = (resolve) => require(['./pages/components/Radio'], resolve);
+const Select = (resolve) => require(['./pages/components/Select'], resolve);
+const Sidenav = (resolve) => require(['./pages/components/Sidenav'], resolve);
+/*const Snackbar = (resolve) => require(['./pages/components/Snackbar'], resolve);*/
+const Spinner = (resolve) => require(['./pages/components/Spinner'], resolve);
+const Subheader = (resolve) => require(['./pages/components/Subheader'], resolve);
+const Switch = (resolve) => require(['./pages/components/Switch'], resolve);
+const Table = (resolve) => require(['./pages/components/Table'], resolve);
+const Tabs = (resolve) => require(['./pages/components/Tabs'], resolve);
+const Toolbar = (resolve) => require(['./pages/components/Toolbar'], resolve);
+const Tooltip = (resolve) => require(['./pages/components/Tooltip'], resolve);
+const Whiteframe = (resolve) => require(['./pages/components/Whiteframe'], resolve);
 
 /* UI Elements */
-import Typography from './pages/ui-elements/Typography';
-import Layout from './pages/ui-elements/Layout';
+const Typography = (resolve) => require(['./pages/ui-elements/Typography'], resolve);
+const Layout = (resolve) => require(['./pages/ui-elements/Layout'], resolve);
 
 /* Themes */
-import Configuration from './pages/themes/Configuration';
-import DynamicThemes from './pages/themes/DynamicThemes';
+const Configuration = (resolve) => require(['./pages/themes/Configuration'], resolve);
+const DynamicThemes = (resolve) => require(['./pages/themes/DynamicThemes'], resolve);
 
 const main = [
   {
