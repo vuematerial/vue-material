@@ -59,15 +59,10 @@
     },
     methods: {
       removeTooltips() {
-        const tooltips = [...this.rootElement.querySelectorAll('.md-tooltip')];
-
-        tooltips.forEach((tooltip) => {
-          if (tooltip.parentNode) {
-            tooltip.parentNode.removeChild(tooltip);
-          }
-        });
-
-        this.tooltipElement.removeEventListener(transitionEndEventName, this.removeTooltips);
+        if (this.tooltipElement.parentNode) {
+          this.tooltipElement.removeEventListener(transitionEndEventName, this.removeTooltips);
+          this.tooltipElement.parentNode.removeChild(this.tooltipElement);
+        }
       },
       calculateTooltipPosition() {
         let position = this.parentElement.getBoundingClientRect();

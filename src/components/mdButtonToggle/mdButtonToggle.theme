@@ -12,15 +12,15 @@
     }
 
     .md-toggle {
-      color: #{'BACKGROUND-CONTRAST-600'};
-      background-color: #{'BACKGROUND-COLOR-500'};
+      color: #{'BACKGROUND-CONTRAST-0.54'};
+      background-color: #{'BACKGROUND-CONTRAST-0.26'};
 
       &:hover:not([disabled]) {
-        background-color: #{'BACKGROUND-COLOR-600'};
+        background-color: #{'BACKGROUND-CONTRAST-0.38'};
       }
 
       + .md-toggle:after {
-        background-color: #{'BACKGROUND-COLOR-600'};
+        background-color: #{'BACKGROUND-CONTRAST-0.12'};
       }
     }
 
@@ -29,11 +29,11 @@
       background-color: #{'PRIMARY-COLOR'};
 
       &:hover:not([disabled]) {
-        background-color: #{'PRIMARY-COLOR-600'};
+        background-color: #{'PRIMARY-COLOR'};
       }
 
       + .md-toggle:after {
-        background-color: #{'PRIMARY-COLOR-700'};
+        background-color: #{'PRIMARY-COLOR-600'};
       }
     }
 
@@ -42,11 +42,11 @@
       background-color: #{'ACCENT-COLOR'};
 
       &:hover:not([disabled]) {
-        background-color: #{'ACCENT-COLOR-600'};
+        background-color: #{'ACCENT-COLOR'};
       }
 
       + .md-toggle:after {
-        background-color: #{'ACCENT-COLOR-700'};
+        background-color: #{'ACCENT-COLOR-600'};
       }
     }
 
@@ -55,11 +55,11 @@
       background-color: #{'WARN-COLOR'};
 
       &:hover:not([disabled]) {
-        background-color: #{'WARN-COLOR-600'};
+        background-color: #{'WARN-COLOR'};
       }
 
       + .md-toggle:after {
-        background-color: #{'WARN-COLOR-700'};
+        background-color: #{'WARN-COLOR-600'};
       }
     }
 

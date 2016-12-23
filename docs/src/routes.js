@@ -154,11 +154,6 @@ const components = [
     component: Spinner
   },
   {
-    path: '/components/switch',
-    name: 'components:switch',
-    component: Switch
-  },
-  {
     path: '/components/subheader',
     name: 'components:subheader',
     component: Subheader

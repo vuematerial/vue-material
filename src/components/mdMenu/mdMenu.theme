@@ -1,6 +1,6 @@
 .THEME_NAME {
   &.md-menu-content {
-    background-color: #{'BACKGROUND-COLOR-A100'};
+    background-color: #{'BACKGROUND-COLOR'};
     color: #{'BACKGROUND-CONTRAST'};
 
     .md-menu-item {

@@ -1,6 +1,6 @@
 .THEME_NAME {
   &.md-list {
-    background-color: #{'BACKGROUND-COLOR-A100'};
+    background-color: #{'BACKGROUND-COLOR'};
     color: #{'BACKGROUND-CONTRAST'};
 
     &.md-transparent {
@@ -50,7 +50,7 @@
 
     .md-list-item-expand {
       .md-list-item-container {
-        background-color: #{'BACKGROUND-COLOR-A100'};
+        background-color: #{'BACKGROUND-COLOR'};
 
         &:hover,
         &:focus {
