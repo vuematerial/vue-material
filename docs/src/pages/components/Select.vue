@@ -72,7 +72,7 @@
 
             <md-table-body>
               <md-table-row>
-                <md-table-cell>selected</md-table-cell>
+                <md-table-cell>selected|change</md-table-cell>
                 <md-table-cell>Receives the value of the model</md-table-cell>
                 <md-table-cell>Triggered when the model changes.</md-table-cell>
               </md-table-row>
