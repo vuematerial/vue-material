@@ -18,15 +18,17 @@
       }
     },
     mounted() {
-      this.trigger = this.$el.querySelector('[md-expand-trigger]');
-      this.content = this.$el.querySelector('.md-card-content');
+      window.setTimeout(() => {
+        this.trigger = this.$el.querySelector('[md-expand-trigger]');
+        this.content = this.$el.querySelector('.md-card-content');
 
-      if (this.content) {
-        this.setContentMargin();
+        if (this.content) {
+          this.setContentMargin();
 
-        this.trigger.addEventListener('click', this.toggle);
-        window.addEventListener('resize', this.onWindowResize);
-      }
+          this.trigger.addEventListener('click', this.toggle);
+          window.addEventListener('resize', this.onWindowResize);
+        }
+      }, 200);
     },
     destroyed() {
       if (this.content) {
