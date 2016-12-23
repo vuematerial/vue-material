@@ -28,7 +28,7 @@
       </div>
 
       <div slot="example">
-        <example-box card-title="As a component">
+        <example-box card-title="Default">
           <div slot="demo">
             <div class="has-ripple">
               <md-ink-ripple></md-ink-ripple>

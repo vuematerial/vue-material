@@ -14,7 +14,7 @@
 }
 
 body.THEME_NAME {
-  background-color: #{'BACKGROUND-COLOR-A100'};
+  background-color: #{'BACKGROUND-COLOR'};
   color: #{'BACKGROUND-CONTRAST-0.87'};
 }
 

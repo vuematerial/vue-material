@@ -1,7 +1,7 @@
 .THEME_NAME {
   &.md-sidenav {
     .md-sidenav-content {
-      background-color: #{'BACKGROUND-COLOR-A100'};
+      background-color: #{'BACKGROUND-COLOR'};
       color: #{'BACKGROUND-CONTRAST'};
     }
   }

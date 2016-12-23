@@ -5,13 +5,13 @@
 
   &.md-table-card {
     .md-toolbar {
-      background-color: #{'BACKGROUND-COLOR-A100'};
-      color: #{'BACKGROUND-CONTRAST-A100'};
+      background-color: #{'BACKGROUND-COLOR'};
+      color: #{'BACKGROUND-CONTRAST'};
     }
   }
 
   &.md-table-alternate-header {
-    background-color: #{'BACKGROUND-COLOR-A100'};
+    background-color: #{'BACKGROUND-COLOR'};
 
     .md-toolbar {
       background-color: #{'ACCENT-COLOR-A100-0.2'};

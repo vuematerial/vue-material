@@ -2,8 +2,8 @@
   &.md-button:not([disabled]) {
     &.md-raised {
       &:not(.md-icon-button) {
-        color: #{'BACKGROUND-COLOR-900'};
-        background-color: #{'BACKGROUND-COLOR-50'};
+        color: #{'BACKGROUND-CONTRAST'};
+        background-color: #{'BACKGROUND-COLOR'};
 
         &:hover {
           background-color: #{'BACKGROUND-COLOR-200'};
@@ -11,7 +11,7 @@
       }
 
       &.md-icon-button:not(.md-raised) {
-        color: #{'BACKGROUND-COLOR'};
+        color: #{'BACKGROUND-CONTRAST'};
       }
     }
 
@@ -24,8 +24,8 @@
       }
 
       &.md-clean {
-        color: #{'BACKGROUND-COLOR-900'};
-        background-color: #{'BACKGROUND-COLOR-50'};
+        color: #{'BACKGROUND-CONTRAST'};
+        background-color: #{'BACKGROUND-COLOR'};
 
         &:hover {
           background-color: #{'BACKGROUND-COLOR-200'};

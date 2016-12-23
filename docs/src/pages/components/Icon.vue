@@ -23,17 +23,17 @@
         <example-box card-title="Default">
           <div slot="demo">
             <md-icon>home</md-icon>
-            <md-icon class="md-primary">home</md-icon>
-            <md-icon class="md-accent">home</md-icon>
-            <md-icon class="md-warn">home</md-icon>
+            <md-icon class="md-primary">menu</md-icon>
+            <md-icon class="md-accent">people</md-icon>
+            <md-icon class="md-warn">access_time</md-icon>
           </div>
 
           <div slot="code">
             <code-block lang="xml">
               &lt;md-icon&gt;home&lt;/md-icon&gt;
-              &lt;md-icon class=&quot;md-primary&quot;&gt;home&lt;/md-icon&gt;
-              &lt;md-icon class=&quot;md-accent&quot;&gt;home&lt;/md-icon&gt;
-              &lt;md-icon class=&quot;md-warn&quot;&gt;home&lt;/md-icon&gt;
+              &lt;md-icon class=&quot;md-primary&quot;&gt;menu&lt;/md-icon&gt;
+              &lt;md-icon class=&quot;md-accent&quot;&gt;people&lt;/md-icon&gt;
+              &lt;md-icon class=&quot;md-warn&quot;&gt;access_time&lt;/md-icon&gt;
             </code-block>
           </div>
         </example-box>
@@ -41,17 +41,17 @@
         <example-box card-title="Themes">
           <div slot="demo">
             <md-icon md-theme="light-blue" class="md-primary">home</md-icon>
-            <md-icon md-theme="green" class="md-primary">home</md-icon>
-            <md-icon md-theme="brown" class="md-primary">home</md-icon>
-            <md-icon md-theme="orange" class="md-primary">home</md-icon>
+            <md-icon md-theme="green" class="md-primary">menu</md-icon>
+            <md-icon md-theme="brown" class="md-primary">people</md-icon>
+            <md-icon md-theme="orange" class="md-primary">access_time</md-icon>
           </div>
 
           <div slot="code">
             <code-block lang="xml">
               &lt;md-icon md-theme=&quot;light-blue&quot; class=&quot;md-primary&quot;&gt;home&lt;/md-icon&gt;
-              &lt;md-icon md-theme=&quot;green&quot; class=&quot;md-primary&quot;&gt;home&lt;/md-icon&gt;
-              &lt;md-icon md-theme=&quot;brown&quot; class=&quot;md-primary&quot;&gt;home&lt;/md-icon&gt;
-              &lt;md-icon md-theme=&quot;orange&quot; class=&quot;md-primary&quot;&gt;home&lt;/md-icon&gt;
+              &lt;md-icon md-theme=&quot;green&quot; class=&quot;md-primary&quot;&gt;menu&lt;/md-icon&gt;
+              &lt;md-icon md-theme=&quot;brown&quot; class=&quot;md-primary&quot;&gt;people&lt;/md-icon&gt;
+              &lt;md-icon md-theme=&quot;orange&quot; class=&quot;md-primary&quot;&gt;access_time&lt;/md-icon&gt;
             </code-block>
           </div>
         </example-box>

@@ -1,6 +1,6 @@
 .THEME_NAME {
   &.md-dialog-container .md-dialog {
-    background-color: #{'BACKGROUND-COLOR-A100'};
+    background-color: #{'BACKGROUND-COLOR'};
     color: #{'BACKGROUND-CONTRAST'};
   }
 }
