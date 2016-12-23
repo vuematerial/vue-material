@@ -1,0 +1,8 @@
+.THEME_NAME {
+  .md-snackbar,
+  &.md-snackbar {
+    .md-ink-ripple {
+      color: #fff;
+    }
+  }
+}
