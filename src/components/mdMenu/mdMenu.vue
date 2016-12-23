@@ -104,9 +104,9 @@
 
         if (this.mdAlignTrigger) {
           if (vertical === 'top') {
-            top -= menuTriggerRect.height;
+            top -= menuTriggerRect.height + 11;
           } else {
-            top += menuTriggerRect.height;
+            top += menuTriggerRect.height + 11;
           }
         }
 

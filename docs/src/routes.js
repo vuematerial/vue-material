@@ -14,13 +14,14 @@ import Card from './pages/components/Card';
 import Checkbox from './pages/components/Checkbox';
 import Dialog from './pages/components/Dialog';
 import Icon from './pages/components/Icon';
+import InkRipple from './pages/components/InkRipple';
 import Input from './pages/components/Input';
 import List from './pages/components/List';
 import Menu from './pages/components/Menu';
 import Radio from './pages/components/Radio';
-import InkRipple from './pages/components/InkRipple';
 import Select from './pages/components/Select';
 import Sidenav from './pages/components/Sidenav';
+/*import Snackbar from './pages/components/Snackbar';*/
 import Spinner from './pages/components/Spinner';
 import Subheader from './pages/components/Subheader';
 import Switch from './pages/components/Switch';
@@ -108,6 +109,11 @@ const components = [
     component: Icon
   },
   {
+    path: '/components/ink-ripple',
+    name: 'components:ink-ripple',
+    component: InkRipple
+  },
+  {
     path: '/components/input',
     name: 'components:input',
     component: Input
@@ -128,11 +134,6 @@ const components = [
     component: Radio
   },
   {
-    path: '/components/ink-ripple',
-    name: 'components:ink-ripple',
-    component: InkRipple
-  },
-  {
     path: '/components/select',
     name: 'components:select',
     component: Select
@@ -142,6 +143,11 @@ const components = [
     name: 'components:sidenav',
     component: Sidenav
   },
+/*  {
+    path: '/components/snackbar',
+    name: 'components:snackbar',
+    component: Snackbar
+  }, */
   {
     path: '/components/spinner',
     name: 'components:spinner',
@@ -156,6 +162,11 @@ const components = [
     path: '/components/subheader',
     name: 'components:subheader',
     component: Subheader
+  },
+  {
+    path: '/components/switch',
+    name: 'components:switch',
+    component: Switch
   },
   {
     path: '/components/table',
