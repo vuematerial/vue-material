@@ -406,30 +406,38 @@
 
         <example-box card-title="Themes">
           <div slot="demo">
-            <md-button class="md-primary" v-md-theme="'indigo'">Indigo</md-button>
-            <md-button class="md-raised md-primary" v-md-theme="'teal'">Teal</md-button>
-            <md-button class="md-icon-button md-primary" v-md-theme="'orange'">
+            <md-button md-theme="indigo" class="md-primary">Indigo</md-button>
+
+            <md-button md-theme="teal" class="md-raised md-primary">Teal</md-button>
+
+            <md-button md-theme="orange" class="md-icon-button md-primary">
               <md-icon>add</md-icon>
             </md-button>
-            <md-button class="md-icon-button md-raised md-primary" v-md-theme="'green'">
+
+            <md-button md-theme="green" class="md-icon-button md-raised md-primary">
               <md-icon>message</md-icon>
             </md-button>
-            <md-button class="md-fab md-primary" v-md-theme="'brown'">
+
+            <md-button md-theme="brown" class="md-fab md-primary">
               <md-icon>dialpad</md-icon>
             </md-button>
           </div>
 
           <div slot="code">
             <code-block lang="xml">
-              &lt;md-button class=&quot;md-primary&quot; v-md-theme=&quot;&#039;indigo&#039;&quot;&gt;Indigo&lt;/md-button&gt;
-              &lt;md-button class=&quot;md-raised md-primary&quot; v-md-theme=&quot;&#039;teal&#039;&quot;&gt;Teal&lt;/md-button&gt;
-              &lt;md-button class=&quot;md-icon-button md-primary&quot; v-md-theme=&quot;&#039;orange&#039;&quot;&gt;
+              &lt;md-button md-theme=&quot;indigo&quot; class=&quot;md-primary&quot;&gt;Indigo&lt;/md-button&gt;
+
+              &lt;md-button md-theme=&quot;teal&quot; class=&quot;md-raised md-primary&quot;&gt;Teal&lt;/md-button&gt;
+
+              &lt;md-button md-theme=&quot;orange&quot; class=&quot;md-icon-button md-primary&quot;&gt;
                 &lt;md-icon&gt;add&lt;/md-icon&gt;
               &lt;/md-button&gt;
-              &lt;md-button class=&quot;md-icon-button md-raised md-primary&quot; v-md-theme=&quot;&#039;green&#039;&quot;&gt;
+
+              &lt;md-button md-theme=&quot;green&quot; class=&quot;md-icon-button md-raised md-primary&quot;&gt;
                 &lt;md-icon&gt;message&lt;/md-icon&gt;
               &lt;/md-button&gt;
-              &lt;md-button class=&quot;md-fab md-primary&quot; v-md-theme=&quot;&#039;brown&#039;&quot;&gt;
+
+              &lt;md-button md-theme=&quot;brown&quot; class=&quot;md-fab md-primary&quot;&gt;
                 &lt;md-icon&gt;dialpad&lt;/md-icon&gt;
               &lt;/md-button&gt;
             </code-block>

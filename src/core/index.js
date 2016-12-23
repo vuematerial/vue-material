@@ -15,10 +15,7 @@ export default function install(Vue) {
 
   install.installed = true;
 
-  Vue.material = {
-    styles: [CoreTheme]
-  };
-
   Vue.use(MdTheme);
   Vue.use(MdInkRipple);
+  Vue.material.styles.push(CoreTheme);
 }

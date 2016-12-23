@@ -1,5 +1,5 @@
 <template>
-  <page-content page-title="Typography">
+  <page-content page-title="UI Elements - Typography">
     <docs-component>
       <div slot="description">
         <h2 class="md-title">Styles</h2>

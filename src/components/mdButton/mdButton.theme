@@ -1,5 +1,4 @@
 .THEME_NAME {
-  .md-button:not([disabled]),
   &.md-button:not([disabled]) {
     &.md-raised {
       &:not(.md-icon-button) {

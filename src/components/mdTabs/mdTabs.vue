@@ -1,5 +1,5 @@
 <template>
-  <div class="md-tabs" :class="tabClasses">
+  <div class="md-tabs" :class="[themeClass, tabClasses]">
     <md-whiteframe md-tag="nav" class="md-tabs-navigation" :md-elevation="mdElevation" :class="navigationClasses" ref="tabNavigation">
       <button
         v-for="header in tabList"
@@ -14,6 +14,7 @@
         <div class="md-tab-header-container">
           <md-icon v-if="header.icon">{{ header.icon }}</md-icon>
           <span v-if="header.label">{{ header.label }}</span>
+          <md-tooltip v-if="header.tooltip" :md-direction="header.tooltipDirection" :md-delay="header.tooltipDelay">{{ header.tooltip }}</md-tooltip>
         </div>
       </button>
 
@@ -31,6 +32,8 @@
 <style lang="scss" src="./mdTabs.scss"></style>
 
 <script>
+  import theme from '../../core/components/mdTheme/mixin';
+
   export default {
     props: {
       mdFixed: Boolean,
@@ -45,6 +48,7 @@
         default: 0
       }
     },
+    mixins: [theme],
     data: () => ({
       tabList: {},
       activeTab: null,
@@ -211,8 +215,14 @@
       });
     },
     beforeDestroy() {
-      this.contentObserver.disconnect();
-      this.navigationObserver.disconnect();
+      if (this.contentObserver) {
+        this.contentObserver.disconnect();
+      }
+
+      if (this.navigationObserver) {
+        this.navigationObserver.disconnect();
+      }
+
       window.removeEventListener('resize', this.calculateOnWatch);
     }
   };

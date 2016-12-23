@@ -74,37 +74,6 @@ Vue.use(VueMaterial.mdSidenav)
 Vue.use(VueMaterial.mdToolbar)
 ```
 
-To get Vue Material working properly, you'll need to configure and apply a default theme.
-
-``` javascript
-Vue.material.theme.register('default', {
-  primary: 'cyan',
-  accent: 'pink'
-})
-```
-
-Or you can register multiple themes at once.
-
-``` javascript
-Vue.material.theme.registerAll({
-  default: {
-    primary: 'cyan',
-    accent: 'pink'
-  },
-  phone: {
-    primary: 'indigo',
-    accent: 'pink'
-  }
-})
-```
-
-Apply your theme using <code>v-md-theme</code> directive:
-
-``` html
-<div v-md-theme="'default'"></div>
-<div v-md-theme="'phone'"></div>
-```
-
 ## Browser Support
 Vue Material supports the latest version of all Browsers. This means:
 * Google Chrome 50+
@@ -113,6 +82,7 @@ Vue Material supports the latest version of all Browsers. This means:
 * Opera 40+
 * IE 11
 * Edge
+
 <small>May work in other browsers but it's untested.</small>
 
 ## Changelog

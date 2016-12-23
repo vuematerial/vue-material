@@ -11,6 +11,7 @@ import webpackConfig from '../webpack/dev';
 
 const app = express();
 const compiler = webpack(webpackConfig);
+const rootPath = path.join(__dirname, '..', '..');
 const devMiddlewareInstance = devMiddleware(compiler, {
   publicPath: config.publicPath,
   index: config.indexPath,
@@ -32,7 +33,8 @@ compiler.plugin('compilation', (compilation) => {
 app.use(historyApiFallback());
 app.use(devMiddlewareInstance);
 app.use(hotMiddlewareInstance);
-app.use('/assets', express.static(path.join(__dirname, '..', '..', config.assetsPath)));
+app.use('/', express.static(path.join(rootPath, config.docsPath)));
+app.use('/assets', express.static(path.join(rootPath, config.assetsPath)));
 
 export default app.listen(config.server.port, (error) => {
   let uri = 'http://localhost:' + config.server.port;

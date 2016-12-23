@@ -89,60 +89,6 @@
       </article>
 
       <article>
-        <section>
-          <h2 class="md-headline">Themes</h2>
-
-          <p>To get Vue Material working properly, you'll need to configure a default theme. You can also register multiple themes at once. Apply your theme on each code part that you want using <code>v-md-theme</code> directive:</p>
-
-          <md-tabs :md-dynamic-height="false" class="md-transparent">
-            <md-tab md-label="Single Theme">
-              <code-block lang="javascript">
-                Vue.material.theme.register('default', {
-                  primary: 'cyan',
-                  accent: 'pink'
-                })
-              </code-block>
-
-              <code-block lang="xml">
-                &lt;div id=&quot;app&quot; v-md-theme=&quot;&#039;default&#039;&quot;&gt;
-                  &lt;md-toolbar&gt;
-                    &lt;div class=&quot;md-title&quot;&gt;My App&lt;/div&gt;
-                  &lt;/md-toolbar&gt;
-
-                  &lt;md-button&gt;My Button&lt;/md-button&gt;
-                &lt;/div&gt;
-              </code-block>
-            </md-tab>
-
-            <md-tab md-label="Multiple Themes">
-              <code-block lang="javascript">
-                Vue.material.theme.registerAll({
-                  default: {
-                    primary: 'cyan',
-                    accent: 'pink'
-                  },
-                  indigo: {
-                    primary: 'indigo',
-                    accent: 'pink'
-                  }
-                })
-              </code-block>
-
-              <code-block lang="xml">
-                &lt;div id=&quot;app&quot; v-md-theme=&quot;&#039;default&#039;&quot;&gt;
-                  &lt;md-toolbar&gt;
-                    &lt;div class=&quot;md-title&quot;&gt;My App&lt;/div&gt;
-                  &lt;/md-toolbar&gt;
-
-                  &lt;md-button v-md-theme=&quot;&#039;indigo&#039;&quot;&gt;My Button&lt;/md-button&gt;
-                &lt;/div&gt;
-              </code-block>
-            </md-tab>
-          </md-tabs>
-        </section>
-      </article>
-
-      <article>
         <h2 class="md-headline">Codepen Examples</h2>
 
         <section>
