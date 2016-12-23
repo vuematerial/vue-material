@@ -136,6 +136,7 @@
       changeValue(value) {
         this.$emit('input', value);
         this.$emit('change', value);
+        this.$emit('selected', value);
       },
       selectMultiple(index, value, text) {
         let values = [];
