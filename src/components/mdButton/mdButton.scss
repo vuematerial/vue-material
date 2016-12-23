@@ -135,7 +135,7 @@ $button-icon-size: 40px;
     border-radius: $button-fab-size;
     line-height: $button-fab-size;
     background-clip: padding-box;
-    transition: $swift-ease-in;
+    transition: $swift-ease-out;
     transition-property: background-color,
                          box-shadow,
                          transform;

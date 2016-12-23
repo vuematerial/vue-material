@@ -83,20 +83,20 @@
       }
     },
     mounted() {
+      let tabData = this.getTabData();
+
       this.parentTabs = getClosestVueParent(this.$parent, 'md-tabs');
 
       if (!this.parentTabs) {
         throw new Error('You must wrap the md-tab in a md-tabs');
       }
 
-      this.$nextTick(() => {
-        this.mounted = true;
-        this.parentTabs.registerTab(this.getTabData());
+      this.mounted = true;
+      this.parentTabs.updateTab(tabData);
 
-        if (this.mdActive) {
-          this.parentTabs.activeTab = this.tabId;
-        }
-      });
+      if (this.mdActive) {
+        this.parentTabs.setActiveTab(tabData);
+      }
     },
     beforeDestroy() {
       this.parentTabs.unregisterTab(this.getTabData());

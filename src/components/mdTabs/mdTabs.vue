@@ -96,7 +96,6 @@
       },
       registerTab(tabData) {
         this.tabList[tabData.id] = tabData;
-        this.$forceUpdate();
       },
       unregisterTab(tabData) {
         delete this.tabList[tabData.id];
@@ -107,7 +106,7 @@
         if (tabData.active) {
           if (!tabData.disabled) {
             this.setActiveTab(tabData);
-          } else {
+          } else if (Object.keys(this.tabList).length) {
             let tabsIds = Object.keys(this.tabList);
             let targetIndex = tabsIds.indexOf(tabData.id) + 1;
             let target = tabsIds[targetIndex];
@@ -141,13 +140,15 @@
         return idList.indexOf(id);
       },
       calculateIndicatorPos() {
-        let tabsWidth = this.$el.offsetWidth;
-        let activeTab = this.$refs.tabHeader[this.activeTabNumber];
-        let left = activeTab.offsetLeft;
-        let right = tabsWidth - left - activeTab.offsetWidth;
+        if (this.$refs.tabHeader) {
+          let tabsWidth = this.$el.offsetWidth;
+          let activeTab = this.$refs.tabHeader[this.activeTabNumber];
+          let left = activeTab.offsetLeft;
+          let right = tabsWidth - left - activeTab.offsetWidth;
 
-        this.$refs.indicator.style.left = left + 'px';
-        this.$refs.indicator.style.right = right + 'px';
+          this.$refs.indicator.style.left = left + 'px';
+          this.$refs.indicator.style.right = right + 'px';
+        }
       },
       calculateTabsWidthAndPosition() {
         const width = this.$el.offsetWidth;
@@ -166,9 +167,11 @@
       },
       calculateContentHeight() {
         this.$nextTick(() => {
-          let height = this.tabList[this.activeTab].ref.$el.offsetHeight;
+          if (Object.keys(this.tabList).length) {
+            let height = this.tabList[this.activeTab].ref.$el.offsetHeight;
 
-          this.contentHeight = height + 'px';
+            this.contentHeight = height + 'px';
+          }
         });
       },
       calculatePosition() {
@@ -204,7 +207,7 @@
         this.observeElementChanges();
         window.addEventListener('resize', this.calculateOnWatch);
 
-        if (!this.activeTab) {
+        if (Object.keys(this.tabList).length && !this.activeTab) {
           let firstTab = Object.keys(this.tabList)[0];
 
           this.setActiveTab(this.tabList[firstTab]);
