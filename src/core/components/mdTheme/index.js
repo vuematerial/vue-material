@@ -1,6 +1,6 @@
 import palette from './palette';
 import rgba from './rgba';
-import MdTheme from './MdTheme';
+import MdTheme from './mdTheme';
 
 const VALID_THEME_TYPE = ['primary', 'accent', 'background', 'warn', 'hue-1', 'hue-2', 'hue-3'];
 const DEFAULT_THEME_COLORS = {
