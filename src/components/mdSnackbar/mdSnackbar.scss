@@ -1,6 +1,8 @@
 @import '../../core/stylesheets/variables.scss';
+@import '../../core/stylesheets/mixins.scss';
 
 .md-snackbar {
+  width: auto;
   min-width: 288px;
   max-width: 568px;
   min-height: 48px;
@@ -13,6 +15,11 @@
   transition: $swift-ease-out;
   color: #fff;
   font-size: 14px;
+
+  @include layout-xsmall {
+    max-width: 100%;
+    border-radius: 0;
+  }
 
   &.md-position-bottom-center {
     bottom: 0;
