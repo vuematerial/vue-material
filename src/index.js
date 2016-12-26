@@ -16,7 +16,7 @@ import MdMenu from './components/mdMenu';
 import MdRadio from './components/mdRadio';
 import MdSelect from './components/mdSelect';
 import MdSidenav from './components/mdSidenav';
-/*import MdSnackbar from './components/mdSnackbar';*/
+import MdSnackbar from './components/mdSnackbar';
 import MdSpinner from './components/mdSpinner';
 import MdSubheader from './components/mdSubheader';
 import MdSwitch from './components/mdSwitch';
@@ -45,7 +45,7 @@ const options = {
   MdRadio,
   MdSelect,
   MdSidenav,
-  /*MdSnackbar,*/
+  MdSnackbar,
   MdSpinner,
   MdSubheader,
   MdSwitch,

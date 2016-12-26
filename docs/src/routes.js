@@ -21,7 +21,7 @@ const Menu = (resolve) => require(['./pages/components/Menu'], resolve);
 const Radio = (resolve) => require(['./pages/components/Radio'], resolve);
 const Select = (resolve) => require(['./pages/components/Select'], resolve);
 const Sidenav = (resolve) => require(['./pages/components/Sidenav'], resolve);
-/*const Snackbar = (resolve) => require(['./pages/components/Snackbar'], resolve);*/
+const Snackbar = (resolve) => require(['./pages/components/Snackbar'], resolve);
 const Spinner = (resolve) => require(['./pages/components/Spinner'], resolve);
 const Subheader = (resolve) => require(['./pages/components/Subheader'], resolve);
 const Switch = (resolve) => require(['./pages/components/Switch'], resolve);
@@ -143,11 +143,11 @@ const components = [
     name: 'components:sidenav',
     component: Sidenav
   },
-/*  {
+  {
     path: '/components/snackbar',
     name: 'components:snackbar',
     component: Snackbar
-  }, */
+  },
   {
     path: '/components/spinner',
     name: 'components:spinner',
