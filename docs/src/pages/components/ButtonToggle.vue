@@ -72,7 +72,7 @@
               </md-button>
             </md-button-toggle>
 
-            <md-button-toggle class="md-button-group md-primary">
+            <md-button-toggle class="md-primary">
               <md-button class="md-icon-button md-toggle">
                 <md-icon>format_bold</md-icon>
               </md-button>
@@ -90,7 +90,7 @@
               </md-button>
             </md-button-toggle>
 
-            <md-button-toggle class="md-button-group md-accent">
+            <md-button-toggle class="md-accent">
               <md-button class="md-icon-button md-toggle">
                 <md-icon>format_bold</md-icon>
               </md-button>
@@ -108,7 +108,7 @@
               </md-button>
             </md-button-toggle>
 
-            <md-button-toggle class="md-button-group md-warn">
+            <md-button-toggle class="md-warn">
               <md-button class="md-icon-button md-toggle">
                 <md-icon>format_bold</md-icon>
               </md-button>
@@ -126,7 +126,7 @@
               </md-button>
             </md-button-toggle>
 
-            <md-button-toggle class="md-button-group md-primary">
+            <md-button-toggle class="md-primary">
               <md-button class="md-icon-button">
                 <md-icon>format_bold</md-icon>
               </md-button>
@@ -172,7 +172,7 @@
                 &lt;/md-button&gt;
               &lt;/md-button-toggle&gt;
 
-              &lt;md-button-toggle class=&quot;md-button-group md-primary&quot;&gt;
+              &lt;md-button-toggle class=&quot;md-primary&quot;&gt;
                 &lt;md-button class=&quot;md-icon-button md-toggle&quot;&gt;
                   &lt;md-icon&gt;format_bold&lt;/md-icon&gt;
                 &lt;/md-button&gt;
@@ -190,7 +190,7 @@
                 &lt;/md-button&gt;
               &lt;/md-button-toggle&gt;
 
-              &lt;md-button-toggle class=&quot;md-button-group md-accent&quot;&gt;
+              &lt;md-button-toggle class=&quot;md-accent&quot;&gt;
                 &lt;md-button class=&quot;md-icon-button md-toggle&quot;&gt;
                   &lt;md-icon&gt;format_bold&lt;/md-icon&gt;
                 &lt;/md-button&gt;
@@ -208,7 +208,7 @@
                 &lt;/md-button&gt;
               &lt;/md-button-toggle&gt;
 
-              &lt;md-button-toggle class=&quot;md-button-group md-warn&quot;&gt;
+              &lt;md-button-toggle class=&quot;md-warn&quot;&gt;
                 &lt;md-button class=&quot;md-icon-button md-toggle&quot;&gt;
                   &lt;md-icon&gt;format_bold&lt;/md-icon&gt;
                 &lt;/md-button&gt;
@@ -226,7 +226,7 @@
                 &lt;/md-button&gt;
               &lt;/md-button-toggle&gt;
 
-              &lt;md-button-toggle class=&quot;md-button-group md-primary&quot;&gt;
+              &lt;md-button-toggle class=&quot;md-primary&quot;&gt;
                 &lt;md-button class=&quot;md-icon-button&quot;&gt;
                   &lt;md-icon&gt;format_bold&lt;/md-icon&gt;
                 &lt;/md-button&gt;
@@ -274,7 +274,7 @@
               </md-button>
             </md-button-toggle>
 
-            <md-button-toggle md-single class="md-button-group md-primary">
+            <md-button-toggle md-single class="md-primary">
               <md-button class="md-icon-button">
                 <md-icon>format_bold</md-icon>
               </md-button>
@@ -292,7 +292,7 @@
               </md-button>
             </md-button-toggle>
 
-            <md-button-toggle md-single class="md-button-group md-accent">
+            <md-button-toggle md-single class="md-accent">
               <md-button class="md-icon-button md-toggle">
                 <md-icon>format_bold</md-icon>
               </md-button>
@@ -310,7 +310,7 @@
               </md-button>
             </md-button-toggle>
 
-            <md-button-toggle md-single class="md-button-group md-warn">
+            <md-button-toggle md-single class="md-warn">
               <md-button class="md-icon-button">
                 <md-icon>format_bold</md-icon>
               </md-button>
@@ -328,7 +328,7 @@
               </md-button>
             </md-button-toggle>
 
-            <md-button-toggle md-single class="md-button-group md-primary">
+            <md-button-toggle md-single class="md-primary">
               <md-button class="md-icon-button">
                 <md-icon>format_bold</md-icon>
               </md-button>
@@ -374,7 +374,7 @@
                 &lt;/md-button&gt;
               &lt;/md-button-toggle&gt;
 
-              &lt;md-button-toggle md-single class=&quot;md-button-group md-primary&quot;&gt;
+              &lt;md-button-toggle md-single class=&quot;md-primary&quot;&gt;
                 &lt;md-button class=&quot;md-icon-button&quot;&gt;
                   &lt;md-icon&gt;format_bold&lt;/md-icon&gt;
                 &lt;/md-button&gt;
@@ -392,7 +392,7 @@
                 &lt;/md-button&gt;
               &lt;/md-button-toggle&gt;
 
-              &lt;md-button-toggle md-single class=&quot;md-button-group md-accent&quot;&gt;
+              &lt;md-button-toggle md-single class=&quot;md-accent&quot;&gt;
                 &lt;md-button class=&quot;md-icon-button md-toggle&quot;&gt;
                   &lt;md-icon&gt;format_bold&lt;/md-icon&gt;
                 &lt;/md-button&gt;
@@ -410,7 +410,7 @@
                 &lt;/md-button&gt;
               &lt;/md-button-toggle&gt;
 
-              &lt;md-button-toggle md-single class=&quot;md-button-group md-warn&quot;&gt;
+              &lt;md-button-toggle md-single class=&quot;md-warn&quot;&gt;
                 &lt;md-button class=&quot;md-icon-button&quot;&gt;
                   &lt;md-icon&gt;format_bold&lt;/md-icon&gt;
                 &lt;/md-button&gt;
@@ -428,7 +428,7 @@
                 &lt;/md-button&gt;
               &lt;/md-button-toggle&gt;
 
-              &lt;md-button-toggle md-single class=&quot;md-button-group md-primary&quot;&gt;
+              &lt;md-button-toggle md-single class=&quot;md-primary&quot;&gt;
                 &lt;md-button class=&quot;md-icon-button&quot;&gt;
                   &lt;md-icon&gt;format_bold&lt;/md-icon&gt;
                 &lt;/md-button&gt;
@@ -461,7 +461,7 @@
 </template>
 
 <style lang="scss" scoped>
-  .md-button-group + .md-button-group {
+  .md-button-toggle + .md-button-toggle {
     margin-top: 16px;
   }
 </style>
