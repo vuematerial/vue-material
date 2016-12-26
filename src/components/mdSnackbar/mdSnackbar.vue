@@ -1,7 +1,9 @@
 <template>
-  <div class="md-snackbar" :class="classes" :id="snackbarId">
-    <div class="md-snackbar-content">
-      <slot></slot>
+  <div class="md-snackbar" :class="[themeClass, classes]" :id="snackbarId">
+    <div class="md-snackbar-container" ref="container">
+      <div class="md-snackbar-content">
+        <slot></slot>
+      </div>
     </div>
   </div>
 </template>
@@ -11,6 +13,7 @@
 <script>
   import uniqueId from '../../core/utils/uniqueId';
   import transitionEndEventName from '../../core/utils/transitionEndEventName';
+  import theme from '../../core/components/mdTheme/mixin';
   import manager from './manager';
 
   export default {
@@ -25,6 +28,7 @@
         default: 4000
       }
     },
+    mixins: [theme],
     data() {
       return {
         snackbarId: this.id || 'snackbar-' + uniqueId(),
@@ -53,16 +57,17 @@
 
         manager.current = this;
         this.rootElement.appendChild(this.snackbarElement);
-        window.getComputedStyle(this.snackbarElement).backgroundColor;
+        window.getComputedStyle(this.$refs.container).backgroundColor;
         this.active = true;
         this.$emit('open');
-        //this.closeTimeout = window.setTimeout(this.close, this.mdDuration);
+        this.closeTimeout = window.setTimeout(this.close, this.mdDuration);
       },
       close() {
         const removeElement = () => {
-          this.snackbarElement.removeEventListener(transitionEndEventName, removeElement);
+          this.$refs.container.removeEventListener(transitionEndEventName, removeElement);
 
           if (this.rootElement.contains(this.snackbarElement)) {
+            this.snackbarElement.querySelector('.md-ripple').classList.remove('md-active');
             this.rootElement.removeChild(this.snackbarElement);
           }
         };
@@ -70,8 +75,8 @@
         manager.current = null;
         this.active = false;
         this.$emit('close');
-        this.snackbarElement.removeEventListener(transitionEndEventName, removeElement);
-        this.snackbarElement.addEventListener(transitionEndEventName, removeElement);
+        this.$refs.container.removeEventListener(transitionEndEventName, removeElement);
+        this.$refs.container.addEventListener(transitionEndEventName, removeElement);
         window.clearTimeout(this.closeTimeout);
       }
     },

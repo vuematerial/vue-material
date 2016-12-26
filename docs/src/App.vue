@@ -332,6 +332,10 @@
     background-color: #fff;
     border: 1px solid rgba(#000, .12);
   }
+
+  .api-table tr > td:first-child {
+    white-space: nowrap;
+  }
 </style>
 
 <script>
