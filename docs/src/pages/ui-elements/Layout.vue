@@ -120,6 +120,12 @@
                 <md-table-cell><code>Number</code></md-table-cell>
                 <md-table-cell>Create a empty space before the actual child. Accepts the same value of <code>md-flex</code> Example: <code>md-flex-offset="50"</code></md-table-cell>
               </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>md-flex-offset-{type}</md-table-cell>
+                <md-table-cell><code>Number</code></md-table-cell>
+                <md-table-cell>Create a empty space before the actual child  on screen sizes less than or equal to given breakpoint. Example: <code>md-flex-offset-small="20"</code></md-table-cell>
+              </md-table-row>
             </md-table-body>
           </md-table>
         </api-table>
