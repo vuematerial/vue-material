@@ -28,7 +28,6 @@
   "files": [
     "dist",
     "src",
-    "CHANGELOG.md",
     "LICENSE",
     "README.md"
   ],
@@ -41,13 +40,13 @@
     "release": "bash build/release.sh"
   },
   "dependencies": {
-    "vue": "^2.1.6"
+    "vue": "^2.1.7"
   },
   "devDependencies": {
-    "autoprefixer": "^6.5.4",
+    "autoprefixer": "^6.6.0",
     "autosize": "^3.0.20",
     "babel-cli": "^6.18.0",
-    "babel-core": "^6.20.0",
+    "babel-core": "^6.21.0",
     "babel-eslint": "^7.1.1",
     "babel-loader": "^6.2.10",
     "babel-plugin-add-module-exports": "^0.2.1",
@@ -73,10 +72,10 @@
     "highlight.js": "^9.9.0",
     "html-webpack-plugin": "^2.24.1",
     "json-loader": "^0.5.4",
-    "node-sass": "^4.0.0",
-    "ora": "^0.3.0",
+    "node-sass": "^4.1.1",
+    "ora": "^0.4.0",
     "raw-loader": "^0.5.1",
-    "sass-loader": "^4.1.0",
+    "sass-loader": "^4.1.1",
     "scopedQuerySelectorShim": "lazd/scopedQuerySelectorShim",
     "url-loader": "^0.5.7",
     "vue-hot-reload-api": "^2.0.6",
@@ -84,11 +83,11 @@
     "vue-loader": "^10.0.2",
     "vue-router": "^2.1.1",
     "vue-style-loader": "^1.0.0",
-    "vue-template-compiler": "^2.1.6",
+    "vue-template-compiler": "^2.1.7",
     "webpack": "^1.14.0",
     "webpack-dev-middleware": "^1.9.0",
-    "webpack-hot-middleware": "^2.13.2",
-    "webpack-merge": "^1.1.1"
+    "webpack-hot-middleware": "^2.14.0",
+    "webpack-merge": "^2.0.0"
   },
   "hyperlayout": [
     [

@@ -275,8 +275,8 @@
     transition-delay: .2s;
   }
 
-  .md-router-enter-active,
-  .md-router-leave-active {
+  .md-router-enter,
+  .md-router-leave {
     position: absolute;
     top: 0;
     right: 0;
@@ -292,13 +292,13 @@
     }
   }
 
-  .md-router-leave-active {
+  .md-router-leave {
     z-index: 1;
     transition: $swift-ease-in;
     transition-duration: .25s;
   }
 
-  .md-router-enter-active {
+  .md-router-enter {
     z-index: 2;
     transition: $swift-ease-out;
 
