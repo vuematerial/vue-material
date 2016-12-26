@@ -50,6 +50,9 @@
       }
     },
     methods: {
+      removeElement() {
+        this.rootElement.removeChild(this.snackbarElement);
+      },
       open() {
         if (manager.current) {
           manager.current.close();
@@ -63,21 +66,23 @@
         this.closeTimeout = window.setTimeout(this.close, this.mdDuration);
       },
       close() {
-        const removeElement = () => {
+        if (this.$refs.container) {
+          const removeElement = () => {
+            this.$refs.container.removeEventListener(transitionEndEventName, removeElement);
+
+            if (this.rootElement.contains(this.snackbarElement)) {
+              this.snackbarElement.querySelector('.md-ripple').classList.remove('md-active');
+              this.removeElement();
+            }
+          };
+
+          manager.current = null;
+          this.active = false;
+          this.$emit('close');
           this.$refs.container.removeEventListener(transitionEndEventName, removeElement);
-
-          if (this.rootElement.contains(this.snackbarElement)) {
-            this.snackbarElement.querySelector('.md-ripple').classList.remove('md-active');
-            this.rootElement.removeChild(this.snackbarElement);
-          }
-        };
-
-        manager.current = null;
-        this.active = false;
-        this.$emit('close');
-        this.$refs.container.removeEventListener(transitionEndEventName, removeElement);
-        this.$refs.container.addEventListener(transitionEndEventName, removeElement);
-        window.clearTimeout(this.closeTimeout);
+          this.$refs.container.addEventListener(transitionEndEventName, removeElement);
+          window.clearTimeout(this.closeTimeout);
+        }
       }
     },
     mounted() {
@@ -88,7 +93,8 @@
       });
     },
     beforeDestroy() {
-      this.close();
+      window.clearTimeout(this.closeTimeout);
+      this.removeElement();
     }
   };
 </script>
