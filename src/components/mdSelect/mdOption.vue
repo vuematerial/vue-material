@@ -50,8 +50,11 @@
       }
     },
     methods: {
+      isMultiple() {
+        return this.parentSelect.multiple;
+      },
       setParentOption() {
-        if (!this.parentSelect.multiple) {
+        if (!this.isMultiple()) {
           this.parentSelect.selectOption(this.value, this.$refs.item.textContent);
         } else {
           this.check = !this.check;
@@ -64,7 +67,7 @@
     },
     watch: {
       isSelected(selected) {
-        if (this.parentSelect.multiple) {
+        if (this.isMultiple()) {
           this.check = selected;
         }
       },
@@ -90,7 +93,7 @@
       this.parentSelect.multipleOptions[this.index] = {};
       this.parentSelect.options[this.index] = this;
 
-      if (this.parentSelect.value === this.value) {
+      if (this.isMultiple() && this.parentSelect.value.indexOf(this.value) >= 0 || this.parentSelect.value === this.value) {
         this.setParentOption();
       }
     },
