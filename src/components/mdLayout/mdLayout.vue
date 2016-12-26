@@ -25,13 +25,24 @@
       mdHideLarge: Boolean,
       mdHideXlarge: Boolean,
       mdGutter: [String, Number, Boolean],
+      mdAlign: String,
+      mdAlignXsmall: String,
+      mdAlignSmall: String,
+      mdAlignMedium: String,
+      mdAlignLarge: String,
+      mdAlignXlarge: String,
       mdFlex: [String, Number, Boolean],
       mdFlexXsmall: [String, Number, Boolean],
       mdFlexSmall: [String, Number, Boolean],
       mdFlexMedium: [String, Number, Boolean],
       mdFlexLarge: [String, Number, Boolean],
       mdFlexXlarge: [String, Number, Boolean],
-      mdFlexOffset: [String, Number]
+      mdFlexOffset: [String, Number, Boolean],
+      mdFlexOffsetXsmall: [String, Number, Boolean],
+      mdFlexOffsetSmall: [String, Number, Boolean],
+      mdFlexOffsetMedium: [String, Number, Boolean],
+      mdFlexOffsetLarge: [String, Number, Boolean],
+      mdFlexOffsetXlarge: [String, Number, Boolean]
     },
     computed: {
       classes() {
@@ -63,31 +74,44 @@
           }
         }
 
-        if (this.mdFlexOffset) {
-          classes['md-flex-offset-' + this.mdFlexOffset] = true;
-        }
+        /* Flex */
+        this.generatePropClasses('md-flex', '', 'mdFlex', classes);
+        this.generatePropClasses('md-flex', 'xsmall', 'mdFlexXsmall', classes);
+        this.generatePropClasses('md-flex', 'small', 'mdFlexSmall', classes);
+        this.generatePropClasses('md-flex', 'medium', 'mdFlexMedium', classes);
+        this.generatePropClasses('md-flex', 'large', 'mdFlexLarge', classes);
+        this.generatePropClasses('md-flex', 'xlarge', 'mdFlexXlarge', classes);
 
-        this.generateFlexClasses('', 'mdFlex', classes);
-        this.generateFlexClasses('xsmall', 'mdFlexXsmall', classes);
-        this.generateFlexClasses('small', 'mdFlexSmall', classes);
-        this.generateFlexClasses('medium', 'mdFlexMedium', classes);
-        this.generateFlexClasses('large', 'mdFlexLarge', classes);
-        this.generateFlexClasses('xlarge', 'mdFlexXlarge', classes);
+        /* Flex Offset */
+        this.generatePropClasses('md-flex-offset', '', 'mdFlexOffset', classes);
+        this.generatePropClasses('md-flex-offset', 'xsmall', 'mdFlexOffsetXsmall', classes);
+        this.generatePropClasses('md-flex-offset', 'small', 'mdFlexOffsetSmall', classes);
+        this.generatePropClasses('md-flex-offset', 'medium', 'mdFlexOffsetMedium', classes);
+        this.generatePropClasses('md-flex-offset', 'large', 'mdFlexOffsetLarge', classes);
+        this.generatePropClasses('md-flex-offset', 'xlarge', 'mdFlexOffsetXlarge', classes);
+
+        /* Alignment */
+        this.generatePropClasses('md-align', '', 'mdAlign', classes);
+        this.generatePropClasses('md-align', 'xsmall', 'mdAlignXsmall', classes);
+        this.generatePropClasses('md-align', 'small', 'mdAlignSmall', classes);
+        this.generatePropClasses('md-align', 'medium', 'mdAlignMedium', classes);
+        this.generatePropClasses('md-align', 'large', 'mdAlignLarge', classes);
+        this.generatePropClasses('md-align', 'xlarge', 'mdAlignXlarge', classes);
 
         return classes;
       }
     },
     methods: {
-      generateFlexClasses(size, name, object) {
+      generatePropClasses(prop, size, name, object) {
         if (size) {
           size = '-' + size;
         }
 
         if (this[name]) {
           if (typeof this[name] === 'boolean') {
-            object['md-flex' + size] = true;
+            object[prop + size] = true;
           } else {
-            object['md-flex' + size + '-' + this[name]] = true;
+            object[prop + size + '-' + this[name]] = true;
           }
         }
       }
