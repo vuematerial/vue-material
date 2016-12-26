@@ -321,6 +321,17 @@
       }
     }
   }
+
+  .phone-viewport {
+    width: 360px;
+    height: 540px;
+    margin-right: 16px;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    background-color: #fff;
+    border: 1px solid rgba(#000, .12);
+  }
 </style>
 
 <script>

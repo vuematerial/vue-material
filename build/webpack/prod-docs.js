@@ -5,13 +5,15 @@ import autoprefixer from 'autoprefixer';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import OptimizeJsPlugin from 'optimize-js-plugin';
 import config from '../config';
 import baseConfig from './base';
 
+const docsPath = path.join(config.rootPath, config.docsPath);
 
 export default merge(baseConfig, {
   output: {
-    path: path.join(config.rootPath, 'docs'),
+    path: docsPath,
     publicPath: '',
     filename: '[name].[chunkhash:8].js',
     chunkFilename: '[name].[chunkhash:8].js'
@@ -28,28 +30,32 @@ export default merge(baseConfig, {
     ]
   },
   plugins: [
+    new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false
-      }
+      },
+      comments: false
     }),
-    new webpack.optimize.OccurenceOrderPlugin(),
+    new OptimizeJsPlugin({
+      sourceMap: false
+    }),
     new ExtractTextPlugin('[name].[contenthash:8].css'),
     new CopyWebpackPlugin([
       {
         context: config.assetsPath,
         from: '**/*',
-        to: path.join(config.rootPath, 'docs', 'assets')
+        to: path.join(docsPath, 'assets')
       },
       {
         context: config.docsPath,
         from: 'changelog.html',
-        to: path.join(config.rootPath, 'docs')
+        to: docsPath
       },
       {
         context: config.docsPath,
         from: 'versions.json',
-        to: path.join(config.rootPath, 'docs')
+        to: docsPath
       }
     ]),
     new HtmlWebpackPlugin({
@@ -77,15 +83,20 @@ export default merge(baseConfig, {
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
-      minChunks: (module) => {
+      minChunks(module) {
         let resource = module.resource;
 
-        return resource && (/\.js$/).test(resource) && resource.indexOf(config.nodePath) === 0;
+        if (resource && (/\.js$/).test(resource)) {
+          return resource.indexOf(config.nodePath) >= 0;
+        }
+
+        return false;
       }
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'manifest',
       chunks: ['vendor']
-    })
+    }),
+    new webpack.optimize.OccurenceOrderPlugin()
   ]
 });

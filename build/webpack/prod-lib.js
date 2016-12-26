@@ -4,8 +4,11 @@ import webpack from 'webpack';
 import merge from 'webpack-merge';
 import autoprefixer from 'autoprefixer';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import OptimizeJsPlugin from 'optimize-js-plugin';
 import config from '../config';
 import baseConfig from './base';
+
+const version = process.env.VERSION || require('../../package.json').version;
 
 function getDirectories(src) {
   return fs.readdirSync(src).filter((file) => {
@@ -43,13 +46,32 @@ export default merge(baseConfig, {
       })
     ]
   },
+  externals: {
+    vue: 'Vue'
+  },
   plugins: [
+    new webpack.optimize.DedupePlugin(),
+    new webpack.IgnorePlugin(/vue/),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false
-      }
+      },
+      comments: false
     }),
     new webpack.optimize.OccurenceOrderPlugin(),
+    new OptimizeJsPlugin({
+      sourceMap: false
+    }),
+    new webpack.BannerPlugin(
+`/*!
+ * Vue Material v${version}
+ * Made with love by Marcos Moura
+ * Released under the MIT License.
+ */`
+    , {
+      raw: true,
+      entryOnly: true
+    }),
     new ExtractTextPlugin('[name].css')
   ]
 });
