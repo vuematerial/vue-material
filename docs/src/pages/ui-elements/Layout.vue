@@ -120,6 +120,24 @@
                 <md-table-cell><code>Number</code></md-table-cell>
                 <md-table-cell>Create a empty space before the actual child. Accepts the same value of <code>md-flex</code> Example: <code>md-flex-offset="50"</code></md-table-cell>
               </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>md-flex-offset-{type}</md-table-cell>
+                <md-table-cell><code>Number</code></md-table-cell>
+                <md-table-cell>Create a empty space before the actual child  on screen sizes less than or equal to given breakpoint. Example: <code>md-flex-offset-small="20"</code></md-table-cell>
+              </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>md-align-{type}</md-table-cell>
+                <md-table-cell><code>String</code></md-table-cell>
+                <md-table-cell>Apply an alignment to the container. Accepts <code>start</code>|<code>center</code>|<code>end</code> Example: <code>md-align="end"</code></md-table-cell>
+              </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>md-align-{type}</md-table-cell>
+                <md-table-cell><code>Number</code></md-table-cell>
+                <md-table-cell>Apply an alignment to the container on screen sizes less than or equal to given breakpoint. Example: <code>md-align-xlarge="center"</code></md-table-cell>
+              </md-table-row>
             </md-table-body>
           </md-table>
         </api-table>
@@ -294,13 +312,13 @@
 
         <example-box card-title="Direction">
           <div class="layout-demo grid" slot="demo">
-            <md-layout class="column-size" md-gutter>
-              <md-layout md-column md-gutter class="color">
+            <md-layout class="column-size" md-gutter="16">
+              <md-layout md-column md-gutter="16" class="color">
                 <md-layout md-flex="20"></md-layout>
                 <md-layout></md-layout>
               </md-layout>
 
-              <md-layout md-column md-gutter class="color">
+              <md-layout md-column md-gutter="16" class="color">
                 <md-layout md-flex="50"></md-layout>
                 <md-layout></md-layout>
                 <md-layout></md-layout>
@@ -320,6 +338,78 @@
                   &lt;md-layout md-flex=&quot;50&quot;&gt;&lt;/md-layout&gt;
                   &lt;md-layout&gt;&lt;/md-layout&gt;
                   &lt;md-layout&gt;&lt;/md-layout&gt;
+                &lt;/md-layout&gt;
+              &lt;/md-layout&gt;
+            </code-block>
+          </div>
+        </example-box>
+
+        <example-box card-title="Alignment">
+          <div class="layout-demo grid gutter" slot="demo">
+            <md-layout md-gutter="16" class="color">
+              <md-layout md-flex="50">
+                <span>start</span>
+              </md-layout>
+            </md-layout>
+
+            <md-layout md-align="end" md-gutter="16" class="color">
+              <md-layout md-flex="33">
+                <span>end</span>
+              </md-layout>
+            </md-layout>
+
+            <md-layout md-align="end" md-gutter="16" class="color">
+              <md-layout md-flex="20">
+                <span>end</span>
+              </md-layout>
+
+              <md-layout md-flex="20">
+                <span>end</span>
+              </md-layout>
+            </md-layout>
+
+            <md-layout md-align="center" md-gutter="16" class="color">
+              <md-layout md-flex="35">
+                <span>center</span>
+              </md-layout>
+
+              <md-layout md-flex="35">
+                <span>center</span>
+              </md-layout>
+            </md-layout>
+          </div>
+
+          <div slot="code">
+            <code-block lang="xml">
+              &lt;md-layout md-gutter=&quot;16&quot;&gt;
+                &lt;md-layout md-flex=&quot;50&quot;&gt;
+                  &lt;span&gt;start&lt;/span&gt;
+                &lt;/md-layout&gt;
+              &lt;/md-layout&gt;
+
+              &lt;md-layout md-align=&quot;end&quot; md-gutter=&quot;16&quot;&gt;
+                &lt;md-layout md-flex=&quot;33&quot;&gt;
+                  &lt;span&gt;end&lt;/span&gt;
+                &lt;/md-layout&gt;
+              &lt;/md-layout&gt;
+
+              &lt;md-layout md-align=&quot;end&quot; md-gutter=&quot;16&quot;&gt;
+                &lt;md-layout md-flex=&quot;20&quot;&gt;
+                  &lt;span&gt;end&lt;/span&gt;
+                &lt;/md-layout&gt;
+
+                &lt;md-layout md-flex=&quot;20&quot;&gt;
+                  &lt;span&gt;end&lt;/span&gt;
+                &lt;/md-layout&gt;
+              &lt;/md-layout&gt;
+
+              &lt;md-layout md-align=&quot;center&quot; md-gutter=&quot;16&quot;&gt;
+                &lt;md-layout md-flex=&quot;35&quot;&gt;
+                  &lt;span&gt;center&lt;/span&gt;
+                &lt;/md-layout&gt;
+
+                &lt;md-layout md-flex=&quot;35&quot;&gt;
+                  &lt;span&gt;center&lt;/span&gt;
                 &lt;/md-layout&gt;
               &lt;/md-layout&gt;
             </code-block>
@@ -413,7 +503,7 @@
               </md-layout>
             </md-layout>
 
-            <md-layout md-gutter class="color">
+            <md-layout :md-gutter="true" class="color">
               <md-layout>
                 <span>Automatic</span>
               </md-layout>
