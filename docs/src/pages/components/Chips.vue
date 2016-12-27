@@ -28,10 +28,55 @@
       </div>
 
       <div slot="example">
-        <example-box card-title="Static">
+        <example-box card-title="Single Chips">
           <div slot="demo">
             <md-chip>Marcos Moura</md-chip>
-            <md-chip md-deletable>Marcos Moura</md-chip>
+            <md-chip md-deletable>Luiza Ivanenko</md-chip>
+          </div>
+
+          <div slot="code">
+            <code-block lang="xml">
+
+            </code-block>
+          </div>
+        </example-box>
+
+        <example-box card-title="Static">
+          <div slot="demo">
+            <md-chips v-model="fruits" md-static>
+              <template scope="chip">{{ chip.value }}</template>
+            </md-chips>
+          </div>
+
+          <div slot="code">
+            <code-block lang="xml">
+
+            </code-block>
+          </div>
+        </example-box>
+
+        <example-box card-title="Editable">
+          <div slot="demo">
+            <md-chips v-model="contacts" md-input-placeholder="Add a contact">
+              <template scope="chip">{{ chip.value }}</template>
+            </md-chips>
+          </div>
+
+          <div slot="code">
+            <code-block lang="xml">
+
+            </code-block>
+          </div>
+        </example-box>
+
+        <example-box card-title="Limit">
+          <div slot="demo">
+            <md-chips v-model="cities" :md-max="5" md-input-placeholder="Cities...">
+              <template scope="chip">
+                <span>{{ chip.value }}</span>
+                <small v-if="chip.value === 'Belo Horizonte'">(favorite)</small>
+              </template>
+            </md-chips>
           </div>
 
           <div slot="code">
@@ -45,6 +90,12 @@
   </page-content>
 </template>
 
-<style lang="scss" scoped>
-
-</style>
+<script>
+  export default {
+    data: () => ({
+      fruits: ['Orange', 'Apple', 'Pineapple'],
+      contacts: ['Marcos Moura'],
+      cities: ['Amsterdam', 'Belo Horizonte']
+    })
+  };
+</script>
