@@ -64,6 +64,10 @@
                 </md-list-item>
 
                 <md-list-item class="md-inset">
+                  <router-link exact to="/components/chips">Chips</router-link>
+                </md-list-item>
+
+                <md-list-item class="md-inset">
                   <router-link exact to="/components/dialog">Dialog</router-link>
                 </md-list-item>
 
