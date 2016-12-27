@@ -35,6 +35,7 @@
         active: false,
         rootElement: {},
         snackbarElement: {},
+        directionClass: null,
         closeTimeout: null
       };
     },
@@ -44,9 +45,25 @@
           'md-active': this.active
         };
 
-        cssClasses['md-position-' + this.mdPosition.replace(/ /g, '-')] = true;
+        this.directionClass = this.mdPosition.replace(/ /g, '-');
+
+        cssClasses['md-position-' + this.directionClass] = true;
 
         return cssClasses;
+      }
+    },
+    watch: {
+      active(active) {
+        const directionClass = 'md-has-toast-' + this.directionClass;
+        const toastClass = 'md-has-toast';
+
+        if (active) {
+          document.body.classList.add(directionClass);
+          document.body.classList.add(toastClass);
+        } else {
+          document.body.classList.remove(directionClass);
+          document.body.classList.remove(toastClass);
+        }
       }
     },
     methods: {
