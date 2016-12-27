@@ -17,9 +17,9 @@
         :id="inputId"
         :name="mdInputName"
         :disabled="disabled"
-        @keyup.native.delete="deleteLastChip"
-        @keyup.native.enter="selectChip"
-        @keyup.native.186="selectChip"
+        @keydown.native.delete="deleteLastChip"
+        @keydown.native.enter="selectChip"
+        @keydown.native.186="selectChip"
         tabindex="0"
         ref="input">
       </md-input>

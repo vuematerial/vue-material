@@ -2,7 +2,7 @@
   &.md-chip {
     background-color: #{'BACKGROUND-CONTRAST-0.12'};
 
-    &:not(.md-disabled) {
+    &.md-deletable {
       &:hover,
       &:focus {
         background-color: #{'BACKGROUND-CONTRAST-0.54'};
@@ -19,24 +19,6 @@
 
       .md-ripple {
         color: #{'BACKGROUND-COLOR'};
-      }
-    }
-  }
-
-  .md-chips.md-static {
-    .md-chip:not(.md-disabled) {
-      &:active {
-        box-shadow: none !important;
-      }
-
-      &:hover,
-      &:focus {
-        background-color: #{'BACKGROUND-CONTRAST-0.12'};
-        color: #{'BACKGROUND-CONTRAST-0.87'};
-
-        .md-delete {
-          color: #{'BACKGROUND-CONTRAST-0.87'};
-        }
       }
     }
   }

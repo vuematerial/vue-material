@@ -68,7 +68,10 @@
     },
     methods: {
       removeElement() {
-        this.rootElement.removeChild(this.snackbarElement);
+        if (this.rootElement.contains(this.snackbarElement)) {
+          this.snackbarElement.querySelector('.md-ripple').classList.remove('md-active');
+          this.rootElement.removeChild(this.snackbarElement);
+        }
       },
       open() {
         if (manager.current) {
@@ -86,11 +89,7 @@
         if (this.$refs.container) {
           const removeElement = () => {
             this.$refs.container.removeEventListener(transitionEndEventName, removeElement);
-
-            if (this.rootElement.contains(this.snackbarElement)) {
-              this.snackbarElement.querySelector('.md-ripple').classList.remove('md-active');
-              this.removeElement();
-            }
+            this.removeElement();
           };
 
           manager.current = null;
