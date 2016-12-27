@@ -6,6 +6,50 @@
       </div>
 
       <div slot="api">
+        <api-table name="md-chip">
+          <md-table slot="properties">
+            <md-table-header>
+              <md-table-row>
+                <md-table-head>Name</md-table-head>
+                <md-table-head>Type</md-table-head>
+                <md-table-head>Description</md-table-head>
+              </md-table-row>
+            </md-table-header>
+
+            <md-table-body>
+              <md-table-row>
+                <md-table-cell>disabled</md-table-cell>
+                <md-table-cell><code>Boolean</code></md-table-cell>
+                <md-table-cell>Disable the chip and prevent his actions. Default: <code>false</code></md-table-cell>
+              </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>md-deletable</md-table-cell>
+                <md-table-cell><code>Boolean</code></md-table-cell>
+                <md-table-cell>Enable delete button. Default: <code>false</code></md-table-cell>
+              </md-table-row>
+            </md-table-body>
+          </md-table>
+
+          <md-table slot="events">
+            <md-table-header>
+              <md-table-row>
+                <md-table-head>Name</md-table-head>
+                <md-table-head>Value</md-table-head>
+                <md-table-head>Description</md-table-head>
+              </md-table-row>
+            </md-table-header>
+
+            <md-table-body>
+              <md-table-row>
+                <md-table-cell>delete</md-table-cell>
+                <md-table-cell>None</md-table-cell>
+                <md-table-cell>Triggered when delete button is clicked.</md-table-cell>
+              </md-table-row>
+            </md-table-body>
+          </md-table>
+        </api-table>
+
         <api-table name="md-chips">
           <md-table slot="properties">
             <md-table-header>
@@ -63,6 +107,24 @@
                 <md-table-cell>md-max</md-table-cell>
                 <md-table-cell><code>Number</code></md-table-cell>
                 <md-table-cell>The max number of chips to be added. This property works only for new chips. If the initial value in the v-model have more chips than the max value, all the chips will be rendered. Default: <code>Infinity</code></md-table-cell>
+              </md-table-row>
+            </md-table-body>
+          </md-table>
+
+          <md-table slot="events">
+            <md-table-header>
+              <md-table-row>
+                <md-table-head>Name</md-table-head>
+                <md-table-head>Value</md-table-head>
+                <md-table-head>Description</md-table-head>
+              </md-table-row>
+            </md-table-header>
+
+            <md-table-body>
+              <md-table-row>
+                <md-table-cell>change</md-table-cell>
+                <md-table-cell>The selcted chips Array</md-table-cell>
+                <md-table-cell>Triggered when the chips is created or deleted.</md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>

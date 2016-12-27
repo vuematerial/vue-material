@@ -85,6 +85,7 @@
             this.selectedChips.push(value);
             this.currentChip = null;
             this.$emit('input', this.selectedChips);
+            this.$emit('change', this.selectedChips);
             this.applyInputFocus();
           }
         }
@@ -96,11 +97,13 @@
           this.selectedChips.splice(index, 1);
         }
 
+        this.$emit('change', this.selectedChips);
         this.applyInputFocus();
       },
       deleteLastChip() {
         if (!this.currentChip) {
           this.selectedChips.pop();
+          this.$emit('change', this.selectedChips);
           this.applyInputFocus();
         }
       }
