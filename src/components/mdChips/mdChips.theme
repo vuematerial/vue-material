@@ -1,5 +1,23 @@
 .THEME_NAME {
-  &.md-chips {
+  &.md-chip {
+    background-color: #{'BACKGROUND-CONTRAST-0.12'};
 
+    &:hover,
+    &:focus {
+      background-color: #{'BACKGROUND-CONTRAST-0.54'};
+      color: #{'BACKGROUND-COLOR'};
+
+      .md-delete {
+        color: #{'BACKGROUND-COLOR'};
+      }
+    }
+
+    .md-delete {
+      color: #{'BACKGROUND-CONTRAST-0.38'};
+
+      .md-ripple {
+        color: #{'BACKGROUND-COLOR'};
+      }
+    }
   }
 }

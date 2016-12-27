@@ -1,5 +1,58 @@
 @import '../../core/stylesheets/variables.scss';
 
-.md-chips {
+$chip-height: 32px;
+$chip-icon-size: 24px;
+$chip-icon-font: $chip-icon-size - 4px;
 
+.md-chip {
+  height: $chip-height;
+  padding: 8px 12px;
+  display: inline-flex;
+  cursor: pointer;
+  border-radius: $chip-height;
+  transition: $swift-ease-out;
+  font-size: 13px;
+  line-height: 16px;
+
+  &.md-deletable {
+    position: relative;
+    padding-right: 32px;
+  }
+
+  &:focus,
+  &:active {
+    outline: none;
+    box-shadow: $material-shadow-2dp;
+  }
+
+  .md-button.md-delete {
+    width: $chip-icon-size;
+    min-width: $chip-icon-size;
+    height: $chip-icon-size;
+    min-height: $chip-icon-size;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    border-radius: $chip-icon-size;
+    transition: $swift-ease-out;
+
+    .md-icon {
+      width: $chip-icon-font;
+      min-width: $chip-icon-font;
+      height: $chip-icon-font;
+      min-height: $chip-icon-font;
+      margin: 0;
+      font-size: $chip-icon-font;
+    }
+
+    .md-ink-ripple {
+      border-radius: $chip-height;
+    }
+
+    .md-ripple {
+      opacity: .54;
+    }
+  }
 }

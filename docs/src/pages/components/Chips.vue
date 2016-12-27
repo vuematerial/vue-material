@@ -28,9 +28,10 @@
       </div>
 
       <div slot="example">
-        <example-box card-title="Default">
+        <example-box card-title="Static">
           <div slot="demo">
-            <md-chip>marcosvmmoura@gmail.com</md-chip>
+            <md-chip>Marcos Moura</md-chip>
+            <md-chip md-deletable>Marcos Moura</md-chip>
           </div>
 
           <div slot="code">
