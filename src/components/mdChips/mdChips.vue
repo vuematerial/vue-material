@@ -12,6 +12,7 @@
   import theme from '../../core/components/mdTheme/mixin';
 
   export default {
+    replace: false,
     data: () => ({
 
     }),
