@@ -18,9 +18,51 @@
 
             <md-table-body>
               <md-table-row>
-                <md-table-cell>empty</md-table-cell>
-                <md-table-cell><code>Type</code></md-table-cell>
-                <md-table-cell>Description</md-table-cell>
+                <md-table-cell>v-model</md-table-cell>
+                <md-table-cell><code>Array</code></md-table-cell>
+                <md-table-cell>A required model object to bind the value.</md-table-cell>
+              </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>disabled</md-table-cell>
+                <md-table-cell><code>Boolean</code></md-table-cell>
+                <md-table-cell>Disable the chips and prevent his actions. Default: <code>false</code></md-table-cell>
+              </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>md-input-id</md-table-cell>
+                <md-table-cell><code>String</code></md-table-cell>
+                <md-table-cell>The chips input id.</md-table-cell>
+              </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>md-input-name</md-table-cell>
+                <md-table-cell><code>String</code></md-table-cell>
+                <md-table-cell>The chips input name.</md-table-cell>
+              </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>md-input-placeholder</md-table-cell>
+                <md-table-cell><code>String</code></md-table-cell>
+                <md-table-cell>The chips input placeholder.</md-table-cell>
+              </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>md-input-type</md-table-cell>
+                <md-table-cell><code>String</code></md-table-cell>
+                <md-table-cell>The chips input type. Cannot be "file". Default: <code>text</code></md-table-cell>
+              </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>md-static</md-table-cell>
+                <md-table-cell><code>Boolean</code></md-table-cell>
+                <md-table-cell>Display read only chips. Default: <code>false</code></md-table-cell>
+              </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>md-max</md-table-cell>
+                <md-table-cell><code>Number</code></md-table-cell>
+                <md-table-cell>The max number of chips to be added. This property works only for new chips. If the initial value in the v-model have more chips than the max value, all the chips will be rendered. Default: <code>Infinity</code></md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>
