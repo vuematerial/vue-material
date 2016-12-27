@@ -149,14 +149,12 @@ $button-icon-size: 40px;
       position: absolute;
       top: 16px;
       left: 16px;
-      z-index: 10;
     }
 
     &.md-fab-top-center {
       position: absolute;
       top: 16px;
       left: 50%;
-      z-index: 10;
       transform: translateX(-50%);
     }
 
@@ -164,14 +162,12 @@ $button-icon-size: 40px;
       position: absolute;
       top: 16px;
       right: 16px;
-      z-index: 10;
     }
 
     &.md-fab-bottom-left {
       position: absolute;
       bottom: 16px;
       left: 16px;
-      z-index: 10;
     }
 
     &.md-fab-bottom-center {
@@ -179,14 +175,12 @@ $button-icon-size: 40px;
       bottom: 16px;
       left: 50%;
       transform: translateX(-50%);
-      z-index: 10;
     }
 
     &.md-fab-bottom-right {
       position: absolute;
       right: 16px;
       bottom: 16px;
-      z-index: 10;
     }
 
     &.md-mini {

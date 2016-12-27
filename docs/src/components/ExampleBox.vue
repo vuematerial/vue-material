@@ -23,7 +23,7 @@
       </button> -->
     </md-card>
 
-    <!-- <form action="http://codepen.io/pen/define" method="POST" target="_blank" v-if="codeBlocks.length" ref="form">
+    <form action="http://codepen.io/pen/define" method="POST" target="_blank" v-if="codeBlocks.length" ref="form">
       <input type="hidden" name="data" :value="codeString">
     </form>
 
@@ -44,7 +44,7 @@ var App = new Vue({
 &lt;div id=&quot;app&quot;&gt;
   ### TEMPLATE ###
 &lt;/div&gt;
-    </pre> -->
+    </pre>
   </div>
 </template>
 

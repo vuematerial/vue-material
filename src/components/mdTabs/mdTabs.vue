@@ -137,7 +137,7 @@
         if (this.$refs.tabHeader) {
           let tabsWidth = this.$el.offsetWidth;
           let activeTab = this.$refs.tabHeader[this.activeTabNumber];
-          let left = activeTab ? activeTab.offsetLeft : 0;
+          let left = activeTab.offsetLeft;
           let right = tabsWidth - left - activeTab.offsetWidth;
 
           this.$refs.indicator.style.left = left + 'px';

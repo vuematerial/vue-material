@@ -6,7 +6,6 @@ import MdButton from './components/mdButton';
 import MdButtonToggle from './components/mdButtonToggle';
 import MdCard from './components/mdCard';
 import MdCheckbox from './components/mdCheckbox';
-import MdChips from './components/mdChips';
 import MdDialog from './components/mdDialog';
 import MdDivider from './components/mdDivider';
 import MdIcon from './components/mdIcon';
@@ -17,7 +16,7 @@ import MdMenu from './components/mdMenu';
 import MdRadio from './components/mdRadio';
 import MdSelect from './components/mdSelect';
 import MdSidenav from './components/mdSidenav';
-import MdSnackbar from './components/mdSnackbar';
+/*import MdSnackbar from './components/mdSnackbar';*/
 import MdSpinner from './components/mdSpinner';
 import MdSubheader from './components/mdSubheader';
 import MdSwitch from './components/mdSwitch';
@@ -36,7 +35,6 @@ const options = {
   MdButtonToggle,
   MdCard,
   MdCheckbox,
-  MdChips,
   MdDialog,
   MdDivider,
   MdIcon,
@@ -47,7 +45,7 @@ const options = {
   MdRadio,
   MdSelect,
   MdSidenav,
-  MdSnackbar,
+  /*MdSnackbar,*/
   MdSpinner,
   MdSubheader,
   MdSwitch,

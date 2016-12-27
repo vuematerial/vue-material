@@ -1,10 +1,9 @@
 import path from 'path';
 
 const config = {
-  projectRoot: path.join(__dirname, '../'),
-  rootPath: path.join(__dirname, '../dist'),
-  nodePath: path.join(__dirname, '../node_modules'),
-  srcPath: 'src',
+  projectRoot: path.resolve(__dirname, '../'),
+  rootPath: path.resolve(__dirname, '../dist'),
+  nodePath: path.resolve(__dirname, '../../node_modules'),
   docsPath: 'docs',
   indexPath: 'docs/index.html',
   publicPath: '/',
