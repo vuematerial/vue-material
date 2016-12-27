@@ -45,7 +45,10 @@
         default: 'text'
       },
       mdStatic: Boolean,
-      mdMax: Number
+      mdMax: {
+        type: Number,
+        default: Infinity
+      }
     },
     mixins: [theme],
     data() {
@@ -75,7 +78,7 @@
         });
       },
       selectChip() {
-        if (this.currentChip || this.mdMax && this.selectedChips.length < this.mdMax) {
+        if (this.currentChip && this.selectedChips.length < this.mdMax) {
           const value = this.currentChip.trim();
 
           if (this.selectedChips.indexOf(value) < 0) {
