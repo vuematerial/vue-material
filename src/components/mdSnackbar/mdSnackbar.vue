@@ -54,12 +54,15 @@
     },
     watch: {
       active(active) {
-        const cssClass = 'md-has-toast-' + this.directionClass;
+        const directionClass = 'md-has-toast-' + this.directionClass;
+        const toastClass = 'md-has-toast';
 
         if (active) {
-          document.body.classList.add(cssClass);
+          document.body.classList.add(directionClass);
+          document.body.classList.add(toastClass);
         } else {
-          document.body.classList.remove(cssClass);
+          document.body.classList.remove(directionClass);
+          document.body.classList.remove(toastClass);
         }
       }
     },
