@@ -12,6 +12,7 @@ const Buttons = (resolve) => require(['./pages/components/Buttons'], resolve);
 const ButtonToggle = (resolve) => require(['./pages/components/ButtonToggle'], resolve);
 const Card = (resolve) => require(['./pages/components/Card'], resolve);
 const Checkbox = (resolve) => require(['./pages/components/Checkbox'], resolve);
+const Chips = (resolve) => require(['./pages/components/Chips'], resolve);
 const Dialog = (resolve) => require(['./pages/components/Dialog'], resolve);
 const Icon = (resolve) => require(['./pages/components/Icon'], resolve);
 const InkRipple = (resolve) => require(['./pages/components/InkRipple'], resolve);
@@ -97,6 +98,11 @@ const components = [
     path: '/components/checkbox',
     name: 'components:checkbox',
     component: Checkbox
+  },
+  {
+    path: '/components/chips',
+    name: 'components:chips',
+    component: Chips
   },
   {
     path: '/components/dialog',
