@@ -35,6 +35,7 @@
         active: false,
         rootElement: {},
         snackbarElement: {},
+        directionClass: null,
         closeTimeout: null
       };
     },
@@ -44,9 +45,22 @@
           'md-active': this.active
         };
 
-        cssClasses['md-position-' + this.mdPosition.replace(/ /g, '-')] = true;
+        this.directionClass = this.mdPosition.replace(/ /g, '-');
+
+        cssClasses['md-position-' + this.directionClass] = true;
 
         return cssClasses;
+      }
+    },
+    watch: {
+      active(active) {
+        const cssClass = 'md-has-toast-' + this.directionClass;
+
+        if (active) {
+          document.body.classList.add(cssClass);
+        } else {
+          document.body.classList.remove(cssClass);
+        }
       }
     },
     methods: {
