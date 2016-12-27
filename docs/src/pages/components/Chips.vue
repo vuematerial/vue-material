@@ -36,7 +36,8 @@
 
           <div slot="code">
             <code-block lang="xml">
-
+              &lt;md-chip&gt;Marcos Moura&lt;/md-chip&gt;
+              &lt;md-chip md-deletable&gt;Luiza Ivanenko&lt;/md-chip&gt;
             </code-block>
           </div>
         </example-box>
@@ -50,7 +51,17 @@
 
           <div slot="code">
             <code-block lang="xml">
+              &lt;md-chips v-model=&quot;fruits&quot; md-static&gt;
+                &lt;template scope=&quot;chip&quot;&gt;{{ '{{ chip.value }\}' }}&lt;/template&gt;
+              &lt;/md-chips&gt;
+            </code-block>
 
+            <code-block lang="javascript">
+              export default {
+                data: () => ({
+                  fruits: ['Orange', 'Apple', 'Pineapple']
+                })
+              };
             </code-block>
           </div>
         </example-box>
@@ -64,7 +75,17 @@
 
           <div slot="code">
             <code-block lang="xml">
+              &lt;md-chips v-model=&quot;contacts&quot; md-input-placeholder=&quot;Add a contact&quot;&gt;
+                &lt;template scope=&quot;chip&quot;&gt;{{ '{{ chip.value }\}' }}&lt;/template&gt;
+              &lt;/md-chips&gt;
+            </code-block>
 
+            <code-block lang="javascript">
+              export default {
+                data: () => ({
+                  contacts: ['Marcos Moura'],
+                })
+              };
             </code-block>
           </div>
         </example-box>
@@ -74,14 +95,27 @@
             <md-chips v-model="cities" :md-max="5" md-input-placeholder="Cities...">
               <template scope="chip">
                 <span>{{ chip.value }}</span>
-                <small v-if="chip.value === 'Belo Horizonte'">(favorite)</small>
+                <small v-if="chip.value === 'Amsterdam'">(favorite)</small>
               </template>
             </md-chips>
           </div>
 
           <div slot="code">
             <code-block lang="xml">
+              &lt;md-chips v-model=&quot;cities&quot; :md-max=&quot;5&quot; md-input-placeholder=&quot;Cities...&quot;&gt;
+                &lt;template scope=&quot;chip&quot;&gt;
+                  &lt;span&gt;{{ '{{ chip.value }\}' }}&lt;/span&gt;
+                  &lt;small v-if=&quot;chip.value === &#039;Amsterdam&#039;&quot;&gt;(favorite)&lt;/small&gt;
+                &lt;/template&gt;
+              &lt;/md-chips&gt;
+            </code-block>
 
+            <code-block lang="javascript">
+              export default {
+                data: () => ({
+                    cities: ['Amsterdam', 'London', 'Tokio']
+                })
+              };
             </code-block>
           </div>
         </example-box>
@@ -95,7 +129,7 @@
     data: () => ({
       fruits: ['Orange', 'Apple', 'Pineapple'],
       contacts: ['Marcos Moura'],
-      cities: ['Amsterdam', 'Belo Horizonte']
+      cities: ['Amsterdam', 'London', 'Tokio']
     })
   };
 </script>
