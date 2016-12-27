@@ -1,6 +1,10 @@
 @import '../../core/stylesheets/variables.scss';
 @import '../../core/stylesheets/mixins.scss';
 
+$snackbar-height: 48px;
+$snackbar-padding: 14px;
+$snackbar-space: $snackbar-height / 2;
+
 .md-snackbar {
   display: flex;
   position: fixed;
@@ -17,25 +21,25 @@
 
   &.md-position-top-right,
   &.md-position-bottom-right {
-    margin-right: 8px;
+    margin-right: $snackbar-space;
     justify-content: flex-end;
   }
 
   &.md-position-top-left,
   &.md-position-bottom-left {
-    margin-left: 8px;
+    margin-left: $snackbar-space;
     justify-content: flex-start;
   }
 
   &.md-position-top-right,
   &.md-position-top-left,
   &.md-position-top-center {
-    margin-top: 8px;
+    margin-top: $snackbar-space;
   }
 
   &.md-position-bottom-right,
   &.md-position-bottom-left {
-    margin-bottom: 8px;
+    margin-bottom: $snackbar-space;
   }
 
   &.md-position-top-center,
@@ -44,7 +48,7 @@
     top: 0;
 
     .md-snackbar-container {
-      transform: translate3D(0, calc(-100% - 8px), 0);
+      transform: translate3D(0, calc(-100% - #{$snackbar-space}), 0);
     }
   }
 
@@ -54,7 +58,7 @@
     bottom: 0;
 
     .md-snackbar-container {
-      transform: translate3D(0, calc(100% + 8px), 0);
+      transform: translate3D(0, calc(100% + #{$snackbar-space}), 0);
     }
   }
 
@@ -87,7 +91,7 @@
     margin: -8px -16px;
 
     &:last-child {
-      margin-left: 48px;
+      margin-left: $snackbar-height;
     }
   }
 }
@@ -96,14 +100,14 @@
   width: auto;
   min-width: 288px;
   max-width: 568px;
-  min-height: 48px;
-  padding: 14px 24px;
+  min-height: $snackbar-height;
+  padding: $snackbar-padding 24px;
   overflow: hidden;
   border-radius: 2px;
   background-color: #323232;
   transition: $swift-ease-out;
   color: #fff;
-  font-size: 14px;
+  font-size: $snackbar-padding;
 
   @include layout-xsmall {
     width: 100%;
@@ -114,36 +118,78 @@
 
 .md-has-toast-top-right {
   .md-fab.md-fab-top-right {
-    transform: translate3D(0, 48px, 0);
+    transform: translate3D(0, $snackbar-height + $snackbar-padding + 6px, 0);
+
+    @include layout-xsmall {
+      transform: translate3D(0, $snackbar-height, 0);
+    }
   }
 }
 
 .md-has-toast-top-center {
   .md-fab.md-fab-top-center {
-    transform: translate3D(-50%, 48px, 0);
+    transform: translate3D(-50%, $snackbar-height + $snackbar-padding + 6px, 0);
+
+    @include layout-xsmall {
+      transform: translate3D(-50%, $snackbar-height, 0);
+    }
   }
 }
 
 .md-has-toast-top-left {
   .md-fab.md-fab-top-left {
-    transform: translate3D(0, 48px, 0);
+    transform: translate3D(0, $snackbar-height + $snackbar-padding + 6px, 0);
+
+    @include layout-xsmall {
+      transform: translate3D(0, $snackbar-height, 0);
+    }
   }
 }
 
 .md-has-toast-bottom-right {
   .md-fab.md-fab-bottom-right {
-    transform: translate3D(0, -48px, 0);
+    transform: translate3D(0, -$snackbar-height - $snackbar-padding - 6px, 0);
+
+    @include layout-xsmall {
+      transform: translate3D(0, -$snackbar-height, 0);
+    }
   }
 }
 
 .md-has-toast-bottom-center {
   .md-fab.md-fab-bottom-center {
-    transform: translate3D(-50%, -48px, 0);
+    transform: translate3D(-50%, -$snackbar-height - $snackbar-padding - 6px, 0);
+
+    @include layout-xsmall {
+      transform: translate3D(-50%, -$snackbar-height, 0);
+    }
   }
 }
 
 .md-has-toast-bottom-left {
   .md-fab.md-fab-bottom-left {
-    transform: translate3D(0, -48px, 0);
+    transform: translate3D(0, -$snackbar-height - $snackbar-padding - 6px, 0);
+
+    @include layout-xsmall {
+      transform: translate3D(0, -$snackbar-height, 0);
+    }
+  }
+}
+
+.md-has-toast {
+  .md-fab.md-fab-top-right,
+  .md-fab.md-fab-top-center,
+  .md-fab.md-fab-top-left {
+    @include layout-xsmall {
+      transform: translate3D(0, $snackbar-height - 4px, 0);
+    }
+  }
+
+  .md-fab.md-fab-bottom-right,
+  .md-fab.md-fab-bottom-center,
+  .md-fab.md-fab-bottom-left {
+    @include layout-xsmall {
+      transform: translate3D(0, -$snackbar-height + 4px, 0);
+    }
   }
 }

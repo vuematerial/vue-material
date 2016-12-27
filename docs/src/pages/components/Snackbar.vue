@@ -163,6 +163,10 @@
         </example-box>
       </div>
     </docs-component>
+
+    <md-button class="md-fab md-fab-bottom-right">
+      <md-icon>add</md-icon>
+    </md-button>
   </page-content>
 </template>
 
