@@ -73,6 +73,7 @@
     "html-webpack-plugin": "^2.24.1",
     "json-loader": "^0.5.4",
     "node-sass": "^4.1.1",
+    "optimize-js-plugin": "^0.0.4",
     "ora": "^0.4.0",
     "raw-loader": "^0.5.1",
     "sass-loader": "^4.1.1",

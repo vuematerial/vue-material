@@ -44,6 +44,33 @@
 }
 
 
+/* Alignments */
+
+@mixin layout-align($size: null) {
+  @if $size == null {
+    $size : '';
+  }
+
+  @if $size != '' {
+    $size : '-#{$size}';
+  }
+
+  .md-align#{$size}-start {
+    justify-content: flex-start;
+  }
+
+  .md-align#{$size}-center {
+    justify-content: center;
+  }
+
+  .md-align#{$size}-end {
+    justify-content: flex-end;
+  }
+}
+
+@include layout-align();
+
+
 /* Gutter Size */
 
 @mixin layout-gutter($margin: -12px, $padding: 12px) {
@@ -143,6 +170,7 @@ $sizes: (8, 16, 24, 40);
 @mixin breakpoint-layout($size) {
   @include layout($size);
   @include layout-flex($size);
+  @include layout-align($size);
 
   .md-hide-#{$size} {
     display: none;

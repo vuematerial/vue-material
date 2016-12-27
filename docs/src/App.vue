@@ -64,6 +64,10 @@
                 </md-list-item>
 
                 <md-list-item class="md-inset">
+                  <router-link exact to="/components/chips">Chips</router-link>
+                </md-list-item>
+
+                <md-list-item class="md-inset">
                   <router-link exact to="/components/dialog">Dialog</router-link>
                 </md-list-item>
 
@@ -99,9 +103,9 @@
                   <router-link exact to="/components/sidenav">Sidenav</router-link>
                 </md-list-item>
 
-                <!-- <md-list-item class="md-inset">
+                <md-list-item class="md-inset">
                   <router-link exact to="/components/snackbar">Snackbar</router-link>
-                </md-list-item> -->
+                </md-list-item>
 
                 <md-list-item class="md-inset">
                   <router-link exact to="/components/spinner">Spinner</router-link>
@@ -303,7 +307,7 @@
     transition: $swift-ease-out;
 
     .main-content {
-      transform: translate3D(0, 7%, 0);
+      transform: translate3D(0, 10%, 0);
     }
   }
 
@@ -320,6 +324,21 @@
         margin: 8px 0;
       }
     }
+  }
+
+  .phone-viewport {
+    width: 360px;
+    height: 540px;
+    margin-right: 16px;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    background-color: #fff;
+    border: 1px solid rgba(#000, .12);
+  }
+
+  .api-table tr > td:first-child {
+    white-space: nowrap;
   }
 </style>
 
