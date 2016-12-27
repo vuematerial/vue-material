@@ -1,8 +1,29 @@
 <template>
-  <div class="md-chips" :class="[themeClass, classes]" tabindex="0">
-    <div class="md-chips-content">
-      <slot></slot>
-    </div>
+  <div class="md-chips" :class="[themeClass, classes]">
+    <md-input-container @click.native="applyInputFocus">
+      <md-chip
+        v-for="chip in selectedChips"
+        :md-deletable="!mdStatic"
+        :disabled="disabled"
+        @delete="deleteChip(chip)">
+        <slot :value="chip"></slot>
+      </md-chip>
+
+      <md-input
+        v-show="!mdStatic"
+        v-model="currentChip"
+        :type="mdInputType"
+        :placeholder="mdInputPlaceholder"
+        :id="inputId"
+        :name="mdInputName"
+        :disabled="disabled"
+        @keyup.native.delete="deleteLastChip"
+        @keyup.native.enter="selectChip"
+        @keyup.native.186="selectChip"
+        tabindex="0"
+        ref="input">
+      </md-input>
+    </md-input-container>
   </div>
 </template>
 
@@ -10,20 +31,76 @@
 
 <script>
   import theme from '../../core/components/mdTheme/mixin';
+  import uniqueId from '../../core/utils/uniqueId';
 
   export default {
-    replace: false,
-    data: () => ({
-
-    }),
+    props: {
+      value: Array,
+      disabled: Boolean,
+      mdInputId: String,
+      mdInputName: String,
+      mdInputPlaceholder: String,
+      mdInputType: {
+        type: String,
+        default: 'text'
+      },
+      mdStatic: Boolean,
+      mdMax: Number
+    },
     mixins: [theme],
+    data() {
+      return {
+        currentChip: null,
+        selectedChips: this.value,
+        inputId: this.mdInputId || 'chips-' + uniqueId()
+      };
+    },
+    watch: {
+      value(value) {
+        this.selectedChips = value;
+      }
+    },
     computed: {
       classes() {
-
+        return {
+          'md-static': this.mdStatic,
+          'md-disabled': this.disabled
+        };
       }
     },
     methods: {
+      applyInputFocus() {
+        this.$nextTick(() => {
+          this.$refs.input.$el.focus();
+        });
+      },
+      selectChip() {
+        if (this.currentChip || this.mdMax && this.selectedChips.length < this.mdMax) {
+          const value = this.currentChip.trim();
 
+          if (this.selectedChips.indexOf(value) < 0) {
+            this.selectedChips.push(value);
+            this.currentChip = null;
+            this.$emit('input', this.selectedChips);
+            this.applyInputFocus();
+          }
+        }
+      },
+      deleteChip(chip) {
+        let index = this.selectedChips.indexOf(chip);
+
+        if (index >= 0) {
+          this.selectedChips.splice(index, 1);
+        }
+
+        this.applyInputFocus();
+      },
+      deleteLastChip() {
+        if (!this.currentChip) {
+          this.selectedChips.pop();
+          this.applyInputFocus();
+        }
+      }
     }
   };
 </script>

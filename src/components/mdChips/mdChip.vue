@@ -2,7 +2,12 @@
   <div class="md-chip" :class="[themeClass, classes]" tabindex="0">
     <slot></slot>
 
-    <md-button class="md-icon-button md-dense md-delete" v-if="mdDeletable" @click="$emit('delete')">
+    <md-button
+      class="md-icon-button md-dense md-delete"
+      v-if="mdDeletable"
+      @click.native="!disabled && $emit('delete')"
+      @keyup.native.delete="!disabled && $emit('delete')"
+      tabindex="-1">
       <md-icon>cancel</md-icon>
     </md-button>
   </div>
@@ -13,13 +18,15 @@
 
   export default {
     props: {
+      disabled: Boolean,
       mdDeletable: Boolean
     },
     mixins: [theme],
     computed: {
       classes() {
         return {
-          'md-deletable': this.mdDeletable
+          'md-deletable': this.mdDeletable,
+          'md-disabled': this.disabled
         };
       }
     }
