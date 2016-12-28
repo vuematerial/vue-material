@@ -18,9 +18,9 @@
 
             <md-table-body>
               <md-table-row>
-                <md-table-cell>empty</md-table-cell>
-                <md-table-cell><code>Type</code></md-table-cell>
-                <md-table-cell>Description</md-table-cell>
+                <md-table-cell>md-src</md-table-cell>
+                <md-table-cell><code>String</code></md-table-cell>
+                <md-table-cell>The image source. Accepts any image file extension.</md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>
@@ -30,12 +30,46 @@
       <div slot="example">
         <example-box card-title="Default">
           <div slot="demo">
-            <md-image md-src="https://storage.googleapis.com/material-design/publish/material_v_10/assets/0B7WCemMG6e0VNUdkX1d5NU5KYzg/patterns_loading_images.png"></md-image>
+            <md-button class="md-primary md-raised" @click="loadImage">Load Image</md-button>
+            <md-button class="md-primary md-raised" @click="clearImage">Clear Image</md-button>
+
+            <div>
+              <md-image :md-src="src"></md-image>
+            </div>
           </div>
 
           <div slot="code">
             <code-block lang="xml">
+              &lt;md-button class=&quot;md-primary md-raised&quot; @click=&quot;loadImage&quot;&gt;Load Image&lt;/md-button&gt;
+              &lt;md-button class=&quot;md-primary md-raised&quot; @click=&quot;clearImage&quot;&gt;Clear Image&lt;/md-button&gt;
 
+              &lt;div&gt;
+                &lt;md-image :md-src=&quot;src&quot;&gt;&lt;/md-image&gt;
+              &lt;/div&gt;
+            </code-block>
+
+            <code-block lang="xml">
+              export default {
+                data: () => ({
+                  src: null
+                }),
+                methods: {
+                  loadImage() {
+                    let options = [
+                      'assets/joker-1.jpg',
+                      'assets/joker-2.jpg',
+                      'assets/joker-3.jpg',
+                      'assets/card-image-1.jpg',
+                      'assets/card-image-2.jpg'
+                    ];
+
+                    this.src = options[Math.floor(Math.random() * 5)];
+                  },
+                  clearImage() {
+                    this.src = null;
+                  }
+                }
+              };
             </code-block>
           </div>
         </example-box>
@@ -47,7 +81,23 @@
 <script>
   export default {
     data: () => ({
+      src: null
+    }),
+    methods: {
+      loadImage() {
+        let options = [
+          'assets/joker-1.jpg',
+          'assets/joker-2.jpg',
+          'assets/joker-3.jpg',
+          'assets/card-image-1.jpg',
+          'assets/card-image-2.jpg'
+        ];
 
-    })
+        this.src = options[Math.floor(Math.random() * 5)];
+      },
+      clearImage() {
+        this.src = null;
+      }
+    }
   };
 </script>
