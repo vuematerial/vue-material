@@ -134,10 +134,11 @@
         return idList.indexOf(id);
       },
       calculateIndicatorPos() {
-        if (this.$refs.tabHeader) {
+        let activeTab = this.$refs.tabHeader && this.$refs.tabHeader[this.activeTabNumber];
+
+        if (activeTab) {
           let tabsWidth = this.$el.offsetWidth;
-          let activeTab = this.$refs.tabHeader[this.activeTabNumber];
-          let left = activeTab ? activeTab.offsetLeft : 0;
+          let left = activeTab.offsetLeft;
           let right = tabsWidth - left - activeTab.offsetWidth;
 
           this.$refs.indicator.style.left = left + 'px';
