@@ -80,7 +80,7 @@
       }
     },
     mounted() {
-      this.input = this.$el.querySelectorAll('input, textarea, select')[0];
+      this.input = this.$el.querySelectorAll('input, textarea, select, .md-file')[0];
 
       if (!this.input) {
         this.$destroy();

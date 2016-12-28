@@ -30,7 +30,9 @@
       <div slot="example">
         <example-box card-title="Default">
           <div slot="demo">
-            <md-file></md-file>
+            <md-input-container>
+              <md-file></md-file>
+            </md-input-container>
           </div>
 
           <div slot="code">
