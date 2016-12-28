@@ -9,6 +9,7 @@ import MdCheckbox from './components/mdCheckbox';
 import MdChips from './components/mdChips';
 import MdDialog from './components/mdDialog';
 import MdDivider from './components/mdDivider';
+import MdFile from './components/mdFile';
 import MdIcon from './components/mdIcon';
 import MdImage from './components/mdImage';
 import MdInputContainer from './components/mdInputContainer';
@@ -40,6 +41,7 @@ const options = {
   MdChips,
   MdDialog,
   MdDivider,
+  MdFile,
   MdIcon,
   MdImage,
   MdInputContainer,
