@@ -15,6 +15,7 @@ const Checkbox = (resolve) => require(['./pages/components/Checkbox'], resolve);
 const Chips = (resolve) => require(['./pages/components/Chips'], resolve);
 const Dialog = (resolve) => require(['./pages/components/Dialog'], resolve);
 const Icon = (resolve) => require(['./pages/components/Icon'], resolve);
+const ImageLoader = (resolve) => require(['./pages/components/ImageLoader'], resolve);
 const InkRipple = (resolve) => require(['./pages/components/InkRipple'], resolve);
 const Input = (resolve) => require(['./pages/components/Input'], resolve);
 const List = (resolve) => require(['./pages/components/List'], resolve);
@@ -113,6 +114,11 @@ const components = [
     path: '/components/icon',
     name: 'components:icon',
     component: Icon
+  },
+  {
+    path: '/components/image-loader',
+    name: 'components:image-loader',
+    component: ImageLoader
   },
   {
     path: '/components/ink-ripple',
