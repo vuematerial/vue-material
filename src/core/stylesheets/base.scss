@@ -44,9 +44,12 @@ canvas,
 video,
 iframe {
   max-width: 100%;
-  height: auto;
   font-style: italic;
   vertical-align: middle;
+
+  &:not(.md-image) {
+    height: auto;
+  }
 }
 
 
