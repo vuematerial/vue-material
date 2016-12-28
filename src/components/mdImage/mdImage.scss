@@ -1,0 +1,19 @@
+@import '../../core/stylesheets/variables.scss';
+
+$transition-duration: 2.2s;
+
+.md-image {
+  opacity: 0;
+  filter: saturate(20%);
+
+  &.md-black-output {
+    filter: brightness(.4) saturate(20%);
+  }
+
+  &.md-loaded {
+    opacity: 1;
+    filter: saturate(100%);
+    transition: opacity $transition-duration/2 $swift-ease-out-timing-function,
+                filter $transition-duration .3s $swift-ease-out-timing-function;
+  }
+}
