@@ -10,7 +10,7 @@
       textarea,
       .md-error,
       .md-count,
-      .md-icon {
+      .md-icon:not(.md-icon-delete) {
         color: #{'WARN-COLOR'};
       }
     }
@@ -41,7 +41,7 @@
       }
 
       label,
-      .md-icon {
+      .md-icon:not(.md-icon-delete) {
         color: #{'PRIMARY-COLOR'};
       }
     }
@@ -52,13 +52,13 @@
       textarea,
       .md-error,
       .md-count,
-      .md-icon,
+      .md-icon:not(.md-icon-delete),
       ::-webkit-input-placeholder {
         color: #{'BACKGROUND-CONTRAST-0.38'};
       }
     }
 
-    .md-icon:after {
+    .md-icon:not(.md-icon-delete):after {
       background: #{'BACKGROUND-COLOR'};
     }
   }
