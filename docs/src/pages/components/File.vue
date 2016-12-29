@@ -97,7 +97,45 @@
 
           <div slot="code">
             <code-block lang="xml">
+              &lt;md-input-container&gt;
+                &lt;label&gt;Single&lt;/label&gt;
+                &lt;md-file v-model=&quot;single&quot;&gt;&lt;/md-file&gt;
+              &lt;/md-input-container&gt;
 
+              &lt;md-input-container&gt;
+                &lt;md-file v-model=&quot;placeholder&quot; placeholder=&quot;A nice input placeholder&quot;&gt;&lt;/md-file&gt;
+              &lt;/md-input-container&gt;
+
+              &lt;md-input-container&gt;
+                &lt;md-file placeholder=&quot;Disabled&quot; disabled&gt;&lt;/md-file&gt;
+              &lt;/md-input-container&gt;
+
+              &lt;md-input-container&gt;
+                &lt;label&gt;Initial Value&lt;/label&gt;
+                &lt;md-file v-model=&quot;initialValue&quot;&gt;&lt;/md-file&gt;
+              &lt;/md-input-container&gt;
+
+              &lt;md-input-container&gt;
+                &lt;label&gt;Multiple&lt;/label&gt;
+                &lt;md-file v-model=&quot;multiple&quot; multiple&gt;&lt;/md-file&gt;
+              &lt;/md-input-container&gt;
+
+              &lt;md-input-container&gt;
+                &lt;label&gt;Only Images&lt;/label&gt;
+                &lt;md-file v-model=&quot;onlyImages&quot; accept=&quot;image/*&quot;&gt;&lt;/md-file&gt;
+              &lt;/md-input-container&gt;
+            </code-block>
+
+            <code-block lang="javascript">
+              export default {
+                data: () => ({
+                  single: null,
+                  placeholder: null,
+                  initialValue: 'my-profile-picture.jpg',
+                  multiple: null,
+                  onlyImages: null
+                })
+              };
             </code-block>
           </div>
         </example-box>
@@ -114,9 +152,6 @@
       initialValue: 'my-profile-picture.jpg',
       multiple: null,
       onlyImages: null
-    }),
-    methods: {
-
-    }
+    })
   };
 </script>
