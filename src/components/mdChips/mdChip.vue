@@ -8,7 +8,7 @@
       @click.native="!disabled && $emit('delete')"
       @keyup.native.delete="!disabled && $emit('delete')"
       tabindex="-1">
-      <md-icon>cancel</md-icon>
+      <md-icon class="md-icon-delete">cancel</md-icon>
     </md-button>
   </div>
 </template>
