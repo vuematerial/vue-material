@@ -70,11 +70,11 @@
       removeElement() {
         if (this.rootElement.contains(this.snackbarElement)) {
           const activeRipple = this.snackbarElement.querySelector('.md-ripple.md-active');
-        
+
           if (activeRipple) {
-             activeRipple.classList.remove('md-active');
+            activeRipple.classList.remove('md-active');
           }
-          
+
           this.rootElement.removeChild(this.snackbarElement);
         }
       },
