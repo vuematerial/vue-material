@@ -16,6 +16,7 @@ import MdInputContainer from './components/mdInputContainer';
 import MdLayout from './components/mdLayout';
 import MdList from './components/mdList';
 import MdMenu from './components/mdMenu';
+import MdProgress from './components/mdProgress';
 import MdRadio from './components/mdRadio';
 import MdSelect from './components/mdSelect';
 import MdSidenav from './components/mdSidenav';
@@ -48,6 +49,7 @@ const options = {
   MdLayout,
   MdList,
   MdMenu,
+  MdProgress,
   MdRadio,
   MdSelect,
   MdSidenav,

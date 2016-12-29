@@ -21,6 +21,7 @@ const InkRipple = (resolve) => require(['./pages/components/InkRipple'], resolve
 const Input = (resolve) => require(['./pages/components/Input'], resolve);
 const List = (resolve) => require(['./pages/components/List'], resolve);
 const Menu = (resolve) => require(['./pages/components/Menu'], resolve);
+const Progress = (resolve) => require(['./pages/components/Progress'], resolve);
 const Radio = (resolve) => require(['./pages/components/Radio'], resolve);
 const Select = (resolve) => require(['./pages/components/Select'], resolve);
 const Sidenav = (resolve) => require(['./pages/components/Sidenav'], resolve);
@@ -145,6 +146,11 @@ const components = [
     path: '/components/menu',
     name: 'components:menu',
     component: Menu
+  },
+  {
+    path: '/components/progress',
+    name: 'components:progress',
+    component: Progress
   },
   {
     path: '/components/radio',
