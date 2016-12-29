@@ -30,6 +30,7 @@
         enableCounter: false,
         hasSelect: false,
         hasPlaceholder: false,
+        hasFile: false,
         isDisabled: false,
         isRequired: false,
         isFocused: false,
@@ -50,6 +51,7 @@
           'md-input-inline': this.mdInline,
           'md-has-password': this.mdHasPassword,
           'md-has-select': this.hasSelect,
+          'md-has-file': this.hasFile,
           'md-has-value': this.hasValue,
           'md-input-placeholder': this.hasPlaceholder,
           'md-input-disabled': this.isDisabled,
@@ -80,7 +82,7 @@
       }
     },
     mounted() {
-      this.input = this.$el.querySelectorAll('input, textarea, select')[0];
+      this.input = this.$el.querySelectorAll('input, textarea, select, .md-file')[0];
 
       if (!this.input) {
         this.$destroy();
