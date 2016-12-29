@@ -67,12 +67,14 @@
       }
     },
     methods: {
-      removeElement() {
-        if (this.rootElement.contains(this.snackbarElement)) {
-          this.snackbarElement.querySelector('.md-ripple').classList.remove('md-active');
-          this.rootElement.removeChild(this.snackbarElement);
-        }
-      },
+        removeElement() {
+            if (this.rootElement.contains(this.snackbarElement)) {
+                if (this.snackbarElement.querySelector('.md-ripple')) {
+                    this.snackbarElement.querySelector('.md-ripple').classList.remove('md-active');
+                }
+                this.rootElement.removeChild(this.snackbarElement);
+            }
+        },
       open() {
         if (manager.current) {
           manager.current.close();
