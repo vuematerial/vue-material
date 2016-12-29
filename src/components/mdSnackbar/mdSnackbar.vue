@@ -67,14 +67,17 @@
       }
     },
     methods: {
-        removeElement() {
-            if (this.rootElement.contains(this.snackbarElement)) {
-                if (this.snackbarElement.querySelector('.md-ripple')) {
-                    this.snackbarElement.querySelector('.md-ripple').classList.remove('md-active');
-                }
-                this.rootElement.removeChild(this.snackbarElement);
-            }
-        },
+      removeElement() {
+        if (this.rootElement.contains(this.snackbarElement)) {
+          const activeRipple = this.snackbarElement.querySelector('.md-ripple.md-active');
+        
+          if (activeRipple) {
+             activeRipple.classList.remove('md-active');
+          }
+          
+          this.rootElement.removeChild(this.snackbarElement);
+        }
+      },
       open() {
         if (manager.current) {
           manager.current.close();
