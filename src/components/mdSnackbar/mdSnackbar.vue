@@ -69,7 +69,12 @@
     methods: {
       removeElement() {
         if (this.rootElement.contains(this.snackbarElement)) {
-          this.snackbarElement.querySelector('.md-ripple').classList.remove('md-active');
+          const activeRipple = this.snackbarElement.querySelector('.md-ripple.md-active');
+        
+          if (activeRipple) {
+             activeRipple.classList.remove('md-active');
+          }
+          
           this.rootElement.removeChild(this.snackbarElement);
         }
       },
