@@ -8,6 +8,7 @@ export default {
   },
   watch: {
     value(value) {
+      this.$el.value = value;
       this.setParentValue(value);
     },
     disabled() {
