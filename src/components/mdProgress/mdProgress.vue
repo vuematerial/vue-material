@@ -1,6 +1,7 @@
 <template>
   <transition name="md-progress" appear>
-    <div class="md-progress" :class="[themeClass, classes]":style="styles">
+    <div class="md-progress" :class="[themeClass, classes]">
+      <div class="md-progress-track" :style="styles"></div>
     </div>
   </transition>
 </template>
@@ -12,26 +13,26 @@
 
   export default {
     props: {
-
+      mdIndeterminate: Boolean,
+      mdProgress: {
+        type: Number,
+        default: 0
+      }
     },
     mixins: [theme],
     computed: {
       classes() {
         return {
-
+          'md-indeterminate': this.mdIndeterminate
         };
       },
       styles() {
-        return {
-
-        };
+        if (!this.mdIndeterminate) {
+          return {
+            width: this.mdProgress + '%'
+          };
+        }
       }
-    },
-    data: () => ({
-
-    }),
-    methods: {
-
     }
   };
 </script>
