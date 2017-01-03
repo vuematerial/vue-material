@@ -23,9 +23,15 @@
 
             <md-table-body>
               <md-table-row>
-                <md-table-cell>empty</md-table-cell>
-                <md-table-cell><code>Type</code></md-table-cell>
-                <md-table-cell>Description</md-table-cell>
+                <md-table-cell>md-indeterminate</md-table-cell>
+                <md-table-cell><code>Boolean</code></md-table-cell>
+                <md-table-cell>Enable the indeterminate state. Default <code>false</code></md-table-cell>
+              </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>md-progress</md-table-cell>
+                <md-table-cell><code>Number</code></md-table-cell>
+                <md-table-cell>Define the current progress of the progress. Default <code>0</code></md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>
@@ -35,24 +41,56 @@
       <div slot="example">
         <example-box card-title="Determinate">
           <div class="progress-demo" slot="demo">
-            <md-progress></md-progress>
+            <div class="progress-area">
+              <md-progress :md-progress="progress" v-if="transition"></md-progress>
+              <md-progress class="md-accent" :md-progress="progress" v-if="transition"></md-progress>
+              <md-progress class="md-warn" :md-progress="progress" v-if="transition"></md-progress>
+            </div>
+
+            <md-button class="md-primary md-raised" @click.native="restartProgress">Restart</md-button>
           </div>
 
           <div slot="code">
             <code-block lang="xml">
-
+              &lt;md-progress :md-progress=&quot;progress&quot;&gt;&lt;/md-progress&gt;
+              &lt;md-progress class=&quot;md-accent&quot; :md-progress=&quot;progress&quot;&gt;&lt;/md-progress&gt;
+              &lt;md-progress class=&quot;md-warn&quot; :md-progress=&quot;progress&quot;&gt;&lt;/md-progress&gt;
             </code-block>
           </div>
         </example-box>
 
         <example-box card-title="Indeterminate">
           <div class="progress-demo" slot="demo">
-            <md-progress></md-progress>
+            <div class="progress-area">
+              <md-progress md-indeterminate v-if="transition"></md-progress>
+              <md-progress class="md-accent" md-indeterminate v-if="transition"></md-progress>
+              <md-progress class="md-warn" md-indeterminate v-if="transition"></md-progress>
+            </div>
           </div>
 
           <div slot="code">
             <code-block lang="xml">
+              &lt;md-progress md-indeterminate&gt;&lt;/md-progress&gt;
+              &lt;md-progress class=&quot;md-accent&quot; md-indeterminate&gt;&lt;/md-progress&gt;
+              &lt;md-progress class=&quot;md-warn&quot; md-indeterminate&gt;&lt;/md-progress&gt;
+            </code-block>
+          </div>
+        </example-box>
 
+        <example-box card-title="Themes">
+          <div class="progress-demo" slot="demo">
+            <div class="progress-area">
+              <md-progress md-theme="orange" md-indeterminate v-if="transition"></md-progress>
+              <md-progress md-theme="green" :md-progress="progress" v-if="transition"></md-progress>
+              <md-progress md-theme="purple" md-indeterminate v-if="transition"></md-progress>
+            </div>
+          </div>
+
+          <div slot="code">
+            <code-block lang="xml">
+              &lt;md-progress md-theme=&quot;orange&quot; md-indeterminate&gt;&lt;/md-progress&gt;
+              &lt;md-progress md-theme=&quot;green&quot; :md-progress=&quot;progress&quot;&gt;&lt;/md-progress&gt;
+              &lt;md-progress md-theme=&quot;purple&quot; md-indeterminate&gt;&lt;/md-progress&gt;
             </code-block>
           </div>
         </example-box>
@@ -62,19 +100,49 @@
 </template>
 
 <style lang="scss" scoped>
+  .progress-area {
+    height: 44px;
 
+    + .md-button {
+      margin: 16px 0 0;
+    }
+  }
+
+  .md-progress {
+    margin-bottom: 16px;
+  }
 </style>
 
 <script>
   export default {
     data: () => ({
-
+      progress: 0,
+      progressInterval: null,
+      transition: true
     }),
     methods: {
+      startProgress() {
+        this.progressInterval = window.setInterval(() => {
+          this.progress += 3;
 
+          if (this.progress > 100) {
+            window.clearInterval(this.progressInterval);
+          }
+        }, 100);
+      },
+      restartProgress() {
+        this.progress = 0;
+        this.transition = false;
+
+        window.clearInterval(this.progressInterval);
+        window.setTimeout(() => {
+          this.transition = true;
+          this.startProgress();
+        }, 600);
+      }
     },
     mounted() {
-      console.log(this.$material);
+      this.startProgress();
     }
   };
 </script>
