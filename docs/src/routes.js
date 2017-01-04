@@ -14,6 +14,7 @@ const Card = (resolve) => require(['./pages/components/Card'], resolve);
 const Checkbox = (resolve) => require(['./pages/components/Checkbox'], resolve);
 const Dialog = (resolve) => require(['./pages/components/Dialog'], resolve);
 const Icon = (resolve) => require(['./pages/components/Icon'], resolve);
+const IconCSS = (resolve) => require(['./pages/components/IconCSS'], resolve);
 const InkRipple = (resolve) => require(['./pages/components/InkRipple'], resolve);
 const Input = (resolve) => require(['./pages/components/Input'], resolve);
 const List = (resolve) => require(['./pages/components/List'], resolve);
@@ -107,6 +108,11 @@ const components = [
     path: '/components/icon',
     name: 'components:icon',
     component: Icon
+  },
+  {
+    path: '/components/iconCSS',
+    name: 'components:iconcss',
+    component: IconCSS
   },
   {
     path: '/components/ink-ripple',
