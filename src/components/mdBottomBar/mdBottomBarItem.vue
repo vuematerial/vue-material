@@ -42,11 +42,9 @@
     },
     methods: {
       setActive(active) {
-        this.$parent.$children.forEach((item) => {
-          item.active = false;
-        });
-
-        this.active = !!active;
+        if (active) {
+          this.$parent.setActive(this);
+        }
       }
     },
     mounted() {
