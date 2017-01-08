@@ -1,5 +1,5 @@
 <template>
-  <div class="md-list-expand" :style="{ 'margin-bottom': height }" :class="classes" ref="expand">
+  <div class="md-list-expand" :style="styles" :class="classes" ref="expand">
     <slot></slot>
   </div>
 </template>
@@ -18,22 +18,29 @@
         return {
           'md-transition-off': this.transitionOff
         };
+      },
+      styles() {
+        return {
+          'margin-bottom': this.height
+        };
       }
     },
     methods: {
       calculatePadding() {
-        this.height = -this.$el.offsetHeight + 'px';
+        window.requestAnimationFrame(() => {
+          this.height = -this.$el.offsetHeight - 48 + 'px';
 
-        window.setTimeout(() => {
-          this.transitionOff = false;
+          window.setTimeout(() => {
+            this.transitionOff = false;
+          });
         });
       },
-      recalculateAfterChildChange() {
+      recalculateAfterChange() {
         this.transitionOff = true;
         this.calculatePadding();
       },
       observeChildChanges() {
-        this.contentObserver = new MutationObserver(this.recalculateAfterChildChange);
+        this.contentObserver = new MutationObserver(this.recalculateAfterChange);
         this.contentObserver.observe(this.$refs.expand, {
           childList: true,
           characterData: true,
@@ -44,11 +51,14 @@
     mounted() {
       this.calculatePadding();
       this.observeChildChanges();
+      window.addEventListener('resize', this.recalculateAfterChange);
     },
     beforeDestroy() {
       if (this.contentObserver) {
         this.contentObserver.disconnect();
       }
+
+      window.removeEventListener('resize', this.recalculateAfterChange);
     }
   };
 </script>
