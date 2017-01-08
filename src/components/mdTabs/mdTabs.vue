@@ -1,6 +1,6 @@
 <template>
   <div class="md-tabs" :class="[themeClass, tabClasses]">
-    <md-whiteframe md-tag="nav" class="md-tabs-navigation" :md-elevation="mdElevation" :class="navigationClasses">
+    <md-whiteframe md-tag="nav" class="md-tabs-navigation" :md-elevation="mdElevation" :class="navigationClasses" ref="tabNavigation">
       <button
         v-for="header in tabList"
         :key="header.id"
@@ -121,11 +121,17 @@
       },
       observeElementChanges() {
         this.contentObserver = new MutationObserver(this.calculateOnWatch);
-        this.contentObserver.observe(this.$parent.$el, {
+        this.navigationObserver = new MutationObserver(this.calculateOnWatch);
+        this.contentObserver.observe(this.$refs.tabContent, {
           childList: true,
           attributes: true,
           characterData: true,
-          subtree: true
+          subtree: true,
+          attributeOldValue: true,
+          characterDataOldValue: true
+        });
+        this.navigationObserver.observe(this.$refs.tabNavigation.$el, {
+          attributes: true
         });
       },
       getTabIndex(id) {
@@ -134,10 +140,9 @@
         return idList.indexOf(id);
       },
       calculateIndicatorPos() {
-        let activeTab = this.$refs.tabHeader && this.$refs.tabHeader[this.activeTabNumber];
-
-        if (activeTab) {
+        if (this.$refs.tabHeader && this.$refs.tabHeader[this.activeTabNumber]) {
           let tabsWidth = this.$el.offsetWidth;
+          let activeTab = this.$refs.tabHeader[this.activeTabNumber];
           let left = activeTab.offsetLeft;
           let right = tabsWidth - left - activeTab.offsetWidth;
 
@@ -211,6 +216,10 @@
     beforeDestroy() {
       if (this.contentObserver) {
         this.contentObserver.disconnect();
+      }
+
+      if (this.navigationObserver) {
+        this.navigationObserver.disconnect();
       }
 
       window.removeEventListener('resize', this.calculateOnWatch);

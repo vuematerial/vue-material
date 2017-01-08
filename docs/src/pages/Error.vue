@@ -11,7 +11,7 @@
   </page-content>
 </template>
 
-<style lang="scss" scoped>
+<style lang="sass" scoped>
   section {
     margin-top: 64px;
     text-align: center;

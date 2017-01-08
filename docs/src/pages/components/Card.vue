@@ -1051,7 +1051,7 @@
               &lt;/md-card&gt;
             </code-block>
 
-            <code-block lang="scss">
+            <code-block lang="sass">
               .card-example {
                 .md-subhead {
                   .md-icon {
@@ -1094,7 +1094,7 @@
   </page-content>
 </template>
 
-<style lang="scss" scoped>
+<style lang="sass" scoped>
   .card-holder {
     .md-card {
       width: 100%;

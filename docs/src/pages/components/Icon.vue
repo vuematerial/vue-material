@@ -155,7 +155,7 @@
   </page-content>
 </template>
 
-<style lang="scss" scoped>
+<style lang="sass" scoped>
   strong {
     margin: auto 16px auto 0;
     display: inline-block;

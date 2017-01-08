@@ -68,8 +68,10 @@ router.beforeEach((to, from, next) => {
 
     Docs.closeSidenav();
 
-    handleSectionTheme(to);
-
     next();
   });
+});
+
+router.afterEach((to) => {
+  handleSectionTheme(to);
 });

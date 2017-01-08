@@ -460,7 +460,7 @@
   </page-content>
 </template>
 
-<style lang="scss" scoped>
+<style lang="sass" scoped>
   .md-button-toggle + .md-button-toggle {
     margin-top: 16px;
   }

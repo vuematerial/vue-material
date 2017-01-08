@@ -951,7 +951,7 @@
   </page-content>
 </template>
 
-<style lang="scss" scoped>
+<style lang="sass" scoped>
   .phone-viewport {
     height: 400px;
   }

@@ -12,7 +12,7 @@
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="sass" scoped>
   @import '../../../src/core/stylesheets/variables.scss';
 
   .code-block {
@@ -118,7 +118,7 @@
   }
 </style>
 
-<style lang="scss">
+<style lang="sass">
   @import '../../../src/core/stylesheets/variables.scss';
 
   .code-block {
