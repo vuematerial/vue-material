@@ -186,7 +186,7 @@
   </div>
 </template>
 
-<style lang="scss">
+<style lang="sass">
   @import '../../src/core/stylesheets/variables.scss';
 
   $sizebar-size: 280px;

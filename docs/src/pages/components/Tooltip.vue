@@ -150,7 +150,7 @@
   </page-content>
 </template>
 
-<style lang="scss" scoped>
+<style lang="sass" scoped>
   .md-button,
   .md-avatar {
     margin: 24px;

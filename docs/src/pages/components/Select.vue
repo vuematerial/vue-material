@@ -363,7 +363,7 @@
   </page-content>
 </template>
 
-<style lang="scss" scoped>
+<style lang="sass" scoped>
   .field-group {
     display: flex;
   }

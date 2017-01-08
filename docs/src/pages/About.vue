@@ -70,7 +70,7 @@
   </page-content>
 </template>
 
-<style lang="scss" scoped>
+<style lang="sass" scoped>
   section {
     max-width: 960px;
 

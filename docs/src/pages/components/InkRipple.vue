@@ -116,7 +116,7 @@
               &lt;/md-card&gt;
             </code-block>
 
-            <code-block lang="scss">
+            <code-block lang="sass">
               .has-ripple {
                 margin-bottom: 16px;
                 padding: 20px;
@@ -148,7 +148,7 @@
   </page-content>
 </template>
 
-<style lang="scss" scoped>
+<style lang="sass" scoped>
   .has-ripple {
     margin-bottom: 16px;
     padding: 20px;

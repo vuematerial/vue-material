@@ -448,7 +448,7 @@
   </page-content>
 </template>
 
-<style lang="scss" scoped>
+<style lang="sass" scoped>
   .disabled-button {
     margin-left: 8px;
   }

@@ -96,7 +96,7 @@
   </page-content>
 </template>
 
-<style lang="scss" scoped>
+<style lang="sass" scoped>
   .md-whiteframe {
     width: 100px;
     height: 100px;
