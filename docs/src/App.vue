@@ -178,6 +178,8 @@
           </md-list-item>
         </md-list>
       </div>
+
+      <release-version></release-version>
     </md-sidenav>
 
     <transition name="md-router" appear>
@@ -222,6 +224,7 @@
       width: $sizebar-size;
       display: flex;
       flex-flow: column;
+      overflow: hidden;
 
       @media (min-width: 1281px) {
         top: 0;
@@ -269,6 +272,7 @@
 
     .main-sidebar-links {
       overflow: auto;
+      flex: 1;
 
       .md-inset .md-list-item-container {
         padding-left: 36px;
@@ -277,6 +281,24 @@
       .md-list-item-container {
         font-size: 14px;
         font-weight: 500;
+      }
+    }
+
+    .release-version {
+      padding: 8px 8px 8px 16px;
+      border-top: 1px solid rgba(#000, .12);
+      display: none;
+
+      @media (max-width: 480px) {
+        display: block;
+      }
+
+      > div {
+        justify-content: center;
+      }
+
+      .md-select:after {
+        color: rgba(#000, .87);
       }
     }
   }
