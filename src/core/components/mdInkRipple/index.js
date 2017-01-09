@@ -95,8 +95,36 @@ export default function install(Vue) {
         let rippleParent = currentRipple || createElement(ripple, rippleParentClass);
         let rippleElement = createElement(ripple, rippleClass, elementSize);
 
+        rippleElement.classList.remove(rippleActiveClass);
+
         rippleParent.appendChild(rippleElement);
         holder.appendChild(rippleParent);
+
+        // sometime the element's size hasnt been ready yet
+        if (elementSize === '0px' && document.readyState !== 'complete') {
+          let giveUpTime = false;
+          let lazySizeUpdate = () => {
+            let finalElementSize = Math.round(Math.max(holder.offsetWidth, holder.offsetHeight)) + 'px';
+
+            if (finalElementSize === '0px') {
+              if (document.readyState !== 'complete') {
+                // try again later
+              } else if (!giveUpTime) {
+                //keep retrying for 3s
+                giveUpTime = new Date(new Date().getTime() + 3000);
+              } else if (new Date() >= giveUpTime) {
+                //failed...
+                return;
+              }
+              setTimeout(lazySizeUpdate, 100);
+            }
+
+            rippleElement.style.width = finalElementSize;
+            rippleElement.style.height = finalElementSize;
+          };
+
+          setTimeout(lazySizeUpdate, 100);
+        }
       }
 
       if (holder !== element || !ripple) {
