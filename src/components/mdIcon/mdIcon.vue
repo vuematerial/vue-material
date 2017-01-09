@@ -13,6 +13,8 @@
 <script>
   import theme from '../../core/components/mdTheme/mixin';
 
+  let registeredIcons = {};
+
   export default {
     props: {
       mdSrc: String
@@ -36,30 +38,39 @@
       isSVG(mimetype) {
         return mimetype.indexOf('svg') >= 0;
       },
+      setSVGContent(value) {
+        this.svgContent = value;
+
+        this.$nextTick(() => {
+          this.$el.children[0].removeAttribute('fill');
+        });
+      },
       loadSVG() {
-        const request = new XMLHttpRequest();
-        const self = this;
+        if (!registeredIcons[this.mdSrc]) {
+          const request = new XMLHttpRequest();
+          const self = this;
 
-        request.open('GET', this.mdSrc, true);
+          request.open('GET', this.mdSrc, true);
 
-        request.onload = function() {
-          const mimetype = this.getResponseHeader('content-type');
+          request.onload = function() {
+            const mimetype = this.getResponseHeader('content-type');
 
-          if (this.status >= 200 && this.status < 400 && self.isImage(mimetype)) {
-            if (self.isSVG(mimetype)) {
-              self.svgContent = this.response;
-              window.setTimeout(() => {
-                self.$el.children[0].removeAttribute('fill');
-              }, 0);
+            if (this.status >= 200 && this.status < 400 && self.isImage(mimetype)) {
+              if (self.isSVG(mimetype)) {
+                registeredIcons[self.mdSrc] = this.response;
+                self.setSVGContent(this.response);
+              } else {
+                self.loadImage();
+              }
             } else {
-              this.loadImage();
+              console.warn(`The file ${self.mdSrc} is not a valid image.`);
             }
-          } else {
-            console.warn(`The file ${this.mdSrc} is not a valid image.`);
-          }
-        };
+          };
 
-        request.send();
+          request.send();
+        } else {
+          this.setSVGContent(registeredIcons[this.mdSrc]);
+        }
       },
       loadImage() {
         this.imageSrc = this.mdSrc;
