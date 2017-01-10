@@ -47,7 +47,7 @@ export default merge(baseConfig, {
     ]
   },
   externals: {
-    vue: 'Vue'
+    vue: 'vue'
   },
   plugins: [
     new webpack.optimize.DedupePlugin(),
