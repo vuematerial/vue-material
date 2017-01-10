@@ -1,12 +1,12 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("Vue"));
+		module.exports = factory(require("vue"));
 	else if(typeof define === 'function' && define.amd)
-		define(["Vue"], factory);
+		define(["vue"], factory);
 	else if(typeof exports === 'object')
-		exports["VueMaterial"] = factory(require("Vue"));
+		exports["VueMaterial"] = factory(require("vue"));
 	else
-		root["VueMaterial"] = factory(root["Vue"]);
+		root["VueMaterial"] = factory(root["vue"]);
 })(this, (function(__WEBPACK_EXTERNAL_MODULE_374__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
