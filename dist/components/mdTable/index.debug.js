@@ -1,2 +1,1821 @@
-!function(e,t){"object"==typeof exports&&"object"==typeof module?module.exports=t():"function"==typeof define&&define.amd?define([],t):"object"==typeof exports?exports.VueMaterial=t():e.VueMaterial=t()}(this,function(){return function(e){function t(r){if(n[r])return n[r].exports;var a=n[r]={exports:{},id:r,loaded:!1};return e[r].call(a.exports,a,a.exports,t),a.loaded=!0,a.exports}var n={};return t.m=e,t.c=n,t.p="/",t(0)}({0:function(e,t,n){e.exports=n(90)},1:function(e,t){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default={props:{mdTheme:String},data:function(){return{closestThemedParent:!1}},methods:{getClosestThemedParent:function(e){return!(!e||!e.$el||0===e._uid)&&(e.mdTheme||e.mdName?e:this.getClosestThemedParent(e.$parent))}},computed:{themeClass:function(){if(this.mdTheme)return"md-theme-"+this.mdTheme;var e=this.closestThemedParent.mdTheme;return e||(e=this.closestThemedParent?this.closestThemedParent.mdName:this.$material.currentTheme),"md-theme-"+e}},mounted:function(){this.closestThemedParent=this.getClosestThemedParent(this.$parent),this.$material.currentTheme||this.$material.setCurrentTheme("default")}},e.exports=t.default},2:function(e,t){var n=e.exports="undefined"!=typeof window&&window.Math==Math?window:"undefined"!=typeof self&&self.Math==Math?self:Function("return this")();"number"==typeof __g&&(__g=n)},3:function(e,t,n){e.exports=!n(10)(function(){return 7!=Object.defineProperty({},"a",{get:function(){return 7}}).a})},5:function(e,t){var n=e.exports={version:"2.4.0"};"number"==typeof __e&&(__e=n)},6:function(e,t,n){var r=n(12),a=n(29),i=n(25),o=Object.defineProperty;t.f=n(3)?Object.defineProperty:function(e,t,n){if(r(e),t=i(t,!0),r(n),a)try{return o(e,t,n)}catch(e){}if("get"in n||"set"in n)throw TypeError("Accessors not supported!");return"value"in n&&(e[t]=n.value),e}},8:function(e,t,n){var r=n(6),a=n(14);e.exports=n(3)?function(e,t,n){return r.f(e,t,a(1,n))}:function(e,t,n){return e[t]=n,e}},9:function(e,t){e.exports=function(e){return"object"==typeof e?null!==e:"function"==typeof e}},10:function(e,t){e.exports=function(e){try{return!!e()}catch(e){return!0}}},12:function(e,t,n){var r=n(9);e.exports=function(e){if(!r(e))throw TypeError(e+" is not an object!");return e}},13:function(e,t){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var n=function e(t,n){return!(!t||!t.$el)&&(0!==t._uid&&(t.$el.classList.contains(n)?t:e(t.$parent,n)))};t.default=n,e.exports=t.default},14:function(e,t){e.exports=function(e,t){return{enumerable:!(1&e),configurable:!(2&e),writable:!(4&e),value:t}}},16:function(e,t,n){var r=n(2),a=n(5),i=n(27),o=n(8),s="prototype",c=function(e,t,n){var d,l,u,f=e&c.F,m=e&c.G,p=e&c.S,h=e&c.P,b=e&c.B,v=e&c.W,_=m?a:a[t]||(a[t]={}),g=_[s],y=m?r:p?r[t]:(r[t]||{})[s];m&&(n=t);for(d in n)l=!f&&y&&void 0!==y[d],l&&d in _||(u=l?y[d]:n[d],_[d]=m&&"function"!=typeof y[d]?n[d]:b&&l?i(u,r):v&&y[d]==u?function(e){var t=function(t,n,r){if(this instanceof e){switch(arguments.length){case 0:return new e;case 1:return new e(t);case 2:return new e(t,n)}return new e(t,n,r)}return e.apply(this,arguments)};return t[s]=e[s],t}(u):h&&"function"==typeof u?i(Function.call,u):u,h&&((_.virtual||(_.virtual={}))[d]=u,e&c.R&&g&&!g[d]&&o(g,d,u)))};c.F=1,c.G=2,c.S=4,c.P=8,c.B=16,c.W=32,c.U=64,c.R=128,e.exports=c},21:function(e,t,n){var r=n(9),a=n(2).document,i=r(a)&&r(a.createElement);e.exports=function(e){return i?a.createElement(e):{}}},25:function(e,t,n){var r=n(9);e.exports=function(e,t){if(!r(e))return e;var n,a;if(t&&"function"==typeof(n=e.toString)&&!r(a=n.call(e)))return a;if("function"==typeof(n=e.valueOf)&&!r(a=n.call(e)))return a;if(!t&&"function"==typeof(n=e.toString)&&!r(a=n.call(e)))return a;throw TypeError("Can't convert object to primitive value")}},27:function(e,t,n){var r=n(31);e.exports=function(e,t,n){if(r(e),void 0===t)return e;switch(n){case 1:return function(n){return e.call(t,n)};case 2:return function(n,r){return e.call(t,n,r)};case 3:return function(n,r,a){return e.call(t,n,r,a)}}return function(){return e.apply(t,arguments)}}},29:function(e,t,n){e.exports=!n(3)&&!n(10)(function(){return 7!=Object.defineProperty(n(21)("div"),"a",{get:function(){return 7}}).a})},31:function(e,t){e.exports=function(e){if("function"!=typeof e)throw TypeError(e+" is not a function!");return e}},90:function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{default:e}}function a(e){e.component("md-table",e.extend(o.default)),e.component("md-table-header",{functional:!0,render:function(e,t){return e("thead",{staticClass:"md-table-header"},t.children)}}),e.component("md-table-body",{functional:!0,render:function(e,t){return e("tbody",{staticClass:"md-table-body"},t.children)}}),e.component("md-table-row",e.extend(c.default)),e.component("md-table-head",e.extend(l.default)),e.component("md-table-cell",e.extend(f.default)),e.component("md-table-edit",e.extend(p.default)),e.component("md-table-card",e.extend(b.default)),e.component("md-table-pagination",e.extend(y.default)),e.component("md-table-alternate-header",e.extend(_.default)),e.material.styles.push(x.default)}Object.defineProperty(t,"__esModule",{value:!0}),t.default=a;var i=n(267),o=r(i),s=n(274),c=r(s),d=n(272),l=r(d),u=n(270),f=r(u),m=n(271),p=r(m),h=n(269),b=r(h),v=n(268),_=r(v),g=n(273),y=r(g),S=n(219),x=r(S);e.exports=t.default},137:function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{default:e}}Object.defineProperty(t,"__esModule",{value:!0});var a=n(1),i=r(a),o=n(13),s=r(o);t.default={props:{mdSortType:String,mdSort:String},mixins:[i.default],data:function(){return{sortType:this.mdSortType,sortBy:this.mdSort,hasRowSelection:!1,data:[],numberOfRows:0,numberOfSelected:0,selectedRows:{}}},methods:{emitSort:function(e){this.sortBy=e,this.$emit("sort",{name:e,type:this.sortType})},emitSelection:function(){this.$emit("select",this.selectedRows)}},mounted:function(){this.parentCard=(0,s.default)(this.$parent,"md-table-card"),this.parentCard&&(this.parentCard.tableInstance=this)}},e.exports=t.default},138:function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{default:e}}Object.defineProperty(t,"__esModule",{value:!0});var a=n(1),i=r(a),o=n(13),s=r(o);t.default={props:{mdSelectedLabel:{type:String,default:"selected"}},mixins:[i.default],data:function(){return{classes:{},tableInstance:{}}},mounted:function(){var e=this;this.parentCard=(0,s.default)(this.$parent,"md-table-card"),this.$nextTick(function(){e.tableInstance=e.parentCard.tableInstance,e.$watch("tableInstance.numberOfSelected",function(){e.$refs.counter.textContent=e.tableInstance.numberOfSelected,e.classes={"md-active":e.tableInstance.numberOfSelected>0}})})}},e.exports=t.default},139:function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{default:e}}Object.defineProperty(t,"__esModule",{value:!0});var a=n(1),i=r(a);t.default={mixins:[i.default]},e.exports=t.default},140:function(e,t){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default={props:{mdNumeric:Boolean},data:function(){return{hasAction:!1}},computed:{classes:function(){return{"md-numeric":this.mdNumeric,"md-has-action":this.hasAction}}},mounted:function(){this.$children.length>0&&(this.hasAction=!0)}},e.exports=t.default},141:function(e,t){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default={props:{value:[String,Number],mdLarge:Boolean,mdId:String,mdName:String,mdPlaceholder:String,mdMaxlength:[Number,String]},data:function(){return{active:!1}},computed:{triggerClasses:function(){return{"md-edited":this.value}},dialogClasses:function(){return{"md-active":this.active,"md-large":this.mdLarge}},realValue:function(){console.log(this.value)}},methods:{openDialog:function(){this.active=!0,this.$refs.input.$el.focus(),document.addEventListener("click",this.closeDialogOnOffClick)},closeDialog:function(){this.active&&(this.active=!1,this.$refs.input.$el.blur(),document.removeEventListener("click",this.closeDialogOnOffClick))},closeDialogOnOffClick:function(e){this.$refs.dialog.contains(e.target)||this.closeDialog()},confirmDialog:function(){var e=this.$refs.input.$el.value;this.closeDialog(),this.$emit("input",e),this.$emit("edited",e)}}},e.exports=t.default},142:function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{default:e}}Object.defineProperty(t,"__esModule",{value:!0});var a=n(13),i=r(a);t.default={props:{mdNumeric:Boolean,mdSortBy:String,mdTooltip:String},data:function(){return{sortType:null,sorted:!1,parentTable:{}}},computed:{classes:function(){var e=this.hasMatchSort();return e||(this.sorted=!1),{"md-numeric":this.mdNumeric,"md-sortable":this.mdSortBy,"md-sorted":e&&this.sorted,"md-sorted-descending":e&&"desc"===this.sortType}}},methods:{hasMatchSort:function(){return this.parentTable.sortBy===this.mdSortBy},changeSort:function(){this.mdSortBy&&("asc"===this.sortType&&this.sorted?this.sortType="desc":this.sortType="asc",this.sorted=!0,this.parentTable.sortType=this.sortType,this.parentTable.emitSort(this.mdSortBy))}},mounted:function(){this.parentTable=(0,i.default)(this.$parent,"md-table"),this.hasMatchSort()&&(this.sorted=!0,this.sortType=this.parentTable.sortType)}},e.exports=t.default},143:function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{default:e}}Object.defineProperty(t,"__esModule",{value:!0});var a=n(151),i=r(a);t.default={props:{mdSize:{type:[Number,String],default:10},mdPageOptions:[Array,Boolean],mdPage:{type:[Number,String],default:1},mdTotal:{type:[Number,String],default:"Many"},mdLabel:{type:String,default:"Rows per page"},mdSeparator:{type:String,default:"of"}},data:function(){return{subTotal:0,currentSize:parseInt(this.mdSize,10),currentPage:parseInt(this.mdPage,10),totalItems:isNaN(this.mdTotal)?i.default:parseInt(this.mdTotal,10)}},computed:{lastPage:function(){return!1}},methods:{emitPaginationEvent:function(){if(this.canFireEvents){var e=this.currentPage*this.currentSize;this.subTotal=e>this.mdTotal?this.mdTotal:e,this.$emit("pagination",{size:this.currentSize,page:this.currentPage})}},changeSize:function(){this.canFireEvents&&(this.$emit("size",this.currentSize),this.emitPaginationEvent())},previousPage:function(){this.canFireEvents&&(this.currentPage--,this.$emit("page",this.currentPage),this.emitPaginationEvent())},nextPage:function(){this.canFireEvents&&(this.currentPage++,this.$emit("page",this.currentPage),this.emitPaginationEvent())}},mounted:function(){var e=this;this.$nextTick(function(){e.subTotal=e.currentPage*e.currentSize,e.mdPageOptions=e.mdPageOptions||[10,25,50,100],e.currentSize=e.mdPageOptions[0],e.canFireEvents=!0})}},e.exports=t.default},144:function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{default:e}}Object.defineProperty(t,"__esModule",{value:!0});var a=n(13),i=r(a),o="md-transition-off";t.default={props:{mdAutoSelect:Boolean,mdSelection:Boolean,mdItem:Object},data:function(){return{parentTable:{},headRow:!1,checkbox:!1,index:0}},computed:{isDisabled:function(){return!this.mdSelection&&!this.headRow},hasSelection:function(){return this.mdSelection||this.headRow&&this.parentTable.hasRowSelection},classes:function(){return{"md-selected":this.checkbox}}},watch:{mdItem:function(e,t){this.parentTable.data[this.index]=this.mdItem,this.handleMultipleSelection(e===t)}},methods:{setSelectedRow:function(e,t){e?(this.parentTable.selectedRows[t]=this.parentTable.data[t],++this.parentTable.numberOfSelected):(delete this.parentTable.selectedRows[t],--this.parentTable.numberOfSelected)},handleSingleSelection:function(e){this.setSelectedRow(e,this.index-1),this.parentTable.$children[0].checkbox=this.parentTable.numberOfSelected===this.parentTable.numberOfRows},handleMultipleSelection:function(e){var t=this;this.parentTable.numberOfRows>25&&this.parentTable.$el.classList.add(o),this.parentTable.$children.forEach(function(n,r){n.checkbox=e,n.headRow||t.setSelectedRow(e,r-1)}),e?this.parentTable.numberOfSelected=this.parentTable.numberOfRows:this.parentTable.numberOfSelected=0,window.setTimeout(function(){return t.parentTable.$el.classList.remove(o)})},select:function(e){this.hasSelection&&(this.headRow?this.handleMultipleSelection(e):this.handleSingleSelection(e),this.parentTable.emitSelection())},autoSelect:function(){this.mdAutoSelect&&this.hasSelection&&(this.checkbox=!this.checkbox,this.handleSingleSelection(this.checkbox),this.parentTable.emitSelection())}},mounted:function(){this.parentTable=(0,i.default)(this.$parent,"md-table"),"thead"===this.$el.parentNode.tagName.toLowerCase()?this.headRow=!0:(this.parentTable.numberOfRows++,this.index=this.parentTable.numberOfRows,this.mdSelection&&(this.parentTable.hasRowSelection=!0),this.mdItem&&this.parentTable.data.push(this.mdItem))}},e.exports=t.default},151:function(e,t,n){e.exports={default:n(155),__esModule:!0}},155:function(e,t,n){n(167),e.exports=9007199254740991},167:function(e,t,n){var r=n(16);r(r.S,"Number",{MAX_SAFE_INTEGER:9007199254740991})},198:function(e,t){},219:function(e,t){e.exports=".THEME_NAME.md-table-card .md-toolbar{background-color:BACKGROUND-COLOR;color:BACKGROUND-CONTRAST}.THEME_NAME.md-table-alternate-header{background-color:BACKGROUND-COLOR}.THEME_NAME.md-table-alternate-header .md-toolbar{background-color:ACCENT-COLOR-A100-0.2;color:ACCENT-CONTRAST-A100}.THEME_NAME.md-table-alternate-header .md-counter{color:ACCENT-COLOR}\n"},267:function(e,t,n){var r,a;n(198),r=n(137);var i=n(329);a=r=r||{},"object"!=typeof r.default&&"function"!=typeof r.default||(a=r=r.default),"function"==typeof a&&(a=a.options),a.render=i.render,a.staticRenderFns=i.staticRenderFns,e.exports=r},268:function(e,t,n){var r,a;r=n(138);var i=n(294);a=r=r||{},"object"!=typeof r.default&&"function"!=typeof r.default||(a=r=r.default),"function"==typeof a&&(a=a.options),a.render=i.render,a.staticRenderFns=i.staticRenderFns,e.exports=r},269:function(e,t,n){var r,a;r=n(139);var i=n(331);a=r=r||{},"object"!=typeof r.default&&"function"!=typeof r.default||(a=r=r.default),"function"==typeof a&&(a=a.options),a.render=i.render,a.staticRenderFns=i.staticRenderFns,e.exports=r},270:function(e,t,n){var r,a;r=n(140);var i=n(308);a=r=r||{},"object"!=typeof r.default&&"function"!=typeof r.default||(a=r=r.default),"function"==typeof a&&(a=a.options),a.render=i.render,a.staticRenderFns=i.staticRenderFns,e.exports=r},271:function(e,t,n){var r,a;r=n(141);var i=n(295);a=r=r||{},"object"!=typeof r.default&&"function"!=typeof r.default||(a=r=r.default),"function"==typeof a&&(a=a.options),a.render=i.render,a.staticRenderFns=i.staticRenderFns,e.exports=r},272:function(e,t,n){var r,a;r=n(142);var i=n(303);a=r=r||{},"object"!=typeof r.default&&"function"!=typeof r.default||(a=r=r.default),"function"==typeof a&&(a=a.options),a.render=i.render,a.staticRenderFns=i.staticRenderFns,e.exports=r},273:function(e,t,n){var r,a;r=n(143);var i=n(319);a=r=r||{},"object"!=typeof r.default&&"function"!=typeof r.default||(a=r=r.default),"function"==typeof a&&(a=a.options),a.render=i.render,a.staticRenderFns=i.staticRenderFns,e.exports=r},274:function(e,t,n){var r,a;r=n(144);var i=n(327);a=r=r||{},"object"!=typeof r.default&&"function"!=typeof r.default||(a=r=r.default),"function"==typeof a&&(a=a.options),a.render=i.render,a.staticRenderFns=i.staticRenderFns,e.exports=r},294:function(e,t){e.exports={render:function(){var e=this,t=e.$createElement,n=e._self._c||t;return n("div",{staticClass:"md-table-alternate-header",class:[e.themeClass,e.classes]},[n("md-toolbar",[n("div",{staticClass:"md-counter"},[n("span",{ref:"counter"},[e._v(e._s(e.tableInstance.numberOfSelected))]),e._v(" "),n("span",[e._v(e._s(e.mdSelectedLabel))])]),e._v(" "),e._t("default")],2)],1)},staticRenderFns:[]}},295:function(e,t){e.exports={render:function(){var e=this,t=e.$createElement,n=e._self._c||t;return n("div",{staticClass:"md-table-edit",on:{keydown:function(t){e._k(t.keyCode,"esc",27)||e.closeDialog(t)}}},[n("div",{staticClass:"md-table-edit-trigger",class:e.triggerClasses,on:{click:function(t){t.stopPropagation(),e.openDialog(t)}}},[e._v("\n    "+e._s(e.value||e.mdPlaceholder)+"\n  ")]),e._v(" "),n("div",{ref:"dialog",staticClass:"md-table-dialog",class:e.dialogClasses},[n("md-input-container",[n("md-input",{ref:"input",attrs:{id:e.mdId,name:e.mdName,maxlength:e.mdMaxlength,value:e.value,placeholder:e.mdPlaceholder},nativeOn:{keydown:function(t){e._k(t.keyCode,"enter",13)||e.confirmDialog(t)}}})],1)],1)])},staticRenderFns:[]}},303:function(e,t){e.exports={render:function(){var e=this,t=e.$createElement,n=e._self._c||t;return n("th",{staticClass:"md-table-head",class:e.classes,on:{click:e.changeSort}},[n("div",{directives:[{name:"md-ink-ripple",rawName:"v-md-ink-ripple",value:!e.mdSortBy,expression:"!mdSortBy"}],staticClass:"md-table-head-container"},[n("div",{staticClass:"md-table-head-text md-test"},[e.mdSortBy?n("md-icon",{staticClass:"md-sortable-icon"},[e._v("arrow_downward")]):e._e(),e._v(" "),e._t("default"),e._v(" "),e.mdTooltip?n("md-tooltip",[e._v(e._s(e.mdTooltip))]):e._e()],1)])])},staticRenderFns:[]}},308:function(e,t){e.exports={render:function(){var e=this,t=e.$createElement,n=e._self._c||t;return n("td",{staticClass:"md-table-cell",class:e.classes},[n("div",{staticClass:"md-table-cell-container"},[e._t("default")],2)])},staticRenderFns:[]}},319:function(e,t){e.exports={render:function(){var e=this,t=e.$createElement,n=e._self._c||t;return n("div",{staticClass:"md-table-pagination"},[n("span",{staticClass:"md-table-pagination-label"},[e._v(e._s(e.mdLabel)+":")]),e._v(" "),e.mdPageOptions?n("md-select",{directives:[{name:"model",rawName:"v-model",value:e.currentSize,expression:"currentSize"}],attrs:{"md-menu-class":"md-pagination-select"},domProps:{value:e.currentSize},on:{change:e.changeSize,input:function(t){e.currentSize=t}}},e._l(e.mdPageOptions,function(t){return n("md-option",{attrs:{value:t}},[e._v(e._s(t))])})):e._e(),e._v(" "),n("span",[e._v(e._s((e.currentPage-1)*e.currentSize+1)+"-"+e._s(e.subTotal)+" "+e._s(e.mdSeparator)+" "+e._s(e.mdTotal))]),e._v(" "),n("md-button",{staticClass:"md-icon-button md-table-pagination-previous",attrs:{disabled:1===e.currentPage},on:{click:e.previousPage}},[n("md-icon",[e._v("keyboard_arrow_left")])],1),e._v(" "),n("md-button",{staticClass:"md-icon-button md-table-pagination-next",attrs:{disabled:e.currentSize*e.currentPage>=e.totalItems},on:{click:e.nextPage}},[n("md-icon",[e._v("keyboard_arrow_right")])],1)],1)},staticRenderFns:[]}},327:function(e,t){e.exports={render:function(){var e=this,t=e.$createElement,n=e._self._c||t;return n("tr",{staticClass:"md-table-row",class:e.classes,on:{click:e.autoSelect}},[e.hasSelection?n("md-table-cell",{staticClass:"md-table-selection"},[n("md-checkbox",{directives:[{name:"model",rawName:"v-model",value:e.checkbox,expression:"checkbox"}],attrs:{disabled:e.isDisabled},domProps:{value:e.checkbox},on:{change:e.select,input:function(t){e.checkbox=t}}})],1):e._e(),e._v(" "),e._t("default")],1)},staticRenderFns:[]}},329:function(e,t){e.exports={render:function(){var e=this,t=e.$createElement,n=e._self._c||t;return n("div",{staticClass:"md-table",class:[e.themeClass]},[n("table",[e._t("default")],2)])},staticRenderFns:[]}},331:function(e,t){e.exports={render:function(){var e=this,t=e.$createElement,n=e._self._c||t;return n("md-card",{staticClass:"md-table-card",class:[e.themeClass]},[e._t("default")],2)},staticRenderFns:[]}}})});
-//# sourceMappingURL=index.debug.js.map
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory();
+	else if(typeof define === 'function' && define.amd)
+		define([], factory);
+	else if(typeof exports === 'object')
+		exports["VueMaterial"] = factory();
+	else
+		root["VueMaterial"] = factory();
+})(this, (function() {
+return /******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
+
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			exports: {},
+/******/ 			id: moduleId,
+/******/ 			loaded: false
+/******/ 		};
+
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
+
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+
+
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "/";
+
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(0);
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ 0:
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__(98);
+
+
+/***/ },
+
+/***/ 1:
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = {
+	  props: {
+	    mdTheme: String
+	  },
+	  data: function data() {
+	    return {
+	      closestThemedParent: false
+	    };
+	  },
+	  methods: {
+	    getClosestThemedParent: function getClosestThemedParent($parent) {
+	      if (!$parent || !$parent.$el || $parent._uid === 0) {
+	        return false;
+	      }
+
+	      if ($parent.mdTheme || $parent.mdName) {
+	        return $parent;
+	      }
+
+	      return this.getClosestThemedParent($parent.$parent);
+	    }
+	  },
+	  computed: {
+	    themeClass: function themeClass() {
+	      if (this.mdTheme) {
+	        return 'md-theme-' + this.mdTheme;
+	      }
+
+	      var theme = this.closestThemedParent.mdTheme;
+
+	      if (!theme) {
+	        if (this.closestThemedParent) {
+	          theme = this.closestThemedParent.mdName;
+	        } else {
+	          theme = this.$material.currentTheme;
+	        }
+	      }
+
+	      return 'md-theme-' + theme;
+	    }
+	  },
+	  mounted: function mounted() {
+	    this.closestThemedParent = this.getClosestThemedParent(this.$parent);
+
+	    if (!this.$material.currentTheme) {
+	      this.$material.setCurrentTheme('default');
+	    }
+	  }
+	};
+	module.exports = exports['default'];
+
+/***/ },
+
+/***/ 2:
+/***/ function(module, exports) {
+
+	// https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
+	var global = module.exports = typeof window != 'undefined' && window.Math == Math
+	  ? window : typeof self != 'undefined' && self.Math == Math ? self : Function('return this')();
+	if(typeof __g == 'number')__g = global; // eslint-disable-line no-undef
+
+/***/ },
+
+/***/ 4:
+/***/ function(module, exports, __webpack_require__) {
+
+	// Thank's IE8 for his funny defineProperty
+	module.exports = !__webpack_require__(11)((function(){
+	  return Object.defineProperty({}, 'a', {get: function(){ return 7; }}).a != 7;
+	}));
+
+/***/ },
+
+/***/ 5:
+/***/ function(module, exports) {
+
+	var core = module.exports = {version: '2.4.0'};
+	if(typeof __e == 'number')__e = core; // eslint-disable-line no-undef
+
+/***/ },
+
+/***/ 6:
+/***/ function(module, exports, __webpack_require__) {
+
+	var anObject       = __webpack_require__(10)
+	  , IE8_DOM_DEFINE = __webpack_require__(29)
+	  , toPrimitive    = __webpack_require__(28)
+	  , dP             = Object.defineProperty;
+
+	exports.f = __webpack_require__(4) ? Object.defineProperty : function defineProperty(O, P, Attributes){
+	  anObject(O);
+	  P = toPrimitive(P, true);
+	  anObject(Attributes);
+	  if(IE8_DOM_DEFINE)try {
+	    return dP(O, P, Attributes);
+	  } catch(e){ /* empty */ }
+	  if('get' in Attributes || 'set' in Attributes)throw TypeError('Accessors not supported!');
+	  if('value' in Attributes)O[P] = Attributes.value;
+	  return O;
+	};
+
+/***/ },
+
+/***/ 8:
+/***/ function(module, exports, __webpack_require__) {
+
+	var dP         = __webpack_require__(6)
+	  , createDesc = __webpack_require__(14);
+	module.exports = __webpack_require__(4) ? function(object, key, value){
+	  return dP.f(object, key, createDesc(1, value));
+	} : function(object, key, value){
+	  object[key] = value;
+	  return object;
+	};
+
+/***/ },
+
+/***/ 9:
+/***/ function(module, exports) {
+
+	module.exports = function(it){
+	  return typeof it === 'object' ? it !== null : typeof it === 'function';
+	};
+
+/***/ },
+
+/***/ 10:
+/***/ function(module, exports, __webpack_require__) {
+
+	var isObject = __webpack_require__(9);
+	module.exports = function(it){
+	  if(!isObject(it))throw TypeError(it + ' is not an object!');
+	  return it;
+	};
+
+/***/ },
+
+/***/ 11:
+/***/ function(module, exports) {
+
+	module.exports = function(exec){
+	  try {
+	    return !!exec();
+	  } catch(e){
+	    return true;
+	  }
+	};
+
+/***/ },
+
+/***/ 13:
+/***/ function(module, exports) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var getClosestVueParent = function getClosestVueParent($parent, cssClass) {
+	  if (!$parent || !$parent.$el) {
+	    return false;
+	  }
+
+	  if ($parent._uid === 0) {
+	    return false;
+	  }
+
+	  if ($parent.$el.classList.contains(cssClass)) {
+	    return $parent;
+	  }
+
+	  return getClosestVueParent($parent.$parent, cssClass);
+	};
+
+	exports.default = getClosestVueParent;
+	module.exports = exports["default"];
+
+/***/ },
+
+/***/ 14:
+/***/ function(module, exports) {
+
+	module.exports = function(bitmap, value){
+	  return {
+	    enumerable  : !(bitmap & 1),
+	    configurable: !(bitmap & 2),
+	    writable    : !(bitmap & 4),
+	    value       : value
+	  };
+	};
+
+/***/ },
+
+/***/ 17:
+/***/ function(module, exports, __webpack_require__) {
+
+	var global    = __webpack_require__(2)
+	  , core      = __webpack_require__(5)
+	  , ctx       = __webpack_require__(26)
+	  , hide      = __webpack_require__(8)
+	  , PROTOTYPE = 'prototype';
+
+	var $export = function(type, name, source){
+	  var IS_FORCED = type & $export.F
+	    , IS_GLOBAL = type & $export.G
+	    , IS_STATIC = type & $export.S
+	    , IS_PROTO  = type & $export.P
+	    , IS_BIND   = type & $export.B
+	    , IS_WRAP   = type & $export.W
+	    , exports   = IS_GLOBAL ? core : core[name] || (core[name] = {})
+	    , expProto  = exports[PROTOTYPE]
+	    , target    = IS_GLOBAL ? global : IS_STATIC ? global[name] : (global[name] || {})[PROTOTYPE]
+	    , key, own, out;
+	  if(IS_GLOBAL)source = name;
+	  for(key in source){
+	    // contains in native
+	    own = !IS_FORCED && target && target[key] !== undefined;
+	    if(own && key in exports)continue;
+	    // export native or passed
+	    out = own ? target[key] : source[key];
+	    // prevent global pollution for namespaces
+	    exports[key] = IS_GLOBAL && typeof target[key] != 'function' ? source[key]
+	    // bind timers to global for call from export context
+	    : IS_BIND && own ? ctx(out, global)
+	    // wrap global constructors for prevent change them in library
+	    : IS_WRAP && target[key] == out ? (function(C){
+	      var F = function(a, b, c){
+	        if(this instanceof C){
+	          switch(arguments.length){
+	            case 0: return new C;
+	            case 1: return new C(a);
+	            case 2: return new C(a, b);
+	          } return new C(a, b, c);
+	        } return C.apply(this, arguments);
+	      };
+	      F[PROTOTYPE] = C[PROTOTYPE];
+	      return F;
+	    // make static versions for prototype methods
+	    })(out) : IS_PROTO && typeof out == 'function' ? ctx(Function.call, out) : out;
+	    // export proto methods to core.%CONSTRUCTOR%.methods.%NAME%
+	    if(IS_PROTO){
+	      (exports.virtual || (exports.virtual = {}))[key] = out;
+	      // export proto methods to core.%CONSTRUCTOR%.prototype.%NAME%
+	      if(type & $export.R && expProto && !expProto[key])hide(expProto, key, out);
+	    }
+	  }
+	};
+	// type bitmap
+	$export.F = 1;   // forced
+	$export.G = 2;   // global
+	$export.S = 4;   // static
+	$export.P = 8;   // proto
+	$export.B = 16;  // bind
+	$export.W = 32;  // wrap
+	$export.U = 64;  // safe
+	$export.R = 128; // real proto method for `library` 
+	module.exports = $export;
+
+/***/ },
+
+/***/ 22:
+/***/ function(module, exports, __webpack_require__) {
+
+	var isObject = __webpack_require__(9)
+	  , document = __webpack_require__(2).document
+	  // in old IE typeof document.createElement is 'object'
+	  , is = isObject(document) && isObject(document.createElement);
+	module.exports = function(it){
+	  return is ? document.createElement(it) : {};
+	};
+
+/***/ },
+
+/***/ 26:
+/***/ function(module, exports, __webpack_require__) {
+
+	// optional / simple context binding
+	var aFunction = __webpack_require__(32);
+	module.exports = function(fn, that, length){
+	  aFunction(fn);
+	  if(that === undefined)return fn;
+	  switch(length){
+	    case 1: return function(a){
+	      return fn.call(that, a);
+	    };
+	    case 2: return function(a, b){
+	      return fn.call(that, a, b);
+	    };
+	    case 3: return function(a, b, c){
+	      return fn.call(that, a, b, c);
+	    };
+	  }
+	  return function(/* ...args */){
+	    return fn.apply(that, arguments);
+	  };
+	};
+
+/***/ },
+
+/***/ 28:
+/***/ function(module, exports, __webpack_require__) {
+
+	// 7.1.1 ToPrimitive(input [, PreferredType])
+	var isObject = __webpack_require__(9);
+	// instead of the ES6 spec version, we didn't implement @@toPrimitive case
+	// and the second argument - flag - preferred type is a string
+	module.exports = function(it, S){
+	  if(!isObject(it))return it;
+	  var fn, val;
+	  if(S && typeof (fn = it.toString) == 'function' && !isObject(val = fn.call(it)))return val;
+	  if(typeof (fn = it.valueOf) == 'function' && !isObject(val = fn.call(it)))return val;
+	  if(!S && typeof (fn = it.toString) == 'function' && !isObject(val = fn.call(it)))return val;
+	  throw TypeError("Can't convert object to primitive value");
+	};
+
+/***/ },
+
+/***/ 29:
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = !__webpack_require__(4) && !__webpack_require__(11)((function(){
+	  return Object.defineProperty(__webpack_require__(22)('div'), 'a', {get: function(){ return 7; }}).a != 7;
+	}));
+
+/***/ },
+
+/***/ 32:
+/***/ function(module, exports) {
+
+	module.exports = function(it){
+	  if(typeof it != 'function')throw TypeError(it + ' is not a function!');
+	  return it;
+	};
+
+/***/ },
+
+/***/ 98:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = install;
+
+	var _mdTable = __webpack_require__(297);
+
+	var _mdTable2 = _interopRequireDefault(_mdTable);
+
+	var _mdTableRow = __webpack_require__(304);
+
+	var _mdTableRow2 = _interopRequireDefault(_mdTableRow);
+
+	var _mdTableHead = __webpack_require__(302);
+
+	var _mdTableHead2 = _interopRequireDefault(_mdTableHead);
+
+	var _mdTableCell = __webpack_require__(300);
+
+	var _mdTableCell2 = _interopRequireDefault(_mdTableCell);
+
+	var _mdTableEdit = __webpack_require__(301);
+
+	var _mdTableEdit2 = _interopRequireDefault(_mdTableEdit);
+
+	var _mdTableCard = __webpack_require__(299);
+
+	var _mdTableCard2 = _interopRequireDefault(_mdTableCard);
+
+	var _mdTableAlternateHeader = __webpack_require__(298);
+
+	var _mdTableAlternateHeader2 = _interopRequireDefault(_mdTableAlternateHeader);
+
+	var _mdTablePagination = __webpack_require__(303);
+
+	var _mdTablePagination2 = _interopRequireDefault(_mdTablePagination);
+
+	var _mdTable3 = __webpack_require__(244);
+
+	var _mdTable4 = _interopRequireDefault(_mdTable3);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function install(Vue) {
+	  Vue.component('md-table', Vue.extend(_mdTable2.default));
+	  Vue.component('md-table-header', {
+	    functional: true,
+	    render: function render(h, scope) {
+	      return h('thead', {
+	        staticClass: 'md-table-header'
+	      }, scope.children);
+	    }
+	  });
+	  Vue.component('md-table-body', {
+	    functional: true,
+	    render: function render(h, scope) {
+	      return h('tbody', {
+	        staticClass: 'md-table-body'
+	      }, scope.children);
+	    }
+	  });
+	  Vue.component('md-table-row', Vue.extend(_mdTableRow2.default));
+	  Vue.component('md-table-head', Vue.extend(_mdTableHead2.default));
+	  Vue.component('md-table-cell', Vue.extend(_mdTableCell2.default));
+	  Vue.component('md-table-edit', Vue.extend(_mdTableEdit2.default));
+	  Vue.component('md-table-card', Vue.extend(_mdTableCard2.default));
+	  Vue.component('md-table-pagination', Vue.extend(_mdTablePagination2.default));
+	  Vue.component('md-table-alternate-header', Vue.extend(_mdTableAlternateHeader2.default));
+
+	  Vue.material.styles.push(_mdTable4.default);
+	}
+	module.exports = exports['default'];
+
+/***/ },
+
+/***/ 151:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _mixin = __webpack_require__(1);
+
+	var _mixin2 = _interopRequireDefault(_mixin);
+
+	var _getClosestVueParent = __webpack_require__(13);
+
+	var _getClosestVueParent2 = _interopRequireDefault(_getClosestVueParent);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+
+	exports.default = {
+	  props: {
+	    mdSortType: String,
+	    mdSort: String
+	  },
+	  mixins: [_mixin2.default],
+	  data: function data() {
+	    return {
+	      sortType: this.mdSortType,
+	      sortBy: this.mdSort,
+	      hasRowSelection: false,
+	      data: [],
+	      numberOfRows: 0,
+	      numberOfSelected: 0,
+	      selectedRows: {}
+	    };
+	  },
+
+	  methods: {
+	    emitSort: function emitSort(name) {
+	      this.sortBy = name;
+	      this.$emit('sort', {
+	        name: name,
+	        type: this.sortType
+	      });
+	    },
+	    emitSelection: function emitSelection() {
+	      this.$emit('select', this.selectedRows);
+	    }
+	  },
+	  mounted: function mounted() {
+	    this.parentCard = (0, _getClosestVueParent2.default)(this.$parent, 'md-table-card');
+
+	    if (this.parentCard) {
+	      this.parentCard.tableInstance = this;
+	    }
+	  }
+	};
+	module.exports = exports['default'];
+
+/***/ },
+
+/***/ 152:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _mixin = __webpack_require__(1);
+
+	var _mixin2 = _interopRequireDefault(_mixin);
+
+	var _getClosestVueParent = __webpack_require__(13);
+
+	var _getClosestVueParent2 = _interopRequireDefault(_getClosestVueParent);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+
+	exports.default = {
+	  props: {
+	    mdSelectedLabel: {
+	      type: String,
+	      default: 'selected'
+	    }
+	  },
+	  mixins: [_mixin2.default],
+	  data: function data() {
+	    return {
+	      classes: {},
+	      tableInstance: {}
+	    };
+	  },
+	  mounted: function mounted() {
+	    var _this = this;
+
+	    this.parentCard = (0, _getClosestVueParent2.default)(this.$parent, 'md-table-card');
+
+	    this.$nextTick((function () {
+	      _this.tableInstance = _this.parentCard.tableInstance;
+
+	      _this.$watch('tableInstance.numberOfSelected', (function () {
+	        _this.$refs.counter.textContent = _this.tableInstance.numberOfSelected;
+	        _this.classes = {
+	          'md-active': _this.tableInstance.numberOfSelected > 0
+	        };
+	      }));
+	    }));
+	  }
+	};
+	module.exports = exports['default'];
+
+/***/ },
+
+/***/ 153:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _mixin = __webpack_require__(1);
+
+	var _mixin2 = _interopRequireDefault(_mixin);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = {
+	  mixins: [_mixin2.default]
+	}; //
+	//
+	//
+	//
+	//
+	//
+
+	module.exports = exports['default'];
+
+/***/ },
+
+/***/ 154:
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+
+	exports.default = {
+	  props: {
+	    mdNumeric: Boolean
+	  },
+	  data: function data() {
+	    return {
+	      hasAction: false
+	    };
+	  },
+	  computed: {
+	    classes: function classes() {
+	      return {
+	        'md-numeric': this.mdNumeric,
+	        'md-has-action': this.hasAction
+	      };
+	    }
+	  },
+	  mounted: function mounted() {
+	    if (this.$children.length > 0) {
+	      this.hasAction = true;
+	    }
+	  }
+	};
+	module.exports = exports['default'];
+
+/***/ },
+
+/***/ 155:
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+
+	exports.default = {
+	  props: {
+	    value: [String, Number],
+	    mdLarge: Boolean,
+	    mdId: String,
+	    mdName: String,
+	    mdPlaceholder: String,
+	    mdMaxlength: [Number, String]
+	  },
+	  data: function data() {
+	    return {
+	      active: false
+	    };
+	  },
+
+	  computed: {
+	    triggerClasses: function triggerClasses() {
+	      return {
+	        'md-edited': this.value
+	      };
+	    },
+	    dialogClasses: function dialogClasses() {
+	      return {
+	        'md-active': this.active,
+	        'md-large': this.mdLarge
+	      };
+	    },
+	    realValue: function realValue() {
+	      console.log(this.value);
+	    }
+	  },
+	  methods: {
+	    openDialog: function openDialog() {
+	      this.active = true;
+	      this.$refs.input.$el.focus();
+	      document.addEventListener('click', this.closeDialogOnOffClick);
+	    },
+	    closeDialog: function closeDialog() {
+	      if (this.active) {
+	        this.active = false;
+	        this.$refs.input.$el.blur();
+	        document.removeEventListener('click', this.closeDialogOnOffClick);
+	      }
+	    },
+	    closeDialogOnOffClick: function closeDialogOnOffClick(event) {
+	      if (!this.$refs.dialog.contains(event.target)) {
+	        this.closeDialog();
+	      }
+	    },
+	    confirmDialog: function confirmDialog() {
+	      var value = this.$refs.input.$el.value;
+
+	      this.closeDialog();
+	      this.$emit('input', value);
+	      this.$emit('edited', value);
+	    }
+	  }
+	};
+	module.exports = exports['default'];
+
+/***/ },
+
+/***/ 156:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _getClosestVueParent = __webpack_require__(13);
+
+	var _getClosestVueParent2 = _interopRequireDefault(_getClosestVueParent);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = {
+	  props: {
+	    mdNumeric: Boolean,
+	    mdSortBy: String,
+	    mdTooltip: String
+	  },
+	  data: function data() {
+	    return {
+	      sortType: null,
+	      sorted: false,
+	      parentTable: {}
+	    };
+	  },
+
+	  computed: {
+	    classes: function classes() {
+	      var matchSort = this.hasMatchSort();
+
+	      if (!matchSort) {
+	        this.sorted = false;
+	      }
+
+	      return {
+	        'md-numeric': this.mdNumeric,
+	        'md-sortable': this.mdSortBy,
+	        'md-sorted': matchSort && this.sorted,
+	        'md-sorted-descending': matchSort && this.sortType === 'desc'
+	      };
+	    }
+	  },
+	  methods: {
+	    hasMatchSort: function hasMatchSort() {
+	      return this.parentTable.sortBy === this.mdSortBy;
+	    },
+	    changeSort: function changeSort() {
+	      if (this.mdSortBy) {
+	        if (this.sortType === 'asc' && this.sorted) {
+	          this.sortType = 'desc';
+	        } else {
+	          this.sortType = 'asc';
+	        }
+
+	        this.sorted = true;
+
+	        this.parentTable.sortType = this.sortType;
+	        this.parentTable.emitSort(this.mdSortBy);
+	      }
+	    }
+	  },
+	  mounted: function mounted() {
+	    this.parentTable = (0, _getClosestVueParent2.default)(this.$parent, 'md-table');
+
+	    if (this.hasMatchSort()) {
+	      this.sorted = true;
+	      this.sortType = this.parentTable.sortType;
+	    }
+	  }
+	}; //
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+
+	module.exports = exports['default'];
+
+/***/ },
+
+/***/ 157:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _maxSafeInteger = __webpack_require__(166);
+
+	var _maxSafeInteger2 = _interopRequireDefault(_maxSafeInteger);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+
+	exports.default = {
+	  props: {
+	    mdSize: {
+	      type: [Number, String],
+	      default: 10
+	    },
+	    mdPageOptions: [Array, Boolean],
+	    mdPage: {
+	      type: [Number, String],
+	      default: 1
+	    },
+	    mdTotal: {
+	      type: [Number, String],
+	      default: 'Many'
+	    },
+	    mdLabel: {
+	      type: String,
+	      default: 'Rows per page'
+	    },
+	    mdSeparator: {
+	      type: String,
+	      default: 'of'
+	    }
+	  },
+	  data: function data() {
+	    return {
+	      subTotal: 0,
+	      currentSize: parseInt(this.mdSize, 10),
+	      currentPage: parseInt(this.mdPage, 10),
+	      totalItems: isNaN(this.mdTotal) ? _maxSafeInteger2.default : parseInt(this.mdTotal, 10)
+	    };
+	  },
+
+	  computed: {
+	    lastPage: function lastPage() {
+	      return false;
+	    }
+	  },
+	  methods: {
+	    emitPaginationEvent: function emitPaginationEvent() {
+	      if (this.canFireEvents) {
+	        var sub = this.currentPage * this.currentSize;
+
+	        this.subTotal = sub > this.mdTotal ? this.mdTotal : sub;
+	        this.$emit('pagination', {
+	          size: this.currentSize,
+	          page: this.currentPage
+	        });
+	      }
+	    },
+	    changeSize: function changeSize() {
+	      if (this.canFireEvents) {
+	        this.$emit('size', this.currentSize);
+	        this.emitPaginationEvent();
+	      }
+	    },
+	    previousPage: function previousPage() {
+	      if (this.canFireEvents) {
+	        this.currentPage--;
+	        this.$emit('page', this.currentPage);
+	        this.emitPaginationEvent();
+	      }
+	    },
+	    nextPage: function nextPage() {
+	      if (this.canFireEvents) {
+	        this.currentPage++;
+	        this.$emit('page', this.currentPage);
+	        this.emitPaginationEvent();
+	      }
+	    }
+	  },
+	  mounted: function mounted() {
+	    var _this = this;
+
+	    this.$nextTick((function () {
+	      _this.subTotal = _this.currentPage * _this.currentSize;
+	      _this.mdPageOptions = _this.mdPageOptions || [10, 25, 50, 100];
+	      _this.currentSize = _this.mdPageOptions[0];
+	      _this.canFireEvents = true;
+	    }));
+	  }
+	};
+	module.exports = exports['default'];
+
+/***/ },
+
+/***/ 158:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _getClosestVueParent = __webpack_require__(13);
+
+	var _getClosestVueParent2 = _interopRequireDefault(_getClosestVueParent);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var transitionClass = 'md-transition-off'; //
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+
+	exports.default = {
+	  props: {
+	    mdAutoSelect: Boolean,
+	    mdSelection: Boolean,
+	    mdItem: Object
+	  },
+	  data: function data() {
+	    return {
+	      parentTable: {},
+	      headRow: false,
+	      checkbox: false,
+	      index: 0
+	    };
+	  },
+
+	  computed: {
+	    isDisabled: function isDisabled() {
+	      return !this.mdSelection && !this.headRow;
+	    },
+	    hasSelection: function hasSelection() {
+	      return this.mdSelection || this.headRow && this.parentTable.hasRowSelection;
+	    },
+	    classes: function classes() {
+	      return {
+	        'md-selected': this.checkbox
+	      };
+	    }
+	  },
+	  watch: {
+	    mdItem: function mdItem(newValue, oldValue) {
+	      this.parentTable.data[this.index] = this.mdItem;
+	      this.handleMultipleSelection(newValue === oldValue);
+	    }
+	  },
+	  methods: {
+	    setSelectedRow: function setSelectedRow(value, index) {
+	      if (value) {
+	        this.parentTable.selectedRows[index] = this.parentTable.data[index];
+	        ++this.parentTable.numberOfSelected;
+	      } else {
+	        delete this.parentTable.selectedRows[index];
+	        --this.parentTable.numberOfSelected;
+	      }
+	    },
+	    handleSingleSelection: function handleSingleSelection(value) {
+	      this.setSelectedRow(value, this.index - 1);
+	      this.parentTable.$children[0].checkbox = this.parentTable.numberOfSelected === this.parentTable.numberOfRows;
+	    },
+	    handleMultipleSelection: function handleMultipleSelection(value) {
+	      var _this = this;
+
+	      if (this.parentTable.numberOfRows > 25) {
+	        this.parentTable.$el.classList.add(transitionClass);
+	      }
+
+	      this.parentTable.$children.forEach((function (row, index) {
+	        row.checkbox = value;
+
+	        if (!row.headRow) {
+	          _this.setSelectedRow(value, index - 1);
+	        }
+	      }));
+
+	      if (value) {
+	        this.parentTable.numberOfSelected = this.parentTable.numberOfRows;
+	      } else {
+	        this.parentTable.numberOfSelected = 0;
+	      }
+
+	      window.setTimeout((function () {
+	        return _this.parentTable.$el.classList.remove(transitionClass);
+	      }));
+	    },
+	    select: function select(value) {
+	      if (this.hasSelection) {
+	        if (this.headRow) {
+	          this.handleMultipleSelection(value);
+	        } else {
+	          this.handleSingleSelection(value);
+	        }
+
+	        this.parentTable.emitSelection();
+	      }
+	    },
+	    autoSelect: function autoSelect() {
+	      if (this.mdAutoSelect && this.hasSelection) {
+	        this.checkbox = !this.checkbox;
+	        this.handleSingleSelection(this.checkbox);
+	        this.parentTable.emitSelection();
+	      }
+	    }
+	  },
+	  mounted: function mounted() {
+	    this.parentTable = (0, _getClosestVueParent2.default)(this.$parent, 'md-table');
+
+	    if (this.$el.parentNode.tagName.toLowerCase() === 'thead') {
+	      this.headRow = true;
+	    } else {
+	      this.parentTable.numberOfRows++;
+	      this.index = this.parentTable.numberOfRows;
+
+	      if (this.mdSelection) {
+	        this.parentTable.hasRowSelection = true;
+	      }
+
+	      if (this.mdItem) {
+	        this.parentTable.data.push(this.mdItem);
+	      }
+	    }
+	  }
+	};
+	module.exports = exports['default'];
+
+/***/ },
+
+/***/ 166:
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = { "default": __webpack_require__(170), __esModule: true };
+
+/***/ },
+
+/***/ 170:
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(182);
+	module.exports = 0x1fffffffffffff;
+
+/***/ },
+
+/***/ 182:
+/***/ function(module, exports, __webpack_require__) {
+
+	// 20.1.2.6 Number.MAX_SAFE_INTEGER
+	var $export = __webpack_require__(17);
+
+	$export($export.S, 'Number', {MAX_SAFE_INTEGER: 0x1fffffffffffff});
+
+/***/ },
+
+/***/ 218:
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+
+/***/ 244:
+/***/ function(module, exports) {
+
+	module.exports = ".THEME_NAME.md-table-card .md-toolbar {\n  background-color: BACKGROUND-COLOR;\n  color: BACKGROUND-CONTRAST; }\n\n.THEME_NAME.md-table-alternate-header {\n  background-color: BACKGROUND-COLOR; }\n  .THEME_NAME.md-table-alternate-header .md-toolbar {\n    background-color: ACCENT-COLOR-A100-0.2;\n    color: ACCENT-CONTRAST-A100; }\n  .THEME_NAME.md-table-alternate-header .md-counter {\n    color: ACCENT-COLOR; }\n"
+
+/***/ },
+
+/***/ 297:
+/***/ function(module, exports, __webpack_require__) {
+
+	var __vue_exports__, __vue_options__
+	var __vue_styles__ = {}
+
+	/* styles */
+	__webpack_require__(218)
+
+	/* script */
+	__vue_exports__ = __webpack_require__(151)
+
+	/* template */
+	var __vue_template__ = __webpack_require__(366)
+	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+	if (
+	  typeof __vue_exports__.default === "object" ||
+	  typeof __vue_exports__.default === "function"
+	) {
+	if (Object.keys(__vue_exports__).some((function (key) { return key !== "default" && key !== "__esModule" }))) {console.error("named exports are not supported in *.vue files.")}
+	__vue_options__ = __vue_exports__ = __vue_exports__.default
+	}
+	if (typeof __vue_options__ === "function") {
+	  __vue_options__ = __vue_options__.options
+	}
+	__vue_options__.__file = "/Users/marcosmoura/Projects/github/vue-material/src/components/mdTable/mdTable.vue"
+	__vue_options__.render = __vue_template__.render
+	__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+
+	/* hot reload */
+	if (false) {(function () {
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), false)
+	  if (!hotAPI.compatible) return
+	  module.hot.accept()
+	  if (!module.hot.data) {
+	    hotAPI.createRecord("data-v-dda64186", __vue_options__)
+	  } else {
+	    hotAPI.reload("data-v-dda64186", __vue_options__)
+	  }
+	})()}
+	if (__vue_options__.functional) {console.error("[vue-loader] mdTable.vue: functional components are not supported and should be defined in plain js files using render functions.")}
+
+	module.exports = __vue_exports__
+
+
+/***/ },
+
+/***/ 298:
+/***/ function(module, exports, __webpack_require__) {
+
+	var __vue_exports__, __vue_options__
+	var __vue_styles__ = {}
+
+	/* script */
+	__vue_exports__ = __webpack_require__(152)
+
+	/* template */
+	var __vue_template__ = __webpack_require__(324)
+	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+	if (
+	  typeof __vue_exports__.default === "object" ||
+	  typeof __vue_exports__.default === "function"
+	) {
+	if (Object.keys(__vue_exports__).some((function (key) { return key !== "default" && key !== "__esModule" }))) {console.error("named exports are not supported in *.vue files.")}
+	__vue_options__ = __vue_exports__ = __vue_exports__.default
+	}
+	if (typeof __vue_options__ === "function") {
+	  __vue_options__ = __vue_options__.options
+	}
+	__vue_options__.__file = "/Users/marcosmoura/Projects/github/vue-material/src/components/mdTable/mdTableAlternateHeader.vue"
+	__vue_options__.render = __vue_template__.render
+	__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+
+	/* hot reload */
+	if (false) {(function () {
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), false)
+	  if (!hotAPI.compatible) return
+	  module.hot.accept()
+	  if (!module.hot.data) {
+	    hotAPI.createRecord("data-v-1ea3ef5a", __vue_options__)
+	  } else {
+	    hotAPI.reload("data-v-1ea3ef5a", __vue_options__)
+	  }
+	})()}
+	if (__vue_options__.functional) {console.error("[vue-loader] mdTableAlternateHeader.vue: functional components are not supported and should be defined in plain js files using render functions.")}
+
+	module.exports = __vue_exports__
+
+
+/***/ },
+
+/***/ 299:
+/***/ function(module, exports, __webpack_require__) {
+
+	var __vue_exports__, __vue_options__
+	var __vue_styles__ = {}
+
+	/* script */
+	__vue_exports__ = __webpack_require__(153)
+
+	/* template */
+	var __vue_template__ = __webpack_require__(368)
+	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+	if (
+	  typeof __vue_exports__.default === "object" ||
+	  typeof __vue_exports__.default === "function"
+	) {
+	if (Object.keys(__vue_exports__).some((function (key) { return key !== "default" && key !== "__esModule" }))) {console.error("named exports are not supported in *.vue files.")}
+	__vue_options__ = __vue_exports__ = __vue_exports__.default
+	}
+	if (typeof __vue_options__ === "function") {
+	  __vue_options__ = __vue_options__.options
+	}
+	__vue_options__.__file = "/Users/marcosmoura/Projects/github/vue-material/src/components/mdTable/mdTableCard.vue"
+	__vue_options__.render = __vue_template__.render
+	__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+
+	/* hot reload */
+	if (false) {(function () {
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), false)
+	  if (!hotAPI.compatible) return
+	  module.hot.accept()
+	  if (!module.hot.data) {
+	    hotAPI.createRecord("data-v-e2fe4826", __vue_options__)
+	  } else {
+	    hotAPI.reload("data-v-e2fe4826", __vue_options__)
+	  }
+	})()}
+	if (__vue_options__.functional) {console.error("[vue-loader] mdTableCard.vue: functional components are not supported and should be defined in plain js files using render functions.")}
+
+	module.exports = __vue_exports__
+
+
+/***/ },
+
+/***/ 300:
+/***/ function(module, exports, __webpack_require__) {
+
+	var __vue_exports__, __vue_options__
+	var __vue_styles__ = {}
+
+	/* script */
+	__vue_exports__ = __webpack_require__(154)
+
+	/* template */
+	var __vue_template__ = __webpack_require__(343)
+	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+	if (
+	  typeof __vue_exports__.default === "object" ||
+	  typeof __vue_exports__.default === "function"
+	) {
+	if (Object.keys(__vue_exports__).some((function (key) { return key !== "default" && key !== "__esModule" }))) {console.error("named exports are not supported in *.vue files.")}
+	__vue_options__ = __vue_exports__ = __vue_exports__.default
+	}
+	if (typeof __vue_options__ === "function") {
+	  __vue_options__ = __vue_options__.options
+	}
+	__vue_options__.__file = "/Users/marcosmoura/Projects/github/vue-material/src/components/mdTable/mdTableCell.vue"
+	__vue_options__.render = __vue_template__.render
+	__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+
+	/* hot reload */
+	if (false) {(function () {
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), false)
+	  if (!hotAPI.compatible) return
+	  module.hot.accept()
+	  if (!module.hot.data) {
+	    hotAPI.createRecord("data-v-584d713f", __vue_options__)
+	  } else {
+	    hotAPI.reload("data-v-584d713f", __vue_options__)
+	  }
+	})()}
+	if (__vue_options__.functional) {console.error("[vue-loader] mdTableCell.vue: functional components are not supported and should be defined in plain js files using render functions.")}
+
+	module.exports = __vue_exports__
+
+
+/***/ },
+
+/***/ 301:
+/***/ function(module, exports, __webpack_require__) {
+
+	var __vue_exports__, __vue_options__
+	var __vue_styles__ = {}
+
+	/* script */
+	__vue_exports__ = __webpack_require__(155)
+
+	/* template */
+	var __vue_template__ = __webpack_require__(325)
+	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+	if (
+	  typeof __vue_exports__.default === "object" ||
+	  typeof __vue_exports__.default === "function"
+	) {
+	if (Object.keys(__vue_exports__).some((function (key) { return key !== "default" && key !== "__esModule" }))) {console.error("named exports are not supported in *.vue files.")}
+	__vue_options__ = __vue_exports__ = __vue_exports__.default
+	}
+	if (typeof __vue_options__ === "function") {
+	  __vue_options__ = __vue_options__.options
+	}
+	__vue_options__.__file = "/Users/marcosmoura/Projects/github/vue-material/src/components/mdTable/mdTableEdit.vue"
+	__vue_options__.render = __vue_template__.render
+	__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+
+	/* hot reload */
+	if (false) {(function () {
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), false)
+	  if (!hotAPI.compatible) return
+	  module.hot.accept()
+	  if (!module.hot.data) {
+	    hotAPI.createRecord("data-v-23087c32", __vue_options__)
+	  } else {
+	    hotAPI.reload("data-v-23087c32", __vue_options__)
+	  }
+	})()}
+	if (__vue_options__.functional) {console.error("[vue-loader] mdTableEdit.vue: functional components are not supported and should be defined in plain js files using render functions.")}
+
+	module.exports = __vue_exports__
+
+
+/***/ },
+
+/***/ 302:
+/***/ function(module, exports, __webpack_require__) {
+
+	var __vue_exports__, __vue_options__
+	var __vue_styles__ = {}
+
+	/* script */
+	__vue_exports__ = __webpack_require__(156)
+
+	/* template */
+	var __vue_template__ = __webpack_require__(338)
+	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+	if (
+	  typeof __vue_exports__.default === "object" ||
+	  typeof __vue_exports__.default === "function"
+	) {
+	if (Object.keys(__vue_exports__).some((function (key) { return key !== "default" && key !== "__esModule" }))) {console.error("named exports are not supported in *.vue files.")}
+	__vue_options__ = __vue_exports__ = __vue_exports__.default
+	}
+	if (typeof __vue_options__ === "function") {
+	  __vue_options__ = __vue_options__.options
+	}
+	__vue_options__.__file = "/Users/marcosmoura/Projects/github/vue-material/src/components/mdTable/mdTableHead.vue"
+	__vue_options__.render = __vue_template__.render
+	__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+
+	/* hot reload */
+	if (false) {(function () {
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), false)
+	  if (!hotAPI.compatible) return
+	  module.hot.accept()
+	  if (!module.hot.data) {
+	    hotAPI.createRecord("data-v-4c7d46bd", __vue_options__)
+	  } else {
+	    hotAPI.reload("data-v-4c7d46bd", __vue_options__)
+	  }
+	})()}
+	if (__vue_options__.functional) {console.error("[vue-loader] mdTableHead.vue: functional components are not supported and should be defined in plain js files using render functions.")}
+
+	module.exports = __vue_exports__
+
+
+/***/ },
+
+/***/ 303:
+/***/ function(module, exports, __webpack_require__) {
+
+	var __vue_exports__, __vue_options__
+	var __vue_styles__ = {}
+
+	/* script */
+	__vue_exports__ = __webpack_require__(157)
+
+	/* template */
+	var __vue_template__ = __webpack_require__(354)
+	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+	if (
+	  typeof __vue_exports__.default === "object" ||
+	  typeof __vue_exports__.default === "function"
+	) {
+	if (Object.keys(__vue_exports__).some((function (key) { return key !== "default" && key !== "__esModule" }))) {console.error("named exports are not supported in *.vue files.")}
+	__vue_options__ = __vue_exports__ = __vue_exports__.default
+	}
+	if (typeof __vue_options__ === "function") {
+	  __vue_options__ = __vue_options__.options
+	}
+	__vue_options__.__file = "/Users/marcosmoura/Projects/github/vue-material/src/components/mdTable/mdTablePagination.vue"
+	__vue_options__.render = __vue_template__.render
+	__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+
+	/* hot reload */
+	if (false) {(function () {
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), false)
+	  if (!hotAPI.compatible) return
+	  module.hot.accept()
+	  if (!module.hot.data) {
+	    hotAPI.createRecord("data-v-7f188892", __vue_options__)
+	  } else {
+	    hotAPI.reload("data-v-7f188892", __vue_options__)
+	  }
+	})()}
+	if (__vue_options__.functional) {console.error("[vue-loader] mdTablePagination.vue: functional components are not supported and should be defined in plain js files using render functions.")}
+
+	module.exports = __vue_exports__
+
+
+/***/ },
+
+/***/ 304:
+/***/ function(module, exports, __webpack_require__) {
+
+	var __vue_exports__, __vue_options__
+	var __vue_styles__ = {}
+
+	/* script */
+	__vue_exports__ = __webpack_require__(158)
+
+	/* template */
+	var __vue_template__ = __webpack_require__(364)
+	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+	if (
+	  typeof __vue_exports__.default === "object" ||
+	  typeof __vue_exports__.default === "function"
+	) {
+	if (Object.keys(__vue_exports__).some((function (key) { return key !== "default" && key !== "__esModule" }))) {console.error("named exports are not supported in *.vue files.")}
+	__vue_options__ = __vue_exports__ = __vue_exports__.default
+	}
+	if (typeof __vue_options__ === "function") {
+	  __vue_options__ = __vue_options__.options
+	}
+	__vue_options__.__file = "/Users/marcosmoura/Projects/github/vue-material/src/components/mdTable/mdTableRow.vue"
+	__vue_options__.render = __vue_template__.render
+	__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+
+	/* hot reload */
+	if (false) {(function () {
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), false)
+	  if (!hotAPI.compatible) return
+	  module.hot.accept()
+	  if (!module.hot.data) {
+	    hotAPI.createRecord("data-v-cd7c46e6", __vue_options__)
+	  } else {
+	    hotAPI.reload("data-v-cd7c46e6", __vue_options__)
+	  }
+	})()}
+	if (__vue_options__.functional) {console.error("[vue-loader] mdTableRow.vue: functional components are not supported and should be defined in plain js files using render functions.")}
+
+	module.exports = __vue_exports__
+
+
+/***/ },
+
+/***/ 324:
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+	  return _c('div', {
+	    staticClass: "md-table-alternate-header",
+	    class: [_vm.themeClass, _vm.classes]
+	  }, [_c('md-toolbar', [_c('div', {
+	    staticClass: "md-counter"
+	  }, [_c('span', {
+	    ref: "counter"
+	  }, [_vm._v(_vm._s(_vm.tableInstance.numberOfSelected))]), _vm._v(" "), _c('span', [_vm._v(_vm._s(_vm.mdSelectedLabel))])]), _vm._v(" "), _vm._t("default")], 2)], 1)
+	},staticRenderFns: []}
+	module.exports.render._withStripped = true
+	if (false) {
+	  module.hot.accept()
+	  if (module.hot.data) {
+	     require("vue-hot-reload-api").rerender("data-v-1ea3ef5a", module.exports)
+	  }
+	}
+
+/***/ },
+
+/***/ 325:
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+	  return _c('div', {
+	    staticClass: "md-table-edit",
+	    on: {
+	      "keydown": function($event) {
+	        if (_vm._k($event.keyCode, "esc", 27)) { return; }
+	        _vm.closeDialog($event)
+	      }
+	    }
+	  }, [_c('div', {
+	    staticClass: "md-table-edit-trigger",
+	    class: _vm.triggerClasses,
+	    on: {
+	      "click": function($event) {
+	        $event.stopPropagation();
+	        _vm.openDialog($event)
+	      }
+	    }
+	  }, [_vm._v("\n    " + _vm._s(_vm.value || _vm.mdPlaceholder) + "\n  ")]), _vm._v(" "), _c('div', {
+	    ref: "dialog",
+	    staticClass: "md-table-dialog",
+	    class: _vm.dialogClasses
+	  }, [_c('md-input-container', [_c('md-input', {
+	    ref: "input",
+	    attrs: {
+	      "id": _vm.mdId,
+	      "name": _vm.mdName,
+	      "maxlength": _vm.mdMaxlength,
+	      "value": _vm.value,
+	      "placeholder": _vm.mdPlaceholder
+	    },
+	    nativeOn: {
+	      "keydown": function($event) {
+	        if (_vm._k($event.keyCode, "enter", 13)) { return; }
+	        _vm.confirmDialog($event)
+	      }
+	    }
+	  })], 1)], 1)])
+	},staticRenderFns: []}
+	module.exports.render._withStripped = true
+	if (false) {
+	  module.hot.accept()
+	  if (module.hot.data) {
+	     require("vue-hot-reload-api").rerender("data-v-23087c32", module.exports)
+	  }
+	}
+
+/***/ },
+
+/***/ 338:
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+	  return _c('th', {
+	    staticClass: "md-table-head",
+	    class: _vm.classes,
+	    on: {
+	      "click": _vm.changeSort
+	    }
+	  }, [_c('div', {
+	    staticClass: "md-table-head-container"
+	  }, [_c('div', {
+	    staticClass: "md-table-head-text md-test"
+	  }, [(_vm.mdSortBy) ? _c('md-icon', {
+	    staticClass: "md-sortable-icon"
+	  }, [_vm._v("arrow_downward")]) : _vm._e(), _vm._v(" "), _vm._t("default"), _vm._v(" "), (_vm.mdTooltip) ? _c('md-tooltip', [_vm._v(_vm._s(_vm.mdTooltip))]) : _vm._e()], 2), _vm._v(" "), _c('md-ink-ripple', {
+	    attrs: {
+	      "md-disabled": !_vm.mdSortBy
+	    }
+	  })], 1)])
+	},staticRenderFns: []}
+	module.exports.render._withStripped = true
+	if (false) {
+	  module.hot.accept()
+	  if (module.hot.data) {
+	     require("vue-hot-reload-api").rerender("data-v-4c7d46bd", module.exports)
+	  }
+	}
+
+/***/ },
+
+/***/ 343:
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+	  return _c('td', {
+	    staticClass: "md-table-cell",
+	    class: _vm.classes
+	  }, [_c('div', {
+	    staticClass: "md-table-cell-container"
+	  }, [_vm._t("default")], 2)])
+	},staticRenderFns: []}
+	module.exports.render._withStripped = true
+	if (false) {
+	  module.hot.accept()
+	  if (module.hot.data) {
+	     require("vue-hot-reload-api").rerender("data-v-584d713f", module.exports)
+	  }
+	}
+
+/***/ },
+
+/***/ 354:
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+	  return _c('div', {
+	    staticClass: "md-table-pagination"
+	  }, [_c('span', {
+	    staticClass: "md-table-pagination-label"
+	  }, [_vm._v(_vm._s(_vm.mdLabel) + ":")]), _vm._v(" "), (_vm.mdPageOptions) ? _c('md-select', {
+	    directives: [{
+	      name: "model",
+	      rawName: "v-model",
+	      value: (_vm.currentSize),
+	      expression: "currentSize"
+	    }],
+	    attrs: {
+	      "md-menu-class": "md-pagination-select"
+	    },
+	    domProps: {
+	      "value": (_vm.currentSize)
+	    },
+	    on: {
+	      "change": _vm.changeSize,
+	      "input": function($event) {
+	        _vm.currentSize = $event
+	      }
+	    }
+	  }, _vm._l((_vm.mdPageOptions), (function(amount) {
+	    return _c('md-option', {
+	      attrs: {
+	        "value": amount
+	      }
+	    }, [_vm._v(_vm._s(amount))])
+	  }))) : _vm._e(), _vm._v(" "), _c('span', [_vm._v(_vm._s(((_vm.currentPage - 1) * _vm.currentSize) + 1) + "-" + _vm._s(_vm.subTotal) + " " + _vm._s(_vm.mdSeparator) + " " + _vm._s(_vm.mdTotal))]), _vm._v(" "), _c('md-button', {
+	    staticClass: "md-icon-button md-table-pagination-previous",
+	    attrs: {
+	      "disabled": _vm.currentPage === 1
+	    },
+	    on: {
+	      "click": _vm.previousPage
+	    }
+	  }, [_c('md-icon', [_vm._v("keyboard_arrow_left")])], 1), _vm._v(" "), _c('md-button', {
+	    staticClass: "md-icon-button md-table-pagination-next",
+	    attrs: {
+	      "disabled": _vm.currentSize * _vm.currentPage >= _vm.totalItems
+	    },
+	    on: {
+	      "click": _vm.nextPage
+	    }
+	  }, [_c('md-icon', [_vm._v("keyboard_arrow_right")])], 1)], 1)
+	},staticRenderFns: []}
+	module.exports.render._withStripped = true
+	if (false) {
+	  module.hot.accept()
+	  if (module.hot.data) {
+	     require("vue-hot-reload-api").rerender("data-v-7f188892", module.exports)
+	  }
+	}
+
+/***/ },
+
+/***/ 364:
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+	  return _c('tr', {
+	    staticClass: "md-table-row",
+	    class: _vm.classes,
+	    on: {
+	      "click": _vm.autoSelect
+	    }
+	  }, [(_vm.hasSelection) ? _c('md-table-cell', {
+	    staticClass: "md-table-selection"
+	  }, [_c('md-checkbox', {
+	    directives: [{
+	      name: "model",
+	      rawName: "v-model",
+	      value: (_vm.checkbox),
+	      expression: "checkbox"
+	    }],
+	    attrs: {
+	      "disabled": _vm.isDisabled
+	    },
+	    domProps: {
+	      "value": (_vm.checkbox)
+	    },
+	    on: {
+	      "change": _vm.select,
+	      "input": function($event) {
+	        _vm.checkbox = $event
+	      }
+	    }
+	  })], 1) : _vm._e(), _vm._v(" "), _vm._t("default")], 2)
+	},staticRenderFns: []}
+	module.exports.render._withStripped = true
+	if (false) {
+	  module.hot.accept()
+	  if (module.hot.data) {
+	     require("vue-hot-reload-api").rerender("data-v-cd7c46e6", module.exports)
+	  }
+	}
+
+/***/ },
+
+/***/ 366:
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+	  return _c('div', {
+	    staticClass: "md-table",
+	    class: [_vm.themeClass]
+	  }, [_c('table', [_vm._t("default")], 2)])
+	},staticRenderFns: []}
+	module.exports.render._withStripped = true
+	if (false) {
+	  module.hot.accept()
+	  if (module.hot.data) {
+	     require("vue-hot-reload-api").rerender("data-v-dda64186", module.exports)
+	  }
+	}
+
+/***/ },
+
+/***/ 368:
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+	  return _c('md-card', {
+	    staticClass: "md-table-card",
+	    class: [_vm.themeClass]
+	  }, [_vm._t("default")], 2)
+	},staticRenderFns: []}
+	module.exports.render._withStripped = true
+	if (false) {
+	  module.hot.accept()
+	  if (module.hot.data) {
+	     require("vue-hot-reload-api").rerender("data-v-e2fe4826", module.exports)
+	  }
+	}
+
+/***/ }
+
+/******/ })
+}));
+;

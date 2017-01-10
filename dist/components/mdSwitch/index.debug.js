@@ -1,2 +1,369 @@
-!function(e,t){"object"==typeof exports&&"object"==typeof module?module.exports=t():"function"==typeof define&&define.amd?define([],t):"object"==typeof exports?exports.VueMaterial=t():e.VueMaterial=t()}(this,function(){return function(e){function t(s){if(d[s])return d[s].exports;var i=d[s]={exports:{},id:s,loaded:!1};return e[s].call(i.exports,i,i.exports,t),i.loaded=!0,i.exports}var d={};return t.m=e,t.c=d,t.p="/",t(0)}({0:function(e,t,d){e.exports=d(89)},1:function(e,t){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default={props:{mdTheme:String},data:function(){return{closestThemedParent:!1}},methods:{getClosestThemedParent:function(e){return!(!e||!e.$el||0===e._uid)&&(e.mdTheme||e.mdName?e:this.getClosestThemedParent(e.$parent))}},computed:{themeClass:function(){if(this.mdTheme)return"md-theme-"+this.mdTheme;var e=this.closestThemedParent.mdTheme;return e||(e=this.closestThemedParent?this.closestThemedParent.mdName:this.$material.currentTheme),"md-theme-"+e}},mounted:function(){this.closestThemedParent=this.getClosestThemedParent(this.$parent),this.$material.currentTheme||this.$material.setCurrentTheme("default")}},e.exports=t.default},89:function(e,t,d){"use strict";function s(e){return e&&e.__esModule?e:{default:e}}function i(e){e.component("md-switch",e.extend(n.default)),e.material.styles.push(r.default)}Object.defineProperty(t,"__esModule",{value:!0}),t.default=i;var c=d(266),n=s(c),o=d(218),r=s(o);e.exports=t.default},136:function(e,t,d){"use strict";function s(e){return e&&e.__esModule?e:{default:e}}Object.defineProperty(t,"__esModule",{value:!0});var i=d(1),c=s(i),n=75,o="-1px";t.default={props:{name:String,value:Boolean,id:String,disabled:Boolean,type:{type:String,default:"button"}},mixins:[c.default],data:function(){return{leftPos:o,checked:this.value}},computed:{classes:function(){return{"md-checked":Boolean(this.value),"md-disabled":this.disabled}},styles:function(){return{transform:"translate3D("+this.leftPos+", -50%, 0)"}}},watch:{checked:function(){this.setPosition()},value:function(e){this.changeState(e)}},methods:{setPosition:function(){this.leftPos=this.checked?n+"%":o},changeState:function(e,t){this.checked=e,this.$emit("change",this.checked,t),this.$emit("input",this.checked,t)},toggle:function(e){this.disabled||this.changeState(!this.checked,e)}},mounted:function(){this.$nextTick(this.setPosition)}},e.exports=t.default},192:function(e,t){},218:function(e,t){e.exports=".THEME_NAME.md-switch.md-checked .md-switch-container{background-color:ACCENT-COLOR-500-0.5}.THEME_NAME.md-switch.md-checked .md-switch-thumb{background-color:ACCENT-COLOR}.THEME_NAME.md-switch.md-checked .md-ink-ripple{color:ACCENT-COLOR}.THEME_NAME.md-switch.md-checked .md-ripple{opacity:.38}.THEME_NAME.md-switch.md-checked.md-primary .md-switch-container{background-color:PRIMARY-COLOR-500-0.5}.THEME_NAME.md-switch.md-checked.md-primary .md-switch-thumb{background-color:PRIMARY-COLOR}.THEME_NAME.md-switch.md-checked.md-primary .md-ink-ripple{color:PRIMARY-COLOR}.THEME_NAME.md-switch.md-checked.md-warn .md-switch-container{background-color:WARN-COLOR-500-0.5}.THEME_NAME.md-switch.md-checked.md-warn .md-switch-thumb{background-color:WARN-COLOR}.THEME_NAME.md-switch.md-checked.md-warn .md-ink-ripple{color:WARN-COLOR}.THEME_NAME.md-switch.md-disabled .md-switch-container,.THEME_NAME.md-switch.md-disabled.md-checked .md-switch-container{background-color:rgba(0,0,0,0.12)}.THEME_NAME.md-switch.md-disabled .md-switch-thumb,.THEME_NAME.md-switch.md-disabled.md-checked .md-switch-thumb{background-color:#bdbdbd}\n"},266:function(e,t,d){var s,i;d(192),s=d(136);var c=d(317);i=s=s||{},"object"!=typeof s.default&&"function"!=typeof s.default||(i=s=s.default),"function"==typeof i&&(i=i.options),i.render=c.render,i.staticRenderFns=c.staticRenderFns,e.exports=s},317:function(e,t){e.exports={render:function(){var e=this,t=e.$createElement,d=e._self._c||t;return d("div",{staticClass:"md-switch",class:[e.themeClass,e.classes]},[d("div",{staticClass:"md-switch-container",on:{click:function(t){e.toggle(t)}}},[d("div",{directives:[{name:"md-ink-ripple",rawName:"v-md-ink-ripple",value:e.disabled,expression:"disabled"}],staticClass:"md-switch-thumb",style:e.styles},[d("input",{attrs:{type:"checkbox",name:e.name,id:e.id,disabled:e.disabled},domProps:{value:e.value}}),e._v(" "),d("button",{staticClass:"md-switch-holder",attrs:{type:e.type}})])]),e._v(" "),e.$slots.default?d("label",{staticClass:"md-switch-label",attrs:{for:e.id||e.name}},[e._t("default")],2):e._e()])},staticRenderFns:[]}}})});
-//# sourceMappingURL=index.debug.js.map
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory();
+	else if(typeof define === 'function' && define.amd)
+		define([], factory);
+	else if(typeof exports === 'object')
+		exports["VueMaterial"] = factory();
+	else
+		root["VueMaterial"] = factory();
+})(this, (function() {
+return /******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
+
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			exports: {},
+/******/ 			id: moduleId,
+/******/ 			loaded: false
+/******/ 		};
+
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
+
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+
+
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "/";
+
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(0);
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ 0:
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__(97);
+
+
+/***/ },
+
+/***/ 1:
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = {
+	  props: {
+	    mdTheme: String
+	  },
+	  data: function data() {
+	    return {
+	      closestThemedParent: false
+	    };
+	  },
+	  methods: {
+	    getClosestThemedParent: function getClosestThemedParent($parent) {
+	      if (!$parent || !$parent.$el || $parent._uid === 0) {
+	        return false;
+	      }
+
+	      if ($parent.mdTheme || $parent.mdName) {
+	        return $parent;
+	      }
+
+	      return this.getClosestThemedParent($parent.$parent);
+	    }
+	  },
+	  computed: {
+	    themeClass: function themeClass() {
+	      if (this.mdTheme) {
+	        return 'md-theme-' + this.mdTheme;
+	      }
+
+	      var theme = this.closestThemedParent.mdTheme;
+
+	      if (!theme) {
+	        if (this.closestThemedParent) {
+	          theme = this.closestThemedParent.mdName;
+	        } else {
+	          theme = this.$material.currentTheme;
+	        }
+	      }
+
+	      return 'md-theme-' + theme;
+	    }
+	  },
+	  mounted: function mounted() {
+	    this.closestThemedParent = this.getClosestThemedParent(this.$parent);
+
+	    if (!this.$material.currentTheme) {
+	      this.$material.setCurrentTheme('default');
+	    }
+	  }
+	};
+	module.exports = exports['default'];
+
+/***/ },
+
+/***/ 97:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = install;
+
+	var _mdSwitch = __webpack_require__(296);
+
+	var _mdSwitch2 = _interopRequireDefault(_mdSwitch);
+
+	var _mdSwitch3 = __webpack_require__(243);
+
+	var _mdSwitch4 = _interopRequireDefault(_mdSwitch3);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function install(Vue) {
+	  Vue.component('md-switch', Vue.extend(_mdSwitch2.default));
+
+	  Vue.material.styles.push(_mdSwitch4.default);
+	}
+	module.exports = exports['default'];
+
+/***/ },
+
+/***/ 150:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _mixin = __webpack_require__(1);
+
+	var _mixin2 = _interopRequireDefault(_mixin);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var checkedPosition = 75; //
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+
+	var initialPosition = '-1px';
+
+	exports.default = {
+	  props: {
+	    name: String,
+	    value: Boolean,
+	    id: String,
+	    disabled: Boolean,
+	    type: {
+	      type: String,
+	      default: 'button'
+	    }
+	  },
+	  mixins: [_mixin2.default],
+	  data: function data() {
+	    return {
+	      leftPos: initialPosition,
+	      checked: this.value
+	    };
+	  },
+
+	  computed: {
+	    classes: function classes() {
+	      return {
+	        'md-checked': Boolean(this.value),
+	        'md-disabled': this.disabled
+	      };
+	    },
+	    styles: function styles() {
+	      return {
+	        transform: 'translate3D(' + this.leftPos + ', -50%, 0)'
+	      };
+	    }
+	  },
+	  watch: {
+	    checked: function checked() {
+	      this.setPosition();
+	    },
+	    value: function value(_value) {
+	      this.changeState(_value);
+	    }
+	  },
+	  methods: {
+	    setPosition: function setPosition() {
+	      this.leftPos = this.checked ? checkedPosition + '%' : initialPosition;
+	    },
+	    changeState: function changeState(checked, $event) {
+	      this.checked = checked;
+	      this.$emit('change', this.checked, $event);
+	      this.$emit('input', this.checked, $event);
+	    },
+	    toggle: function toggle($event) {
+	      if (!this.disabled) {
+	        this.changeState(!this.checked, $event);
+	      }
+	    }
+	  },
+	  mounted: function mounted() {
+	    this.$nextTick(this.setPosition);
+	  }
+	};
+	module.exports = exports['default'];
+
+/***/ },
+
+/***/ 210:
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+
+/***/ 243:
+/***/ function(module, exports) {
+
+	module.exports = ".THEME_NAME.md-switch.md-checked .md-switch-container {\n  background-color: ACCENT-COLOR-500-0.5; }\n\n.THEME_NAME.md-switch.md-checked .md-switch-thumb {\n  background-color: ACCENT-COLOR; }\n\n.THEME_NAME.md-switch.md-checked .md-ink-ripple {\n  color: ACCENT-COLOR; }\n\n.THEME_NAME.md-switch.md-checked .md-ripple {\n  opacity: .38; }\n\n.THEME_NAME.md-switch.md-checked.md-primary .md-switch-container {\n  background-color: PRIMARY-COLOR-500-0.5; }\n\n.THEME_NAME.md-switch.md-checked.md-primary .md-switch-thumb {\n  background-color: PRIMARY-COLOR; }\n\n.THEME_NAME.md-switch.md-checked.md-primary .md-ink-ripple {\n  color: PRIMARY-COLOR; }\n\n.THEME_NAME.md-switch.md-checked.md-warn .md-switch-container {\n  background-color: WARN-COLOR-500-0.5; }\n\n.THEME_NAME.md-switch.md-checked.md-warn .md-switch-thumb {\n  background-color: WARN-COLOR; }\n\n.THEME_NAME.md-switch.md-checked.md-warn .md-ink-ripple {\n  color: WARN-COLOR; }\n\n.THEME_NAME.md-switch.md-disabled .md-switch-container, .THEME_NAME.md-switch.md-disabled.md-checked .md-switch-container {\n  background-color: rgba(0, 0, 0, 0.12); }\n\n.THEME_NAME.md-switch.md-disabled .md-switch-thumb, .THEME_NAME.md-switch.md-disabled.md-checked .md-switch-thumb {\n  background-color: #bdbdbd; }\n"
+
+/***/ },
+
+/***/ 296:
+/***/ function(module, exports, __webpack_require__) {
+
+	var __vue_exports__, __vue_options__
+	var __vue_styles__ = {}
+
+	/* styles */
+	__webpack_require__(210)
+
+	/* script */
+	__vue_exports__ = __webpack_require__(150)
+
+	/* template */
+	var __vue_template__ = __webpack_require__(352)
+	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+	if (
+	  typeof __vue_exports__.default === "object" ||
+	  typeof __vue_exports__.default === "function"
+	) {
+	if (Object.keys(__vue_exports__).some((function (key) { return key !== "default" && key !== "__esModule" }))) {console.error("named exports are not supported in *.vue files.")}
+	__vue_options__ = __vue_exports__ = __vue_exports__.default
+	}
+	if (typeof __vue_options__ === "function") {
+	  __vue_options__ = __vue_options__.options
+	}
+	__vue_options__.__file = "/Users/marcosmoura/Projects/github/vue-material/src/components/mdSwitch/mdSwitch.vue"
+	__vue_options__.render = __vue_template__.render
+	__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+
+	/* hot reload */
+	if (false) {(function () {
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), false)
+	  if (!hotAPI.compatible) return
+	  module.hot.accept()
+	  if (!module.hot.data) {
+	    hotAPI.createRecord("data-v-7e05ff26", __vue_options__)
+	  } else {
+	    hotAPI.reload("data-v-7e05ff26", __vue_options__)
+	  }
+	})()}
+	if (__vue_options__.functional) {console.error("[vue-loader] mdSwitch.vue: functional components are not supported and should be defined in plain js files using render functions.")}
+
+	module.exports = __vue_exports__
+
+
+/***/ },
+
+/***/ 352:
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+	  return _c('div', {
+	    staticClass: "md-switch",
+	    class: [_vm.themeClass, _vm.classes]
+	  }, [_c('div', {
+	    staticClass: "md-switch-container",
+	    on: {
+	      "click": function($event) {
+	        _vm.toggle($event)
+	      }
+	    }
+	  }, [_c('div', {
+	    staticClass: "md-switch-thumb",
+	    style: (_vm.styles)
+	  }, [_c('input', {
+	    attrs: {
+	      "type": "checkbox",
+	      "name": _vm.name,
+	      "id": _vm.id,
+	      "disabled": _vm.disabled
+	    },
+	    domProps: {
+	      "value": _vm.value
+	    }
+	  }), _vm._v(" "), _c('button', {
+	    staticClass: "md-switch-holder",
+	    attrs: {
+	      "type": _vm.type
+	    }
+	  }), _vm._v(" "), _c('md-ink-ripple', {
+	    attrs: {
+	      "md-disabled": _vm.disabled
+	    }
+	  })], 1)]), _vm._v(" "), (_vm.$slots.default) ? _c('label', {
+	    staticClass: "md-switch-label",
+	    attrs: {
+	      "for": _vm.id || _vm.name
+	    }
+	  }, [_vm._t("default")], 2) : _vm._e()])
+	},staticRenderFns: []}
+	module.exports.render._withStripped = true
+	if (false) {
+	  module.hot.accept()
+	  if (module.hot.data) {
+	     require("vue-hot-reload-api").rerender("data-v-7e05ff26", module.exports)
+	  }
+	}
+
+/***/ }
+
+/******/ })
+}));
+;
