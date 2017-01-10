@@ -6,7 +6,7 @@
 	else if(typeof exports === 'object')
 		exports["VueMaterial"] = factory(require("vue"));
 	else
-		root["VueMaterial"] = factory(root["vue"]);
+		root["VueMaterial"] = factory(root["Vue"]);
 })(this, (function(__WEBPACK_EXTERNAL_MODULE_374__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
