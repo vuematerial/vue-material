@@ -21,14 +21,14 @@
   transition: none;
   will-change: background-color, opacity, transform, width, height, top, left;
 
-  &.md-fadeout {
-    opacity: 0;
-    transition: $swift-ease-out;
-    transition-duration: .6s;
-  }
-
   &.md-active {
     animation: ripple 1s $swift-ease-out-timing-function forwards;
+
+    &.md-fadeout {
+      opacity: 0 !important;
+      transition: $swift-ease-out;
+      transition-duration: .6s;
+    }
   }
 }
 
