@@ -3,6 +3,14 @@
     <docs-component>
       <div slot="description">
         <p>Ink ripples confirm user input by immediately expanding outward from the point of touch. The card lifts to indicate an active state.</p>
+        <p>To disable the ripple component globally just call the API: </p>
+        <code-block lang="javascript">
+          // Anywhere
+          Vue.material.inkRipple = false
+
+          // Inside a Vue Intance
+          this.$material.inkRipple = false
+        </code-block>
       </div>
 
       <div slot="api">
@@ -31,28 +39,28 @@
         <example-box card-title="Default">
           <div slot="demo">
             <div class="has-ripple">
-              <md-ink-ripple></md-ink-ripple>
+              <md-ink-ripple />
               This div has ripple effect
             </div>
 
             <div class="has-ripple purple">
-              <md-ink-ripple></md-ink-ripple>
+              <md-ink-ripple />
               This div has ripple effect
             </div>
 
             <div class="has-ripple blue">
-              <md-ink-ripple></md-ink-ripple>
+              <md-ink-ripple />
               This div has ripple effect
             </div>
 
             <div class="has-ripple red">
-              <md-ink-ripple></md-ink-ripple>
+              <md-ink-ripple />
               This div has ripple effect
             </div>
 
             <md-card class="card-ripple" md-with-hover>
               <md-card-media>
-                <md-ink-ripple></md-ink-ripple>
+                <md-ink-ripple />
                 <img src="assets/card-image-1.jpg" alt="People">
               </md-card-media>
 
@@ -75,28 +83,28 @@
           <div slot="code">
             <code-block lang="xml">
               &lt;div class=&quot;has-ripple&quot;&gt;
-                &lt;md-ink-ripple&gt;&lt;/md-ink-ripple&gt;
+                &lt;md-ink-ripple /&gt;
                 This div has ripple effect
               &lt;/div&gt;
 
               &lt;div class=&quot;has-ripple purple&quot;&gt;
-                &lt;md-ink-ripple&gt;&lt;/md-ink-ripple&gt;
+                &lt;md-ink-ripple /&gt;
                 This div has ripple effect
               &lt;/div&gt;
 
               &lt;div class=&quot;has-ripple blue&quot;&gt;
-                &lt;md-ink-ripple&gt;&lt;/md-ink-ripple&gt;
+                &lt;md-ink-ripple /&gt;
                 This div has ripple effect
               &lt;/div&gt;
 
               &lt;div class=&quot;has-ripple red&quot;&gt;
-                &lt;md-ink-ripple&gt;&lt;/md-ink-ripple&gt;
+                &lt;md-ink-ripple /&gt;
                 This div has ripple effect
               &lt;/div&gt;
 
               &lt;md-card class=&quot;card-ripple&quot; md-with-hover&gt;
                 &lt;md-card-media&gt;
-                  &lt;md-ink-ripple&gt;&lt;/md-ink-ripple&gt;
+                  &lt;md-ink-ripple /&gt;
                   &lt;img src=&quot;assets/card-image-1.jpg&quot; alt=&quot;People&quot;&gt;
                 &lt;/md-card-media&gt;
 
