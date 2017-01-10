@@ -60,6 +60,12 @@
                 <md-table-cell><code>String</code></md-table-cell>
                 <md-table-cell>Create a anchor on the item - In this case the generated tag will be <code>&lt;a&gt;</code>.</md-table-cell>
               </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>disabled</md-table-cell>
+                <md-table-cell><code>Boolean</code></md-table-cell>
+                <md-table-cell>Disable the item and prevent his actions. Default <code>false</code></md-table-cell>
+              </md-table-row>
             </md-table-body>
           </md-table>
         </api-table>
