@@ -102,7 +102,6 @@ You don't need to include any other library to work with vue-material. The focus
 * <a href="http://vuejs.org" target="_blank">vue</a>
 * <a href="http://www.jacklmoore.com/autosize/" target="_blank">autosize</a>
 * <a href="https://www.npmjs.com/package/element.scrollintoviewifneeded-polyfill" target="_blank">element.scrollintoviewifneeded-polyfill</a>
-* <a href="https://github.com/lazd/scopedQuerySelectorShim" target="_blank">scopedQuerySelectorShim</a>
 
 ## License 
 MIT

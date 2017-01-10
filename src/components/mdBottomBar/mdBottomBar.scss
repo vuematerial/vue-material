@@ -45,6 +45,10 @@
     }
   }
 
+  &[disabled] {
+    opacity: .38;
+  }
+
   .md-bottom-bar.md-shift & {
     min-width: 56px;
     max-width: 96px;

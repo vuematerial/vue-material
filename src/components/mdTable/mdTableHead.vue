@@ -1,6 +1,6 @@
 <template>
   <th class="md-table-head" :class="classes" @click="changeSort">
-    <div class="md-table-head-container" v-md-ink-ripple="!mdSortBy">
+    <div class="md-table-head-container">
       <div class="md-table-head-text md-test">
         <md-icon class="md-sortable-icon" v-if="mdSortBy">arrow_downward</md-icon>
 
@@ -8,6 +8,8 @@
 
         <md-tooltip v-if="mdTooltip">{{ mdTooltip }}</md-tooltip>
       </div>
+
+      <md-ink-ripple :md-disabled="!mdSortBy" />
     </div>
   </th>
 </template>
