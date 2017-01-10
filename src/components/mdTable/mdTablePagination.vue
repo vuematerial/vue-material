@@ -6,13 +6,13 @@
       <md-option v-for="amount in mdPageOptions" :value="amount">{{ amount }}</md-option>
     </md-select>
 
-    <span>{{ from }}-{{ toCorrected }} {{ mdSeparator }} {{ mdTotal }}</span>
+    <span>{{ from }}-{{ to }} {{ mdSeparator }} {{ mdTotal }}</span>
 
     <md-button class="md-icon-button md-table-pagination-previous" @click="previousPage" :disabled="currentPage === 1">
       <md-icon>keyboard_arrow_left</md-icon>
     </md-button>
 
-    <md-button class="md-icon-button md-table-pagination-next" @click="nextPage" :disabled="currentSize * currentPage >= totalItems">
+    <md-button class="md-icon-button md-table-pagination-next" @click="nextPage" :disabled="isLastPage">
       <md-icon>keyboard_arrow_right</md-icon>
     </md-button>
   </div>
@@ -32,7 +32,7 @@
       },
       mdTotal: {
         type: [Number, String],
-        default: 'Unknown'
+        default: 'Many'
       },
       mdLabel: {
         type: String,
@@ -47,7 +47,7 @@
       return {
         currentSize: parseInt(this.mdSize, 10),
         currentPage: parseInt(this.mdPage, 10),
-        totalItems: parseInt(this.mdTotal, 10)
+        totalItems: isNaN(this.mdTotal) ? Number.MAX_SAFE_INTEGER : parseInt(this.mdTotal, 10)
       };
     },
     computed: {
@@ -55,19 +55,13 @@
         return (this.currentPage - 1) * this.currentSize + 1;
       },
       to() {
-        return this.currentPage * this.currentSize;
-      },
-      toCorrected() {
-        return this.isLastPage ? this.mdTotal : this.to;
-      },
-      total() {
-        return isNaN(this.mdTotal) ? Number.MAX_SAFE_INTEGER : this.mdTotal;
+        return this.isLastPage ? this.totalItems : this.currentPage * this.currentSize;
       },
       lastPage() {
         return Math.ceil(this.totalItems / this.currentSize);
       },
       isLastPage() {
-        return this.to >= this.mdTotal;
+        return this.currentPage * this.currentSize >= this.totalItems;
       }
     },
     watch: {
