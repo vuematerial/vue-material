@@ -1,5 +1,5 @@
 <template>
-  <div class="md-ink-ripple" v-if="!disabled">
+  <div class="md-ink-ripple" v-if="mounted || !disabled">
     <div class="md-ripple" :class="classes" :style="styles" ref="ripple"></div>
   </div>
 </template>
@@ -12,6 +12,7 @@
       mdDisabled: Boolean
     },
     data: () => ({
+      mounted: false,
       rippleElement: null,
       parentElement: null,
       parentDimensions: {
@@ -144,19 +145,17 @@
         }
       },
       init() {
-        this.$nextTick(() => {
-          this.rippleElement = this.$el;
-          this.parentElement = this.getClosestPositionedParent(this.$el.parentNode);
+        this.rippleElement = this.$el;
+        this.parentElement = this.getClosestPositionedParent(this.$el.parentNode);
 
-          if (!this.parentElement) {
-            this.$destroy();
-          } else {
-            this.rippleElement.parentNode.removeChild(this.rippleElement);
-            this.parentElement.appendChild(this.rippleElement);
-            this.registerMouseEvent();
-            this.setDimensions();
-          }
-        });
+        if (!this.parentElement) {
+          this.$destroy();
+        } else {
+          this.rippleElement.parentNode.removeChild(this.rippleElement);
+          this.parentElement.appendChild(this.rippleElement);
+          this.registerMouseEvent();
+          this.setDimensions();
+        }
       },
       destroy() {
         if (this.rippleElement && this.rippleElement.parentNode) {
@@ -166,11 +165,17 @@
       }
     },
     mounted() {
-      if (!this.disabled) {
-        this.init();
-      } else {
-        this.destroy();
-      }
+      window.setTimeout(() => {
+        if (!this.disabled) {
+          this.init();
+        } else {
+          this.destroy();
+        }
+
+        this.$nextTick(() => {
+          this.mounted = true;
+        });
+      }, 100);
     },
     beforeDestroy() {
       this.destroy();
