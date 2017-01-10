@@ -175,6 +175,10 @@ $sizes: (8, 16, 24, 40);
   .md-hide-#{$size} {
     display: none;
   }
+
+  .md-hide-#{$size}-and-up {
+    display: none;
+  }
 }
 
 @include layout-xlarge {
@@ -194,5 +198,25 @@ $sizes: (8, 16, 24, 40);
 }
 
 @include layout-xsmall {
+  @include breakpoint-layout(xsmall);
+}
+
+@include layout-xlarge-and-up {
+  @include breakpoint-layout(xlarge);
+}
+
+@include layout-large-and-up {
+  @include breakpoint-layout(large);
+}
+
+@include layout-medium-and-up {
+  @include breakpoint-layout(medium);
+}
+
+@include layout-small-and-up {
+  @include breakpoint-layout(small);
+}
+
+@include layout-xsmall-and-up {
   @include breakpoint-layout(xsmall);
 }
