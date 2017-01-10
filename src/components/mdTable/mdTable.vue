@@ -41,6 +41,11 @@
         this.$emit('select', this.selectedRows);
       }
     },
+    watch: {
+      data() {
+        this.numberOfRows = this.data.length;
+      }
+    },
     mounted() {
       this.parentCard = getClosestVueParent(this.$parent, 'md-table-card');
 
