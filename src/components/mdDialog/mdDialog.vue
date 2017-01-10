@@ -4,7 +4,7 @@
       <slot></slot>
     </div>
 
-    <md-backdrop class="md-dialog-backdrop" :class="classes" v-if="mdBackdrop" ref="backdrop" @close="mdClickOutsideToClose && close()"></md-backdrop>
+    <md-backdrop class="md-dialog-backdrop" :class="backdropClasses" v-if="mdBackdrop" ref="backdrop" @close="mdClickOutsideToClose && close()"></md-backdrop>
   </div>
 </template>
 
@@ -28,6 +28,7 @@
         type: Boolean,
         default: true
       },
+      mdBackdropClasses: Object,
       mdOpenFrom: String,
       mdCloseTo: String,
       mdFullscreen: {
@@ -46,6 +47,9 @@
         return {
           'md-active': this.active
         };
+      },
+      backdropClasses() {
+        return Object.assign({}, this.classes, this.mdBackdropClasses);
       },
       dialogClasses() {
         return {
