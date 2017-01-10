@@ -74,6 +74,4 @@ options.install = (Vue) => {
   }
 };
 
-window.VueMaterial = options;
-
 export default options;
