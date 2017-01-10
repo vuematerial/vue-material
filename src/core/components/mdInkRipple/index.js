@@ -1,5 +1,5 @@
 import 'scopedQuerySelectorShim/dist/scopedQuerySelectorShim';
-import './mdInkRipple.vue';
+import mdInkRipple from './mdInkRipple.vue';
 
 export default function install(Vue) {
   let rippleParentClass = 'md-ink-ripple';
@@ -116,31 +116,5 @@ export default function install(Vue) {
     });
   });
 
-  Vue.component('md-ink-ripple', {
-    props: {
-      mdDisabled: Boolean
-    },
-    render(createElement) {
-      return createElement('div', {
-        staticClass: 'md-ink-ripple'
-      });
-    },
-    watch: {
-      mdDisabled() {
-        if (this.mdDisabled) {
-          unregisterMouseEvent(this.$el.parentNode);
-        } else {
-          createRipple(this.$el.parentNode, this.$el);
-        }
-      }
-    },
-    mounted() {
-      if (!this.mdDisabled) {
-        createRipple(this.$el.parentNode, this.$el);
-      }
-    },
-    destroyed() {
-      unregisterMouseEvent(this.$el.parentNode);
-    }
-  });
+  Vue.component('md-ink-ripple', Vue.extend(mdInkRipple));
 }

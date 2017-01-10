@@ -121,7 +121,8 @@ export default function install(Vue) {
   Vue.material = new Vue({
     data: () => ({
       styles: [],
-      currentTheme: null
+      currentTheme: null,
+      inkRipple: true
     }),
     methods: {
       registerTheme(name, spec) {
