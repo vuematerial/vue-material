@@ -120,6 +120,10 @@
                 </md-list-item>
 
                 <md-list-item class="md-inset">
+                  <router-link exact to="/components/speed-dial">Speed Dial</router-link>
+                </md-list-item>
+
+                <md-list-item class="md-inset">
                   <router-link exact to="/components/spinner">Spinner</router-link>
                 </md-list-item>
 
