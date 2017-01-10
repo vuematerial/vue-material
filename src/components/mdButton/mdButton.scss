@@ -79,11 +79,11 @@ $button-icon-size: 40px;
   &.md-icon-button,
   &.md-fab {
     .md-icon {
-      margin-top: 1px;
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      top: 1px;
+      right: 0;
+      bottom: 0;
+      left: 0;
     }
   }
 
@@ -147,49 +147,6 @@ $button-icon-size: 40px;
       box-shadow: $material-shadow-5dp;
     }
 
-    &.md-fab-top-left,
-    &.md-fab-top-center,
-    &.md-fab-top-right,
-    &.md-fab-bottom-left,
-    &.md-fab-bottom-center,
-    &.md-fab-bottom-right {
-      margin: 0;
-      position: absolute;
-      z-index: 10;
-    }
-
-    &.md-fab-top-left {
-      top: $button-fab-space;
-      left: $button-fab-space;
-    }
-
-    &.md-fab-top-center {
-      top: $button-fab-space;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    &.md-fab-top-right {
-      top: $button-fab-space;
-      right: $button-fab-space;
-    }
-
-    &.md-fab-bottom-left {
-      bottom: $button-fab-space;
-      left: $button-fab-space;
-    }
-
-    &.md-fab-bottom-center {
-      bottom: $button-fab-space;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    &.md-fab-bottom-right {
-      right: $button-fab-space;
-      bottom: $button-fab-space;
-    }
-
     &.md-mini {
       width: $button-fab-size-mini;
       height: $button-fab-size-mini;
@@ -230,6 +187,52 @@ $button-icon-size: 40px;
 .md-button.md-fab {
   .md-icon {
     display: block;
+  }
+}
+
+.md-fab,
+.md-speed-dial {
+  &.md-fab-top-left,
+  &.md-fab-top-center,
+  &.md-fab-top-right,
+  &.md-fab-bottom-left,
+  &.md-fab-bottom-center,
+  &.md-fab-bottom-right {
+    margin: 0;
+    position: absolute;
+    z-index: 10;
+  }
+
+  &.md-fab-top-left {
+    top: $button-fab-space;
+    left: $button-fab-space;
+  }
+
+  &.md-fab-top-center {
+    top: $button-fab-space;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &.md-fab-top-right {
+    top: $button-fab-space;
+    right: $button-fab-space;
+  }
+
+  &.md-fab-bottom-left {
+    bottom: $button-fab-space;
+    left: $button-fab-space;
+  }
+
+  &.md-fab-bottom-center {
+    bottom: $button-fab-space;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &.md-fab-bottom-right {
+    right: $button-fab-space;
+    bottom: $button-fab-space;
   }
 }
 

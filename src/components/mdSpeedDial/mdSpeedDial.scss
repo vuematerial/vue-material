@@ -1,5 +1,84 @@
 @import '../../core/stylesheets/variables.scss';
 
 .md-speed-dial {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
 
+  &.md-mode-scale {
+    [md-fab-trigger] {
+      ~ .md-button {
+        transform: scale(.7);
+      }
+    }
+  }
+
+  &.md-mode-fling {
+    [md-fab-trigger] {
+      ~ .md-button {
+        transform: scale(.95) translate3D(0, 80%, 0);
+      }
+    }
+  }
+
+  &.md-active {
+    [md-fab-trigger] {
+      ~ .md-button {
+        opacity: 1;
+        transform: translate3D(0, 0, 0);
+
+        @for $i from 1 through 10 {
+          &:nth-child(#{$i + 2}) {
+            transition-delay: $i * .05s;
+          }
+        }
+      }
+
+      .md-icon:not([md-icon-morph]) {
+        transform: rotateZ(90deg) scale(.8);
+        opacity: 0;
+      }
+
+      [md-icon-morph] {
+        transform: rotateZ(0);
+        opacity: 1;
+      }
+    }
+  }
+
+  .md-button {
+    margin: 0;
+
+    + .md-button {
+      margin-bottom: 16px;
+    }
+  }
+
+  [md-fab-trigger] {
+    margin-top: 8px;
+
+    ~ .md-button {
+      opacity: 0;
+      transition: $swift-ease-out;
+
+      $counter: 0;
+      @for $i from 10 through 1 {
+        &:nth-child(#{$counter + 2}) {
+          transition-delay: $counter * .05s;
+        }
+
+        $counter: $counter + 1;
+      }
+    }
+  }
+
+  .md-icon:not([md-icon-morph]),
+  [md-icon-morph] {
+    transition: $swift-ease-out;
+  }
+
+  [md-icon-morph] {
+    opacity: 0;
+    transform: rotateZ(-90deg) scale(.8);
+  }
 }
