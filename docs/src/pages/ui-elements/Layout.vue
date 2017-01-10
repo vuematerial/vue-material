@@ -128,7 +128,7 @@
               </md-table-row>
 
               <md-table-row>
-                <md-table-cell>md-align-{type}</md-table-cell>
+                <md-table-cell>md-align</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
                 <md-table-cell>Apply an alignment to the container. Accepts <code>start</code>|<code>center</code>|<code>end</code> Example: <code>md-align="end"</code></md-table-cell>
               </md-table-row>
