@@ -84,6 +84,10 @@
                 </md-list-item>
 
                 <md-list-item class="md-inset">
+                  <router-link exact to="/components/ink-ripple">Ink Ripple</router-link>
+                </md-list-item>
+
+                <md-list-item class="md-inset">
                   <router-link exact to="/components/input">Input</router-link>
                 </md-list-item>
 
@@ -101,10 +105,6 @@
 
                 <md-list-item class="md-inset">
                   <router-link exact to="/components/radio">Radio</router-link>
-                </md-list-item>
-
-                <md-list-item class="md-inset">
-                  <router-link exact to="/components/ink-ripple">Ink Ripple</router-link>
                 </md-list-item>
 
                 <md-list-item class="md-inset">
