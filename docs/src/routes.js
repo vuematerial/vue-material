@@ -26,6 +26,7 @@ const Radio = (resolve) => require(['./pages/components/Radio'], resolve);
 const Select = (resolve) => require(['./pages/components/Select'], resolve);
 const Sidenav = (resolve) => require(['./pages/components/Sidenav'], resolve);
 const Snackbar = (resolve) => require(['./pages/components/Snackbar'], resolve);
+const SpeedDial = (resolve) => require(['./pages/components/SpeedDial'], resolve);
 const Spinner = (resolve) => require(['./pages/components/Spinner'], resolve);
 const Subheader = (resolve) => require(['./pages/components/Subheader'], resolve);
 const Switch = (resolve) => require(['./pages/components/Switch'], resolve);
@@ -171,6 +172,11 @@ const components = [
     path: '/components/snackbar',
     name: 'components:snackbar',
     component: Snackbar
+  },
+  {
+    path: '/components/speed-dial',
+    name: 'components:speed-dial',
+    component: SpeedDial
   },
   {
     path: '/components/spinner',
