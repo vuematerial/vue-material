@@ -18,6 +18,10 @@
       mdMode: {
         type: String,
         default: 'fling'
+      },
+      mdDirection: {
+        type: String,
+        default: 'top'
       }
     },
     mixins: [theme],
@@ -32,6 +36,7 @@
         };
 
         classes['md-mode-' + this.mdMode] = true;
+        classes['md-direction-' + this.mdDirection] = true;
 
         return classes;
       }
