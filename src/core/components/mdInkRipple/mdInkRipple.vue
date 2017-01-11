@@ -61,9 +61,12 @@
         return availablePositions.indexOf(getComputedStyle(element).position) > -1;
       },
       getClosestPositionedParent(element) {
+        if (!element) {
+          return false;
+        }
         const parent = element.parentNode;
 
-        if (!element || !parent || parent.tagName.toLowerCase() === 'body') {
+        if (!parent || parent.tagName.toLowerCase() === 'body') {
           return false;
         }
 
@@ -71,7 +74,7 @@
           return element;
         }
 
-        return this.getClosestPositionedParent(element.parentNode);
+        return this.getClosestPositionedParent(parent);
       },
       getParentSize() {
         const parent = this.parentElement;
