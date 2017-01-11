@@ -41,12 +41,22 @@
         this.$emit('select', this.selectedRows);
       }
     },
+    watch: {
+      data() {
+        this.numberOfRows = this.data.length;
+      },
+      selectedRows() {
+        this.numberOfSelected = Object.keys(this.selectedRows).length;
+      }
+    },
     mounted() {
       this.parentCard = getClosestVueParent(this.$parent, 'md-table-card');
 
       if (this.parentCard) {
         this.parentCard.tableInstance = this;
       }
+
+      window.$vm = this.data;
     }
   };
 </script>
