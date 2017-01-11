@@ -47,7 +47,13 @@ export default merge(baseConfig, {
     ]
   },
   externals: {
-    vue: 'vue'
+    vue: {
+      commonjs: 'vue',
+      commonjs2: 'vue',
+      amd: 'vue',
+      root: 'Vue',
+      var: 'Vue'
+    }
   },
   plugins: [
     new webpack.optimize.DedupePlugin(),
