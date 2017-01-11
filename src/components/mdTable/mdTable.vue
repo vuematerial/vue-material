@@ -55,8 +55,6 @@
       if (this.parentCard) {
         this.parentCard.tableInstance = this;
       }
-
-      window.$vm = this.data;
     }
   };
 </script>
