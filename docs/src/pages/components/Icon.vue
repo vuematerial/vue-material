@@ -50,8 +50,7 @@
               <md-table-row>
                 <md-table-cell>md-iconset</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
-                <md-table-cell>The icon set font you'll use. For example, in 
-                  <code>class="fa fa-pencil"</code>, the <b>fa</b> is the intended value for md-iconset.</md-table-cell>
+                <md-table-cell>The font icon set. Example: <code>md-iconset="fa fa-pencil"</code> for font awesome.</md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>
