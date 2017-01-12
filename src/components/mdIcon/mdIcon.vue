@@ -3,7 +3,7 @@
 
   <md-image class="md-icon" :class="[themeClass]" :md-src="imageSrc" v-else-if="imageSrc"></md-image>
 
-  <md-image class="md-icon" :class="[themeClass]" :md-iconset="iconset" v-else-if="iconset"></md-image>
+  <i class="md-icon md-icon-font" aria-hidden="true" :class="[themeClass]" v-else-if="mdIconset"></i>
 
   <i class="md-icon material-icons" :class="[themeClass]" v-else>
     <slot></slot>
@@ -24,8 +24,7 @@
     },
     data: () => ({
       svgContent: null,
-      imageSrc: null,
-      iconset: null
+      imageSrc: null
     }),
     mixins: [theme],
     watch: {

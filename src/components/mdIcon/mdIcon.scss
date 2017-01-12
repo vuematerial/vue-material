@@ -10,6 +10,10 @@ $icon-size: 24px;
   font-size: $size;
 }
 
+.md-icon-font {
+  font-size: $icon-size;
+}
+
 .md-icon {
   @include icon-size();
   margin: auto;
