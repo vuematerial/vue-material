@@ -129,7 +129,7 @@
         this.selectedValue = output.value;
         this.selectedText = output.text;
 
-        if (this.selectedText && this.parentContainer) {
+        if (this.parentContainer) {
           this.parentContainer.setValue(this.selectedText);
         }
       },
