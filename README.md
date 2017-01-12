@@ -76,6 +76,16 @@ Vue.use(VueMaterial.mdSidenav)
 Vue.use(VueMaterial.mdToolbar)
 ```
 
+## Changelog
+<a href="https://vuematerial.github.io/#/changelog" target="_blank">Changelog</a>
+
+## Questions
+The issue list is exclusively for reports, bugs and feature requests. Use the [Gitter Channel]( https://gitter.im/vuematerial) instead.
+
+## Contributing
+
+Please make sure to read the [Contributing Guide](https://github.com/marcosmoura/vue-material/blob/master/.github/CONTRIBUTING.md) before making a pull request.
+
 ## Browser Support
 Vue Material supports the latest version of all Browsers. This means:
 * Google Chrome 50+
@@ -86,13 +96,6 @@ Vue Material supports the latest version of all Browsers. This means:
 * Edge
 
 <small>May work in other browsers but it's untested.</small>
-
-## Changelog
-<a href="https://vuematerial.github.io/#/changelog" target="_blank">Changelog</a>
-
-## Contributing
-
-Please make sure to read the [Contributing Guide](https://github.com/marcosmoura/vue-material/blob/master/.github/CONTRIBUTING.md) before making a pull request.
 
 ## Credits and Thanks
 * This library aims to delivery components using almost the same API of <a href="https://material.angularjs.org/latest/" target="_blank">Angular Material</a>
