@@ -3,6 +3,8 @@
 
   <md-image class="md-icon" :class="[themeClass]" :md-src="imageSrc" v-else-if="imageSrc"></md-image>
 
+  <md-image class="md-icon" :class="[themeClass]" :md-iconset="iconset" v-else-if="iconset"></md-image>
+
   <i class="md-icon material-icons" :class="[themeClass]" v-else>
     <slot></slot>
   </i>
@@ -17,11 +19,13 @@
 
   export default {
     props: {
-      mdSrc: String
+      mdSrc: String,
+      mdIconset: Boolean
     },
     data: () => ({
       svgContent: null,
-      imageSrc: null
+      imageSrc: null,
+      iconset: null
     }),
     mixins: [theme],
     watch: {

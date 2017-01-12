@@ -47,6 +47,12 @@
                 <md-table-cell><code>String</code></md-table-cell>
                 <md-table-cell>The src of the image file. Can be SVG icons too!</md-table-cell>
               </md-table-row>
+              <md-table-row>
+                <md-table-cell>md-iconset</md-table-cell>
+                <md-table-cell><code>String</code></md-table-cell>
+                <md-table-cell>The icon set font you'll use. For example, in 
+                  <code>class="fa fa-pencil"</code>, the <b>fa</b> is the intended value for md-iconset.</md-table-cell>
+              </md-table-row>
             </md-table-body>
           </md-table>
         </api-table>
@@ -130,6 +136,18 @@
                 &lt;/md-layout&gt;
               &lt;/md-layout&gt;
             </code-block>
+          </div>
+        </example-box>
+
+        <example-box card-title="Font Icons">
+          <div slot="demo">
+            <!-- had a few trouble on making webpack accept font awesome therefore i'm using this cdn for the moment -->
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+            <md-icon md-iconset class="fa fa-2x fa-pencil"></md-icon>
+          </div>
+
+          <div slot="code">
+
           </div>
         </example-box>
 
