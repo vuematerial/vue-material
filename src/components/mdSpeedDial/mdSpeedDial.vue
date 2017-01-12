@@ -49,6 +49,9 @@
         }
       },
       toggleSpeedDial() {
+        if (this.mdOpen === 'click' && this.active) {
+          this.$emit('click');
+        }
         this.active = !this.active;
 
         window.setTimeout(() => {
