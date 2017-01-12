@@ -11,7 +11,9 @@
 
   <a href="https://www.npmjs.com/package/vue-material"><img src="https://img.shields.io/npm/v/vue-material.svg" alt="Version"></a>
 
-  <a href="https://www.npmjs.com/package/vue-material"><img src="https://img.shields.io/npm/l/vue-material.svg" alt="License"></a> <br>
+  <a href="https://www.npmjs.com/package/vue-material"><img src="https://img.shields.io/npm/l/vue-material.svg" alt="License"></a>
+
+  <a href="https://gitter.im/vuematerial"><img src="https://img.shields.io/gitter/room/vuematerial/home.svg" alt="Gitter Chat"></a> <br>
 </p>
 
 Vue Material is lightweight framework built exactly according to the <a href="http://material.google.com" target="_blank">Material Design</a> specs. 
