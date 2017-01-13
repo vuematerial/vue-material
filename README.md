@@ -69,11 +69,11 @@ Vue.use(VueMaterial)
 
 // OR
 
-Vue.use(VueMaterial.mdCore) //Required to boot vue material
-Vue.use(VueMaterial.mdButton)
-Vue.use(VueMaterial.mdIcon)
-Vue.use(VueMaterial.mdSidenav)
-Vue.use(VueMaterial.mdToolbar)
+Vue.use(VueMaterial.MdCore) //Required to boot vue material
+Vue.use(VueMaterial.MdButton)
+Vue.use(VueMaterial.MdIcon)
+Vue.use(VueMaterial.MdSidenav)
+Vue.use(VueMaterial.MdToolbar)
 ```
 
 ## Changelog
