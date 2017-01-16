@@ -44,7 +44,9 @@
         this.$el.setAttribute('rows', '1');
       }
 
-      autosize(this.$el);
+      this.$nextTick(() => {
+        autosize(this.$el);
+      });
     },
     beforeDestroy() {
       autosize.destroy(this.$el);
