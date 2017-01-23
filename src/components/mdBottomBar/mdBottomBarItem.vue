@@ -1,6 +1,7 @@
 <template>
   <a :href="href" class="md-bottom-bar-item" :class="classes" :disabled="disabled" @click="setActive" v-if="href">
-    <md-icon>{{ mdIcon }}</md-icon>
+    
+    <md-icon v-if="mdIcon || mdIconSrc || mdIconset" :md-icon-src="mdIconSrc" :md-iconset="mdIconset">{{ mdIcon }}</md-icon>
 
     <md-ink-ripple :md-disabled="disabled" />
 
@@ -10,7 +11,8 @@
   </a>
 
   <button type="button" class="md-bottom-bar-item" :class="classes" :disabled="disabled" @click="setActive" v-else>
-    <md-icon>{{ mdIcon }}</md-icon>
+    
+    <md-icon v-if="mdIcon || mdIconSrc || mdIconset" :md-src="mdIconSrc" :md-iconset="mdIconset">{{ mdIcon }}</md-icon>
 
     <md-ink-ripple :md-disabled="disabled" />
 
@@ -24,6 +26,8 @@
   export default {
     props: {
       mdIcon: String,
+      mdIconSrc: String,
+      mdIconset: String,
       mdActive: Boolean,
       disabled: String,
       href: String
