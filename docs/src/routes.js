@@ -13,6 +13,7 @@ const ButtonToggle = (resolve) => require(['./pages/components/ButtonToggle'], r
 const Card = (resolve) => require(['./pages/components/Card'], resolve);
 const Checkbox = (resolve) => require(['./pages/components/Checkbox'], resolve);
 const Chips = (resolve) => require(['./pages/components/Chips'], resolve);
+const DataTable = (resolve) => require(['./pages/components/DataTable'], resolve);
 const Dialog = (resolve) => require(['./pages/components/Dialog'], resolve);
 const File = (resolve) => require(['./pages/components/File'], resolve);
 const Icon = (resolve) => require(['./pages/components/Icon'], resolve);
@@ -107,6 +108,11 @@ const components = [
     path: '/components/chips',
     name: 'components:chips',
     component: Chips
+  },
+  {
+    path: '/components/table/data-table',
+    name: 'components:data-table',
+    component: DataTable
   },
   {
     path: '/components/dialog',
