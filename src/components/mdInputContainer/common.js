@@ -7,9 +7,9 @@ export default {
     placeholder: String
   },
   watch: {
-    value() {
-      this.setParentValue(this.$el.value);
-      this.onInput();
+    value(value) {
+      this.setParentValue(value);
+      this.updateValues(value);
     },
     disabled() {
       this.setParentDisabled();
@@ -41,18 +41,25 @@ export default {
     setParentPlaceholder() {
       this.parentContainer.hasPlaceholder = !!this.placeholder;
     },
+    updateValues(value) {
+      const newValue = value || this.$el.value || this.value;
+
+      this.setParentValue(newValue);
+      this.parentContainer.inputLength = newValue ? newValue.length : 0;
+    },
     onFocus() {
-      this.parentContainer.isFocused = true;
+      if (this.parentContainer) {
+        this.parentContainer.isFocused = true;
+      }
     },
     onBlur() {
       this.parentContainer.isFocused = false;
       this.setParentValue();
     },
     onInput() {
-      this.setParentValue(this.value);
-      this.parentContainer.inputLength = this.value ? this.value.length : 0;
-      this.$emit('change', this.value);
-      this.$emit('input', this.value);
+      this.updateValues();
+      this.$emit('change', this.$el.value);
+      this.$emit('input', this.$el.value);
     }
   }
 };
