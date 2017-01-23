@@ -267,7 +267,7 @@
                   <md-tooltip>Be careful. You're almost broken!</md-tooltip>
                 </md-icon>
                 <label>Money</label>
-                <md-input type="text"></md-input>
+                <md-input type="number"></md-input>
                 <md-icon>attach_money</md-icon>
               </md-input-container>
 
