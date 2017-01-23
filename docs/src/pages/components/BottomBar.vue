@@ -68,7 +68,7 @@
               </md-table-row>
 
               <md-table-row>
-                <md-table-cell>md-src</md-table-cell>
+                <md-table-cell>md-icon-src</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
                 <md-table-cell>Set icon src url. See <a href="#/components/Icon">Icon </a> component for more details.</md-table-cell>
               </md-table-row>
@@ -128,9 +128,9 @@
           <div slot="demo">
             <div class="phone-viewport">
               <md-bottom-bar>
-                <md-bottom-bar-item md-src="assets/icon-home.svg">Recents</md-bottom-bar-item>
-                <md-bottom-bar-item md-src="assets/icon-home.svg" md-active>Favorites</md-bottom-bar-item>
-                <md-bottom-bar-item md-src="assets/icon-home.svg">Nearby</md-bottom-bar-item>
+                <md-bottom-bar-item md-icon-src="assets/icon-home.svg">Recents</md-bottom-bar-item>
+                <md-bottom-bar-item md-icon-src="assets/icon-home.svg" md-active>Favorites</md-bottom-bar-item>
+                <md-bottom-bar-item md-icon-src="assets/icon-home.svg">Nearby</md-bottom-bar-item>
               </md-bottom-bar>
             </div>
           </div>
@@ -138,9 +138,9 @@
           <div slot="code">
             <code-block lang="xml">
               &lt;md-bottom-bar&gt;
-                &lt;md-bottom-bar-item md-src="assets/icon-home.svg"&gt;Recents&lt;/md-bottom-bar-item&gt;
-                &lt;md-bottom-bar-item md-src="assets/icon-home.svg" md-active&gt;Favorites&lt;/md-bottom-bar-item&gt;
-                &lt;md-bottom-bar-item md-src="assets/icon-home.svg"&gt;Nearby&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon-src="assets/icon-home.svg"&gt;Recents&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon-src="assets/icon-home.svg" md-active&gt;Favorites&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon-src="assets/icon-home.svg"&gt;Nearby&lt;/md-bottom-bar-item&gt;
               &lt;/md-bottom-bar&gt;
             </code-block>
           </div>
