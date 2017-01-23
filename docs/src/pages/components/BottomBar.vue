@@ -68,6 +68,18 @@
               </md-table-row>
 
               <md-table-row>
+                <md-table-cell>md-src</md-table-cell>
+                <md-table-cell><code>String</code></md-table-cell>
+                <md-table-cell>Set icon src url. See <a href="#/components/Icon">Icon </a> component for more details.</md-table-cell>
+              </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>md-iconset</md-table-cell>
+                <md-table-cell><code>String</code></md-table-cell>
+                <md-table-cell>Set the 3rd party iconset to use. See <a href="#/components/Icon">Icon </a> component for more details.</md-table-cell>
+              </md-table-row>
+
+              <md-table-row>
                 <md-table-cell>md-active</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
                 <md-table-cell>Set initial selection. Default <code>false</code></md-table-cell>
@@ -107,6 +119,52 @@
                 &lt;md-bottom-bar-item md-icon=&quot;history&quot;&gt;Recents&lt;/md-bottom-bar-item&gt;
                 &lt;md-bottom-bar-item md-icon=&quot;favorite&quot; md-active&gt;Favorites&lt;/md-bottom-bar-item&gt;
                 &lt;md-bottom-bar-item md-icon=&quot;near_me&quot;&gt;Nearby&lt;/md-bottom-bar-item&gt;
+              &lt;/md-bottom-bar&gt;
+            </code-block>
+          </div>
+        </example-box>
+        
+        <example-box card-title="Using SVG">
+          <div slot="demo">
+            <div class="phone-viewport">
+              <md-bottom-bar>
+                <md-bottom-bar-item md-src="assets/icon-home.svg">Recents</md-bottom-bar-item>
+                <md-bottom-bar-item md-src="assets/icon-home.svg" md-active>Favorites</md-bottom-bar-item>
+                <md-bottom-bar-item md-src="assets/icon-home.svg">Nearby</md-bottom-bar-item>
+              </md-bottom-bar>
+            </div>
+          </div>
+
+          <div slot="code">
+            <code-block lang="xml">
+              &lt;md-bottom-bar&gt;
+                &lt;md-bottom-bar-item md-src="assets/icon-home.svg"&gt;Recents&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-src="assets/icon-home.svg" md-active&gt;Favorites&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-src="assets/icon-home.svg"&gt;Nearby&lt;/md-bottom-bar-item&gt;
+              &lt;/md-bottom-bar&gt;
+            </code-block>
+          </div>
+        </example-box>
+        
+        <example-box card-title="Using Iconsets">
+          <div slot="demo">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css"/>
+            <div>This example uses <a href="http://simplelineicons.com/" target="simple_line">Simple Line Icons</a></div>
+            <div class="phone-viewport">
+              <md-bottom-bar>
+                <md-bottom-bar-item md-iconset="icon-speedometer">Recents</md-bottom-bar-item>
+                <md-bottom-bar-item md-iconset="icon-heart" md-active>Favorites</md-bottom-bar-item>
+                <md-bottom-bar-item md-iconset="icon-cursor">Nearby</md-bottom-bar-item>
+              </md-bottom-bar>
+            </div>
+          </div>
+
+          <div slot="code">
+            <code-block lang="xml">
+              &lt;md-bottom-bar&gt;
+                &lt;md-bottom-bar-item md-iconset="icon-speedometer"&gt;Recents&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-iconset="icon-heart" md-active&gt;Favorites&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-iconset="icon-cursor"&gt;Nearby&lt;/md-bottom-bar-item&gt;
               &lt;/md-bottom-bar&gt;
             </code-block>
           </div>
