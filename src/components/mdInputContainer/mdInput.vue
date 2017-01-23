@@ -40,7 +40,7 @@
         this.setParentRequired();
         this.setParentPlaceholder();
         this.handleMaxLength();
-        this.onInput();
+        this.updateValues();
       });
     }
   };
