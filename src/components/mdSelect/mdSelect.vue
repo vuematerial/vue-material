@@ -1,6 +1,6 @@
 <template>
   <div class="md-select" :class="[themeClass, classes]">
-    <md-menu :md-close-on-select="!multiple">
+    <md-menu :md-close-on-select="!multiple" @opened="$emit('open')" @closed="$emit('close')">
       <span class="md-select-value" md-menu-trigger ref="value">{{ selectedText || multipleText || placeholder }}</span>
 
       <md-menu-content class="md-select-content" :class="[themeClass, contentClasses]">
