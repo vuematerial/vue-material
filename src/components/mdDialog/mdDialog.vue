@@ -62,7 +62,7 @@
     },
     methods: {
       removeDialog() {
-        if (this.rootElement.contains(this.dialogElement)) {
+        if (document.body.contains(this.dialogElement)) {
           this.$el.parentNode.removeChild(this.$el);
         }
       },
@@ -91,7 +91,7 @@
         }
       },
       open() {
-        this.rootElement.appendChild(this.dialogElement);
+        document.body.appendChild(this.dialogElement);
         this.transitionOff = true;
         this.calculateDialogPos(this.mdOpenFrom);
 
@@ -109,7 +109,7 @@
         }
       },
       close() {
-        if (this.rootElement.contains(this.dialogElement)) {
+        if (document.body.contains(this.dialogElement)) {
           this.$nextTick(() => {
             let cleanElement = () => {
               let activeRipple = this.dialogElement.querySelector('.md-ripple.md-active');
@@ -119,7 +119,7 @@
               }
 
               this.dialogInnerElement.removeEventListener(transitionEndEventName, cleanElement);
-              this.rootElement.removeChild(this.dialogElement);
+              document.body.removeChild(this.dialogElement);
               this.dialogTransform = '';
             };
 
@@ -140,7 +140,6 @@
     },
     mounted() {
       this.$nextTick(() => {
-        this.rootElement = this.$root.$el;
         this.dialogElement = this.$el;
         this.dialogInnerElement = this.$refs.dialog;
         this.removeDialog();

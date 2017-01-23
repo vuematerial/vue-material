@@ -68,14 +68,14 @@
     },
     methods: {
       removeElement() {
-        if (this.rootElement.contains(this.snackbarElement)) {
+        if (document.body.contains(this.snackbarElement)) {
           const activeRipple = this.snackbarElement.querySelector('.md-ripple.md-active');
 
           if (activeRipple) {
             activeRipple.classList.remove('md-active');
           }
 
-          this.rootElement.removeChild(this.snackbarElement);
+          document.body.removeChild(this.snackbarElement);
         }
       },
       open() {
@@ -84,7 +84,7 @@
         }
 
         manager.current = this;
-        this.rootElement.appendChild(this.snackbarElement);
+        document.body.appendChild(this.snackbarElement);
         window.getComputedStyle(this.$refs.container).backgroundColor;
         this.active = true;
         this.$emit('open');
@@ -108,7 +108,6 @@
     },
     mounted() {
       this.$nextTick(() => {
-        this.rootElement = this.$root.$el;
         this.snackbarElement = this.$el;
         this.snackbarElement.parentNode.removeChild(this.snackbarElement);
       });
