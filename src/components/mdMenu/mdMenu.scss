@@ -114,3 +114,7 @@ $menu-base-width: 56px;
     text-overflow: ellipsis;
   }
 }
+
+.md-menu-backdrop {
+  z-index: 130;
+}
