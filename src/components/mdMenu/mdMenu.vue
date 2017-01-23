@@ -130,12 +130,12 @@
         window.requestAnimationFrame(this.calculateMenuContentPos);
       },
       open() {
-        if (this.rootElement.contains(this.menuContent)) {
-          this.rootElement.removeChild(this.menuContent);
+        if (document.body.contains(this.menuContent)) {
+          document.body.removeChild(this.menuContent);
         }
 
-        this.rootElement.appendChild(this.menuContent);
-        this.rootElement.appendChild(this.backdropElement);
+        document.body.appendChild(this.menuContent);
+        document.body.appendChild(this.backdropElement);
         window.addEventListener('resize', this.recalculateOnResize);
 
         this.calculateMenuContentPos();
@@ -159,8 +159,8 @@
               activeRipple.classList.remove('md-active');
             }
 
-            this.rootElement.removeChild(this.menuContent);
-            this.rootElement.removeChild(this.backdropElement);
+            document.body.removeChild(this.menuContent);
+            document.body.removeChild(this.backdropElement);
             window.removeEventListener('resize', this.recalculateOnResize);
           }
         };
@@ -179,7 +179,6 @@
     },
     mounted() {
       this.$nextTick(() => {
-        this.rootElement = this.$root.$el;
         this.menuTrigger = this.$el.querySelector('[md-menu-trigger]');
         this.menuContent = this.$el.querySelector('.md-menu-content');
         this.backdropElement = this.$refs.backdrop.$el;
@@ -193,9 +192,9 @@
       });
     },
     beforeDestroy() {
-      if (this.rootElement.contains(this.menuContent)) {
-        this.rootElement.removeChild(this.menuContent);
-        this.rootElement.removeChild(this.backdropElement);
+      if (document.body.contains(this.menuContent)) {
+        document.body.removeChild(this.menuContent);
+        document.body.removeChild(this.backdropElement);
       }
 
       this.menuTrigger.removeEventListener('click', this.toggle);
