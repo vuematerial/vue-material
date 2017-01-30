@@ -49,10 +49,11 @@
         }
       },
       toggleSpeedDial() {
-        if (this.mdOpen === 'click' && this.active) {
-          this.$emit('click');
-        }
         this.active = !this.active;
+
+        if (this.mdOpen === 'click' && this.active) {
+          this.$emit('md-fab-click');
+        }
 
         window.setTimeout(() => {
           document.body.addEventListener('click', this.closeSpeedDial);
