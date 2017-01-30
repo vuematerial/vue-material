@@ -51,7 +51,7 @@
       toggleSpeedDial() {
         this.active = !this.active;
 
-        if (this.mdOpen === 'click' && this.active) {
+        if (this.mdOpen === 'click' && !this.active) {
           this.$emit('md-fab-click');
         }
 
