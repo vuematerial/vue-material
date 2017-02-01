@@ -87,6 +87,7 @@
     [md-fab-trigger] {
       ~ .md-button {
         opacity: 1;
+        pointer-events: auto;
         transform: translate3D(0, 0, 0) !important;
 
         @for $i from 1 through 10 {
@@ -120,6 +121,7 @@
       position: relative;
       z-index: 1;
       opacity: 0;
+      pointer-events: none;
       transition: $swift-ease-out;
 
       @for $i from 1 through 10 {
