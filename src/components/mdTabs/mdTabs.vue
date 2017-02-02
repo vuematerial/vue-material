@@ -41,7 +41,7 @@
       mdFixed: Boolean,
       mdCentered: Boolean,
       mdRight: Boolean,
-      mdScrollableHeader: Boolean,
+      mdScrollableNavigation: Boolean,
       mdDynamicHeight: {
         type: Boolean,
         default: true
@@ -67,7 +67,7 @@
         return {
           'md-dynamic-height': this.mdDynamicHeight,
           'md-transition-off': this.transitionOff,
-          'md-scrollable-header': this.mdScrollableHeader
+          'md-scrollable-navigation': this.mdScrollableNavigation
         };
       },
       navigationClasses() {
