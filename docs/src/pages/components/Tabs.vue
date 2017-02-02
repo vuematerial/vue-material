@@ -141,7 +141,7 @@
       <div slot="example">
         <example-box card-title="Default">
           <div slot="demo">
-            <md-tabs :md-dynamic-height="false">
+            <md-tabs :md-dynamic-height="false" md-scrollable-header>
               <md-tab id="movies" md-label="Movies">
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
               </md-tab>
@@ -156,6 +156,22 @@
               </md-tab>
 
               <md-tab id="pictures" md-label="Pictures" md-tooltip="This is the pictures tab!">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.</p>
+              </md-tab>
+
+              <md-tab id="playlists" md-label="Playlists">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.</p>
+              </md-tab>
+
+              <md-tab id="albums" md-label="Albums">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.</p>
+              </md-tab>
+
+              <md-tab id="albums-2" md-label="Albums">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.</p>
+              </md-tab>
+
+              <md-tab id="albums-3" md-label="Albums">
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.</p>
               </md-tab>
             </md-tabs>

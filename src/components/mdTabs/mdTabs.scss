@@ -19,6 +19,17 @@ $tab-max-width: 264px;
     }
   }
 
+  &.md-scrollable-header {
+    .md-tabs-navigation {
+      overflow: hidden;
+    }
+
+    .md-tabs-navigation-container {
+      margin-bottom: -15px;
+      overflow-x: auto;
+    }
+  }
+
   .md-tabs-navigation {
     height: 48px;
     min-height: 48px;
@@ -50,12 +61,15 @@ $tab-max-width: 264px;
     }
   }
 
+  .md-tabs-navigation-container {
+    display: flex;
+  }
+
   .md-tab-header {
     min-width: $tab-width;
     max-width: $tab-max-width;
     margin: 0;
     padding: 0 12px;
-    display: inline-block;
     position: relative;
     cursor: pointer;
     border: 0;
@@ -65,6 +79,7 @@ $tab-max-width: 264px;
     font-size: 14px;
     font-weight: 500;
     text-transform: uppercase;
+    flex-shrink: 0;
 
     &.md-disabled {
       cursor: default;

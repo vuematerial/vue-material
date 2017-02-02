@@ -1,6 +1,7 @@
 <template>
   <div class="md-tabs" :class="[themeClass, tabClasses]">
     <md-whiteframe md-tag="nav" class="md-tabs-navigation" :md-elevation="mdElevation" :class="navigationClasses">
+      <div class="md-tabs-navigation-container" ref="tabsContainer" @scroll="calculateIndicatorPos">
       <button
         v-for="header in tabList"
         :key="header.id"
@@ -19,6 +20,7 @@
       </button>
 
       <span class="md-tab-indicator" :class="indicatorClasses" ref="indicator"></span>
+      </div>
     </md-whiteframe>
 
     <div class="md-tabs-content" ref="tabContent" :style="{ height: contentHeight }">
@@ -39,6 +41,7 @@
       mdFixed: Boolean,
       mdCentered: Boolean,
       mdRight: Boolean,
+      mdScrollableHeader: Boolean,
       mdDynamicHeight: {
         type: Boolean,
         default: true
@@ -63,7 +66,8 @@
       tabClasses() {
         return {
           'md-dynamic-height': this.mdDynamicHeight,
-          'md-transition-off': this.transitionOff
+          'md-transition-off': this.transitionOff,
+          'md-scrollable-header': this.mdScrollableHeader
         };
       },
       navigationClasses() {
@@ -137,7 +141,7 @@
         if (this.$refs.tabHeader) {
           let tabsWidth = this.$el.offsetWidth;
           let activeTab = this.$refs.tabHeader[this.activeTabNumber];
-          let left = activeTab.offsetLeft;
+          let left = activeTab.offsetLeft - this.$refs.tabsContainer.scrollLeft;
           let right = tabsWidth - left - activeTab.offsetWidth;
 
           this.$refs.indicator.style.left = left + 'px';
