@@ -12,16 +12,21 @@ const Buttons = (resolve) => require(['./pages/components/Buttons'], resolve);
 const ButtonToggle = (resolve) => require(['./pages/components/ButtonToggle'], resolve);
 const Card = (resolve) => require(['./pages/components/Card'], resolve);
 const Checkbox = (resolve) => require(['./pages/components/Checkbox'], resolve);
+const Chips = (resolve) => require(['./pages/components/Chips'], resolve);
 const Dialog = (resolve) => require(['./pages/components/Dialog'], resolve);
+const File = (resolve) => require(['./pages/components/File'], resolve);
 const Icon = (resolve) => require(['./pages/components/Icon'], resolve);
+const ImageLoader = (resolve) => require(['./pages/components/ImageLoader'], resolve);
 const InkRipple = (resolve) => require(['./pages/components/InkRipple'], resolve);
 const Input = (resolve) => require(['./pages/components/Input'], resolve);
 const List = (resolve) => require(['./pages/components/List'], resolve);
 const Menu = (resolve) => require(['./pages/components/Menu'], resolve);
+const Progress = (resolve) => require(['./pages/components/Progress'], resolve);
 const Radio = (resolve) => require(['./pages/components/Radio'], resolve);
 const Select = (resolve) => require(['./pages/components/Select'], resolve);
 const Sidenav = (resolve) => require(['./pages/components/Sidenav'], resolve);
 const Snackbar = (resolve) => require(['./pages/components/Snackbar'], resolve);
+const SpeedDial = (resolve) => require(['./pages/components/SpeedDial'], resolve);
 const Spinner = (resolve) => require(['./pages/components/Spinner'], resolve);
 const Subheader = (resolve) => require(['./pages/components/Subheader'], resolve);
 const Switch = (resolve) => require(['./pages/components/Switch'], resolve);
@@ -99,14 +104,29 @@ const components = [
     component: Checkbox
   },
   {
+    path: '/components/chips',
+    name: 'components:chips',
+    component: Chips
+  },
+  {
     path: '/components/dialog',
     name: 'components:dialog',
     component: Dialog
   },
   {
+    path: '/components/file',
+    name: 'components:file',
+    component: File
+  },
+  {
     path: '/components/icon',
     name: 'components:icon',
     component: Icon
+  },
+  {
+    path: '/components/image-loader',
+    name: 'components:image-loader',
+    component: ImageLoader
   },
   {
     path: '/components/ink-ripple',
@@ -129,6 +149,11 @@ const components = [
     component: Menu
   },
   {
+    path: '/components/progress',
+    name: 'components:progress',
+    component: Progress
+  },
+  {
     path: '/components/radio',
     name: 'components:radio',
     component: Radio
@@ -147,6 +172,11 @@ const components = [
     path: '/components/snackbar',
     name: 'components:snackbar',
     component: Snackbar
+  },
+  {
+    path: '/components/speed-dial',
+    name: 'components:speed-dial',
+    component: SpeedDial
   },
   {
     path: '/components/spinner',

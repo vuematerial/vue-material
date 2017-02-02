@@ -6,10 +6,11 @@
       }
 
       label,
+      input,
+      textarea,
       .md-error,
       .md-count,
-      input,
-      textarea {
+      .md-icon:not(.md-icon-delete) {
         color: #{'WARN-COLOR'};
       }
     }
@@ -39,9 +40,26 @@
         -webkit-text-fill-color: transparent;
       }
 
-      label {
+      label,
+      .md-icon:not(.md-icon-delete) {
         color: #{'PRIMARY-COLOR'};
       }
+    }
+
+    &.md-input-disabled {
+      label,
+      input,
+      textarea,
+      .md-error,
+      .md-count,
+      .md-icon:not(.md-icon-delete),
+      ::-webkit-input-placeholder {
+        color: #{'BACKGROUND-CONTRAST-0.38'};
+      }
+    }
+
+    .md-icon:not(.md-icon-delete):after {
+      background: #{'BACKGROUND-COLOR'};
     }
   }
 }

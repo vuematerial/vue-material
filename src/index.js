@@ -6,17 +6,22 @@ import MdButton from './components/mdButton';
 import MdButtonToggle from './components/mdButtonToggle';
 import MdCard from './components/mdCard';
 import MdCheckbox from './components/mdCheckbox';
+import MdChips from './components/mdChips';
 import MdDialog from './components/mdDialog';
 import MdDivider from './components/mdDivider';
+import MdFile from './components/mdFile';
 import MdIcon from './components/mdIcon';
+import MdImage from './components/mdImage';
 import MdInputContainer from './components/mdInputContainer';
 import MdLayout from './components/mdLayout';
 import MdList from './components/mdList';
 import MdMenu from './components/mdMenu';
+import MdProgress from './components/mdProgress';
 import MdRadio from './components/mdRadio';
 import MdSelect from './components/mdSelect';
 import MdSidenav from './components/mdSidenav';
 import MdSnackbar from './components/mdSnackbar';
+import MdSpeedDial from './components/mdSpeedDial';
 import MdSpinner from './components/mdSpinner';
 import MdSubheader from './components/mdSubheader';
 import MdSwitch from './components/mdSwitch';
@@ -35,17 +40,22 @@ const options = {
   MdButtonToggle,
   MdCard,
   MdCheckbox,
+  MdChips,
   MdDialog,
   MdDivider,
+  MdFile,
   MdIcon,
+  MdImage,
   MdInputContainer,
   MdLayout,
   MdList,
   MdMenu,
+  MdProgress,
   MdRadio,
   MdSelect,
   MdSidenav,
   MdSnackbar,
+  MdSpeedDial,
   MdSpinner,
   MdSubheader,
   MdSwitch,
@@ -65,7 +75,5 @@ options.install = (Vue) => {
     }
   }
 };
-
-window.VueMaterial = options;
 
 export default options;

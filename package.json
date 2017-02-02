@@ -1,7 +1,7 @@
 {
   "name": "vue-material",
   "description": "Material Design for Vue.js",
-  "version": "0.5.2",
+  "version": "0.6.3",
   "author": "Marcos Moura <marcosvmmoura@gmail.com>",
   "homepage": "https://vuematerial.github.io",
   "license": "MIT",
@@ -40,10 +40,10 @@
     "release": "bash build/release.sh"
   },
   "dependencies": {
-    "vue": "^2.1.7"
+    "vue": "^2.1.8"
   },
   "devDependencies": {
-    "autoprefixer": "^6.6.0",
+    "autoprefixer": "^6.6.1",
     "autosize": "^3.0.20",
     "babel-cli": "^6.18.0",
     "babel-core": "^6.21.0",
@@ -61,8 +61,8 @@
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.26.1",
     "element.scrollintoviewifneeded-polyfill": "^1.0.1",
-    "eslint": "^3.12.2",
-    "eslint-friendly-formatter": "^2.0.6",
+    "eslint": "^3.13.0",
+    "eslint-friendly-formatter": "^2.0.7",
     "eslint-loader": "^1.6.1",
     "eslint-plugin-html": "^1.7.0",
     "eventsource-polyfill": "^0.9.6",
@@ -70,25 +70,24 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
     "highlight.js": "^9.9.0",
-    "html-webpack-plugin": "^2.24.1",
+    "html-webpack-plugin": "^2.26.0",
     "json-loader": "^0.5.4",
     "node-sass": "^4.1.1",
     "optimize-js-plugin": "^0.0.4",
     "ora": "^0.4.0",
     "raw-loader": "^0.5.1",
     "sass-loader": "^4.1.1",
-    "scopedQuerySelectorShim": "lazd/scopedQuerySelectorShim",
     "url-loader": "^0.5.7",
-    "vue-hot-reload-api": "^2.0.6",
+    "vue-hot-reload-api": "^2.0.7",
     "vue-html-loader": "^1.2.3",
     "vue-loader": "^10.0.2",
     "vue-router": "^2.1.1",
     "vue-style-loader": "^1.0.0",
-    "vue-template-compiler": "^2.1.7",
+    "vue-template-compiler": "^2.1.8",
     "webpack": "^1.14.0",
     "webpack-dev-middleware": "^1.9.0",
-    "webpack-hot-middleware": "^2.14.0",
-    "webpack-merge": "^2.0.0"
+    "webpack-hot-middleware": "^2.15.0",
+    "webpack-merge": "^2.3.1"
   },
   "hyperlayout": [
     [

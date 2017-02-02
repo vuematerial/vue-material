@@ -76,6 +76,18 @@
                 <md-table-cell>Receives the value of the model</md-table-cell>
                 <md-table-cell>Triggered when the model changes.</md-table-cell>
               </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>opened</md-table-cell>
+                <md-table-cell>none</md-table-cell>
+                <md-table-cell>Triggered the select is opened.</md-table-cell>
+              </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>closed</md-table-cell>
+                <md-table-cell>none</md-table-cell>
+                <md-table-cell>Triggered the select is closed.</md-table-cell>
+              </md-table-row>
             </md-table-body>
           </md-table>
         </api-table>
@@ -363,7 +375,7 @@
   </page-content>
 </template>
 
-<style lang="scss" scoped>
+<style lang="sass" scoped>
   .field-group {
     display: flex;
   }

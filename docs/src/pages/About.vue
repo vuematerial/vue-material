@@ -55,10 +55,6 @@
           <li>
             <a href="https://www.npmjs.com/package/element.scrollintoviewifneeded-polyfill" rel="noopener" target="_blank">element.scrollintoviewifneeded-polyfill</a>
           </li>
-
-          <li>
-            <a href="https://github.com/lazd/scopedQuerySelectorShim" rel="noopener" target="_blank">scopedQuerySelectorShim</a>
-          </li>
         </ul>
       </section>
 
@@ -70,7 +66,7 @@
   </page-content>
 </template>
 
-<style lang="scss" scoped>
+<style lang="sass" scoped>
   section {
     max-width: 960px;
 

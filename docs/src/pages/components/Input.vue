@@ -258,6 +258,62 @@
           </div>
         </example-box>
 
+        <example-box card-title="Icons">
+          <div slot="demo">
+            <form novalidate @submit.stop.prevent="submit">
+              <md-input-container>
+                <md-icon class="md-warn">
+                  warning
+                  <md-tooltip>Be careful. You're almost broken!</md-tooltip>
+                </md-icon>
+                <label>Money</label>
+                <md-input type="number"></md-input>
+                <md-icon>attach_money</md-icon>
+              </md-input-container>
+
+              <md-input-container>
+                <md-icon>phone</md-icon>
+                <label>Phone</label>
+                <md-input type="tel"></md-input>
+              </md-input-container>
+
+              <md-input-container>
+                <md-icon>speaker_notes</md-icon>
+                <label>Notes</label>
+                <md-textarea></md-textarea>
+              </md-input-container>
+            </form>
+          </div>
+
+          <div slot="code">
+            <code-block lang="xml">
+              &lt;form novalidate @submit.stop.prevent=&quot;submit&quot;&gt;
+                &lt;md-input-container&gt;
+                  &lt;md-icon class=&quot;md-warn&quot;&gt;
+                    warning
+                    &lt;md-tooltip&gt;Be careful. You&#039;re almost broken!&lt;/md-tooltip&gt;
+                  &lt;/md-icon&gt;
+                  &lt;label&gt;Money&lt;/label&gt;
+                  &lt;md-input type=&quot;text&quot;&gt;&lt;/md-input&gt;
+                  &lt;md-icon&gt;attach_money&lt;/md-icon&gt;
+                &lt;/md-input-container&gt;
+
+                &lt;md-input-container&gt;
+                  &lt;md-icon&gt;phone&lt;/md-icon&gt;
+                  &lt;label&gt;Phone&lt;/label&gt;
+                  &lt;md-input type=&quot;tel&quot;&gt;&lt;/md-input&gt;
+                &lt;/md-input-container&gt;
+
+                &lt;md-input-container&gt;
+                  &lt;md-icon&gt;speaker_notes&lt;/md-icon&gt;
+                  &lt;label&gt;Notes&lt;/label&gt;
+                  &lt;md-textarea&gt;&lt;/md-textarea&gt;
+                &lt;/md-input-container&gt;
+              &lt;/form&gt;
+            </code-block>
+          </div>
+        </example-box>
+
         <example-box card-title="Required and Errors">
           <div slot="demo">
             <form novalidate @submit.stop.prevent="submit">
@@ -386,7 +442,7 @@
   </page-content>
 </template>
 
-<style lang="scss" scoped>
+<style lang="sass" scoped>
 
 </style>
 

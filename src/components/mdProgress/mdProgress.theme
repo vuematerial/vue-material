@@ -1,0 +1,46 @@
+.THEME_NAME {
+  &.md-progress {
+    background-color: #{'PRIMARY-COLOR-0.38'};
+
+    &:not(.md-indeterminate) .md-progress-track {
+      background-color: #{'PRIMARY-COLOR'};
+    }
+
+    .md-progress-track {
+      &:after,
+      &:before {
+        background-color: #{'PRIMARY-COLOR'};
+      }
+    }
+
+    &.md-accent {
+      background-color: #{'ACCENT-COLOR-0.38'};
+
+      &:not(.md-indeterminate) .md-progress-track {
+        background-color: #{'ACCENT-COLOR'};
+      }
+
+      .md-progress-track {
+        &:after,
+        &:before {
+          background-color: #{'ACCENT-COLOR'};
+        }
+      }
+    }
+
+    &.md-warn {
+      background-color: #{'WARN-COLOR-0.38'};
+
+      &:not(.md-indeterminate) .md-progress-track {
+        background-color: #{'WARN-COLOR'};
+      }
+
+      .md-progress-track {
+        &:after,
+        &:before {
+          background-color: #{'WARN-COLOR'};
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,144 @@
+@import '../../core/stylesheets/variables.scss';
+
+.md-speed-dial {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+
+  &.md-direction-top {
+    &.md-mode-fling {
+      [md-fab-trigger] ~ .md-button {
+        transform: scale(.95) translate3D(0, 80%, 0);
+      }
+    }
+
+    [md-fab-trigger] {
+      margin-top: 8px;
+
+      ~ .md-button {
+        margin-bottom: 16px;
+      }
+    }
+  }
+
+  &.md-direction-right {
+    flex-direction: row;
+    justify-content: center;
+
+    &.md-mode-fling {
+      [md-fab-trigger] ~ .md-button {
+        transform: scale(.95) translate3D(-80%, 0, 0);
+      }
+    }
+
+    [md-fab-trigger] {
+      margin-right: 8px;
+
+      ~ .md-button {
+        margin-left: 16px;
+      }
+    }
+  }
+
+  &.md-direction-bottom {
+    flex-direction: column;
+
+    &.md-mode-fling {
+      [md-fab-trigger] ~ .md-button {
+        transform: scale(.95) translate3D(0, -80%, 0);
+      }
+    }
+
+    [md-fab-trigger] {
+      margin-bottom: 8px;
+
+      ~ .md-button {
+        margin-top: 16px;
+      }
+    }
+  }
+
+  &.md-direction-left {
+    flex-direction: row-reverse;
+    justify-content: center;
+
+    &.md-mode-fling {
+      [md-fab-trigger] ~ .md-button {
+        transform: scale(.95) translate3D(80%, 0, 0);
+      }
+    }
+
+    [md-fab-trigger] {
+      margin-left: 8px;
+
+      ~ .md-button {
+        margin-right: 16px;
+      }
+    }
+  }
+
+  &.md-mode-scale {
+    [md-fab-trigger] ~ .md-button {
+      transform: scale(.6);
+    }
+  }
+
+  &.md-active {
+    [md-fab-trigger] {
+      ~ .md-button {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translate3D(0, 0, 0) !important;
+
+        @for $i from 1 through 10 {
+          &:nth-child(#{$i + 1}) {
+            transition-delay: $i * .05s;
+          }
+        }
+      }
+
+      [md-icon-morph] {
+        transform: rotateZ(0);
+        opacity: 1;
+
+        + .md-icon {
+          transform: rotateZ(90deg) scale(.8);
+          opacity: 0;
+        }
+      }
+    }
+  }
+
+  .md-button {
+    margin: 0;
+  }
+
+  [md-fab-trigger] {
+    position: relative;
+    z-index: 2;
+
+    ~ .md-button {
+      position: relative;
+      z-index: 1;
+      opacity: 0;
+      pointer-events: none;
+      transition: $swift-ease-out;
+
+      @for $i from 1 through 10 {
+        &:nth-last-child(#{$i + 1}) {
+          transition-delay: $i * .05s;
+        }
+      }
+    }
+  }
+
+  [md-icon-morph] + .md-icon,
+  [md-icon-morph] {
+    transition: $swift-ease-out;
+  }
+
+  [md-icon-morph] {
+    opacity: 0;
+    transform: rotateZ(-90deg) scale(.8);
+  }
+}

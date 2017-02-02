@@ -30,6 +30,24 @@
               </md-table-row>
             </md-table-body>
           </md-table>
+
+          <md-table slot="events">
+            <md-table-header>
+              <md-table-row>
+                <md-table-head>Name</md-table-head>
+                <md-table-head>Value</md-table-head>
+                <md-table-head>Description</md-table-head>
+              </md-table-row>
+            </md-table-header>
+
+            <md-table-body>
+              <md-table-row>
+                <md-table-cell>change</md-table-cell>
+                <md-table-cell>Receive the item index</md-table-cell>
+                <md-table-cell>Triggered when an item is activated.</md-table-cell>
+              </md-table-row>
+            </md-table-body>
+          </md-table>
         </api-table>
 
         <api-table name="md-bottom-bar-item">
@@ -50,6 +68,18 @@
               </md-table-row>
 
               <md-table-row>
+                <md-table-cell>md-icon-src</md-table-cell>
+                <md-table-cell><code>String</code></md-table-cell>
+                <md-table-cell>Set icon src url. See <a href="#/components/Icon">Icon </a> component for more details.</md-table-cell>
+              </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>md-iconset</md-table-cell>
+                <md-table-cell><code>String</code></md-table-cell>
+                <md-table-cell>Set the 3rd party iconset to use. See <a href="#/components/Icon">Icon </a> component for more details.</md-table-cell>
+              </md-table-row>
+
+              <md-table-row>
                 <md-table-cell>md-active</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
                 <md-table-cell>Set initial selection. Default <code>false</code></md-table-cell>
@@ -59,6 +89,12 @@
                 <md-table-cell>href</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
                 <md-table-cell>Create a anchor on the item - In this case the generated tag will be <code>&lt;a&gt;</code>.</md-table-cell>
+              </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>disabled</md-table-cell>
+                <md-table-cell><code>Boolean</code></md-table-cell>
+                <md-table-cell>Disable the item and prevent his actions. Default <code>false</code></md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>
@@ -75,30 +111,6 @@
                 <md-bottom-bar-item md-icon="near_me">Nearby</md-bottom-bar-item>
               </md-bottom-bar>
             </div>
-
-            <div class="phone-viewport">
-              <md-bottom-bar class="md-accent">
-                <md-bottom-bar-item href="#/components/bottom-bar" md-icon="history">Recents</md-bottom-bar-item>
-                <md-bottom-bar-item href="#/components/bottom-bar" md-icon="favorite" md-active>Favorites</md-bottom-bar-item>
-                <md-bottom-bar-item href="#/components/bottom-bar" md-icon="near_me">Nearby</md-bottom-bar-item>
-              </md-bottom-bar>
-            </div>
-
-            <div class="phone-viewport">
-              <md-bottom-bar class="md-warn">
-                <md-bottom-bar-item md-icon="history">Recents</md-bottom-bar-item>
-                <md-bottom-bar-item md-icon="favorite" md-active>Favorites</md-bottom-bar-item>
-                <md-bottom-bar-item md-icon="near_me">Nearby</md-bottom-bar-item>
-              </md-bottom-bar>
-            </div>
-
-            <div class="phone-viewport">
-              <md-bottom-bar class="md-transparent">
-                <md-bottom-bar-item md-icon="history">Recents</md-bottom-bar-item>
-                <md-bottom-bar-item md-icon="favorite" md-active>Favorites</md-bottom-bar-item>
-                <md-bottom-bar-item md-icon="near_me">Nearby</md-bottom-bar-item>
-              </md-bottom-bar>
-            </div>
           </div>
 
           <div slot="code">
@@ -108,23 +120,51 @@
                 &lt;md-bottom-bar-item md-icon=&quot;favorite&quot; md-active&gt;Favorites&lt;/md-bottom-bar-item&gt;
                 &lt;md-bottom-bar-item md-icon=&quot;near_me&quot;&gt;Nearby&lt;/md-bottom-bar-item&gt;
               &lt;/md-bottom-bar&gt;
+            </code-block>
+          </div>
+        </example-box>
+        
+        <example-box card-title="Using SVG">
+          <div slot="demo">
+            <div class="phone-viewport">
+              <md-bottom-bar>
+                <md-bottom-bar-item md-icon-src="assets/icon-home.svg">Recents</md-bottom-bar-item>
+                <md-bottom-bar-item md-icon-src="assets/icon-home.svg" md-active>Favorites</md-bottom-bar-item>
+                <md-bottom-bar-item md-icon-src="assets/icon-home.svg">Nearby</md-bottom-bar-item>
+              </md-bottom-bar>
+            </div>
+          </div>
 
-              &lt;md-bottom-bar class=&quot;md-accent&quot;&gt;
-                &lt;md-bottom-bar-item md-icon=&quot;history&quot;&gt;Recents&lt;/md-bottom-bar-item&gt;
-                &lt;md-bottom-bar-item md-icon=&quot;favorite&quot; md-active&gt;Favorites&lt;/md-bottom-bar-item&gt;
-                &lt;md-bottom-bar-item md-icon=&quot;near_me&quot;&gt;Nearby&lt;/md-bottom-bar-item&gt;
+          <div slot="code">
+            <code-block lang="xml">
+              &lt;md-bottom-bar&gt;
+                &lt;md-bottom-bar-item md-icon-src="assets/icon-home.svg"&gt;Recents&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon-src="assets/icon-home.svg" md-active&gt;Favorites&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-icon-src="assets/icon-home.svg"&gt;Nearby&lt;/md-bottom-bar-item&gt;
               &lt;/md-bottom-bar&gt;
+            </code-block>
+          </div>
+        </example-box>
+        
+        <example-box card-title="Using Iconsets">
+          <div slot="demo">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css"/>
+            <div>This example uses <a href="http://simplelineicons.com/" target="simple_line">Simple Line Icons</a></div>
+            <div class="phone-viewport">
+              <md-bottom-bar>
+                <md-bottom-bar-item md-iconset="icon-speedometer">Recents</md-bottom-bar-item>
+                <md-bottom-bar-item md-iconset="icon-heart" md-active>Favorites</md-bottom-bar-item>
+                <md-bottom-bar-item md-iconset="icon-cursor">Nearby</md-bottom-bar-item>
+              </md-bottom-bar>
+            </div>
+          </div>
 
-              &lt;md-bottom-bar class=&quot;md-warn&quot;&gt;
-                &lt;md-bottom-bar-item md-icon=&quot;history&quot;&gt;Recents&lt;/md-bottom-bar-item&gt;
-                &lt;md-bottom-bar-item md-icon=&quot;favorite&quot; md-active&gt;Favorites&lt;/md-bottom-bar-item&gt;
-                &lt;md-bottom-bar-item md-icon=&quot;near_me&quot;&gt;Nearby&lt;/md-bottom-bar-item&gt;
-              &lt;/md-bottom-bar&gt;
-
-              &lt;md-bottom-bar class=&quot;md-transparent&quot;&gt;
-                &lt;md-bottom-bar-item md-icon=&quot;history&quot;&gt;Recents&lt;/md-bottom-bar-item&gt;
-                &lt;md-bottom-bar-item md-icon=&quot;favorite&quot; md-active&gt;Favorites&lt;/md-bottom-bar-item&gt;
-                &lt;md-bottom-bar-item md-icon=&quot;near_me&quot;&gt;Nearby&lt;/md-bottom-bar-item&gt;
+          <div slot="code">
+            <code-block lang="xml">
+              &lt;md-bottom-bar&gt;
+                &lt;md-bottom-bar-item md-iconset="icon-speedometer"&gt;Recents&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-iconset="icon-heart" md-active&gt;Favorites&lt;/md-bottom-bar-item&gt;
+                &lt;md-bottom-bar-item md-iconset="icon-cursor"&gt;Nearby&lt;/md-bottom-bar-item&gt;
               &lt;/md-bottom-bar&gt;
             </code-block>
           </div>
@@ -134,33 +174,6 @@
           <div slot="demo">
             <div class="phone-viewport">
               <md-bottom-bar md-shift>
-                <md-bottom-bar-item md-icon="ondemand_video">Movies</md-bottom-bar-item>
-                <md-bottom-bar-item md-icon="music_note">Music</md-bottom-bar-item>
-                <md-bottom-bar-item md-icon="books" md-active>Books</md-bottom-bar-item>
-                <md-bottom-bar-item md-icon="photo">Pictures</md-bottom-bar-item>
-              </md-bottom-bar>
-            </div>
-
-            <div class="phone-viewport">
-              <md-bottom-bar class="md-accent" md-shift>
-                <md-bottom-bar-item md-icon="ondemand_video">Movies</md-bottom-bar-item>
-                <md-bottom-bar-item md-icon="music_note">Music</md-bottom-bar-item>
-                <md-bottom-bar-item md-icon="books" md-active>Books</md-bottom-bar-item>
-                <md-bottom-bar-item md-icon="photo">Pictures</md-bottom-bar-item>
-              </md-bottom-bar>
-            </div>
-
-            <div class="phone-viewport">
-              <md-bottom-bar class="md-warn" md-shift>
-                <md-bottom-bar-item md-icon="ondemand_video">Movies</md-bottom-bar-item>
-                <md-bottom-bar-item md-icon="music_note">Music</md-bottom-bar-item>
-                <md-bottom-bar-item md-icon="books" md-active>Books</md-bottom-bar-item>
-                <md-bottom-bar-item md-icon="photo">Pictures</md-bottom-bar-item>
-              </md-bottom-bar>
-            </div>
-
-            <div class="phone-viewport">
-              <md-bottom-bar class="md-transparent" md-shift>
                 <md-bottom-bar-item md-icon="ondemand_video">Movies</md-bottom-bar-item>
                 <md-bottom-bar-item md-icon="music_note">Music</md-bottom-bar-item>
                 <md-bottom-bar-item md-icon="books" md-active>Books</md-bottom-bar-item>
@@ -177,27 +190,6 @@
                 &lt;md-bottom-bar-item md-icon=&quot;books&quot; md-active&gt;Books&lt;/md-bottom-bar-item&gt;
                 &lt;md-bottom-bar-item md-icon=&quot;photo&quot;&gt;Pictures&lt;/md-bottom-bar-item&gt;
               &lt;/md-bottom-bar&gt;
-
-              &lt;md-bottom-bar class=&quot;md-accent&quot; md-shift&gt;
-                &lt;md-bottom-bar-item md-icon=&quot;ondemand_video&quot;&gt;Movies&lt;/md-bottom-bar-item&gt;
-                &lt;md-bottom-bar-item md-icon=&quot;music_note&quot;&gt;Music&lt;/md-bottom-bar-item&gt;
-                &lt;md-bottom-bar-item md-icon=&quot;books&quot; md-active&gt;Books&lt;/md-bottom-bar-item&gt;
-                &lt;md-bottom-bar-item md-icon=&quot;photo&quot;&gt;Pictures&lt;/md-bottom-bar-item&gt;
-              &lt;/md-bottom-bar&gt;
-
-              &lt;md-bottom-bar class=&quot;md-warn&quot; md-shift&gt;
-                &lt;md-bottom-bar-item md-icon=&quot;ondemand_video&quot;&gt;Movies&lt;/md-bottom-bar-item&gt;
-                &lt;md-bottom-bar-item md-icon=&quot;music_note&quot;&gt;Music&lt;/md-bottom-bar-item&gt;
-                &lt;md-bottom-bar-item md-icon=&quot;books&quot; md-active&gt;Books&lt;/md-bottom-bar-item&gt;
-                &lt;md-bottom-bar-item md-icon=&quot;photo&quot;&gt;Pictures&lt;/md-bottom-bar-item&gt;
-              &lt;/md-bottom-bar&gt;
-
-              &lt;md-bottom-bar class=&quot;md-transparent&quot; md-shift&gt;
-                &lt;md-bottom-bar-item md-icon=&quot;ondemand_video&quot;&gt;Movies&lt;/md-bottom-bar-item&gt;
-                &lt;md-bottom-bar-item md-icon=&quot;music_note&quot;&gt;Music&lt;/md-bottom-bar-item&gt;
-                &lt;md-bottom-bar-item md-icon=&quot;books&quot; md-active&gt;Books&lt;/md-bottom-bar-item&gt;
-                &lt;md-bottom-bar-item md-icon=&quot;photo&quot;&gt;Pictures&lt;/md-bottom-bar-item&gt;
-              &lt;/md-bottom-bar&gt;
             </code-block>
           </div>
         </example-box>
@@ -205,27 +197,10 @@
         <example-box card-title="Themes">
           <div slot="demo">
             <div class="phone-viewport">
-              <md-bottom-bar md-theme="orange">
-                <md-bottom-bar-item md-icon="history">Recents</md-bottom-bar-item>
-                <md-bottom-bar-item md-icon="favorite" md-active>Favorites</md-bottom-bar-item>
-                <md-bottom-bar-item md-icon="near_me">Nearby</md-bottom-bar-item>
-              </md-bottom-bar>
-            </div>
-
-            <div class="phone-viewport">
               <md-bottom-bar md-theme="teal">
                 <md-bottom-bar-item md-icon="history">Recents</md-bottom-bar-item>
                 <md-bottom-bar-item md-icon="favorite" md-active>Favorites</md-bottom-bar-item>
                 <md-bottom-bar-item md-icon="near_me">Nearby</md-bottom-bar-item>
-              </md-bottom-bar>
-            </div>
-
-            <div class="phone-viewport">
-              <md-bottom-bar md-shift md-theme="green">
-                <md-bottom-bar-item md-icon="ondemand_video">Movies</md-bottom-bar-item>
-                <md-bottom-bar-item md-icon="music_note">Music</md-bottom-bar-item>
-                <md-bottom-bar-item md-icon="books" md-active>Books</md-bottom-bar-item>
-                <md-bottom-bar-item md-icon="photo">Pictures</md-bottom-bar-item>
               </md-bottom-bar>
             </div>
 
@@ -242,27 +217,10 @@
           <div slot="code">
             <code-block lang="xml">
               &lt;div class=&quot;phone-viewport&quot;&gt;
-                &lt;md-bottom-bar md-theme=&quot;orange&quot;&gt;
-                  &lt;md-bottom-bar-item md-icon=&quot;history&quot;&gt;Recents&lt;/md-bottom-bar-item&gt;
-                  &lt;md-bottom-bar-item md-icon=&quot;favorite&quot; md-active&gt;Favorites&lt;/md-bottom-bar-item&gt;
-                  &lt;md-bottom-bar-item md-icon=&quot;near_me&quot;&gt;Nearby&lt;/md-bottom-bar-item&gt;
-                &lt;/md-bottom-bar&gt;
-              &lt;/div&gt;
-
-              &lt;div class=&quot;phone-viewport&quot;&gt;
                 &lt;md-bottom-bar md-theme=&quot;teal&quot;&gt;
                   &lt;md-bottom-bar-item md-icon=&quot;history&quot;&gt;Recents&lt;/md-bottom-bar-item&gt;
                   &lt;md-bottom-bar-item md-icon=&quot;favorite&quot; md-active&gt;Favorites&lt;/md-bottom-bar-item&gt;
                   &lt;md-bottom-bar-item md-icon=&quot;near_me&quot;&gt;Nearby&lt;/md-bottom-bar-item&gt;
-                &lt;/md-bottom-bar&gt;
-              &lt;/div&gt;
-
-              &lt;div class=&quot;phone-viewport&quot;&gt;
-                &lt;md-bottom-bar md-shift md-theme=&quot;green&quot;&gt;
-                  &lt;md-bottom-bar-item md-icon=&quot;ondemand_video&quot;&gt;Movies&lt;/md-bottom-bar-item&gt;
-                  &lt;md-bottom-bar-item md-icon=&quot;music_note&quot;&gt;Music&lt;/md-bottom-bar-item&gt;
-                  &lt;md-bottom-bar-item md-icon=&quot;books&quot; md-active&gt;Books&lt;/md-bottom-bar-item&gt;
-                  &lt;md-bottom-bar-item md-icon=&quot;photo&quot;&gt;Pictures&lt;/md-bottom-bar-item&gt;
                 &lt;/md-bottom-bar&gt;
               &lt;/div&gt;
 
@@ -325,7 +283,7 @@
   </page-content>
 </template>
 
-<style lang="scss" scoped>
+<style lang="sass" scoped>
   .md-bottom-bar {
     position: absolute;
     right: 0;

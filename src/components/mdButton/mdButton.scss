@@ -6,6 +6,7 @@ $button-radius: 2px;
 
 $button-fab-size: 56px;
 $button-fab-size-mini: 40px;
+$button-fab-space: 24px;
 
 $button-dense-height: 32px;
 
@@ -78,11 +79,11 @@ $button-icon-size: 40px;
   &.md-icon-button,
   &.md-fab {
     .md-icon {
-      margin-top: 1px;
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      top: 1px;
+      right: 0;
+      bottom: 0;
+      left: 0;
     }
   }
 
@@ -129,6 +130,7 @@ $button-icon-size: 40px;
   &.md-fab {
     width: $button-fab-size;
     height: $button-fab-size;
+    padding: 0;
     min-width: 0;
     overflow: hidden;
     box-shadow: $material-shadow-2dp;
@@ -143,50 +145,6 @@ $button-icon-size: 40px;
     &:hover,
     &:focus {
       box-shadow: $material-shadow-5dp;
-    }
-
-    &.md-fab-top-left {
-      position: absolute;
-      top: 16px;
-      left: 16px;
-      z-index: 10;
-    }
-
-    &.md-fab-top-center {
-      position: absolute;
-      top: 16px;
-      left: 50%;
-      z-index: 10;
-      transform: translateX(-50%);
-    }
-
-    &.md-fab-top-right {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      z-index: 10;
-    }
-
-    &.md-fab-bottom-left {
-      position: absolute;
-      bottom: 16px;
-      left: 16px;
-      z-index: 10;
-    }
-
-    &.md-fab-bottom-center {
-      position: absolute;
-      bottom: 16px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 10;
-    }
-
-    &.md-fab-bottom-right {
-      position: absolute;
-      right: 16px;
-      bottom: 16px;
-      z-index: 10;
     }
 
     &.md-mini {
@@ -229,6 +187,52 @@ $button-icon-size: 40px;
 .md-button.md-fab {
   .md-icon {
     display: block;
+  }
+}
+
+.md-fab,
+.md-speed-dial {
+  &.md-fab-top-left,
+  &.md-fab-top-center,
+  &.md-fab-top-right,
+  &.md-fab-bottom-left,
+  &.md-fab-bottom-center,
+  &.md-fab-bottom-right {
+    margin: 0;
+    position: absolute;
+    z-index: 10;
+  }
+
+  &.md-fab-top-left {
+    top: $button-fab-space;
+    left: $button-fab-space;
+  }
+
+  &.md-fab-top-center {
+    top: $button-fab-space;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &.md-fab-top-right {
+    top: $button-fab-space;
+    right: $button-fab-space;
+  }
+
+  &.md-fab-bottom-left {
+    bottom: $button-fab-space;
+    left: $button-fab-space;
+  }
+
+  &.md-fab-bottom-center {
+    bottom: $button-fab-space;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &.md-fab-bottom-right {
+    right: $button-fab-space;
+    bottom: $button-fab-space;
   }
 }
 

@@ -1,6 +1,6 @@
 import palette from './palette';
 import rgba from './rgba';
-import MdTheme from './mdTheme';
+import mdTheme from './mdTheme';
 
 const VALID_THEME_TYPE = ['primary', 'accent', 'background', 'warn', 'hue-1', 'hue-2', 'hue-3'];
 const DEFAULT_THEME_COLORS = {
@@ -121,7 +121,8 @@ export default function install(Vue) {
   Vue.material = new Vue({
     data: () => ({
       styles: [],
-      currentTheme: null
+      currentTheme: null,
+      inkRipple: true
     }),
     methods: {
       registerTheme(name, spec) {
@@ -156,7 +157,7 @@ export default function install(Vue) {
     }
   });
 
-  Vue.component('md-theme', MdTheme);
+  Vue.component('md-theme', mdTheme);
 
   Vue.prototype.$material = Vue.material;
 }

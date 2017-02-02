@@ -57,12 +57,6 @@
 
         return `${progress}, 200`;
       }
-    },
-    data: () => ({
-
-    }),
-    methods: {
-
     }
   };
 </script>
