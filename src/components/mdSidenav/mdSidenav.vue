@@ -57,19 +57,28 @@
           this.open();
         }
       },
+      isHorizontallyInside(positionX) {
+        return positionX > 0 && positionX < this.mountedRect.left + this.mountedRect.width;
+      },
+      isVerticallyInside(positionY) {
+        return positionY > 0 && positionY < this.mountedRect.top + this.mountedRect.height;
+      },
+      isFromStartWhenClosed(positionX) {
+        if (this.mdVisible) {
+          return true;
+        }
+
+        return positionX < this.mdSwipeThreshold;
+      },
       handleTouchStart(event) {
         const positionX = event.touches[0].clientX - this.mountedRect.left;
         const positionY = event.touches[0].clientY - this.mountedRect.top;
 
-        if (positionX < 0 || positionX > this.mountedRect.left + this.mountedRect.width) {
-          return;
-        }
-
-        if (positionY < 0 || positionY > this.mountedRect.top + this.mountedRect.height) {
-          return;
-        }
-
-        if (positionX > this.swipeThreshold && !this.mdVisible) {
+        if (
+          !this.isHorizontallyInside(positionX) ||
+          !this.isVerticallyInside(positionY) ||
+          !this.isFromStartWhenClosed(positionX)
+        ) {
           return;
         }
 
