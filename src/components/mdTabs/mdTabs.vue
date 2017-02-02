@@ -140,10 +140,10 @@
       },
       calculateIndicatorPos() {
         if (this.$refs.tabHeader && this.$refs.tabHeader[this.activeTabNumber]) {
-          let tabsWidth = this.$el.offsetWidth;
-          let activeTab = this.$refs.tabHeader[this.activeTabNumber];
-          let left = activeTab.offsetLeft - this.$refs.tabsContainer.scrollLeft;
-          let right = tabsWidth - left - activeTab.offsetWidth;
+          const tabsWidth = this.$el.offsetWidth;
+          const activeTab = this.$refs.tabHeader[this.activeTabNumber];
+          const left = activeTab.offsetLeft - this.$refs.tabsContainer.scrollLeft;
+          const right = tabsWidth - left - activeTab.offsetWidth;
 
           this.$refs.indicator.style.left = left + 'px';
           this.$refs.indicator.style.right = right + 'px';
