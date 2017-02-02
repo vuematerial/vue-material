@@ -1,4 +1,5 @@
 @import '../../core/stylesheets/variables.scss';
+@import '../../core/stylesheets/mixins.scss';
 
 $tab-width: 72px;
 $tab-max-width: 264px;
@@ -27,6 +28,12 @@ $tab-max-width: 264px;
     .md-tabs-navigation-container {
       margin-bottom: -15px;
       overflow-x: auto;
+    }
+
+    .md-tab-header {
+      @include layout-xsmall {
+        margin-bottom: 15px;
+      }
     }
   }
 
