@@ -21,12 +21,12 @@
     },
     mixins: [theme],
     props: {
-      swipeable: Boolean,
-      swipeThreshold: {
+      mdSwipeable: Boolean,
+      mdSwipeThreshold: {
         type: Number,
         default: 15
       },
-      swipeDistance: {
+      mdSwipeDistance: {
         type: Number,
         default: 100
       }
@@ -95,13 +95,13 @@
           ? 'close'
           : 'open';
 
-        if (difference > this.swipeDistance) {
+        if (difference > this.mdSwipeDistance) {
           this[action]();
         }
       }
     },
     mounted() {
-      if (!this.swipeable) {
+      if (!this.mdSwipeable) {
         return;
       }
 
@@ -113,8 +113,8 @@
       document.addEventListener('touchend', this.handleTouchEnd);
       document.addEventListener('touchmove', this.handleTouchMove);
     },
-    destroyed() {
-      if (!this.swipeable) {
+    beforeDestroy() {
+      if (!this.mdSwipeable) {
         return;
       }
 

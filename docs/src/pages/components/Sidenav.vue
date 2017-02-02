@@ -18,19 +18,19 @@
 
             <md-table-body>
               <md-table-row>
-                <md-table-cell>swipeable</md-table-cell>
+                <md-table-cell>md-swipeable</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
                 <md-table-cell>Enable the swipe functionality. Default <code>false</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
-                <md-table-cell>swipe-threshold</md-table-cell>
+                <md-table-cell>md-swipe-threshold</md-table-cell>
                 <md-table-cell><code>Number</code></md-table-cell>
                 <md-table-cell>Set the initial threshold for the swipe when it's closed. Default <code>15</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
-                <md-table-cell>swipe-distance</md-table-cell>
+                <md-table-cell>md-swipe-distance</md-table-cell>
                 <md-table-cell><code>Number</code></md-table-cell>
                 <md-table-cell>Set the swipe distance needed to open/close the sidenav. Default <code>100</code></md-table-cell>
               </md-table-row>
@@ -132,7 +132,7 @@
                 <p>Open console to see the events</p>
               </div>
 
-              <md-sidenav class="md-left" ref="leftSidenav" @open="open('Left')" @close="close('Left')" swipeable>
+              <md-sidenav class="md-left" ref="leftSidenav" @open="open('Left')" @close="close('Left')" md-swipeable>
                 <md-toolbar class="md-large">
                   <div class="md-toolbar-container">
                     <h3 class="md-title">Sidenav content</h3>
