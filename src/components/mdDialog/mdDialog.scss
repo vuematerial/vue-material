@@ -70,6 +70,7 @@
 .md-dialog-content {
   padding: 0 24px 24px;
   flex: 1;
+  flex-basis: auto;
   overflow: auto;
   position: relative;
   background: linear-gradient(to bottom, #fff 0, #fff 1px, transparent 1px),

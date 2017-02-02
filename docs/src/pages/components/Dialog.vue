@@ -577,7 +577,7 @@
   </page-content>
 </template>
 
-<style lang="scss" scoped>
+<style lang="sass" scoped>
   .dialog-fab {
     height: 200px;
   }

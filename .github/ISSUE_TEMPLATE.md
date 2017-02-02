@@ -42,4 +42,4 @@ Do not create new features based on a problem that will only solve edge cases fo
 
 ### Reproduction Link
 <!-- If you want to show your code please use Codepen or JSFiddle. -->
-<!-- You could start with this template: http://codepen.io/vue-material/pen/WGavBE. 
+<!-- You could start with this template: http://codepen.io/vue-material/pen/WGavBE. -->

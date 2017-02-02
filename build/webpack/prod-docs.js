@@ -21,7 +21,7 @@ export default merge(baseConfig, {
   vue: {
     loaders: {
       css: ExtractTextPlugin.extract('css'),
-      scss: ExtractTextPlugin.extract(['css', 'sass'])
+      scss: ExtractTextPlugin.extract('css!sass')
     },
     postcss: [
       autoprefixer({

@@ -6,7 +6,7 @@
       .md-bottom-bar-item {
         color: #{'BACKGROUND-CONTRAST-0.54'};
 
-        &:hover:not(.md-active) {
+        &:hover:not([disabled]):not(.md-active) {
           color: #{'BACKGROUND-CONTRAST-0.87'};
         }
 
@@ -47,7 +47,7 @@
       .md-bottom-bar-item {
         color: #{'PRIMARY-CONTRAST-0.54'};
 
-        &:hover:not(.md-active) {
+        &:hover:not([disabled]):not(.md-active) {
           color: #{'PRIMARY-CONTRAST-0.87'};
         }
 
@@ -62,7 +62,7 @@
         .md-bottom-bar-item {
           color: #{'ACCENT-CONTRAST-0.54'};
 
-          &:hover:not(.md-active) {
+          &:hover:not([disabled]):not(.md-active) {
             color: #{'ACCENT-CONTRAST-0.87'};
           }
 
@@ -78,7 +78,7 @@
         .md-bottom-bar-item {
           color: #{'WARN-CONTRAST-0.54'};
 
-          &:hover:not(.md-active) {
+          &:hover:not([disabled]):not(.md-active) {
             color: #{'WARN-CONTRAST-0.87'};
           }
 
@@ -94,7 +94,7 @@
         .md-bottom-bar-item {
           color: #{'BACKGROUND-CONTRAST-0.54'};
 
-          &:hover:not(.md-active) {
+          &:hover:not([disabled]):not(.md-active) {
             color: #{'BACKGROUND-CONTRAST-0.87'};
           }
 

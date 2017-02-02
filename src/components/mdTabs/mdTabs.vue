@@ -1,6 +1,6 @@
 <template>
   <div class="md-tabs" :class="[themeClass, tabClasses]">
-    <md-whiteframe md-tag="nav" class="md-tabs-navigation" :md-elevation="mdElevation" :class="navigationClasses">
+    <md-whiteframe md-tag="nav" class="md-tabs-navigation" :md-elevation="mdElevation" :class="navigationClasses" ref="tabNavigation">
       <div class="md-tabs-navigation-container" ref="tabsContainer" @scroll="calculateIndicatorPos">
       <button
         v-for="header in tabList"
@@ -35,6 +35,7 @@
 
 <script>
   import theme from '../../core/components/mdTheme/mixin';
+  import throttle from '../../core/utils/throttle';
 
   export default {
     props: {
@@ -59,6 +60,7 @@
       hasIcons: false,
       hasLabel: false,
       transitionControl: null,
+      transitionOff: false,
       contentHeight: '0px',
       contentWidth: '0px'
     }),
@@ -124,21 +126,20 @@
         }
       },
       observeElementChanges() {
-        this.contentObserver = new MutationObserver(this.calculateOnWatch);
-        this.contentObserver.observe(this.$parent.$el, {
+        this.parentObserver = new MutationObserver(throttle(this.calculateOnWatch, 50));
+        this.parentObserver.observe(this.$refs.tabContent, {
           childList: true,
           attributes: true,
-          characterData: true,
           subtree: true
         });
       },
       getTabIndex(id) {
-        let idList = Object.keys(this.tabList);
+        const idList = Object.keys(this.tabList);
 
         return idList.indexOf(id);
       },
       calculateIndicatorPos() {
-        if (this.$refs.tabHeader) {
+        if (this.$refs.tabHeader && this.$refs.tabHeader[this.activeTabNumber]) {
           let tabsWidth = this.$el.offsetWidth;
           let activeTab = this.$refs.tabHeader[this.activeTabNumber];
           let left = activeTab.offsetLeft - this.$refs.tabsContainer.scrollLeft;
@@ -155,7 +156,7 @@
         this.contentWidth = width * this.activeTabNumber + 'px';
 
         for (const tabId in this.tabList) {
-          let tab = this.tabList[tabId];
+          const tab = this.tabList[tabId];
 
           tab.ref.width = width + 'px';
           tab.ref.left = width * index + 'px';
@@ -186,9 +187,12 @@
         }, 200);
       },
       calculateOnWatch() {
-        this.transitionOff = true;
         this.calculatePosition();
         this.debounceTransition();
+      },
+      calculateOnResize() {
+        this.transitionOff = true;
+        this.calculateOnWatch();
       },
       setActiveTab(tabData) {
         this.hasIcons = !!tabData.icon;
@@ -202,7 +206,7 @@
     mounted() {
       this.$nextTick(() => {
         this.observeElementChanges();
-        window.addEventListener('resize', this.calculateOnWatch);
+        window.addEventListener('resize', this.calculateOnResize);
 
         if (Object.keys(this.tabList).length && !this.activeTab) {
           let firstTab = Object.keys(this.tabList)[0];
@@ -212,11 +216,11 @@
       });
     },
     beforeDestroy() {
-      if (this.contentObserver) {
-        this.contentObserver.disconnect();
+      if (this.parentObserver) {
+        this.parentObserver.disconnect();
       }
 
-      window.removeEventListener('resize', this.calculateOnWatch);
+      window.removeEventListener('resize', this.calculateOnResize);
     }
   };
 </script>

@@ -190,7 +190,7 @@
   </page-content>
 </template>
 
-<style lang="scss" scoped>
+<style lang="sass" scoped>
   .phone-viewport p {
     padding: 8px 16px;
   }

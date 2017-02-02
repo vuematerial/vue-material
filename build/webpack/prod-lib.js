@@ -38,7 +38,7 @@ export default merge(baseConfig, {
   vue: {
     loaders: {
       css: ExtractTextPlugin.extract('css'),
-      scss: ExtractTextPlugin.extract(['css', 'sass'])
+      scss: ExtractTextPlugin.extract('css!sass')
     },
     postcss: [
       autoprefixer({
@@ -47,11 +47,16 @@ export default merge(baseConfig, {
     ]
   },
   externals: {
-    vue: 'Vue'
+    vue: {
+      commonjs: 'vue',
+      commonjs2: 'vue',
+      amd: 'vue',
+      root: 'Vue',
+      var: 'Vue'
+    }
   },
   plugins: [
     new webpack.optimize.DedupePlugin(),
-    new webpack.IgnorePlugin(/vue/),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false

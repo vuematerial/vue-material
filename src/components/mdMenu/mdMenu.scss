@@ -15,15 +15,15 @@ $menu-base-width: 56px;
   overflow-x: hidden;
   overflow-y: auto;
   position: absolute;
-  z-index: 120;
+  z-index: 131;
   transform: scale(.9, .85) translateZ(0);
   border-radius: 2px;
   box-shadow: $material-shadow-2dp;
   opacity: 0;
   transition: width $swift-ease-out-duration $swift-ease-out-timing-function,
-              opacity .25s $swift-ease-in-timing-function,
-              margin .2s $swift-ease-in-timing-function,
-              transform 0s .25s $swift-ease-in-timing-function;
+              opacity .3s $swift-ease-in-timing-function,
+              margin .3s $swift-ease-in-timing-function,
+              transform 0s .4s $swift-ease-in-timing-function;
   will-change: transform, opacity, width;
 
   &.md-direction-bottom-right {
@@ -85,18 +85,18 @@ $menu-base-width: 56px;
     opacity: 1;
     transform: scale(1) translateZ(0);
     transition: width $swift-ease-out-duration $swift-ease-out-timing-function,
-                opacity .35s $swift-ease-out-timing-function,
-                transform .25s .05s $swift-ease-out-timing-function;
+                opacity .4s $swift-ease-out-timing-function,
+                transform .3s $swift-ease-out-timing-function;
 
     .md-list {
       opacity: 1;
-      transition: opacity .2s .15s $swift-ease-out-timing-function;
+      transition: opacity .3s $swift-ease-out-timing-function;
     }
   }
 
   .md-list {
     opacity: 0;
-    transition: opacity .2s $swift-ease-out-timing-function;
+    transition: opacity .3s $swift-ease-out-timing-function;
   }
 }
 
@@ -113,4 +113,8 @@ $menu-base-width: 56px;
     overflow: hidden;
     text-overflow: ellipsis;
   }
+}
+
+.md-menu-backdrop {
+  z-index: 130;
 }

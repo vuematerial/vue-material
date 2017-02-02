@@ -813,7 +813,7 @@
               &lt;/div&gt;
             </code-block>
 
-            <code-block lang="scss">
+            <code-block lang="sass">
               .complete-example {
                 height: 540px;
                 display: flex;
@@ -867,7 +867,7 @@
   </page-content>
 </template>
 
-<style lang="scss" scoped>
+<style lang="sass" scoped>
   .md-toolbar + .md-toolbar {
     margin-top: 16px;
   }
