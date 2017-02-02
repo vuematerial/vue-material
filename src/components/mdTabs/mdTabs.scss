@@ -31,7 +31,7 @@ $tab-max-width: 264px;
     }
 
     .md-tab-header {
-      @include layout-xsmall {
+      @include layout-medium {
         margin-bottom: 15px;
       }
     }
