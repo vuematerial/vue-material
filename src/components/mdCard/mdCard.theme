@@ -1,47 +1,61 @@
 .THEME_NAME {
+  @mixin card-spec($main-color, $second-color, $second-color-hue) {
+    background-color: $main-color;
+    color: $second-color;
+
+    .md-card-header,
+    .md-card-actions {
+      .md-icon-button {
+        .md-icon {
+          color: $second-color-hue;
+        }
+      }
+    }
+
+    .md-input-container {
+      &.md-input-focused {
+        input,
+        textarea {
+          color: $second-color;
+          text-shadow: 0 0 0 $second-color;
+        }
+
+        label,
+        .md-icon:not(.md-icon-delete) {
+          color: $second-color;
+        }
+      }
+
+      &:after {
+        background-color: $second-color;
+      }
+    }
+
+    input,
+    textarea {
+      color: $second-color;
+      text-shadow: 0 0 0 $second-color;
+    }
+
+    label,
+    .md-icon:not(.md-icon-delete) {
+      color: $second-color;
+    }
+  }
+
   &.md-card {
     background-color: #{'BACKGROUND-COLOR'};
 
     &.md-primary {
-      background-color: #{'PRIMARY-COLOR'};
-      color: #{'PRIMARY-CONTRAST'};
-
-      .md-card-header,
-      .md-card-actions {
-        .md-icon-button {
-          .md-icon {
-            color: #{'PRIMARY-CONTRAST-0.87'};
-          }
-        }
-      }
+      @include card-spec(#{'PRIMARY-COLOR'}, #{'PRIMARY-CONTRAST'}, #{'PRIMARY-CONTRAST-0.87'})
     }
 
     &.md-accent {
-      background-color: #{'ACCENT-COLOR'};
-      color: #{'ACCENT-CONTRAST'};
-
-      .md-card-header,
-      .md-card-actions {
-        .md-icon-button {
-          .md-icon {
-            color: #{'ACCENT-CONTRAST-0.87'};
-          }
-        }
-      }
+      @include card-spec(#{'ACCENT-COLOR'}, #{'ACCENT-CONTRAST'}, #{'ACCENT-CONTRAST-0.87'})
     }
 
     &.md-warn {
-      background-color: #{'WARN-COLOR'};
-      color: #{'WARN-CONTRAST'};
-
-      .md-card-header,
-      .md-card-actions {
-        .md-icon-button {
-          .md-icon {
-            color: #{'WARN-CONTRAST-0.87'};
-          }
-        }
-      }
+      @include card-spec(#{'WARN-COLOR'}, #{'WARN-CONTRAST'}, #{'WARN-CONTRAST-0.87'})
     }
 
     .md-card-header,
