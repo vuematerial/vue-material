@@ -5,7 +5,7 @@
 
     .md-card-header,
     .md-card-actions {
-      .md-icon-button {
+      .md-icon-button:not(.md-primary):not(.md-warn):not(.md-accent) {
         .md-icon {
           color: $second-color-hue;
         }
