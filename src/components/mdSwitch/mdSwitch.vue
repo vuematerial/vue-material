@@ -66,9 +66,22 @@
         this.leftPos = this.checked ? checkedPosition + '%' : initialPosition;
       },
       changeState(checked, $event) {
-        this.checked = checked;
-        this.$emit('change', this.checked, $event);
-        this.$emit('input', this.checked, $event);
+        if ($event !== undefined) {
+          // $event is not undefined when changeState called from toggle (user click)
+          this.$emit('change', $event); //call emit so user's code will receive onchange
+          // first argument passed as $event variable in onchange context
+
+          if (!$event.defaultPrevented) {
+            // in handler user may prevent default by calling $event.preventDefault so we
+            // don't need to do actual change state in this case
+            this.checked = checked;
+          }
+          this.$emit('input', this.checked, $event);
+        } else {
+          // $event is undefined when changeState called from value watch
+          // in this case we only need to update the state
+          this.checked = checked;
+        }
       },
       toggle($event) {
         if (!this.disabled) {
