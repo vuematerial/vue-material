@@ -65,15 +65,19 @@
         let target;
 
         scope.$parent.$children.some((child) => {
-          var classList = child.$el.classList;
+          // if vue-material user wants to allow several items expanded without closing already expanded item
+          // allowMultipleExpanded will be true, so not fold all items, fold only that one which clicked
+          if (scope.$el === child.$el || !scope.$parent.allowMultipleExpanded) {
+            var classList = child.$el.classList;
 
-          if (classList.contains('md-list-item-expand') && classList.contains('md-active')) {
-            target = child;
-            classList.remove('md-active');
+            if (classList.contains('md-list-item-expand') && classList.contains('md-active')) {
+              target = child;
+              classList.remove('md-active');
 
-            recalculateExpand(child);
+              recalculateExpand(child);
 
-            return true;
+              return true;
+            }
           }
         });
 
