@@ -76,6 +76,16 @@
                 <md-table-cell>Receives the value of the model</md-table-cell>
                 <md-table-cell>Triggered when the model changes.</md-table-cell>
               </md-table-row>
+              <md-table-row>
+                <md-table-cell>opened</md-table-cell>
+                <md-table-cell>None</md-table-cell>
+                <md-table-cell>Triggered when the select menu starts to open.</md-table-cell>
+              </md-table-row>
+              <md-table-row>
+                <md-table-cell>closed</md-table-cell>
+                <md-table-cell>None</md-table-cell>
+                <md-table-cell>Triggered when the select menu starts to close.</md-table-cell>
+              </md-table-row>
             </md-table-body>
           </md-table>
         </api-table>
