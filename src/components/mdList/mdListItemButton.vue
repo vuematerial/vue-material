@@ -4,7 +4,7 @@
       <slot></slot>
     </div>
 
-    <md-button class="md-button-ghost" :disabled="disabled"></md-button>
+    <md-button type="button" class="md-button-ghost" :disabled="disabled"></md-button>
   </li>
 </template>
 
