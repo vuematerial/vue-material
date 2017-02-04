@@ -161,6 +161,7 @@ $button-icon-size: 40px;
   &[disabled] {
     color: rgba(#000, .26);
     cursor: default;
+    pointer-events: none;
 
     &.md-raised,
     &.md-fab {
