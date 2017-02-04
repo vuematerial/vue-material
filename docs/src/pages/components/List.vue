@@ -38,6 +38,24 @@
               </md-table-row>
             </md-table-body>
           </md-table>
+
+          <md-table slot="properties">
+            <md-table-header>
+              <md-table-row>
+                <md-table-head>Name</md-table-head>
+                <md-table-head>Type</md-table-head>
+                <md-table-head>Description</md-table-head>
+              </md-table-row>
+            </md-table-header>
+
+            <md-table-body>
+              <md-table-row>
+                <md-table-cell>allow-multiple-expanded</md-table-cell>
+                <md-table-cell><code>Boolean</code></md-table-cell>
+                <md-table-cell>Allow multiple items be expanded in same time (for lists with expansion items).</md-table-cell>
+              </md-table-row>
+            </md-table-body>
+          </md-table>
         </api-table>
 
         <api-table name="md-list-item">

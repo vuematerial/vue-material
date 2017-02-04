@@ -10,6 +10,12 @@
   import theme from '../../core/components/mdTheme/mixin';
 
   export default {
-    mixins: [theme]
+    mixins: [theme],
+    props: {
+      allowMultipleExpanded: {
+        type: Boolean,
+        default: false
+      }
+    }
   };
 </script>
