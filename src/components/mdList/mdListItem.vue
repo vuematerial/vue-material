@@ -84,7 +84,11 @@
 
       let createExpandElement = () => {
         slot.splice(expandSlotIndex, 1);
-        slot.push(createExpandIndicator());
+        if (this.$parent.leftExpandIndicator) {
+          slot.unshift(createExpandIndicator());
+        } else {
+          slot.push(createExpandIndicator());
+        }
 
         return createElement('button', {
           staticClass: containerClass,
