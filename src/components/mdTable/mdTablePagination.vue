@@ -6,7 +6,7 @@
       <md-option v-for="amount in mdPageOptions" :value="amount">{{ amount }}</md-option>
     </md-select>
 
-    <span>{{ ((currentPage - 1) * currentSize) + 1 }}-{{ subTotal }} {{ mdSeparator }} {{ mdTotal }}</span>
+    <span>{{ currentRange }} {{ mdSeparator }} {{ mdTotal }}</span>
 
     <md-button class="md-icon-button md-table-pagination-previous" @click="previousPage" :disabled="currentPage === 1">
       <md-icon>keyboard_arrow_left</md-icon>
@@ -47,13 +47,18 @@
       return {
         subTotal: 0,
         currentSize: parseInt(this.mdSize, 10),
-        currentPage: parseInt(this.mdPage, 10),
-        totalItems: isNaN(this.mdTotal) ? Number.MAX_SAFE_INTEGER : parseInt(this.mdTotal, 10)
+        currentPage: parseInt(this.mdPage, 10)
       };
     },
     computed: {
       lastPage() {
         return false;
+      },
+      totalItems() {
+        return isNaN(this.mdTotal) ? Number.MAX_SAFE_INTEGER : parseInt(this.mdTotal, 10);
+      },
+      currentRange() {
+        return `${(this.currentPage - 1) * this.currentSize + 1}-${this.subTotal}`;
       }
     },
     methods: {

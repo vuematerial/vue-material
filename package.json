@@ -40,7 +40,8 @@
     "release": "bash build/release.sh"
   },
   "dependencies": {
-    "vue": "^2.1.8"
+    "vue": "^2.1.8",
+    "lodash": "^4.17.2"
   },
   "devDependencies": {
     "autoprefixer": "^6.6.1",

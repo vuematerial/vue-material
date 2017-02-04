@@ -144,6 +144,10 @@
                 </md-list-item>
 
                 <md-list-item class="md-inset">
+                  <router-link exact to="/components/table/data-table">Table (DataTable)</router-link>
+                </md-list-item>
+
+                <md-list-item class="md-inset">
                   <router-link exact to="/components/toolbar">Toolbar</router-link>
                 </md-list-item>
 
