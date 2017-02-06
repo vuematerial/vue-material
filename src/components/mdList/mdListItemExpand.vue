@@ -20,7 +20,8 @@
   export default {
     name: 'md-list-item',
     props: {
-      disabled: Boolean
+      disabled: Boolean,
+      mdExpandMultiple: Boolean
     },
     data() {
       return {
@@ -67,7 +68,10 @@
         });
       },
       toggleExpandList() {
-        this.resetSiblings();
+        if (!this.mdExpandMultiple) {
+          this.resetSiblings();
+        }
+
         this.calculatePadding();
         this.active = !this.active;
       },

@@ -70,6 +70,13 @@
                 <md-table-cell><code>Boolean</code></md-table-cell>
                 <md-table-cell>Disable the item and prevent his actions. Default <code>false</code></md-table-cell>
               </md-table-row>
+              </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>md-expand-multiple</md-table-cell>
+                <md-table-cell><code>Boolean</code></md-table-cell>
+                <md-table-cell>Allow multiple items be expanded in same time in md-list. Default <code>false</code></md-table-cell>
+              </md-table-row>
             </md-table-body>
           </md-table>
 
@@ -845,7 +852,7 @@
           <div slot="demo">
             <div class="phone-viewport">
               <md-list>
-                <md-list-item>
+                <md-list-item md-expand-multiple>
                   <md-icon>whatshot</md-icon>
                   <span>News</span>
 
@@ -858,7 +865,7 @@
                   </md-list-expand>
                 </md-list-item>
 
-                <md-list-item>
+                <md-list-item md-expand-multiple>
                   <md-icon>videogame_asset</md-icon>
                   <span>Games</span>
 
@@ -871,7 +878,7 @@
                   </md-list-expand>
                 </md-list-item>
 
-                <md-list-item>
+                <md-list-item md-expand-multiple>
                   <md-icon>video_library</md-icon>
                   <span>Video</span>
 
