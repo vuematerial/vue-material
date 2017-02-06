@@ -52,12 +52,6 @@
                 <md-table-cell><code>Number</code></md-table-cell>
                 <md-table-cell>Add a shadow on the navigation with an whiteframe. Default <code>0</code></md-table-cell>
               </md-table-row>
-
-              <md-table-row>
-                <md-table-cell>md-scrollable-navigation</md-table-cell>
-                <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Enable scroll on the navigation. Default <code>false</code></md-table-cell>
-              </md-table-row>
             </md-table-body>
           </md-table>
 
@@ -161,52 +155,6 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.</p>
               </md-tab>
 
-              <md-tab id="pictures" md-label="Pictures" md-tooltip="This is the pictures tab!">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.</p>
-              </md-tab>
-            </md-tabs>
-          </div>
-
-          <div slot="code">
-            <code-block lang="xml">
-              &lt;md-tabs&gt;
-                &lt;md-tab id=&quot;movies&quot; md-label=&quot;Movies&quot;&gt;
-                  &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.&lt;/p&gt;
-                &lt;/md-tab&gt;
-
-                &lt;md-tab id=&quot;music&quot; md-label=&quot;Music&quot;&gt;
-                  &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.&lt;/p&gt;
-                  &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.&lt;/p&gt;
-                &lt;/md-tab&gt;
-
-                &lt;md-tab id=&quot;books&quot; md-label=&quot;Books&quot;&gt;
-                  &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.&lt;/p&gt;
-                &lt;/md-tab&gt;
-
-                &lt;md-tab id=&quot;pictures&quot; md-label=&quot;Pictures&quot; md-tooltip=&quot;This is the pictures tab!&quot;&gt;
-                  &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.&lt;/p&gt;
-                &lt;/md-tab&gt;
-              &lt;/md-tabs&gt;
-            </code-block>
-          </div>
-        </example-box>
-
-        <example-box card-title="Scrollable Navigation">
-          <div slot="demo">
-            <md-tabs :md-dynamic-height="false" md-scrollable-navigation>
-              <md-tab id="movies" md-label="Movies">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
-              </md-tab>
-
-              <md-tab id="music" md-label="Music">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
-              </md-tab>
-
-              <md-tab id="books" md-label="Books">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.</p>
-              </md-tab>
-
               <md-tab id="pictures" md-label="Pictures">
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.</p>
               </md-tab>
@@ -231,7 +179,7 @@
 
           <div slot="code">
             <code-block lang="xml">
-              &lt;md-tabs md-scrollable-navigation&gt;
+              &lt;md-tabs&gt;
                 &lt;md-tab id=&quot;movies&quot; md-label=&quot;Movies&quot;&gt;
                   &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.&lt;/p&gt;
                 &lt;/md-tab&gt;

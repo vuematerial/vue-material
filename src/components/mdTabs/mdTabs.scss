@@ -20,23 +20,6 @@ $tab-max-width: 264px;
     }
   }
 
-  &.md-scrollable-navigation {
-    .md-tabs-navigation {
-      overflow: hidden;
-    }
-
-    .md-tabs-navigation-container {
-      margin-bottom: -15px;
-      overflow-x: auto;
-    }
-
-    .md-tab-header {
-      @include layout-medium {
-        margin-bottom: 15px;
-      }
-    }
-  }
-
   .md-tabs-navigation {
     height: 48px;
     min-height: 48px;
@@ -44,6 +27,7 @@ $tab-max-width: 264px;
     z-index: 1;
     display: flex;
     transition: $swift-ease-out;
+    overflow: hidden;
 
     &.md-has-icon.md-has-label {
       min-height: 72px;
@@ -70,6 +54,11 @@ $tab-max-width: 264px;
 
   .md-tabs-navigation-container {
     display: flex;
+    overflow-x: scroll;
+
+    @include layout-small-and-up {
+      margin-bottom: -15px;
+    }
   }
 
   .md-tab-header {
