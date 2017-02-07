@@ -57,7 +57,6 @@
             this.parentContent.close();
           }
 
-          this.$emit('click');
           this.$emit('selected', $event);
         }
       }
