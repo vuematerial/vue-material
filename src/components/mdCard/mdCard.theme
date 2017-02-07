@@ -1,5 +1,5 @@
 .THEME_NAME {
-  @mixin card-spec($main-color, $second-color, $second-color-hue) {
+  @mixin card-spec($main-color, $second-color, $second-color-hue, $third-color) {
     background-color: $main-color;
     color: $second-color;
 
@@ -29,17 +29,21 @@
       &:after {
         background-color: $second-color;
       }
-    }
 
-    input,
-    textarea {
-      color: $second-color;
-      text-shadow: 0 0 0 $second-color;
-    }
+      input,
+      textarea {
+        color: $second-color;
+        text-shadow: 0 0 0 $second-color;
 
-    label,
-    .md-icon:not(.md-icon-delete) {
-      color: $second-color;
+        &::-webkit-input-placeholder {
+          color: $third-color;
+        }
+      }
+
+      label,
+      .md-icon:not(.md-icon-delete) {
+        color: $second-color;
+      }
     }
   }
 
@@ -47,15 +51,15 @@
     background-color: #{'BACKGROUND-COLOR'};
 
     &.md-primary {
-      @include card-spec(#{'PRIMARY-COLOR'}, #{'PRIMARY-CONTRAST'}, #{'PRIMARY-CONTRAST-0.87'})
+      @include card-spec(#{'PRIMARY-COLOR'}, #{'PRIMARY-CONTRAST'}, #{'PRIMARY-CONTRAST-0.87'}, #{'PRIMARY-CONTRAST-0.54'})
     }
 
     &.md-accent {
-      @include card-spec(#{'ACCENT-COLOR'}, #{'ACCENT-CONTRAST'}, #{'ACCENT-CONTRAST-0.87'})
+      @include card-spec(#{'ACCENT-COLOR'}, #{'ACCENT-CONTRAST'}, #{'ACCENT-CONTRAST-0.87'}, #{'ACCENT-CONTRAST-0.54'})
     }
 
     &.md-warn {
-      @include card-spec(#{'WARN-COLOR'}, #{'WARN-CONTRAST'}, #{'WARN-CONTRAST-0.87'})
+      @include card-spec(#{'WARN-COLOR'}, #{'WARN-CONTRAST'}, #{'WARN-CONTRAST-0.87'}, #{'WARN-CONTRAST-0.54'})
     }
 
     .md-card-header,
