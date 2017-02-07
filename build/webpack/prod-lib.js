@@ -35,15 +35,23 @@ export default merge(baseConfig, {
     library: 'VueMaterial',
     libraryTarget: 'umd'
   },
-  vue: {
-    loaders: {
-      css: ExtractTextPlugin.extract('css'),
-      scss: ExtractTextPlugin.extract('css!sass')
-    },
-    postcss: [
-      autoprefixer({
-        browsers: ['last 2 versions']
-      })
+  module: {
+    rules: [
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+        options: {
+          loaders: {
+            css: ExtractTextPlugin.extract('css'),
+            scss: ExtractTextPlugin.extract('css!sass')
+          },
+          postcss: [
+            autoprefixer({
+              browsers: ['last 2 versions']
+            })
+          ]
+        }
+      }
     ]
   },
   externals: {
@@ -56,27 +64,33 @@ export default merge(baseConfig, {
     }
   },
   plugins: [
-    new webpack.optimize.DedupePlugin(),
+    new webpack.LoaderOptionsPlugin({
+      minimize: true,
+      debug: false
+    }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false
       },
-      comments: false
+      output: {
+        comments: false
+      },
+      sourceMap: false
     }),
-    new webpack.optimize.OccurenceOrderPlugin(),
     new OptimizeJsPlugin({
       sourceMap: false
     }),
-    new webpack.BannerPlugin(
-`/*!
- * Vue Material v${version}
- * Made with love by Marcos Moura
- * Released under the MIT License.
- */`
-    , {
+    new webpack.BannerPlugin({
+      banner: `/*!
+* Vue Material v${version}
+* Made with love by Marcos Moura
+* Released under the MIT License.
+*/   `,
       raw: true,
       entryOnly: true
     }),
-    new ExtractTextPlugin('[name].css')
+    new ExtractTextPlugin({
+      filename: path.join(config.rootPath, '[name].css')
+    })
   ]
 });

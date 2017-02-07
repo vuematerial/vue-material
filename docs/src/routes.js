@@ -1,48 +1,48 @@
 /* Root */
-const Introduction = require('./pages/Introduction');
-const GettingStarted = require('./pages/GettingStarted');
-const About = require('./pages/About');
-const Changelog = require('./pages/Changelog');
-const Error404 = require('./pages/Error');
+const Introduction = (r) => require.ensure([], () => r(require('./pages/Introduction')), 'base');
+const GettingStarted = (r) => require.ensure([], () => r(require('./pages/GettingStarted')), 'base');
+const About = (r) => require.ensure([], () => r(require('./pages/About')), 'base');
+const Changelog = (r) => require.ensure([], () => r(require('./pages/Changelog')), 'base');
+const Error404 = (r) => require.ensure([], () => r(require('./pages/Error')), 'base');
 
 /* Components */
-const Avatar = (resolve) => require(['./pages/components/Avatar'], resolve);
-const BottomBar = (resolve) => require(['./pages/components/BottomBar'], resolve);
-const Buttons = (resolve) => require(['./pages/components/Buttons'], resolve);
-const ButtonToggle = (resolve) => require(['./pages/components/ButtonToggle'], resolve);
-const Card = (resolve) => require(['./pages/components/Card'], resolve);
-const Checkbox = (resolve) => require(['./pages/components/Checkbox'], resolve);
-const Chips = (resolve) => require(['./pages/components/Chips'], resolve);
-const Dialog = (resolve) => require(['./pages/components/Dialog'], resolve);
-const File = (resolve) => require(['./pages/components/File'], resolve);
-const Icon = (resolve) => require(['./pages/components/Icon'], resolve);
-const ImageLoader = (resolve) => require(['./pages/components/ImageLoader'], resolve);
-const InkRipple = (resolve) => require(['./pages/components/InkRipple'], resolve);
-const Input = (resolve) => require(['./pages/components/Input'], resolve);
-const List = (resolve) => require(['./pages/components/List'], resolve);
-const Menu = (resolve) => require(['./pages/components/Menu'], resolve);
-const Progress = (resolve) => require(['./pages/components/Progress'], resolve);
-const Radio = (resolve) => require(['./pages/components/Radio'], resolve);
-const Select = (resolve) => require(['./pages/components/Select'], resolve);
-const Sidenav = (resolve) => require(['./pages/components/Sidenav'], resolve);
-const Snackbar = (resolve) => require(['./pages/components/Snackbar'], resolve);
-const SpeedDial = (resolve) => require(['./pages/components/SpeedDial'], resolve);
-const Spinner = (resolve) => require(['./pages/components/Spinner'], resolve);
-const Subheader = (resolve) => require(['./pages/components/Subheader'], resolve);
-const Switch = (resolve) => require(['./pages/components/Switch'], resolve);
-const Table = (resolve) => require(['./pages/components/Table'], resolve);
-const Tabs = (resolve) => require(['./pages/components/Tabs'], resolve);
-const Toolbar = (resolve) => require(['./pages/components/Toolbar'], resolve);
-const Tooltip = (resolve) => require(['./pages/components/Tooltip'], resolve);
-const Whiteframe = (resolve) => require(['./pages/components/Whiteframe'], resolve);
+const Avatar = (r) => require.ensure([], () => r(require('./pages/components/Avatar')), 'components');
+const BottomBar = (r) => require.ensure([], () => r(require('./pages/components/BottomBar')), 'components');
+const Buttons = (r) => require.ensure([], () => r(require('./pages/components/Buttons')), 'components');
+const ButtonToggle = (r) => require.ensure([], () => r(require('./pages/components/ButtonToggle')), 'components');
+const Card = (r) => require.ensure([], () => r(require('./pages/components/Card')), 'components');
+const Checkbox = (r) => require.ensure([], () => r(require('./pages/components/Checkbox')), 'components');
+const Chips = (r) => require.ensure([], () => r(require('./pages/components/Chips')), 'components');
+const Dialog = (r) => require.ensure([], () => r(require('./pages/components/Dialog')), 'components');
+const FileComponent = (r) => require.ensure([], () => r(require('./pages/components/File')), 'components');
+const Icon = (r) => require.ensure([], () => r(require('./pages/components/Icon')), 'components');
+const ImageLoader = (r) => require.ensure([], () => r(require('./pages/components/ImageLoader')), 'components');
+const InkRipple = (r) => require.ensure([], () => r(require('./pages/components/InkRipple')), 'components');
+const Input = (r) => require.ensure([], () => r(require('./pages/components/Input')), 'components');
+const List = (r) => require.ensure([], () => r(require('./pages/components/List')), 'components');
+const Menu = (r) => require.ensure([], () => r(require('./pages/components/Menu')), 'components');
+const Progress = (r) => require.ensure([], () => r(require('./pages/components/Progress')), 'components');
+const Radio = (r) => require.ensure([], () => r(require('./pages/components/Radio')), 'components');
+const Select = (r) => require.ensure([], () => r(require('./pages/components/Select')), 'components');
+const Sidenav = (r) => require.ensure([], () => r(require('./pages/components/Sidenav')), 'components');
+const Snackbar = (r) => require.ensure([], () => r(require('./pages/components/Snackbar')), 'components');
+const SpeedDial = (r) => require.ensure([], () => r(require('./pages/components/SpeedDial')), 'components');
+const Spinner = (r) => require.ensure([], () => r(require('./pages/components/Spinner')), 'components');
+const Subheader = (r) => require.ensure([], () => r(require('./pages/components/Subheader')), 'components');
+const Switch = (r) => require.ensure([], () => r(require('./pages/components/Switch')), 'components');
+const Table = (r) => require.ensure([], () => r(require('./pages/components/Table')), 'components');
+const Tabs = (r) => require.ensure([], () => r(require('./pages/components/Tabs')), 'components');
+const Toolbar = (r) => require.ensure([], () => r(require('./pages/components/Toolbar')), 'components');
+const Tooltip = (r) => require.ensure([], () => r(require('./pages/components/Tooltip')), 'components');
+const Whiteframe = (r) => require.ensure([], () => r(require('./pages/components/Whiteframe')), 'components');
 
 /* UI Elements */
-const Typography = (resolve) => require(['./pages/ui-elements/Typography'], resolve);
-const Layout = (resolve) => require(['./pages/ui-elements/Layout'], resolve);
+const Typography = (r) => require.ensure([], () => r(require('./pages/ui-elements/Typography')), 'ui-elements');
+const Layout = (r) => require.ensure([], () => r(require('./pages/ui-elements/Layout')), 'ui-elements');
 
 /* Themes */
-const Configuration = (resolve) => require(['./pages/themes/Configuration'], resolve);
-const DynamicThemes = (resolve) => require(['./pages/themes/DynamicThemes'], resolve);
+const Configuration = (r) => require.ensure([], () => r(require('./pages/themes/Configuration')), 'themes');
+const DynamicThemes = (r) => require.ensure([], () => r(require('./pages/themes/DynamicThemes')), 'themes');
 
 const main = [
   {
@@ -116,7 +116,7 @@ const components = [
   {
     path: '/components/file',
     name: 'components:file',
-    component: File
+    component: FileComponent
   },
   {
     path: '/components/icon',
