@@ -90,7 +90,11 @@
                 <md-icon>menu</md-icon>
               </md-button>
 
-              <h2 class="md-title" style="flex: 1">Default</h2>
+              <h2 class="md-title">Default</h2>
+
+              <md-input-container style="flex: 1">
+                <md-input placeholder="Search..." />
+              </md-input-container>
 
               <md-button class="md-icon-button">
                 <md-icon>favorite</md-icon>
