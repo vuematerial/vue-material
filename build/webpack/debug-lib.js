@@ -1,4 +1,3 @@
-import webpack from 'webpack';
 import merge from 'webpack-merge';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import OptimizeJsPlugin from 'optimize-js-plugin';
@@ -12,11 +11,7 @@ const devConfig = merge(prodConfig, {
 });
 
 devConfig.plugins = [
-  new webpack.optimize.OccurenceOrderPlugin(),
-  new webpack.optimize.DedupePlugin(),
-  new OptimizeJsPlugin({
-    sourceMap: false
-  }),
+  new OptimizeJsPlugin(),
   new ExtractTextPlugin('[name].css')
 ];
 

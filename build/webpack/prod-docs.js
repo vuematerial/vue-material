@@ -18,29 +18,45 @@ export default merge(baseConfig, {
     filename: '[name].[chunkhash:8].js',
     chunkFilename: '[name].[chunkhash:8].js'
   },
-  vue: {
-    loaders: {
-      css: ExtractTextPlugin.extract('css'),
-      scss: ExtractTextPlugin.extract('css!sass')
-    },
-    postcss: [
-      autoprefixer({
-        browsers: ['last 3 versions']
-      })
+  module: {
+    rules: [
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+        options: {
+          loaders: {
+            css: ExtractTextPlugin.extract('css'),
+            scss: ExtractTextPlugin.extract('css!sass')
+          },
+          postcss: [
+            autoprefixer({
+              browsers: ['last 3 versions']
+            })
+          ]
+        }
+      }
     ]
   },
   plugins: [
-    new webpack.optimize.DedupePlugin(),
+    new webpack.LoaderOptionsPlugin({
+      minimize: true,
+      debug: false
+    }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false
       },
-      comments: false
+      output: {
+        comments: false
+      },
+      sourceMap: false
     }),
     new OptimizeJsPlugin({
       sourceMap: false
     }),
-    new ExtractTextPlugin('[name].[contenthash:8].css'),
+    new ExtractTextPlugin({
+      filename: path.join(docsPath, '[name].[contenthash:8].css')
+    }),
     new CopyWebpackPlugin([
       {
         context: config.assetsPath,
@@ -96,7 +112,6 @@ export default merge(baseConfig, {
     new webpack.optimize.CommonsChunkPlugin({
       name: 'manifest',
       chunks: ['vendor']
-    }),
-    new webpack.optimize.OccurenceOrderPlugin()
+    })
   ]
 });
