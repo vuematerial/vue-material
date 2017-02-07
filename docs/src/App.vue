@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <md-sidenav class="main-sidebar md-left md-fixed" ref="main-sidebar">
+    <md-sidenav class="main-sidebar md-left md-fixed" md-swipeable ref="main-sidebar">
       <md-toolbar class="vue-material-logo" md-theme="white">
         <router-link exact to="/">
           <img :src="logo" alt="Vue">
