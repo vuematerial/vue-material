@@ -11,6 +11,28 @@ Object.keys(baseWebpackConfig.entry).forEach((name) => {
 
 export default merge(baseWebpackConfig, {
   devtool: '#eval-source-map',
+  module: {
+    rules: [
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+        options: {
+          loaders: {
+            css: 'vue-style-loader!css-loader',
+            scss: 'vue-style-loader!css-loader!sass-loader'
+          }
+        }
+      },
+      {
+        test: /\.css$/,
+        use: ['vue-style-loader', 'css-loader']
+      },
+      {
+        test: /\.scss$/,
+        use: ['vue-style-loader', 'css-loader', 'sass-loader']
+      }
+    ]
+  },
   plugins: [
     new webpack.WatchIgnorePlugin([config.nodePath]),
     new webpack.HotModuleReplacementPlugin(),

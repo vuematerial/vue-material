@@ -11,7 +11,7 @@ import baseConfig from './base';
 
 const docsPath = path.join(config.rootPath, config.docsPath);
 
-export default merge(baseConfig, {
+const conf = merge(baseConfig, {
   output: {
     path: docsPath,
     publicPath: '',
@@ -25,8 +25,14 @@ export default merge(baseConfig, {
         loader: 'vue-loader',
         options: {
           loaders: {
-            css: ExtractTextPlugin.extract('css'),
-            scss: ExtractTextPlugin.extract('css!sass')
+            css: ExtractTextPlugin.extract({
+              use: 'css-loader',
+              fallback: 'vue-style-loader'
+            }),
+            scss: ExtractTextPlugin.extract({
+              use: 'css-loader!sass-loader',
+              fallback: 'vue-style-loader'
+            })
           },
           postcss: [
             autoprefixer({
@@ -34,13 +40,27 @@ export default merge(baseConfig, {
             })
           ]
         }
+      },
+      {
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract({
+          use: 'css-loader',
+          fallback: 'vue-style-loader'
+        })
+      },
+      {
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract({
+          use: 'css-loader!sass-loader',
+          fallback: 'vue-style-loader'
+        })
       }
     ]
   },
   plugins: [
     new webpack.LoaderOptionsPlugin({
       minimize: true,
-      debug: false
+      debug: true
     }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
@@ -54,9 +74,7 @@ export default merge(baseConfig, {
     new OptimizeJsPlugin({
       sourceMap: false
     }),
-    new ExtractTextPlugin({
-      filename: path.join(docsPath, '[name].[contenthash:8].css')
-    }),
+    new ExtractTextPlugin('[name].[contenthash:8].css'),
     new CopyWebpackPlugin([
       {
         context: config.assetsPath,
@@ -115,3 +133,5 @@ export default merge(baseConfig, {
     })
   ]
 });
+
+export default conf;
