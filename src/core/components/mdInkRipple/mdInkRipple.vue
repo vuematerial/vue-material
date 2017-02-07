@@ -63,6 +63,9 @@
     watch: {
       disabled(disabled) {
         if (!disabled) {
+          if (!this.parentElement.contains(this.rippleElement)) {
+            this.parentElement.appendChild(this.rippleElement);
+          }
           this.init();
         } else {
           this.destroy();
