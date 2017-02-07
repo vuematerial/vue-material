@@ -19,6 +19,11 @@
       .md-tab-indicator {
         background-color: #{'ACCENT-COLOR'};
       }
+
+      .md-tab-header-navigation-button {
+        color: #{'PRIMARY-CONTRAST-0.54'};
+        background-color: #{'PRIMARY-COLOR'};
+      }
     }
 
     &.md-transparent {
