@@ -14,9 +14,7 @@ export default {
   output: {
     path: config.rootPath,
     publicPath: config.publicPath,
-    filename: '[name].js',
-    hotUpdateChunkFilename: '[name].[hash:8].hot-update.js',
-    hotUpdateMainFilename: '[name].hot-update.js'
+    filename: '[name].js'
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
