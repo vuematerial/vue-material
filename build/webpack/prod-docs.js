@@ -36,7 +36,7 @@ const conf = merge(baseConfig, {
           },
           postcss: [
             autoprefixer({
-              browsers: ['last 3 versions']
+              browsers: ['last 3 versions', 'not IE < 11']
             })
           ]
         }

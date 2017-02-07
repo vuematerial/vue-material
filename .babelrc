@@ -7,7 +7,7 @@
       "env",
       {
         "targets": {
-          "browsers": ["last 3 versions"]
+          "browsers": ["last 3 versions", "not IE < 11"]
         }
       }
     ]

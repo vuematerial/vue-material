@@ -15,7 +15,7 @@ export default {
     path: config.rootPath,
     publicPath: config.publicPath,
     filename: '[name].js',
-    hotUpdateChunkFilename: '[name].[chunkhash:8].hot-update.js',
+    hotUpdateChunkFilename: '[name].[hash:8].hot-update.js',
     hotUpdateMainFilename: '[name].hot-update.js'
   },
   resolve: {
