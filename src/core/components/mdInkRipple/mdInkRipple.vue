@@ -7,6 +7,21 @@
 <style lang="scss" src="./mdInkRipple.scss"></style>
 
 <script>
+  const hasTouch = 'ontouchstart' in document;
+  const getEventName = (type) => {
+    if (type === 'start') {
+      return hasTouch ? 'touchstart' : 'mousedown';
+    }
+
+    return hasTouch ? 'touchend' : 'mouseup';
+  };
+  const addEvent = (target, type, handler) => {
+    target.addEventListener(getEventName(type), handler);
+  };
+  const removeEvent = (target, type, handler) => {
+    target.removeEventListener(getEventName(type), handler);
+  };
+
   export default {
     props: {
       mdDisabled: Boolean
@@ -81,12 +96,17 @@
       getClickPosition(event) {
         if (this.$refs.ripple) {
           const rect = this.parentElement.getBoundingClientRect();
-          const top = event.pageY - rect.top - this.$refs.ripple.offsetHeight / 2 - document.body.scrollTop + 'px';
-          const left = event.pageX - rect.left - this.$refs.ripple.offsetWidth / 2 - document.body.scrollLeft + 'px';
+          let top = event.pageY;
+          let left = event.pageX;
+
+          if (event.type === 'touchstart') {
+            top = event.changedTouches[0].pageY;
+            left = event.changedTouches[0].pageX;
+          }
 
           return {
-            top,
-            left
+            top: top - rect.top - this.$refs.ripple.offsetHeight / 2 - document.body.scrollTop + 'px',
+            left: left - rect.left - this.$refs.ripple.offsetWidth / 2 - document.body.scrollLeft + 'px'
           };
         }
 
@@ -112,22 +132,20 @@
         this.hasCompleted = false;
         this.setDimensions();
         window.clearTimeout(this.awaitingComplete);
-        document.body.removeEventListener('mouseup', this.endRipple);
+        removeEvent(document.body, 'end', this.endRipple);
       },
       startRipple(event) {
-        window.requestAnimationFrame(() => {
-          this.clearState();
-          this.awaitingComplete = window.setTimeout(() => {
-            this.hasCompleted = true;
-          }, 400);
+        this.clearState();
+        this.awaitingComplete = window.setTimeout(() => {
+          this.hasCompleted = true;
+        }, 400);
 
-          document.body.addEventListener('mouseup', this.endRipple);
+        addEvent(document.body, 'end', this.endRipple);
 
-          this.setPositions(event);
+        this.setPositions(event);
 
-          window.setTimeout(() => {
-            this.active = true;
-          });
+        window.setTimeout(() => {
+          this.active = true;
         });
       },
       endRipple() {
@@ -139,15 +157,14 @@
           }, 200);
         }
 
-        document.body.removeEventListener('mouseup', this.endRipple);
+        removeEvent(document.body, 'end', this.endRipple);
       },
       registerMouseEvent() {
-        this.parentElement.addEventListener('mousedown', this.startRipple);
+        addEvent(this.parentElement, 'start', this.startRipple);
       },
       unregisterMouseEvent() {
         if (this.parentElement) {
-          this.parentElement.removeEventListener('mousedown', this.startRipple);
-          document.body.removeEventListener('mouseup', this.endRipple);
+          removeEvent(this.parentElement, 'start', this.startRipple);
         }
       },
       init() {
