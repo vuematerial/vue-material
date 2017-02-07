@@ -61,10 +61,7 @@
         return availablePositions.indexOf(getComputedStyle(element).position) > -1;
       },
       getClosestPositionedParent(element) {
-        if (!element) {
-          return false;
-        }
-        const parent = element.parentNode;
+        const parent = element && element.parentNode;
 
         if (!parent || parent.tagName.toLowerCase() === 'body') {
           return false;
@@ -82,14 +79,18 @@
         return Math.round(Math.max(parent.offsetWidth, parent.offsetHeight)) + 'px';
       },
       getClickPosition(event) {
-        const rect = this.parentElement.getBoundingClientRect();
-        const top = event.pageY - rect.top - this.$refs.ripple.offsetHeight / 2 - document.body.scrollTop + 'px';
-        const left = event.pageX - rect.left - this.$refs.ripple.offsetWidth / 2 - document.body.scrollLeft + 'px';
+        if (this.$refs.ripple) {
+          const rect = this.parentElement.getBoundingClientRect();
+          const top = event.pageY - rect.top - this.$refs.ripple.offsetHeight / 2 - document.body.scrollTop + 'px';
+          const left = event.pageX - rect.left - this.$refs.ripple.offsetWidth / 2 - document.body.scrollLeft + 'px';
 
-        return {
-          top,
-          left
-        };
+          return {
+            top,
+            left
+          };
+        }
+
+        return false;
       },
       setDimensions() {
         const size = this.getParentSize();
@@ -100,8 +101,10 @@
       setPositions(event) {
         const positions = this.getClickPosition(event);
 
-        this.parentDimensions.top = positions.top;
-        this.parentDimensions.left = positions.left;
+        if (positions) {
+          this.parentDimensions.top = positions.top;
+          this.parentDimensions.left = positions.left;
+        }
       },
       clearState() {
         this.active = false;
