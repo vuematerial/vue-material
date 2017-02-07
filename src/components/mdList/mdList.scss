@@ -288,6 +288,10 @@
       }
     }
 
+    &.md-active + .md-active:before {
+      background: none;
+    }
+
     > .md-list-item-container .md-list-expand-indicator {
       transform: rotateZ(180deg) translate3D(0, 0, 0);
     }
