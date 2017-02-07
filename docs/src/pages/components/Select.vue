@@ -209,7 +209,7 @@
               </md-input-container>
             </div>
 
-            <md-button class="md-raised md-primary" @click="setPulpFiction">Set Pulp Fiction</md-button>
+            <md-button class="md-raised md-primary" @click.native="setPulpFiction">Set Pulp Fiction</md-button>
           </div>
 
           <div slot="code">
@@ -279,7 +279,7 @@
                 &lt;/md-input-container&gt;
               &lt;/div&gt;
 
-              &lt;md-button class=&quot;md-raised md-primary&quot; @click=&quot;setPulpFiction&quot;&gt;Set Pulp Fiction&lt;/md-button&gt;
+              &lt;md-button class=&quot;md-raised md-primary&quot; @click.native=&quot;setPulpFiction&quot;&gt;Set Pulp Fiction&lt;/md-button&gt;
             </code-block>
 
             <code-block lang="javascript">
