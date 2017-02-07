@@ -42,7 +42,6 @@
       mdFixed: Boolean,
       mdCentered: Boolean,
       mdRight: Boolean,
-      mdScrollableNavigation: Boolean,
       mdDynamicHeight: {
         type: Boolean,
         default: true
@@ -68,8 +67,7 @@
       tabClasses() {
         return {
           'md-dynamic-height': this.mdDynamicHeight,
-          'md-transition-off': this.transitionOff,
-          'md-scrollable-navigation': this.mdScrollableNavigation
+          'md-transition-off': this.transitionOff
         };
       },
       navigationClasses() {
