@@ -42,15 +42,35 @@ export default merge(baseConfig, {
         loader: 'vue-loader',
         options: {
           loaders: {
-            css: ExtractTextPlugin.extract('css'),
-            scss: ExtractTextPlugin.extract('css!sass')
+            css: ExtractTextPlugin.extract({
+              use: 'css-loader',
+              fallback: 'vue-style-loader'
+            }),
+            scss: ExtractTextPlugin.extract({
+              use: 'css-loader!sass-loader',
+              fallback: 'vue-style-loader'
+            })
           },
           postcss: [
             autoprefixer({
-              browsers: ['last 2 versions']
+              browsers: ['last 3 versions']
             })
           ]
         }
+      },
+      {
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract({
+          use: 'css-loader',
+          fallback: 'vue-style-loader'
+        })
+      },
+      {
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract({
+          use: 'css-loader!sass-loader',
+          fallback: 'vue-style-loader'
+        })
       }
     ]
   },
@@ -89,8 +109,6 @@ export default merge(baseConfig, {
       raw: true,
       entryOnly: true
     }),
-    new ExtractTextPlugin({
-      filename: path.join(config.rootPath, '[name].css')
-    })
+    new ExtractTextPlugin('[name].css')
   ]
 });

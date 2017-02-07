@@ -14,7 +14,9 @@ export default {
   output: {
     path: config.rootPath,
     publicPath: config.publicPath,
-    filename: '[name].js'
+    filename: '[name].js',
+    hotUpdateChunkFilename: '[name].[chunkhash:8].hot-update.js',
+    hotUpdateMainFilename: '[name].hot-update.js'
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
@@ -39,16 +41,6 @@ export default {
         }
       },
       {
-        test: /\.vue$/,
-        loader: 'vue-loader',
-        options: {
-          loaders: {
-            css: 'vue-style-loader!css-loader',
-            scss: 'vue-style-loader!css-loader!sass-loader'
-          }
-        }
-      },
-      {
         test: /\.js$/,
         loader: 'babel-loader',
         include: [
@@ -56,14 +48,6 @@ export default {
           resolvePath('src'),
           resolvePath('docs')
         ]
-      },
-      {
-        test: /\.css$/,
-        use: ['vue-style-loader', 'css-loader']
-      },
-      {
-        test: /\.scss$/,
-        use: ['vue-style-loader', 'css-loader', 'sass-loader']
       },
       {
         test: /\.theme$/,

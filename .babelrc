@@ -2,7 +2,15 @@
   "presets": [
     "es2015",
     "es2017",
-    "stage-0"
+    "stage-0",
+    [
+      "env",
+      {
+        "targets": {
+          "browsers": ["last 3 versions"]
+        }
+      }
+    ]
   ],
   "plugins": [
     "transform-runtime",
