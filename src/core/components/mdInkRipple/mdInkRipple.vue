@@ -159,10 +159,10 @@
 
         removeEvent(document.body, 'end', this.endRipple);
       },
-      registerMouseEvent() {
+      registerTriggerEvent() {
         addEvent(this.parentElement, 'start', this.startRipple);
       },
-      unregisterMouseEvent() {
+      unregisterTriggerEvent() {
         if (this.parentElement) {
           removeEvent(this.parentElement, 'start', this.startRipple);
         }
@@ -176,13 +176,13 @@
         } else {
           this.rippleElement.parentNode.removeChild(this.rippleElement);
           this.parentElement.appendChild(this.rippleElement);
-          this.registerMouseEvent();
+          this.registerTriggerEvent();
           this.setDimensions();
         }
       },
       destroy() {
         if (this.rippleElement && this.rippleElement.parentNode) {
-          this.unregisterMouseEvent();
+          this.unregisterTriggerEvent();
           this.rippleElement.parentNode.removeChild(this.rippleElement);
         }
       }
