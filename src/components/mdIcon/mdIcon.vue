@@ -3,7 +3,7 @@
 
   <md-image class="md-icon" :class="[themeClass]" :md-src="imageSrc" v-else-if="imageSrc"></md-image>
 
-  <i class="md-icon material-icons" :class="[themeClass]" v-else>
+  <i class="md-icon" :class="[themeClass, mdIconset]" :aria-hidden="!!mdIconset" v-else>
     <slot></slot>
   </i>
 </template>
@@ -17,7 +17,11 @@
 
   export default {
     props: {
-      mdSrc: String
+      mdSrc: String,
+      mdIconset: {
+        type: String,
+        default: 'material-icons'
+      }
     },
     data: () => ({
       svgContent: null,

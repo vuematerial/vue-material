@@ -43,8 +43,9 @@ const createNewStyleElement = (style, name) => {
 };
 
 let registeredThemes = [];
+let registeredPrimaryColor = {};
 
-const parseStyle = (style, theme) => {
+const parseStyle = (style, theme, name) => {
   VALID_THEME_TYPE.forEach((type) => {
     style = style.replace(RegExp('(' + type.toUpperCase() + ')-(COLOR|CONTRAST)-?(A?\\d*)-?(\\d*\\.?\\d+)?', 'g'), (match, paletteType, colorType, hue, opacity) => {
       let color;
@@ -70,6 +71,10 @@ const parseStyle = (style, theme) => {
           } else if (type === 'background') {
             colorVariant = 50;
           }
+        }
+
+        if (type === 'primary') {
+          registeredPrimaryColor[name] = color[colorVariant];
         }
 
         if (opacity) {
@@ -102,7 +107,7 @@ const registerTheme = (theme, name, themeStyles) => {
   let parsedStyle = [];
 
   themeStyles.forEach((style) => {
-    parsedStyle.push(parseStyle(style, theme));
+    parsedStyle.push(parseStyle(style, theme, name));
   });
 
   createNewStyleElement(parsedStyle.join('\n'), name);
@@ -115,6 +120,20 @@ const registerAllThemes = (themes, themeStyles) => {
     registerTheme(themes[name], name, themeStyles);
     registeredThemes.push(name);
   });
+};
+
+const changeHtmlMetaColor = (color) => {
+  let themeColorElement = document.querySelector('meta[name="theme-color"]');
+
+  if (themeColorElement) {
+    themeColorElement.setAttribute('content', color);
+  } else {
+    themeColorElement = document.createElement('meta');
+    themeColorElement.setAttribute('name', 'theme-color');
+    themeColorElement.setAttribute('content', color);
+
+    document.head.appendChild(themeColorElement);
+  }
 };
 
 export default function install(Vue) {
@@ -137,6 +156,7 @@ export default function install(Vue) {
         registerAllThemes(theme, this.styles);
       },
       applyCurrentTheme(themeName) {
+        changeHtmlMetaColor(registeredPrimaryColor[themeName]);
         document.body.classList.remove('md-theme-' + this.currentTheme);
         document.body.classList.add('md-theme-' + themeName);
         this.currentTheme = themeName;

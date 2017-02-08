@@ -118,6 +118,10 @@
     &:first-child {
       margin-left: 8px;
     }
+
+    + .md-input-container {
+      margin-left: 24px;
+    }
   }
 
   .md-list {

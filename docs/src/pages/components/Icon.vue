@@ -5,7 +5,7 @@
         <p>A system icon, or UI icon, symbolizes a command, file, device, or directory. System icons are also used to represent common actions like trash, print, and save.</p>
         <p>You can see the full list of icons on the <a href="https://material.io/icons/" target="_blank" rel="noopener">Material Icons</a> website. Replace the spaces in the icon name by underscores (for example, <code>arrow back</code> becomes <code>arrow_back</code>).</p>
         <p>Alternatively you can use your PNG or SVG icons using the <code>md-src</code> property.</p>
-
+        <p>The use of font icons without ligatures are suported too, although this approach lacks accessibility support.</p>
         <p>The following classes can be applied to change the color palette:</p>
         <ul class="md-body-2">
           <li><code>md-primary</code></li>
@@ -46,6 +46,11 @@
                 <md-table-cell>md-src</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
                 <md-table-cell>The src of the image file. Can be SVG icons too!</md-table-cell>
+              </md-table-row>
+              <md-table-row>
+                <md-table-cell>md-iconset</md-table-cell>
+                <md-table-cell><code>String</code></md-table-cell>
+                <md-table-cell>The font icon set. Example: <code>md-iconset="fa fa-pencil"</code> for font awesome.</md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>
@@ -129,6 +134,40 @@
                   &lt;md-icon class=&quot;md-size-4x&quot; md-src=&quot;assets/icon-menu.png&quot;&gt;menu&lt;/md-icon&gt;
                 &lt;/md-layout&gt;
               &lt;/md-layout&gt;
+            </code-block>
+          </div>
+        </example-box>
+
+        <example-box card-title="Font Icons">
+          <!-- had a few trouble on making webpack accept font awesome and others,
+               therefore i'm using those cdn's' for the sake of a good example -->
+          <div slot="demo">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+            <div>This first example uses <a href="http://fontawesome.io/icons/" target="fa_icons">Font Awesome Icons</a></div>
+            <md-icon md-iconset="fa fa-home"></md-icon>
+            <md-icon md-iconset="fa fa-bars" class="md-size-2x md-primary"></md-icon>
+            <md-icon md-iconset="fa fa-users" class="md-size-3x md-accent"></md-icon>
+            <md-icon md-iconset="fa fa-clock-o" class="md-size-4x md-warn"></md-icon>  
+            <hr/>
+            <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"/>
+            <div>This second example uses <a href="http://ionicons.com/" target="ion_icons">Ion Icons</a></div>
+            <md-icon md-iconset="ion-home"></md-icon>
+            <md-icon md-iconset="ion-navicon-round" class="md-size-2x md-primary"></md-icon>
+            <md-icon md-iconset="ion-person-stalker" class="md-size-3x md-accent"></md-icon>
+            <md-icon md-iconset="ion-clock" class="md-size-4x md-warn"></md-icon>         
+          </div>
+
+          <div slot="code">
+            <code-block lang="xml">
+              &lt;md-icon md-iconset="fa fa-home"&gt;&lt;/md-icon&gt;
+              &lt;md-icon md-iconset="fa fa-bars" class="md-size-2x md-primary"&gt;&lt;/md-icon&gt;
+              &lt;md-icon md-iconset="fa fa-users" class="md-size-3x md-accent"&gt;&lt;/md-icon&gt;
+              &lt;md-icon md-iconset="fa fa-clock-o" class="md-size-4x md-warn"&gt;&lt;/md-icon&gt;  
+              &lt;hr/&gt;
+              &lt;md-icon md-iconset="ion-home"&gt;&lt;/md-icon&gt;
+              &lt;md-icon md-iconset="ion-navicon-round" class="md-size-2x md-primary"&gt;&lt;/md-icon&gt;
+              &lt;md-icon md-iconset="ion-person-stalker" class="md-size-3x md-accent"&gt;&lt;/md-icon&gt;
+              &lt;md-icon md-iconset="ion-clock" class="md-size-4x md-warn"&gt;&lt;/md-icon&gt;  
             </code-block>
           </div>
         </example-box>

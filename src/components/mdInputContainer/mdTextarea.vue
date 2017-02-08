@@ -26,25 +26,27 @@
       }
     },
     mounted() {
-      this.parentContainer = getClosestVueParent(this.$parent, 'md-input-container');
+      this.$nextTick(() => {
+        this.parentContainer = getClosestVueParent(this.$parent, 'md-input-container');
 
-      if (!this.parentContainer) {
-        this.$destroy();
+        if (!this.parentContainer) {
+          this.$destroy();
 
-        throw new Error('You should wrap the md-textarea in a md-input-container');
-      }
+          throw new Error('You should wrap the md-textarea in a md-input-container');
+        }
 
-      this.setParentDisabled();
-      this.setParentRequired();
-      this.setParentPlaceholder();
-      this.setParentValue();
-      this.handleMaxLength();
+        this.setParentDisabled();
+        this.setParentRequired();
+        this.setParentPlaceholder();
+        this.handleMaxLength();
+        this.updateValues();
 
-      if (!this.$el.getAttribute('rows')) {
-        this.$el.setAttribute('rows', '1');
-      }
+        if (!this.$el.getAttribute('rows')) {
+          this.$el.setAttribute('rows', '1');
+        }
 
-      autosize(this.$el);
+        autosize(this.$el);
+      });
     },
     beforeDestroy() {
       autosize.destroy(this.$el);

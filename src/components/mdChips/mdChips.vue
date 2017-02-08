@@ -18,8 +18,8 @@
         :name="mdInputName"
         :disabled="disabled"
         @keydown.native.delete="deleteLastChip"
-        @keydown.native.enter="selectChip"
-        @keydown.native.186="selectChip"
+        @keydown.native.prevent.enter="addChip"
+        @keydown.native.prevent.186="addChip"
         tabindex="0"
         ref="input">
       </md-input>
@@ -77,7 +77,7 @@
           this.$refs.input.$el.focus();
         });
       },
-      selectChip() {
+      addChip() {
         if (this.currentChip && this.selectedChips.length < this.mdMax) {
           const value = this.currentChip.trim();
 

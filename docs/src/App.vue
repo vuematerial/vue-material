@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <md-sidenav class="main-sidebar md-left md-fixed" ref="main-sidebar">
+    <md-sidenav class="main-sidebar md-left md-fixed" md-swipeable ref="main-sidebar">
       <md-toolbar class="vue-material-logo" md-theme="white">
         <router-link exact to="/">
           <img :src="logo" alt="Vue">
@@ -117,6 +117,10 @@
 
                 <md-list-item class="md-inset">
                   <router-link exact to="/components/snackbar">Snackbar</router-link>
+                </md-list-item>
+
+                <md-list-item class="md-inset">
+                  <router-link exact to="/components/speed-dial">Speed Dial</router-link>
                 </md-list-item>
 
                 <md-list-item class="md-inset">

@@ -11,16 +11,16 @@ import mdCardExpand from './mdCardExpand.vue';
 import mdCardTheme from './mdCard.theme';
 
 export default function install(Vue) {
-  Vue.component('md-card', Vue.extend(mdCard));
-  Vue.component('md-card-media', Vue.extend(mdCardMedia));
-  Vue.component('md-card-media-cover', Vue.extend(mdCardMediaCover));
-  Vue.component('md-card-media-actions', Vue.extend(mdCardMediaActions));
-  Vue.component('md-card-header', Vue.extend(mdCardHeader));
-  Vue.component('md-card-header-text', Vue.extend(mdCardHeaderText));
-  Vue.component('md-card-content', Vue.extend(mdCardContent));
-  Vue.component('md-card-actions', Vue.extend(mdCardActions));
-  Vue.component('md-card-area', Vue.extend(mdCardArea));
-  Vue.component('md-card-expand', Vue.extend(mdCardExpand));
+  Vue.component('md-card', mdCard);
+  Vue.component('md-card-media', mdCardMedia);
+  Vue.component('md-card-media-cover', mdCardMediaCover);
+  Vue.component('md-card-media-actions', mdCardMediaActions);
+  Vue.component('md-card-header', mdCardHeader);
+  Vue.component('md-card-header-text', mdCardHeaderText);
+  Vue.component('md-card-content', mdCardContent);
+  Vue.component('md-card-actions', mdCardActions);
+  Vue.component('md-card-area', mdCardArea);
+  Vue.component('md-card-expand', mdCardExpand);
 
   Vue.material.styles.push(mdCardTheme);
 }

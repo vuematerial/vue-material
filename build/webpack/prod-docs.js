@@ -11,31 +11,65 @@ import baseConfig from './base';
 
 const docsPath = path.join(config.rootPath, config.docsPath);
 
-export default merge(baseConfig, {
+const conf = merge(baseConfig, {
   output: {
     path: docsPath,
     publicPath: '',
     filename: '[name].[chunkhash:8].js',
     chunkFilename: '[name].[chunkhash:8].js'
   },
-  vue: {
-    loaders: {
-      css: ExtractTextPlugin.extract('css'),
-      scss: ExtractTextPlugin.extract('css!sass')
-    },
-    postcss: [
-      autoprefixer({
-        browsers: ['last 3 versions']
-      })
+  module: {
+    rules: [
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+        options: {
+          loaders: {
+            css: ExtractTextPlugin.extract({
+              use: 'css-loader',
+              fallback: 'vue-style-loader'
+            }),
+            scss: ExtractTextPlugin.extract({
+              use: 'css-loader!sass-loader',
+              fallback: 'vue-style-loader'
+            })
+          },
+          postcss: [
+            autoprefixer({
+              browsers: ['last 3 versions', 'not IE < 11']
+            })
+          ]
+        }
+      },
+      {
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract({
+          use: 'css-loader',
+          fallback: 'vue-style-loader'
+        })
+      },
+      {
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract({
+          use: 'css-loader!sass-loader',
+          fallback: 'vue-style-loader'
+        })
+      }
     ]
   },
   plugins: [
-    new webpack.optimize.DedupePlugin(),
+    new webpack.LoaderOptionsPlugin({
+      minimize: true,
+      debug: true
+    }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false
       },
-      comments: false
+      output: {
+        comments: false
+      },
+      sourceMap: false
     }),
     new OptimizeJsPlugin({
       sourceMap: false
@@ -96,7 +130,8 @@ export default merge(baseConfig, {
     new webpack.optimize.CommonsChunkPlugin({
       name: 'manifest',
       chunks: ['vendor']
-    }),
-    new webpack.optimize.OccurenceOrderPlugin()
+    })
   ]
 });
+
+export default conf;

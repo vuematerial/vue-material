@@ -31,7 +31,7 @@
     computed: {
       classes() {
         return {
-          'md-checked': this.value && this.mdValue.toString() === this.value.toString(),
+          'md-checked': typeof this.value !== 'undefined' && this.mdValue.toString() === this.value.toString(),
           'md-disabled': this.disabled
         };
       }

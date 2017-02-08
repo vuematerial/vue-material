@@ -104,6 +104,12 @@
               </md-table-row>
 
               <md-table-row>
+                <md-table-cell>md-hide-{type}-and-up</md-table-cell>
+                <md-table-cell><code>Boolean</code></md-table-cell>
+                <md-table-cell>Hide a layout container/child on screen sizes greater than or equal to given breakpoint. Example: <code>md-hide-medium-and-up</code></md-table-cell>
+              </md-table-row>
+
+              <md-table-row>
                 <md-table-cell>md-flex</md-table-cell>
                 <md-table-cell><code>Boolean|Number</code></md-table-cell>
                 <md-table-cell>Create a flexible child. If <code>true</code> the child element will grow to fill the empty space available on the parent element. If <code>Number</code> the size of the child will be sized according to the giver size. Accepts values multiple of 5. Also accepts the values 33 and 66. Default: <code>true</code></md-table-cell>
