@@ -1,0 +1,38 @@
+.THEME_NAME {
+  &.md-stepper {
+    .md-step {
+      .md-step-header {
+        font-weight: 500;
+        > .md-icon {
+          color: #{'BACKGROUND-CONTRAST'};
+          background-color: #{'BACKGROUND-COLOR'};
+        }
+        &.md-primary {
+          > .md-icon {
+            color: #{'PRIMARY-CONTRAST'};
+            background-color: #{'PRIMARY-COLOR'};
+          }
+        }
+        &.md-accent {
+          > .md-icon {
+            color: #{'ACCENT-CONTRAST'};
+            background-color: #{'ACCENT-COLOR'};
+          }
+        }
+        &.md-warn {
+          > .md-icon {
+            color: #{'WARN-CONTRAST'};
+            background-color: #{'WARN-COLOR'};
+          }
+        }
+        &.md-disabled {
+          color: #bdbdbd;
+          > .md-icon {
+            color: white;
+            background-color: #bdbdbd;
+          }
+        }
+      }
+    }
+  }
+}

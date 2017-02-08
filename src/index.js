@@ -23,6 +23,7 @@ import MdSidenav from './components/mdSidenav';
 import MdSnackbar from './components/mdSnackbar';
 import MdSpeedDial from './components/mdSpeedDial';
 import MdSpinner from './components/mdSpinner';
+import MdStepper from './components/mdStepper';
 import MdSubheader from './components/mdSubheader';
 import MdSwitch from './components/mdSwitch';
 import MdTable from './components/mdTable';
@@ -57,6 +58,7 @@ const options = {
   MdSnackbar,
   MdSpeedDial,
   MdSpinner,
+  MdStepper,
   MdSubheader,
   MdSwitch,
   MdTable,
