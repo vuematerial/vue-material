@@ -31,6 +31,10 @@
     },
     methods: {
       analyzeLightness(image) {
+        const applyLoad = () => {
+          this.loaded = true;
+        };
+
         getImageLightness(image, (lightness) => {
           let limit = 256;
           let darkness = (Math.abs(limit - lightness) * 100 / limit + 15) / 100;
@@ -39,10 +43,8 @@
             this.applyBlack = true;
           }
 
-          this.$nextTick(() => {
-            this.loaded = true;
-          });
-        });
+          this.$nextTick(applyLoad);
+        }, applyLoad);
       },
       createImage() {
         this.loaded = false;
