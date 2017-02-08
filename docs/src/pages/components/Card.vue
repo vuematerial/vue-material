@@ -362,8 +362,10 @@
             </md-card>
 
             <md-card md-with-hover>
-              <md-card-media v-md-ink-ripple>
+              <md-card-media>
                 <img src="assets/card-image-1.jpg" alt="People">
+
+                <md-ink-ripple />
               </md-card-media>
 
               <md-card-actions>
@@ -425,8 +427,10 @@
               &lt;/md-card&gt;
 
               &lt;md-card md-with-hover&gt;
-                &lt;md-card-media v-md-ink-ripple&gt;
+                &lt;md-card-media&gt;
                   &lt;img src=&quot;assets/card-image-1.jpg&quot; alt=&quot;People&quot;&gt;
+
+                  &lt;md-ink-ripple&gt;&lt;/md-ink-ripple&gt;
                 &lt;/md-card-media&gt;
 
                 &lt;md-card-actions&gt;
@@ -1051,7 +1055,7 @@
               &lt;/md-card&gt;
             </code-block>
 
-            <code-block lang="scss">
+            <code-block lang="sass">
               .card-example {
                 .md-subhead {
                   .md-icon {
@@ -1094,7 +1098,7 @@
   </page-content>
 </template>
 
-<style lang="scss" scoped>
+<style lang="sass" scoped>
   .card-holder {
     .md-card {
       width: 100%;

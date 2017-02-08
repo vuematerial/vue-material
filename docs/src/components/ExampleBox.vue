@@ -17,7 +17,7 @@
         </md-tabs>
       </md-card-area>
 
-      <!-- <button type="button" class="md-codepen" @click="editOnCodepen">
+      <!-- <button type="button" class="md-codepen" @click.native="editOnCodepen">
         <img src="assets/codepen.png" alt="Edit on Codepen">
         <md-tooltip md-direction="left">Edit on codepen</md-tooltip>
       </button> -->
@@ -48,7 +48,7 @@ var App = new Vue({
   </div>
 </template>
 
-<style lang="scss">
+<style lang="sass">
   .example-box .code-content {
     .code-block {
       margin: -16px;
@@ -64,7 +64,7 @@ var App = new Vue({
   }
 </style>
 
-<style lang="scss" scoped>
+<style lang="sass" scoped>
   .example-box {
     margin-bottom: 16px;
   }

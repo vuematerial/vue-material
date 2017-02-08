@@ -1,6 +1,190 @@
 <section>
   <h2 class="md-headline">
-    <a href="https://vuematerial.github.io/">v0.5.2 - Bugfixes</a>
+    <a href="https://vuematerial.github.io/">v0.7.0 - A lot of fixes and improvements!</a>
+  </h2>
+
+  <h3 class="md-title">New Components:</h3>
+  <ul>
+    <li>Speed Dial</li>
+  </ul>
+
+  <h3 class="md-title">New Features:</h3>
+  <ul>
+    <li>
+      <h4 class="md-body-2">Support to icons without ligatures</h4>
+      <p>Now you can use icon font like Font Awesome! (Thanks to <a href="https://github.com/sombriks" target="_blank" rel="noopener">@sombriks</a>)</p>
+    </li>
+
+    <li>
+      <h4 class="md-body-2">Support to SVG icon on bottom bar</h4>
+      <p>(Thanks to <a href="https://github.com/sombriks" target="_blank" rel="noopener">@sombriks</a>)</p>
+    </li>
+
+    <li>
+      <h4 class="md-body-2">Select working without v-model</h4>
+      <p>For those who use Laravel with Vue.js...</p>
+    </li>
+
+    <li>
+      <h4 class="md-body-2">List item component recriated from scratch</h4>
+      <p>Now more performant and more stable.</p>
+    </li>
+
+    <li>
+      <h4 class="md-body-2">Swipe gestures on left Sidenav</h4>
+      <p>More responsive and fluid experience on mobile devices. (Thanks to <a href="https://github.com/igor-ribeiro" target="_blank" rel="noopener">@igor-ribeiro</a>)</p>
+    </li>
+
+    <li>
+      <h4 class="md-body-2">Support to Theme Color on Android</h4>
+      <p>Change the browser window color inside Chrome for Android based on the current theme.</p>
+    </li>
+  </ul>
+
+  <h3 class="md-title">Breaking changes:</h3>
+  <ul>
+    <li>
+      <p>To avoid issues and conflicts between multiple events on buttons and other "clickable" components the internal <code>@click</code> event don't work anymore. Use <code>@click.native</code> instead.</p>
+    </li>
+
+    <li>
+      <p><strong>Only for contributors:</strong> To build Vue Material is now needed to upgrade all dependencies. Vue Material uses Webpack 2 under the hood and all dependencies were bumped to the latest.</p>
+    </li>
+  </ul>
+
+  <h3 class="md-title">Fixes:</h3>
+  <ul>
+    <li>check for null parent elements in mdInkRipple <a href="https://github.com/marcosmoura/vue-material/issues/313" target="_blank" rel="noopener">#313</a> (Thanks to <a href="https://github.com/korylprince" target="_blank" rel="noopener">@korylprince</a>)</li>
+    <li>update the number of rows if the data set changes on mdTable <a href="https://github.com/marcosmoura/vue-material/issues/320" target="_blank" rel="noopener">#320</a> (Thanks to <a href="https://github.com/pablohpsilva" target="_blank" rel="noopener">@pablohpsilva</a>)</li>
+    <li>disable pointer events on snackbar container <a href="https://github.com/marcosmoura/vue-material/issues/327" target="_blank" rel="noopener">#327</a> (Thanks to <a href="https://github.com/korylprince" target="_blank" rel="noopener">@korylprince</a>)</li>
+    <li>allow null value to be passed to parent of md-select <a href="https://github.com/marcosmoura/vue-material/issues/338" target="_blank" rel="noopener">#338</a> (Thanks to <a href="https://github.com/korylprince" target="_blank" rel="noopener">@korylprince</a>)</li>
+    <li>fix textarea autosize on initial value <a href="https://github.com/marcosmoura/vue-material/issues/341" target="_blank" rel="noopener">#341</a> (Thanks to <a href="https://github.com/korylprince" target="_blank" rel="noopener">@korylprince</a>)</li>
+    <li>fix char counter not updating after model change <a href="https://github.com/marcosmoura/vue-material/issues/384" target="_blank" rel="noopener">#384</a></li>
+    <li>prevent parent forms from submitting when adding chips <a href="https://github.com/marcosmoura/vue-material/issues/383" target="_blank" rel="noopener">#383</a></li>
+    <li>prevent body from scroll on dialogs and menus <a href="https://github.com/marcosmoura/vue-material/issues/373" target="_blank" rel="noopener">#373</a></li>
+    <li>fix error message not moving down on textarea <a href="https://github.com/marcosmoura/vue-material/issues/362" target="_blank" rel="noopener">#362</a></li>
+    <li>add checked attribute to checkbox <a href="https://github.com/marcosmoura/vue-material/issues/366" target="_blank" rel="noopener">#366</a></li>
+    <li>add select events when open and close mdSelect <a href="https://github.com/marcosmoura/vue-material/issues/357" target="_blank" rel="noopener">#357</a></li>
+    <li>fix radio parsing md-value wrongly when null <a href="https://github.com/marcosmoura/vue-material/issues/378" target="_blank" rel="noopener">#378</a></li>
+    <li>fix md-input colors inside cards <a href="https://github.com/marcosmoura/vue-material/issues/421" target="_blank" rel="noopener">#421</a></li>
+    <li>fix overflow button color theme in cards <a href="https://github.com/marcosmoura/vue-material/issues/421" target="_blank" rel="noopener">#421</a></li>
+    <li>pause snackbar timeout on hover <a href="https://github.com/marcosmoura/vue-material/issues/434" target="_blank" rel="noopener">#434</a> (Thanks to <a href="https://github.com/igor-ribeiro" target="_blank" rel="noopener">@igor-ribeiro</a>)</li>
+    <li>enable multiple expansions in mdList <a href="https://github.com/marcosmoura/vue-material/issues/442" target="_blank" rel="noopener">#442</a> (Thanks to <a href="https://github.com/ivictbor" target="_blank" rel="noopener">@ivictbor</a>)</li>
+    <li>allow preventDefault in md-switch <a href="https://github.com/marcosmoura/vue-material/issues/435" target="_blank" rel="noopener">#435</a> (Thanks to <a href="https://github.com/ivictbor" target="_blank" rel="noopener">@ivictbor</a>)</li>
+    <li>add styles for input inside toolbar <a href="https://github.com/marcosmoura/vue-material/issues/395" target="_blank" rel="noopener">#395</a></li>
+    <li>prevent ripple from getting undefined when parent elements doesnt exists</li>
+    <li>normalize mobile and desktop events on ripple</li>
+    <li>normalize mobile and desktop events on ripple</li>
+    <li>remove unnecessary Vue.extend on component definition</li>
+    <li>upgrade to webpack 2 with tree shaking support</li>
+    <li>update supported browsers</li>
+  </ul>
+</section>
+
+<section>
+  <h2 class="md-headline">
+    <a href="https://vuematerial.github.io/v0.6.3">v0.6.3 - Standalone fixes</a>
+  </h2>
+  <h3 class="md-title">Fixes:</h3>
+  <ul>
+    <li>fix broken standalone build <a href="https://github.com/marcosmoura/vue-material/issues/312" target="_blank" rel="noopener">#312</a> (Thanks to <a href="https://github.com/korylprince" target="_blank" rel="noopener">@korylprince</a>)</li>
+  </ul>
+
+  <p>Sorry about so many updates!</p>
+</section>
+
+<section>
+  <h2 class="md-headline">
+    <a href="https://vuematerial.github.io/v0.6.2">v0.6.2 - Webpack fixes</a>
+  </h2>
+  <h3 class="md-title">Fixes:</h3>
+  <ul>
+    <li>fix alias for webpack <a href="https://github.com/marcosmoura/vue-material/issues/311" target="_blank" rel="noopener">#311</a></li>
+  </ul>
+</section>
+
+<section>
+  <h2 class="md-headline">
+    <a href="https://vuematerial.github.io/v0.6.1">v0.6.1 - Hotfixes</a>
+  </h2>
+  <h3 class="md-title">Fixes:</h3>
+  <ul>
+    <li>fix bundle removing internal components at build time <a href="https://github.com/marcosmoura/vue-material/issues/273" target="_blank" rel="noopener">#273</a> <a href="https://github.com/marcosmoura/vue-material/issues/309" target="_blank" rel="noopener">#309</a></li>
+    <li>fix md-icon-button with pallete colors inside cards <a href="https://github.com/marcosmoura/vue-material/issues/307" target="_blank" rel="noopener">#307</a></li>
+  </ul>
+</section>
+
+<section>
+  <h2 class="md-headline">
+    <a href="https://vuematerial.github.io/v0.6.0">v0.6.0 - New components and Improved performance</a>
+  </h2>
+
+  <h3 class="md-title">New Components:</h3>
+  <ul>
+    <li>Chips</li>
+    <li>File</li>
+    <li>Image Loader</li>
+    <li>Progress</li>
+    <li>Snackbar</li>
+  </ul>
+
+  <h3 class="md-title">New Features:</h3>
+  <ul>
+    <li>
+      <h4 class="md-body-2">SVG and PNG ICONS!!!</h4>
+      <p>Another long time requested feature. Use external SVG icons inside the md-icon component with a lazy load and cache features.</p>
+    </li>
+
+    <li>
+      <h4 class="md-body-2">New icon sizes</h4>
+      <p>1x, 2x, 3x, 4x or 5x. Choose your icon size!</p>
+    </li>
+
+    <li>
+      <h4 class="md-body-2">New ripple component</h4>
+      <p>A more performant ripple component with great support for touch devices.</p>
+    </li>
+
+    <li>
+      <h4 class="md-body-2">Disable ripple globally</h4>
+      <p>If you don't want that extra effect you can disable the ripple globally calling the API. Just follow the <a href="/#/components/ink-ripple">guide</a>.</p>
+    </li>
+
+    <li>
+      <h4 class="md-body-2">Reduced file size</h4>
+      <p>Now Vue Material is ~20% lighter</p>
+    </li>
+
+    <li>
+      <h4 class="md-body-2">Responsive md-offset on md-layout</h4>
+      <p>md-flex-offset-{type}</p>
+    </li>
+
+    <li>
+      <h4 class="md-body-2">New md-layout alignment options with md-align</h4>
+      <p>Apply an alignment to the container. Accepts <code>start</code>|<code>center</code>|<code>end</code> Example: <code>md-align="end"</code></p>
+    </li>
+  </ul>
+
+  <h3 class="md-title">Breaking changes:</h3>
+  <ul>
+    <li>
+      <p>The old v-md-ink-ripple is now removed</p>
+    </li>
+  </ul>
+
+  <h3 class="md-title">Fixes:</h3>
+  <ul>
+    <li>recalculate indicator tab when parent changes <a href="https://github.com/marcosmoura/vue-material/issues/258" target="_blank" rel="noopener">#258</a></li>
+    <li>fix md-input-container not reseting when model is null <a href="https://github.com/marcosmoura/vue-material/issues/277" target="_blank" rel="noopener">#277</a> (Thanks to <a href="https://github.com/korylprince" target="_blank" rel="noopener">@korylprince</a>)</li>
+    <li>fix expansion lists size on resize <a href="https://github.com/marcosmoura/vue-material/issues/278" target="_blank" rel="noopener">#278</a></li>
+    <li>set empty file when click on cancel button in md-file <a href="https://github.com/marcosmoura/vue-material/issues/290" target="_blank" rel="noopener">#290</a> (Thanks to <a href="https://github.com/korylprince" target="_blank" rel="noopener">@korylprince</a>)</li>
+  </ul>
+</section>
+
+<section>
+  <h2 class="md-headline">
+    <a href="https://vuematerial.github.io/v0.5.1">v0.5.2 - Bugfixes</a>
   </h2>
   <h3 class="md-title">Fixes:</h3>
   <ul>

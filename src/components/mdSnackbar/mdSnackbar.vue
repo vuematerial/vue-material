@@ -1,5 +1,5 @@
 <template>
-  <div class="md-snackbar" :class="[themeClass, classes]" :id="snackbarId">
+  <div class="md-snackbar" :class="[themeClass, classes]" :id="snackbarId" @mouseenter="pauseTimeout" @mouseleave="resumeTimeout">
     <div class="md-snackbar-container" ref="container">
       <div class="md-snackbar-content">
         <slot></slot>
@@ -68,7 +68,15 @@
     },
     methods: {
       removeElement() {
-        this.rootElement.removeChild(this.snackbarElement);
+        if (document.body.contains(this.snackbarElement)) {
+          const activeRipple = this.snackbarElement.querySelector('.md-ripple.md-active');
+
+          if (activeRipple) {
+            activeRipple.classList.remove('md-active');
+          }
+
+          document.body.removeChild(this.snackbarElement);
+        }
       },
       open() {
         if (manager.current) {
@@ -76,21 +84,18 @@
         }
 
         manager.current = this;
-        this.rootElement.appendChild(this.snackbarElement);
+        document.body.appendChild(this.snackbarElement);
         window.getComputedStyle(this.$refs.container).backgroundColor;
         this.active = true;
         this.$emit('open');
         this.closeTimeout = window.setTimeout(this.close, this.mdDuration);
+        this.timeoutStartedAt = Date.now();
       },
       close() {
         if (this.$refs.container) {
           const removeElement = () => {
             this.$refs.container.removeEventListener(transitionEndEventName, removeElement);
-
-            if (this.rootElement.contains(this.snackbarElement)) {
-              this.snackbarElement.querySelector('.md-ripple').classList.remove('md-active');
-              this.removeElement();
-            }
+            this.removeElement();
           };
 
           manager.current = null;
@@ -99,14 +104,25 @@
           this.$refs.container.removeEventListener(transitionEndEventName, removeElement);
           this.$refs.container.addEventListener(transitionEndEventName, removeElement);
           window.clearTimeout(this.closeTimeout);
+          this.pendingDuration = this.mdDuration;
         }
+      },
+      pauseTimeout() {
+        this.pendingDuration = this.pendingDuration - (Date.now() - this.timeoutStartedAt);
+        this.timeoutStartedAt = 0;
+        window.clearTimeout(this.closeTimeout);
+      },
+      resumeTimeout() {
+        this.timeoutStartedAt = Date.now();
+        this.closeTimeout = window.setTimeout(this.close, this.pendingDuration);
       }
     },
     mounted() {
       this.$nextTick(() => {
-        this.rootElement = this.$root.$el;
         this.snackbarElement = this.$el;
         this.snackbarElement.parentNode.removeChild(this.snackbarElement);
+        this.timeoutStartedAt = 0;
+        this.pendingDuration = this.mdDuration;
       });
     },
     beforeDestroy() {

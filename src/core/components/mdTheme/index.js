@@ -1,6 +1,6 @@
 import palette from './palette';
 import rgba from './rgba';
-import MdTheme from './mdTheme';
+import mdTheme from './mdTheme';
 
 const VALID_THEME_TYPE = ['primary', 'accent', 'background', 'warn', 'hue-1', 'hue-2', 'hue-3'];
 const DEFAULT_THEME_COLORS = {
@@ -43,8 +43,9 @@ const createNewStyleElement = (style, name) => {
 };
 
 let registeredThemes = [];
+let registeredPrimaryColor = {};
 
-const parseStyle = (style, theme) => {
+const parseStyle = (style, theme, name) => {
   VALID_THEME_TYPE.forEach((type) => {
     style = style.replace(RegExp('(' + type.toUpperCase() + ')-(COLOR|CONTRAST)-?(A?\\d*)-?(\\d*\\.?\\d+)?', 'g'), (match, paletteType, colorType, hue, opacity) => {
       let color;
@@ -70,6 +71,10 @@ const parseStyle = (style, theme) => {
           } else if (type === 'background') {
             colorVariant = 50;
           }
+        }
+
+        if (type === 'primary') {
+          registeredPrimaryColor[name] = color[colorVariant];
         }
 
         if (opacity) {
@@ -102,7 +107,7 @@ const registerTheme = (theme, name, themeStyles) => {
   let parsedStyle = [];
 
   themeStyles.forEach((style) => {
-    parsedStyle.push(parseStyle(style, theme));
+    parsedStyle.push(parseStyle(style, theme, name));
   });
 
   createNewStyleElement(parsedStyle.join('\n'), name);
@@ -117,11 +122,26 @@ const registerAllThemes = (themes, themeStyles) => {
   });
 };
 
+const changeHtmlMetaColor = (color) => {
+  let themeColorElement = document.querySelector('meta[name="theme-color"]');
+
+  if (themeColorElement) {
+    themeColorElement.setAttribute('content', color);
+  } else {
+    themeColorElement = document.createElement('meta');
+    themeColorElement.setAttribute('name', 'theme-color');
+    themeColorElement.setAttribute('content', color);
+
+    document.head.appendChild(themeColorElement);
+  }
+};
+
 export default function install(Vue) {
   Vue.material = new Vue({
     data: () => ({
       styles: [],
-      currentTheme: null
+      currentTheme: null,
+      inkRipple: true
     }),
     methods: {
       registerTheme(name, spec) {
@@ -136,6 +156,7 @@ export default function install(Vue) {
         registerAllThemes(theme, this.styles);
       },
       applyCurrentTheme(themeName) {
+        changeHtmlMetaColor(registeredPrimaryColor[themeName]);
         document.body.classList.remove('md-theme-' + this.currentTheme);
         document.body.classList.add('md-theme-' + themeName);
         this.currentTheme = themeName;
@@ -156,7 +177,7 @@ export default function install(Vue) {
     }
   });
 
-  Vue.component('md-theme', MdTheme);
+  Vue.component('md-theme', mdTheme);
 
   Vue.prototype.$material = Vue.material;
 }

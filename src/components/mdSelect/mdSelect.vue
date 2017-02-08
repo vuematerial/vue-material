@@ -1,7 +1,7 @@
 <template>
   <div class="md-select" :class="[themeClass, classes]">
-    <md-menu :md-close-on-select="!multiple">
-      <span class="md-select-value" md-menu-trigger ref="value">{{ selectedText || multipleText || placeholder }}</span>
+    <md-menu :md-close-on-select="!multiple" @opened="$emit('open')" @closed="$emit('close')">
+      <span class="md-select-value" md-menu-trigger ref="value">{{ selectedText || placeholder }}</span>
 
       <md-menu-content class="md-select-content" :class="[themeClass, contentClasses]">
         <slot></slot>
@@ -9,7 +9,8 @@
     </md-menu>
 
     <select :name="name" :id="id" :required="required" :disabled="disabled" tabindex="-1">
-      <option :value="value">{{ value }}</option>
+      <option selected="true" :value="selectedValue" v-if="!multiple">{{ selectedText }}</option>
+      <option selected="true" v-for="option in multipleOptions" v-if="option.value" :value="option.value">{{ option.text }}</option>
     </select>
   </div>
 </template>
@@ -37,7 +38,6 @@
       return {
         selectedValue: null,
         selectedText: null,
-        multipleText: null,
         multipleOptions: {},
         options: {},
         optionsAmount: 0
@@ -129,7 +129,7 @@
         this.selectedValue = output.value;
         this.selectedText = output.text;
 
-        if (this.selectedText && this.parentContainer) {
+        if (this.parentContainer) {
           this.parentContainer.setValue(this.selectedText);
         }
       },

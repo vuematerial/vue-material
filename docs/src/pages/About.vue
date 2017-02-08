@@ -22,12 +22,12 @@
 
         <p>Vue Material supports the latest version of all Browsers. This means:</p>
         <ul>
-          <li>Google Chrome 50+</li>
-          <li>Firefox 48+</li>
-          <li>Safari 9+</li>
-          <li>Opera 40+</li>
+          <li>Google Chrome 52+</li>
+          <li>Firefox 48+ </li>
+          <li>Safari 9+ </li>
+          <li>Opera 38+ </li>
+          <li>Edge 12+ </li>
           <li>IE 11</li>
-          <li>Edge</li>
         </ul>
       </section>
 
@@ -55,10 +55,6 @@
           <li>
             <a href="https://www.npmjs.com/package/element.scrollintoviewifneeded-polyfill" rel="noopener" target="_blank">element.scrollintoviewifneeded-polyfill</a>
           </li>
-
-          <li>
-            <a href="https://github.com/lazd/scopedQuerySelectorShim" rel="noopener" target="_blank">scopedQuerySelectorShim</a>
-          </li>
         </ul>
       </section>
 
@@ -70,7 +66,7 @@
   </page-content>
 </template>
 
-<style lang="scss" scoped>
+<style lang="sass" scoped>
   section {
     max-width: 960px;
 

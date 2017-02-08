@@ -7,6 +7,7 @@ $input-size: 32px;
   min-height: 48px;
   margin: 4px 0 24px;
   padding-top: 16px;
+  display: flex;
   position: relative;
 
   &:after {
@@ -38,6 +39,7 @@ $input-size: 32px;
     height: $input-size;
     padding: 0;
     display: block;
+    flex: 1;
     border: none;
     background: none;
     transition: $swift-ease-out;
@@ -57,6 +59,15 @@ $input-size: 32px;
       text-shadow: none;
       -webkit-text-fill-color: initial;
     }
+
+    ~ .md-icon:not(.md-icon-delete) {
+      margin-left: 12px;
+
+      &:after {
+        right: 0;
+        left: auto;
+      }
+    }
   }
 
   textarea {
@@ -67,21 +78,52 @@ $input-size: 32px;
     line-height: 1.3em;
   }
 
-  .md-error {
-    height: 20px;
-    display: block !important;
-    position: absolute;
-    opacity: 0;
-    transform: translate3d(0, -8px, 0);
-    transition: $swift-ease-in;
-    font-size: 12px;
-  }
-
+  .md-error,
   .md-count {
     height: 20px;
     position: absolute;
-    right: 0;
+    bottom: -22px;
     font-size: 12px;
+  }
+
+  .md-error {
+    display: block !important;
+    left: 0;
+    opacity: 0;
+    transform: translate3d(0, -8px, 0);
+    transition: $swift-ease-in;
+  }
+
+  .md-count {
+    right: 0;
+  }
+
+  .md-icon:not(.md-icon-delete) {
+    margin: 4px auto;
+    color: rgba(#000, .54);
+    transition: $swift-ease-out;
+
+    &:after {
+      width: 36px;
+      height: 2px;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      z-index: 2;
+      content: "";
+    }
+
+    ~ {
+      label {
+        left: 36px;
+      }
+
+      .md-input,
+      .md-textarea,
+      .md-file {
+        margin-left: 12px;
+      }
+    }
   }
 }
 

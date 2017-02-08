@@ -8,15 +8,15 @@ import mdDialogPrompt from './presets/mdDialogPrompt.vue';
 import mdDialogTheme from './mdDialog.theme';
 
 export default function install(Vue) {
-  Vue.component('md-dialog', Vue.extend(mdDialog));
-  Vue.component('md-dialog-title', Vue.extend(mdDialogTitle));
-  Vue.component('md-dialog-content', Vue.extend(mdDialogContent));
-  Vue.component('md-dialog-actions', Vue.extend(mdDialogActions));
+  Vue.component('md-dialog', mdDialog);
+  Vue.component('md-dialog-title', mdDialogTitle);
+  Vue.component('md-dialog-content', mdDialogContent);
+  Vue.component('md-dialog-actions', mdDialogActions);
 
   /* Presets */
-  Vue.component('md-dialog-alert', Vue.extend(mdDialogAlert));
-  Vue.component('md-dialog-confirm', Vue.extend(mdDialogConfirm));
-  Vue.component('md-dialog-prompt', Vue.extend(mdDialogPrompt));
+  Vue.component('md-dialog-alert', mdDialogAlert);
+  Vue.component('md-dialog-confirm', mdDialogConfirm);
+  Vue.component('md-dialog-prompt', mdDialogPrompt);
 
   Vue.material.styles.push(mdDialogTheme);
 }

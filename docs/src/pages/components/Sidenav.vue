@@ -7,6 +7,36 @@
 
       <div slot="api">
         <api-table name="md-sidenav">
+          <md-table slot="properties">
+            <md-table-header>
+              <md-table-row>
+                <md-table-head>Name</md-table-head>
+                <md-table-head>Type</md-table-head>
+                <md-table-head>Description</md-table-head>
+              </md-table-row>
+            </md-table-header>
+
+            <md-table-body>
+              <md-table-row>
+                <md-table-cell>md-swipeable</md-table-cell>
+                <md-table-cell><code>Boolean</code></md-table-cell>
+                <md-table-cell>Enable the swipe functionality. Default <code>false</code></md-table-cell>
+              </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>md-swipe-threshold</md-table-cell>
+                <md-table-cell><code>Number</code></md-table-cell>
+                <md-table-cell>Set the initial threshold for the swipe when it's closed. Default <code>15</code></md-table-cell>
+              </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>md-swipe-distance</md-table-cell>
+                <md-table-cell><code>Number</code></md-table-cell>
+                <md-table-cell>Set the swipe distance needed to open/close the sidenav. Default <code>100</code></md-table-cell>
+              </md-table-row>
+            </md-table-body>
+          </md-table>
+
           <md-table slot="classes">
             <md-table-header>
               <md-table-row>
@@ -90,7 +120,7 @@
           <div slot="demo">
             <div class="phone-viewport">
               <md-toolbar>
-                <md-button class="md-icon-button" @click="toggleLeftSidenav">
+                <md-button class="md-icon-button" @click.native="toggleLeftSidenav">
                   <md-icon>menu</md-icon>
                 </md-button>
 
@@ -98,11 +128,11 @@
               </md-toolbar>
 
               <div>
-                <md-button class="md-raised md-accent" @click="toggleRightSidenav">Toggle right</md-button>
+                <md-button class="md-raised md-accent" @click.native="toggleRightSidenav">Toggle right</md-button>
                 <p>Open console to see the events</p>
               </div>
 
-              <md-sidenav class="md-left" ref="leftSidenav" @open="open('Left')" @close="close('Left')">
+              <md-sidenav class="md-left" ref="leftSidenav" @open="open('Left')" @close="close('Left')" md-swipeable>
                 <md-toolbar class="md-large">
                   <div class="md-toolbar-container">
                     <h3 class="md-title">Sidenav content</h3>
@@ -119,7 +149,7 @@
                   </div>
                 </md-toolbar>
 
-                <md-button class="md-raised md-accent" @click="closeRightSidenav">Close</md-button>
+                <md-button class="md-raised md-accent" @click.native="closeRightSidenav">Close</md-button>
               </md-sidenav>
             </div>
           </div>
@@ -128,7 +158,7 @@
             <code-block lang="xml">
               &lt;div class=&quot;phone-viewport&quot;&gt;
                 &lt;md-toolbar&gt;
-                  &lt;md-button class=&quot;md-icon-button&quot; @click=&quot;toggleLeftSidenav&quot;&gt;
+                  &lt;md-button class=&quot;md-icon-button&quot; @click.native=&quot;toggleLeftSidenav&quot;&gt;
                     &lt;md-icon&gt;menu&lt;/md-icon&gt;
                   &lt;/md-button&gt;
 
@@ -136,7 +166,7 @@
                 &lt;/md-toolbar&gt;
 
                 &lt;div&gt;
-                  &lt;md-button class=&quot;md-raised md-accent&quot; @click=&quot;toggleRightSidenav&quot;&gt;Toggle right&lt;/md-button&gt;
+                  &lt;md-button class=&quot;md-raised md-accent&quot; @click.native=&quot;toggleRightSidenav&quot;&gt;Toggle right&lt;/md-button&gt;
                   &lt;p&gt;Open console to see the events&lt;/p&gt;
                 &lt;/div&gt;
 
@@ -157,7 +187,7 @@
                     &lt;/div&gt;
                   &lt;/md-toolbar&gt;
 
-                  &lt;md-button class=&quot;md-raised md-accent&quot; @click=&quot;closeRightSidenav&quot;&gt;Close&lt;/md-button&gt;
+                  &lt;md-button class=&quot;md-raised md-accent&quot; @click.native=&quot;closeRightSidenav&quot;&gt;Close&lt;/md-button&gt;
                 &lt;/md-sidenav&gt;
               &lt;/div&gt;
             </code-block>
@@ -190,7 +220,7 @@
   </page-content>
 </template>
 
-<style lang="scss" scoped>
+<style lang="sass" scoped>
   .phone-viewport p {
     padding: 8px 16px;
   }

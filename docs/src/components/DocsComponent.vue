@@ -22,7 +22,7 @@
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="sass" scoped>
   .component-docs {
     position: relative;
     z-index: 1;

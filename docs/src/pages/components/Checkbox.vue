@@ -89,20 +89,20 @@
 
         <example-box card-title="Themes">
           <div slot="demo">
-            <md-checkbox md-name="orange"  id="my-test5" name="my-test5" v-model="checkbox2" class="md-primary">Primary Orange</md-checkbox>
-            <md-checkbox md-name="green"  id="my-test6" name="my-test6" v-model="checkbox2" class="md-primary">Primary Green</md-checkbox>
-            <md-checkbox md-name="light-blue" id="my-test7" name="my-test7" v-model="checkbox2" class="md-primary">Primary Light Blue</md-checkbox>
-            <md-checkbox md-name="indigo"  id="my-test8" name="my-test8" v-model="checkbox2" class="md-primary">Primary Indigo</md-checkbox>
-            <md-checkbox md-name="brown"  id="my-test9" name="my-test9" v-model="checkbox2" class="md-primary" disabled>Primary Brown Disabled</md-checkbox>
+            <md-checkbox md-theme="orange"  id="my-test5" name="my-test5" v-model="checkbox2" class="md-primary">Primary Orange</md-checkbox>
+            <md-checkbox md-theme="green"  id="my-test6" name="my-test6" v-model="checkbox2" class="md-primary">Primary Green</md-checkbox>
+            <md-checkbox md-theme="light-blue" id="my-test7" name="my-test7" v-model="checkbox2" class="md-primary">Primary Light Blue</md-checkbox>
+            <md-checkbox md-theme="indigo"  id="my-test8" name="my-test8" v-model="checkbox2" class="md-primary">Primary Indigo</md-checkbox>
+            <md-checkbox md-theme="brown"  id="my-test9" name="my-test9" v-model="checkbox2" class="md-primary" disabled>Primary Brown Disabled</md-checkbox>
           </div>
 
           <div slot="code">
             <code-block lang="xml">
-              &lt;md-checkbox md-name=&quot;orange&quot;  id=&quot;my-test5&quot; name=&quot;my-test5&quot; v-model=&quot;checkbox2&quot; class=&quot;md-primary&quot;&gt;Primary Orange&lt;/md-checkbox&gt;
-              &lt;md-checkbox md-name=&quot;green&quot;  id=&quot;my-test6&quot; name=&quot;my-test6&quot; v-model=&quot;checkbox2&quot; class=&quot;md-primary&quot;&gt;Primary Green&lt;/md-checkbox&gt;
-              &lt;md-checkbox md-name=&quot;light-blue&quot; id=&quot;my-test7&quot; name=&quot;my-test7&quot; v-model=&quot;checkbox2&quot; class=&quot;md-primary&quot;&gt;Primary Light Blue&lt;/md-checkbox&gt;
-              &lt;md-checkbox md-name=&quot;indigo&quot;  id=&quot;my-test8&quot; name=&quot;my-test8&quot; v-model=&quot;checkbox2&quot; class=&quot;md-primary&quot;&gt;Primary Indigo&lt;/md-checkbox&gt;
-              &lt;md-checkbox md-name=&quot;brown&quot;  id=&quot;my-test9&quot; name=&quot;my-test9&quot; v-model=&quot;checkbox2&quot; class=&quot;md-primary&quot; disabled&gt;Primary Brown Disabled&lt;/md-checkbox&gt;
+              &lt;md-checkbox md-theme=&quot;orange&quot;  id=&quot;my-test5&quot; name=&quot;my-test5&quot; v-model=&quot;checkbox2&quot; class=&quot;md-primary&quot;&gt;Primary Orange&lt;/md-checkbox&gt;
+              &lt;md-checkbox md-theme=&quot;green&quot;  id=&quot;my-test6&quot; name=&quot;my-test6&quot; v-model=&quot;checkbox2&quot; class=&quot;md-primary&quot;&gt;Primary Green&lt;/md-checkbox&gt;
+              &lt;md-checkbox md-theme=&quot;light-blue&quot; id=&quot;my-test7&quot; name=&quot;my-test7&quot; v-model=&quot;checkbox2&quot; class=&quot;md-primary&quot;&gt;Primary Light Blue&lt;/md-checkbox&gt;
+              &lt;md-checkbox md-theme=&quot;indigo&quot;  id=&quot;my-test8&quot; name=&quot;my-test8&quot; v-model=&quot;checkbox2&quot; class=&quot;md-primary&quot;&gt;Primary Indigo&lt;/md-checkbox&gt;
+              &lt;md-checkbox md-theme=&quot;brown&quot;  id=&quot;my-test9&quot; name=&quot;my-test9&quot; v-model=&quot;checkbox2&quot; class=&quot;md-primary&quot; disabled&gt;Primary Brown Disabled&lt;/md-checkbox&gt;
             </code-block>
           </div>
         </example-box>

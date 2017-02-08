@@ -27,8 +27,13 @@ body {
   @extend .md-body-1;
 }
 
-[tabindex='-1']:focus {
-  outline: none;
+
+
+/*  Fluid Media
+   ========================================================================== */
+
+ul:not(.md-list) > li + li {
+  margin-top: 8px;
 }
 
 
@@ -44,9 +49,12 @@ canvas,
 video,
 iframe {
   max-width: 100%;
-  height: auto;
   font-style: italic;
   vertical-align: middle;
+
+  &:not(.md-image) {
+    height: auto;
+  }
 }
 
 

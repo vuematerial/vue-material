@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <md-sidenav class="main-sidebar md-left md-fixed" ref="main-sidebar">
+    <md-sidenav class="main-sidebar md-left md-fixed" md-swipeable ref="main-sidebar">
       <md-toolbar class="vue-material-logo" md-theme="white">
         <router-link exact to="/">
           <img :src="logo" alt="Vue">
@@ -64,11 +64,27 @@
                 </md-list-item>
 
                 <md-list-item class="md-inset">
+                  <router-link exact to="/components/chips">Chips</router-link>
+                </md-list-item>
+
+                <md-list-item class="md-inset">
                   <router-link exact to="/components/dialog">Dialog</router-link>
                 </md-list-item>
 
                 <md-list-item class="md-inset">
+                  <router-link exact to="/components/file">File</router-link>
+                </md-list-item>
+
+                <md-list-item class="md-inset">
                   <router-link exact to="/components/icon">Icon</router-link>
+                </md-list-item>
+
+                <md-list-item class="md-inset">
+                  <router-link exact to="/components/image-loader">Image Loader</router-link>
+                </md-list-item>
+
+                <md-list-item class="md-inset">
+                  <router-link exact to="/components/ink-ripple">Ink Ripple</router-link>
                 </md-list-item>
 
                 <md-list-item class="md-inset">
@@ -84,11 +100,11 @@
                 </md-list-item>
 
                 <md-list-item class="md-inset">
-                  <router-link exact to="/components/radio">Radio</router-link>
+                  <router-link exact to="/components/progress">Progress</router-link>
                 </md-list-item>
 
                 <md-list-item class="md-inset">
-                  <router-link exact to="/components/ink-ripple">Ink Ripple</router-link>
+                  <router-link exact to="/components/radio">Radio</router-link>
                 </md-list-item>
 
                 <md-list-item class="md-inset">
@@ -101,6 +117,10 @@
 
                 <md-list-item class="md-inset">
                   <router-link exact to="/components/snackbar">Snackbar</router-link>
+                </md-list-item>
+
+                <md-list-item class="md-inset">
+                  <router-link exact to="/components/speed-dial">Speed Dial</router-link>
                 </md-list-item>
 
                 <md-list-item class="md-inset">
@@ -162,6 +182,8 @@
           </md-list-item>
         </md-list>
       </div>
+
+      <release-version></release-version>
     </md-sidenav>
 
     <transition name="md-router" appear>
@@ -170,7 +192,7 @@
   </div>
 </template>
 
-<style lang="scss">
+<style lang="sass">
   @import '../../src/core/stylesheets/variables.scss';
 
   $sizebar-size: 280px;
@@ -206,6 +228,7 @@
       width: $sizebar-size;
       display: flex;
       flex-flow: column;
+      overflow: hidden;
 
       @media (min-width: 1281px) {
         top: 0;
@@ -253,6 +276,7 @@
 
     .main-sidebar-links {
       overflow: auto;
+      flex: 1;
 
       .md-inset .md-list-item-container {
         padding-left: 36px;
@@ -261,6 +285,24 @@
       .md-list-item-container {
         font-size: 14px;
         font-weight: 500;
+      }
+    }
+
+    .release-version {
+      padding: 8px 8px 8px 16px;
+      border-top: 1px solid rgba(#000, .12);
+      display: none;
+
+      @media (max-width: 480px) {
+        display: block;
+      }
+
+      > div {
+        justify-content: center;
+      }
+
+      .md-select:after {
+        color: rgba(#000, .87);
       }
     }
   }
