@@ -80,11 +80,12 @@
   .md-input-container .md-count {
     height: 20px;
     position: absolute;
-    top: 50px;
+    bottom: -22px;
     font-size: 12px;
 }
 .md-input-container .md-error {
     display: block !important;
+    left: 0;
     opacity: 0;
     transform: translate3d(0, -8px, 0);
     transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);

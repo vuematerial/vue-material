@@ -11,6 +11,7 @@
   right: 0;
   left: 0;
   z-index: 120;
+  pointer-events: none;
   transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
   transition-property: margin-top, margin-bottom;
 }
@@ -83,6 +84,7 @@
   min-height: 48px;
   padding: 14px 24px;
   overflow: hidden;
+  pointer-events: auto;
   border-radius: 2px;
   background-color: #323232;
   transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);

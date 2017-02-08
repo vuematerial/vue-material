@@ -97,6 +97,9 @@
 .md-toolbar .md-title:first-child {
       margin-left: 8px;
 }
+.md-toolbar .md-title + .md-input-container {
+      margin-left: 24px;
+}
 .md-toolbar .md-list {
     padding: 0;
     margin: 0 -8px;

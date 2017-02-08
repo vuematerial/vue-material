@@ -2,7 +2,7 @@
   <md-list-item
     class="md-menu-item"
     :class="classes"
-    @click="close"
+    @click.native="close"
     :disabled="disabled">
     <slot></slot>
   </md-list-item>

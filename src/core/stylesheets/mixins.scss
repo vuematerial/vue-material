@@ -75,9 +75,3 @@
     @content;
   }
 }
-
-@mixin layout-xlarge-and-up {
-  @media (min-width: #{$breakpoint-large - 16px}) {
-    @content;
-  }
-}
