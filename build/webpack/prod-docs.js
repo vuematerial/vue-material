@@ -6,6 +6,8 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import OptimizeJsPlugin from 'optimize-js-plugin';
+import OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin';
+import mediaPacker from 'css-mqpacker';
 import config from '../config';
 import baseConfig from './base';
 
@@ -37,7 +39,8 @@ const conf = merge(baseConfig, {
           postcss: [
             autoprefixer({
               browsers: ['last 3 versions', 'not IE < 10']
-            })
+            }),
+            mediaPacker()
           ]
         }
       },
@@ -130,7 +133,8 @@ const conf = merge(baseConfig, {
     new webpack.optimize.CommonsChunkPlugin({
       name: 'manifest',
       chunks: ['vendor']
-    })
+    }),
+    new OptimizeCssAssetsPlugin()
   ]
 });
 

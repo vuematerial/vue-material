@@ -5,6 +5,8 @@ import merge from 'webpack-merge';
 import autoprefixer from 'autoprefixer';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import OptimizeJsPlugin from 'optimize-js-plugin';
+import OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin';
+import mediaPacker from 'css-mqpacker';
 import config from '../config';
 import baseConfig from './base';
 
@@ -54,7 +56,8 @@ export default merge(baseConfig, {
           postcss: [
             autoprefixer({
               browsers: ['last 3 versions', 'not IE < 10']
-            })
+            }),
+            mediaPacker()
           ]
         }
       },
@@ -109,6 +112,7 @@ export default merge(baseConfig, {
       raw: true,
       entryOnly: true
     }),
-    new ExtractTextPlugin('[name].css')
+    new ExtractTextPlugin('[name].css'),
+    new OptimizeCssAssetsPlugin()
   ]
 });
