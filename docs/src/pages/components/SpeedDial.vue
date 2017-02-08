@@ -108,7 +108,35 @@
 
           <div slot="code">
             <code-block lang="xml">
+              &lt;md-speed-dial md-open=&quot;hover&quot; class=&quot;md-fab-bottom-left&quot; md-theme=&quot;purple&quot;&gt;
+                &lt;md-button class=&quot;md-fab&quot; md-fab-trigger&gt;
+                  &lt;md-icon md-icon-morph&gt;close&lt;/md-icon&gt;
+                  &lt;md-icon&gt;share&lt;/md-icon&gt;
+                &lt;/md-button&gt;
 
+                &lt;md-button class=&quot;md-fab md-primary md-mini md-clean&quot;&gt;
+                  &lt;md-icon&gt;email&lt;/md-icon&gt;
+                &lt;/md-button&gt;
+
+                &lt;md-button class=&quot;md-fab md-primary md-mini md-clean&quot;&gt;
+                  &lt;md-icon&gt;content_copy&lt;/md-icon&gt;
+                &lt;/md-button&gt;
+              &lt;/md-speed-dial&gt;
+
+              &lt;md-speed-dial md-mode=&quot;scale&quot; class=&quot;md-fab-bottom-right&quot;&gt;
+                &lt;md-button class=&quot;md-fab&quot; md-fab-trigger&gt;
+                  &lt;md-icon md-icon-morph&gt;close&lt;/md-icon&gt;
+                  &lt;md-icon&gt;share&lt;/md-icon&gt;
+                &lt;/md-button&gt;
+
+                &lt;md-button class=&quot;md-fab md-mini md-clean&quot;&gt;
+                  &lt;md-icon&gt;email&lt;/md-icon&gt;
+                &lt;/md-button&gt;
+
+                &lt;md-button class=&quot;md-fab md-mini md-clean&quot;&gt;
+                  &lt;md-icon&gt;content_copy&lt;/md-icon&gt;
+                &lt;/md-button&gt;
+              &lt;/md-speed-dial&gt;
             </code-block>
           </div>
         </example-box>
@@ -178,7 +206,65 @@
 
           <div slot="code">
             <code-block lang="xml">
+              &lt;md-speed-dial md-open=&quot;hover&quot; md-direction=&quot;bottom&quot; class=&quot;md-fab-top-left&quot; md-theme=&quot;light-blue&quot;&gt;
+                &lt;md-button class=&quot;md-fab&quot; md-fab-trigger&gt;
+                  &lt;md-icon md-icon-morph&gt;event&lt;/md-icon&gt;
+                  &lt;md-icon&gt;add&lt;/md-icon&gt;
+                &lt;/md-button&gt;
 
+                &lt;md-button class=&quot;md-fab md-primary md-mini md-clean&quot;&gt;
+                  &lt;md-icon&gt;note_add&lt;/md-icon&gt;
+                &lt;/md-button&gt;
+
+                &lt;md-button class=&quot;md-fab md-primary md-mini md-clean&quot;&gt;
+                  &lt;md-icon&gt;alarm_add&lt;/md-icon&gt;
+                &lt;/md-button&gt;
+              &lt;/md-speed-dial&gt;
+
+              &lt;md-speed-dial md-open=&quot;hover&quot; md-direction=&quot;left&quot; class=&quot;md-fab-top-right&quot; md-theme=&quot;light-blue&quot;&gt;
+                &lt;md-button class=&quot;md-fab&quot; md-fab-trigger&gt;
+                  &lt;md-icon md-icon-morph&gt;event&lt;/md-icon&gt;
+                  &lt;md-icon&gt;add&lt;/md-icon&gt;
+                &lt;/md-button&gt;
+
+                &lt;md-button class=&quot;md-fab md-primary md-mini md-clean&quot;&gt;
+                  &lt;md-icon&gt;note_add&lt;/md-icon&gt;
+                &lt;/md-button&gt;
+
+                &lt;md-button class=&quot;md-fab md-primary md-mini md-clean&quot;&gt;
+                  &lt;md-icon&gt;alarm_add&lt;/md-icon&gt;
+                &lt;/md-button&gt;
+              &lt;/md-speed-dial&gt;
+
+              &lt;md-speed-dial md-open=&quot;hover&quot; md-direction=&quot;top&quot; class=&quot;md-fab-bottom-right&quot; md-theme=&quot;light-blue&quot;&gt;
+                &lt;md-button class=&quot;md-fab&quot; md-fab-trigger&gt;
+                  &lt;md-icon md-icon-morph&gt;event&lt;/md-icon&gt;
+                  &lt;md-icon&gt;add&lt;/md-icon&gt;
+                &lt;/md-button&gt;
+
+                &lt;md-button class=&quot;md-fab md-primary md-mini md-clean&quot;&gt;
+                  &lt;md-icon&gt;note_add&lt;/md-icon&gt;
+                &lt;/md-button&gt;
+
+                &lt;md-button class=&quot;md-fab md-primary md-mini md-clean&quot;&gt;
+                  &lt;md-icon&gt;alarm_add&lt;/md-icon&gt;
+                &lt;/md-button&gt;
+              &lt;/md-speed-dial&gt;
+
+              &lt;md-speed-dial md-open=&quot;hover&quot; md-direction=&quot;right&quot; class=&quot;md-fab-bottom-left&quot; md-theme=&quot;light-blue&quot;&gt;
+                &lt;md-button class=&quot;md-fab&quot; md-fab-trigger&gt;
+                  &lt;md-icon md-icon-morph&gt;event&lt;/md-icon&gt;
+                  &lt;md-icon&gt;add&lt;/md-icon&gt;
+                &lt;/md-button&gt;
+
+                &lt;md-button class=&quot;md-fab md-primary md-mini md-clean&quot;&gt;
+                  &lt;md-icon&gt;note_add&lt;/md-icon&gt;
+                &lt;/md-button&gt;
+
+                &lt;md-button class=&quot;md-fab md-primary md-mini md-clean&quot;&gt;
+                  &lt;md-icon&gt;alarm_add&lt;/md-icon&gt;
+                &lt;/md-button&gt;
+              &lt;/md-speed-dial&gt;
             </code-block>
           </div>
         </example-box>
@@ -192,11 +278,3 @@
     height: 250px;
   }
 </style>
-
-<script>
-  export default {
-    data: () => ({
-
-    })
-  };
-</script>
