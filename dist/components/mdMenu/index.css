@@ -14,12 +14,12 @@
   overflow-x: hidden;
   overflow-y: auto;
   position: absolute;
-  z-index: 120;
+  z-index: 131;
   transform: scale(0.9, 0.85) translateZ(0);
   border-radius: 2px;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12);
   opacity: 0;
-  transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.25s cubic-bezier(0.55, 0, 0.55, 0.2), margin 0.2s cubic-bezier(0.55, 0, 0.55, 0.2), transform 0s 0.25s cubic-bezier(0.55, 0, 0.55, 0.2);
+  transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.3s cubic-bezier(0.55, 0, 0.55, 0.2), margin 0.3s cubic-bezier(0.55, 0, 0.55, 0.2), transform 0s 0.4s cubic-bezier(0.55, 0, 0.55, 0.2);
   will-change: transform, opacity, width;
 }
 .md-menu-content.md-direction-bottom-right {
@@ -82,15 +82,15 @@
     pointer-events: auto;
     opacity: 1;
     transform: scale(1) translateZ(0);
-    transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.35s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.25s 0.05s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 .md-menu-content.md-active .md-list {
       opacity: 1;
-      transition: opacity 0.2s 0.15s cubic-bezier(0.25, 0.8, 0.25, 1);
+      transition: opacity 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 .md-menu-content .md-list {
     opacity: 0;
-    transition: opacity 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: opacity 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 .md-menu-item {
   cursor: pointer;
@@ -103,6 +103,9 @@
 .md-menu-item .md-list-item-holder {
     overflow: hidden;
     text-overflow: ellipsis;
+}
+.md-menu-backdrop {
+  z-index: 130;
 }
 
 /*# sourceMappingURL=index.css.map*/

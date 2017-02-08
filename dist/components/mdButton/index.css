@@ -59,11 +59,11 @@
     font-size: 13px;
 }
 .md-button.md-icon-button .md-icon, .md-button.md-fab .md-icon {
-    margin-top: 1px;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 1px;
+    right: 0;
+    bottom: 0;
+    left: 0;
 }
 .md-button.md-icon-button {
     width: 40px;
@@ -100,6 +100,7 @@
 .md-button.md-fab {
     width: 56px;
     height: 56px;
+    padding: 0;
     min-width: 0;
     overflow: hidden;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12);
@@ -112,44 +113,6 @@
 .md-button.md-fab:hover, .md-button.md-fab:focus {
       box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 5px 8px rgba(0, 0, 0, 0.14), 0 1px 14px rgba(0, 0, 0, 0.12);
 }
-.md-button.md-fab.md-fab-top-left {
-      position: absolute;
-      top: 16px;
-      left: 16px;
-      z-index: 10;
-}
-.md-button.md-fab.md-fab-top-center {
-      position: absolute;
-      top: 16px;
-      left: 50%;
-      z-index: 10;
-      transform: translateX(-50%);
-}
-.md-button.md-fab.md-fab-top-right {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      z-index: 10;
-}
-.md-button.md-fab.md-fab-bottom-left {
-      position: absolute;
-      bottom: 16px;
-      left: 16px;
-      z-index: 10;
-}
-.md-button.md-fab.md-fab-bottom-center {
-      position: absolute;
-      bottom: 16px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 10;
-}
-.md-button.md-fab.md-fab-bottom-right {
-      position: absolute;
-      right: 16px;
-      bottom: 16px;
-      z-index: 10;
-}
 .md-button.md-fab.md-mini {
       width: 40px;
       height: 40px;
@@ -161,6 +124,7 @@
 .md-button[disabled] {
     color: rgba(0, 0, 0, 0.26);
     cursor: default;
+    pointer-events: none;
 }
 .md-button[disabled].md-raised, .md-button[disabled].md-fab {
       background-color: rgba(0, 0, 0, 0.12);
@@ -179,6 +143,49 @@
 .md-button.md-icon-button .md-icon,
 .md-button.md-fab .md-icon {
   display: block;
+}
+.md-fab.md-fab-top-left, .md-fab.md-fab-top-center, .md-fab.md-fab-top-right, .md-fab.md-fab-bottom-left, .md-fab.md-fab-bottom-center, .md-fab.md-fab-bottom-right,
+.md-speed-dial.md-fab-top-left,
+.md-speed-dial.md-fab-top-center,
+.md-speed-dial.md-fab-top-right,
+.md-speed-dial.md-fab-bottom-left,
+.md-speed-dial.md-fab-bottom-center,
+.md-speed-dial.md-fab-bottom-right {
+  margin: 0;
+  position: absolute;
+  z-index: 10;
+}
+.md-fab.md-fab-top-left,
+.md-speed-dial.md-fab-top-left {
+  top: 24px;
+  left: 24px;
+}
+.md-fab.md-fab-top-center,
+.md-speed-dial.md-fab-top-center {
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.md-fab.md-fab-top-right,
+.md-speed-dial.md-fab-top-right {
+  top: 24px;
+  right: 24px;
+}
+.md-fab.md-fab-bottom-left,
+.md-speed-dial.md-fab-bottom-left {
+  bottom: 24px;
+  left: 24px;
+}
+.md-fab.md-fab-bottom-center,
+.md-speed-dial.md-fab-bottom-center {
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.md-fab.md-fab-bottom-right,
+.md-speed-dial.md-fab-bottom-right {
+  right: 24px;
+  bottom: 24px;
 }
 .md-button-tooltip.md-tooltip-top {
   margin-top: -8px;

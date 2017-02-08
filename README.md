@@ -88,12 +88,12 @@ Please make sure to read the [Contributing Guide](https://github.com/marcosmoura
 
 ## Browser Support
 Vue Material supports the latest version of all Browsers. This means:
-* Google Chrome 50+
+* Google Chrome 52+
 * Firefox 48+
 * Safari 9+
-* Opera 40+
+* Opera 38+
+* Edge 12+
 * IE 11
-* Edge
 
 <small>May work in other browsers but it's untested.</small>
 
