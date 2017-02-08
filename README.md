@@ -11,7 +11,9 @@
 
   <a href="https://www.npmjs.com/package/vue-material"><img src="https://img.shields.io/npm/v/vue-material.svg" alt="Version"></a>
 
-  <a href="https://www.npmjs.com/package/vue-material"><img src="https://img.shields.io/npm/l/vue-material.svg" alt="License"></a> <br>
+  <a href="https://www.npmjs.com/package/vue-material"><img src="https://img.shields.io/npm/l/vue-material.svg" alt="License"></a>
+
+  <a href="https://gitter.im/vuematerial"><img src="https://img.shields.io/gitter/room/vuematerial/home.svg" alt="Gitter Chat"></a> <br>
 </p>
 
 Vue Material is lightweight framework built exactly according to the <a href="http://material.google.com" target="_blank">Material Design</a> specs. 
@@ -67,30 +69,33 @@ Vue.use(VueMaterial)
 
 // OR
 
-Vue.use(VueMaterial.mdCore) //Required to boot vue material
-Vue.use(VueMaterial.mdButton)
-Vue.use(VueMaterial.mdIcon)
-Vue.use(VueMaterial.mdSidenav)
-Vue.use(VueMaterial.mdToolbar)
+Vue.use(VueMaterial.MdCore) //Required to boot vue material
+Vue.use(VueMaterial.MdButton)
+Vue.use(VueMaterial.MdIcon)
+Vue.use(VueMaterial.MdSidenav)
+Vue.use(VueMaterial.MdToolbar)
 ```
-
-## Browser Support
-Vue Material supports the latest version of all Browsers. This means:
-* Google Chrome 50+
-* Firefox 48+
-* Safari 9+
-* Opera 40+
-* IE 11
-* Edge
-
-<small>May work in other browsers but it's untested.</small>
 
 ## Changelog
 <a href="https://vuematerial.github.io/#/changelog" target="_blank">Changelog</a>
 
+## Questions
+The issue list is exclusively for reports, bugs and feature requests. Use the [Gitter Channel]( https://gitter.im/vuematerial) instead.
+
 ## Contributing
 
 Please make sure to read the [Contributing Guide](https://github.com/marcosmoura/vue-material/blob/master/.github/CONTRIBUTING.md) before making a pull request.
+
+## Browser Support
+Vue Material supports the latest version of all Browsers. This means:
+* Google Chrome 52+
+* Firefox 48+
+* Safari 9+
+* Opera 38+
+* Edge 12+
+* IE 11
+
+<small>May work in other browsers but it's untested.</small>
 
 ## Credits and Thanks
 * This library aims to delivery components using almost the same API of <a href="https://material.angularjs.org/latest/" target="_blank">Angular Material</a>
