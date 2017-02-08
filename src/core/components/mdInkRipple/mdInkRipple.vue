@@ -142,9 +142,8 @@
 
         addEvent(document.body, 'end', this.endRipple);
 
-        this.setPositions(event);
-
-        window.setTimeout(() => {
+        this.$nextTick(() => {
+          this.setPositions(event);
           this.active = true;
         });
       },
