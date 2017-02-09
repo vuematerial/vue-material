@@ -8,7 +8,7 @@
       <md-icon>{{ showPassword ? 'visibility_off' : 'visibility' }}</md-icon>
     </md-button>
 
-    <md-button class="md-icon-button md-clear-input" @click="clearInput" v-if="mdClearable && hasValue">
+    <md-button class="md-icon-button md-clear-input" @click.native="clearInput" v-if="mdClearable && hasValue">
       <md-icon>clear</md-icon>
     </md-button>
   </div>
