@@ -73,7 +73,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "/";
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 410);
+/******/ 	return __webpack_require__(__webpack_require__.s = 409);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -206,6 +206,10 @@ exports.default = {
     analyzeLightness: function analyzeLightness(image) {
       var _this = this;
 
+      var applyLoad = function applyLoad() {
+        _this.loaded = true;
+      };
+
       (0, _getImageLightness2.default)(image, (function (lightness) {
         var limit = 256;
         var darkness = (Math.abs(limit - lightness) * 100 / limit + 15) / 100;
@@ -214,10 +218,8 @@ exports.default = {
           _this.applyBlack = true;
         }
 
-        _this.$nextTick((function () {
-          _this.loaded = true;
-        }));
-      }));
+        _this.$nextTick(applyLoad);
+      }), applyLoad);
     },
     createImage: function createImage() {
       this.loaded = false;
@@ -277,7 +279,7 @@ var Component = __webpack_require__(0)(
   /* cssModules */
   null
 )
-Component.options.__file = "/Users/marcosmoura/Projects/github/vue-material/src/components/mdImage/mdImage.vue"
+Component.options.__file = "/Users/mrufino/Projects/personal/github/vue-material/src/components/mdImage/mdImage.vue"
 if (Component.esModule && Object.keys(Component.esModule).some((function (key) {return key !== "default" && key !== "__esModule"}))) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] mdImage.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -321,7 +323,7 @@ if (false) {
 
 /***/ }),
 
-/***/ 410:
+/***/ 409:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(102);
@@ -338,8 +340,10 @@ module.exports = __webpack_require__(102);
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var getImageLightness = function getImageLightness(image, onLoad) {
+var getImageLightness = function getImageLightness(image, onLoad, onError) {
   var canvas = document.createElement('canvas');
+
+  image.crossOrigin = 'Anonymous';
 
   image.onload = function () {
     var colorSum = 0;
@@ -371,6 +375,8 @@ var getImageLightness = function getImageLightness(image, onLoad) {
 
     onLoad(Math.floor(colorSum / (this.width * this.height)));
   };
+
+  image.onerror = onError;
 };
 
 exports.default = getImageLightness;
