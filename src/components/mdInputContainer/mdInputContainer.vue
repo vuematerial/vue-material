@@ -86,7 +86,8 @@
       clearInput() {
         if (this.isInput()) {
           this.input.value = '';
-          this.input.dispatchEvent(new Event('input'));
+          this.setValue(this.input.value);
+          this.$emit('input', this.input.value);
         }
       },
       setValue(value) {
