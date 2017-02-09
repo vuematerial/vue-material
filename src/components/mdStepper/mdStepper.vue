@@ -1,7 +1,7 @@
 <template>
-  <ul class="md-stepper" :class="[themeClass]">
+  <div class="md-stepper" :class="[themeClass]">
     <slot></slot>
-  </ul>
+  </div>
 </template>
 
 <style lang="scss" src="./mdStepper.scss"></style>
