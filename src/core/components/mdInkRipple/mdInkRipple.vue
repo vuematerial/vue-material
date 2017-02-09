@@ -1,5 +1,5 @@
 <template>
-  <div class="md-ink-ripple" v-if="mounted || !disabled">
+  <div class="md-ink-ripple">
     <div class="md-ripple" :class="classes" :style="styles" ref="ripple"></div>
   </div>
 </template>
@@ -63,6 +63,9 @@
     watch: {
       disabled(disabled) {
         if (!disabled) {
+          if (!this.parentElement.contains(this.rippleElement)) {
+            this.parentElement.appendChild(this.rippleElement);
+          }
           this.init();
         } else {
           this.destroy();
@@ -167,8 +170,6 @@
         }
       },
       init() {
-        this.rippleElement = this.$el;
-        this.parentElement = this.getClosestPositionedParent(this.$el.parentNode);
 
         if (!this.parentElement) {
           this.$destroy();
@@ -188,6 +189,8 @@
     },
     mounted() {
       window.setTimeout(() => {
+        this.rippleElement = this.$el;
+        this.parentElement = this.getClosestPositionedParent(this.$el.parentNode);
         if (!this.disabled) {
           this.init();
         } else {
