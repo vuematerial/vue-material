@@ -31,6 +31,7 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   PACKAGE_VERSION=$(get_package_version)
   cp -Rf dist/docs/releases tmp-releases
   cp -Rf dist/docs tmp-releases/v$PACKAGE_VERSION
+  rm -Rf tmp-releases/v$PACKAGE_VERSION/releases
 
   # append version
   sed -i '' -e "s|\"]|\", \"$VERSION\"]|g" docs/versions.json
