@@ -7,6 +7,10 @@
     <md-button class="md-icon-button md-toggle-password" @click.native="togglePasswordType" v-if="mdHasPassword">
       <md-icon>{{ showPassword ? 'visibility_off' : 'visibility' }}</md-icon>
     </md-button>
+
+    <md-button class="md-icon-button md-clear-input" @click="clearInput" v-if="mdClearable && hasValue">
+      <md-icon>clear</md-icon>
+    </md-button>
   </div>
 </template>
 
@@ -19,7 +23,8 @@
   export default {
     props: {
       mdInline: Boolean,
-      mdHasPassword: Boolean
+      mdHasPassword: Boolean,
+      mdClearable: Boolean
     },
     mixins: [theme],
     data() {
@@ -50,6 +55,7 @@
         return {
           'md-input-inline': this.mdInline,
           'md-has-password': this.mdHasPassword,
+          'md-clearable': this.mdClearable,
           'md-has-select': this.hasSelect,
           'md-has-file': this.hasFile,
           'md-has-value': this.hasValue,
@@ -75,6 +81,12 @@
           }
 
           this.input.focus();
+        }
+      },
+      clearInput() {
+        if (this.isInput()) {
+          this.input.value = '';
+          this.input.dispatchEvent(new Event('input'));
         }
       },
       setValue(value) {
