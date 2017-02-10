@@ -35,12 +35,14 @@
                 <md-grid-content class="double-line">
                   <span>Image title</span>
                   <span>Image title</span>
+                  <md-button class="md-icon-button"><md-icon>star</md-icon></md-button>
                 </md-grid-content>
                 <img src="https://placeimg.com/640/480/any"/>
               </md-grid-media>
               <md-grid-media>
                 <md-grid-content class="single-line">
                   <span>Image title</span>
+                  <md-button class="md-icon-button"><md-icon>star</md-icon></md-button>
                 </md-grid-content>
                 <img src="https://placeimg.com/640/480/any"/>
                 <md-grid-content class="single-line">
