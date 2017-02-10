@@ -4,7 +4,7 @@
 
     <span class="md-count" v-if="enableCounter">{{ inputLength }} / {{ counterLength }}</span>
 
-    <md-button class="md-icon-button md-toggle-password" @click="togglePasswordType" v-if="mdHasPassword">
+    <md-button class="md-icon-button md-toggle-password" @click.native="togglePasswordType" v-if="mdHasPassword">
       <md-icon>{{ showPassword ? 'visibility_off' : 'visibility' }}</md-icon>
     </md-button>
   </div>

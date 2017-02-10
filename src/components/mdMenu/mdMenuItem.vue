@@ -1,8 +1,10 @@
 <template>
   <md-list-item
     class="md-menu-item"
+    @click.native="close"
     :class="classes"
-    @click="close"
+    :href="href"
+    :target="target"
     :disabled="disabled">
     <slot></slot>
   </md-list-item>
@@ -14,6 +16,8 @@
 
   export default {
     props: {
+      href: String,
+      target: String,
       disabled: Boolean
     },
     data: () => ({

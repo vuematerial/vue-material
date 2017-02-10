@@ -1,5 +1,7 @@
-const getImageLightness = (image, onLoad) => {
+const getImageLightness = (image, onLoad, onError) => {
   let canvas = document.createElement('canvas');
+
+  image.crossOrigin = 'Anonymous';
 
   image.onload = function() {
     let colorSum = 0;
@@ -31,6 +33,8 @@ const getImageLightness = (image, onLoad) => {
 
     onLoad(Math.floor(colorSum / (this.width * this.height)));
   };
+
+  image.onerror = onError;
 };
 
 export default getImageLightness;

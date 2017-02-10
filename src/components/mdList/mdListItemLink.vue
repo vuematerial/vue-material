@@ -13,7 +13,7 @@
     name: 'md-list-item',
     props: {
       href: String,
-      target: Boolean,
+      target: String,
       disabled: Boolean
     },
     computed: {

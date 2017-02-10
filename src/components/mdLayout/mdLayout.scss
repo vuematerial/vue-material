@@ -175,10 +175,6 @@ $sizes: (8, 16, 24, 40);
   .md-hide-#{$size} {
     display: none;
   }
-
-  .md-hide-#{$size}-and-up {
-    display: none;
-  }
 }
 
 @include layout-xlarge {
@@ -201,22 +197,18 @@ $sizes: (8, 16, 24, 40);
   @include breakpoint-layout(xsmall);
 }
 
-@include layout-xlarge-and-up {
-  @include breakpoint-layout(xlarge);
-}
-
 @include layout-large-and-up {
-  @include breakpoint-layout(large);
+  @include breakpoint-layout(large-and-up);
 }
 
 @include layout-medium-and-up {
-  @include breakpoint-layout(medium);
+  @include breakpoint-layout(medium-and-up);
 }
 
 @include layout-small-and-up {
-  @include breakpoint-layout(small);
+  @include breakpoint-layout(small-and-up);
 }
 
 @include layout-xsmall-and-up {
-  @include breakpoint-layout(xsmall);
+  @include breakpoint-layout(xsmall-and-up);
 }
