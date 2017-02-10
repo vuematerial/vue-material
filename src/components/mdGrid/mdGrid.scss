@@ -5,14 +5,16 @@
   display: flex;
   align-items: flex-start;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
+  overflow-y: auto;
+  max-height: 400px; //TODO: used to force scroll in docs
 
   .md-grid-media {
 
     margin: 1px;
     position: relative;
-    width: 33%;
+    width: calc(50% - 2px); //TODO: updated with mediaqueries
 
     .md-grid-content {
 
@@ -24,12 +26,12 @@
       left: 0;
       right: 0;
 
-      &:first-of-type {
+      &.header {
 
         top: 0;
       }
 
-      &:last-of-type:not(:first-of-type) {
+      &.footer {
 
         bottom: 0;
       }
@@ -41,10 +43,10 @@
         align-items: flex-start;
         justify-content: center;
         padding: 16px;  
-        font-size: 12px;
+        font-size: 14px;
 
         > :first-child:not(.md-button) {
-          font-weight: bold;
+
           font-size: 16px;
         }
 
@@ -58,6 +60,14 @@
           height: 68px;
         }
       }
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+
+    .md-grid-media {
+
+      width: calc(33% - 2px);
     }
   }
 }
