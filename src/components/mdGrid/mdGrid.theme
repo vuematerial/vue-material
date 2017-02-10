@@ -1,0 +1,16 @@
+.THEME_NAME {
+
+  &.md-grid {
+
+    .md-grid-media {
+
+      .md-grid-content {
+
+        > .md-icon {
+          color: #{'BACKGROUND-CONTRAST'};
+          background-color: #{'BACKGROUND-COLOR'};
+        }
+      }
+    }
+  }
+}

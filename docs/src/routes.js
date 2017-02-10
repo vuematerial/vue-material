@@ -15,6 +15,7 @@ const Checkbox = (r) => require.ensure([], () => r(require('./pages/components/C
 const Chips = (r) => require.ensure([], () => r(require('./pages/components/Chips')), 'chips');
 const Dialog = (r) => require.ensure([], () => r(require('./pages/components/Dialog')), 'dialog');
 const FileComponent = (r) => require.ensure([], () => r(require('./pages/components/File')), 'file');
+const Grid = (r) => require.ensure([], () => r(require('./pages/components/Grid')), 'grid');
 const Icon = (r) => require.ensure([], () => r(require('./pages/components/Icon')), 'icon');
 const ImageLoader = (r) => require.ensure([], () => r(require('./pages/components/ImageLoader')), 'image-loader');
 const InkRipple = (r) => require.ensure([], () => r(require('./pages/components/InkRipple')), 'ink-ripple');
@@ -118,6 +119,11 @@ const components = [
     path: '/components/file',
     name: 'components:file',
     component: FileComponent
+  },
+  {
+    path: '/components/grid',
+    name: 'components:grid',
+    component: Grid
   },
   {
     path: '/components/icon',

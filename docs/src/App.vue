@@ -76,6 +76,10 @@
                 </md-list-item>
 
                 <md-list-item class="md-inset">
+                  <router-link exact to="/components/grid">Grid</router-link>
+                </md-list-item>
+
+                <md-list-item class="md-inset">
                   <router-link exact to="/components/icon">Icon</router-link>
                 </md-list-item>
 

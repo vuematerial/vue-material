@@ -1,0 +1,33 @@
+@import '../../core/stylesheets/variables.scss';
+
+.md-grid {
+
+  display: flex;
+  align-items: center;
+
+  .md-grid-media {
+
+    margin: 4px;
+    height: 400px;
+
+    .md-grid-content {
+
+      display: flex;
+      flex-direction: column;
+      align-items: space-between;
+      padding: 16px;
+
+      &.single-line {
+
+        height: 48px;
+      }
+
+      &.double-line {
+
+        height: 68px;
+      }
+
+      background-color: red;
+    }
+  }
+}
