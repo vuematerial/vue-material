@@ -3,32 +3,61 @@
 .md-grid {
 
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
 
   .md-grid-media {
 
-    margin: 4px;
-    height: 400px;
+    margin: 1px;
+    position: relative;
+    width: 33%;
 
     .md-grid-content {
 
       display: flex;
       flex-direction: row;
       align-items: center;
-      justify-content: flex-start;
-      padding: 16px;
+      justify-content: space-between;
+      position: absolute;
+      left: 0;
+      right: 0;
 
-      &.single-line {
+      &:first-of-type {
 
-        height: 48px;
+        top: 0;
       }
 
-      &.double-line {
+      &:last-of-type:not(:first-of-type) {
 
-        height: 68px;
+        bottom: 0;
       }
 
-      background-color: red;
+      div {
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 16px;  
+        font-size: 12px;
+
+        > :first-child:not(.md-button) {
+          font-weight: bold;
+          font-size: 16px;
+        }
+
+        &.single-line {
+
+          height: 48px;
+        }
+
+        &.double-line {
+
+          height: 68px;
+        }
+      }
     }
   }
 }
