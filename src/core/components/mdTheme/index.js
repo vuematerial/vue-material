@@ -144,6 +144,9 @@ export default function install(Vue) {
       inkRipple: true
     }),
     methods: {
+      registerPalette(name, spec) {
+        palette[name] = spec;
+      },
       registerTheme(name, spec) {
         let theme = {};
 
