@@ -215,6 +215,24 @@ $input-size: 32px;
     }
   }
 
+  &.md-clearable {
+    &.md-input-focused .md-clear-input {
+      color: rgba(#000, .54);
+    }
+
+    .md-clear-input {
+      margin: 0;
+      position: absolute;
+      right: 0;
+      bottom: -2px;
+      color: rgba(#000, .38);
+
+      .md-ink-ripple {
+        color: rgba(#000, .87);
+      }
+    }
+  }
+
   &.md-input-invalid {
     .md-error {
       opacity: 1;
