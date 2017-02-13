@@ -55,7 +55,7 @@
       },
       setParentOption() {
         if (!this.isMultiple()) {
-          this.parentSelect.selectOption(this.value, this.$refs.item.textContent);
+          this.parentSelect.selectOption(this.value, this.$refs.item.textContent, this.$el);
         } else {
           this.check = !this.check;
         }
