@@ -13,6 +13,7 @@
   import getInViewPosition from '../../core/utils/getInViewPosition';
 
   export default {
+    name: 'md-menu',
     props: {
       mdSize: {
         type: [Number, String],

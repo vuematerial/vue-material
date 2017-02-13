@@ -17,6 +17,7 @@
   import theme from '../../core/components/mdTheme/mixin';
 
   export default {
+    name: 'md-chip',
     props: {
       disabled: Boolean,
       mdDeletable: Boolean

@@ -1,5 +1,5 @@
 <template>
-  <div class="md-snackbar" :class="[themeClass, classes]" :id="snackbarId">
+  <div class="md-snackbar" :class="[themeClass, classes]" :id="snackbarId" @mouseenter="pauseTimeout" @mouseleave="resumeTimeout">
     <div class="md-snackbar-container" ref="container">
       <div class="md-snackbar-content">
         <slot></slot>
@@ -17,6 +17,7 @@
   import manager from './manager';
 
   export default {
+    name: 'md-snackbar',
     props: {
       id: [String, Number],
       mdPosition: {
@@ -89,6 +90,7 @@
         this.active = true;
         this.$emit('open');
         this.closeTimeout = window.setTimeout(this.close, this.mdDuration);
+        this.timeoutStartedAt = Date.now();
       },
       close() {
         if (this.$refs.container) {
@@ -103,13 +105,25 @@
           this.$refs.container.removeEventListener(transitionEndEventName, removeElement);
           this.$refs.container.addEventListener(transitionEndEventName, removeElement);
           window.clearTimeout(this.closeTimeout);
+          this.pendingDuration = this.mdDuration;
         }
+      },
+      pauseTimeout() {
+        this.pendingDuration = this.pendingDuration - (Date.now() - this.timeoutStartedAt);
+        this.timeoutStartedAt = 0;
+        window.clearTimeout(this.closeTimeout);
+      },
+      resumeTimeout() {
+        this.timeoutStartedAt = Date.now();
+        this.closeTimeout = window.setTimeout(this.close, this.pendingDuration);
       }
     },
     mounted() {
       this.$nextTick(() => {
         this.snackbarElement = this.$el;
         this.snackbarElement.parentNode.removeChild(this.snackbarElement);
+        this.timeoutStartedAt = 0;
+        this.pendingDuration = this.mdDuration;
       });
     },
     beforeDestroy() {

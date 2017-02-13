@@ -22,12 +22,12 @@
 
         <p>Vue Material supports the latest version of all Browsers. This means:</p>
         <ul>
-          <li>Google Chrome 50+</li>
-          <li>Firefox 48+</li>
-          <li>Safari 9+</li>
-          <li>Opera 40+</li>
+          <li>Google Chrome 52+</li>
+          <li>Firefox 48+ </li>
+          <li>Safari 9+ </li>
+          <li>Opera 38+ </li>
+          <li>Edge 12+ </li>
           <li>IE 11</li>
-          <li>Edge</li>
         </ul>
       </section>
 

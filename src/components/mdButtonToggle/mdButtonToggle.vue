@@ -12,6 +12,7 @@
   let onClickButton;
 
   export default {
+    name: 'md-button-toggle',
     props: {
       mdSingle: Boolean
     },

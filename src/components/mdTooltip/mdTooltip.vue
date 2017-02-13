@@ -10,6 +10,7 @@
   import transitionEndEventName from '../../core/utils/transitionEndEventName';
 
   export default {
+    name: 'md-tooltip',
     props: {
       mdDirection: {
         type: String,

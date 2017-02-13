@@ -158,7 +158,7 @@
               <md-button md-menu-trigger>Bottom Right</md-button>
 
               <md-menu-content>
-                <md-menu-item>My Item 1</md-menu-item>
+                <md-menu-item href="http://google.com">My Item 1</md-menu-item>
                 <md-menu-item>My Item 2</md-menu-item>
                 <md-menu-item>My Item 3</md-menu-item>
               </md-menu-content>

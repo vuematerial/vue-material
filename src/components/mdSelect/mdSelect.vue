@@ -1,7 +1,7 @@
 <template>
   <div class="md-select" :class="[themeClass, classes]">
-    <md-menu :md-close-on-select="!multiple" @opened="$emit('open')" @closed="$emit('close')">
-      <span class="md-select-value" md-menu-trigger ref="value">{{ selectedText || multipleText || placeholder }}</span>
+    <md-menu :md-close-on-select="!multiple" @open="onOpen" @close="$emit('closed')">
+      <span class="md-select-value" md-menu-trigger ref="value">{{ selectedText || placeholder }}</span>
 
       <md-menu-content class="md-select-content" :class="[themeClass, contentClasses]">
         <slot></slot>
@@ -9,7 +9,8 @@
     </md-menu>
 
     <select :name="name" :id="id" :required="required" :disabled="disabled" tabindex="-1">
-      <option :value="value">{{ value }}</option>
+      <option selected="true" :value="selectedValue" v-if="!multiple">{{ selectedText }}</option>
+      <option selected="true" v-for="option in multipleOptions" v-if="option.value" :value="option.value">{{ option.text }}</option>
     </select>
   </div>
 </template>
@@ -22,6 +23,7 @@
   import isArray from '../../core/utils/isArray';
 
   export default {
+    name: 'md-select',
     props: {
       name: String,
       id: String,
@@ -35,9 +37,9 @@
     mixins: [theme],
     data() {
       return {
+        lastSelected: null,
         selectedValue: null,
         selectedText: null,
-        multipleText: null,
         multipleOptions: {},
         options: {},
         optionsAmount: 0
@@ -72,6 +74,13 @@
       }
     },
     methods: {
+      onOpen() {
+        if (this.lastSelected) {
+          this.lastSelected.scrollIntoViewIfNeeded(true);
+        }
+
+        this.$emit('opened');
+      },
       setParentDisabled() {
         this.parentContainer.isDisabled = this.disabled;
       },
@@ -89,7 +98,8 @@
 
           if (options.value === value) {
             output.value = value;
-            output.text = options.$refs.item.textContent;
+            output.text = options.$refs.item.textContent,
+            output.el = options.$refs.item;
           }
         });
 
@@ -128,6 +138,7 @@
 
         this.selectedValue = output.value;
         this.selectedText = output.text;
+        this.lastSelected = output.el;
 
         if (this.parentContainer) {
           this.parentContainer.setValue(this.selectedText);
@@ -154,7 +165,8 @@
 
         this.changeValue(values);
       },
-      selectOption(value, text) {
+      selectOption(value, text, el) {
+        this.lastSelected = el;
         this.selectedText = text;
         this.setTextAndValue(value);
         this.changeValue(value);

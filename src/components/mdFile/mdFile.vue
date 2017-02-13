@@ -29,6 +29,7 @@
   import getClosestVueParent from '../../core/utils/getClosestVueParent';
 
   export default {
+    name: 'md-file',
     props: {
       value: String,
       id: String,

@@ -4,8 +4,12 @@
 
     <span class="md-count" v-if="enableCounter">{{ inputLength }} / {{ counterLength }}</span>
 
-    <md-button class="md-icon-button md-toggle-password" @click="togglePasswordType" v-if="mdHasPassword">
+    <md-button class="md-icon-button md-toggle-password" @click.native="togglePasswordType" v-if="mdHasPassword">
       <md-icon>{{ showPassword ? 'visibility_off' : 'visibility' }}</md-icon>
+    </md-button>
+
+    <md-button class="md-icon-button md-clear-input" @click.native="clearInput" v-if="mdClearable && hasValue">
+      <md-icon>clear</md-icon>
     </md-button>
   </div>
 </template>
@@ -17,15 +21,18 @@
   import isArray from '../../core/utils/isArray';
 
   export default {
+    name: 'md-input-container',
     props: {
       mdInline: Boolean,
-      mdHasPassword: Boolean
+      mdHasPassword: Boolean,
+      mdClearable: Boolean
     },
     mixins: [theme],
     data() {
       return {
         value: '',
         input: false,
+        inputInstance: null,
         showPassword: false,
         enableCounter: false,
         hasSelect: false,
@@ -50,6 +57,7 @@
         return {
           'md-input-inline': this.mdInline,
           'md-has-password': this.mdHasPassword,
+          'md-clearable': this.mdClearable,
           'md-has-select': this.hasSelect,
           'md-has-file': this.hasFile,
           'md-has-value': this.hasValue,
@@ -76,6 +84,11 @@
 
           this.input.focus();
         }
+      },
+      clearInput() {
+        this.inputInstance.$el.value = '';
+        this.inputInstance.$emit('input', '');
+        this.setValue('');
       },
       setValue(value) {
         this.value = value;

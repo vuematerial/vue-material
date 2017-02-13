@@ -15,6 +15,7 @@
   import transitionEndEventName from '../../core/utils/transitionEndEventName';
 
   export default {
+    name: 'md-dialog',
     props: {
       mdClickOutsideToClose: {
         type: Boolean,

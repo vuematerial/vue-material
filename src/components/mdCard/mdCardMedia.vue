@@ -6,6 +6,7 @@
 
 <script>
   export default {
+    name: 'md-card-media',
     props: {
       mdRatio: String,
       mdMedium: Boolean,

@@ -2,6 +2,7 @@
 
 <script>
   export default {
+    name: 'md-layout',
     props: {
       mdTag: {
         type: String,
@@ -119,7 +120,11 @@
 
         if (this[name]) {
           if (typeof this[name] === 'boolean') {
-            object[prop + size] = true;
+            if (!this[name]) {
+              object[prop + size + '-none'] = true;
+            } else {
+              object[prop + size] = true;
+            }
           } else {
             object[prop + size + '-' + this[name]] = true;
           }

@@ -23,6 +23,7 @@
   const initialPosition = '-1px';
 
   export default {
+    name: 'md-switch',
     props: {
       name: String,
       value: Boolean,
@@ -66,9 +67,16 @@
         this.leftPos = this.checked ? checkedPosition + '%' : initialPosition;
       },
       changeState(checked, $event) {
-        this.checked = checked;
-        this.$emit('change', this.checked, $event);
-        this.$emit('input', this.checked, $event);
+        if (typeof $event !== 'undefined') {
+          this.$emit('change', $event);
+
+          if (!$event.defaultPrevented) {
+            this.checked = checked;
+          }
+          this.$emit('input', this.checked, $event);
+        } else {
+          this.checked = checked;
+        }
       },
       toggle($event) {
         if (!this.disabled) {
