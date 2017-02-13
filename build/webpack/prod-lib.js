@@ -5,6 +5,8 @@ import merge from 'webpack-merge';
 import autoprefixer from 'autoprefixer';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import OptimizeJsPlugin from 'optimize-js-plugin';
+import OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin';
+import mediaPacker from 'css-mqpacker';
 import config from '../config';
 import baseConfig from './base';
 
@@ -35,43 +37,82 @@ export default merge(baseConfig, {
     library: 'VueMaterial',
     libraryTarget: 'umd'
   },
-  vue: {
-    loaders: {
-      css: ExtractTextPlugin.extract('css'),
-      scss: ExtractTextPlugin.extract(['css', 'sass'])
-    },
-    postcss: [
-      autoprefixer({
-        browsers: ['last 2 versions']
-      })
+  module: {
+    rules: [
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+        options: {
+          loaders: {
+            css: ExtractTextPlugin.extract({
+              use: 'css-loader',
+              fallback: 'vue-style-loader'
+            }),
+            scss: ExtractTextPlugin.extract({
+              use: 'css-loader!sass-loader',
+              fallback: 'vue-style-loader'
+            })
+          },
+          postcss: [
+            autoprefixer({
+              browsers: ['last 3 versions', 'not IE < 10']
+            }),
+            mediaPacker()
+          ]
+        }
+      },
+      {
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract({
+          use: 'css-loader',
+          fallback: 'vue-style-loader'
+        })
+      },
+      {
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract({
+          use: 'css-loader!sass-loader',
+          fallback: 'vue-style-loader'
+        })
+      }
     ]
   },
   externals: {
-    vue: 'Vue'
+    vue: {
+      commonjs: 'vue',
+      commonjs2: 'vue',
+      amd: 'vue',
+      root: 'Vue',
+      var: 'Vue'
+    }
   },
   plugins: [
-    new webpack.optimize.DedupePlugin(),
-    new webpack.IgnorePlugin(/vue/),
+    new webpack.LoaderOptionsPlugin({
+      minimize: true,
+      debug: false
+    }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false
       },
-      comments: false
+      output: {
+        comments: false
+      },
+      sourceMap: false
     }),
-    new webpack.optimize.OccurenceOrderPlugin(),
     new OptimizeJsPlugin({
       sourceMap: false
     }),
-    new webpack.BannerPlugin(
-`/*!
- * Vue Material v${version}
- * Made with love by Marcos Moura
- * Released under the MIT License.
- */`
-    , {
+    new webpack.BannerPlugin({
+      banner: `/*!
+* Vue Material v${version}
+* Made with love by Marcos Moura
+* Released under the MIT License.
+*/   `,
       raw: true,
       entryOnly: true
     }),
-    new ExtractTextPlugin('[name].css')
+    new ExtractTextPlugin('[name].css'),
+    new OptimizeCssAssetsPlugin()
   ]
 });

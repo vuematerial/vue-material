@@ -1,5 +1,6 @@
 <script>
   export default {
+    name: 'md-theme',
     props: {
       mdTag: String,
       mdName: {

@@ -1,7 +1,8 @@
 <template>
   <div class="md-checkbox" :class="[themeClass, classes]">
-    <div class="md-checkbox-container" @click.stop="toggleCheck" v-md-ink-ripple="disabled" tabindex="0">
-      <input type="checkbox" :name="name" :id="id" :disabled="disabled" :value="value" tabindex="-1">
+    <div class="md-checkbox-container" @click.stop="toggleCheck" tabindex="0">
+      <input type="checkbox" :name="name" :id="id" :disabled="disabled" :value="value" :checked="checked" tabindex="-1">
+      <md-ink-ripple :md-disabled="disabled" />
     </div>
 
     <label :for="id || name" class="md-checkbox-label" v-if="$slots.default">
@@ -16,6 +17,7 @@
   import theme from '../../core/components/mdTheme/mixin';
 
   export default {
+    name: 'md-checkbox',
     props: {
       name: String,
       value: [String, Boolean],
@@ -31,14 +33,14 @@
     computed: {
       classes() {
         return {
-          'md-checked': Boolean(this.checked),
+          'md-checked': this.checked,
           'md-disabled': this.disabled
         };
       }
     },
     watch: {
       value() {
-        this.checked = this.value;
+        this.checked = !!this.value;
       }
     },
     methods: {

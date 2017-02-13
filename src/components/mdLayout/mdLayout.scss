@@ -196,3 +196,19 @@ $sizes: (8, 16, 24, 40);
 @include layout-xsmall {
   @include breakpoint-layout(xsmall);
 }
+
+@include layout-large-and-up {
+  @include breakpoint-layout(large-and-up);
+}
+
+@include layout-medium-and-up {
+  @include breakpoint-layout(medium-and-up);
+}
+
+@include layout-small-and-up {
+  @include breakpoint-layout(small-and-up);
+}
+
+@include layout-xsmall-and-up {
+  @include breakpoint-layout(xsmall-and-up);
+}

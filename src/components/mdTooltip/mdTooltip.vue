@@ -10,6 +10,7 @@
   import transitionEndEventName from '../../core/utils/transitionEndEventName';
 
   export default {
+    name: 'md-tooltip',
     props: {
       mdDirection: {
         type: String,
@@ -115,7 +116,7 @@
         this.removeTooltips();
 
         this.$nextTick(() => {
-          this.rootElement.appendChild(this.tooltipElement);
+          document.body.appendChild(this.tooltipElement);
           getComputedStyle(this.tooltipElement).top;
           this.transitionOff = true;
           this.generateTooltipClasses();
@@ -137,7 +138,6 @@
       this.$nextTick(() => {
         this.tooltipElement = this.$el;
         this.parentElement = this.tooltipElement.parentNode;
-        this.rootElement = this.$root.$el;
 
         this.$el.parentNode.removeChild(this.$el);
 

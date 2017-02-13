@@ -51,3 +51,27 @@
     @content;
   }
 }
+
+@mixin layout-xsmall-and-up {
+  @media (min-width: #{$breakpoint-xsmall - 300px}) {
+    @content;
+  }
+}
+
+@mixin layout-small-and-up {
+  @media (min-width: #{$breakpoint-small - 300px}) {
+    @content;
+  }
+}
+
+@mixin layout-medium-and-up {
+  @media (min-width: #{$breakpoint-small - 16px}) {
+    @content;
+  }
+}
+
+@mixin layout-large-and-up {
+  @media (min-width: #{$breakpoint-medium - 16px}) {
+    @content;
+  }
+}

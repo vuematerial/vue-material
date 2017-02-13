@@ -1,9 +1,10 @@
 <template>
   <div class="md-switch" :class="[themeClass, classes]">
     <div class="md-switch-container" @click="toggle($event)">
-      <div class="md-switch-thumb" :style="styles" v-md-ink-ripple="disabled">
+      <div class="md-switch-thumb" :style="styles">
         <input type="checkbox" :name="name" :id="id" :disabled="disabled" :value="value">
         <button :type="type" class="md-switch-holder"></button>
+        <md-ink-ripple :md-disabled="disabled" />
       </div>
     </div>
 
@@ -22,6 +23,7 @@
   const initialPosition = '-1px';
 
   export default {
+    name: 'md-switch',
     props: {
       name: String,
       value: Boolean,
@@ -65,9 +67,16 @@
         this.leftPos = this.checked ? checkedPosition + '%' : initialPosition;
       },
       changeState(checked, $event) {
-        this.checked = checked;
-        this.$emit('change', this.checked, $event);
-        this.$emit('input', this.checked, $event);
+        if (typeof $event !== 'undefined') {
+          this.$emit('change', $event);
+
+          if (!$event.defaultPrevented) {
+            this.checked = checked;
+          }
+          this.$emit('input', this.checked, $event);
+        } else {
+          this.checked = checked;
+        }
       },
       toggle($event) {
         if (!this.disabled) {

@@ -9,6 +9,7 @@
   import getImageLightness from '../../core/utils/getImageLightness';
 
   export default {
+    name: 'md-card-media-cover',
     props: {
       mdTextScrim: Boolean,
       mdSolid: Boolean
@@ -46,6 +47,13 @@
       }
     },
     mounted() {
+      const applyBackground = (darkness = 0.6) => {
+        if (this.mdTextScrim) {
+          this.applyScrimColor(darkness);
+        } else if (this.mdSolid) {
+          this.applySolidColor(darkness);
+        }
+      };
       let image = this.$el.querySelector('img');
 
       if (image && (this.mdTextScrim || this.mdSolid)) {
@@ -57,12 +65,8 @@
             darkness = 0.7;
           }
 
-          if (this.mdTextScrim) {
-            this.applyScrimColor(darkness);
-          } else if (this.mdSolid) {
-            this.applySolidColor(darkness);
-          }
-        });
+          applyBackground(darkness);
+        }, applyBackground);
       }
     }
   };

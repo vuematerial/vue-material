@@ -29,6 +29,7 @@
   import getClosestVueParent from '../../core/utils/getClosestVueParent';
 
   export default {
+    name: 'md-file',
     props: {
       value: String,
       id: String,
@@ -73,6 +74,8 @@
             this.filename = this.getMultipleName(files);
           } else if (files.length === 1) {
             this.filename = files[0].name;
+          } else {
+            this.filename = null;
           }
         } else {
           this.filename = $event.target.value.split('\\').pop();

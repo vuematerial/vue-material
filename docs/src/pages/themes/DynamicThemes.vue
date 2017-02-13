@@ -209,7 +209,7 @@
               &lt;/div&gt;
             </code-block>
 
-            <code-block lang="scss">
+            <code-block lang="sass">
               .app-example {
                 .page-layout {
                   display: flex;
@@ -435,7 +435,7 @@
               &lt;/div&gt;
             </code-block>
 
-            <code-block lang="scss">
+            <code-block lang="sass">
               .card-layout {
                 margin: 16px 15%;
                 display: flex;
@@ -460,7 +460,7 @@
   </page-content>
 </template>
 
-<style lang="scss" scoped>
+<style lang="sass" scoped>
   section {
     max-width: 960px;
 

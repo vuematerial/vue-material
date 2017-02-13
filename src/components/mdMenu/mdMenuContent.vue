@@ -16,6 +16,7 @@
 
 <script>
   export default {
+    name: 'md-menu-content',
     data() {
       return {
         oldHighlight: false,

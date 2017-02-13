@@ -1,7 +1,8 @@
 <template>
   <div class="md-radio" :class="[themeClass, classes]">
-    <div class="md-radio-container" @click="toggleCheck" v-md-ink-ripple="disabled">
+    <div class="md-radio-container" @click="toggleCheck">
       <input type="radio" :name="name" :id="id" :disabled="disabled" :value="value">
+      <md-ink-ripple :md-disabled="disabled" />
     </div>
 
     <label :for="id || name" class="md-radio-label" v-if="$slots.default">
@@ -16,6 +17,7 @@
   import theme from '../../core/components/mdTheme/mixin';
 
   export default {
+    name: 'md-radio',
     props: {
       name: String,
       id: String,
@@ -30,7 +32,7 @@
     computed: {
       classes() {
         return {
-          'md-checked': this.value && this.mdValue.toString() === this.value.toString(),
+          'md-checked': typeof this.value !== 'undefined' && this.mdValue.toString() === this.value.toString(),
           'md-disabled': this.disabled
         };
       }

@@ -1,8 +1,10 @@
 <template>
   <md-list-item
     class="md-menu-item"
+    @click.native="close"
     :class="classes"
-    @click="close"
+    :href="href"
+    :target="target"
     :disabled="disabled">
     <slot></slot>
   </md-list-item>
@@ -13,7 +15,10 @@
   import 'element.scrollintoviewifneeded-polyfill';
 
   export default {
+    name: 'md-menu-item',
     props: {
+      href: String,
+      target: String,
       disabled: Boolean
     },
     data: () => ({
@@ -57,7 +62,6 @@
             this.parentContent.close();
           }
 
-          this.$emit('click');
           this.$emit('selected', $event);
         }
       }

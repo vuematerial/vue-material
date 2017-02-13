@@ -132,7 +132,7 @@
               &lt;/md-theme&gt;
             </code-block>
 
-            <code-block lang="scss">
+            <code-block lang="sass">
               .complete-example {
                 width: 56px;
                 height: 56px;
@@ -194,7 +194,7 @@
   </page-content>
 </template>
 
-<style lang="scss" scoped>
+<style lang="sass" scoped>
   .spinner-demo {
     min-height: 55px;
   }

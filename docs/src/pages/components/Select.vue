@@ -76,6 +76,18 @@
                 <md-table-cell>Receives the value of the model</md-table-cell>
                 <md-table-cell>Triggered when the model changes.</md-table-cell>
               </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>opened</md-table-cell>
+                <md-table-cell>none</md-table-cell>
+                <md-table-cell>Triggered the select is opened.</md-table-cell>
+              </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>closed</md-table-cell>
+                <md-table-cell>none</md-table-cell>
+                <md-table-cell>Triggered the select is closed.</md-table-cell>
+              </md-table-row>
             </md-table-body>
           </md-table>
         </api-table>
@@ -197,7 +209,7 @@
               </md-input-container>
             </div>
 
-            <md-button class="md-raised md-primary" @click="setPulpFiction">Set Pulp Fiction</md-button>
+            <md-button class="md-raised md-primary" @click.native="setPulpFiction">Set Pulp Fiction</md-button>
           </div>
 
           <div slot="code">
@@ -267,7 +279,7 @@
                 &lt;/md-input-container&gt;
               &lt;/div&gt;
 
-              &lt;md-button class=&quot;md-raised md-primary&quot; @click=&quot;setPulpFiction&quot;&gt;Set Pulp Fiction&lt;/md-button&gt;
+              &lt;md-button class=&quot;md-raised md-primary&quot; @click.native=&quot;setPulpFiction&quot;&gt;Set Pulp Fiction&lt;/md-button&gt;
             </code-block>
 
             <code-block lang="javascript">
@@ -363,7 +375,7 @@
   </page-content>
 </template>
 
-<style lang="scss" scoped>
+<style lang="sass" scoped>
   .field-group {
     display: flex;
   }

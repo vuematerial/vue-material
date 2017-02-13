@@ -158,7 +158,7 @@
               <md-button md-menu-trigger>Bottom Right</md-button>
 
               <md-menu-content>
-                <md-menu-item>My Item 1</md-menu-item>
+                <md-menu-item href="http://google.com">My Item 1</md-menu-item>
                 <md-menu-item>My Item 2</md-menu-item>
                 <md-menu-item>My Item 3</md-menu-item>
               </md-menu-content>
@@ -594,7 +594,7 @@
               &lt;md-button class=&quot;md-raised md-primary&quot; @click.native=&quot;$refs.menu.open&quot;&gt;Open contact card&lt;/md-button&gt;
             </code-block>
 
-            <code-block lang="scss">
+            <code-block lang="sass">
               .author-card {
                 padding: 8px 16px;
                 display: flex;
@@ -630,7 +630,7 @@
   </page-content>
 </template>
 
-<style lang="scss" scoped>
+<style lang="sass" scoped>
   .md-menu {
     margin-right: 36px;
   }

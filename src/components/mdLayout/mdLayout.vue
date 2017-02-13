@@ -2,6 +2,7 @@
 
 <script>
   export default {
+    name: 'md-layout',
     props: {
       mdTag: {
         type: String,
@@ -24,6 +25,11 @@
       mdHideMedium: Boolean,
       mdHideLarge: Boolean,
       mdHideXlarge: Boolean,
+      mdHideXsmallAndUp: Boolean,
+      mdHideSmallAndUp: Boolean,
+      mdHideMediumAndUp: Boolean,
+      mdHideLargeAndUp: Boolean,
+      mdHideXlargeAndUp: Boolean,
       mdGutter: [String, Number, Boolean],
       mdAlign: String,
       mdAlignXsmall: String,
@@ -63,7 +69,12 @@
           'md-hide-small': this.mdHideSmall,
           'md-hide-medium': this.mdHideMedium,
           'md-hide-large': this.mdHideLarge,
-          'md-hide-xlarge': this.mdHideXlarge
+          'md-hide-xlarge': this.mdHideXlarge,
+          'md-hide-xsmall-and-up': this.mdHideXsmallAndUp,
+          'md-hide-small-and-up': this.mdHideSmallAndUp,
+          'md-hide-medium-and-up': this.mdHideMediumAndUp,
+          'md-hide-large-and-up': this.mdHideLargeAndUp,
+          'md-hide-xlarge-and-up': this.mdHideXlargeAndUp
         };
 
         if (this.mdGutter) {
@@ -109,7 +120,11 @@
 
         if (this[name]) {
           if (typeof this[name] === 'boolean') {
-            object[prop + size] = true;
+            if (!this[name]) {
+              object[prop + size + '-none'] = true;
+            } else {
+              object[prop + size] = true;
+            }
           } else {
             object[prop + size + '-' + this[name]] = true;
           }

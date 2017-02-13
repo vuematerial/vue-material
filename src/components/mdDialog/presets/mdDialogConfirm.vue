@@ -6,14 +6,15 @@
     <md-dialog-content v-else>{{ mdContent }}</md-dialog-content>
 
     <md-dialog-actions>
-      <md-button class="md-primary" @click="close('cancel')">{{ mdCancelText }}</md-button>
-      <md-button class="md-primary" @click="close('ok')">{{ mdOkText }}</md-button>
+      <md-button class="md-primary" @click.native="close('cancel')">{{ mdCancelText }}</md-button>
+      <md-button class="md-primary" @click.native="close('ok')">{{ mdOkText }}</md-button>
     </md-dialog-actions>
   </md-dialog>
 </template>
 
 <script>
   export default {
+    name: 'md-dialog-confirm',
     props: {
       mdTitle: String,
       mdContent: String,

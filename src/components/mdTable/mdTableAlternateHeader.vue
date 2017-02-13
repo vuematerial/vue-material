@@ -16,6 +16,7 @@
   import getClosestVueParent from '../../core/utils/getClosestVueParent';
 
   export default {
+    name: 'md-table-alternate-header',
     props: {
       mdSelectedLabel: {
         type: String,
