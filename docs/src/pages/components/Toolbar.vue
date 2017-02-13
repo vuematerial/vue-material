@@ -92,10 +92,6 @@
 
               <h2 class="md-title">Default</h2>
 
-              <md-input-container style="flex: 1">
-                <md-input placeholder="Search..." />
-              </md-input-container>
-
               <md-button class="md-icon-button">
                 <md-icon>favorite</md-icon>
               </md-button>
