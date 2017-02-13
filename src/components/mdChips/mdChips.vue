@@ -19,7 +19,6 @@
         :disabled="disabled"
         @keydown.native.delete="deleteLastChip"
         @keydown.native.prevent.enter="addChip"
-        @keydown.native.prevent.186="addChip"
         tabindex="0"
         ref="input">
       </md-input>
