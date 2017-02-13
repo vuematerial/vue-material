@@ -37,6 +37,7 @@
           throw new Error('You should wrap the md-input in a md-input-container');
         }
 
+        this.parentContainer.inputInstance = this;
         this.setParentDisabled();
         this.setParentRequired();
         this.setParentPlaceholder();

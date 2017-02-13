@@ -32,6 +32,7 @@
       return {
         value: '',
         input: false,
+        inputInstance: null,
         showPassword: false,
         enableCounter: false,
         hasSelect: false,
@@ -85,11 +86,9 @@
         }
       },
       clearInput() {
-        if (this.isInput()) {
-          this.input.value = '';
-          this.setValue(this.input.value);
-          this.$emit('input', this.input.value);
-        }
+        this.inputInstance.$el.value = '';
+        this.inputInstance.$emit('input', '');
+        this.setValue('');
       },
       setValue(value) {
         this.value = value;

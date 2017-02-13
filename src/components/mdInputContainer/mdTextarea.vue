@@ -36,6 +36,7 @@
           throw new Error('You should wrap the md-textarea in a md-input-container');
         }
 
+        this.parentContainer.inputInstance = this;
         this.setParentDisabled();
         this.setParentRequired();
         this.setParentPlaceholder();
