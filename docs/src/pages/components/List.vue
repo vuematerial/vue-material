@@ -1033,6 +1033,7 @@
 <style lang="sass" scoped>
   .phone-viewport {
     height: 480px;
+    overflow: auto;
   }
 
   .custom-list {
