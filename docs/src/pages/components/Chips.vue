@@ -223,6 +223,24 @@
             </code-block>
           </div>
         </example-box>
+
+        <example-box card-title="Themed Chips">
+          <div slot="demo">
+            <md-chip>Default</md-chip>
+            <md-chip class="md-primary">Primary</md-chip>
+            <md-chip class="md-accent">Accent</md-chip>
+            <md-chip class="md-warn">Warn</md-chip>
+          </div>
+
+          <div slot="code">
+            <code-block lang="xml">
+              &lt;md-chip&gt;Marcos Moura&lt;/md-chip&gt;
+              &lt;md-chip class=&quot;md-primary&quot;&gt;Primary&lt;/md-chip&gt;
+              &lt;md-chip class=&quot;md-accent&quot;&gt;Accent&lt;/md-chip&gt;
+              &lt;md-chip class=&quot;md-warn&quot;&gt;Warn&lt;/md-chip&gt;
+            </code-block>
+          </div>
+        </example-box>
       </div>
     </docs-component>
   </page-content>
