@@ -7,7 +7,27 @@
 <style lang="scss" src="./mdInkRipple.scss"></style>
 
 <script>
+  const addEvent = (target, type, handler) => {
+    if (type === 'start') {
+      target.addEventListener('mousedown', handler);
+      target.addEventListener('touchstart', handler);
+    } else {
+      target.addEventListener('mouseup', handler);
+      target.addEventListener('touchend', handler);
+    }
+  };
+  const removeEvent = (target, type, handler) => {
+    if (type === 'start') {
+      target.removeEventListener('mousedown', handler);
+      target.removeEventListener('touchstart', handler);
+    } else {
+      target.removeEventListener('mouseup', handler);
+      target.removeEventListener('touchend', handler);
+    }
+  };
+
   export default {
+    name: 'md-ink-ripple',
     props: {
       mdDisabled: Boolean
     },
@@ -61,10 +81,7 @@
         return availablePositions.indexOf(getComputedStyle(element).position) > -1;
       },
       getClosestPositionedParent(element) {
-        if (!element) {
-          return false;
-        }
-        const parent = element.parentNode;
+        const parent = element && element.parentNode;
 
         if (!parent || parent.tagName.toLowerCase() === 'body') {
           return false;
@@ -82,14 +99,23 @@
         return Math.round(Math.max(parent.offsetWidth, parent.offsetHeight)) + 'px';
       },
       getClickPosition(event) {
-        const rect = this.parentElement.getBoundingClientRect();
-        const top = event.pageY - rect.top - this.$refs.ripple.offsetHeight / 2 - document.body.scrollTop + 'px';
-        const left = event.pageX - rect.left - this.$refs.ripple.offsetWidth / 2 - document.body.scrollLeft + 'px';
+        if (this.$refs.ripple) {
+          const rect = this.parentElement.getBoundingClientRect();
+          let top = event.pageY;
+          let left = event.pageX;
 
-        return {
-          top,
-          left
-        };
+          if (event.type === 'touchstart') {
+            top = event.changedTouches[0].pageY;
+            left = event.changedTouches[0].pageX;
+          }
+
+          return {
+            top: top - rect.top - this.$refs.ripple.offsetHeight / 2 - document.body.scrollTop + 'px',
+            left: left - rect.left - this.$refs.ripple.offsetWidth / 2 - document.body.scrollLeft + 'px'
+          };
+        }
+
+        return false;
       },
       setDimensions() {
         const size = this.getParentSize();
@@ -100,8 +126,10 @@
       setPositions(event) {
         const positions = this.getClickPosition(event);
 
-        this.parentDimensions.top = positions.top;
-        this.parentDimensions.left = positions.left;
+        if (positions) {
+          this.parentDimensions.top = positions.top;
+          this.parentDimensions.left = positions.left;
+        }
       },
       clearState() {
         this.active = false;
@@ -109,22 +137,31 @@
         this.hasCompleted = false;
         this.setDimensions();
         window.clearTimeout(this.awaitingComplete);
-        document.body.removeEventListener('mouseup', this.endRipple);
+        removeEvent(document.body, 'end', this.endRipple);
       },
       startRipple(event) {
-        window.requestAnimationFrame(() => {
-          this.clearState();
-          this.awaitingComplete = window.setTimeout(() => {
-            this.hasCompleted = true;
-          }, 400);
+        if (event.type === 'touchstart') {
+          this.previous.push('touch');
+        } else {
+          this.previous.push('mouse');
+        }
 
-          document.body.addEventListener('mouseup', this.endRipple);
+        this.previous = this.previous.splice(this.previous.length - 2, this.previous.length);
 
+        if (this.previous.length >= 2 && this.previous[1] === 'touch' && this.previous[0] === 'mouse') {
+          return;
+        }
+
+        this.clearState();
+        this.awaitingComplete = window.setTimeout(() => {
+          this.hasCompleted = true;
+        }, 400);
+
+        addEvent(document.body, 'end', this.endRipple);
+
+        this.$nextTick(() => {
           this.setPositions(event);
-
-          window.setTimeout(() => {
-            this.active = true;
-          });
+          this.active = true;
         });
       },
       endRipple() {
@@ -136,33 +173,38 @@
           }, 200);
         }
 
-        document.body.removeEventListener('mouseup', this.endRipple);
+        removeEvent(document.body, 'end', this.endRipple);
       },
-      registerMouseEvent() {
-        this.parentElement.addEventListener('mousedown', this.startRipple);
+      registerTriggerEvent() {
+        addEvent(this.parentElement, 'start', this.startRipple);
       },
-      unregisterMouseEvent() {
+      unregisterTriggerEvent() {
         if (this.parentElement) {
-          this.parentElement.removeEventListener('mousedown', this.startRipple);
-          document.body.removeEventListener('mouseup', this.endRipple);
+          removeEvent(this.parentElement, 'start', this.startRipple);
         }
       },
       init() {
         this.rippleElement = this.$el;
         this.parentElement = this.getClosestPositionedParent(this.$el.parentNode);
+        this.previous = ['mouse'];
 
-        if (!this.parentElement) {
-          this.$destroy();
-        } else {
+        if (this.parentElement) {
           this.rippleElement.parentNode.removeChild(this.rippleElement);
-          this.parentElement.appendChild(this.rippleElement);
-          this.registerMouseEvent();
-          this.setDimensions();
+
+          if (this.parentElement.querySelectorAll('.md-ink-ripple').length > 0) {
+            this.$destroy();
+          } else {
+            this.parentElement.appendChild(this.rippleElement);
+            this.registerTriggerEvent();
+            this.setDimensions();
+          }
+        } else {
+          this.$destroy();
         }
       },
       destroy() {
         if (this.rippleElement && this.rippleElement.parentNode) {
-          this.unregisterMouseEvent();
+          this.unregisterTriggerEvent();
           this.rippleElement.parentNode.removeChild(this.rippleElement);
         }
       }

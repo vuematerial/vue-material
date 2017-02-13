@@ -12,6 +12,7 @@
   import theme from '../../core/components/mdTheme/mixin';
 
   export default {
+    name: 'md-progress',
     props: {
       mdIndeterminate: Boolean,
       mdProgress: {

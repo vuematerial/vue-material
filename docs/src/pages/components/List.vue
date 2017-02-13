@@ -70,6 +70,13 @@
                 <md-table-cell><code>Boolean</code></md-table-cell>
                 <md-table-cell>Disable the item and prevent his actions. Default <code>false</code></md-table-cell>
               </md-table-row>
+              </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>md-expand-multiple</md-table-cell>
+                <md-table-cell><code>Boolean</code></md-table-cell>
+                <md-table-cell>Allow multiple items be expanded in same time in md-list. Default <code>false</code></md-table-cell>
+              </md-table-row>
             </md-table-body>
           </md-table>
 
@@ -841,9 +848,28 @@
           </div>
         </example-box>
 
-        <example-box card-title="Expansion Lists">
+        <example-box card-title="Controls">
           <div slot="demo">
             <div class="phone-viewport">
+              <md-toolbar md-theme="white">
+                <span class="md-title">Multiple options</span>
+              </md-toolbar>
+
+              <md-list>
+                <md-list-item>Plain Text</md-list-item>
+                <md-list-item target="_blank" href="https://google.com">Link</md-list-item>
+                <md-list-item @click.native="openAlert">Button</md-list-item>
+                <md-list-item>
+                  <router-link to="/components/list">Router View</router-link>
+                </md-list-item>
+              </md-list>
+            </div>
+
+            <div class="phone-viewport">
+              <md-toolbar md-theme="white">
+                <span class="md-title">Single Expand</span>
+              </md-toolbar>
+
               <md-list>
                 <md-list-item>
                   <md-icon>whatshot</md-icon>
@@ -872,6 +898,59 @@
                 </md-list-item>
 
                 <md-list-item>
+                  <md-icon>video_library</md-icon>
+                  <span>Video</span>
+
+                  <md-list-expand>
+                    <md-list>
+                      <md-list-item class="md-inset">Humor</md-list-item>
+                      <md-list-item class="md-inset">Music</md-list-item>
+                      <md-list-item class="md-inset">Movies</md-list-item>
+                      <md-list-item class="md-inset">TV Shows</md-list-item>
+                    </md-list>
+                  </md-list-expand>
+                </md-list-item>
+
+                <md-list-item>
+                  <md-icon>shopping_basket</md-icon>
+                  <span>Shop</span>
+                </md-list-item>
+              </md-list>
+            </div>
+
+            <div class="phone-viewport">
+              <md-toolbar md-theme="white">
+                <span class="md-title">Multiple Expand</span>
+              </md-toolbar>
+
+              <md-list>
+                <md-list-item md-expand-multiple>
+                  <md-icon>whatshot</md-icon>
+                  <span>News</span>
+
+                  <md-list-expand>
+                    <md-list>
+                      <md-list-item class="md-inset">World</md-list-item>
+                      <md-list-item class="md-inset">Americas</md-list-item>
+                      <md-list-item class="md-inset">Europe</md-list-item>
+                    </md-list>
+                  </md-list-expand>
+                </md-list-item>
+
+                <md-list-item md-expand-multiple>
+                  <md-icon>videogame_asset</md-icon>
+                  <span>Games</span>
+
+                  <md-list-expand>
+                    <md-list>
+                      <md-list-item class="md-inset">Console</md-list-item>
+                      <md-list-item class="md-inset">PC</md-list-item>
+                      <md-list-item class="md-inset">Phone</md-list-item>
+                    </md-list>
+                  </md-list-expand>
+                </md-list-item>
+
+                <md-list-item md-expand-multiple>
                   <md-icon>video_library</md-icon>
                   <span>Video</span>
 
@@ -953,20 +1032,23 @@
 
 <style lang="sass" scoped>
   .phone-viewport {
-    height: 400px;
+    height: 480px;
+    overflow: auto;
   }
 
   .custom-list {
-    .md-list-action {
-      position: absolute;
-      top: 8px;
-      right: 16px;
-      pointer-events: auto;
-      z-index: 2;
-    }
-
-    .md-icon {
+    .md-icon:not(.md-primary) {
       color: rgba(#000, .26);
     }
   }
 </style>
+
+<script>
+  export default {
+    methods: {
+      openAlert() {
+        window.alert('...');
+      }
+    }
+  };
+</script>

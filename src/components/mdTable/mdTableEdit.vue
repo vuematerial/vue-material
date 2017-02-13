@@ -21,6 +21,7 @@
 
 <script>
   export default {
+    name: 'md-table-edit',
     props: {
       value: [String, Number],
       mdLarge: Boolean,

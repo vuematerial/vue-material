@@ -9,6 +9,7 @@
   import getClosestVueParent from '../../core/utils/getClosestVueParent';
 
   export default {
+    name: 'md-tab',
     props: {
       id: [String, Number],
       mdLabel: [String, Number],

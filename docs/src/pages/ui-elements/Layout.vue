@@ -244,35 +244,35 @@
 
         <example-box card-title="Sizes and Offset">
           <div class="layout-demo grid" slot="demo">
-            <md-layout md-gutter class="color">
+            <md-layout :md-gutter="true" class="color">
               <md-layout md-flex="50"></md-layout>
               <md-layout></md-layout>
               <md-layout></md-layout>
               <md-layout></md-layout>
             </md-layout>
 
-            <md-layout md-gutter class="color">
+            <md-layout :md-gutter="true" class="color">
               <md-layout md-flex="33"></md-layout>
               <md-layout></md-layout>
             </md-layout>
 
-            <md-layout md-gutter class="color">
+            <md-layout :md-gutter="true" class="color">
               <md-layout></md-layout>
               <md-layout md-flex="33" md-flex-offset="33"></md-layout>
             </md-layout>
 
-            <md-layout md-gutter class="color">
+            <md-layout :md-gutter="true" class="color">
               <md-layout md-flex="75"></md-layout>
               <md-layout></md-layout>
             </md-layout>
 
-            <md-layout md-gutter class="color">
+            <md-layout :md-gutter="true" class="color">
               <md-layout md-flex="50"></md-layout>
               <md-layout></md-layout>
               <md-layout></md-layout>
             </md-layout>
 
-            <md-layout md-gutter class="color">
+            <md-layout :md-gutter="true" class="color">
               <md-layout md-flex="25" md-flex-offset="25"></md-layout>
               <md-layout md-flex="25"></md-layout>
             </md-layout>

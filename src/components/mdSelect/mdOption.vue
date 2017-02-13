@@ -2,7 +2,7 @@
   <md-menu-item
     class="md-option"
     :class="classes"
-    @click="selectOption"
+    @click.native="selectOption"
     tabindex="-1">
     <md-checkbox class="md-primary" v-model="check" v-if="parentSelect.multiple">
       <span ref="item">
@@ -20,6 +20,7 @@
   import getClosestVueParent from '../../core/utils/getClosestVueParent';
 
   export default {
+    name: 'md-option',
     props: {
       value: [String, Boolean, Number]
     },
@@ -55,7 +56,7 @@
       },
       setParentOption() {
         if (!this.isMultiple()) {
-          this.parentSelect.selectOption(this.value, this.$refs.item.textContent);
+          this.parentSelect.selectOption(this.value, this.$refs.item.textContent, this.$el);
         } else {
           this.check = !this.check;
         }

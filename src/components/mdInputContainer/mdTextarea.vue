@@ -17,6 +17,7 @@
   import getClosestVueParent from '../../core/utils/getClosestVueParent';
 
   export default {
+    name: 'md-textarea',
     mixins: [common],
     watch: {
       value() {
@@ -35,6 +36,7 @@
           throw new Error('You should wrap the md-textarea in a md-input-container');
         }
 
+        this.parentContainer.inputInstance = this;
         this.setParentDisabled();
         this.setParentRequired();
         this.setParentPlaceholder();

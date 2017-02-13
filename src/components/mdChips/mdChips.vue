@@ -34,6 +34,7 @@
   import uniqueId from '../../core/utils/uniqueId';
 
   export default {
+    name: 'md-chips',
     props: {
       value: Array,
       disabled: Boolean,

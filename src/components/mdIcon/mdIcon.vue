@@ -16,6 +16,7 @@
   let registeredIcons = {};
 
   export default {
+    name: 'md-icon',
     props: {
       mdSrc: String,
       mdIconset: {

@@ -18,6 +18,7 @@
   import getClosestVueParent from '../../core/utils/getClosestVueParent';
 
   export default {
+    name: 'md-table-head',
     props: {
       mdNumeric: Boolean,
       mdSortBy: String,

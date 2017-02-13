@@ -118,6 +118,17 @@
     &:first-child {
       margin-left: 8px;
     }
+
+    + .md-input-container {
+      margin-left: 24px;
+    }
+  }
+
+  .md-input-container {
+    min-height: 32px;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
   }
 
   .md-list {

@@ -6,6 +6,7 @@
 
 <script>
   export default {
+    name: 'md-backdrop',
     methods: {
       close() {
         this.$emit('close');

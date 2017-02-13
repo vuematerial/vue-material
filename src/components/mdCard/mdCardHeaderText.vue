@@ -6,6 +6,7 @@
 
 <script>
   export default {
+    name: 'md-card-header-text',
     mounted() {
       this.parentClasses = this.$parent.$el.classList;
 

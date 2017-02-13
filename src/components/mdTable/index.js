@@ -9,7 +9,7 @@ import mdTablePagination from './mdTablePagination.vue';
 import mdTableTheme from './mdTable.theme';
 
 export default function install(Vue) {
-  Vue.component('md-table', Vue.extend(mdTable));
+  Vue.component('md-table', mdTable);
   Vue.component('md-table-header', {
     functional: true,
     render: (h, scope) => h('thead', {
@@ -22,13 +22,13 @@ export default function install(Vue) {
       staticClass: 'md-table-body'
     }, scope.children)
   });
-  Vue.component('md-table-row', Vue.extend(mdTableRow));
-  Vue.component('md-table-head', Vue.extend(mdTableHead));
-  Vue.component('md-table-cell', Vue.extend(mdTableCell));
-  Vue.component('md-table-edit', Vue.extend(mdTableEdit));
-  Vue.component('md-table-card', Vue.extend(mdTableCard));
-  Vue.component('md-table-pagination', Vue.extend(mdTablePagination));
-  Vue.component('md-table-alternate-header', Vue.extend(mdTableAlternateHeader));
+  Vue.component('md-table-row', mdTableRow);
+  Vue.component('md-table-head', mdTableHead);
+  Vue.component('md-table-cell', mdTableCell);
+  Vue.component('md-table-edit', mdTableEdit);
+  Vue.component('md-table-card', mdTableCard);
+  Vue.component('md-table-pagination', mdTablePagination);
+  Vue.component('md-table-alternate-header', mdTableAlternateHeader);
 
   Vue.material.styles.push(mdTableTheme);
 }
