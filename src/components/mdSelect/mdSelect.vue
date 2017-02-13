@@ -98,7 +98,8 @@
 
           if (options.value === value) {
             output.value = value;
-            output.text = options.$refs.item.textContent;
+            output.text = options.$refs.item.textContent,
+            output.el = options.$refs.item;
           }
         });
 
@@ -137,6 +138,7 @@
 
         this.selectedValue = output.value;
         this.selectedText = output.text;
+        this.lastSelected = output.el;
 
         if (this.parentContainer) {
           this.parentContainer.setValue(this.selectedText);
