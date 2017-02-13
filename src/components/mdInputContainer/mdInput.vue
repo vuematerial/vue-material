@@ -19,13 +19,14 @@
   import getClosestVueParent from '../../core/utils/getClosestVueParent';
 
   export default {
-    mixins: [common],
+    name: 'md-input',
     props: {
       type: {
         type: String,
         default: 'text'
       }
     },
+    mixins: [common],
     mounted() {
       this.$nextTick(() => {
         this.parentContainer = getClosestVueParent(this.$parent, 'md-input-container');

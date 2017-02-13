@@ -17,6 +17,7 @@
   import getClosestVueParent from '../../core/utils/getClosestVueParent';
 
   export default {
+    name: 'md-textarea',
     mixins: [common],
     watch: {
       value() {

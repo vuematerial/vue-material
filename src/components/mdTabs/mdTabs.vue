@@ -36,6 +36,7 @@
   import throttle from '../../core/utils/throttle';
 
   export default {
+    name: 'md-tabs',
     props: {
       mdFixed: Boolean,
       mdCentered: Boolean,

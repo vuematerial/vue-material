@@ -20,6 +20,7 @@
   import getClosestVueParent from '../../core/utils/getClosestVueParent';
 
   export default {
+    name: 'md-option',
     props: {
       value: [String, Boolean, Number]
     },

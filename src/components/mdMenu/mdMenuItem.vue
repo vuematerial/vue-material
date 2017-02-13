@@ -15,6 +15,7 @@
   import 'element.scrollintoviewifneeded-polyfill';
 
   export default {
+    name: 'md-menu-item',
     props: {
       href: String,
       target: String,

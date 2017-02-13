@@ -14,6 +14,7 @@
   import theme from '../../core/components/mdTheme/mixin';
 
   export default {
+    name: 'md-sidenav',
     data() {
       return {
         mdVisible: false

@@ -8,6 +8,7 @@
   import getImageLightness from '../../core/utils/getImageLightness';
 
   export default {
+    name: 'md-image',
     props: {
       mdSrc: String
     },

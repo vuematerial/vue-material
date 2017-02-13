@@ -2,6 +2,7 @@
 
 <script>
   export default {
+    name: 'md-layout',
     props: {
       mdTag: {
         type: String,

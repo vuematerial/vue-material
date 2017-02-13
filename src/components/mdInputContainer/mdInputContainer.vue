@@ -17,6 +17,7 @@
   import isArray from '../../core/utils/isArray';
 
   export default {
+    name: 'md-input-container',
     props: {
       mdInline: Boolean,
       mdHasPassword: Boolean

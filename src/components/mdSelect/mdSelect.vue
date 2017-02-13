@@ -23,6 +23,7 @@
   import isArray from '../../core/utils/isArray';
 
   export default {
+    name: 'md-select',
     props: {
       name: String,
       id: String,

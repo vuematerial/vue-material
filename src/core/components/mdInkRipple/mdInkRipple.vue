@@ -27,6 +27,7 @@
   };
 
   export default {
+    name: 'md-ink-ripple',
     props: {
       mdDisabled: Boolean
     },

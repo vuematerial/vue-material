@@ -16,6 +16,7 @@
   import theme from '../../core/components/mdTheme/mixin';
 
   export default {
+    name: 'md-button',
     props: {
       href: String,
       target: String,

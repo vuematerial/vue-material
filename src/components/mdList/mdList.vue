@@ -10,6 +10,7 @@
   import theme from '../../core/components/mdTheme/mixin';
 
   export default {
+    name: 'md-list',
     mixins: [theme]
   };
 </script>

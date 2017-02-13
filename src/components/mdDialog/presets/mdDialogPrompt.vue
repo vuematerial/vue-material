@@ -27,6 +27,7 @@
 
 <script>
   export default {
+    name: 'md-dialog-prompt',
     props: {
       value: {
         type: [String, Number],

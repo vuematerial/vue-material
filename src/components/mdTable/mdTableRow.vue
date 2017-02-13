@@ -14,6 +14,7 @@
   const transitionClass = 'md-transition-off';
 
   export default {
+    name: 'md-table-row',
     props: {
       mdAutoSelect: Boolean,
       mdSelection: Boolean,

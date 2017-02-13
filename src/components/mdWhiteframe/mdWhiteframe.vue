@@ -2,6 +2,7 @@
 
 <script>
   export default {
+    name: 'md-whiteframe',
     props: {
       mdElevation: {
         type: [String, Number],

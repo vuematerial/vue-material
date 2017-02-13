@@ -17,6 +17,7 @@
   import manager from './manager';
 
   export default {
+    name: 'md-snackbar',
     props: {
       id: [String, Number],
       mdPosition: {
