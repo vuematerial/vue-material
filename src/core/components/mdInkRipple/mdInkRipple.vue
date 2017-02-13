@@ -188,13 +188,18 @@
         this.parentElement = this.getClosestPositionedParent(this.$el.parentNode);
         this.previous = ['mouse'];
 
-        if (!this.parentElement) {
-          this.$destroy();
-        } else {
+        if (this.parentElement) {
           this.rippleElement.parentNode.removeChild(this.rippleElement);
-          this.parentElement.appendChild(this.rippleElement);
-          this.registerTriggerEvent();
-          this.setDimensions();
+
+          if (this.parentElement.querySelectorAll('.md-ink-ripple').length > 0) {
+            this.$destroy();
+          } else {
+            this.parentElement.appendChild(this.rippleElement);
+            this.registerTriggerEvent();
+            this.setDimensions();
+          }
+        } else {
+          this.$destroy();
         }
       },
       destroy() {
