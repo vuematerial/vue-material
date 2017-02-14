@@ -68,7 +68,7 @@
       },
       changeState(checked, $event) {
         if (typeof $event !== 'undefined') {
-          this.$emit('change', $event);
+          this.$emit('change', checked, $event);
 
           if (!$event.defaultPrevented) {
             this.checked = checked;
