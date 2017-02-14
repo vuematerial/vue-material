@@ -31,30 +31,6 @@
             </md-table-body>
           </md-table>
 
-          <md-table slot="classes">
-            <md-table-header>
-              <md-table-row>
-                <md-table-head>Name</md-table-head>
-                <md-table-head>Description</md-table-head>
-              </md-table-row>
-            </md-table-header>
-
-            <md-table-body>
-              <md-table-row>
-                <md-table-cell><code>md-primary</code></md-table-cell>
-                <md-table-cell>Applies primary theme color to the chip.</md-table-cell>
-              </md-table-row>
-              <md-table-row>
-                <md-table-cell><code>md-accent</code></md-table-cell>
-                <md-table-cell>Applies accent theme color to the chip.</md-table-cell>
-              </md-table-row>
-              <md-table-row>
-                <md-table-cell><code>md-warn</code></md-table-cell>
-                <md-table-cell>Applies warn theme color to the chip.</md-table-cell>
-              </md-table-row>
-            </md-table-body>
-          </md-table>
-
           <md-table slot="events">
             <md-table-header>
               <md-table-row>
