@@ -21,5 +21,20 @@
         color: #{'BACKGROUND-COLOR'};
       }
     }
+
+    &.md-primary {
+      color: #{'PRIMARY-CONTRAST'};
+      background-color: #{'PRIMARY-COLOR'};
+    }
+
+    &.md-accent {
+      color: #{'ACCENT-CONTRAST'};
+      background-color: #{'ACCENT-COLOR'};
+    }
+
+    &.md-warn {
+      color: #{'WARN-CONTRAST'};
+      background-color: #{'WARN-COLOR'};
+    }
   }
 }
