@@ -28,6 +28,12 @@
                 <md-table-cell><code>Boolean</code></md-table-cell>
                 <md-table-cell>Enable delete button. Default: <code>false</code></md-table-cell>
               </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>md-editable</md-table-cell>
+                <md-table-cell><code>Boolean</code></md-table-cell>
+                <md-table-cell>Enable click on the chip's content. Default: <code>false</code></md-table-cell>
+              </md-table-row>
             </md-table-body>
           </md-table>
 
@@ -45,6 +51,11 @@
                 <md-table-cell>delete</md-table-cell>
                 <md-table-cell>None</md-table-cell>
                 <md-table-cell>Triggered when delete button is clicked.</md-table-cell>
+              </md-table-row>
+              <md-table-row>
+                <md-table-cell>edit</md-table-cell>
+                <md-table-cell>None</md-table-cell>
+                <md-table-cell>Triggered when the chip's content is clicked.</md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>
@@ -136,12 +147,14 @@
           <div slot="demo">
             <md-chip>Marcos Moura</md-chip>
             <md-chip md-deletable>Luiza Ivanenko</md-chip>
+            <md-chip md-editable>Alban Mouton</md-chip>
           </div>
 
           <div slot="code">
             <code-block lang="xml">
               &lt;md-chip&gt;Marcos Moura&lt;/md-chip&gt;
               &lt;md-chip md-deletable&gt;Luiza Ivanenko&lt;/md-chip&gt;
+              &lt;md-chip md-editable&gt;Alban Mouton&lt;/md-chip&gt;
             </code-block>
           </div>
         </example-box>

@@ -4,8 +4,10 @@
       <md-chip
         v-for="chip in selectedChips"
         :md-deletable="!mdStatic"
+        :md-editable="!mdStatic"
         :disabled="disabled"
-        @delete="deleteChip(chip)">
+        @delete="deleteChip(chip)"
+        @edit="editChip(chip)">
         <slot :value="chip"></slot>
       </md-chip>
 
@@ -97,6 +99,17 @@
           this.selectedChips.splice(index, 1);
         }
 
+        this.$emit('change', this.selectedChips);
+        this.applyInputFocus();
+      },
+      editChip(chip) {
+        let index = this.selectedChips.indexOf(chip);
+
+        if (index >= 0) {
+          this.selectedChips.splice(index, 1);
+        }
+
+        this.currentChip = chip;
         this.$emit('change', this.selectedChips);
         this.applyInputFocus();
       },
