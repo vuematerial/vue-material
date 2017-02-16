@@ -12,7 +12,7 @@
       <md-icon>keyboard_arrow_left</md-icon>
     </md-button>
 
-    <md-button class="md-icon-button md-table-pagination-next" @click.native="nextPage" :disabled="hasMoreItems">
+    <md-button class="md-icon-button md-table-pagination-next" @click.native="nextPage" :disabled="shouldDisable">
       <md-icon>keyboard_arrow_right</md-icon>
     </md-button>
   </div>
@@ -56,17 +56,17 @@
         this.totalItems = isNaN(val) ? Number.MAX_SAFE_INTEGER : parseInt(val, 10);
       },
       mdSize(val) {
-        this.currentSize = parseInt(this.mdSize, 10);
+        this.currentSize = parseInt(val, 10);
       },
       mdPage(val) {
-        this.currentPage = parseInt(this.mdPage, 10);
+        this.currentPage = parseInt(val, 10);
       }
     },
     computed: {
       lastPage() {
         return false;
       },
-      hasMoreItems() {
+      shouldDisable() {
         return this.currentSize * this.currentPage >= this.totalItems;
       }
     },
