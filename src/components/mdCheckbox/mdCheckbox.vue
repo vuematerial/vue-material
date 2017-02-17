@@ -1,11 +1,11 @@
 <template>
   <div class="md-checkbox" :class="[themeClass, classes]">
     <div class="md-checkbox-container" @click.stop="toggleCheck" tabindex="0">
-      <input type="checkbox" :name="name" :id="id" :disabled="disabled" :value="value" :checked="checked" tabindex="-1">
+      <input type="checkbox" :name="name" :id="id || this._uid" :disabled="disabled" :value="value" :checked="checked" tabindex="-1">
       <md-ink-ripple :md-disabled="disabled" />
     </div>
 
-    <label :for="id || name" class="md-checkbox-label" v-if="$slots.default">
+    <label :for="id || name || this._uid" class="md-checkbox-label" v-if="$slots.default">
       <slot></slot>
     </label>
   </div>
