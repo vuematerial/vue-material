@@ -20,9 +20,7 @@
     mixins: [common],
     watch: {
       value() {
-        this.$nextTick(() => {
-          autosize.update(this.$el);
-        });
+        this.$nextTick(() => autosize.update(this.$el));
       }
     },
     mounted() {
@@ -46,6 +44,7 @@
         }
 
         autosize(this.$el);
+        setTimeout(() => autosize.update(this.$el), 200);
       });
     },
     beforeDestroy() {
