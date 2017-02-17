@@ -84,7 +84,17 @@ const parseStyle = (style, theme, name) => {
         return color[colorVariant];
       }
 
-      if (color.darkText.indexOf(colorVariant) >= 0) {
+      let isDarkText = color.darkText.indexOf(colorVariant) >= 0;
+
+      if (theme[type] && typeof theme[type] !== 'string' && theme[type].textColor) {
+        if (theme[type].textColor === 'black') {
+          isDarkText = true;
+        } else if (theme[type].textColor === 'white') {
+          isDarkText = false;
+        }
+      }
+
+      if (isDarkText) {
         if (opacity) {
           return rgba('#000', opacity);
         }
