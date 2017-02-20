@@ -2,6 +2,12 @@
 
 $select-height: 32px;
 
+@mixin disable-item {
+  pointer-events: none;
+  user-select: none;
+  user-drag: none;
+}
+
 .md-select {
   width: 100%;
   min-width: 128px;
@@ -43,9 +49,7 @@ $select-height: 32px;
   }
 
   &.md-disabled {
-    pointer-events: none;
-    user-select: none;
-    user-drag: none;
+    @include disable-item;
   }
 
   select {
@@ -92,6 +96,10 @@ $select-height: 32px;
   &.md-direction-bottom-right {
     margin-top: -15px;
     margin-left: -16px;
+  }
+
+  .md-option[disabled] {
+    @include disable-item;
   }
 
   .md-menu-item .md-list-item-holder {

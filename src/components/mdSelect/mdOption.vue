@@ -61,6 +61,9 @@
         }
       },
       selectOption($event) {
+        if (this.disabled) {
+          return;
+        }
         this.setParentOption();
         this.$emit('selected', $event);
       }
