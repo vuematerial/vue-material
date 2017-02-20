@@ -23,10 +23,10 @@
           <span class="md-tab-indicator" :class="indicatorClasses" ref="indicator"></span>
         </div>
       </div>
-      <button v-if="hasNavigationScroll" @click="navigationScrollLeft" class="md-tab-header-navigation-button md-left" :class="navigationLeftButtonClasses">
+      <button v-if="mdNavigation && hasNavigationScroll" @click="navigationScrollLeft" class="md-tab-header-navigation-button md-left" :class="navigationLeftButtonClasses">
         <md-icon>keyboard_arrow_left</md-icon>
       </button>
-      <button v-if="hasNavigationScroll" @click="navigationScrollRight" class="md-tab-header-navigation-button md-right" :class="navigationRightButtonClasses">
+      <button v-if="mdNavigation && hasNavigationScroll" @click="navigationScrollRight" class="md-tab-header-navigation-button md-right" :class="navigationRightButtonClasses">
         <md-icon>keyboard_arrow_right</md-icon>
       </button>
     </md-whiteframe>
@@ -51,6 +51,10 @@
       mdFixed: Boolean,
       mdCentered: Boolean,
       mdRight: Boolean,
+      mdNavigation: {
+        type: Boolean,
+        default: true
+      },
       mdDynamicHeight: {
         type: Boolean,
         default: true

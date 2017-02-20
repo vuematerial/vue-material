@@ -52,6 +52,12 @@
                 <md-table-cell><code>Number</code></md-table-cell>
                 <md-table-cell>Add a shadow on the navigation with an whiteframe. Default <code>0</code></md-table-cell>
               </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>md-navigation</md-table-cell>
+                <md-table-cell><code>Boolean</code></md-table-cell>
+                <md-table-cell>Display the navigation arrows for horizontal scroll. Default <code>true</code></md-table-cell>
+              </md-table-row>
             </md-table-body>
           </md-table>
 
