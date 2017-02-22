@@ -256,11 +256,11 @@
         let target = boardsIds[targetIndex];
 
         if (target) {
-          this.setActiveBoard(this.boardList[target]);
+          this.setActiveBoard(this.boardList[target], true);
         } else if (this.mdInfinite) {
           let lastBoard = Object.keys(this.boardList)[Object.keys(this.boardList).length - 1];
 
-          this.setActiveBoard(this.boardList[lastBoard]);
+          this.setActiveBoard(this.boardList[lastBoard], true);
         }
       },
       moveNextBoard() {
@@ -269,11 +269,11 @@
         let target = boardsIds[targetIndex];
 
         if (target) {
-          this.setActiveBoard(this.boardList[target]);
+          this.setActiveBoard(this.boardList[target], true);
         } else if (this.mdInfinite) {
           let firstBoard = Object.keys(this.boardList)[0];
   
-          this.setActiveBoard(this.boardList[firstBoard]);
+          this.setActiveBoard(this.boardList[firstBoard], true);
         }
       }
     },
