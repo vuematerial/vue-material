@@ -5,6 +5,7 @@ $board-max-width: 24px;
 
 .md-boards {
   width: 100%;
+  height: 100%;
   display: flex;
   flex-flow: column;
   position: relative;
@@ -20,6 +21,9 @@ $board-max-width: 24px;
   }
 
   .md-boards-navigation {
+    position: absolute !important;
+    bottom: 0;
+    width: 100%;
     height: 48px;
     min-height: 48px;
     position: relative;

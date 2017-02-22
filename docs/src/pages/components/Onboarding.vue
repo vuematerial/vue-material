@@ -57,7 +57,7 @@
       <div slot="example">
         <example-box card-title="Basic, automatic, infinite, uncontrolled">
           <div slot="demo">
-            <md-boards :md-auto="true" :md-infinite="true">
+            <md-boards :md-auto="true" :md-infinite="true" :md-duration="3000">
               <md-board id="slide1">
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
               </md-board>
@@ -74,7 +74,7 @@
 
           <div slot="code">
             <code-block lang="xml">
-              &lt;md-boards :md-auto=&quot;true&quot; :md-infinite=&quot;true&quot;&gt;
+              &lt;md-boards :md-auto=&quot;true&quot; :md-infinite=&quot;true&quot; :md-duration=&quot;3000&quot;&gt;
                 &lt;md-board id=&quot;slide1&quot;&gt;
                   &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.&lt;/p&gt;
                 &lt;/md-board&gt;

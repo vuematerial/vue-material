@@ -7,7 +7,7 @@
       </div>
     </div>
 
-    <md-whiteframe md-tag="nav" class="md-boards-navigation" :md-elevation="mdElevation" :class="navigationClasses" ref="boardNavigation">
+    <nav class="md-boards-navigation" :class="navigationClasses" ref="boardNavigation">
 
       <span style="flex: 1" v-if="!mdControls"></span>
 
@@ -48,7 +48,7 @@
       <span style="flex: 1" v-if="!mdControls"></span>
 
       <span ref="indicator"></span>
-    </md-whiteframe>
+    </nav>
 
   </div>
 </template>
@@ -76,7 +76,7 @@
         type: Boolean,
         default: false
       },
-      mdTimeout: {
+      mdDuration: {
         type: Number,
         default: 5000
       },
@@ -282,12 +282,16 @@
       if (this.mdAuto) {
         this.autoTransition = window.setInterval(() => {
           this.moveNextBoard();
-        }, this.mdTimeout);
+        }, this.mdDuration);
       }
     },
     beforeDestroy() {
       if (this.parentObserver) {
         this.parentObserver.disconnect();
+      }
+
+      if (this.autoTransition) {
+        window.clearTimeout(this.autoTransition);
       }
 
       window.removeEventListener('resize', this.calculateOnResize);
