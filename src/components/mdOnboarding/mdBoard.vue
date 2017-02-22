@@ -1,5 +1,5 @@
 <template>
-  <div class="md-tab" :id="tabId" :style="styles">
+  <div class="md-board" :id="boardId" :style="styles">
     <slot></slot>
   </div>
 </template>
@@ -28,32 +28,32 @@
     data() {
       return {
         mounted: false,
-        tabId: this.id || 'tab-' + uniqueId(),
+        boardId: this.id || 'board-' + uniqueId(),
         width: '0px',
         left: '0px'
       };
     },
     watch: {
       mdActive() {
-        this.updateTabData();
+        this.updateBoardData();
       },
       mdDisabled() {
-        this.updateTabData();
+        this.updateBoardData();
       },
       mdIcon() {
-        this.updateTabData();
+        this.updateBoardData();
       },
       mdLabel() {
-        this.updateTabData();
+        this.updateBoardData();
       },
       mdTooltip() {
-        this.updateTabData();
+        this.updateBoardData();
       },
       mdTooltipDelay() {
-        this.updateTabData();
+        this.updateBoardData();
       },
       mdTooltipDirection() {
-        this.updateTabData();
+        this.updateBoardData();
       }
     },
     computed: {
@@ -65,9 +65,9 @@
       }
     },
     methods: {
-      getTabData() {
+      getBoardData() {
         return {
-          id: this.tabId,
+          id: this.boardId,
           label: this.mdLabel,
           icon: this.mdIcon,
           active: this.mdActive,
@@ -78,28 +78,28 @@
           ref: this
         };
       },
-      updateTabData() {
-        this.parentTabs.updateTab(this.getTabData());
+      updateBoardData() {
+        this.parentBoards.updateBoard(this.getBoardData());
       }
     },
     mounted() {
-      let tabData = this.getTabData();
+      let boardData = this.getBoardData();
 
-      this.parentTabs = getClosestVueParent(this.$parent, 'md-tabs');
+      this.parentBoards = getClosestVueParent(this.$parent, 'md-boards');
 
-      if (!this.parentTabs) {
-        throw new Error('You must wrap the md-tab in a md-tabs');
+      if (!this.parentBoards) {
+        throw new Error('You must wrap the md-board in a md-boards');
       }
 
       this.mounted = true;
-      this.parentTabs.updateTab(tabData);
+      this.parentBoards.updateBoard(boardData);
 
       if (this.mdActive) {
-        this.parentTabs.setActiveTab(tabData);
+        this.parentBoards.setActiveBoard(boardData);
       }
     },
     beforeDestroy() {
-      this.parentTabs.unregisterTab(this.getTabData());
+      this.parentBoards.unregisterBoard(this.getBoardData());
     }
   };
 </script>
