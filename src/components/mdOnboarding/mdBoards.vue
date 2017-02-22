@@ -28,7 +28,7 @@
         class="md-board-header"
         :class="getHeaderClass(header)"
         :disabled="header.disabled"
-        @click="setActiveBoard(header)"
+        @click="setActiveBoard(header, true)"
         ref="boardHeader">
         <div class="md-board-header-container">
           <md-icon>fiber_manual_record</md-icon>
@@ -231,7 +231,18 @@
         this.transitionOff = true;
         this.calculateOnWatch();
       },
-      setActiveBoard(boardData) {
+      start() {
+        if (this.autoTransition) {
+          window.clearInterval(this.autoTransition);
+        }
+        this.autoTransition = window.setInterval(() => {
+          this.moveNextBoard();
+        }, this.mdDuration);
+      },
+      setActiveBoard(boardData, reset) {
+        if (reset) {
+          this.start();
+        }
         this.hasIcons = !!boardData.icon;
         this.hasLabel = !!boardData.label;
         this.activeBoard = boardData.id;
@@ -280,9 +291,7 @@
 
       /* automatic behaviour */
       if (this.mdAuto) {
-        this.autoTransition = window.setInterval(() => {
-          this.moveNextBoard();
-        }, this.mdDuration);
+        this.start();
       }
     },
     beforeDestroy() {
