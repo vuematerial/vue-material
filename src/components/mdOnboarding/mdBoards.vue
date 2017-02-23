@@ -1,7 +1,7 @@
 <template>
   <div class="md-boards" :class="[themeClass, boardClasses]">
 
-    <div class="md-boards-content" ref="boardContent" :style="{ height: contentHeight }">
+    <div class="md-boards-content" ref="boardsContent" :style="{ height: contentHeight }">
       <div class="md-boards-wrapper" :style="{ transform: `translate3D(-${contentWidth}, 0, 0)` }">
         <slot></slot>
       </div>
@@ -87,6 +87,11 @@
       mdInfinite: {
         type: Boolean,
         default: false
+      },
+      mdSwipeable: Boolean,
+      mdSwipeDistance: {
+        type: Number,
+        default: 100
       }
     },
     mixins: [theme],
@@ -164,7 +169,7 @@
       },
       observeElementChanges() {
         this.parentObserver = new MutationObserver(throttle(this.calculateOnWatch, 50));
-        this.parentObserver.observe(this.$refs.boardContent, {
+        this.parentObserver.observe(this.$refs.boardsContent, {
           childList: true,
           attributes: true,
           subtree: true
@@ -240,7 +245,7 @@
         }, this.mdDuration);
       },
       setActiveBoard(boardData, reset) {
-        if (reset) {
+        if (this.mdAuto && reset) {
           this.start();
         }
         this.hasIcons = !!boardData.icon;
@@ -275,6 +280,40 @@
   
           this.setActiveBoard(this.boardList[firstBoard], true);
         }
+      },
+      isHorizontallyInside(positionX) {
+        return positionX > this.mountedRect.left && positionX < this.mountedRect.left + this.mountedRect.width;
+      },
+      isVerticallyInside(positionY) {
+        return positionY > this.mountedRect.top && positionY < this.mountedRect.top + this.mountedRect.height;
+      },
+      handleTouchStart(event) {
+        this.mountedRect = this.$refs.boardsContent.getBoundingClientRect();
+        const positionX = event.changedTouches[0].clientX;
+        const positionY = event.changedTouches[0].clientY;
+
+        if (this.isHorizontallyInside(positionX) && this.isVerticallyInside(positionY)) {
+          this.initialTouchPosition = positionX;
+          this.canMove = true;
+        }
+      },
+      handleTouchEnd(event) {
+        if (this.canMove) {
+          const positionX = event.changedTouches[0].clientX;
+
+          const difference = this.initialTouchPosition - positionX;
+
+          const action = difference > 0
+            ? 'moveNextBoard'
+            : 'movePrevBoard';
+  
+          if (Math.abs(difference) > this.mdSwipeDistance) {
+            this[action]();
+          }
+
+          this.canMove = false;
+          this.initialTouchPosition = null;
+        }
       }
     },
     mounted() {
@@ -287,12 +326,20 @@
 
           this.setActiveBoard(this.boardList[firstBoard]);
         }
-      });
 
-      /* automatic behaviour */
-      if (this.mdAuto) {
-        this.start();
-      }
+        if (this.mdSwipeable) {
+          this.mountedRect = this.$refs.boardsContent.getBoundingClientRect();
+          this.initialTouchPosition = null;
+          this.canMove = false;
+
+          document.addEventListener('touchstart', this.handleTouchStart);
+          document.addEventListener('touchend', this.handleTouchEnd);
+        }
+
+        if (this.mdAuto) {
+          this.start();
+        }
+      });
     },
     beforeDestroy() {
       if (this.parentObserver) {
@@ -304,6 +351,12 @@
       }
 
       window.removeEventListener('resize', this.calculateOnResize);
+
+      if (this.mdSwipeable) {
+        document.removeEventListener('touchstart', this.handleTouchStart);
+        document.removeEventListener('touchend', this.handleTouchEnd);
+      }
+
     }
   };
 </script>

@@ -38,15 +38,27 @@
               </md-table-row>
 
               <md-table-row>
-                <md-table-cell>md-timeout</md-table-cell>
+                <md-table-cell>md-duration</md-table-cell>
                 <md-table-cell><code>Number</code></md-table-cell>
-                <md-table-cell>Set timeout for <code>md-auto</code> in milliseconds. Default <code>5000</code>.</md-table-cell>
+                <md-table-cell>Set duration for <code>md-auto</code> in milliseconds. Default <code>5000</code>.</md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-controls</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
                 <md-table-cell>Enable prev/next controls. Default <code>false</code>.</md-table-cell>
+              </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>md-swipeable</md-table-cell>
+                <md-table-cell><code>Boolean</code></md-table-cell>
+                <md-table-cell>Enable the swipe functionality. Default <code>false</code>.</md-table-cell>
+              </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>md-swipe-distance</md-table-cell>
+                <md-table-cell><code>Number</code></md-table-cell>
+                <md-table-cell>Set the swipe distance needed to open/close the sidenav. Default <code>100</code>.</md-table-cell>
               </md-table-row>
             </md-table-body>
 
@@ -55,9 +67,9 @@
       </div>
 
       <div slot="example">
-        <example-box card-title="Basic, automatic, infinite, uncontrolled">
+        <example-box card-title="Basic, automatic, infinite, uncontrolled, swipeable">
           <div slot="demo">
-            <md-boards :md-auto="true" :md-infinite="true" :md-duration="8000">
+            <md-boards :md-auto="true" :md-infinite="true" :md-duration="5000" :md-swipeable="true">
               <md-board id="slide1">
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
               </md-board>
@@ -74,7 +86,7 @@
 
           <div slot="code">
             <code-block lang="xml">
-              &lt;md-boards :md-auto=&quot;true&quot; :md-infinite=&quot;true&quot; :md-duration=&quot;3000&quot;&gt;
+              &lt;md-boards :md-auto=&quot;true&quot; :md-infinite=&quot;true&quot; :md-duration=&quot;5000&quot; :md-swipeable=&quot;true&quot;&gt;
                 &lt;md-board id=&quot;slide1&quot;&gt;
                   &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.&lt;/p&gt;
                 &lt;/md-board&gt;
