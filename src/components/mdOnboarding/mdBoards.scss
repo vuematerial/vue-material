@@ -5,7 +5,7 @@ $board-max-width: 24px;
 
 .md-boards {
   width: 100%;
-  height: 100%;
+  height: 100% !important;
   display: flex;
   flex-flow: column;
   position: relative;
@@ -78,13 +78,14 @@ $board-max-width: 24px;
 
   .md-boards-content {
     width: 100%;
-    height: 0;
+    height: 100% !important;
     position: relative;
     overflow: hidden;
   }
 
   .md-boards-wrapper {
     width: 9999em;
+    height: 100% !important;
     position: absolute;
     top: 0;
     right: 0;
