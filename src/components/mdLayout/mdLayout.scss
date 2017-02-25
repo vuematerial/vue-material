@@ -71,6 +71,41 @@
 @include layout-align();
 
 
+/* Vertical Alignments */
+
+@mixin layout-vertical-align($size: null) {
+  @if $size == null {
+    $size : '';
+  }
+
+  @if $size != '' {
+    $size : '-#{$size}';
+  }
+
+  .md-vertical-align#{$size}-start {
+    align-items: flex-start;
+    align-content: flex-start;
+  }
+
+  .md-vertical-align#{$size}-center {
+    align-items: center;
+    align-content: center;
+  }
+
+  .md-vertical-align#{$size}-end {
+    align-items: flex-end;
+    align-content: flex-end;
+  }
+
+  .md-vertical-align#{$size}-stretch {
+    align-items: stretch;
+    align-content: stretch;
+  }
+}
+
+@include layout-vertical-align();
+
+
 /* Gutter Size */
 
 @mixin layout-gutter($margin: -12px, $padding: 12px) {
