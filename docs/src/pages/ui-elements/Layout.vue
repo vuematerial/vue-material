@@ -140,15 +140,21 @@
               </md-table-row>
 
               <md-table-row>
+                <md-table-cell>md-align-{type}</md-table-cell>
+                <md-table-cell><code>Number</code></md-table-cell>
+                <md-table-cell>Apply an alignment to the container on screen sizes less than or equal to given breakpoint. Example: <code>md-align-xlarge="center"</code></md-table-cell>
+              </md-table-row>
+
+              <md-table-row>
                 <md-table-cell>md-vertical-align</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
                 <md-table-cell>Apply an vertical alignment to the container. Accepts <code>start</code>|<code>center</code>|<code>end</code>|<code>stretch</code> Example: <code>md-vertical-align="end"</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
-                <md-table-cell>md-align-{type}</md-table-cell>
+                <md-table-cell>md-vertical-align-{type}</md-table-cell>
                 <md-table-cell><code>Number</code></md-table-cell>
-                <md-table-cell>Apply an alignment to the container on screen sizes less than or equal to given breakpoint. Example: <code>md-align-xlarge="center"</code></md-table-cell>
+                <md-table-cell>Apply an vertical alignment to the container on screen sizes less than or equal to given breakpoint. Example: <code>md-vertical-align-xlarge="center"</code></md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>
