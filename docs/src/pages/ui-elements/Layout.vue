@@ -396,15 +396,29 @@
               </md-layout>
             </md-layout>
 
-            <md-layout md-vertical-align="center" md-gutter="16" class="color" :style="{ height: '100px' }">
-              <md-layout>
-                <span>vertical center</span>
+            <md-layout>
+              <md-layout md-vertical-align="center" md-gutter="16" class="color" :style="{ height: '100px' }">
+                <md-layout>
+                  <span>vertical center</span>
+                </md-layout>
               </md-layout>
-            </md-layout>
 
-            <md-layout md-vertical-align="start" md-gutter="16" class="color" :style="{ height: '100px' }">
-              <md-layout>
-                <span>vertical start</span>
+              <md-layout md-vertical-align="start" md-gutter="16" class="color" :style="{ height: '100px' }">
+                <md-layout>
+                  <span>vertical start</span>
+                </md-layout>
+              </md-layout>
+
+              <md-layout md-vertical-align="end" md-gutter="16" class="color" :style="{ height: '100px' }">
+                <md-layout>
+                  <span>vertical end</span>
+                </md-layout>
+              </md-layout>
+
+              <md-layout md-vertical-align="stretch" md-gutter="16" class="color" :style="{ height: '100px' }">
+                <md-layout>
+                  <span>vertical stretch (default)</span>
+                </md-layout>
               </md-layout>
             </md-layout>
 
