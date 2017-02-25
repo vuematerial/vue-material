@@ -20,29 +20,26 @@
           <li>background - grey</li>
         </ul>
         <p>All of those colors can be applied to create a theme.</p>
-        <ul>
-          <li>red</li>
-          <li>pink</li>
-          <li>purple</li>
-          <li>deep-purple</li>
-          <li>indigo</li>
-          <li>blue</li>
-          <li>light-blue</li>
-          <li>cyan</li>
-          <li>teal</li>
-          <li>green</li>
-          <li>light-green</li>
-          <li>lime</li>
-          <li>yellow</li>
-          <li>amber</li>
-          <li>orange</li>
-          <li>deep-orange</li>
-          <li>brown</li>
-          <li>grey</li>
-          <li>blue-grey</li>
-          <li>white</li>
-          <li>black</li>
-        </ul>
+
+
+        <md-layout md-gutter="16">
+          <md-layout md-flex="30" class="color-palette" v-for="(palette, name) in palettes">
+            <ul>
+              <li class="color main-color" :style="{ backgroundColor: palette['500'] }">
+                <span class="name">{{ name }}</span>
+                <span class="shade">500</span>
+                <span class="hex">{{ palette['500'] }}</span>
+              </li>
+              <li class="color" :class="{'dark': !!~palette.darkText.indexOf(index) || !!~palette.darkText.indexOf(parseInt(index)), 'margin-top': index === 'A100' }" v-for="(key, index) in palette" :style="{ backgroundColor: key }">
+                <div v-if="index !== 'darkText'">
+                  <span class="shade">{{ index }}</span>
+                  <span class="hex">{{ key }}</span>
+                </div>
+              </li>
+            </ul>
+          </md-layout>
+        </md-layout>
+
       </section>
 
       <section>
@@ -116,12 +113,68 @@
   </page-content>
 </template>
 
+
+
+<script>
+  export default {
+    data() {
+      return {
+        palettes: []
+      };
+    },
+    mounted() {
+      this.palettes = this.$material.palettes;
+    }
+  };
+</script>
+
 <style lang="sass" scoped>
   section {
     max-width: 960px;
 
     + section {
       margin-top: 56px;
+    }
+  }
+  .color-palette {
+    padding-bottom: 40px;
+    ul {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    li {
+      list-style-type: none;
+    }
+    .color {
+      .dark-text {
+        color: #000;
+        .text {
+          display: inline-block;
+          padding: 0 6px;
+        }
+      }
+      color: #fff;
+      padding: 10px 15px 11px;
+      margin: 0;
+      .hex {
+        float: right;
+        text-transform: uppercase;
+        display: block;
+      }
+      &.margin-top {
+        margin-top: 5px;
+      }
+      &.dark {
+        color: #000;
+      }
+      &.main-color {
+        height: 100px;
+        .name {
+          display: block;
+          margin-bottom: 40px;
+        }
+      }
     }
   }
 
