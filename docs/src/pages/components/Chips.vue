@@ -161,16 +161,12 @@
 
         <example-box card-title="Static">
           <div slot="demo">
-            <md-chips v-model="fruits" md-static>
-              <template scope="chip">{{ chip.value }}</template>
-            </md-chips>
+            <md-chips v-model="fruits" md-static></md-chips>
           </div>
 
           <div slot="code">
             <code-block lang="xml">
-              &lt;md-chips v-model=&quot;fruits&quot; md-static&gt;
-                &lt;template scope=&quot;chip&quot;&gt;{{ '{{ chip.value }\}' }}&lt;/template&gt;
-              &lt;/md-chips&gt;
+              &lt;md-chips v-model=&quot;fruits&quot; md-static&gt;&lt;/md-chips&gt;
             </code-block>
 
             <code-block lang="javascript">
@@ -185,15 +181,35 @@
 
         <example-box card-title="Editable">
           <div slot="demo">
-            <md-chips v-model="contacts" md-input-placeholder="Add a contact">
-              <template scope="chip">{{ chip.value }}</template>
+            <md-chips v-model="contacts" md-input-placeholder="Add a contact"></md-chips>
+          </div>
+
+          <div slot="code">
+            <code-block lang="xml">
+              &lt;md-chips v-model=&quot;contacts&quot; md-input-placeholder=&quot;Add a contact&quot;&gt;&lt;/md-chips&gt;
+            </code-block>
+
+            <code-block lang="javascript">
+              export default {
+                data: () => ({
+                  contacts: ['Marcos Moura'],
+                })
+              };
+            </code-block>
+          </div>
+        </example-box>
+
+        <example-box card-title="Errors">
+          <div slot="demo">
+            <md-chips v-model="contacts" md-input-placeholder="Add a contact" class="md-input-invalid">
+              <span class="md-error">Validation message</span>
             </md-chips>
           </div>
 
           <div slot="code">
             <code-block lang="xml">
-              &lt;md-chips v-model=&quot;contacts&quot; md-input-placeholder=&quot;Add a contact&quot;&gt;
-                &lt;template scope=&quot;chip&quot;&gt;{{ '{{ chip.value }\}' }}&lt;/template&gt;
+              &lt;md-chips v-model=&quot;contacts&quot; md-input-placeholder=&quot;Add a contact&quot; class=&quot;md-input-invalid&quot;&gt;
+                &lt;span class=&quot;md-error&quot;&gt;Validation message&lt;/span&gt;
               &lt;/md-chips&gt;
             </code-block>
 
@@ -207,10 +223,10 @@
           </div>
         </example-box>
 
-        <example-box card-title="Limit">
+        <example-box card-title="Custom chip and Limit">
           <div slot="demo">
             <md-chips v-model="cities" :md-max="5" md-input-placeholder="Cities...">
-              <template scope="chip">
+              <template scope="chip" slot="chip">
                 <span>{{ chip.value }}</span>
                 <small v-if="chip.value === 'Amsterdam'">(favorite)</small>
               </template>
@@ -220,7 +236,7 @@
           <div slot="code">
             <code-block lang="xml">
               &lt;md-chips v-model=&quot;cities&quot; :md-max=&quot;5&quot; md-input-placeholder=&quot;Cities...&quot;&gt;
-                &lt;template scope=&quot;chip&quot;&gt;
+                &lt;template scope=&quot;chip&quot; slot=&quot;chip&quot;&gt;
                   &lt;span&gt;{{ '{{ chip.value }\}' }}&lt;/span&gt;
                   &lt;small v-if=&quot;chip.value === &#039;Amsterdam&#039;&quot;&gt;(favorite)&lt;/small&gt;
                 &lt;/template&gt;
