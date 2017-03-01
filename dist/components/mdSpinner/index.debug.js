@@ -73,7 +73,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "/";
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 420);
+/******/ 	return __webpack_require__(__webpack_require__.s = 422);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -194,37 +194,7 @@ module.exports = exports['default'];
 
 /***/ }),
 
-/***/ 113:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = install;
-
-var _mdSpinner = __webpack_require__(311);
-
-var _mdSpinner2 = _interopRequireDefault(_mdSpinner);
-
-var _mdSpinner3 = __webpack_require__(253);
-
-var _mdSpinner4 = _interopRequireDefault(_mdSpinner3);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function install(Vue) {
-  Vue.component('md-spinner', _mdSpinner2.default);
-
-  Vue.material.styles.push(_mdSpinner4.default);
-}
-module.exports = exports['default'];
-
-/***/ }),
-
-/***/ 173:
+/***/ 154:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -325,7 +295,7 @@ __webpack_require__(204)
 
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(173),
+  __webpack_require__(154),
   /* template */
   __webpack_require__(340),
   /* scopeId */
@@ -333,7 +303,7 @@ var Component = __webpack_require__(0)(
   /* cssModules */
   null
 )
-Component.options.__file = "/Users/mrufino/Projects/personal/github/vue-material/src/components/mdSpinner/mdSpinner.vue"
+Component.options.__file = "C:\\GitHub\\vue-material\\src\\components\\mdSpinner\\mdSpinner.vue"
 if (Component.esModule && Object.keys(Component.esModule).some((function (key) {return key !== "default" && key !== "__esModule"}))) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] mdSpinner.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -394,11 +364,41 @@ if (false) {
 
 /***/ }),
 
-/***/ 420:
+/***/ 422:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(113);
+module.exports = __webpack_require__(94);
 
+
+/***/ }),
+
+/***/ 94:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = install;
+
+var _mdSpinner = __webpack_require__(311);
+
+var _mdSpinner2 = _interopRequireDefault(_mdSpinner);
+
+var _mdSpinner3 = __webpack_require__(253);
+
+var _mdSpinner4 = _interopRequireDefault(_mdSpinner3);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function install(Vue) {
+  Vue.component('md-spinner', _mdSpinner2.default);
+
+  Vue.material.styles.push(_mdSpinner4.default);
+}
+module.exports = exports['default'];
 
 /***/ })
 
