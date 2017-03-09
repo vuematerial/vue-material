@@ -46,6 +46,12 @@
       mdIcon() {
         this.updateTabData();
       },
+      mdOptions: {
+        deep: true,
+        handler() {
+          this.updateTabData();
+        }
+      },
       mdLabel() {
         this.updateTabData();
       },
