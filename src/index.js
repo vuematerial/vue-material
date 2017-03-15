@@ -1,4 +1,5 @@
 import MdCore from './core';
+import MdAutocomplete from './components/mdAutocomplete';
 import MdAvatar from './components/mdAvatar';
 import MdBackdrop from './components/mdBackdrop';
 import MdBottomBar from './components/mdBottomBar';
@@ -33,6 +34,7 @@ import MdWhiteframe from './components/mdWhiteframe';
 
 const options = {
   MdCore,
+  MdAutocomplete,
   MdAvatar,
   MdBackdrop,
   MdBottomBar,
