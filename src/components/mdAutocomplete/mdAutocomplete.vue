@@ -72,6 +72,9 @@
       }
     },
     methods: {
+      toggleMenu() {
+        this.$refs.menu.toggle();
+      },
       setParentDisabled() {
         this.parentContainer.isDisabled = this.disabled;
       },

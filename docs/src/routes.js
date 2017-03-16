@@ -85,6 +85,11 @@ const components = [
     component: Avatar
   },
   {
+    path: '/components/autocomplete',
+    name: 'components:autocomplete',
+    component: Autocomplete
+  },
+  {
     path: '/components/bottom-bar',
     name: 'components:bottom-bar',
     component: BottomBar
