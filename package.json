@@ -59,7 +59,7 @@
     "clipboard": "^1.6.0",
     "connect-history-api-fallback": "^1.3.0",
     "copy-webpack-plugin": "^4.0.1",
-    "css-loader": "^0.26.1",
+    "css-loader": "^0.27.3",
     "css-mqpacker": "^5.0.1",
     "date-fns": "^1.27.2",
     "element.scrollintoviewifneeded-polyfill": "^1.0.1",
@@ -69,7 +69,7 @@
     "eslint-plugin-html": "^2.0.1",
     "eventsource-polyfill": "^0.9.6",
     "express": "^4.14.1",
-    "extract-text-webpack-plugin": "beta",
+    "extract-text-webpack-plugin": "^2.1.0",
     "friendly-errors-webpack-plugin": "^1.3.1",
     "highlight.js": "^9.9.0",
     "html-webpack-plugin": "^2.28.0",
@@ -89,6 +89,6 @@
     "webpack": "^2.2.1",
     "webpack-dev-middleware": "^1.10.1",
     "webpack-hot-middleware": "^2.17.0",
-    "webpack-merge": "^3.0.0"
+    "webpack-merge": "^4.1.0"
   }
 }
