@@ -1,0 +1,112 @@
+@import '../../core/stylesheets/variables.scss';
+
+$select-height: 32px;
+
+.md-select {
+  width: 100%;
+  min-width: 128px;
+  height: $select-height;
+  position: relative;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:after {
+    margin-top: 2px;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%) scaleY(0.45) scaleX(0.85);
+    transition: $swift-linear;
+    content: "\25BC";
+  }
+
+  &.md-active {
+    .md-select-menu {
+      top: -8px;
+      pointer-events: auto;
+      opacity: 1;
+      transform: translateY(-8px) scale3D(1, 1, 1);
+      transform-origin: center top;
+      transition: $swift-ease-out;
+      transition-duration: .25s;
+      transition-property: opacity, transform, top;
+
+      > * {
+        opacity: 1;
+        transition: $swift-ease-in;
+        transition-duration: .15s;
+        transition-delay: .1s;
+      }
+    }
+  }
+
+  &.md-disabled {
+    pointer-events: none;
+    user-select: none;
+    user-drag: none;
+  }
+
+  select {
+    position: absolute;
+    left: -999em;
+  }
+
+  .md-menu {
+    width: 100%;
+    height: $select-height;
+    display: block;
+    position: relative;
+  }
+
+  .md-select-value {
+    width: 100%;
+    height: $select-height;
+    padding-right: 24px;
+    display: block;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+    font-size: 16px;
+    line-height: $select-height + 1px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .md-subheader {
+    color: rgba(#757575, .87);
+    text-transform: uppercase;
+
+    &:first-child {
+      margin-top: -8px;
+    }
+  }
+}
+
+.md-select-content {
+  width: auto;
+  max-height: 256px;
+
+  &.md-direction-bottom-right {
+    margin-top: -15px;
+    margin-left: -16px;
+  }
+
+  .md-menu-item .md-list-item-holder {
+    overflow: visible;
+    justify-content: flex-start;
+  }
+
+  &.md-multiple {
+    .md-checkbox {
+      margin: 0;
+    }
+
+    .md-checkbox-label {
+      padding-left: 16px;
+      cursor: pointer;
+    }
+  }
+}
