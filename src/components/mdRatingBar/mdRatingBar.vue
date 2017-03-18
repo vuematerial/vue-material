@@ -78,6 +78,7 @@
           var selected = this.getIconIndex(evt.target);
 
           this.$emit('input', selected / this.numStars);
+          this.$emit('change', selected / this.numStars);
         }
       },
       getIconIndex(iconSelected) {//icon is a dom element
