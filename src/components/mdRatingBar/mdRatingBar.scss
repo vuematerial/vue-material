@@ -13,20 +13,17 @@ $button-radius: 2px;
     display: inherit;
   }
 
-  > .back-stars {
-    &:not([disabled]) {
-      &:hover{
-        background-color: rgba(#999, .2);
-        text-decoration: none;
-      }
-    }
-  }
-
   > .back-stars, > .front-stars {
     > .md-icon {
       margin: 0;
       white-space: nowrap;
       cursor: pointer;
+    }
+  }
+
+  &:not([disabled]) {
+    &:hover{
+      background-color: rgba(#999, .2);
     }
   }
 
