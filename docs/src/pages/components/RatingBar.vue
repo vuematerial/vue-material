@@ -1,5 +1,5 @@
 <template>
-  <page-content page-title="Components - Radio">
+  <page-content page-title="Components - Rating Bar">
     <docs-component>
       <div slot="description">
         <p>Rating Bar can be used to show a rating to user or capture a rating from user.</p>
@@ -25,32 +25,32 @@
             <md-table-body>
               <md-table-row>
                 <md-table-cell>v-model</md-table-cell>
-                <md-table-cell><code>String</code></md-table-cell>
-                <md-table-cell>A required model object to bind the value.</md-table-cell>
+                <md-table-cell><code>Number</code></md-table-cell>
+                <md-table-cell>A required model object to bind the value. The value is limited by range [0, 1].</md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>num-stars</md-table-cell>
                 <md-table-cell><code>Number</code></md-table-cell>
-                <md-table-cell>Number of the stars. Default is <code>5</code>.</md-table-cell>
+                <md-table-cell>Number of the stars. Default <code>5</code>.</md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>front-icon</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
-                <md-table-cell>The font icon used to represent full star. Default is <code>star</code>.</md-table-cell>
+                <md-table-cell>The font icon used to represent full star. Default <code>star</code>.</md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>back-icon</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
-                <md-table-cell>The font icon used to represent empty star. Default is <code>star</code>.</md-table-cell>
+                <md-table-cell>The font icon used to represent empty star. Default <code>star</code>.</md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>disabled</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Disable the radio and prevent his actions. Default <code>false</code></md-table-cell>
+                <md-table-cell>Disable the rating and prevent his actions. Default <code>false</code></md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>
