@@ -62,9 +62,31 @@
         <h2 class="md-headline">License</h2>
         <p>MIT</p>
       </section>
+      <md-rating-bar :num-stars="10" v-model="st" @change="onChange" >
+      </md-rating-bar>
     </div>
   </page-content>
 </template>
+
+<script>
+  export default{
+    data: function() {
+      return {
+        st: 0.1
+      };
+    },
+    watch: {
+      st(val) {
+        console.log('st: ', val);
+      }
+    },
+    methods: {
+      onChange(al) {
+        console.log('change:', al);
+      }
+    }
+  };
+</script>
 
 <style lang="sass" scoped>
   section {
