@@ -26,6 +26,15 @@ $button-radius: 2px;
     > .md-icon {
       margin: 0;
       white-space: nowrap;
+      cursor: pointer;
+    }
+  }
+
+  &[disabled] {
+    > .back-stars, > .front-stars {
+       > .md-icon {
+        cursor: default;
+      }
     }
   }
 }
