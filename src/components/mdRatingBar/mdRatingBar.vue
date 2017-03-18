@@ -4,13 +4,13 @@
       <md-icon v-for="i in numStars" :key="i"
                @mouseover.native="hoverStars"
                @click.native="clickStars"
-               @mouseout.native="onMouseOut">star</md-icon>
+               @mouseout.native="onMouseOut">{{ backIcon }}</md-icon>
     </div>
     <div class="front-stars" :style="frontStarsStyle">
       <md-icon v-for="i in numStars"
                @mouseover.native="hoverStars"
                @click.native="clickStars"
-               @mouseout.native="onMouseOut">star</md-icon>
+               @mouseout.native="onMouseOut">{{ frontIcon }}</md-icon>
     </div>
   </div>
 </template>
@@ -35,6 +35,14 @@
           return value >= 0 && value <= 1;
         },
         default: 0
+      },
+      frontIcon: {
+        type: String,
+        default: 'star'
+      },
+      backIcon: {
+        type: String,
+        default: 'star'
       }
     },
     mixins: [theme],
