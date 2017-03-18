@@ -1,7 +1,11 @@
 .THEME_NAME {
   &.md-rating-bar {
-    .md-icon {
+    > .back-stars .md-icon {
       color: #{'BACKGROUND-CONTRAST-0.3'};
+    }
+
+    > .front-stars .md-icon {
+      color: #{'BACKGROUND-CONTRAST-0.4'};
     }
 
     &.md-primary > .front-stars .md-icon {
