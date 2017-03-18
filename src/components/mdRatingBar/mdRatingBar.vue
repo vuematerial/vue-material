@@ -61,7 +61,7 @@
       }
     },
     watch: {
-      value(val) {
+      value() {
         this.rating = this.value;
       }
     },
