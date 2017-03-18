@@ -76,7 +76,47 @@
       </div>
 
       <div slot="example">
+        <example-box card-title="Default">
+          <div slot="demo">
+              <md-rating-bar v-model="rating1" disabled></md-rating-bar>
+              <md-rating-bar v-model="rating2" :num-stars="10" disabled></md-rating-bar>
+              <md-rating-bar v-model="rating3" :num-stars="7" class="md-primary" disabled></md-rating-bar>
+              <md-rating-bar v-model="rating4" :num-stars="7" class="md-accent" disabled></md-rating-bar>
+              <md-rating-bar v-model="rating5" :num-stars="7" class="md-warn" disabled></md-rating-bar>
+              <md-rating-bar v-model="rating6" :num-stars="7" class="md-primary" :back-icon="'star_border'"></md-rating-bar>
+              <md-rating-bar v-model="rating7" :num-stars="5" class="md-warn" :back-icon="'panorama_fish_eye'" :front-icon="'lens'"></md-rating-bar>
+          </div>
 
+          <div slot="code">
+            <code-block lang="xml">
+              &lt;md-rating-bar v-model="rating1" disabled&gt;&lt;/md-rating-bar&gt;<br />
+              &lt;md-rating-bar v-model="rating2" :num-stars="10" disabled&gt;&lt;/md-rating-bar&gt;<br />
+              &lt;md-rating-bar v-model="rating3" :num-stars="7" class="md-primary" disabled&gt;&lt;/md-rating-bar&gt;<br />
+              &lt;md-rating-bar v-model="rating4" :num-stars="7" class="md-accent" disabled&gt;&lt;/md-rating-bar&gt;<br />
+              &lt;md-rating-bar v-model="rating5" :num-stars="7" class="md-warn" disabled&gt;&lt;/md-rating-bar&gt;<br />
+              &lt;md-rating-bar v-model="rating6" :num-stars="7" class="md-primary" :back-icon="'star_border'"&gt;&lt;/md-rating-bar&gt;<br />
+              &lt;md-rating-bar v-model="rating7" :num-stars="5" class="md-warn" :back-icon="'panorama_fish_eye'" :front-icon="'lens'"&gt;&lt;/md-rating-bar&gt;
+            </code-block>
+          </div>
+        </example-box>
+
+        <example-box card-title="Themes">
+          <div slot="demo">
+              <md-rating-bar v-model="rating8" class="md-primary" md-theme="orange" disabled></md-rating-bar>
+              <md-rating-bar v-model="rating9" class="md-primary" md-theme="brown" disabled></md-rating-bar>
+              <md-rating-bar v-model="rating10" class="md-primary" md-theme="light-blue"></md-rating-bar>
+              <md-rating-bar v-model="rating11" class="md-primary" md-theme="teal" :back-icon="'star_border'"></md-rating-bar>
+          </div>
+
+          <div slot="code">
+            <code-block lang="xml">
+              &lt;md-rating-bar v-model="rating8" class="md-primary" md-theme="orange" disabled&gt;&lt;/md-rating-bar&gt;<br />
+              &lt;md-rating-bar v-model="rating9" class="md-primary" md-theme="brown" disabled&gt;&lt;/md-rating-bar&gt;<br />
+              &lt;md-rating-bar v-model="rating10" class="md-primary" md-theme="light-blue"&gt;&lt;/md-rating-bar&gt;<br />
+              &lt;md-rating-bar v-model="rating11" class="md-primary" md-theme="teal" :back-icon="'star_border'"&gt;&lt;/md-rating-bar&gt;
+            </code-block>
+          </div>
+        </example-box>
       </div>
     </docs-component>
   </page-content>
@@ -86,7 +126,17 @@
   export default {
     data() {
       return {
-
+        rating1: 0.70,
+        rating2: 0.6,
+        rating3: 0.2,
+        rating4: 0.84,
+        rating5: 0.7,
+        rating6: 0.5,
+        rating7: 0.90,
+        rating8: 0.9,
+        rating9: 0.18,
+        rating10: 0.45,
+        rating11: 0.82
       };
     }
   };
