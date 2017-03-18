@@ -1,3 +1,20 @@
 .THEME_NAME {
+  &.md-rating-bar {
+    .md-icon {
+      color: #{'BACKGROUND-CONTRAST-0.3'};
+    }
 
+    &.md-primary > .front-stars .md-icon {
+      color: #{'PRIMARY-COLOR'};
+    }
+
+    &.md-accent > .front-stars .md-icon {
+      color: #{'ACCENT-COLOR'};
+
+    }
+
+    &.md-warn > .front-stars .md-icon {
+      color: #{'WARN-COLOR'};
+    }
+  }
 }

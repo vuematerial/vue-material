@@ -7,7 +7,7 @@
                @mouseout.native="onMouseOut">star</md-icon>
     </div>
     <div class="front-stars" :style="frontStarsStyle">
-      <md-icon v-for="i in numStars" class="md-accent"
+      <md-icon v-for="i in numStars"
                @mouseover.native="hoverStars"
                @click.native="clickStars"
                @mouseout.native="onMouseOut">star</md-icon>
