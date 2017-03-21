@@ -12,8 +12,10 @@
         ref="tabHeader">
         <md-ink-ripple :md-disabled="header.disabled"></md-ink-ripple>
         <div class="md-tab-header-container">
-          <md-icon v-if="header.icon">{{ header.icon }}</md-icon>
-          <span v-if="header.label">{{ header.label }}</span>
+          <slot name="header-item" :header="header">
+            <md-icon v-if="header.icon">{{ header.icon }}</md-icon>
+            <span v-if="header.label">{{ header.label }}</span>
+          </slot>
           <md-tooltip v-if="header.tooltip" :md-direction="header.tooltipDirection" :md-delay="header.tooltipDelay">{{ header.tooltip }}</md-tooltip>
         </div>
       </button>
