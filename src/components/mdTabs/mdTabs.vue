@@ -100,10 +100,10 @@
         };
       },
       registerTab(tabData) {
-        this.tabList[tabData.id] = tabData;
+        this.$set(this.tabList, tabData.id, tabData);
       },
       unregisterTab(tabData) {
-        delete this.tabList[tabData.id];
+        this.$delete(this.tabList, tabData.id);
       },
       updateTab(tabData) {
         this.registerTab(tabData);
