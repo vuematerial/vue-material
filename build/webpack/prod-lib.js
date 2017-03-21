@@ -93,7 +93,16 @@ export default merge(baseConfig, {
     }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
-        warnings: false
+        warnings: false,
+        screw_ie8: true,
+        conditionals: true,
+        unused: true,
+        comparisons: true,
+        sequences: true,
+        dead_code: true,
+        evaluate: true,
+        join_vars: true,
+        if_return: true
       },
       output: {
         comments: false
@@ -113,6 +122,8 @@ export default merge(baseConfig, {
       entryOnly: true
     }),
     new ExtractTextPlugin('[name].css'),
-    new OptimizeCssAssetsPlugin()
+    new OptimizeCssAssetsPlugin({
+      canPrint: false
+    })
   ]
 });

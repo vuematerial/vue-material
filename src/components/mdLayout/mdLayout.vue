@@ -37,6 +37,12 @@
       mdAlignMedium: String,
       mdAlignLarge: String,
       mdAlignXlarge: String,
+      mdVerticalAlign: String,
+      mdVerticalAlignXsmall: String,
+      mdVerticalAlignSmall: String,
+      mdVerticalAlignMedium: String,
+      mdVerticalAlignLarge: String,
+      mdVerticalAlignXlarge: String,
       mdFlex: [String, Number, Boolean],
       mdFlexXsmall: [String, Number, Boolean],
       mdFlexSmall: [String, Number, Boolean],
@@ -101,13 +107,21 @@
         this.generatePropClasses('md-flex-offset', 'large', 'mdFlexOffsetLarge', classes);
         this.generatePropClasses('md-flex-offset', 'xlarge', 'mdFlexOffsetXlarge', classes);
 
-        /* Alignment */
+        /* Horizontal Alignment */
         this.generatePropClasses('md-align', '', 'mdAlign', classes);
         this.generatePropClasses('md-align', 'xsmall', 'mdAlignXsmall', classes);
         this.generatePropClasses('md-align', 'small', 'mdAlignSmall', classes);
         this.generatePropClasses('md-align', 'medium', 'mdAlignMedium', classes);
         this.generatePropClasses('md-align', 'large', 'mdAlignLarge', classes);
         this.generatePropClasses('md-align', 'xlarge', 'mdAlignXlarge', classes);
+
+        /* Vertical Alignment */
+        this.generatePropClasses('md-vertical-align', '', 'mdVerticalAlign', classes);
+        this.generatePropClasses('md-vertical-align', 'xsmall', 'mdVerticalAlignXsmall', classes);
+        this.generatePropClasses('md-vertical-align', 'small', 'mdVerticalAlignSmall', classes);
+        this.generatePropClasses('md-vertical-align', 'medium', 'mdVerticalAlignMedium', classes);
+        this.generatePropClasses('md-vertical-align', 'large', 'mdVerticalAlignLarge', classes);
+        this.generatePropClasses('md-vertical-align', 'xlarge', 'mdVerticalAlignXlarge', classes);
 
         return classes;
       }

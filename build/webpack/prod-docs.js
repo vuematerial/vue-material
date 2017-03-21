@@ -67,7 +67,16 @@ const conf = merge(baseConfig, {
     }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
-        warnings: false
+        warnings: false,
+        screw_ie8: true,
+        conditionals: true,
+        unused: true,
+        comparisons: true,
+        sequences: true,
+        dead_code: true,
+        evaluate: true,
+        join_vars: true,
+        if_return: true
       },
       output: {
         comments: false
@@ -134,7 +143,9 @@ const conf = merge(baseConfig, {
       name: 'manifest',
       chunks: ['vendor']
     }),
-    new OptimizeCssAssetsPlugin()
+    new OptimizeCssAssetsPlugin({
+      canPrint: false
+    })
   ]
 });
 

@@ -20,6 +20,10 @@
       <md-tab class="api-tab" md-label="Methods" v-if="$slots.methods">
         <slot name="methods"></slot>
       </md-tab>
+
+      <md-tab class="api-tab" md-label="Slots" v-if="$slots.slots">
+        <slot name="slots"></slot>
+      </md-tab>
     </md-tabs>
   </div>
 </template>

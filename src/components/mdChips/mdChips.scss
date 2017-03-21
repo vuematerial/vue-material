@@ -19,6 +19,12 @@ $chip-icon-font: $chip-icon-size - 4px;
     padding-right: 32px;
   }
 
+  &.md-editable {
+    .md-chip-container {
+      cursor: pointer;
+    }
+  }
+
   &:focus,
   &:active {
     outline: none;

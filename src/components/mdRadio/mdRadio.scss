@@ -8,6 +8,7 @@ $radio-ripple-size: 48px;
   margin: 16px 8px 16px 0;
   display: inline-flex;
   position: relative;
+  cursor: pointer;
 
   .md-radio-container {
     width: $radio-size;
@@ -16,6 +17,18 @@ $radio-ripple-size: 48px;
     border-radius: 50%;
     border: 2px solid rgba(#000, .54);
     transition: $swift-ease-out;
+
+    &:before {
+      width: $checkbox-touch-size;
+      height: $checkbox-touch-size;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: $swift-ease-in;
+      content: " ";
+    }
 
     &:after {
       position: absolute;
@@ -58,6 +71,7 @@ $radio-ripple-size: 48px;
     height: $radio-size;
     padding-left: 8px;
     line-height: $radio-size;
+    cursor: pointer;
   }
 }
 

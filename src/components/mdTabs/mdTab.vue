@@ -16,6 +16,9 @@
       mdIcon: String,
       mdActive: Boolean,
       mdDisabled: Boolean,
+      mdOptions: {
+        default: undefined
+      },
       mdTooltip: String,
       mdTooltipDelay: {
         type: String,
@@ -44,6 +47,12 @@
       mdIcon() {
         this.updateTabData();
       },
+      mdOptions: {
+        deep: true,
+        handler() {
+          this.updateTabData();
+        }
+      },
       mdLabel() {
         this.updateTabData();
       },
@@ -71,6 +80,7 @@
           id: this.tabId,
           label: this.mdLabel,
           icon: this.mdIcon,
+          options: this.mdOptions,
           active: this.mdActive,
           disabled: this.mdDisabled,
           tooltip: this.mdTooltip,

@@ -65,7 +65,7 @@ const parseStyle = (style, theme, name) => {
       if (colorType === 'COLOR') {
         let isDefault = palette[theme[type]];
 
-        if (!hue && !isDefault) {
+        if (!colorVariant && !isDefault) {
           if (type === 'accent') {
             colorVariant = 'A200';
           } else if (type === 'background') {
@@ -84,7 +84,17 @@ const parseStyle = (style, theme, name) => {
         return color[colorVariant];
       }
 
-      if (color.darkText.indexOf(colorVariant) >= 0) {
+      let isDarkText = color.darkText.indexOf(colorVariant) >= 0;
+
+      if (theme[type] && typeof theme[type] !== 'string' && theme[type].textColor) {
+        if (theme[type].textColor === 'black') {
+          isDarkText = true;
+        } else if (theme[type].textColor === 'white') {
+          isDarkText = false;
+        }
+      }
+
+      if (isDarkText) {
         if (opacity) {
           return rgba('#000', opacity);
         }
@@ -144,6 +154,9 @@ export default function install(Vue) {
       inkRipple: true
     }),
     methods: {
+      registerPalette(name, spec) {
+        palette[name] = spec;
+      },
       registerTheme(name, spec) {
         let theme = {};
 

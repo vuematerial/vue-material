@@ -12,7 +12,7 @@
       <md-icon>keyboard_arrow_left</md-icon>
     </md-button>
 
-    <md-button class="md-icon-button md-table-pagination-next" @click.native="nextPage" :disabled="currentSize * currentPage >= totalItems">
+    <md-button class="md-icon-button md-table-pagination-next" @click.native="nextPage" :disabled="shouldDisable">
       <md-icon>keyboard_arrow_right</md-icon>
     </md-button>
   </div>
@@ -47,14 +47,28 @@
     data() {
       return {
         subTotal: 0,
-        currentSize: parseInt(this.mdSize, 10),
-        currentPage: parseInt(this.mdPage, 10),
-        totalItems: isNaN(this.mdTotal) ? Number.MAX_SAFE_INTEGER : parseInt(this.mdTotal, 10)
+        totalItems: 0,
+        currentPage: 1,
+        currentSize: 0
       };
+    },
+    watch: {
+      mdTotal(val) {
+        this.totalItems = isNaN(val) ? Number.MAX_SAFE_INTEGER : parseInt(val, 10);
+      },
+      mdSize(val) {
+        this.currentSize = parseInt(val, 10);
+      },
+      mdPage(val) {
+        this.currentPage = parseInt(val, 10);
+      }
     },
     computed: {
       lastPage() {
         return false;
+      },
+      shouldDisable() {
+        return this.currentSize * this.currentPage >= this.totalItems;
       }
     },
     methods: {

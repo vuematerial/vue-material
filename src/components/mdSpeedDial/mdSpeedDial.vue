@@ -65,7 +65,7 @@
           this.fabTrigger.addEventListener('click', this.toggleSpeedDial);
         } else {
           this.$el.addEventListener('mouseenter', this.toggleSpeedDial);
-          this.$el.addEventListener('mouseleave', this.toggleSpeedDial);
+          this.$el.addEventListener('mouseleave', this.closeSpeedDial);
         }
       });
     },
