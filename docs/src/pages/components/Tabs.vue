@@ -177,7 +177,23 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.</p>
               </md-tab>
 
-              <md-tab id="pictures" md-label="Pictures" md-tooltip="This is the pictures tab!">
+              <md-tab id="pictures" md-label="Pictures">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.</p>
+              </md-tab>
+
+              <md-tab id="playlists" md-label="Playlists">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.</p>
+              </md-tab>
+
+              <md-tab id="albums" md-label="Albums">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.</p>
+              </md-tab>
+
+              <md-tab id="settings" md-label="Settings">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.</p>
+              </md-tab>
+
+              <md-tab id="account" md-label="Account">
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.</p>
               </md-tab>
             </md-tabs>
@@ -199,7 +215,23 @@
                   &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.&lt;/p&gt;
                 &lt;/md-tab&gt;
 
-                &lt;md-tab id=&quot;pictures&quot; md-label=&quot;Pictures&quot; md-tooltip=&quot;This is the pictures tab!&quot;&gt;
+                &lt;md-tab id=&quot;pictures&quot; md-label=&quot;Pictures&quot; md-tooltip=&quot;&gt;
+                  &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.&lt;/p&gt;
+                &lt;/md-tab&gt;
+
+                &lt;md-tab id=&quot;playlists&quot; md-label=&quot;Playlists&quot;&gt;
+                  &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.&lt;/p&gt;
+                &lt;/md-tab&gt;
+
+                &lt;md-tab id=&quot;albums&quot; md-label=&quot;Albums&quot;&gt;
+                  &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.&lt;/p&gt;
+                &lt;/md-tab&gt;
+
+                &lt;md-tab id=&quot;settings&quot; md-label=&quot;Settings&quot;&gt;
+                  &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.&lt;/p&gt;
+                &lt;/md-tab&gt;
+
+                &lt;md-tab id=&quot;account&quot; md-label=&quot;Account&quot;&gt;
                   &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.&lt;/p&gt;
                 &lt;/md-tab&gt;
               &lt;/md-tabs&gt;
