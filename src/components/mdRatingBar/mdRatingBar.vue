@@ -1,7 +1,7 @@
 <template>
   <div class="md-rating-bar" :class="[themeClass]" :disabled="disabled">
     <div class="back-stars" :disabled="disabled">
-      <md-icon v-for="i in numStars" :key="i"
+      <md-icon v-for="i in numStars"
                @mouseover.native="hoverStars"
                @click.native="clickStars"
                @mouseout.native="onMouseOut">{{ backIcon }}</md-icon>
@@ -68,9 +68,7 @@
     methods: {
       hoverStars(evt) {
         if (!this.disabled) {
-          var selected = this.getIconIndex(evt.target);
-
-          this.rating = selected / this.numStars;
+          this.rating = this.getIconIndex(evt.target) / this.numStars;
         }
       },
       clickStars(evt) {
