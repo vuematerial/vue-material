@@ -65,7 +65,7 @@ const parseStyle = (style, theme, name) => {
       if (colorType === 'COLOR') {
         let isDefault = palette[theme[type]];
 
-        if (!hue && !isDefault) {
+        if (!colorVariant && !isDefault) {
           if (type === 'accent') {
             colorVariant = 'A200';
           } else if (type === 'background') {
