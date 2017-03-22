@@ -17,12 +17,11 @@
   import getClosestVueParent from '../../core/utils/getClosestVueParent';
 
   export default {
+    name: 'md-textarea',
     mixins: [common],
     watch: {
       value() {
-        this.$nextTick(() => {
-          autosize.update(this.$el);
-        });
+        this.$nextTick(() => autosize.update(this.$el));
       }
     },
     mounted() {
@@ -35,6 +34,7 @@
           throw new Error('You should wrap the md-textarea in a md-input-container');
         }
 
+        this.parentContainer.inputInstance = this;
         this.setParentDisabled();
         this.setParentRequired();
         this.setParentPlaceholder();
@@ -46,6 +46,7 @@
         }
 
         autosize(this.$el);
+        setTimeout(() => autosize.update(this.$el), 200);
       });
     },
     beforeDestroy() {

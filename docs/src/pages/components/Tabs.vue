@@ -55,6 +55,22 @@
             </md-table-body>
           </md-table>
 
+          <md-table slot="slots">
+            <md-table-header>
+              <md-table-row>
+                <md-table-head>Name</md-table-head>
+                <md-table-head>Description</md-table-head>
+              </md-table-row>
+            </md-table-header>
+
+            <md-table-body>
+              <md-table-row>
+                <md-table-cell>header-item</md-table-cell>
+                <md-table-cell>Change the template of the header item. Optional.</md-table-cell>
+              </md-table-row>
+            </md-table-body>
+          </md-table>
+
           <md-table slot="events">
             <md-table-header>
               <md-table-row>
@@ -96,6 +112,12 @@
                 <md-table-cell>md-label</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
                 <md-table-cell>The tab text</md-table-cell>
+              </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>md-options</md-table-cell>
+                <md-table-cell><code>any</code></md-table-cell>
+                <md-table-cell>Any additional options (which can be used in <code>header-item</code> slot of <code>md-tabs</code>)</md-table-cell>
               </md-table-row>
 
               <md-table-row>
@@ -155,7 +177,23 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.</p>
               </md-tab>
 
-              <md-tab id="pictures" md-label="Pictures" md-tooltip="This is the pictures tab!">
+              <md-tab id="pictures" md-label="Pictures">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.</p>
+              </md-tab>
+
+              <md-tab id="playlists" md-label="Playlists">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.</p>
+              </md-tab>
+
+              <md-tab id="albums" md-label="Albums">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.</p>
+              </md-tab>
+
+              <md-tab id="settings" md-label="Settings">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.</p>
+              </md-tab>
+
+              <md-tab id="account" md-label="Account">
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.</p>
               </md-tab>
             </md-tabs>
@@ -177,7 +215,23 @@
                   &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.&lt;/p&gt;
                 &lt;/md-tab&gt;
 
-                &lt;md-tab id=&quot;pictures&quot; md-label=&quot;Pictures&quot; md-tooltip=&quot;This is the pictures tab!&quot;&gt;
+                &lt;md-tab id=&quot;pictures&quot; md-label=&quot;Pictures&quot; md-tooltip=&quot;&gt;
+                  &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.&lt;/p&gt;
+                &lt;/md-tab&gt;
+
+                &lt;md-tab id=&quot;playlists&quot; md-label=&quot;Playlists&quot;&gt;
+                  &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.&lt;/p&gt;
+                &lt;/md-tab&gt;
+
+                &lt;md-tab id=&quot;albums&quot; md-label=&quot;Albums&quot;&gt;
+                  &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.&lt;/p&gt;
+                &lt;/md-tab&gt;
+
+                &lt;md-tab id=&quot;settings&quot; md-label=&quot;Settings&quot;&gt;
+                  &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.&lt;/p&gt;
+                &lt;/md-tab&gt;
+
+                &lt;md-tab id=&quot;account&quot; md-label=&quot;Account&quot;&gt;
                   &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.&lt;/p&gt;
                 &lt;/md-tab&gt;
               &lt;/md-tabs&gt;
@@ -314,7 +368,80 @@
             </code-block>
           </div>
         </example-box>
+
+        <example-box card-title="Header item templating">
+          <div slot="demo">
+            <md-tabs class="md-transparent">
+              <template slot="header-item" scope="props">
+                <md-icon v-if="props.header.icon">{{ props.header.icon }}</md-icon>
+                <template v-if="props.header.options && props.header.options.new_badge">
+                  <span v-if="props.header.label" class="label-with-new-badge">
+                    {{ props.header.label }}
+                    <span class="new-badge">{{props.header.options.new_badge}}</span>
+                  </span>
+                </template>
+                <template v-else>
+                  <span v-if="props.header.label">{{ props.header.label }}</span>
+                </template>
+              </template>
+              <md-tab md-icon="phone" md-label="Phone">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
+              </md-tab>
+
+              <md-tab md-icon="favorite" md-label="Favorite" :md-options="{new_badge: 3}">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
+              </md-tab>
+
+              <md-tab md-icon="near_me" md-label="Near me" :md-options="{new_badge: 1}">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.</p>
+              </md-tab>
+            </md-tabs>
+          </div>
+
+          <div slot="code">
+            <code-block lang="xml">
+              &#x3C;md-tabs class=&#x22;md-transparent&#x22;&#x3E;
+                &#x3C;template slot=&#x22;header-item&#x22; scope=&#x22;props&#x22;&#x3E;
+                  &#x3C;md-icon v-if=&#x22;props.header.icon&#x22;&#x3E;{{ '\x7b\x7b' }} props.header.icon {{ '\x7d\x7d' }}&#x3C;/md-icon&#x3E;
+                  &#x3C;template v-if=&#x22;props.header.options &#x26;&#x26; props.header.options.new_badge&#x22;&#x3E;
+                    &#x3C;span v-if=&#x22;props.header.label&#x22; class=&#x22;label-with-new-badge&#x22;&#x3E;
+                      {{ '\x7b\x7b' }} props.header.label {{ '\x7d\x7d' }}
+                      &#x3C;span class=&#x22;new-badge&#x22;&#x3E;{{ '\x7b\x7b' }} props.header.options.new_badge {{ '\x7d\x7d' }}&#x3C;/span&#x3E;
+                    &#x3C;/span&#x3E;
+                  &#x3C;/template&#x3E;
+                  &#x3C;template v-else&#x3E;
+                    &#x3C;span v-if=&#x22;props.header.label&#x22;&#x3E;{{ '\x7b\x7b' }} props.header.label {{ '\x7d\x7d' }}&#x3C;/span&#x3E;
+                  &#x3C;/template&#x3E;
+                &#x3C;/template&#x3E;
+                &#x3C;md-tab md-icon=&#x22;phone&#x22; md-label=&#x22;Phone&#x22;&#x3E;
+                  &#x3C;p&#x3E;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.&#x3C;/p&#x3E;
+                &#x3C;/md-tab&#x3E;
+
+                &#x3C;md-tab md-icon=&#x22;favorite&#x22; md-label=&#x22;Favorite&#x22; :md-options=&#x22;&#x7B;new_badge: 3&#x7D;&#x22;&#x3E;
+                  &#x3C;p&#x3E;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.&#x3C;/p&#x3E;
+                  &#x3C;p&#x3E;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.&#x3C;/p&#x3E;
+                &#x3C;/md-tab&#x3E;
+
+                &#x3C;md-tab md-icon=&#x22;near_me&#x22; md-label=&#x22;Near me&#x22; :md-options=&#x22;&#x7B;new_badge: 1&#x7D;&#x22;&#x3E;
+                  &#x3C;p&#x3E;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.&#x3C;/p&#x3E;
+                &#x3C;/md-tab&#x3E;
+              &#x3C;/md-tabs&#x3E;
+            </code-block>
+          </div>
+        </example-box>
       </div>
     </docs-component>
   </page-content>
 </template>
+<style>
+  .label-with-new-badge {
+    font-weight: bolder;
+  }
+  .new-badge {
+    background-color: red;
+    color: white;
+    padding: 3px;
+    border-radius: 3px;
+  }
+</style>

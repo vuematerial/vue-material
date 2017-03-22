@@ -10,6 +10,7 @@
   import theme from '../../core/components/mdTheme/mixin';
 
   export default {
+    name: 'md-speed-dial',
     props: {
       mdOpen: {
         type: String,
@@ -64,7 +65,7 @@
           this.fabTrigger.addEventListener('click', this.toggleSpeedDial);
         } else {
           this.$el.addEventListener('mouseenter', this.toggleSpeedDial);
-          this.$el.addEventListener('mouseleave', this.toggleSpeedDial);
+          this.$el.addEventListener('mouseleave', this.closeSpeedDial);
         }
       });
     },

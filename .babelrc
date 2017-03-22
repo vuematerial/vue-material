@@ -1,11 +1,9 @@
 {
   "presets": [
-    "es2015",
-    "es2017",
-    "stage-0",
     [
       "env",
       {
+        "modules": false,
         "targets": {
           "browsers": ["last 3 versions", "not IE < 10"]
         }
@@ -13,7 +11,7 @@
     ]
   ],
   "plugins": [
-    "transform-runtime",
-    "add-module-exports"
+    "add-module-exports",
+    "transform-object-rest-spread"
   ]
 }

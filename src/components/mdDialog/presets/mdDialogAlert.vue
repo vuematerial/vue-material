@@ -13,6 +13,7 @@
 
 <script>
   export default {
+    name: 'md-dialog-alert',
     props: {
       mdTitle: String,
       mdContent: String,

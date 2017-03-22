@@ -14,6 +14,7 @@
 
 <script>
   export default {
+    name: 'md-dialog-confirm',
     props: {
       mdTitle: String,
       mdContent: String,

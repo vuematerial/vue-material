@@ -1,6 +1,6 @@
 <template>
   <div class="md-select" :class="[themeClass, classes]">
-    <md-menu :md-close-on-select="!multiple" @opened="$emit('open')" @closed="$emit('close')">
+    <md-menu :md-close-on-select="!multiple" @open="onOpen" @close="$emit('closed')">
       <span class="md-select-value" md-menu-trigger ref="value">{{ selectedText || placeholder }}</span>
 
       <md-menu-content class="md-select-content" :class="[themeClass, contentClasses]">
@@ -23,6 +23,7 @@
   import isArray from '../../core/utils/isArray';
 
   export default {
+    name: 'md-select',
     props: {
       name: String,
       id: String,
@@ -36,6 +37,7 @@
     mixins: [theme],
     data() {
       return {
+        lastSelected: null,
         selectedValue: null,
         selectedText: null,
         multipleOptions: {},
@@ -72,6 +74,13 @@
       }
     },
     methods: {
+      onOpen() {
+        if (this.lastSelected) {
+          this.lastSelected.scrollIntoViewIfNeeded(true);
+        }
+
+        this.$emit('opened');
+      },
       setParentDisabled() {
         this.parentContainer.isDisabled = this.disabled;
       },
@@ -89,7 +98,8 @@
 
           if (options.value === value) {
             output.value = value;
-            output.text = options.$refs.item.textContent;
+            output.text = options.$refs.item.textContent,
+            output.el = options.$refs.item;
           }
         });
 
@@ -128,6 +138,7 @@
 
         this.selectedValue = output.value;
         this.selectedText = output.text;
+        this.lastSelected = output.el;
 
         if (this.parentContainer) {
           this.parentContainer.setValue(this.selectedText);
@@ -154,7 +165,8 @@
 
         this.changeValue(values);
       },
-      selectOption(value, text) {
+      selectOption(value, text, el) {
+        this.lastSelected = el;
         this.selectedText = text;
         this.setTextAndValue(value);
         this.changeValue(value);

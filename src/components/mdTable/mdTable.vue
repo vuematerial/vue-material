@@ -13,6 +13,7 @@
   import getClosestVueParent from '../../core/utils/getClosestVueParent';
 
   export default {
+    name: 'md-table',
     props: {
       mdSortType: String,
       mdSort: String
@@ -47,6 +48,14 @@
       },
       selectedRows() {
         this.numberOfSelected = Object.keys(this.selectedRows).length;
+      },
+      mdSort() {
+        this.sortBy = this.mdSort;
+        this.$emit('sortInput');
+      },
+      mdSortType() {
+        this.sortType = this.mdSortType;
+        this.$emit('sortInput');
       }
     },
     mounted() {

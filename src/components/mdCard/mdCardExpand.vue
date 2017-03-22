@@ -6,6 +6,7 @@
 
 <script>
   export default {
+    name: 'md-card-expand',
     methods: {
       setContentMargin() {
         this.content.style.marginTop = -this.content.offsetHeight + 'px';

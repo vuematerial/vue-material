@@ -8,7 +8,6 @@ import historyApiFallback from 'connect-history-api-fallback';
 import config from '../config';
 import webpackConfig from '../webpack/dev';
 
-
 const app = express();
 const compiler = webpack(webpackConfig);
 const rootPath = path.join(__dirname, '..', '..');

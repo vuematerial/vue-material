@@ -17,6 +17,7 @@
   import theme from '../../core/components/mdTheme/mixin';
 
   export default {
+    name: 'md-checkbox',
     props: {
       name: String,
       value: [String, Boolean],

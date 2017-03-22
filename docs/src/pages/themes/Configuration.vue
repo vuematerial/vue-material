@@ -97,6 +97,25 @@
       </section>
 
       <section>
+        <h3 class="md-headline">Force set text color</h3>
+        <p>You can pass property <code>textColor</code> to force set text color for the theme. The value of the property can be <code>white</code> or <code>black</code>. All other values are ignored, and the behavior will be <code>default</code></p>
+        <code-block lang="javascript">
+          Vue.material.registerTheme('about', {
+            primary: {
+              color: 'indigo',
+              hue: 900,
+              textColor: 'black' // text will be black
+            },
+            accent: {
+              color: 'grey',
+              hue: 900,
+              textColor: 'blue' // text will be white
+            }
+          })
+        </code-block>
+      </section>
+
+      <section>
         <h3 class="md-headline">Applying a theme</h3>
         <p>To change the current theme in your application just call the <code>setCurrentTheme</code> method from anywhere in your application:</p>
         <code-block lang="javascript">

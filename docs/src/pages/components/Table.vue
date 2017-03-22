@@ -337,7 +337,7 @@
                 </md-button>
               </md-toolbar>
 
-              <md-table md-sort="dessert" md-sort-type="desc" @select="onSelect" @sort="onSort">
+              <md-table :md-sort="sortInput.name" :md-sort-type="sortInput.type" @select="onSelect" @sort="onSort">
                 <md-table-header>
                   <md-table-row>
                     <md-table-head md-sort-by="dessert">Dessert (100g serving)</md-table-head>
@@ -372,6 +372,27 @@
             <div class="output">
               <h2 class="md-title">Selected Data</h2>
               <pre>{{ selectedData }}</pre>
+            </div>
+
+            <div class="output">
+              <h2 class="md-title">Sort input</h2>
+              <md-input-container>
+                <label for="sort-input-name">Name</label>
+                <md-select name="sort-input-name" id="sort-input-name" v-model="sortInput.name">
+                  <md-option value="">None</md-option>
+                  <md-option value="dessert">Dessert</md-option>
+                  <md-option value="calories">Calories</md-option>
+                  <md-option value="fat">Fat</md-option>
+                </md-select>
+              </md-input-container>
+
+              <md-input-container>
+                <label for="sort-input-type">Type</label>
+                <md-select name="sort-input-type" id="sort-input-type" v-model="sortInput.type">
+                  <md-option value="asc">Ascending</md-option>
+                  <md-option value="desc">Descending</md-option>
+                </md-select>
+              </md-input-container>
             </div>
 
             <div class="output">
@@ -716,6 +737,10 @@
         }
       ],
       selectedData: [],
+      sortInput: {
+        name: 'dessert',
+        type: 'asc'
+      },
       sort: {},
       page: {}
     }),

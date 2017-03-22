@@ -4,8 +4,10 @@
       <md-chip
         v-for="chip in selectedChips"
         :md-deletable="!mdStatic"
+        :md-editable="!mdStatic"
         :disabled="disabled"
-        @delete="deleteChip(chip)">
+        @delete="deleteChip(chip)"
+        @edit="editChip(chip)">
         <slot :value="chip"></slot>
       </md-chip>
 
@@ -19,7 +21,6 @@
         :disabled="disabled"
         @keydown.native.delete="deleteLastChip"
         @keydown.native.prevent.enter="addChip"
-        @keydown.native.prevent.186="addChip"
         tabindex="0"
         ref="input">
       </md-input>
@@ -34,6 +35,7 @@
   import uniqueId from '../../core/utils/uniqueId';
 
   export default {
+    name: 'md-chips',
     props: {
       value: Array,
       disabled: Boolean,
@@ -97,6 +99,17 @@
           this.selectedChips.splice(index, 1);
         }
 
+        this.$emit('change', this.selectedChips);
+        this.applyInputFocus();
+      },
+      editChip(chip) {
+        let index = this.selectedChips.indexOf(chip);
+
+        if (index >= 0) {
+          this.selectedChips.splice(index, 1);
+        }
+
+        this.currentChip = chip;
         this.$emit('change', this.selectedChips);
         this.applyInputFocus();
       },

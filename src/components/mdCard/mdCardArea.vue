@@ -6,6 +6,7 @@
 
 <script>
   export default {
+    name: 'md-card-area',
     props: {
       mdInset: Boolean
     },

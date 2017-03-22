@@ -8,6 +8,7 @@ $checkbox-touch-size: 48px;
   margin: 16px 8px 16px 0;
   display: inline-flex;
   position: relative;
+  cursor: pointer;
 
   .md-checkbox-container {
     width: $checkbox-size;
@@ -76,6 +77,7 @@ $checkbox-touch-size: 48px;
     height: $checkbox-size;
     padding-left: 8px;
     line-height: $checkbox-size;
+    cursor: pointer;
   }
 }
 

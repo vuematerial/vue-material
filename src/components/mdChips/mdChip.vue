@@ -1,6 +1,8 @@
 <template>
   <div class="md-chip" :class="[themeClass, classes]" tabindex="0">
-    <slot></slot>
+    <div class="md-chip-container" @click="!disabled && mdEditable && $emit('edit')">
+      <slot></slot>
+    </div>
 
     <md-button
       class="md-icon-button md-dense md-delete"
@@ -17,16 +19,19 @@
   import theme from '../../core/components/mdTheme/mixin';
 
   export default {
+    name: 'md-chip',
     props: {
       disabled: Boolean,
-      mdDeletable: Boolean
+      mdDeletable: Boolean,
+      mdEditable: Boolean
     },
     mixins: [theme],
     computed: {
       classes() {
         return {
           'md-deletable': this.mdDeletable,
-          'md-disabled': this.disabled
+          'md-disabled': this.disabled,
+          'md-editable': this.mdEditable
         };
       }
     }

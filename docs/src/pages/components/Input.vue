@@ -28,6 +28,12 @@
                 <md-table-cell><code>Boolean</code></md-table-cell>
                 <md-table-cell>Show a button to toggle the password visibility. Default <code>false</code></md-table-cell>
               </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>md-clearable</md-table-cell>
+                <md-table-cell><code>Boolean</code></md-table-cell>
+                <md-table-cell>Show a button to clear the input. Default <code>false</code></md-table-cell>
+              </md-table-row>
             </md-table-body>
           </md-table>
 
@@ -176,6 +182,11 @@
                 <label>Disabled</label>
                 <md-input disabled></md-input>
               </md-input-container>
+
+              <md-input-container md-clearable>
+                <label>Clearable</label>
+                <md-input v-model="initialValue"></md-input>
+              </md-input-container>
             </form>
           </div>
 
@@ -210,6 +221,11 @@
                 &lt;md-input-container&gt;
                   &lt;label&gt;Disabled&lt;/label&gt;
                   &lt;md-input disabled&gt;&lt;/md-input&gt;
+                &lt;/md-input-container&gt;
+
+                &lt;md-input-container md-clearable&gt;
+                  &lt;label&gt;Clearable&lt;/label&gt;
+                  &lt;md-input v-model=&quot;initialValue&quot;&gt;&lt;/md-input&gt;
                 &lt;/md-input-container&gt;
               &lt;/form&gt;
             </code-block>

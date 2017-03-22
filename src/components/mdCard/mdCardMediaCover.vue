@@ -9,6 +9,7 @@
   import getImageLightness from '../../core/utils/getImageLightness';
 
   export default {
+    name: 'md-card-media-cover',
     props: {
       mdTextScrim: Boolean,
       mdSolid: Boolean

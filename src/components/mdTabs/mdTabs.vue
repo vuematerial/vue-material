@@ -1,6 +1,7 @@
 <template>
   <div class="md-tabs" :class="[themeClass, tabClasses]">
     <md-whiteframe md-tag="nav" class="md-tabs-navigation" :md-elevation="mdElevation" :class="navigationClasses" ref="tabNavigation">
+      <div class="md-tabs-navigation-container" ref="tabsContainer" @scroll="calculateIndicatorPos">
       <button
         v-for="header in tabList"
         :key="header.id"
@@ -12,13 +13,16 @@
         ref="tabHeader">
         <md-ink-ripple :md-disabled="header.disabled"></md-ink-ripple>
         <div class="md-tab-header-container">
-          <md-icon v-if="header.icon">{{ header.icon }}</md-icon>
-          <span v-if="header.label">{{ header.label }}</span>
+          <slot name="header-item" :header="header">
+            <md-icon v-if="header.icon">{{ header.icon }}</md-icon>
+            <span v-if="header.label">{{ header.label }}</span>
+          </slot>
           <md-tooltip v-if="header.tooltip" :md-direction="header.tooltipDirection" :md-delay="header.tooltipDelay">{{ header.tooltip }}</md-tooltip>
         </div>
       </button>
 
       <span class="md-tab-indicator" :class="indicatorClasses" ref="indicator"></span>
+      </div>
     </md-whiteframe>
 
     <div class="md-tabs-content" ref="tabContent" :style="{ height: contentHeight }">
@@ -36,6 +40,7 @@
   import throttle from '../../core/utils/throttle';
 
   export default {
+    name: 'md-tabs',
     props: {
       mdFixed: Boolean,
       mdCentered: Boolean,
@@ -97,10 +102,10 @@
         };
       },
       registerTab(tabData) {
-        this.tabList[tabData.id] = tabData;
+        this.$set(this.tabList, tabData.id, tabData);
       },
       unregisterTab(tabData) {
-        delete this.tabList[tabData.id];
+        this.$delete(this.tabList, tabData.id);
       },
       updateTab(tabData) {
         this.registerTab(tabData);
@@ -138,7 +143,7 @@
         if (this.$refs.tabHeader && this.$refs.tabHeader[this.activeTabNumber]) {
           const tabsWidth = this.$el.offsetWidth;
           const activeTab = this.$refs.tabHeader[this.activeTabNumber];
-          const left = activeTab.offsetLeft;
+          const left = activeTab.offsetLeft - this.$refs.tabsContainer.scrollLeft;
           const right = tabsWidth - left - activeTab.offsetWidth;
 
           this.$refs.indicator.style.left = left + 'px';

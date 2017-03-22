@@ -20,6 +20,7 @@
 
 <script>
   export default {
+    name: 'md-table-pagination',
     props: {
       mdSize: {
         type: [Number, String],

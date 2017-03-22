@@ -23,6 +23,7 @@
   const initialPosition = '-1px';
 
   export default {
+    name: 'md-switch',
     props: {
       name: String,
       value: Boolean,
