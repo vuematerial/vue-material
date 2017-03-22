@@ -6,6 +6,8 @@ $button-radius: 2px;
   width: auto;
   display: flex;
   width: fit-content;
+  padding: 3px;
+  border-radius: 2px;
 
   > .md-front-stars {
     overflow-x: hidden;
