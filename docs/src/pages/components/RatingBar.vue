@@ -12,7 +12,7 @@
       </div>
 
       <div slot="api">
-        <api-table name="md-radio">
+        <api-table name="md-rating-bar">
           <md-table slot="properties">
             <md-table-header>
               <md-table-row>
