@@ -46,11 +46,10 @@
       }
     },
     mixins: [theme],
-    data: () => ({
-      rating: NaN
-    }),
-    mounted: function() {
-      this.rating = this.value;
+    data() {
+      return {
+        rating: this.value
+      };
     },
     computed: {
       frontStarsStyle() {
