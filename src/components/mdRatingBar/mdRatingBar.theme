@@ -1,23 +1,23 @@
 .THEME_NAME {
   &.md-rating-bar {
-    > .back-stars .md-icon {
+    > .md-back-stars .md-icon {
       color: #{'BACKGROUND-CONTRAST-0.3'};
     }
 
-    > .front-stars .md-icon {
+    > .md-front-stars .md-icon {
       color: #{'BACKGROUND-CONTRAST-0.4'};
     }
 
-    &.md-primary > .front-stars .md-icon {
+    &.md-primary > .md-front-stars .md-icon {
       color: #{'PRIMARY-COLOR'};
     }
 
-    &.md-accent > .front-stars .md-icon {
+    &.md-accent > .md-front-stars .md-icon {
       color: #{'ACCENT-COLOR'};
 
     }
 
-    &.md-warn > .front-stars .md-icon {
+    &.md-warn > .md-front-stars .md-icon {
       color: #{'WARN-COLOR'};
     }
   }

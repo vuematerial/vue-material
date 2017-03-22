@@ -30,19 +30,19 @@
               </md-table-row>
 
               <md-table-row>
-                <md-table-cell>num-stars</md-table-cell>
+                <md-table-cell>md-num-stars</md-table-cell>
                 <md-table-cell><code>Number</code></md-table-cell>
                 <md-table-cell>Number of the stars. Default <code>5</code>.</md-table-cell>
               </md-table-row>
 
               <md-table-row>
-                <md-table-cell>front-icon</md-table-cell>
+                <md-table-cell>md-front-icon</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
                 <md-table-cell>The font icon used to represent full star. Default <code>star</code>.</md-table-cell>
               </md-table-row>
 
               <md-table-row>
-                <md-table-cell>back-icon</md-table-cell>
+                <md-table-cell>md-back-icon</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
                 <md-table-cell>The font icon used to represent empty star. Default <code>star</code>.</md-table-cell>
               </md-table-row>
@@ -79,23 +79,23 @@
         <example-box card-title="Default">
           <div slot="demo">
               <md-rating-bar v-model="rating1" disabled></md-rating-bar>
-              <md-rating-bar v-model="rating2" :num-stars="10" disabled></md-rating-bar>
-              <md-rating-bar v-model="rating3" :num-stars="7" class="md-primary" disabled></md-rating-bar>
-              <md-rating-bar v-model="rating4" :num-stars="7" class="md-accent" disabled></md-rating-bar>
-              <md-rating-bar v-model="rating5" :num-stars="7" class="md-warn" disabled></md-rating-bar>
-              <md-rating-bar v-model="rating6" :num-stars="7" class="md-primary" :back-icon="'star_border'"></md-rating-bar>
-              <md-rating-bar v-model="rating7" :num-stars="5" class="md-warn" :back-icon="'panorama_fish_eye'" :front-icon="'lens'"></md-rating-bar>
+              <md-rating-bar v-model="rating2" :md-num-stars="10" disabled></md-rating-bar>
+              <md-rating-bar v-model="rating3" :md-num-stars="7" class="md-primary" disabled></md-rating-bar>
+              <md-rating-bar v-model="rating4" :md-num-stars="7" class="md-accent" disabled></md-rating-bar>
+              <md-rating-bar v-model="rating5" :md-num-stars="7" class="md-warn" disabled></md-rating-bar>
+              <md-rating-bar v-model="rating6" :md-num-stars="7" class="md-primary" :md-back-icon="'star_border'"></md-rating-bar>
+              <md-rating-bar v-model="rating7" :md-num-stars="5" class="md-warn" :md-back-icon="'panorama_fish_eye'" :md-front-icon="'lens'"></md-rating-bar>
           </div>
 
           <div slot="code">
             <code-block lang="xml">
               &lt;md-rating-bar v-model="rating1" disabled&gt;&lt;/md-rating-bar&gt;<br />
-              &lt;md-rating-bar v-model="rating2" :num-stars="10" disabled&gt;&lt;/md-rating-bar&gt;<br />
-              &lt;md-rating-bar v-model="rating3" :num-stars="7" class="md-primary" disabled&gt;&lt;/md-rating-bar&gt;<br />
-              &lt;md-rating-bar v-model="rating4" :num-stars="7" class="md-accent" disabled&gt;&lt;/md-rating-bar&gt;<br />
-              &lt;md-rating-bar v-model="rating5" :num-stars="7" class="md-warn" disabled&gt;&lt;/md-rating-bar&gt;<br />
-              &lt;md-rating-bar v-model="rating6" :num-stars="7" class="md-primary" :back-icon="'star_border'"&gt;&lt;/md-rating-bar&gt;<br />
-              &lt;md-rating-bar v-model="rating7" :num-stars="5" class="md-warn" :back-icon="'panorama_fish_eye'" :front-icon="'lens'"&gt;&lt;/md-rating-bar&gt;
+              &lt;md-rating-bar v-model="rating2" :md-num-stars="10" disabled&gt;&lt;/md-rating-bar&gt;<br />
+              &lt;md-rating-bar v-model="rating3" :md-num-stars="7" class="md-primary" disabled&gt;&lt;/md-rating-bar&gt;<br />
+              &lt;md-rating-bar v-model="rating4" :md-num-stars="7" class="md-accent" disabled&gt;&lt;/md-rating-bar&gt;<br />
+              &lt;md-rating-bar v-model="rating5" :md-num-stars="7" class="md-warn" disabled&gt;&lt;/md-rating-bar&gt;<br />
+              &lt;md-rating-bar v-model="rating6" :md-num-stars="7" class="md-primary" :md-back-icon="'star_border'"&gt;&lt;/md-rating-bar&gt;<br />
+              &lt;md-rating-bar v-model="rating7" :md-num-stars="5" class="md-warn" :md-back-icon="'panorama_fish_eye'" :md-front-icon="'lens'"&gt;&lt;/md-rating-bar&gt;
             </code-block>
           </div>
         </example-box>
@@ -105,7 +105,7 @@
               <md-rating-bar v-model="rating8" class="md-primary" md-theme="orange" disabled></md-rating-bar>
               <md-rating-bar v-model="rating9" class="md-primary" md-theme="brown" disabled></md-rating-bar>
               <md-rating-bar v-model="rating10" class="md-primary" md-theme="light-blue"></md-rating-bar>
-              <md-rating-bar v-model="rating11" class="md-primary" md-theme="teal" :back-icon="'star_border'"></md-rating-bar>
+              <md-rating-bar v-model="rating11" class="md-primary" md-theme="teal" :md-back-icon="'star_border'"></md-rating-bar>
           </div>
 
           <div slot="code">
@@ -113,7 +113,7 @@
               &lt;md-rating-bar v-model="rating8" class="md-primary" md-theme="orange" disabled&gt;&lt;/md-rating-bar&gt;<br />
               &lt;md-rating-bar v-model="rating9" class="md-primary" md-theme="brown" disabled&gt;&lt;/md-rating-bar&gt;<br />
               &lt;md-rating-bar v-model="rating10" class="md-primary" md-theme="light-blue"&gt;&lt;/md-rating-bar&gt;<br />
-              &lt;md-rating-bar v-model="rating11" class="md-primary" md-theme="teal" :back-icon="'star_border'"&gt;&lt;/md-rating-bar&gt;
+              &lt;md-rating-bar v-model="rating11" class="md-primary" md-theme="teal" :md-back-icon="'star_border'"&gt;&lt;/md-rating-bar&gt;
             </code-block>
           </div>
         </example-box>

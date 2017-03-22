@@ -1,16 +1,16 @@
 <template>
   <div class="md-rating-bar" :class="[themeClass]" :disabled="disabled">
-    <div class="back-stars" :disabled="disabled">
-      <md-icon v-for="i in numStars"
+    <div class="md-back-stars" :disabled="disabled">
+      <md-icon v-for="i in mdNumStars"
                @mouseover.native="hoverStars"
                @click.native="clickStars"
-               @mouseout.native="onMouseOut">{{ backIcon }}</md-icon>
+               @mouseout.native="onMouseOut">{{ mdBackIcon }}</md-icon>
     </div>
-    <div class="front-stars" :style="frontStarsStyle">
-      <md-icon v-for="i in numStars"
+    <div class="md-front-stars" :style="frontStarsStyle">
+      <md-icon v-for="i in mdNumStars"
                @mouseover.native="hoverStars"
                @click.native="clickStars"
-               @mouseout.native="onMouseOut">{{ frontIcon }}</md-icon>
+               @mouseout.native="onMouseOut">{{ mdFrontIcon }}</md-icon>
     </div>
   </div>
 </template>
@@ -24,7 +24,7 @@
 
   export default {
     props: {
-      numStars: {
+      mdNumStars: {
         type: Number,
         default: 5
       },
@@ -36,11 +36,11 @@
         },
         default: 0
       },
-      frontIcon: {
+      mdFrontIcon: {
         type: String,
         default: 'star'
       },
-      backIcon: {
+      mdBackIcon: {
         type: String,
         default: 'star'
       }
@@ -56,7 +56,7 @@
       frontStarsStyle() {
         return {
           width: 100 * this.rating + '%',
-          'margin-left': -iconSize * this.numStars + 'px'
+          'margin-left': -iconSize * this.mdNumStars + 'px'
         };
       }
     },
@@ -68,26 +68,26 @@
     methods: {
       hoverStars(evt) {
         if (!this.disabled) {
-          this.rating = this.getIconIndex(evt.target) / this.numStars;
+          this.rating = this.getIconIndex(evt.target) / this.mdNumStars;
         }
       },
       clickStars(evt) {
         if (!this.disabled) {
           var selected = this.getIconIndex(evt.target);
 
-          this.$emit('input', selected / this.numStars);
-          this.$emit('change', selected / this.numStars);
+          this.$emit('input', selected / this.mdNumStars);
+          this.$emit('change', selected / this.mdNumStars);
         }
       },
       getIconIndex(iconSelected) {//icon is a dom element
-        let ratingIcons = this.$el.querySelectorAll('.back-stars > .md-icon, .front-stars > .md-icon');
+        let ratingIcons = this.$el.querySelectorAll('.md-back-stars > .md-icon, .md-front-stars > .md-icon');
         let selected = -1;
 
         ratingIcons = Array.prototype.slice.call(ratingIcons);
         ratingIcons.some((icon, i) => {//find index
           if (icon === iconSelected) {
-            selected = (i + 1) % this.numStars;
-            selected = !selected ? this.numStars : selected;
+            selected = (i + 1) % this.mdNumStars;
+            selected = !selected ? this.mdNumStars : selected;
             return true;
           }
         });
