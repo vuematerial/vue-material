@@ -78,12 +78,13 @@
           this.$emit('change', selected / this.mdNumStars);
         }
       },
-      getIconIndex(iconSelected) {//icon is a dom element
+      getIconIndex(iconSelected) {//iconSelected is a dom element
         let ratingIcons = this.$el.querySelectorAll('.md-back-stars > .md-icon, .md-front-stars > .md-icon');
         let selected = -1;
 
         ratingIcons = Array.prototype.slice.call(ratingIcons);
-        ratingIcons.some((icon, i) => {//find index
+        //find index from iconSelected
+        ratingIcons.some((icon, i) => {
           if (icon === iconSelected) {
             selected = (i + 1) % this.mdNumStars;
             selected = !selected ? this.mdNumStars : selected;
