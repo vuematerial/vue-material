@@ -19,6 +19,7 @@
   export default {
     props: {
       mdInline: Boolean,
+      mdStacked: Boolean,
       mdHasPassword: Boolean
     },
     mixins: [theme],
@@ -48,7 +49,8 @@
       },
       classes() {
         return {
-          'md-input-inline': this.mdInline,
+          'md-input-inline': this.mdInline && !this.mdStacked,
+          'md-input-stacked': this.mdStacked,
           'md-has-password': this.mdHasPassword,
           'md-has-select': this.hasSelect,
           'md-has-file': this.hasFile,
