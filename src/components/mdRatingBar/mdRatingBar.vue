@@ -6,6 +6,7 @@
                @click.native="clickStars"
                @mouseout.native="onMouseOut"
                :md-src="srcBackIcon"
+               :class="[iconClasses]"
                v-if="srcBackIcon"></md-icon>
     </div>
     <div class="md-back-stars" v-else>
@@ -14,6 +15,7 @@
                @mouseover.native="hoverStars"
                @click.native="clickStars"
                @mouseout.native="onMouseOut"
+               :class="[iconClasses]"
                v-html="backIcon"></md-icon>
     </div>
 
@@ -23,6 +25,7 @@
                @click.native="clickStars"
                @mouseout.native="onMouseOut"
                :md-src="srcFrontIcon"
+               :class="[iconClasses]"
                v-if="srcFrontIcon"></md-icon>
     </div>
     <div class="md-front-stars" :style="frontStarsStyle" v-else>
@@ -31,6 +34,7 @@
                @mouseover.native="hoverStars"
                @click.native="clickStars"
                @mouseout.native="onMouseOut"
+               :class="[iconClasses]"
                v-html="frontIcon"></md-icon>
     </div>
   </div>
@@ -56,6 +60,10 @@
           return value >= 0 && value <= 1;
         },
         default: 0
+      },
+      mdSize: {
+        type: Number,
+        default: 1
       },
       mdFrontIconset: String,
       mdBackIconset: String,
@@ -95,10 +103,19 @@
 
         return this.mdFrontIcon;
       },
+      iconClasses() {
+        let classes = {};
+
+        if (this.mdSize) {
+          classes[`md-size-${this.mdSize}x`] = true;
+        }
+
+        return classes;
+      },
       frontStarsStyle() {
         return {
           width: 100 * this.rating + '%',
-          'margin-left': -iconSize * this.mdNumStars + 'px'
+          'margin-left': -iconSize * this.mdSize * this.mdNumStars + 'px'
         };
       }
     },
