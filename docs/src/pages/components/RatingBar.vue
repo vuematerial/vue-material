@@ -38,13 +38,13 @@
               <md-table-row>
                 <md-table-cell>md-front-icon</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
-                <md-table-cell>The font icon used to represent full star. Default <code>star</code>.</md-table-cell>
+                <md-table-cell>The icon used to represent full star. Can be a material icon from google font or src of the image file (svg or png). Default <code>star</code>.</md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-back-icon</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
-                <md-table-cell>The font icon used to represent empty star. Default <code>star</code>.</md-table-cell>
+                <md-table-cell>The icon used to represent empty star. Can be a material icon from google font or src of the image file (svg or png). Default <code>star</code>.</md-table-cell>
               </md-table-row>
 
               <md-table-row>
@@ -139,6 +139,42 @@
             </code-block>
           </div>
         </example-box>
+
+        <example-box card-title="Images">
+          <div slot="demo">
+            <md-layout :md-gutter="true">
+              <md-layout>
+                <strong class="md-body-2">SVG:</strong>
+                <md-rating-bar v-model="rating13" class="md-primary" :md-back-icon="'assets/icon-home.svg'" :md-front-icon="'assets/icon-home.svg'"></md-rating-bar>
+                <md-rating-bar v-model="rating13" class="md-primary" :md-back-icon="'assets/icon-home.svg'" :md-front-icon="'assets/icon-home.svg'" :md-size="2"></md-rating-bar>
+              </md-layout>
+
+              <md-layout>
+                <strong class="md-body-2">PNG:</strong>
+                <md-rating-bar v-model="rating13" :md-back-icon="'assets/icon-home-back.png'" :md-front-icon="'assets/icon-home-front.png'"></md-rating-bar>
+                <md-rating-bar v-model="rating13" :md-back-icon="'assets/icon-home-back.png'" :md-front-icon="'assets/icon-home-front.png'" :md-size="2"></md-rating-bar>
+              </md-layout>
+            </md-layout>
+          </div>
+
+          <div slot="code">
+            <code-block lang="xml">
+              &lt;md-layout :md-gutter="true"&gt;<br />
+                &lt;md-layout&gt;<br />
+                  &lt;strong class="md-body-2"&gt;SVG:&lt;/strong&gt;<br />
+                  &lt;md-rating-bar v-model="rating13" class="md-primary" :md-back-icon="'assets/icon-home.svg'" :md-front-icon="'assets/icon-home.svg'"&gt;&lt;/md-rating-bar&gt;<br />
+                  &lt;md-rating-bar v-model="rating13" class="md-primary" :md-back-icon="'assets/icon-home.svg'" :md-front-icon="'assets/icon-home.svg'" :md-size="2"&gt;&lt;/md-rating-bar&gt;<br />
+                &lt;/md-layout&gt;<br />
+                <br />
+                &lt;md-layout&gt;<br />
+                  &lt;strong class="md-body-2"&gt;PNG:&lt;/strong&gt;<br />
+                  &lt;md-rating-bar v-model="rating13" :md-back-icon="'assets/icon-home-back.png'" :md-front-icon="'assets/icon-home-front.png'"&gt;&lt;/md-rating-bar&gt;<br />
+                  &lt;md-rating-bar v-model="rating13" :md-back-icon="'assets/icon-home-back.png'" :md-front-icon="'assets/icon-home-front.png'" :md-size="2"&gt;&lt;/md-rating-bar&gt;<br />
+                &lt;/md-layout&gt;<br />
+              &lt;/md-layout&gt;
+            </code-block>
+          </div>
+        </example-box>
       </div>
     </docs-component>
   </page-content>
@@ -159,7 +195,8 @@
         rating9: 0.18,
         rating10: 0.45,
         rating11: 0.82,
-        rating12: 0.5
+        rating12: 0.5,
+        rating13: 0.7
       };
     }
   };
