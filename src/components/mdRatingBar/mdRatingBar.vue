@@ -10,9 +10,11 @@
     </div>
     <div class="md-back-stars" v-else>
       <md-icon v-for="i in mdNumStars"
+               :md-iconset="mdBackIconset"
                @mouseover.native="hoverStars"
                @click.native="clickStars"
-               @mouseout.native="onMouseOut">{{ mdBackIcon }}</md-icon>
+               @mouseout.native="onMouseOut"
+               v-html="backIcon"></md-icon>
     </div>
 
     <div class="md-front-stars" :style="frontStarsStyle" v-if="srcFrontIcon">
@@ -25,9 +27,11 @@
     </div>
     <div class="md-front-stars" :style="frontStarsStyle" v-else>
       <md-icon v-for="i in mdNumStars"
+               :md-iconset="mdFrontIconset"
                @mouseover.native="hoverStars"
                @click.native="clickStars"
-               @mouseout.native="onMouseOut">{{ mdFrontIcon }}</md-icon>
+               @mouseout.native="onMouseOut"
+               v-html="frontIcon"></md-icon>
     </div>
   </div>
 </template>
@@ -53,6 +57,8 @@
         },
         default: 0
       },
+      mdFrontIconset: String,
+      mdBackIconset: String,
       mdFrontIcon: {
         type: String,
         default: 'star'
@@ -75,6 +81,20 @@
       this.srcBackIcon = this.checkSrc(this.mdBackIcon);
     },
     computed: {
+      backIcon() {
+        if (this.mdBackIconset) {
+          return '';
+        }
+
+        return this.mdBackIcon;
+      },
+      frontIcon() {
+        if (this.mdFrontIconset) {
+          return '';
+        }
+
+        return this.mdFrontIcon;
+      },
       frontStarsStyle() {
         return {
           width: 100 * this.rating + '%',
