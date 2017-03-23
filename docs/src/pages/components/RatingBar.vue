@@ -48,6 +48,18 @@
               </md-table-row>
 
               <md-table-row>
+                <md-table-cell>md-front-iconset</md-table-cell>
+                <md-table-cell><code>String</code></md-table-cell>
+                <md-table-cell>The font icon set used on full star. Example: <code>md-iconset="fa fa-heart"</code> for font awesome.</md-table-cell>
+              </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>md-back-iconset</md-table-cell>
+                <md-table-cell><code>String</code></md-table-cell>
+                <md-table-cell>The font icon set used on empty star. Example: <code>md-iconset="fa fa-heart-o"</code> for font awesome.</md-table-cell>
+              </md-table-row>
+
+              <md-table-row>
                 <md-table-cell>md-size</md-table-cell>
                 <md-table-cell><code>Number</code></md-table-cell>
                 <md-table-cell>Change the size. From 1 to 5. Default <code>1</code>.</md-table-cell>
@@ -175,6 +187,36 @@
             </code-block>
           </div>
         </example-box>
+
+        <example-box card-title="Font Icons">
+          <!-- had a few trouble on making webpack accept font awesome and others,
+               therefore i'm using those cdn's' for the sake of a good example -->
+          <div slot="demo">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+            <div>This first example uses <a href="http://fontawesome.io/icons/" target="fa_icons">Font Awesome Icons</a></div>
+            <md-rating-bar v-model="rating14" class="md-primary" :md-back-iconset="'fa fa-bell-o'" :md-front-iconset="'fa fa-bell'"></md-rating-bar>
+            <md-rating-bar v-model="rating14" class="md-warn" :md-size="2" :md-back-iconset="'fa fa-heart-o'" :md-front-iconset="'fa fa-heart'"></md-rating-bar>
+            <hr/>
+            <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"/>
+            <div>This second example uses <a href="http://ionicons.com/" target="ion_icons">Ion Icons</a></div>
+            <md-rating-bar v-model="rating14" class="md-primary" :md-back-iconset="'ion-ios-bell-outline'" :md-front-iconset="'ion-ios-bell'"></md-rating-bar>
+            <md-rating-bar v-model="rating14" class="md-warn" :md-size="2" :md-back-iconset="'ion-android-favorite-outline'" :md-front-iconset="'ion-android-favorite'"></md-rating-bar>
+          </div>
+
+          <div slot="code">
+            <code-block lang="xml">
+              &lt;link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/&gt;<br />
+              &lt;div&gt;This first example uses &lt;a href="http://fontawesome.io/icons/" target="fa_icons"&gt;Font Awesome Icons&lt;/a&gt;&lt;/div&gt;<br />
+              &lt;md-rating-bar v-model="rating14" class="md-primary" :md-back-iconset="'fa fa-bell-o'" :md-front-iconset="'fa fa-bell'"&gt;&lt;/md-rating-bar&gt;<br />
+              &lt;md-rating-bar v-model="rating14" class="md-warn" :md-size="2" :md-back-iconset="'fa fa-heart-o'" :md-front-iconset="'fa fa-heart'"&gt;&lt;/md-rating-bar&gt;<br />
+              &lt;hr/&gt;<br />
+              &lt;link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"/&gt;<br />
+              &lt;div&gt;This second example uses &lt;a href="http://ionicons.com/" target="ion_icons"&gt;Ion Icons&lt;/a&gt;&lt;/div&gt;<br />
+              &lt;md-rating-bar v-model="rating14" class="md-primary" :md-back-iconset="'ion-ios-bell-outline'" :md-front-iconset="'ion-ios-bell'"&gt;&lt;/md-rating-bar&gt;<br />
+              &lt;md-rating-bar v-model="rating14" class="md-warn" :md-size="2" :md-back-iconset="'ion-android-favorite-outline'" :md-front-iconset="'ion-android-favorite'"&gt;&lt;/md-rating-bar&gt;
+            </code-block>
+          </div>
+        </example-box>
       </div>
     </docs-component>
   </page-content>
@@ -196,7 +238,8 @@
         rating10: 0.45,
         rating11: 0.82,
         rating12: 0.5,
-        rating13: 0.7
+        rating13: 0.7,
+        rating14: 0.4
       };
     }
   };
