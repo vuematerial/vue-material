@@ -48,6 +48,12 @@
               </md-table-row>
 
               <md-table-row>
+                <md-table-cell>md-size</md-table-cell>
+                <md-table-cell><code>Number</code></md-table-cell>
+                <md-table-cell>Change the size. From 1 to 5. Default <code>1</code>.</md-table-cell>
+              </md-table-row>
+
+              <md-table-row>
                 <md-table-cell>disabled</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
                 <md-table-cell>Disable the rating and prevent his actions. Default <code>false</code></md-table-cell>
@@ -117,6 +123,22 @@
             </code-block>
           </div>
         </example-box>
+
+        <example-box card-title="Sizes">
+          <div slot="demo">
+            <md-rating-bar v-model="rating12" ></md-rating-bar>
+            <md-rating-bar v-model="rating12" :md-size="2" ></md-rating-bar>
+            <md-rating-bar v-model="rating12" :md-size="3" ></md-rating-bar>
+          </div>
+
+          <div slot="code">
+            <code-block lang="xml">
+              &lt;md-rating-bar v-model="rating12" &gt;&lt;/md-rating-bar&gt;<br />
+              &lt;md-rating-bar v-model="rating12" :md-size="2" &gt;&lt;/md-rating-bar&gt;<br />
+              &lt;md-rating-bar v-model="rating12" :md-size="3" &gt;&lt;/md-rating-bar&gt;
+            </code-block>
+          </div>
+        </example-box>
       </div>
     </docs-component>
   </page-content>
@@ -136,7 +158,8 @@
         rating8: 0.9,
         rating9: 0.18,
         rating10: 0.45,
-        rating11: 0.82
+        rating11: 0.82,
+        rating12: 0.5
       };
     }
   };
