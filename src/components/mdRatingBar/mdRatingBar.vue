@@ -1,12 +1,29 @@
 <template>
   <div class="md-rating-bar" :class="[themeClass]" :disabled="disabled">
-    <div class="md-back-stars" :disabled="disabled">
+    <div class="md-back-stars" v-if="srcBackIcon">
+      <md-icon v-for="i in mdNumStars"
+               @mouseover.native="hoverStars"
+               @click.native="clickStars"
+               @mouseout.native="onMouseOut"
+               :md-src="srcBackIcon"
+               v-if="srcBackIcon"></md-icon>
+    </div>
+    <div class="md-back-stars" v-else>
       <md-icon v-for="i in mdNumStars"
                @mouseover.native="hoverStars"
                @click.native="clickStars"
                @mouseout.native="onMouseOut">{{ mdBackIcon }}</md-icon>
     </div>
-    <div class="md-front-stars" :style="frontStarsStyle">
+
+    <div class="md-front-stars" :style="frontStarsStyle" v-if="srcFrontIcon">
+      <md-icon v-for="i in mdNumStars"
+               @mouseover.native="hoverStars"
+               @click.native="clickStars"
+               @mouseout.native="onMouseOut"
+               :md-src="srcFrontIcon"
+               v-if="srcFrontIcon"></md-icon>
+    </div>
+    <div class="md-front-stars" :style="frontStarsStyle" v-else>
       <md-icon v-for="i in mdNumStars"
                @mouseover.native="hoverStars"
                @click.native="clickStars"
@@ -48,8 +65,14 @@
     mixins: [theme],
     data() {
       return {
+        srcFrontIcon: null,
+        srcBackIcon: null,
         rating: this.value
       };
+    },
+    mounted: function() {
+      this.srcFrontIcon = this.checkSrc(this.mdFrontIcon);
+      this.srcBackIcon = this.checkSrc(this.mdBackIcon);
     },
     computed: {
       frontStarsStyle() {
@@ -60,6 +83,12 @@
       }
     },
     watch: {
+      mdFrontIcon() {
+        this.srcFrontIcon = this.checkSrc(this.mdFrontIcon);
+      },
+      mdBackIcon() {
+        this.srcBackIcon = this.checkSrc(this.mdBackIcon);
+      },
       value() {
         this.rating = this.value;
       }
@@ -67,12 +96,12 @@
     methods: {
       hoverStars(evt) {
         if (!this.disabled) {
-          this.rating = this.getIconIndex(evt.target) / this.mdNumStars;
+          this.rating = this.getIconIndex(evt.currentTarget) / this.mdNumStars;
         }
       },
       clickStars(evt) {
         if (!this.disabled) {
-          var selected = this.getIconIndex(evt.target);
+          var selected = this.getIconIndex(evt.currentTarget);
 
           this.$emit('input', selected / this.mdNumStars);
           this.$emit('change', selected / this.mdNumStars);
@@ -93,6 +122,13 @@
         });
 
         return selected;
+      },
+      checkSrc(src) {
+        if (src && (/.+\.(svg|png)/).test(src)) {//check if src is a image source
+          return src;
+        }
+
+        return null;
       },
       onMouseOut() {
         this.rating = this.value;
