@@ -150,6 +150,7 @@ export default function install(Vue) {
   Vue.material = new Vue({
     data: () => ({
       styles: [],
+      palettes: palette,
       currentTheme: null,
       inkRipple: true
     }),
