@@ -49,7 +49,7 @@
               <md-table-row>
                 <md-table-cell>disabled</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Disable the switch and prevent his actions. Default <code>false</code></md-table-cell>
+                <md-table-cell>Disable the switch and prevent its actions. Default <code>false</code></md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>
@@ -67,7 +67,7 @@
               <md-table-row>
                 <md-table-cell>change</md-table-cell>
                 <md-table-cell>Receive the state of the switch</md-table-cell>
-                <md-table-cell>Triggered when the switch changes his value.</md-table-cell>
+                <md-table-cell>Triggered when the switch changes its value.</md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>

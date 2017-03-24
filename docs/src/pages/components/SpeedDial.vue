@@ -20,22 +20,22 @@
             <md-table-body>
               <md-table-row>
                 <md-table-cell>md-fab-top-left</md-table-cell>
-                <md-table-cell>Position the md-fab absolutely on the top left of his parent</md-table-cell>
+                <md-table-cell>Position the md-fab absolutely on the top left of its parent</md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-fab-top-center</md-table-cell>
-                <md-table-cell>Position the md-fab absolutely on the top center of his parent</md-table-cell>
+                <md-table-cell>Position the md-fab absolutely on the top center of its parent</md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-fab-top-right</md-table-cell>
-                <md-table-cell>Position the md-fab absolutely on the top right of his parent</md-table-cell>
+                <md-table-cell>Position the md-fab absolutely on the top right of its parent</md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-fab-bottom-left</md-table-cell>
-                <md-table-cell>Position the md-fab absolutely on the bottom left of his parent</md-table-cell>
+                <md-table-cell>Position the md-fab absolutely on the bottom left of its parent</md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>
