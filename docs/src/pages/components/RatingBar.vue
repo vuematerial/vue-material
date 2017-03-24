@@ -197,7 +197,7 @@
             <md-rating-bar v-model="rating14" class="md-primary" :md-back-iconset="'fa fa-bell-o'" :md-front-iconset="'fa fa-bell'"></md-rating-bar>
             <md-rating-bar v-model="rating14" class="md-warn" :md-size="2" :md-back-iconset="'fa fa-heart-o'" :md-front-iconset="'fa fa-heart'"></md-rating-bar>
             <hr/>
-            <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"/>
+            <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"/>
             <div>This second example uses <a href="http://ionicons.com/" target="ion_icons">Ion Icons</a></div>
             <md-rating-bar v-model="rating14" class="md-primary" :md-back-iconset="'ion-ios-bell-outline'" :md-front-iconset="'ion-ios-bell'"></md-rating-bar>
             <md-rating-bar v-model="rating14" class="md-warn" :md-size="2" :md-back-iconset="'ion-android-favorite-outline'" :md-front-iconset="'ion-android-favorite'"></md-rating-bar>
@@ -209,11 +209,38 @@
               &lt;div&gt;This first example uses &lt;a href="http://fontawesome.io/icons/" target="fa_icons"&gt;Font Awesome Icons&lt;/a&gt;&lt;/div&gt;<br />
               &lt;md-rating-bar v-model="rating14" class="md-primary" :md-back-iconset="'fa fa-bell-o'" :md-front-iconset="'fa fa-bell'"&gt;&lt;/md-rating-bar&gt;<br />
               &lt;md-rating-bar v-model="rating14" class="md-warn" :md-size="2" :md-back-iconset="'fa fa-heart-o'" :md-front-iconset="'fa fa-heart'"&gt;&lt;/md-rating-bar&gt;<br />
+              &lt;style type="text/css"&gt;&lt;!-- offset fix to awesome icons--&gt;<br />
+                .fa {<br />
+                  font-size: 19px !important;<br />
+                  line-height: 1.3em !important;<br />
+                  padding-left: 0.1em;<br />
+                }<br />
+                .fa.md-size-2x {<br />
+                  font-size: 38px !important;<br />
+                }<br />
+                <br />
+                .fa.md-size-3x {<br />
+                  font-size: 57px !important;<br />
+                }<br />
+                <br />
+                .fa.md-size-4x {<br />
+                  font-size: 76px !important;<br />
+                }<br />
+                <br />
+                .fa.md-size-5x {<br />
+                  font-size: 95px !important;<br />
+                }<br />
+              &lt;/style&gt;<br />
               &lt;hr/&gt;<br />
-              &lt;link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"/&gt;<br />
+              &lt;link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"/&gt;<br />
               &lt;div&gt;This second example uses &lt;a href="http://ionicons.com/" target="ion_icons"&gt;Ion Icons&lt;/a&gt;&lt;/div&gt;<br />
               &lt;md-rating-bar v-model="rating14" class="md-primary" :md-back-iconset="'ion-ios-bell-outline'" :md-front-iconset="'ion-ios-bell'"&gt;&lt;/md-rating-bar&gt;<br />
-              &lt;md-rating-bar v-model="rating14" class="md-warn" :md-size="2" :md-back-iconset="'ion-android-favorite-outline'" :md-front-iconset="'ion-android-favorite'"&gt;&lt;/md-rating-bar&gt;
+              &lt;md-rating-bar v-model="rating14" class="md-warn" :md-size="2" :md-back-iconset="'ion-android-favorite-outline'" :md-front-iconset="'ion-android-favorite'"&gt;&lt;/md-rating-bar&gt;<br />
+              &lt;style type="text/css"&gt; &lt;!-- offset fix to ion icons--&gt;<br />
+                i[class*="ion-"]{<br />
+                  padding-left: 0.1em;<br />
+                }<br />
+              &lt;/style&gt;
             </code-block>
           </div>
         </example-box>
@@ -244,3 +271,29 @@
     }
   };
 </script>
+
+<style>
+  .fa {
+    font-size: 19px !important;
+    line-height: 1.3em !important;
+    padding-left: 0.1em;
+  }
+  .fa.md-size-2x {
+    font-size: 38px !important;
+  }
+
+  .fa.md-size-3x {
+    font-size: 57px !important;
+  }
+
+  .fa.md-size-4x {
+    font-size: 76px !important;
+  }
+
+  .fa.md-size-5x {
+    font-size: 95px !important;
+  }
+  i[class*="ion-"]{
+    padding-left: 0.1em;
+  }
+</style>
