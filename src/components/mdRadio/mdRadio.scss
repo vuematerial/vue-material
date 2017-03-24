@@ -2,6 +2,7 @@
 
 $radio-size: 20px;
 $radio-ripple-size: 48px;
+$radio-touch-size: 48px;
 
 .md-radio {
   width: auto;
@@ -19,8 +20,8 @@ $radio-ripple-size: 48px;
     transition: $swift-ease-out;
 
     &:before {
-      width: $checkbox-touch-size;
-      height: $checkbox-touch-size;
+      width: $radio-touch-size;
+      height: $radio-touch-size;
       position: absolute;
       top: 50%;
       left: 50%;
