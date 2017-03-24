@@ -43,7 +43,7 @@
               <md-table-row>
                 <md-table-cell>disabled</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Disable the checkbox and prevent his actions. Default <code>false</code></md-table-cell>
+                <md-table-cell>Disable the checkbox and prevent its actions. Default <code>false</code></md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>
@@ -61,7 +61,7 @@
               <md-table-row>
                 <md-table-cell>change</md-table-cell>
                 <md-table-cell>Receive the state of the checkbox</md-table-cell>
-                <md-table-cell>Triggered when the checkbox changes his value.</md-table-cell>
+                <md-table-cell>Triggered when the checkbox changes its value.</md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>

@@ -38,7 +38,7 @@
               <md-table-row>
                 <md-table-cell>disabled</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Disable the input and prevent his actions. Default <code>false</code></md-table-cell>
+                <md-table-cell>Disable the input and prevent its actions. Default <code>false</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
@@ -115,7 +115,7 @@
                 <md-table-row>
                   <md-table-cell>disabled</md-table-cell>
                   <md-table-cell><code>Boolean</code></md-table-cell>
-                  <md-table-cell>Disable the button and prevent his actions. Default <code>false</code></md-table-cell>
+                  <md-table-cell>Disable the button and prevent its actions. Default <code>false</code></md-table-cell>
                 </md-table-row>
               </md-table-body>
             </md-table>

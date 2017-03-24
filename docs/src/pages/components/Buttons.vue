@@ -26,7 +26,7 @@
               <md-table-row>
                 <md-table-cell>disabled</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Disable the button and prevent his actions. Default <code>false</code></md-table-cell>
+                <md-table-cell>Disable the button and prevent its actions. Default <code>false</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
@@ -79,32 +79,32 @@
 
               <md-table-row>
                 <md-table-cell>md-fab-top-left</md-table-cell>
-                <md-table-cell>Position the md-fab absolutely on the top left of his parent</md-table-cell>
+                <md-table-cell>Position the md-fab absolutely on the top left of its parent</md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-fab-top-center</md-table-cell>
-                <md-table-cell>Position the md-fab absolutely on the top center of his parent</md-table-cell>
+                <md-table-cell>Position the md-fab absolutely on the top center of its parent</md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-fab-top-right</md-table-cell>
-                <md-table-cell>Position the md-fab absolutely on the top right of his parent</md-table-cell>
+                <md-table-cell>Position the md-fab absolutely on the top right of its parent</md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-fab-bottom-left</md-table-cell>
-                <md-table-cell>Position the md-fab absolutely on the bottom left of his parent</md-table-cell>
+                <md-table-cell>Position the md-fab absolutely on the bottom left of its parent</md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-fab-bottom-center</md-table-cell>
-                <md-table-cell>Position the md-fab absolutely on the bottom center of his parent</md-table-cell>
+                <md-table-cell>Position the md-fab absolutely on the bottom center of its parent</md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-fab-bottom-right</md-table-cell>
-                <md-table-cell>Position the md-fab absolutely on the bottom right of his parent</md-table-cell>
+                <md-table-cell>Position the md-fab absolutely on the bottom right of its parent</md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>
