@@ -30,7 +30,8 @@ $button-radius: 2px;
   }
 
   &[disabled] {
-    > .md-back-stars, > .md-front-stars {
+    > .md-back-stars,
+    > .md-front-stars {
        > .md-icon {
         cursor: default;
       }
