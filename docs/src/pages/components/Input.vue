@@ -154,6 +154,11 @@
 
               <md-input-container>
                 <label>With label</label>
+                <md-autocomplete v-model="initialValue"></md-autocomplete>
+              </md-input-container>
+
+              <md-input-container>
+                <label>With label</label>
                 <md-input placeholder="My nice placeholder"></md-input>
               </md-input-container>
 
