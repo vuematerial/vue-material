@@ -126,7 +126,6 @@
           this.fetchUrl;
       },
       hit(item) {
-        debugger;
         this.query = item[this.printAttribute];
         this.$refs.input.value = item[this.printAttribute];
         this.selected = item;
