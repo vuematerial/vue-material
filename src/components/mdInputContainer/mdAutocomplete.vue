@@ -41,7 +41,8 @@
         default: 1E3
       },
       fetch: {
-        type: Function
+        type: Function,
+        required: true
       },
       queryParam: {
         type: String,
@@ -63,7 +64,6 @@
         loading: false,
         query: '',
         selected: null,
-        src: 'https://typeahead-js-twitter-api-proxy.herokuapp.com/demo/search',
         timeout: 0
       };
     },
@@ -93,30 +93,6 @@
         this.timeout = window.setTimeout(() => {
           this.update();
         }, this.debounce);
-      },
-      fetchUrl() {
-        if (!this.$http) {
-          throw new Error('You need to provide a HTTP client');
-        }
-
-        if (!this.src || this.fetch) {
-          throw new Error('You need to set the `src` or a `fetch` property');
-        }
-
-        const src = this.queryParam ?
-          this.src :
-          `${this.src}${this.queryParam}=${this.query}`;
-
-        const params = this.queryParam ?
-          Object.assign({ [this.queryParam]: this.query }, this.data) :
-          this.data;
-
-        return this.$http.get(src, { params });
-      },
-      getResource() {
-        return this.fetch ?
-          this.fetch :
-          this.fetchUrl;
       },
       hit(item) {
         this.query = item[this.printAttribute];
@@ -165,7 +141,7 @@
 
         this.loading = true;
 
-        this.getResource()()
+        this.fetch()
           .then((response) => {
             if (this.query) {
               let data = response.data;
