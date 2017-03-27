@@ -153,8 +153,13 @@
               </md-input-container>
 
               <md-input-container>
-                <label>Autocomplete</label>
-                <md-autocomplete v-model="autocompleteValue"></md-autocomplete>
+                <label>Autocomplete (with fetch)</label>
+                <md-autocomplete v-model="autocompleteValue" :fetch="fetchAutocomplete"></md-autocomplete>
+              </md-input-container>
+
+              <md-input-container>
+                <label>Autocomplete (with list)</label>
+                <md-autocomplete v-model="autocompleteValue" :list="listAutocomplete" :filter-list="filterList"></md-autocomplete>
               </md-input-container>
 
               <md-input-container>
@@ -456,8 +461,33 @@
     data() {
       return {
         autocompleteValue: '',
-        initialValue: 'My initial value'
+        initialValue: 'My initial value',
+        listAutocomplete: [
+          {name: 'oi'},
+          {name: 'hello'},
+          {name: 'salut'}
+        ]
       };
+    },
+    methods: {
+      fetchAutocomplete(param) {
+        const myInit = {
+          method: 'GET',
+          headers: new Headers(),
+          mode: 'cors',
+          cache: 'default'
+        };
+        const url = 'https://typeahead-js-twitter-api-proxy.herokuapp.com/demo/search';
+        const queryParam = Object.keys(param)[0];
+        const queryValue = param[queryParam];
+        const queryUrl = `${url}?${queryParam}=${queryValue}`;
+
+        return window.fetch(queryUrl, myInit)
+          .then((res) => res.json());
+      },
+      filterList(list, query) {
+        return list.filter((el) => el.name.indexOf(query) !== -1);
+      }
     }
   };
 </script>

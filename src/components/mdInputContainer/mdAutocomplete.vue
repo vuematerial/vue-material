@@ -41,25 +41,31 @@
         default: 1E3
       },
       fetch: {
-        type: Function,
-        required: true
+        type: Function
       },
-      queryParam: {
-        type: String,
-        default: 'q'
-      },
-      printAttribute: {
-        type: String,
-        default: 'name'
+      filterList: Function,
+      list: {
+        type: Array,
+        default() {
+          return [];
+        }
       },
       minChars: {
         type: Number,
         default: 1
+      },
+      prepareResponseData: Function,
+      printAttribute: {
+        type: String,
+        default: 'name'
+      },
+      queryParam: {
+        type: String,
+        default: 'q'
       }
     },
     data() {
       return {
-        current: -1,
         items: [],
         loading: false,
         query: '',
@@ -67,7 +73,15 @@
         timeout: 0
       };
     },
+    computed: {
+      listIsEmpty() {
+        return this.list.length === 0;
+      }
+    },
     watch: {
+      list(value) {
+        this.items = Object.assign([], value);
+      },
       query(value) {
         this.$refs.input.value = value;
         this.setParentUpdateValue(value);
@@ -78,11 +92,6 @@
       }
     },
     methods: {
-      activeClass(index) {
-        return {
-          active: this.current === index
-        };
-      },
       debounceUpdate() {
         this.onInput();
 
@@ -91,6 +100,10 @@
         }
 
         this.timeout = window.setTimeout(() => {
+          if (!this.listIsEmpty) {
+            this.renderFilteredList();
+            return;
+          }
           this.update();
         }, this.debounce);
       },
@@ -106,13 +119,16 @@
         this.$emit('input', this.$refs.input.value);
         this.$emit('selected', this.selected, this.$refs.input.value);
       },
+      renderFilteredList() {
+        if (this.filterList) {
+          this.items = this.filterList(Object.assign([], this.list), this.query);
+        }
+        this.toggleMenu();
+      },
       reset() {
         this.items = [];
         this.query = '';
         this.loading = false;
-      },
-      setActive(index) {
-        this.current = index;
       },
       setParentValue(value) {
         this.parentContainer.setValue(value || this.$refs.input.value);
@@ -131,7 +147,7 @@
         this.updateValues(value);
       },
       update() {
-        if (!this.query) {
+        if (!this.query && !this.list.length) {
           return this.reset();
         }
 
@@ -141,10 +157,12 @@
 
         this.loading = true;
 
-        this.fetch()
+        const queryObject = { [this.queryParam]: this.query };
+
+        this.fetch(queryObject)
           .then((response) => {
             if (this.query) {
-              let data = response.data;
+              let data = response || response.data || response.body;
 
               data = this.prepareResponseData ?
                 this.prepareResponseData(data) :
@@ -152,12 +170,32 @@
               this.items = this.limit ?
                 data.slice(0, this.limit) :
                 data;
-              this.current = -1;
+
               this.loading = false;
 
               this.toggleMenu();
             }
           });
+      },
+      verifyProps() {
+        let errorMessage = '';
+
+        if (!this.parentContainer) {
+          errorMessage = 'You should wrap the md-input in a md-input-container';
+        }
+
+        if (!this.listIsEmpty && !this.filterList) {
+          errorMessage = 'You should use a `filterList` function prop with the `list` prop';
+        }
+
+        if (!fetch) {
+          errorMessage = 'You should use a `fetch` function prop';
+        }
+
+        if (errorMessage) {
+          this.$destroy();
+          throw new Error(errorMessage);
+        }
       },
       toggleMenu() {
         if (this.items.length) {
@@ -174,13 +212,14 @@
     mounted() {
       this.$nextTick(() => {
         this.parentContainer = getClosestVueParent(this.$parent, 'md-input-container');
+
+        if (!this.listIsEmpty) {
+          this.items = Object.assign([], this.list);
+        }
+
         this.query = this.value;
 
-        if (!this.parentContainer) {
-          this.$destroy();
-
-          throw new Error('You should wrap the md-input in a md-input-container');
-        }
+        this.verifyProps();
 
         this.setParentDisabled();
         this.setParentRequired();
