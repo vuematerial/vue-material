@@ -128,6 +128,14 @@ $input-size: 32px;
 }
 
 .md-input-container {
+  .md-autocomplete,
+  .md-autocomplete .md-menu,
+  .md-autocomplete .md-menu .md-input {
+    width: 100%;
+  }
+}
+
+.md-input-container {
   &.md-input-placeholder {
     label {
       pointer-events: auto;

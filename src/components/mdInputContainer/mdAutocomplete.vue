@@ -1,5 +1,5 @@
 <template lang="html">
-  <div style="width:100%;"
+  <div class="md-autocomplete"
     @focus="onFocus"
     @blur="onBlur">
     <md-menu md-menu-trigger
@@ -15,21 +15,21 @@
         :maxlength="maxlength"
         @focus="onFocus"
         @blur="onBlur"
-        @input="debounceUpdate"
-        @keydown.up="onInput"
-        @keydown.down="onInput"/>
+        @input="debounceUpdate"/>
 
       <md-menu-content>
-        <md-menu-item v-if="items.length"
-          v-for="item in items"
-          @click.native="hit(item)">{{ item[printAttribute] }}</md-menu-item>
+        <md-menu-item v-for="item in items"
+          v-if="items.length"
+          @keyup.enter="hit(item)"
+          @click.native="hit(item)">
+          {{ item[printAttribute] }}
+        </md-menu-item>
       </md-menu-content>
     </md-menu>
   </div>
 </template>
 
 <script>
-  import { util } from 'vue';
   import common from './common';
   import getClosestVueParent from '../../core/utils/getClosestVueParent';
 
@@ -94,20 +94,13 @@
           this.update();
         }, this.debounce);
       },
-      down() {
-        if (this.current < this.items.length - 1) {
-          this.current++;
-        } else {
-          this.current = -1;
-        }
-      },
       fetchUrl() {
         if (!this.$http) {
-          return util.warn('You need to provide a HTTP client', this);
+          throw new Error('You need to provide a HTTP client');
         }
 
         if (!this.src || this.fetch) {
-          return util.warn('You need to set the `src` or a `fetch` property', this);
+          throw new Error('You need to set the `src` or a `fetch` property');
         }
 
         const src = this.queryParam ?
@@ -161,15 +154,6 @@
         this.setParentValue(value);
         this.updateValues(value);
       },
-      up() {
-        if (this.current > 0) {
-          this.current--;
-        } else if (this.current === -1) {
-          this.current = this.items.length - 1;
-        } else {
-          this.current = -1;
-        }
-      },
       update() {
         if (!this.query) {
           return this.reset();
@@ -196,10 +180,6 @@
               this.loading = false;
 
               this.toggleMenu();
-
-              if (this.selectFirst) {
-                this.down();
-              }
             }
           });
       },
@@ -235,6 +215,3 @@
     }
   };
 </script>
-
-<style lang="css">
-</style>

@@ -153,8 +153,8 @@
               </md-input-container>
 
               <md-input-container>
-                <label>With label</label>
-                <md-autocomplete v-model="initialValue"></md-autocomplete>
+                <label>Autocomplete</label>
+                <md-autocomplete v-model="autocompleteValue"></md-autocomplete>
               </md-input-container>
 
               <md-input-container>
@@ -455,6 +455,7 @@
   export default {
     data() {
       return {
+        autocompleteValue: '',
         initialValue: 'My initial value'
       };
     }
