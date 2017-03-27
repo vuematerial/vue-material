@@ -22,7 +22,7 @@
       <md-menu-content>
         <md-menu-item v-if="items.length"
           v-for="item in items"
-          @click.native="hit(item)">{{ item.name }}</md-menu-item>
+          @click.native="hit(item)">{{ item[printAttribute] }}</md-menu-item>
       </md-menu-content>
     </md-menu>
   </div>
@@ -46,6 +46,10 @@
       queryParam: {
         type: String,
         default: 'q'
+      },
+      printAttribute: {
+        type: String,
+        default: 'name'
       },
       minChars: {
         type: Number,
@@ -122,15 +126,16 @@
           this.fetchUrl;
       },
       hit(item) {
-        // util.warn('You need to implement the `onHit` method', this);
-        this.query = item.name;
-        this.$refs.input.value = item.name;
+        debugger;
+        this.query = item[this.printAttribute];
+        this.$refs.input.value = item[this.printAttribute];
         this.selected = item;
         this.onInput();
       },
       onInput() {
         this.updateValues();
-        this.$emit('input', this.selected, this.$refs.input.value);
+        this.$emit('change', this.$refs.input.value);
+        this.$emit('input', this.$refs.input.value);
         this.$emit('selected', this.selected, this.$refs.input.value);
       },
       reset() {
