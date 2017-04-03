@@ -112,12 +112,12 @@
         this.$refs.input.value = item[this.printAttribute];
         this.selected = item;
         this.onInput();
+        this.$emit('selected', this.selected, this.$refs.input.value);
       },
       onInput() {
         this.updateValues();
         this.$emit('change', this.$refs.input.value);
         this.$emit('input', this.$refs.input.value);
-        this.$emit('selected', this.selected, this.$refs.input.value);
       },
       renderFilteredList() {
         if (this.filterList) {
