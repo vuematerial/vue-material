@@ -13,6 +13,7 @@
         :required="required"
         :placeholder="placeholder"
         :maxlength="maxlength"
+        :name="name"
         @focus="onFocus"
         @blur="onBlur"
         @input="debounceUpdate"/>
@@ -54,6 +55,7 @@
         type: Number,
         default: 1
       },
+      name: String,
       prepareResponseData: Function,
       printAttribute: {
         type: String,

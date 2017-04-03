@@ -274,7 +274,7 @@
 
               <md-input-container>
                 <label>Autocomplete (with fetch)</label>
-                <md-autocomplete v-model="autocompleteValue" :fetch="fetchFunction"></md-autocomplete>
+                <md-autocomplete v-model="autocompleteValue" :fetch="fetchAutocomplete"></md-autocomplete>
               </md-input-container>
 
               <md-input-container>
