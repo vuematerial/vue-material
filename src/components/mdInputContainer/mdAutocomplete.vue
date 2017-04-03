@@ -188,7 +188,7 @@
           errorMessage = 'You should use a `filterList` function prop with the `list` prop';
         }
 
-        if (!fetch) {
+        if (!this.fetch) {
           errorMessage = 'You should use a `fetch` function prop';
         }
 
