@@ -31,7 +31,7 @@
 </template>
 
 <script>
-  import autocompleteCommon from '../../core/utils/autocomplete-commons';
+  import autocompleteCommon from '../../core/utils/autocomplete-common';
   import common from './common';
   import getClosestVueParent from '../../core/utils/getClosestVueParent';
 
