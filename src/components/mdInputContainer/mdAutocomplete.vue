@@ -31,41 +31,12 @@
 </template>
 
 <script>
+  import autocompleteCommon from '../../core/utils/autocomplete-commons';
   import common from './common';
   import getClosestVueParent from '../../core/utils/getClosestVueParent';
 
   export default {
-    mixins: [common],
-    props: {
-      debounce: {
-        type: Number,
-        default: 1E3
-      },
-      fetch: {
-        type: Function
-      },
-      filterList: Function,
-      list: {
-        type: Array,
-        default() {
-          return [];
-        }
-      },
-      minChars: {
-        type: Number,
-        default: 1
-      },
-      name: String,
-      prepareResponseData: Function,
-      printAttribute: {
-        type: String,
-        default: 'name'
-      },
-      queryParam: {
-        type: String,
-        default: 'q'
-      }
-    },
+    mixins: [common, autocompleteCommon],
     data() {
       return {
         items: [],
@@ -178,26 +149,6 @@
               this.toggleMenu();
             }
           });
-      },
-      verifyProps() {
-        let errorMessage = '';
-
-        if (!this.parentContainer) {
-          errorMessage = 'You should wrap the md-input in a md-input-container';
-        }
-
-        if (!this.listIsEmpty && !this.filterList) {
-          errorMessage = 'You should use a `filterList` function prop with the `list` prop';
-        }
-
-        if (!this.fetch) {
-          errorMessage = 'You should use a `fetch` function prop';
-        }
-
-        if (errorMessage) {
-          this.$destroy();
-          throw new Error(errorMessage);
-        }
       },
       toggleMenu() {
         if (this.items.length) {
