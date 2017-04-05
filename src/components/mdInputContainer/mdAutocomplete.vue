@@ -2,7 +2,7 @@
   <div class="md-autocomplete"
     @focus="onFocus"
     @blur="onBlur">
-    <md-menu md-menu-trigger
+    <md-menu :md-offset-x="8" md-offset-y="45"
       ref="menu">
       <span md-menu-trigger></span>
       <input class="md-input"
