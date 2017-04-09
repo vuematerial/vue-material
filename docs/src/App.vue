@@ -40,6 +40,10 @@
             <md-list-expand>
               <md-list>
                 <md-list-item class="md-inset">
+                  <router-link exact to="/components/autocomplete">Autocomplete</router-link>
+                </md-list-item>
+
+                <md-list-item class="md-inset">
                   <router-link exact to="/components/avatar">Avatar</router-link>
                 </md-list-item>
 
