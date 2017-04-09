@@ -6,7 +6,6 @@ const Changelog = (r) => require.ensure([], () => r(require('./pages/Changelog')
 const Error404 = (r) => require.ensure([], () => r(require('./pages/Error')), 'base');
 
 /* Components */
-const Autocomplete = (r) => require.ensure([], () => r(require('./pages/components/Autocomplete')), 'autocomplete');
 const Avatar = (r) => require.ensure([], () => r(require('./pages/components/Avatar')), 'avatar');
 const BottomBar = (r) => require.ensure([], () => r(require('./pages/components/BottomBar')), 'bottom-bar');
 const Buttons = (r) => require.ensure([], () => r(require('./pages/components/Buttons')), 'buttons');
@@ -75,19 +74,9 @@ const components = [
     redirect: '/components/avatar'
   },
   {
-    path: '/components/autocomplete',
-    name: 'components:autocomplete',
-    component: Autocomplete
-  },
-  {
     path: '/components/avatar',
     name: 'components:avatar',
     component: Avatar
-  },
-  {
-    path: '/components/autocomplete',
-    name: 'components:autocomplete',
-    component: Autocomplete
   },
   {
     path: '/components/bottom-bar',
