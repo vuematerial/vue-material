@@ -2,7 +2,8 @@
   <div class="md-autocomplete"
     @focus="onFocus"
     @blur="onBlur">
-    <md-menu :md-offset-x="8" md-offset-y="45"
+    <md-menu :md-offset-x="8"
+      md-offset-y="45"
       ref="menu">
       <span md-menu-trigger></span>
       <input class="md-input"
@@ -86,6 +87,12 @@
         this.selected = item;
         this.onInput();
         this.$emit('selected', this.selected, this.$refs.input.value);
+      },
+      onFocus() {
+        if (this.parentContainer) {
+          this.parentContainer.isFocused = true;
+        }
+        this.$refs.input.focus();
       },
       onInput() {
         this.updateValues();
