@@ -2,7 +2,7 @@
   <th class="md-table-head" :class="classes" @click="changeSort">
     <div class="md-table-head-container">
       <div class="md-table-head-text md-test">
-        <md-icon class="md-sortable-icon" v-if="mdSortBy">arrow_downward</md-icon>
+        <md-icon class="md-sortable-icon" v-if="mdSortBy">arrow_upward</md-icon>
 
         <slot></slot>
 
