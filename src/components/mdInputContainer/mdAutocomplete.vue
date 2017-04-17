@@ -44,7 +44,8 @@
         loading: false,
         query: '',
         selected: null,
-        timeout: 0
+        timeout: 0,
+        parentContainer: null,
       };
     },
     computed: {
