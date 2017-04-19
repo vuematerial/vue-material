@@ -29,7 +29,7 @@
       mdIconSrc: String,
       mdIconset: String,
       mdActive: Boolean,
-      disabled: String,
+      disabled: Boolean,
       href: String
     },
     data() {
