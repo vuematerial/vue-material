@@ -32,7 +32,7 @@
     computed: {
       classes() {
         return {
-          'md-checked': typeof this.value !== 'undefined'&& this.value !== null && this.mdValue.toString() === this.value.toString(),
+          'md-checked': typeof this.value !== 'undefined' && this.value !== null && this.mdValue.toString() === this.value.toString(),
           'md-disabled': this.disabled
         };
       }
