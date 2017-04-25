@@ -4,7 +4,8 @@
     @blur="onBlur">
     <md-menu :md-offset-x="8"
       md-offset-y="45"
-      ref="menu">
+      ref="menu"
+      class="md-autocomplete-menu">
       <span md-menu-trigger></span>
       <input class="md-input"
         ref="input"
@@ -46,6 +47,7 @@
         selected: null,
         timeout: 0,
         parentContainer: null,
+        searchButton: null,
       };
     },
     computed: {
@@ -89,6 +91,23 @@
         this.onInput();
         this.$emit('selected', this.selected, this.$refs.input.value);
       },
+      makeFetchRequest(queryObject) {
+        return this.fetch(queryObject)
+          .then((response) => {
+            let data = response || response.data || response.body;
+
+            data = this.prepareResponseData ?
+              this.prepareResponseData(data) :
+              data;
+            this.items = this.limit ?
+              data.slice(0, this.limit) :
+              data;
+
+            this.loading = false;
+
+            this.toggleMenu();
+          });
+      },
       onFocus() {
         if (this.parentContainer) {
           this.parentContainer.isFocused = true;
@@ -127,6 +146,13 @@
         this.setParentValue(value);
         this.updateValues(value);
       },
+      setSearchButton() {
+        this.searchButton = this.parentContainer.$el.querySelector('[md-autocomplete-search]');
+
+        if (this.searchButton) {
+          this.searchButton.addEventListener('click', this.makeFetchRequest);
+        }
+      },
       update() {
         if (!this.query && !this.list.length) {
           return this.reset();
@@ -140,23 +166,7 @@
 
         const queryObject = { [this.queryParam]: this.query };
 
-        this.fetch(queryObject)
-          .then((response) => {
-            if (this.query) {
-              let data = response || response.data || response.body;
-
-              data = this.prepareResponseData ?
-                this.prepareResponseData(data) :
-                data;
-              this.items = this.limit ?
-                data.slice(0, this.limit) :
-                data;
-
-              this.loading = false;
-
-              this.toggleMenu();
-            }
-          });
+        return this.makeFetchRequest(queryObject);
       },
       toggleMenu() {
         if (this.items.length) {
@@ -170,6 +180,11 @@
         this.parentContainer.inputLength = newValue ? newValue.length : 0;
       }
     },
+    beforeDestroy() {
+      if (this.searchButton) {
+        this.searchButton.removeEventListener('click', this.makeFetchRequest);
+      }
+    },
     mounted() {
       this.$nextTick(() => {
         this.parentContainer = getClosestVueParent(this.$parent, 'md-input-container');
@@ -181,6 +196,7 @@
         this.query = this.value;
 
         this.verifyProps();
+        this.setSearchButton();
 
         this.setParentDisabled();
         this.setParentRequired();

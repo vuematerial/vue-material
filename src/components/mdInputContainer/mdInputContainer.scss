@@ -135,6 +135,10 @@ $input-size: 32px;
   }
 }
 
+.md-theme-default.md-input-container .md-autocomplete .md-icon:not(.md-icon-search):after {
+  height: 0;
+}
+
 .md-input-container {
   &.md-input-placeholder {
     label {
