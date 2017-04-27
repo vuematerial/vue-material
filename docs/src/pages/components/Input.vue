@@ -74,7 +74,7 @@
               <md-table-row>
                 <md-table-cell>debounce</md-table-cell>
                 <md-table-cell><code>Number</code></md-table-cell>
-                <md-table-cell>Debounce the <code>change</code> and <code>input</code> events emission. Default <code>500</code>ms</md-table-cell>
+                <md-table-cell>Debounce the <code>change</code> and <code>input</code> events emission. Default <code>300</code>ms</md-table-cell>
               </md-table-row>
 
               <md-table-row>
@@ -124,7 +124,7 @@
               <md-table-row>
                 <md-table-cell>debounce</md-table-cell>
                 <md-table-cell><code>Number</code></md-table-cell>
-                <md-table-cell>Debounce the <code>change</code> and <code>input</code> events emission. Default <code>500</code>ms</md-table-cell>
+                <md-table-cell>Debounce the <code>change</code> and <code>input</code> events emission. Default <code>300</code>ms</md-table-cell>
               </md-table-row>
 
               <md-table-row>
