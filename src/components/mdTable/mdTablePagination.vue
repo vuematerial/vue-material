@@ -49,7 +49,7 @@
         subTotal: 0,
         totalItems: 0,
         currentPage: 1,
-        currentSize: this.mdSize
+        currentSize: parseInt(this.mdSize, 10)
       };
     },
     watch: {
