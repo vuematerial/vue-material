@@ -15,6 +15,10 @@
     <img src="https://img.shields.io/npm/v/vue-material.svg" alt="Version">
   </a>
 
+  <a href="https://cdnjs.com/libraries/vue-material">
+    <img src="https://img.shields.io/cdnjs/v/vue-material.svg" alt="Version">
+  </a>
+
   <a href="https://www.npmjs.com/package/vue-material">
     <img src="https://img.shields.io/npm/l/vue-material.svg" alt="License">
   </a>
