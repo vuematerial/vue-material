@@ -974,6 +974,17 @@
 
           <div slot="code">
             <code-block lang="xml">
+              &lt;div class="phone-viewport"&gt;
+                &lt;md-list&gt;
+                  &lt;md-list-item&gt;Plain Text&lt;/md-list-item&gt;
+                  &lt;md-list-item target="_blank" href="https://google.com"&gt;Link&lt;/md-list-item&gt;
+                  &lt;md-list-item @click.native="openAlert"&gt;Button&lt;/md-list-item&gt;
+                  &lt;md-list-item&gt;
+                    &lt;router-link to="/components/list"&gt;Router View&lt;/router-link&gt;
+                  &lt;/md-list-item&gt;
+                &lt;/md-list&gt;
+              &lt;/div&gt;
+
               &lt;div class=&quot;phone-viewport&quot;&gt;
                 &lt;md-list&gt;
                   &lt;md-list-item&gt;
@@ -1012,6 +1023,55 @@
                         &lt;md-list-item class=&quot;md-inset&quot;&gt;Music&lt;/md-list-item&gt;
                         &lt;md-list-item class=&quot;md-inset&quot;&gt;Movies&lt;/md-list-item&gt;
                         &lt;md-list-item class=&quot;md-inset&quot;&gt;TV Shows&lt;/md-list-item&gt;
+                      &lt;/md-list&gt;
+                    &lt;/md-list-expand&gt;
+                  &lt;/md-list-item&gt;
+
+                  &lt;md-list-item&gt;
+                    &lt;md-icon&gt;shopping_basket&lt;/md-icon&gt;
+                    &lt;span&gt;Shop&lt;/span&gt;
+                  &lt;/md-list-item&gt;
+                &lt;/md-list&gt;
+              &lt;/div&gt;
+
+              &lt;div class="phone-viewport"&gt;
+                &lt;md-list&gt;
+                  &lt;md-list-item md-expand-multiple&gt;
+                    &lt;md-icon&gt;whatshot&lt;/md-icon&gt;
+                    &lt;span&gt;News&lt;/span&gt;
+
+                    &lt;md-list-expand&gt;
+                      &lt;md-list&gt;
+                        &lt;md-list-item class="md-inset"&gt;World&lt;/md-list-item&gt;
+                        &lt;md-list-item class="md-inset"&gt;Americas&lt;/md-list-item&gt;
+                        &lt;md-list-item class="md-inset"&gt;Europe&lt;/md-list-item&gt;
+                      &lt;/md-list&gt;
+                    &lt;/md-list-expand&gt;
+                  &lt;/md-list-item&gt;
+
+                  &lt;md-list-item md-expand-multiple&gt;
+                    &lt;md-icon&gt;videogame_asset&lt;/md-icon&gt;
+                    &lt;span&gt;Games&lt;/span&gt;
+
+                    &lt;md-list-expand&gt;
+                      &lt;md-list&gt;
+                        &lt;md-list-item class="md-inset"&gt;Console&lt;/md-list-item&gt;
+                        &lt;md-list-item class="md-inset"&gt;PC&lt;/md-list-item&gt;
+                        &lt;md-list-item class="md-inset"&gt;Phone&lt;/md-list-item&gt;
+                      &lt;/md-list&gt;
+                    &lt;/md-list-expand&gt;
+                  &lt;/md-list-item&gt;
+
+                  &lt;md-list-item md-expand-multiple&gt;
+                    &lt;md-icon&gt;video_library&lt;/md-icon&gt;
+                    &lt;span&gt;Video&lt;/span&gt;
+
+                    &lt;md-list-expand&gt;
+                      &lt;md-list&gt;
+                        &lt;md-list-item class="md-inset"&gt;Humor&lt;/md-list-item&gt;
+                        &lt;md-list-item class="md-inset"&gt;Music&lt;/md-list-item&gt;
+                        &lt;md-list-item class="md-inset"&gt;Movies&lt;/md-list-item&gt;
+                        &lt;md-list-item class="md-inset"&gt;TV Shows&lt;/md-list-item&gt;
                       &lt;/md-list&gt;
                     &lt;/md-list-expand&gt;
                   &lt;/md-list-item&gt;
