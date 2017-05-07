@@ -534,6 +534,7 @@
                 :md-cancel-text=&quot;prompt.cancel&quot;
                 @open=&quot;onOpen&quot;
                 @close=&quot;onClose&quot;
+                v-model=&quot;prompt.value&quot;
                 ref=&quot;dialog6&quot;&gt;
               &lt;/md-dialog-prompt&gt;
 
