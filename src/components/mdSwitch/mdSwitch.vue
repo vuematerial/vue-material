@@ -38,13 +38,13 @@
     data() {
       return {
         leftPos: initialPosition,
-        checked: this.value
+        checked: Boolean(this.value)
       };
     },
     computed: {
       classes() {
         return {
-          'md-checked': Boolean(this.value),
+          'md-checked': this.checked,
           'md-disabled': this.disabled
         };
       },
