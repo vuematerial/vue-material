@@ -177,21 +177,3 @@ $snackbar-space: $snackbar-height / 2;
     }
   }
 }
-
-.md-has-toast {
-  .md-fab.md-fab-top-right,
-  .md-fab.md-fab-top-center,
-  .md-fab.md-fab-top-left {
-    @include layout-xsmall {
-      transform: translate3D(0, $snackbar-height - 4px, 0);
-    }
-  }
-
-  .md-fab.md-fab-bottom-right,
-  .md-fab.md-fab-bottom-center,
-  .md-fab.md-fab-bottom-left {
-    @include layout-xsmall {
-      transform: translate3D(0, -$snackbar-height + 4px, 0);
-    }
-  }
-}
