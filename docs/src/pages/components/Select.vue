@@ -174,7 +174,7 @@
                   <md-option value="arial">Arial</md-option>
                   <md-option value="calibri">Calibri</md-option>
                   <md-option value="cambria">Cambria</md-option>
-                  <md-option value="comic_sans">Comic Sans</md-option>
+                  <md-option value="comic_sans" :disabled="true">Comic Sans</md-option>
                   <md-option value="consolas">Consolas</md-option>
                   <md-option value="courier">Courier</md-option>
                   <md-option value="droid_sans">Droid Sans</md-option>
@@ -185,7 +185,7 @@
                   <md-option value="segoe_ui">Segoe UI</md-option>
                   <md-option value="times_new_roman">Times New Roman</md-option>
                   <md-option value="ubuntu">Ubuntu</md-option>
-                  <md-option value="verdana">Verdana</md-option>
+                  <md-option value="verdana" :disabled="isDisabled">Verdana</md-option>
                 </md-select>
               </md-input-container>
 
@@ -244,7 +244,7 @@
                     &lt;md-option value=&quot;arial&quot;&gt;Arial&lt;/md-option&gt;
                     &lt;md-option value=&quot;calibri&quot;&gt;Calibri&lt;/md-option&gt;
                     &lt;md-option value=&quot;cambria&quot;&gt;Cambria&lt;/md-option&gt;
-                    &lt;md-option value=&quot;comic_sans&quot;&gt;Comic Sans&lt;/md-option&gt;
+                    &lt;md-option value=&quot;comic_sans&quot; :disabled=&quot;true&quot;&gt;Comic Sans&lt;/md-option&gt;
                     &lt;md-option value=&quot;consolas&quot;&gt;Consolas&lt;/md-option&gt;
                     &lt;md-option value=&quot;courier&quot;&gt;Courier&lt;/md-option&gt;
                     &lt;md-option value=&quot;droid_sans&quot;&gt;Droid Sans&lt;/md-option&gt;
@@ -255,7 +255,7 @@
                     &lt;md-option value=&quot;segoe_ui&quot;&gt;Segoe UI&lt;/md-option&gt;
                     &lt;md-option value=&quot;times_new_roman&quot;&gt;Times New Roman&lt;/md-option&gt;
                     &lt;md-option value=&quot;ubuntu&quot;&gt;Ubuntu&lt;/md-option&gt;
-                    &lt;md-option value=&quot;verdana&quot;&gt;Verdana&lt;/md-option&gt;
+                    &lt;md-option value=&quot;verdana&quot; :disabled=&quot;isDisabled&quot;&gt;Verdana&lt;/md-option&gt;
                   &lt;/md-select&gt;
                 &lt;/md-input-container&gt;
 
@@ -289,6 +289,11 @@
                   country: '',
                   font: ''
                 }),
+                computed: {
+                  isDisabled() {
+                    return true;
+                  }
+                },
                 methods: {
                   setPulpFiction() {
                     this.movie = 'pulp_fiction';
@@ -405,6 +410,11 @@
         'michael_scott'
       ]
     }),
+    computed: {
+      isDisabled() {
+        return true;
+      }
+    },
     methods: {
       setPulpFiction() {
         this.movie = 'pulp_fiction';

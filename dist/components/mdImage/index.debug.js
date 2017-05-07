@@ -73,7 +73,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "/";
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 409);
+/******/ 	return __webpack_require__(__webpack_require__.s = 411);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -132,37 +132,7 @@ module.exports = function normalizeComponent (
 
 /***/ }),
 
-/***/ 102:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = install;
-
-var _mdImage = __webpack_require__(289);
-
-var _mdImage2 = _interopRequireDefault(_mdImage);
-
-var _mdImage3 = __webpack_require__(243);
-
-var _mdImage4 = _interopRequireDefault(_mdImage3);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function install(Vue) {
-  Vue.component('md-image', _mdImage2.default);
-
-  Vue.material.styles.push(_mdImage4.default);
-}
-module.exports = exports['default'];
-
-/***/ }),
-
-/***/ 152:
+/***/ 133:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -172,7 +142,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _getImageLightness = __webpack_require__(58);
+var _getImageLightness = __webpack_require__(57);
 
 var _getImageLightness2 = _interopRequireDefault(_getImageLightness);
 
@@ -271,7 +241,7 @@ __webpack_require__(229)
 
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(152),
+  __webpack_require__(133),
   /* template */
   __webpack_require__(389),
   /* scopeId */
@@ -279,7 +249,7 @@ var Component = __webpack_require__(0)(
   /* cssModules */
   null
 )
-Component.options.__file = "/Users/mrufino/Projects/personal/github/vue-material/src/components/mdImage/mdImage.vue"
+Component.options.__file = "C:\\GitHub\\vue-material\\src\\components\\mdImage\\mdImage.vue"
 if (Component.esModule && Object.keys(Component.esModule).some((function (key) {return key !== "default" && key !== "__esModule"}))) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] mdImage.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -323,15 +293,15 @@ if (false) {
 
 /***/ }),
 
-/***/ 409:
+/***/ 411:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(102);
+module.exports = __webpack_require__(83);
 
 
 /***/ }),
 
-/***/ 58:
+/***/ 57:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -380,6 +350,36 @@ var getImageLightness = function getImageLightness(image, onLoad, onError) {
 };
 
 exports.default = getImageLightness;
+module.exports = exports['default'];
+
+/***/ }),
+
+/***/ 83:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = install;
+
+var _mdImage = __webpack_require__(289);
+
+var _mdImage2 = _interopRequireDefault(_mdImage);
+
+var _mdImage3 = __webpack_require__(243);
+
+var _mdImage4 = _interopRequireDefault(_mdImage3);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function install(Vue) {
+  Vue.component('md-image', _mdImage2.default);
+
+  Vue.material.styles.push(_mdImage4.default);
+}
 module.exports = exports['default'];
 
 /***/ })

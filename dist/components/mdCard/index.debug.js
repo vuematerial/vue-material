@@ -73,7 +73,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "/";
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 402);
+/******/ 	return __webpack_require__(__webpack_require__.s = 404);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -194,7 +194,7 @@ module.exports = exports['default'];
 
 /***/ }),
 
-/***/ 137:
+/***/ 118:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -235,7 +235,7 @@ module.exports = exports['default'];
 
 /***/ }),
 
-/***/ 138:
+/***/ 119:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -267,7 +267,7 @@ module.exports = exports['default'];
 
 /***/ }),
 
-/***/ 139:
+/***/ 120:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -321,7 +321,7 @@ module.exports = exports['default'];
 
 /***/ }),
 
-/***/ 140:
+/***/ 121:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -354,7 +354,7 @@ module.exports = exports['default'];
 
 /***/ }),
 
-/***/ 141:
+/***/ 122:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -399,7 +399,7 @@ module.exports = exports['default'];
 
 /***/ }),
 
-/***/ 142:
+/***/ 123:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -409,7 +409,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _getImageLightness = __webpack_require__(58);
+var _getImageLightness = __webpack_require__(57);
 
 var _getImageLightness2 = _interopRequireDefault(_getImageLightness);
 
@@ -515,7 +515,7 @@ __webpack_require__(206)
 
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(137),
+  __webpack_require__(118),
   /* template */
   __webpack_require__(346),
   /* scopeId */
@@ -523,7 +523,7 @@ var Component = __webpack_require__(0)(
   /* cssModules */
   null
 )
-Component.options.__file = "/Users/mrufino/Projects/personal/github/vue-material/src/components/mdCard/mdCard.vue"
+Component.options.__file = "C:\\GitHub\\vue-material\\src\\components\\mdCard\\mdCard.vue"
 if (Component.esModule && Object.keys(Component.esModule).some((function (key) {return key !== "default" && key !== "__esModule"}))) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] mdCard.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -558,7 +558,7 @@ var Component = __webpack_require__(0)(
   /* cssModules */
   null
 )
-Component.options.__file = "/Users/mrufino/Projects/personal/github/vue-material/src/components/mdCard/mdCardActions.vue"
+Component.options.__file = "C:\\GitHub\\vue-material\\src\\components\\mdCard\\mdCardActions.vue"
 if (Component.esModule && Object.keys(Component.esModule).some((function (key) {return key !== "default" && key !== "__esModule"}))) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] mdCardActions.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -585,7 +585,7 @@ module.exports = Component.exports
 
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(138),
+  __webpack_require__(119),
   /* template */
   __webpack_require__(341),
   /* scopeId */
@@ -593,7 +593,7 @@ var Component = __webpack_require__(0)(
   /* cssModules */
   null
 )
-Component.options.__file = "/Users/mrufino/Projects/personal/github/vue-material/src/components/mdCard/mdCardArea.vue"
+Component.options.__file = "C:\\GitHub\\vue-material\\src\\components\\mdCard\\mdCardArea.vue"
 if (Component.esModule && Object.keys(Component.esModule).some((function (key) {return key !== "default" && key !== "__esModule"}))) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] mdCardArea.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -628,7 +628,7 @@ var Component = __webpack_require__(0)(
   /* cssModules */
   null
 )
-Component.options.__file = "/Users/mrufino/Projects/personal/github/vue-material/src/components/mdCard/mdCardContent.vue"
+Component.options.__file = "C:\\GitHub\\vue-material\\src\\components\\mdCard\\mdCardContent.vue"
 if (Component.esModule && Object.keys(Component.esModule).some((function (key) {return key !== "default" && key !== "__esModule"}))) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] mdCardContent.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -655,7 +655,7 @@ module.exports = Component.exports
 
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(139),
+  __webpack_require__(120),
   /* template */
   __webpack_require__(334),
   /* scopeId */
@@ -663,7 +663,7 @@ var Component = __webpack_require__(0)(
   /* cssModules */
   null
 )
-Component.options.__file = "/Users/mrufino/Projects/personal/github/vue-material/src/components/mdCard/mdCardExpand.vue"
+Component.options.__file = "C:\\GitHub\\vue-material\\src\\components\\mdCard\\mdCardExpand.vue"
 if (Component.esModule && Object.keys(Component.esModule).some((function (key) {return key !== "default" && key !== "__esModule"}))) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] mdCardExpand.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -698,7 +698,7 @@ var Component = __webpack_require__(0)(
   /* cssModules */
   null
 )
-Component.options.__file = "/Users/mrufino/Projects/personal/github/vue-material/src/components/mdCard/mdCardHeader.vue"
+Component.options.__file = "C:\\GitHub\\vue-material\\src\\components\\mdCard\\mdCardHeader.vue"
 if (Component.esModule && Object.keys(Component.esModule).some((function (key) {return key !== "default" && key !== "__esModule"}))) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] mdCardHeader.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -725,7 +725,7 @@ module.exports = Component.exports
 
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(140),
+  __webpack_require__(121),
   /* template */
   __webpack_require__(368),
   /* scopeId */
@@ -733,7 +733,7 @@ var Component = __webpack_require__(0)(
   /* cssModules */
   null
 )
-Component.options.__file = "/Users/mrufino/Projects/personal/github/vue-material/src/components/mdCard/mdCardHeaderText.vue"
+Component.options.__file = "C:\\GitHub\\vue-material\\src\\components\\mdCard\\mdCardHeaderText.vue"
 if (Component.esModule && Object.keys(Component.esModule).some((function (key) {return key !== "default" && key !== "__esModule"}))) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] mdCardHeaderText.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -760,7 +760,7 @@ module.exports = Component.exports
 
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(141),
+  __webpack_require__(122),
   /* template */
   __webpack_require__(339),
   /* scopeId */
@@ -768,7 +768,7 @@ var Component = __webpack_require__(0)(
   /* cssModules */
   null
 )
-Component.options.__file = "/Users/mrufino/Projects/personal/github/vue-material/src/components/mdCard/mdCardMedia.vue"
+Component.options.__file = "C:\\GitHub\\vue-material\\src\\components\\mdCard\\mdCardMedia.vue"
 if (Component.esModule && Object.keys(Component.esModule).some((function (key) {return key !== "default" && key !== "__esModule"}))) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] mdCardMedia.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -803,7 +803,7 @@ var Component = __webpack_require__(0)(
   /* cssModules */
   null
 )
-Component.options.__file = "/Users/mrufino/Projects/personal/github/vue-material/src/components/mdCard/mdCardMediaActions.vue"
+Component.options.__file = "C:\\GitHub\\vue-material\\src\\components\\mdCard\\mdCardMediaActions.vue"
 if (Component.esModule && Object.keys(Component.esModule).some((function (key) {return key !== "default" && key !== "__esModule"}))) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] mdCardMediaActions.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -830,7 +830,7 @@ module.exports = Component.exports
 
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(142),
+  __webpack_require__(123),
   /* template */
   __webpack_require__(337),
   /* scopeId */
@@ -838,7 +838,7 @@ var Component = __webpack_require__(0)(
   /* cssModules */
   null
 )
-Component.options.__file = "/Users/mrufino/Projects/personal/github/vue-material/src/components/mdCard/mdCardMediaCover.vue"
+Component.options.__file = "C:\\GitHub\\vue-material\\src\\components\\mdCard\\mdCardMediaCover.vue"
 if (Component.esModule && Object.keys(Component.esModule).some((function (key) {return key !== "default" && key !== "__esModule"}))) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] mdCardMediaCover.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -1049,15 +1049,15 @@ if (false) {
 
 /***/ }),
 
-/***/ 402:
+/***/ 404:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(95);
+module.exports = __webpack_require__(76);
 
 
 /***/ }),
 
-/***/ 58:
+/***/ 57:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1110,7 +1110,7 @@ module.exports = exports['default'];
 
 /***/ }),
 
-/***/ 95:
+/***/ 76:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

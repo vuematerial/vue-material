@@ -73,7 +73,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "/";
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 419);
+/******/ 	return __webpack_require__(__webpack_require__.s = 421);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -194,37 +194,7 @@ module.exports = exports['default'];
 
 /***/ }),
 
-/***/ 112:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = install;
-
-var _mdSpeedDial = __webpack_require__(310);
-
-var _mdSpeedDial2 = _interopRequireDefault(_mdSpeedDial);
-
-var _mdSpeedDial3 = __webpack_require__(252);
-
-var _mdSpeedDial4 = _interopRequireDefault(_mdSpeedDial3);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function install(Vue) {
-  Vue.component('md-speed-dial', _mdSpeedDial2.default);
-
-  Vue.material.styles.push(_mdSpeedDial4.default);
-}
-module.exports = exports['default'];
-
-/***/ }),
-
-/***/ 172:
+/***/ 153:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -345,7 +315,7 @@ __webpack_require__(216)
 
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(172),
+  __webpack_require__(153),
   /* template */
   __webpack_require__(365),
   /* scopeId */
@@ -353,7 +323,7 @@ var Component = __webpack_require__(0)(
   /* cssModules */
   null
 )
-Component.options.__file = "/Users/mrufino/Projects/personal/github/vue-material/src/components/mdSpeedDial/mdSpeedDial.vue"
+Component.options.__file = "C:\\GitHub\\vue-material\\src\\components\\mdSpeedDial\\mdSpeedDial.vue"
 if (Component.esModule && Object.keys(Component.esModule).some((function (key) {return key !== "default" && key !== "__esModule"}))) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] mdSpeedDial.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -394,11 +364,41 @@ if (false) {
 
 /***/ }),
 
-/***/ 419:
+/***/ 421:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(112);
+module.exports = __webpack_require__(93);
 
+
+/***/ }),
+
+/***/ 93:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = install;
+
+var _mdSpeedDial = __webpack_require__(310);
+
+var _mdSpeedDial2 = _interopRequireDefault(_mdSpeedDial);
+
+var _mdSpeedDial3 = __webpack_require__(252);
+
+var _mdSpeedDial4 = _interopRequireDefault(_mdSpeedDial3);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function install(Vue) {
+  Vue.component('md-speed-dial', _mdSpeedDial2.default);
+
+  Vue.material.styles.push(_mdSpeedDial4.default);
+}
+module.exports = exports['default'];
 
 /***/ })
 

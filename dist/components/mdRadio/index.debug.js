@@ -73,7 +73,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "/";
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 415);
+/******/ 	return __webpack_require__(__webpack_require__.s = 417);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -194,37 +194,7 @@ module.exports = exports['default'];
 
 /***/ }),
 
-/***/ 108:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = install;
-
-var _mdRadio = __webpack_require__(305);
-
-var _mdRadio2 = _interopRequireDefault(_mdRadio);
-
-var _mdRadio3 = __webpack_require__(248);
-
-var _mdRadio4 = _interopRequireDefault(_mdRadio3);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function install(Vue) {
-  Vue.component('md-radio', _mdRadio2.default);
-
-  Vue.material.styles.push(_mdRadio4.default);
-}
-module.exports = exports['default'];
-
-/***/ }),
-
-/***/ 167:
+/***/ 148:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -311,7 +281,7 @@ __webpack_require__(201)
 
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(167),
+  __webpack_require__(148),
   /* template */
   __webpack_require__(332),
   /* scopeId */
@@ -319,7 +289,7 @@ var Component = __webpack_require__(0)(
   /* cssModules */
   null
 )
-Component.options.__file = "/Users/mrufino/Projects/personal/github/vue-material/src/components/mdRadio/mdRadio.vue"
+Component.options.__file = "C:\\GitHub\\vue-material\\src\\components\\mdRadio\\mdRadio.vue"
 if (Component.esModule && Object.keys(Component.esModule).some((function (key) {return key !== "default" && key !== "__esModule"}))) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] mdRadio.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -384,11 +354,41 @@ if (false) {
 
 /***/ }),
 
-/***/ 415:
+/***/ 417:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(108);
+module.exports = __webpack_require__(89);
 
+
+/***/ }),
+
+/***/ 89:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = install;
+
+var _mdRadio = __webpack_require__(305);
+
+var _mdRadio2 = _interopRequireDefault(_mdRadio);
+
+var _mdRadio3 = __webpack_require__(248);
+
+var _mdRadio4 = _interopRequireDefault(_mdRadio3);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function install(Vue) {
+  Vue.component('md-radio', _mdRadio2.default);
+
+  Vue.material.styles.push(_mdRadio4.default);
+}
+module.exports = exports['default'];
 
 /***/ })
 

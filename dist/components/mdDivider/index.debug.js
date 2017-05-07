@@ -73,7 +73,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "/";
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 406);
+/******/ 	return __webpack_require__(__webpack_require__.s = 408);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -156,7 +156,7 @@ var Component = __webpack_require__(0)(
   /* cssModules */
   null
 )
-Component.options.__file = "/Users/mrufino/Projects/personal/github/vue-material/src/components/mdDivider/mdDivider.vue"
+Component.options.__file = "C:\\GitHub\\vue-material\\src\\components\\mdDivider\\mdDivider.vue"
 if (Component.esModule && Object.keys(Component.esModule).some((function (key) {return key !== "default" && key !== "__esModule"}))) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] mdDivider.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -196,15 +196,15 @@ if (false) {
 
 /***/ }),
 
-/***/ 406:
+/***/ 408:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(99);
+module.exports = __webpack_require__(80);
 
 
 /***/ }),
 
-/***/ 99:
+/***/ 80:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
