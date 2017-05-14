@@ -11,6 +11,7 @@ $checkbox-touch-size: 48px;
 
   .md-checkbox-container {
     width: $checkbox-size;
+    min-width: $checkbox-size;
     height: $checkbox-size;
     position: relative;
     border-radius: 2px;
