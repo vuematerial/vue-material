@@ -327,6 +327,18 @@
             </div>
             
             <div>Selected users: {{ users }}</div>
+            
+            <div class="field-group">
+              <md-input-container>
+                <label for="users">Users</label>
+                <md-select name="option" id="option" multiple v-model="items">
+                  <md-option v-for="option in options"
+                    :key="option"
+                    :value="option">
+                    {{ option.name }}
+                  </md-option>
+              </md-input-container>
+            </div>
 
           </div>
 
@@ -404,7 +416,15 @@
       users: [
         'jim_halpert',
         'michael_scott'
-      ]
+      ],
+      options: [
+        { id: 1, name: 'a' },
+        { id: 2, name: 'b' },
+        { id: 3, name: 'c' },
+        { id: 4, name: 'd' },
+        { id: 5, name: 'e' }
+      ],
+      items: []
     }),
     methods: {
       setPulpFiction() {
