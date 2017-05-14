@@ -325,8 +325,9 @@
                 </md-select>
               </md-input-container>
             </div>
-
+            
             <div>Selected users: {{ users }}</div>
+
           </div>
 
           <div slot="code">
