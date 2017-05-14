@@ -161,7 +161,7 @@
             <form novalidate @submit.stop.prevent="submit">
               <md-input-container>
                 <label>Initial value</label>
-                <md-input v-model="initialValue"></md-input>
+                <md-input v-model="initialValue" readonly></md-input>
               </md-input-container>
 
               <md-input-container>
