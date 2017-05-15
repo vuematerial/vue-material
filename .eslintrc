@@ -1,0 +1,14 @@
+{
+  "root": true,
+  "parser": "babel-eslint",
+  "plugins": [
+    "html"
+  ],
+  "extends": [
+    "standard"
+  ],
+  "rules": {
+    "arrow-parens": 0,
+    "generator-star-spacing": 0
+  }
+}
