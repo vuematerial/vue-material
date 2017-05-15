@@ -24,7 +24,7 @@
   "module": "dist/vue-material.esm.js",
   "unpkg": "dist/vue-material.js",
   "scripts": {
-    "dev": "BABEL_ENV=test webpack-dev-server --inline --hot --open --content-base ./docs --config config/dev.js",
+    "dev": "webpack-dev-server --inline --hot --quiet --content-base ./docs --config config/dev.babel.js",
     "build": "rm -rf dist; babel-node config",
     "lint": "eslint --ext .js,.vue src config"
   },
@@ -45,6 +45,7 @@
     "eslint": "^3.19.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-friendly-formatter": "^3.0.0",
+    "eslint-loader": "^1.7.1",
     "eslint-plugin-html": "^2.0.3",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-node": "^4.2.2",
@@ -64,8 +65,10 @@
     "sass-loader": "^6.0.5",
     "uglify-js": "^3.0.5",
     "url-loader": "^0.5.8",
+    "vue-loader": "^12.0.4",
     "vue-style-loader": "^3.0.1",
     "webpack": "^2.5.1",
+    "webpack-dev-server": "^2.4.5",
     "zlib": "^1.0.5"
   },
   "engines": {

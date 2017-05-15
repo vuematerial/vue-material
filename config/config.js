@@ -9,6 +9,7 @@ export const config = {
   public: '/',
   resolve: ['.js', '.vue', '.json'],
   alias: {
+    'vue-material': resolvePath('src/index.js'),
     core: resolvePath('src/core')
   }
 }
