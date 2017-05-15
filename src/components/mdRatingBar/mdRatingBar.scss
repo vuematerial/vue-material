@@ -9,13 +9,13 @@ $button-radius: 2px;
   padding: 3px;
   border-radius: 2px;
 
-  > .md-front-stars {
+  > .md-full-icon {
     overflow-x: hidden;
     display: inherit;
   }
 
-  > .md-back-stars,
-  > .md-front-stars {
+  > .md-empty-icon,
+  > .md-full-icon {
     > .md-icon {
       margin: 0;
       white-space: nowrap;
@@ -30,8 +30,8 @@ $button-radius: 2px;
   }
 
   &[disabled] {
-    > .md-back-stars,
-    > .md-front-stars {
+    > .md-empty-icon,
+    > .md-full-icon {
        > .md-icon {
         cursor: default;
       }

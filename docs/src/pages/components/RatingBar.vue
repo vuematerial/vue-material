@@ -30,39 +30,39 @@
               </md-table-row>
 
               <md-table-row>
-                <md-table-cell>md-num-stars</md-table-cell>
+                <md-table-cell>md-max-rating</md-table-cell>
                 <md-table-cell><code>Number</code></md-table-cell>
-                <md-table-cell>Number of the stars. Default <code>5</code>.</md-table-cell>
+                <md-table-cell>Max rating allowed. Default <code>5</code>.</md-table-cell>
               </md-table-row>
 
               <md-table-row>
-                <md-table-cell>md-front-icon</md-table-cell>
+                <md-table-cell>md-full-icon</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
                 <md-table-cell>The icon used to represent full star. Can be a material icon from google font or src of the image file (svg or png). Default <code>star</code>.</md-table-cell>
               </md-table-row>
 
               <md-table-row>
-                <md-table-cell>md-back-icon</md-table-cell>
+                <md-table-cell>md-empty-icon</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
                 <md-table-cell>The icon used to represent empty star. Can be a material icon from google font or src of the image file (svg or png). Default <code>star</code>.</md-table-cell>
               </md-table-row>
 
               <md-table-row>
-                <md-table-cell>md-front-iconset</md-table-cell>
+                <md-table-cell>md-full-iconset</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
                 <md-table-cell>The font icon set used on full star. Example: <code>md-iconset="fa fa-heart"</code> for font awesome.</md-table-cell>
               </md-table-row>
 
               <md-table-row>
-                <md-table-cell>md-back-iconset</md-table-cell>
+                <md-table-cell>md-empty-iconset</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
                 <md-table-cell>The font icon set used on empty star. Example: <code>md-iconset="fa fa-heart-o"</code> for font awesome.</md-table-cell>
               </md-table-row>
 
               <md-table-row>
-                <md-table-cell>md-size</md-table-cell>
+                <md-table-cell>md-icon-size</md-table-cell>
                 <md-table-cell><code>Number</code></md-table-cell>
-                <md-table-cell>Change the size. From 1 to 5. Default <code>1</code>.</md-table-cell>
+                <md-table-cell>Change the icon size. From 1 to 5. Default <code>1</code>.</md-table-cell>
               </md-table-row>
 
               <md-table-row>
@@ -97,23 +97,23 @@
         <example-box card-title="Default">
           <div slot="demo">
               <md-rating-bar v-model="rating1" disabled></md-rating-bar>
-              <md-rating-bar v-model="rating2" :md-num-stars="10" disabled></md-rating-bar>
-              <md-rating-bar v-model="rating3" :md-num-stars="7" class="md-primary" disabled></md-rating-bar>
-              <md-rating-bar v-model="rating4" :md-num-stars="7" class="md-accent" disabled></md-rating-bar>
-              <md-rating-bar v-model="rating5" :md-num-stars="7" class="md-warn" disabled></md-rating-bar>
-              <md-rating-bar v-model="rating6" :md-num-stars="7" class="md-primary" :md-back-icon="'star_border'"></md-rating-bar>
-              <md-rating-bar v-model="rating7" :md-num-stars="5" class="md-warn" :md-back-icon="'panorama_fish_eye'" :md-front-icon="'lens'"></md-rating-bar>
+              <md-rating-bar v-model="rating2" :md-max-rating="10" disabled></md-rating-bar>
+              <md-rating-bar v-model="rating3" :md-max-rating="7" class="md-primary" disabled></md-rating-bar>
+              <md-rating-bar v-model="rating4" :md-max-rating="7" class="md-accent" disabled></md-rating-bar>
+              <md-rating-bar v-model="rating5" :md-max-rating="7" class="md-warn" disabled></md-rating-bar>
+              <md-rating-bar v-model="rating6" :md-max-rating="7" class="md-primary" :md-empty-icon="'star_border'"></md-rating-bar>
+              <md-rating-bar v-model="rating7" :md-max-rating="5" class="md-warn" :md-empty-icon="'panorama_fish_eye'" :md-full-icon="'lens'"></md-rating-bar>
           </div>
 
           <div slot="code">
             <code-block lang="xml">
               &lt;md-rating-bar v-model="rating1" disabled&gt;&lt;/md-rating-bar&gt;<br />
-              &lt;md-rating-bar v-model="rating2" :md-num-stars="10" disabled&gt;&lt;/md-rating-bar&gt;<br />
-              &lt;md-rating-bar v-model="rating3" :md-num-stars="7" class="md-primary" disabled&gt;&lt;/md-rating-bar&gt;<br />
-              &lt;md-rating-bar v-model="rating4" :md-num-stars="7" class="md-accent" disabled&gt;&lt;/md-rating-bar&gt;<br />
-              &lt;md-rating-bar v-model="rating5" :md-num-stars="7" class="md-warn" disabled&gt;&lt;/md-rating-bar&gt;<br />
-              &lt;md-rating-bar v-model="rating6" :md-num-stars="7" class="md-primary" :md-back-icon="'star_border'"&gt;&lt;/md-rating-bar&gt;<br />
-              &lt;md-rating-bar v-model="rating7" :md-num-stars="5" class="md-warn" :md-back-icon="'panorama_fish_eye'" :md-front-icon="'lens'"&gt;&lt;/md-rating-bar&gt;
+              &lt;md-rating-bar v-model="rating2" :md-max-rating="10" disabled&gt;&lt;/md-rating-bar&gt;<br />
+              &lt;md-rating-bar v-model="rating3" :md-max-rating="7" class="md-primary" disabled&gt;&lt;/md-rating-bar&gt;<br />
+              &lt;md-rating-bar v-model="rating4" :md-max-rating="7" class="md-accent" disabled&gt;&lt;/md-rating-bar&gt;<br />
+              &lt;md-rating-bar v-model="rating5" :md-max-rating="7" class="md-warn" disabled&gt;&lt;/md-rating-bar&gt;<br />
+              &lt;md-rating-bar v-model="rating6" :md-max-rating="7" class="md-primary" :md-empty-icon="'star_border'"&gt;&lt;/md-rating-bar&gt;<br />
+              &lt;md-rating-bar v-model="rating7" :md-max-rating="5" class="md-warn" :md-empty-icon="'panorama_fish_eye'" :md-full-icon="'lens'"&gt;&lt;/md-rating-bar&gt;
             </code-block>
           </div>
         </example-box>
@@ -123,7 +123,7 @@
               <md-rating-bar v-model="rating8" class="md-primary" md-theme="orange" disabled></md-rating-bar>
               <md-rating-bar v-model="rating9" class="md-primary" md-theme="brown" disabled></md-rating-bar>
               <md-rating-bar v-model="rating10" class="md-primary" md-theme="light-blue"></md-rating-bar>
-              <md-rating-bar v-model="rating11" class="md-primary" md-theme="teal" :md-back-icon="'star_border'"></md-rating-bar>
+              <md-rating-bar v-model="rating11" class="md-primary" md-theme="teal" :md-empty-icon="'star_border'"></md-rating-bar>
           </div>
 
           <div slot="code">
@@ -131,7 +131,7 @@
               &lt;md-rating-bar v-model="rating8" class="md-primary" md-theme="orange" disabled&gt;&lt;/md-rating-bar&gt;<br />
               &lt;md-rating-bar v-model="rating9" class="md-primary" md-theme="brown" disabled&gt;&lt;/md-rating-bar&gt;<br />
               &lt;md-rating-bar v-model="rating10" class="md-primary" md-theme="light-blue"&gt;&lt;/md-rating-bar&gt;<br />
-              &lt;md-rating-bar v-model="rating11" class="md-primary" md-theme="teal" :md-back-icon="'star_border'"&gt;&lt;/md-rating-bar&gt;
+              &lt;md-rating-bar v-model="rating11" class="md-primary" md-theme="teal" :md-empty-icon="'star_border'"&gt;&lt;/md-rating-bar&gt;
             </code-block>
           </div>
         </example-box>
@@ -139,15 +139,15 @@
         <example-box card-title="Sizes">
           <div slot="demo">
             <md-rating-bar v-model="rating12" ></md-rating-bar>
-            <md-rating-bar v-model="rating12" :md-size="2" ></md-rating-bar>
-            <md-rating-bar v-model="rating12" :md-size="3" ></md-rating-bar>
+            <md-rating-bar v-model="rating12" :md-icon-size="2" ></md-rating-bar>
+            <md-rating-bar v-model="rating12" :md-icon-size="3" ></md-rating-bar>
           </div>
 
           <div slot="code">
             <code-block lang="xml">
               &lt;md-rating-bar v-model="rating12" &gt;&lt;/md-rating-bar&gt;<br />
-              &lt;md-rating-bar v-model="rating12" :md-size="2" &gt;&lt;/md-rating-bar&gt;<br />
-              &lt;md-rating-bar v-model="rating12" :md-size="3" &gt;&lt;/md-rating-bar&gt;
+              &lt;md-rating-bar v-model="rating12" :md-icon-size="2" &gt;&lt;/md-rating-bar&gt;<br />
+              &lt;md-rating-bar v-model="rating12" :md-icon-size="3" &gt;&lt;/md-rating-bar&gt;
             </code-block>
           </div>
         </example-box>
@@ -157,14 +157,14 @@
             <md-layout :md-gutter="true">
               <md-layout>
                 <strong class="md-body-2">SVG:</strong>
-                <md-rating-bar v-model="rating13" class="md-primary" :md-back-icon="'assets/icon-home.svg'" :md-front-icon="'assets/icon-home.svg'"></md-rating-bar>
-                <md-rating-bar v-model="rating13" class="md-primary" :md-back-icon="'assets/icon-home.svg'" :md-front-icon="'assets/icon-home.svg'" :md-size="2"></md-rating-bar>
+                <md-rating-bar v-model="rating13" class="md-primary" :md-empty-icon="'assets/icon-home.svg'" :md-full-icon="'assets/icon-home.svg'"></md-rating-bar>
+                <md-rating-bar v-model="rating13" class="md-primary" :md-empty-icon="'assets/icon-home.svg'" :md-full-icon="'assets/icon-home.svg'" :md-icon-size="2"></md-rating-bar>
               </md-layout>
 
               <md-layout>
                 <strong class="md-body-2">PNG:</strong>
-                <md-rating-bar v-model="rating13" :md-back-icon="'assets/icon-home-back.png'" :md-front-icon="'assets/icon-home-front.png'"></md-rating-bar>
-                <md-rating-bar v-model="rating13" :md-back-icon="'assets/icon-home-back.png'" :md-front-icon="'assets/icon-home-front.png'" :md-size="2"></md-rating-bar>
+                <md-rating-bar v-model="rating13" :md-empty-icon="'assets/icon-home-back.png'" :md-full-icon="'assets/icon-home-front.png'"></md-rating-bar>
+                <md-rating-bar v-model="rating13" :md-empty-icon="'assets/icon-home-back.png'" :md-full-icon="'assets/icon-home-front.png'" :md-icon-size="2"></md-rating-bar>
               </md-layout>
             </md-layout>
           </div>
@@ -174,14 +174,14 @@
               &lt;md-layout :md-gutter="true"&gt;<br />
                 &lt;md-layout&gt;<br />
                   &lt;strong class="md-body-2"&gt;SVG:&lt;/strong&gt;<br />
-                  &lt;md-rating-bar v-model="rating13" class="md-primary" :md-back-icon="'assets/icon-home.svg'" :md-front-icon="'assets/icon-home.svg'"&gt;&lt;/md-rating-bar&gt;<br />
-                  &lt;md-rating-bar v-model="rating13" class="md-primary" :md-back-icon="'assets/icon-home.svg'" :md-front-icon="'assets/icon-home.svg'" :md-size="2"&gt;&lt;/md-rating-bar&gt;<br />
+                  &lt;md-rating-bar v-model="rating13" class="md-primary" :md-empty-icon="'assets/icon-home.svg'" :md-full-icon="'assets/icon-home.svg'"&gt;&lt;/md-rating-bar&gt;<br />
+                  &lt;md-rating-bar v-model="rating13" class="md-primary" :md-empty-icon="'assets/icon-home.svg'" :md-full-icon="'assets/icon-home.svg'" :md-icon-size="2"&gt;&lt;/md-rating-bar&gt;<br />
                 &lt;/md-layout&gt;<br />
                 <br />
                 &lt;md-layout&gt;<br />
                   &lt;strong class="md-body-2"&gt;PNG:&lt;/strong&gt;<br />
-                  &lt;md-rating-bar v-model="rating13" :md-back-icon="'assets/icon-home-back.png'" :md-front-icon="'assets/icon-home-front.png'"&gt;&lt;/md-rating-bar&gt;<br />
-                  &lt;md-rating-bar v-model="rating13" :md-back-icon="'assets/icon-home-back.png'" :md-front-icon="'assets/icon-home-front.png'" :md-size="2"&gt;&lt;/md-rating-bar&gt;<br />
+                  &lt;md-rating-bar v-model="rating13" :md-empty-icon="'assets/icon-home-back.png'" :md-full-icon="'assets/icon-home-front.png'"&gt;&lt;/md-rating-bar&gt;<br />
+                  &lt;md-rating-bar v-model="rating13" :md-empty-icon="'assets/icon-home-back.png'" :md-full-icon="'assets/icon-home-front.png'" :md-icon-size="2"&gt;&lt;/md-rating-bar&gt;<br />
                 &lt;/md-layout&gt;<br />
               &lt;/md-layout&gt;
             </code-block>
@@ -194,21 +194,21 @@
           <div slot="demo">
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
             <div>This first example uses <a href="http://fontawesome.io/icons/" target="fa_icons">Font Awesome Icons</a></div>
-            <md-rating-bar v-model="rating14" class="md-primary" :md-back-iconset="'fa fa-bell-o'" :md-front-iconset="'fa fa-bell'"></md-rating-bar>
-            <md-rating-bar v-model="rating14" class="md-warn" :md-size="2" :md-back-iconset="'fa fa-heart-o'" :md-front-iconset="'fa fa-heart'"></md-rating-bar>
+            <md-rating-bar v-model="rating14" class="md-primary" :md-empty-iconset="'fa fa-bell-o'" :md-full-iconset="'fa fa-bell'"></md-rating-bar>
+            <md-rating-bar v-model="rating14" class="md-warn" :md-icon-size="2" :md-empty-iconset="'fa fa-heart-o'" :md-full-iconset="'fa fa-heart'"></md-rating-bar>
             <hr/>
             <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"/>
             <div>This second example uses <a href="http://ionicons.com/" target="ion_icons">Ion Icons</a></div>
-            <md-rating-bar v-model="rating14" class="md-primary" :md-back-iconset="'ion-ios-bell-outline'" :md-front-iconset="'ion-ios-bell'"></md-rating-bar>
-            <md-rating-bar v-model="rating14" class="md-warn" :md-size="2" :md-back-iconset="'ion-android-favorite-outline'" :md-front-iconset="'ion-android-favorite'"></md-rating-bar>
+            <md-rating-bar v-model="rating14" class="md-primary" :md-empty-iconset="'ion-ios-bell-outline'" :md-full-iconset="'ion-ios-bell'"></md-rating-bar>
+            <md-rating-bar v-model="rating14" class="md-warn" :md-icon-size="2" :md-empty-iconset="'ion-android-favorite-outline'" :md-full-iconset="'ion-android-favorite'"></md-rating-bar>
           </div>
 
           <div slot="code">
             <code-block lang="xml">
               &lt;link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/&gt;<br />
               &lt;div&gt;This first example uses &lt;a href="http://fontawesome.io/icons/" target="fa_icons"&gt;Font Awesome Icons&lt;/a&gt;&lt;/div&gt;<br />
-              &lt;md-rating-bar v-model="rating14" class="md-primary" :md-back-iconset="'fa fa-bell-o'" :md-front-iconset="'fa fa-bell'"&gt;&lt;/md-rating-bar&gt;<br />
-              &lt;md-rating-bar v-model="rating14" class="md-warn" :md-size="2" :md-back-iconset="'fa fa-heart-o'" :md-front-iconset="'fa fa-heart'"&gt;&lt;/md-rating-bar&gt;<br />
+              &lt;md-rating-bar v-model="rating14" class="md-primary" :md-empty-iconset="'fa fa-bell-o'" :md-full-iconset="'fa fa-bell'"&gt;&lt;/md-rating-bar&gt;<br />
+              &lt;md-rating-bar v-model="rating14" class="md-warn" :md-icon-size="2" :md-empty-iconset="'fa fa-heart-o'" :md-full-iconset="'fa fa-heart'"&gt;&lt;/md-rating-bar&gt;<br />
               &lt;style type="text/css"&gt;&lt;!-- offset fix to awesome icons--&gt;<br />
                 .fa {<br />
                   font-size: 19px !important;<br />
@@ -234,8 +234,8 @@
               &lt;hr/&gt;<br />
               &lt;link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"/&gt;<br />
               &lt;div&gt;This second example uses &lt;a href="http://ionicons.com/" target="ion_icons"&gt;Ion Icons&lt;/a&gt;&lt;/div&gt;<br />
-              &lt;md-rating-bar v-model="rating14" class="md-primary" :md-back-iconset="'ion-ios-bell-outline'" :md-front-iconset="'ion-ios-bell'"&gt;&lt;/md-rating-bar&gt;<br />
-              &lt;md-rating-bar v-model="rating14" class="md-warn" :md-size="2" :md-back-iconset="'ion-android-favorite-outline'" :md-front-iconset="'ion-android-favorite'"&gt;&lt;/md-rating-bar&gt;<br />
+              &lt;md-rating-bar v-model="rating14" class="md-primary" :md-empty-iconset="'ion-ios-bell-outline'" :md-full-iconset="'ion-ios-bell'"&gt;&lt;/md-rating-bar&gt;<br />
+              &lt;md-rating-bar v-model="rating14" class="md-warn" :md-size="2" :md-empty-iconset="'ion-android-favorite-outline'" :md-full-iconset="'ion-android-favorite'"&gt;&lt;/md-rating-bar&gt;<br />
               &lt;style type="text/css"&gt; &lt;!-- offset fix to ion icons--&gt;<br />
                 i[class*="ion-"]{<br />
                   padding-left: 0.1em;<br />

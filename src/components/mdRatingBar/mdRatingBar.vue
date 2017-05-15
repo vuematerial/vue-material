@@ -1,41 +1,41 @@
 <template>
   <div class="md-rating-bar" :class="[themeClass]" :disabled="disabled">
-    <div class="md-back-stars" v-if="srcBackIcon">
-      <md-icon v-for="i in mdNumStars"
+    <div class="md-empty-icon" v-if="srcEmptyIcon">
+      <md-icon v-for="i in mdMaxRating"
                @mouseover.native="hoverStars"
                @click.native="clickStars"
                @mouseout.native="onMouseOut"
-               :md-src="srcBackIcon"
+               :md-src="srcEmptyIcon"
                :class="[iconClasses]"
-               v-if="srcBackIcon"></md-icon>
+               v-if="srcEmptyIcon"></md-icon>
     </div>
-    <div class="md-back-stars" v-else>
-      <md-icon v-for="i in mdNumStars"
-               :md-iconset="mdBackIconset"
+    <div class="md-empty-icon" v-else>
+      <md-icon v-for="i in mdMaxRating"
+               :md-iconset="mdEmptyIconset"
                @mouseover.native="hoverStars"
                @click.native="clickStars"
                @mouseout.native="onMouseOut"
                :class="[iconClasses]"
-               v-html="backIcon"></md-icon>
+               v-html="emptyIcon"></md-icon>
     </div>
 
-    <div class="md-front-stars" :style="frontStarsStyle" v-if="srcFrontIcon">
-      <md-icon v-for="i in mdNumStars"
+    <div class="md-full-icon" :style="fullIconStyle" v-if="srcFullIcon">
+      <md-icon v-for="i in mdMaxRating"
                @mouseover.native="hoverStars"
                @click.native="clickStars"
                @mouseout.native="onMouseOut"
-               :md-src="srcFrontIcon"
+               :md-src="srcFullIcon"
                :class="[iconClasses]"
-               v-if="srcFrontIcon"></md-icon>
+               v-if="srcFullIcon"></md-icon>
     </div>
-    <div class="md-front-stars" :style="frontStarsStyle" v-else>
-      <md-icon v-for="i in mdNumStars"
-               :md-iconset="mdFrontIconset"
+    <div class="md-full-icon" :style="fullIconStyle" v-else>
+      <md-icon v-for="i in mdMaxRating"
+               :md-iconset="mdFullIconset"
                @mouseover.native="hoverStars"
                @click.native="clickStars"
                @mouseout.native="onMouseOut"
                :class="[iconClasses]"
-               v-html="frontIcon"></md-icon>
+               v-html="fullIcon"></md-icon>
     </div>
   </div>
 </template>
@@ -49,7 +49,7 @@
 
   export default {
     props: {
-      mdNumStars: {
+      mdMaxRating: {
         type: Number,
         default: 5
       },
@@ -61,17 +61,17 @@
         },
         default: 0
       },
-      mdSize: {
+      mdIconSize: {
         type: Number,
         default: 1
       },
-      mdFrontIconset: String,
-      mdBackIconset: String,
-      mdFrontIcon: {
+      mdFullIconset: String,
+      mdEmptyIconset: String,
+      mdFullIcon: {
         type: String,
         default: 'star'
       },
-      mdBackIcon: {
+      mdEmptyIcon: {
         type: String,
         default: 'star'
       }
@@ -79,52 +79,52 @@
     mixins: [theme],
     data() {
       return {
-        srcFrontIcon: null,
-        srcBackIcon: null,
+        srcFullIcon: null,
+        srcEmptyIcon: null,
         rating: this.value
       };
     },
     mounted: function() {
-      this.srcFrontIcon = this.checkSrc(this.mdFrontIcon);
-      this.srcBackIcon = this.checkSrc(this.mdBackIcon);
+      this.srcFullIcon = this.checkSrc(this.mdFullIcon);
+      this.srcEmptyIcon = this.checkSrc(this.mdEmptyIcon);
     },
     computed: {
-      backIcon() {
-        if (this.mdBackIconset) {
+      emptyIcon() {
+        if (this.mdEmptyIconset) {
           return '';
         }
 
-        return this.mdBackIcon;
+        return this.mdEmptyIcon;
       },
-      frontIcon() {
-        if (this.mdFrontIconset) {
+      fullIcon() {
+        if (this.mdFullIconset) {
           return '';
         }
 
-        return this.mdFrontIcon;
+        return this.mdFullIcon;
       },
       iconClasses() {
         let classes = {};
 
-        if (this.mdSize) {
-          classes[`md-size-${this.mdSize}x`] = true;
+        if (this.mdIconSize) {
+          classes[`md-size-${this.mdIconSize}x`] = true;
         }
 
         return classes;
       },
-      frontStarsStyle() {
+      fullIconStyle() {
         return {
           width: 100 * this.rating + '%',
-          'margin-left': -iconSize * this.mdSize * this.mdNumStars + 'px'
+          'margin-left': -iconSize * this.mdIconSize * this.mdMaxRating + 'px'
         };
       }
     },
     watch: {
-      mdFrontIcon() {
-        this.srcFrontIcon = this.checkSrc(this.mdFrontIcon);
+      mdFullIcon() {
+        this.srcFullIcon = this.checkSrc(this.mdFullIcon);
       },
-      mdBackIcon() {
-        this.srcBackIcon = this.checkSrc(this.mdBackIcon);
+      mdEmptyIcon() {
+        this.srcEmptyIcon = this.checkSrc(this.mdEmptyIcon);
       },
       value() {
         this.rating = this.value;
@@ -133,27 +133,27 @@
     methods: {
       hoverStars(evt) {
         if (!this.disabled) {
-          this.rating = this.getIconIndex(evt.currentTarget) / this.mdNumStars;
+          this.rating = this.getIconIndex(evt.currentTarget) / this.mdMaxRating;
         }
       },
       clickStars(evt) {
         if (!this.disabled) {
           var selected = this.getIconIndex(evt.currentTarget);
 
-          this.$emit('input', selected / this.mdNumStars);
-          this.$emit('change', selected / this.mdNumStars);
+          this.$emit('input', selected / this.mdMaxRating);
+          this.$emit('change', selected / this.mdMaxRating);
         }
       },
       getIconIndex(iconSelected) {//iconSelected is a dom element
-        let ratingIcons = this.$el.querySelectorAll('.md-back-stars > .md-icon, .md-front-stars > .md-icon');
+        let ratingIcons = this.$el.querySelectorAll('.md-empty-icon > .md-icon, .md-full-icon > .md-icon');
         let selected = -1;
 
         ratingIcons = Array.prototype.slice.call(ratingIcons);
         //find index from iconSelected
         ratingIcons.some((icon, i) => {
           if (icon === iconSelected) {
-            selected = (i + 1) % this.mdNumStars;
-            selected = !selected ? this.mdNumStars : selected;
+            selected = (i + 1) % this.mdMaxRating;
+            selected = !selected ? this.mdMaxRating : selected;
             return true;
           }
         });
