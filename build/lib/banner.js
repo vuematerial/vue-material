@@ -1,4 +1,4 @@
-import pack from '../package.json'
+import { pack } from '../config.js'
 
 const version = process.env.VERSION || pack.version
 const banner = `/*!

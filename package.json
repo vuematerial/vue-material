@@ -24,9 +24,9 @@
   "module": "dist/vue-material.esm.js",
   "unpkg": "dist/vue-material.js",
   "scripts": {
-    "dev": "webpack-dev-server --inline --hot --quiet --content-base ./docs --config config/dev.babel.js",
-    "build": "rm -rf dist; babel-node config",
-    "lint": "eslint --ext .js,.vue src config"
+    "dev": "webpack-dev-server --inline --hot --quiet --content-base ./docs --config build/server/dev.babel.js",
+    "build": "rm -rf dist; babel-node build/lib",
+    "lint": "eslint --ext .js,.vue src build"
   },
   "dependencies": {
     "vue": "^2.3.3"

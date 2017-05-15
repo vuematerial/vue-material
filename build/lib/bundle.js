@@ -4,7 +4,7 @@ import { gzip } from 'zlib'
 import { rollup } from 'rollup'
 import { cyan, blue, green, red } from 'chalk'
 import { minify } from 'uglify-js'
-import { prepack } from 'prepack';
+import { prepack } from 'prepack'
 import optimize from 'optimize-js'
 import ora from 'ora'
 

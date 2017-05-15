@@ -1,8 +1,8 @@
-import webpack from 'webpack';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import FriendlyErrorsPlugin from 'friendly-errors-webpack-plugin';
-import eslintFormatter from 'eslint-friendly-formatter';
-import { config, resolvePath } from './config';
+import webpack from 'webpack'
+import HtmlWebpackPlugin from 'html-webpack-plugin'
+import FriendlyErrorsPlugin from 'friendly-errors-webpack-plugin'
+import eslintFormatter from 'eslint-friendly-formatter'
+import { config, resolvePath } from '../config'
 
 export default {
   devtool: '#eval-source-map',
@@ -78,4 +78,4 @@ export default {
     }),
     new FriendlyErrorsPlugin()
   ]
-};
+}

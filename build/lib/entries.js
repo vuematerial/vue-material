@@ -1,10 +1,9 @@
 import replace from 'rollup-plugin-replace'
 import buble from 'rollup-plugin-buble'
 import vue from 'rollup-plugin-vue'
-import alias from 'rollup-plugin-alias';
+import alias from 'rollup-plugin-alias'
 import banner from './banner'
-import pack from '../package.json'
-import { config } from './config.js'
+import { config, pack } from '../config.js'
 
 const entry = 'src/index.js'
 

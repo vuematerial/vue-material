@@ -1,8 +1,9 @@
-import { join } from 'path';
+import { join } from 'path'
+import packageJson from '../package.json'
 
 export const resolvePath = (directory) => {
-  return join(__dirname, '..', directory);
-};
+  return join(__dirname, '..', directory)
+}
 
 export const config = {
   dist: 'dist',
@@ -13,3 +14,5 @@ export const config = {
     core: resolvePath('src/core')
   }
 }
+
+export const pack = packageJson
