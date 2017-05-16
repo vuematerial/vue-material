@@ -1,7 +1,5 @@
-import Test from './components/test.vue'
-
 const plugin = (Vue, options = {}) => {
-  Vue.component(Test.name, Test)
+
 }
 
 plugin.version = '__VERSION__'

@@ -7,7 +7,10 @@ import { config, resolvePath } from '../config'
 export default {
   devtool: '#eval-source-map',
   entry: {
-    docs: './docs/src/index.js'
+    docs: [
+      './docs/src/index.js',
+      './build/local/client'
+    ]
   },
   output: {
     path: resolvePath(config.dist),
@@ -65,7 +68,7 @@ export default {
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'production')
+        NODE_ENV: JSON.stringify('development')
       }
     }),
     new webpack.WatchIgnorePlugin([resolvePath('node_modules')]),
