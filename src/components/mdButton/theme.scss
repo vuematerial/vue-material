@@ -1,0 +1,11 @@
+%md-button-theme {
+  background: md-theme(primary);
+  color: md-theme(text-primary);
+
+  &.md-accent {
+    background: md-theme(accent);
+    color: md-theme(text-accent);
+  }
+}
+
+@include md-register-component(md-button, md-button-theme);

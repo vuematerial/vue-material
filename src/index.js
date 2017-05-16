@@ -1,3 +1,5 @@
+import './theme/index.scss'
+
 const plugin = (Vue, options = {}) => {
 
 }

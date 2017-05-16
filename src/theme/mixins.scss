@@ -1,0 +1,23 @@
+@mixin md-setup-theme ($palette) {
+  $md-color-tones: ();
+  $md-theme-mode: map-get($palette, theme);
+
+  @if $md-theme-mode == 'light' {
+    $md-color-tones: $md-color-light-mode;
+  } @else if $md-theme-mode == 'dark' {
+    $md-color-tones: $md-color-dark-mode;
+  } @else {
+    @error "Sorry, but `#{$md-theme-mode}` is not a valid theme mode";
+  }
+
+  $md-theme-values: map-merge($md-theme-values, $md-color-tones) !global;
+  $md-theme-values: map-merge($md-theme-values, $palette) !global;
+}
+
+@mixin md-override-palette ($palette) {
+  $md-theme-palette: map-merge($md-theme-palette, $palette) !global;
+}
+
+@mixin md-theme ($prop, $value) {
+  #{$prop}: map-get($md-theme-values, $value);
+}

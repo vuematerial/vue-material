@@ -1,0 +1,3 @@
+@function md-theme($type) {
+  @return map-get($md-theme-values, $type);
+}

@@ -1,0 +1,30 @@
+/* Themes */
+
+$md-theme-palette: (
+  primary: map-get(map-get($md-palette, indigo), 500),
+  accent: map-get(map-get($md-palette, pink), 500),
+  theme: 'light'
+) !default;
+$md-theme-values: ();
+$md-themable-components: ();
+
+
+/* Text colors */
+
+$md-color-light-mode: (
+  background: #fff,
+  text-primary: rgba(#000, .87),
+  text-secondary: rgba(#000, .54),
+  text-hint: rgba(#000, .38),
+  disabled: rgba(#000, .38),
+  icon: rgba(#000, .38)
+);
+
+$md-color-dark-mode: (
+  background: #424242,
+  text-primary: #fff,
+  text-secondary: rgba(#fff, .7),
+  text-hint: rgba(#fff, .5),
+  disabled: rgba(#fff, .5),
+  icon: rgba(#fff, .5)
+);
