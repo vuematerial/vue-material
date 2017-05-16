@@ -8,6 +8,11 @@ export const resolvePath = (directory) => {
 export const config = {
   dist: 'dist',
   public: '/',
+  index: 'docs/index.html',
+  assets: 'docs/src/assets',
+  server: {
+    port: process.env.PORT || '8080'
+  },
   resolve: ['.js', '.vue', '.json'],
   alias: {
     'vue-material': resolvePath('src/index.js'),
