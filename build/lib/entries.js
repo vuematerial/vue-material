@@ -1,9 +1,14 @@
+import { writeFileSync } from 'fs'
 import replace from 'rollup-plugin-replace'
 import buble from 'rollup-plugin-buble'
 import vue from 'rollup-plugin-vue'
 import alias from 'rollup-plugin-alias'
+import postcss from 'postcss'
+import autoprefixer from 'autoprefixer'
+import mediaPacker from 'css-mqpacker'
+import cssnano from 'cssnano'
 import banner from './banner'
-import { config, pack } from '../config.js'
+import { config, resolvePath, pack } from '../config.js'
 
 const entry = 'src/index.js'
 
@@ -53,26 +58,34 @@ function generateConfig ({ dest, format, env, css }) {
         ...config.alias,
         resolve: config.resolve
       }),
-      buble()
+      buble(),
+      postcss({
+        plugins: [
+          autoprefixer(),
+          mediaPacker(),
+          cssnano()
+        ]
+      })
     ]
   }
 
   const replacePluginOptions = { '__VERSION__': pack.version }
-  let vueConfig = {
-    css
-  }
 
   if (env) {
     replacePluginOptions['process.env.NODE_ENV'] = JSON.stringify(env)
-
-    if (env === 'production') {
-      vueConfig.scss = {
-        outputStyle: 'compressed'
-      }
-    }
   }
 
-  entryConfig.plugins.unshift(vue(vueConfig))
+  entryConfig.plugins.unshift(vue({
+    async css (style) {
+      if (style && env === 'production') {
+        const styles = await postcss([autoprefixer, mediaPacker, cssnano]).process(style)
+
+        styles.warnings().forEach(warn => console.warn(warn.toString()))
+
+        writeFileSync(resolvePath(dest.replace('js', 'css')), styles.css)
+      }
+    }
+  }))
   entryConfig.plugins.push(replace(replacePluginOptions))
 
   return entryConfig

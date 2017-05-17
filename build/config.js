@@ -1,8 +1,14 @@
 import { join } from 'path'
 import packageJson from '../package.json'
 
-export const resolvePath = (directory) => {
-  return join(__dirname, '..', directory)
+export const resolvePath = (...args) => {
+  const path = [
+    __dirname,
+    '..',
+    ...args
+  ]
+
+  return join.apply(null, path)
 }
 
 export const config = {
@@ -13,7 +19,7 @@ export const config = {
   server: {
     port: process.env.PORT || '8080'
   },
-  resolve: ['.js', '.vue', '.json'],
+  resolve: ['.vue', '.js', '.json'],
   alias: {
     'vue-material': resolvePath('src/index.js'),
     core: resolvePath('src/core'),
