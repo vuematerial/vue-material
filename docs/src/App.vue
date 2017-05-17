@@ -16,7 +16,7 @@
     accent: #CDDC39
   ));
 
-  @import '~components/mdButton/theme';
+  @import '~components/mdButton/mdButton';
 </style>
 
 <script>
