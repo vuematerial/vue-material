@@ -16,6 +16,29 @@
  * @param {string} $type —  The themable value
  */
 
-@function md-theme($type) {
-  @return map-get($md-theme-values, $type);
+@function md-theme($type, $background: "") {
+  $color-theme: null;
+
+  @if $type == 'primary' or $type == 'accent' {
+    @debug get-color-by-type($type);
+    @return get-color-by-type($type);
+  } @else {
+    @if $background == "" {
+      $color-theme: map-get($md-theme-palette, theme);
+    } @else {
+      $color-theme: md-pick-contrast(get-color-by-type($background));
+    }
+
+    @return get-color-by-theme($color-theme, $type);
+  }
+}
+
+@function get-color-by-theme($color-theme, $type) {
+  $theme: map-get($md-color-levels, $color-theme);
+
+  @return map-get($theme, $type);
+}
+
+@function get-color-by-type($type) {
+  @return map-get($md-theme-palette, $type);
 }

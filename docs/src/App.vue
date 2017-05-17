@@ -2,8 +2,8 @@
   <div class="container">
     <slot />
 
-    <div class="md-button md-theme-default" @click="accent = !accent" :class="{ 'md-accent': accent }"></div>
-    <div class="md-button md-theme-alt" @click="accent = !accent" :class="{ 'md-accent': accent }"></div>
+    <div class="md-button md-theme-default" @click="accent = !accent" :class="{ 'md-accent': accent }">Button</div>
+    <div class="md-button md-theme-alt" @click="accent = !accent" :class="{ 'md-accent': accent }">Button</div>
   </div>
 </template>
 
