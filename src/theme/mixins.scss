@@ -35,8 +35,6 @@
  * @access public
  * @param {string} $name —  The theme name to be used with the Vue Material
  * @param {map} $palette [$md-default-palette] —  The theme palette
- * ---
- * @todo Accept a preset name as a palette, using predefined themes
  */
 
 @mixin md-apply-theme ($name, $palette: $md-default-palette) {

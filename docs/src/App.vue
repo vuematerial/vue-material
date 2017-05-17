@@ -2,19 +2,29 @@
   <div class="container">
     <slot />
 
-    <md-button @click.native="accent = !accent" :class="{ 'md-accent': accent }" class="md-theme-default">Button</md-button>
-    <md-button @click.native="accent = !accent" :class="{ 'md-accent': accent }" class="md-theme-alt">Button</md-button>
+    <div>
+      <md-button class="md-theme-root">Button</md-button>
+      <md-button class="md-theme-root md-accent">Button</md-button>
+    </div>
+
+    <div>
+      <md-button class="md-theme-secondary">Button</md-button>
+      <md-button class="md-theme-secondary md-accent">Button</md-button>
+    </div>
+
+    <div>
+      <md-button class="md-theme-tertiary">Button</md-button>
+      <md-button class="md-theme-tertiary md-accent">Button</md-button>
+    </div>
   </div>
 </template>
 
 <style lang="scss">
   @import '~theme';
 
-  @include md-apply-theme('default');
-  @include md-apply-theme('alt', (
-    primary: #212121,
-    accent: #CDDC39
-  ));
+  @include md-apply-theme('root', $md-theme-black-green);
+  @include md-apply-theme('secondary', $md-theme-green-orange);
+  @include md-apply-theme('tertiary',$md-theme-blue-red);
 
   @import '~components/mdButton/theme';
 </style>
@@ -26,9 +36,6 @@
     name: 'app',
     components: {
       MdButton
-    },
-    data: () => ({
-      accent: false
-    })
+    }
   }
 </script>

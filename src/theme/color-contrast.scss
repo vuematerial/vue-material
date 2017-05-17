@@ -308,8 +308,8 @@ $md-linear-channel-values:
  */
 
 @function md-calculate-contrast($bg, $fg) {
-  $bgLum: md-check-luminance($bg) + .15;
-  $fgLum: md-check-luminance($fg) + .15;
+  $bgLum: md-check-luminance($bg) + .2;
+  $fgLum: md-check-luminance($fg) + .2;
 
   @return max($bgLum, $fgLum) / min($bgLum, $fgLum);
 }
