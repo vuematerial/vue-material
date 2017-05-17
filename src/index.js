@@ -1,5 +1,7 @@
-const plugin = (Vue, options = {}) => {
+import MdButton from 'components/mdButton/mdButton'
 
+const plugin = (Vue, options = {}) => {
+  Vue.component(MdButton.name, MdButton)
 }
 
 plugin.version = '__VERSION__'
