@@ -1,7 +1,7 @@
 /**
  * The default theme palette
  * primary: indigo 500 #3f51b5
- * secondary: pink 500 #e91e63
+ * accent: pink 500 #e91e63
  * theme: light
  *
  * It can be used just before importing the Vue Material stylesheet
@@ -12,7 +12,7 @@
  * @group themes
  */
 
-$md-theme-palette: (
+$md-default-palette: (
   primary: map-get(map-get($md-palette, indigo), 500),
   accent: map-get(map-get($md-palette, pink), 500),
   theme: 'light'
@@ -25,7 +25,7 @@ $md-theme-palette: (
  * @type Map
  * @group themes
  */
-$md-theme-values: ();
+$md-theme-palette: ();
 
 /**
  * Map variable to store all themes to be processed by each component
@@ -37,35 +37,32 @@ $md-theme-values: ();
 $md-themes: ();
 
 /**
- * The light contrast values
+ * The color contrast values
  * ---
  * @access private
  * @type Map
  * @group themes
  */
 
-$md-color-light-mode: (
-  background: #fff,
-  text-primary: rgba(#000, .87),
-  text-secondary: rgba(#000, .54),
-  text-hint: rgba(#000, .38),
-  disabled: rgba(#000, .38),
-  icon: rgba(#000, .38)
-);
-
-/**
- * The dark contrast values
- * ---
- * @access private
- * @type Map
- * @group themes
- */
-
-$md-color-dark-mode: (
-  background: #424242,
-  text-primary: #fff,
-  text-secondary: rgba(#fff, .7),
-  text-hint: rgba(#fff, .5),
-  disabled: rgba(#fff, .5),
-  icon: rgba(#fff, .5)
+$md-color-levels: (
+  light: (
+    background: #fff,
+    text-primary: rgba(#000, .87),
+    text-accent: rgba(#000, .54),
+    text-hint: rgba(#000, .38),
+    disabled: rgba(#000, .38),
+    icon: rgba(#000, .38),
+    icon-active: rgba(#000, .54),
+    divider: rgba(#000, .12)
+  ),
+  dark: (
+    background: #424242,
+    text-primary: #fff,
+    text-accent: rgba(#fff, .7),
+    text-hint: rgba(#fff, .5),
+    disabled: rgba(#fff, .5),
+    icon: rgba(#fff, .5),
+    icon-active: #fff,
+    divider: rgba(#fff, .12)
+  )
 );
