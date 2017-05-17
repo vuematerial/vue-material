@@ -1,13 +1,13 @@
 .md-button {
   @include md-theme-component() {
-    background: md-theme(primary);
-    color: md-theme(text-primary, primary);
+    @include md-theme-property(background, primary);
+    @include md-theme-property(color, text-primary, primary);
   }
 
   &.md-accent {
     @include md-theme-component() {
-      background: md-theme(accent);
-      color: md-theme(text-primary, accent);
-    };
+      @include md-theme-property(background, accent);
+      @include md-theme-property(color, text-primary, accent);
+    }
   }
 }

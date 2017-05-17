@@ -8,7 +8,7 @@
  *
  * ---
  * @access public
- * @type ColorMap
+ * @type colormap
  * @group themes
  */
 
@@ -22,7 +22,7 @@ $md-default-palette: (
  * Temporary variable to store all themable values
  * ---
  * @access private
- * @type Map
+ * @type map
  * @group themes
  */
 $md-theme-palette: ();
@@ -31,16 +31,26 @@ $md-theme-palette: ();
  * Map variable to store all themes to be processed by each component
  * ---
  * @access private
- * @type Map
+ * @type map
  * @group themes
  */
 $md-themes: ();
 
 /**
+ * Store the current theme name
+ * ---
+ * @access private
+ * @type string
+ * @group themes
+ */
+
+$md-current-theme: null;
+
+/**
  * The color contrast values
  * ---
  * @access private
- * @type Map
+ * @type map
  * @group themes
  */
 
