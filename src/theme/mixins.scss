@@ -25,7 +25,7 @@
  * ---
  * Usage example:
  *
- * @include md-apply-theme('alternative', (
+ * @include md-register-theme('alternative', (
  *   primary: #212121,
  *   accent: #CDDC39,
  *   theme: dark
@@ -37,7 +37,7 @@
  * @param {map} $palette [$md-default-palette] —  The theme palette
  */
 
-@mixin md-apply-theme ($name, $palette: $md-default-palette) {
+@mixin md-register-theme ($name, $palette: $md-default-palette) {
   $palette: map-merge($md-default-palette, $palette);
 
   $md-themes: map-merge($md-themes, (

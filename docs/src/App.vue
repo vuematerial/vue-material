@@ -22,20 +22,15 @@
 <style lang="scss">
   @import '~theme';
 
-  @include md-apply-theme('root', $md-theme-black-green);
-  @include md-apply-theme('secondary', $md-theme-green-orange);
-  @include md-apply-theme('tertiary',$md-theme-blue-red);
+  @include md-register-theme('root', $md-theme-black-green);
+  @include md-register-theme('secondary', $md-theme-green-orange);
+  @include md-register-theme('tertiary',$md-theme-blue-red);
 
   @import '~components/mdButton/theme';
 </style>
 
 <script>
-  import MdButton from 'components/mdButton/mdButton'
-
   export default {
-    name: 'app',
-    components: {
-      MdButton
-    }
+    name: 'app'
   }
 </script>
