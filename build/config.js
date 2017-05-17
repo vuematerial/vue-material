@@ -18,7 +18,7 @@ export const config = {
     'vue-material': resolvePath('src/index.js'),
     core: resolvePath('src/core'),
     components: resolvePath('src/components'),
-    theme: resolvePath('src/theme')
+    theme: resolvePath('src/theme/index.scss')
   }
 }
 
