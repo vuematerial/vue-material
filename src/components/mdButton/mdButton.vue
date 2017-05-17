@@ -7,7 +7,7 @@
 <style lang="scss" scoped>
   .md-button {
     min-width: 88px;
-    height: 40px;
+    height: 36px;
     padding: 0 8px;
     display: inline-flex;
     justify-content: center;
