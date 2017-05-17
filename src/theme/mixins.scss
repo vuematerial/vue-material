@@ -81,9 +81,55 @@
 @mixin md-theme-component () {
   @each $theme, $palette in $md-themes {
     $md-theme-palette: map-merge($md-theme-palette, $palette) !global;
+    $md-current-theme: $theme !global;
 
     &.md-theme-#{$theme} {
       @content;
     }
   }
+}
+
+
+/**
+ * Theme a single css property
+ * ---
+ * Usage example:
+ *
+ * .md-button {
+ *   min-width: 88px;
+ *   height: 40px;
+ *   display: inline-block;
+ *   border-radius: 2px;
+ *   transition: .3s ease;
+ *
+ *   @include md-theme-component() {
+ *     @include md-theme-property(background, primary);
+ *     @include md-theme-property(color, text-primary, primary);
+ *   }
+ *
+ *   &.md-accent {
+ *     @include md-theme-component() {
+ *       @include md-theme-property(background, accent);
+ *       @include md-theme-property(color, text-primary, accent);
+ *     }
+ *   }
+ * }
+ *
+ * ---
+ * @access public
+ * @param {string} $property —  The css property
+ * @param {string} $type —  A palette type
+ * @param {string} $background —  The background color to analyse contrast
+ */
+
+@mixin md-theme-property ($property, $type, $background: "") {
+  $value: md-theme($type, $background);
+  $variant: null;
+
+  @if $background != "" {
+    $variant: -on-#{$background};
+  }
+
+  #{$property}: $value;
+  #{$property}: var(--md-theme-#{$md-current-theme}-#{$type}#{$variant}, $value);
 }
