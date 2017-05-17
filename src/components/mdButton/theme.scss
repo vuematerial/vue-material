@@ -1,11 +1,19 @@
-%md-button-theme {
-  background: md-theme(primary);
-  color: md-theme(text-primary);
+.md-button {
+  min-width: 88px;
+  height: 40px;
+  display: inline-block;
+  border-radius: 2px;
+  transition: .3s ease;
+
+  @include md-theme-component(md-button) {
+    background: md-theme(primary);
+    color: md-theme(text-primary);
+  }
 
   &.md-accent {
-    background: md-theme(accent);
-    color: md-theme(text-accent);
+    @include md-theme-component(md-button) {
+      background: md-theme(accent);
+      color: md-theme(text-accent);
+    };
   }
 }
-
-@include md-register-component(md-button, md-button-theme);

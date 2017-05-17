@@ -3,17 +3,20 @@
     <slot />
 
     <div class="md-button md-theme-default" @click="accent = !accent" :class="{ 'md-accent': accent }"></div>
+    <div class="md-button md-theme-alt" @click="accent = !accent" :class="{ 'md-accent': accent }"></div>
   </div>
 </template>
 
 <style lang="scss" scoped>
   @import '~theme/index';
-  @import '~components/mdButton/theme';
 
   @include md-apply-theme('default');
   @include md-apply-theme('alt', (
-    primary: green
+    primary: #212121,
+    accent: #CDDC39
   ));
+
+  @import '~components/mdButton/theme';
 </style>
 
 <script>
