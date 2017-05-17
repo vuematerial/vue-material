@@ -13,8 +13,8 @@
  */
 
 $md-default-palette: (
-  primary: map-get(map-get($md-palette, indigo), 500),
-  accent: map-get(map-get($md-palette, pink), 500),
+  primary: md-get-palette-color(indigo, 500),
+  accent: md-get-palette-color(pink, 500),
   theme: 'light'
 ) !default;
 
