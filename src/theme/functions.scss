@@ -1,3 +1,21 @@
+/**
+ * Theme any css property based on the current palette, accepting a themable
+ * value that will give an contrasted
+ * ---
+ * Usage example:
+ *
+ * .md-foo {
+ *   min-width: 88px;
+ *   height: 40px;
+ *   background: md-theme(primary);
+ * }
+ *
+ * ---
+ * @access public
+ * ---
+ * @param {string} $type —  The themable value
+ */
+
 @function md-theme($type) {
   @return map-get($md-theme-values, $type);
 }

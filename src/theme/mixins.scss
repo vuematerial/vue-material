@@ -1,3 +1,23 @@
+/**
+ * Select and process the right contrast theme based on a given palette
+ * and set as global variables to be used later by themed components.
+ * It will extend the default palette if has a property missing.
+ * ---
+ * Usage example:
+ *
+ * @include md-setup-theme ((
+ *   primary: red,
+ *   secondary: blue,
+ *   theme: 'light'
+ * ))
+ *
+ * ---
+ * @access private
+ * @throw If the theme provided is different than 'light' or 'dark', the
+ * mixin will fail.
+ * @param {map} $palette —  The palette to be processed
+ */
+
 @mixin md-setup-theme ($palette) {
   $md-color-tones: ();
   $md-theme-mode: map-get($palette, theme);
@@ -14,13 +34,47 @@
   $md-theme-values: map-merge($md-theme-values, $palette) !global;
 }
 
+
+/**
+ * Override extending the default palette giving new values. It will extend
+ * the default values of the palette if has a property missing.
+ * ---
+ * Usage example:
+ *
+ * @include md-override-palette ((
+ *   secondary: blue,
+ *   theme: 'dark'
+ * ))
+ *
+ * ---
+ * @access public
+ * @param {map} $palette —  The new palette
+ */
+
 @mixin md-override-palette ($palette) {
   $md-theme-palette: map-merge($md-theme-palette, $palette) !global;
 }
 
-@mixin md-theme ($prop, $value) {
-  #{$prop}: map-get($md-theme-values, $value);
-}
+
+/**
+ * Create a new theme based on a given palette. It will extend the default
+ * values of the palette if has a property missing.
+ * ---
+ * Usage example:
+ *
+ * @include md-apply-theme('alternative', (
+ *   primary: #212121,
+ *   accent: #CDDC39,
+ *   theme: dark
+ * ));
+ *
+ * ---
+ * @access public
+ * @param {string} $name —  The theme name to be used with the Vue Material
+ * @param {map} $palette [$md-theme-palette] —  The theme palette
+ * ---
+ * @todo Accept a preset name as a palette, using predefined themes
+ */
 
 @mixin md-apply-theme ($name, $palette: $md-theme-palette) {
   $palette: map-merge($md-theme-palette, $palette);
@@ -30,7 +84,38 @@
   )) !global;
 }
 
-@mixin md-theme-component ($component) {
+
+/**
+ * Theme pieces of a given scss code for all pre registered themes.
+ * ---
+ * Usage example:
+ *
+ * .md-button {
+ *   min-width: 88px;
+ *   height: 40px;
+ *   display: inline-block;
+ *   border-radius: 2px;
+ *   transition: .3s ease;
+ *
+ *   @include md-theme-component() {
+ *     background: md-theme(primary);
+ *     color: md-theme(text-primary);
+ *   }
+ *
+ *   &.md-accent {
+ *     @include md-theme-component() {
+ *       background: md-theme(accent);
+ *       color: md-theme(text-accent);
+ *     };
+ *   }
+ * }
+ *
+ * ---
+ * @access public
+ * @param {string} $component —  The name of the component
+ */
+
+@mixin md-theme-component () {
   @each $theme, $palette in $md-themes {
     @include md-setup-theme($palette);
 
@@ -39,4 +124,3 @@
     }
   }
 }
-

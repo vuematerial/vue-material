@@ -1,15 +1,48 @@
-/* Themes */
+/**
+ * The default theme palette
+ * primary: indigo 500 #3f51b5
+ * secondary: pink 500 #e91e63
+ * theme: light
+ *
+ * It can be used just before importing the Vue Material stylesheet
+ *
+ * ---
+ * @access public
+ * @type ColorMap
+ * @group themes
+ */
 
 $md-theme-palette: (
   primary: map-get(map-get($md-palette, indigo), 500),
   accent: map-get(map-get($md-palette, pink), 500),
   theme: 'light'
 ) !default;
+
+/**
+ * Temporary variable to store all themable values
+ * ---
+ * @access private
+ * @type Map
+ * @group themes
+ */
 $md-theme-values: ();
+
+/**
+ * Map variable to store all themes to be processed by each component
+ * ---
+ * @access private
+ * @type Map
+ * @group themes
+ */
 $md-themes: ();
 
-
-/* Text colors */
+/**
+ * The light contrast values
+ * ---
+ * @access private
+ * @type Map
+ * @group themes
+ */
 
 $md-color-light-mode: (
   background: #fff,
@@ -19,6 +52,14 @@ $md-color-light-mode: (
   disabled: rgba(#000, .38),
   icon: rgba(#000, .38)
 );
+
+/**
+ * The dark contrast values
+ * ---
+ * @access private
+ * @type Map
+ * @group themes
+ */
 
 $md-color-dark-mode: (
   background: #424242,
