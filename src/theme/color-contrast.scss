@@ -1,18 +1,26 @@
 /**
- * Based on: "Using Sass to automatically pick text colors"
+ * Hightly based on: "Using Sass to automatically pick text colors"
  * https://medium.com/dev-channel/using-sass-to-automatically-pick-text-colors-4ba7645d2796
  */
 
-//  Precomputed linear color channel values, for use in contrast calculations.
-//  See https://www.w3.org/TR/WCAG20-TECHS/G17.html#G17-tests
-//
-//  Algorithm, for c in 0 to 255:
-//  f(c) {
-//    c = c / 255;
-//    return c < 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
-//  }
-//
-//  This lookup table is needed since there is no `pow` in SASS.
+/**
+ * Precomputed linear color channel values, for use in contrast calculations.
+ * See https://www.w3.org/TR/WCAG20-TECHS/G17.html#G17-tests
+ * ---
+ *
+ *  Algorithm, for c in 0 to 255:
+ *  f(c) {
+ *    c = c / 255;
+ *    return c < 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
+ *  }
+ *
+ *  This lookup table is needed since there is no `pow` in SASS.
+ *
+ * ---
+ * @access private
+ * @type Map
+ * @group themes
+ */
 
 $md-linear-channel-values:
   0
@@ -273,8 +281,14 @@ $md-linear-channel-values:
   1;
 
 
-// Calculate the luminance for a color.
-// See https://www.w3.org/TR/WCAG20-TECHS/G17.html#G17-tests
+/**
+ * Calculate the luminance for a color.
+ * ---
+ * @access private
+ * ---
+ * @param {string} $color —  The color to be analysed
+ */
+
 @function md-check-luminance($color) {
   $red: nth($md-linear-channel-values, red($color) + 1);
   $green: nth($md-linear-channel-values, green($color) + 1);
@@ -283,20 +297,30 @@ $md-linear-channel-values:
   @return .2126 * $red + .7152 * $green + .0722 * $blue;
 }
 
-// Calculate the contrast ratio between two colors.
-// See https://www.w3.org/TR/WCAG20-TECHS/G17.html#G17-tests
-@function md-calculate-contrast($back, $front) {
-  $backLum: md-check-luminance($back) + .05;
-  $foreLum: md-check-luminance($front) + .05;
 
-  @return max($backLum, $foreLum) / min($backLum, $foreLum);
+/**
+ * Calculate the contrast ratio between two colors.
+ * ---
+ * @access private
+ * ---
+ * @param {string} $bg —  The bg color
+ * @param {string} $fg —  The fg color to be compared
+ */
+
+@function md-calculate-contrast($bg, $fg) {
+  $bgLum: md-check-luminance($bg) + .15;
+  $fgLum: md-check-luminance($fg) + .15;
+
+  @return max($bgLum, $fgLum) / min($bgLum, $fgLum);
 }
 
 // Determine whether to use dark or light text on top of given color.
 // Returns black for dark text and white for light text.
 @function md-pick-contrast($color) {
-  $lightContrast: md-calculate-contrast($color, white);
-  $darkContrast: md-calculate-contrast($color, black);
+  $lightColor: map-get(map-get($md-color-levels, dark), text-primary);
+  $lightContrast: md-calculate-contrast($color, $lightColor);
+  $darkColor: map-get(map-get($md-color-levels, light), text-primary);
+  $darkContrast: md-calculate-contrast($color, $darkColor);
 
   @if ($lightContrast > $darkContrast) {
     @return 'dark';

@@ -20,7 +20,6 @@
   $color-theme: null;
 
   @if $type == 'primary' or $type == 'accent' {
-    @debug get-color-by-type($type);
     @return get-color-by-type($type);
   } @else {
     @if $background == "" {
@@ -33,11 +32,40 @@
   }
 }
 
+
+/**
+ * Get a color based on type by theme
+ * ---
+ * Usage example:
+ *
+ * $color: get-color-by-theme(dark, primary)
+ *
+ * ---
+ * @access public
+ * ---
+ * @param {string} $color-theme —  The theme color | Accepts dark or light
+ * @param {string} $type —  The color type
+ */
+
 @function get-color-by-theme($color-theme, $type) {
   $theme: map-get($md-color-levels, $color-theme);
 
   @return map-get($theme, $type);
 }
+
+
+/**
+ * Get a color based on type only
+ * ---
+ * Usage example:
+ *
+ * $color: get-color-by-type(accent)
+ *
+ * ---
+ * @access public
+ * ---
+ * @param {string} $type —  The color type
+ */
 
 @function get-color-by-type($type) {
   @return map-get($md-theme-palette, $type);
