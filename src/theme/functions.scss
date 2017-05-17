@@ -4,6 +4,30 @@
  * ---
  * Usage example:
  *
+ * $foo-palette: (
+ *   primary: md-get-palette-color(indigo, 500),
+ *   accent: md-get-palette-color(pink, 500),
+ *   theme: 'light'
+ * );
+ *
+ * ---
+ * @access public
+ * ---
+ * @param {color} $type —  The desired color based on material palette
+ * @param {string} $type —  A valid hue
+ */
+
+@function md-get-palette-color($color, $hue) {
+  @return map-get(map-get($md-palette, $color), $hue);
+}
+
+
+/**
+ * Theme any css property based on the current palette, accepting a themable
+ * value that will give an contrasted
+ * ---
+ * Usage example:
+ *
  * .md-foo {
  *   min-width: 88px;
  *   height: 40px;
