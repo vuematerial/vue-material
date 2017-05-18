@@ -1,4 +1,5 @@
 import VueMaterial from './material'
+import './core/stylesheets/index.scss'
 
 let plugin = (Vue) => {
   Vue.material = VueMaterial
