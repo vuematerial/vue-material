@@ -30,6 +30,7 @@ compiler.plugin('compilation', (compilation) => {
 app.use(historyApiFallback())
 app.use(devMiddlewareInstance)
 app.use(hotMiddlewareInstance)
+app.use('/', express.static(resolvePath(config.dist)))
 app.use('/assets', express.static(resolvePath(config.assets)))
 
 devMiddlewareInstance.waitUntilValid(() => {

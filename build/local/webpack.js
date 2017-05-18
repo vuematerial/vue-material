@@ -5,7 +5,7 @@ import eslintFormatter from 'eslint-friendly-formatter'
 import { config, resolvePath } from '../config'
 
 export default {
-  devtool: '#eval-source-map',
+  devtool: '#source-map',
   entry: {
     docs: [
       './docs/src/index.js',

@@ -4,7 +4,6 @@ import { gzip } from 'zlib'
 import { rollup } from 'rollup'
 import { cyan, blue, green, red } from 'chalk'
 import { minify } from 'uglify-js'
-import { prepack } from 'prepack'
 import optimize from 'optimize-js'
 import ora from 'ora'
 
@@ -36,8 +35,7 @@ const buildEntry = config => {
     const code = bundle.generate(config).code
 
     if (isProd) {
-      const prepacked = prepack(code).code
-      const minified = config.banner + '\n' + optimize(minify(prepacked, {
+      const minified = config.banner + '\n' + optimize(minify(code, {
         mangle: true,
         compress: {
           sequences: true,

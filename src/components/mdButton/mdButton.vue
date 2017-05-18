@@ -1,5 +1,5 @@
 <template>
-  <div class="md-button">
+  <div class="md-button" :class="[$mdActiveTheme]">
     <slot />
   </div>
 </template>
@@ -18,7 +18,9 @@
 </style>
 
 <script>
-  export default {
+  import MdComponent from 'core/MdComponent'
+
+  export default new MdComponent({
     name: 'MdButton'
-  }
+  })
 </script>

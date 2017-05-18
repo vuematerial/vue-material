@@ -1,7 +1,8 @@
-import MdButton from 'components/mdButton/mdButton'
+import VueMaterial from './material'
 
-const plugin = (Vue, options = {}) => {
-  Vue.component(MdButton.name, MdButton)
+let plugin = (Vue) => {
+  Vue.material = VueMaterial
+  Vue.prototype.$material = VueMaterial
 }
 
 plugin.version = '__VERSION__'
