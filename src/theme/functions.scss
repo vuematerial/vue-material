@@ -44,12 +44,12 @@
   $color-theme: null;
 
   @if $type == 'primary' or $type == 'accent' {
-    @return md-get-color-by-type($type);
+    @return md-get-color-by-type($type, null);
   } @else {
-    @if $background == "" {
-      $color-theme: map-get($md-theme-palette, theme);
-    } @else {
-      $color-theme: md-pick-contrast(md-get-color-by-type($background));
+    $color-theme: map-get($md-theme-palette, theme);
+
+    @if $background != "" {
+      $color-theme: md-pick-contrast(md-get-color-by-type($background, $color-theme));
     }
 
     @return md-get-color-by-theme($color-theme, $type);
@@ -83,14 +83,22 @@
  * ---
  * Usage example:
  *
- * $color: md-get-color-by-type(accent)
+ * $color1: md-get-color-by-type(background, dark)
+ * $color1: md-get-color-by-type(accent)
  *
  * ---
  * @access public
  * ---
  * @param {string} $type —  The color type
+ * @param {string} $theme —  The fallback theme
  */
 
-@function md-get-color-by-type($type) {
-  @return map-get($md-theme-palette, $type);
+@function md-get-color-by-type($type, $theme) {
+  $newColor: map-get($md-theme-palette, $type);
+
+  @if $newColor == null {
+    $newColor: md-get-color-by-theme($theme, $type);
+  }
+
+  @return $newColor
 }

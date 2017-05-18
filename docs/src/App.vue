@@ -26,6 +26,7 @@
   @include md-register-theme('secondary', $md-theme-green-orange);
   @include md-register-theme('tertiary', $md-theme-blue-red);
 
+  @import '~base/theme';
   @import '~components/mdButton/theme';
 </style>
 

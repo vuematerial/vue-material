@@ -1,0 +1,29 @@
+:not(input):not(textarea)::selection {
+  @include md-theme-component() {
+    @include md-theme-property(background-color, accent, background);
+    @include md-theme-property(color, text-primary, accent);
+  }
+}
+
+a:not(.md-button) {
+  @include md-theme-component() {
+    @include md-theme-property(color, accent, background);
+  }
+}
+
+body {
+  @include md-theme-component() {
+    @include md-theme-property(background-color, background-variant);
+    @include md-theme-property(color, text-primary, background-variant);
+  }
+}
+
+.md-caption,
+.md-display-1,
+.md-display-2,
+.md-display-3,
+.md-display-4 {
+  @include md-theme-component() {
+    @include md-theme-property(color, text-accent, background-variant);
+  }
+}
