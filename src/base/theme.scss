@@ -1,12 +1,12 @@
 :not(input):not(textarea)::selection {
-  @include md-theme-component() {
+  @include md-theme-component-relative() {
     @include md-theme-property(background-color, accent, background);
     @include md-theme-property(color, text-primary, accent);
   }
 }
 
 a:not(.md-button) {
-  @include md-theme-component() {
+  @include md-theme-component-relative() {
     @include md-theme-property(color, accent, background);
   }
 }
@@ -23,7 +23,7 @@ body {
 .md-display-2,
 .md-display-3,
 .md-display-4 {
-  @include md-theme-component() {
+  @include md-theme-component-relative() {
     @include md-theme-property(color, text-accent, background-variant);
   }
 }
