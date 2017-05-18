@@ -4,7 +4,7 @@
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
   @import '~components/MdAnimation/variables';
 
   $md-button-min-width: 88px;
