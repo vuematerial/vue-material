@@ -18,6 +18,7 @@ $md-default-palette: (
   theme: 'light'
 ) !default;
 
+
 /**
  * Temporary variable to store all themable values
  * ---
@@ -26,6 +27,7 @@ $md-default-palette: (
  * @group themes
  */
 $md-theme-palette: ();
+
 
 /**
  * Map variable to store all themes to be processed by each component
@@ -36,6 +38,7 @@ $md-theme-palette: ();
  */
 $md-themes: ();
 
+
 /**
  * Store the current theme name
  * ---
@@ -45,6 +48,7 @@ $md-themes: ();
  */
 
 $md-current-theme: null;
+
 
 /**
  * The color contrast values
@@ -57,6 +61,7 @@ $md-current-theme: null;
 $md-color-levels: (
   light: (
     background: #fff,
+    background-variant: #fafafa,
     text-primary: rgba(#000, .87),
     text-accent: rgba(#000, .54),
     text-hint: rgba(#000, .38),
@@ -67,6 +72,7 @@ $md-color-levels: (
   ),
   dark: (
     background: #424242,
+    background-variant: #303030,
     text-primary: #fff,
     text-accent: rgba(#fff, .7),
     text-hint: rgba(#fff, .5),
