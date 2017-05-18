@@ -2,11 +2,7 @@ import { join } from 'path'
 import packageJson from '../package.json'
 
 export const resolvePath = (...args) => {
-  const path = [
-    __dirname,
-    '..',
-    ...args
-  ]
+  const path = [__dirname, '..', ...args]
 
   return join.apply(null, path)
 }
@@ -22,9 +18,9 @@ export const config = {
   resolve: ['.vue', '.js', '.json'],
   alias: {
     'vue-material': resolvePath('src/index.js'),
+    theme: resolvePath('src/theme'),
     core: resolvePath('src/core'),
-    components: resolvePath('src/components'),
-    theme: resolvePath('src/theme/index.scss')
+    components: resolvePath('src/components')
   }
 }
 
