@@ -78,6 +78,12 @@
               </md-table-row>
 
               <md-table-row>
+                <md-table-cell>debounce</md-table-cell>
+                <md-table-cell><code>Number</code></md-table-cell>
+                <md-table-cell>Debounce the <code>change</code> and <code>input</code> events emission. Default <code>300</code>ms</md-table-cell>
+              </md-table-row>
+
+              <md-table-row>
                 <md-table-cell>disabled</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
                 <md-table-cell>Disable the input and prevent its actions. Default <code>false</code></md-table-cell>
@@ -119,6 +125,12 @@
                 <md-table-cell>v-model</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
                 <md-table-cell>A required model object to bind the value.</md-table-cell>
+              </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>debounce</md-table-cell>
+                <md-table-cell><code>Number</code></md-table-cell>
+                <md-table-cell>Debounce the <code>change</code> and <code>input</code> events emission. Default <code>300</code>ms</md-table-cell>
               </md-table-row>
 
               <md-table-row>

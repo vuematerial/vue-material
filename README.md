@@ -10,9 +10,19 @@
   <a href="https://www.npmjs.com/package/vue-material">
     <img src="https://img.shields.io/npm/dt/vue-material.svg" alt="Downloads">
   </a>
+<<<<<<< HEAD
 
   <a href="https://www.npmjs.com/package/vue-material">
     <img src="https://img.shields.io/npm/v/vue-material.svg" alt="Version">
+=======
+
+  <a href="https://www.npmjs.com/package/vue-material">
+    <img src="https://img.shields.io/npm/v/vue-material.svg" alt="Version">
+  </a>
+
+  <a href="https://cdnjs.com/libraries/vue-material">
+    <img src="https://img.shields.io/cdnjs/v/vue-material.svg" alt="Version">
+>>>>>>> 369f3f0e392dd4fcc2c4e26e80a2e36d6dcf54cd
   </a>
 
   <a href="https://www.npmjs.com/package/vue-material">
