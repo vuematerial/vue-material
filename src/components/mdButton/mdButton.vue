@@ -27,12 +27,9 @@
     border-radius: $md-button-radius;
     transition: $md-transition-default;
     color: currentColor;
-    font-family: inherit;
+    font: inherit;
     font-size: 14px;
-    font-style: inherit;
-    font-variant: inherit;
     font-weight: 500;
-    letter-spacing: inherit;
     line-height: $md-button-height;
     text-align: center;
     text-transform: uppercase;

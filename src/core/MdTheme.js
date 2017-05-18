@@ -6,6 +6,11 @@ export default new Vue({
     active: 'default',
     enabled: true
   }),
+  computed: {
+    fullThemeName () {
+      return this.getThemeName()
+    }
+  },
   methods: {
     getAncestorTheme (component) {
       if (component) {
@@ -30,7 +35,21 @@ export default new Vue({
       return null
     },
     getThemeName (theme) {
-      return this.prefix + theme
+      const themeName = theme || this.active
+
+      return this.prefix + themeName
+    }
+  },
+  watch: {
+    enabled: {
+      immediate: true,
+      handler () {
+        if (this.enabled) {
+          document.body.classList.add(this.fullThemeName)
+        } else {
+          document.body.classList.remove(this.fullThemeName)
+        }
+      }
     }
   }
 })
