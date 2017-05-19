@@ -50,8 +50,13 @@
       },
       fireClick() {
         if (this.highlighted > 0) {
-          this.$children[0].$children[this.highlighted - 1].$el.click();
+          this.getOptions()[this.highlighted - 1].$el.click();
         }
+      },
+      getOptions() {
+        return this.$children[0].$children.filter((child) => {
+          return child.$el.classList.contains('md-option');
+        });
       }
     },
     mounted() {

@@ -1,7 +1,7 @@
 @import '../../core/stylesheets/variables.scss';
+@import '../mdCheckbox/mdCheckbox.scss';
 
 $radio-size: 20px;
-$radio-ripple-size: 48px;
 $radio-touch-size: 48px;
 
 .md-radio {
@@ -58,8 +58,8 @@ $radio-touch-size: 48px;
       color: rgba(#000, .54);
 
       .md-ripple {
-        width: $radio-ripple-size !important;
-        height: $radio-ripple-size !important;
+        width: $radio-touch-size !important;
+        height: $radio-touch-size !important;
         top: 0 !important;
         right: 0 !important;
         bottom: 0 !important;
