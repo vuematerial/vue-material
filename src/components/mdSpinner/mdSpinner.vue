@@ -2,11 +2,7 @@
   <transition name="md-spinner" appear>
     <div class="md-spinner" :class="[themeClass, classes]":style="styles">
       <svg class="md-spinner-draw" viewBox="25 25 50 50">
-<<<<<<< HEAD
         <circle class="md-spinner-path" cx="50" cy="50" r="20" :stroke-width="mdStroke" :stroke-dasharray="dashProgress"></circle>
-=======
-        <circle class="md-spinner-path" cx="50" cy="50" r="20" :stroke-width="mdStroke" :stroke-dasharray="dashProgress" />
->>>>>>> 369f3f0e392dd4fcc2c4e26e80a2e36d6dcf54cd
       </svg>
     </div>
   </transition>
