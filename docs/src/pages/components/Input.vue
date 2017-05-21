@@ -100,6 +100,12 @@
                 <md-table-cell><code>Number</code></md-table-cell>
                 <md-table-cell>Sets the maxlength and enable the text counter.</md-table-cell>
               </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>readonly</md-table-cell>
+                <md-table-cell><code>Boolean</code></md-table-cell>
+                <md-table-cell>Sets the component to read only mode.</md-table-cell>
+              </md-table-row>
             </md-table-body>
           </md-table>
         </api-table>
@@ -150,6 +156,12 @@
                 <md-table-cell><code>Number</code></md-table-cell>
                 <md-table-cell>Sets the maxlength and enable the text counter.</md-table-cell>
               </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>readonly</md-table-cell>
+                <md-table-cell><code>Boolean</code></md-table-cell>
+                <md-table-cell>Sets the component to read only mode.</md-table-cell>
+              </md-table-row>
             </md-table-body>
           </md-table>
         </api-table>
@@ -162,6 +174,11 @@
               <md-input-container>
                 <label>Initial value</label>
                 <md-input v-model="initialValue"></md-input>
+              </md-input-container>
+              
+              <md-input-container>
+                <label>Initial value (read only)</label>
+                <md-input v-model="initialValue" readonly></md-input>
               </md-input-container>
 
               <md-input-container>
