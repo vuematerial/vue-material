@@ -1,0 +1,73 @@
+@import '../../core/stylesheets/variables.scss';
+
+.md-grid {
+
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  overflow-y: auto;
+  max-height: 400px; //TODO: used to force scroll in docs
+
+  .md-grid-media {
+
+    margin: 1px;
+    position: relative;
+    width: calc(50% - 2px); //TODO: updated with mediaqueries
+
+    .md-grid-content {
+
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      position: absolute;
+      left: 0;
+      right: 0;
+
+      &.header {
+
+        top: 0;
+      }
+
+      &.footer {
+
+        bottom: 0;
+      }
+
+      div {
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 16px;  
+        font-size: 14px;
+
+        > :first-child:not(.md-button) {
+
+          font-size: 16px;
+        }
+
+        &.single-line {
+
+          height: 48px;
+        }
+
+        &.double-line {
+
+          height: 68px;
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+
+    .md-grid-media {
+
+      width: calc(33% - 2px);
+    }
+  }
+}

@@ -15,6 +15,7 @@ const Checkbox = (r) => require.ensure([], () => r(require('./pages/components/C
 const Chips = (r) => require.ensure([], () => r(require('./pages/components/Chips')), 'chips');
 const Dialog = (r) => require.ensure([], () => r(require('./pages/components/Dialog')), 'dialog');
 const FileComponent = (r) => require.ensure([], () => r(require('./pages/components/File')), 'file');
+const Grid = (r) => require.ensure([], () => r(require('./pages/components/Grid')), 'grid');
 const Icon = (r) => require.ensure([], () => r(require('./pages/components/Icon')), 'icon');
 const ImageLoader = (r) => require.ensure([], () => r(require('./pages/components/ImageLoader')), 'image-loader');
 const InkRipple = (r) => require.ensure([], () => r(require('./pages/components/InkRipple')), 'ink-ripple');
@@ -29,6 +30,7 @@ const Sidenav = (r) => require.ensure([], () => r(require('./pages/components/Si
 const Snackbar = (r) => require.ensure([], () => r(require('./pages/components/Snackbar')), 'snackbar');
 const SpeedDial = (r) => require.ensure([], () => r(require('./pages/components/SpeedDial')), 'speed-dial');
 const Spinner = (r) => require.ensure([], () => r(require('./pages/components/Spinner')), 'spinner');
+const Stepper = (r) => require.ensure([], () => r(require('./pages/components/Stepper')), 'stepper');
 const Subheader = (r) => require.ensure([], () => r(require('./pages/components/Subheader')), 'subheader');
 const Switch = (r) => require.ensure([], () => r(require('./pages/components/Switch')), 'switch');
 const Table = (r) => require.ensure([], () => r(require('./pages/components/Table')), 'table');
@@ -120,6 +122,11 @@ const components = [
     component: FileComponent
   },
   {
+    path: '/components/grid',
+    name: 'components:grid',
+    component: Grid
+  },
+  {
     path: '/components/icon',
     name: 'components:icon',
     component: Icon
@@ -188,6 +195,11 @@ const components = [
     path: '/components/spinner',
     name: 'components:spinner',
     component: Spinner
+  },
+  {
+    path: '/components/stepper',
+    name: 'components:stepper',
+    component: Stepper
   },
   {
     path: '/components/subheader',

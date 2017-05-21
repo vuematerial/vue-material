@@ -1,0 +1,43 @@
+.THEME_NAME {
+
+  &.md-grid {
+
+    .md-grid-media {
+
+      .md-grid-content {
+
+        background-color: rgba(0,0,0,0.5);
+        color: #{'BACKGROUND-COLOR'};
+
+        .md-icon {
+
+          color: #{'BACKGROUND-COLOR'};
+        }
+      }
+
+      &.md-primary {
+
+        .md-grid-content {
+
+          background-color: #{'PRIMARY-COLOR'};
+        }
+      }
+
+      &.md-accent {
+
+        .md-grid-content {
+
+          background-color: #{'ACCENT-COLOR'};
+        }
+      }
+
+      &.md-warn {
+
+        .md-grid-content {
+
+          background-color: #{'WARN-COLOR'};
+        }
+      }
+    }
+  }
+}
