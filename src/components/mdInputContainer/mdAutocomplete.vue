@@ -47,7 +47,7 @@
         selected: null,
         timeout: 0,
         parentContainer: null,
-        searchButton: null,
+        searchButton: null
       };
     },
     computed: {
