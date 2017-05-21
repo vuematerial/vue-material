@@ -24,6 +24,7 @@
     name: 'md-input-container',
     props: {
       mdInline: Boolean,
+      mdStacked: Boolean,
       mdHasPassword: Boolean,
       mdClearable: Boolean
     },
@@ -55,7 +56,8 @@
       },
       classes() {
         return {
-          'md-input-inline': this.mdInline,
+          'md-input-inline': this.mdInline && !this.mdStacked,
+          'md-input-stacked': this.mdStacked,
           'md-has-password': this.mdHasPassword,
           'md-clearable': this.mdClearable,
           'md-has-select': this.hasSelect,
