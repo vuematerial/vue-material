@@ -21,7 +21,7 @@
 
   export default {
     props: {
-      value: [String, Boolean, Number]
+      value: [String, Boolean, Number, Object]
     },
     data: () => ({
       parentSelect: {},

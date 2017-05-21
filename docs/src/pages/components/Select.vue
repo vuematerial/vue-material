@@ -303,7 +303,24 @@
           <div class="multiple" slot="demo">
             <div class="field-group">
               <md-input-container>
-                <label for="users">Users</label>
+                <label for="users">Simple multiselect</label>
+                <md-select name="option" id="option" multiple v-model="items">
+                  <md-option v-for="option in options"
+                    :key="option"
+                    :value="option">
+                    {{ option.name }}
+                  </md-option>
+                </md-select>
+              </md-input-container>
+            </div>
+
+            <div>Selected letters: {{ items }}</div>
+            <br/>
+            <br/>
+            
+            <div class="field-group">
+              <md-input-container>
+                <label for="users">Multiselect with subheaders</label>
                 <md-select name="users" id="users" multiple v-model="users">
                   <md-subheader>Managers</md-subheader>
                   <md-option value="jim_halpert">Jim Halpert</md-option>
@@ -325,12 +342,27 @@
                 </md-select>
               </md-input-container>
             </div>
-
+            
             <div>Selected users: {{ users }}</div>
+
           </div>
 
           <div slot="code">
             <code-block lang="xml">
+              &lt;md-input-container&gt;
+                &lt;label for=&quot;users=&quot;&gt;Simple multiselect&lt;/label&gt;
+                &lt;md-select name=&quot;option=&quot; id=&quot;option=&quot; multiple v-model=&quot;items=&quot;&gt;
+                  &lt;md-option v-for=&quot;option in options=&quot;
+                    :key=&quot;option=&quot;
+                    :value=&quot;option=&quot;&gt;
+                    { { option.name } }
+                  &lt;/md-option&gt;
+                &lt;md-select&gt;
+              &lt;/md-input-container&gt;
+
+              &lt;div&gt;Selected letters: {{ items }}&lt;/div&gt;              
+              
+              
               &lt;md-input-container&gt;
                 &lt;label for=&quot;users&quot;&gt;Users&lt;/label&gt;
                 &lt;md-select name=&quot;users&quot; id=&quot;users&quot; multiple v-model=&quot;users&quot;&gt;
@@ -361,10 +393,15 @@
               export default {
                 data: () => ({
                   food: '',
-                  users: [
-                    'jim_halpert',
-                    'michael_scott'
-                  ]
+                  users: [],
+                  options: [
+                    { id: 1, name: 'a' },
+                    { id: 2, name: 'b' },
+                    { id: 3, name: 'c' },
+                    { id: 4, name: 'd' },
+                    { id: 5, name: 'e' }
+                  ],
+                  items: []
                 })
               };
             </code-block>
@@ -400,10 +437,15 @@
       country: '',
       font: '',
       food: '',
-      users: [
-        'jim_halpert',
-        'michael_scott'
-      ]
+      users: [],
+      options: [
+        { id: 1, name: 'a' },
+        { id: 2, name: 'b' },
+        { id: 3, name: 'c' },
+        { id: 4, name: 'd' },
+        { id: 5, name: 'e' }
+      ],
+      items: []
     }),
     methods: {
       setPulpFiction() {
