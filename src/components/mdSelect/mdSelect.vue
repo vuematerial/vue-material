@@ -62,6 +62,7 @@
     watch: {
       value(value) {
         this.setTextAndValue(value);
+        this.selectOptions(value);
       },
       disabled() {
         this.setParentDisabled();
@@ -89,6 +90,16 @@
       },
       setParentPlaceholder() {
         this.parentContainer.hasPlaceholder = !!this.placeholder;
+      },
+      selectOptions(modelValue) {
+        const optionsArray = Object.keys(this.options).map((el) => this.options[el]);
+  
+        if (optionsArray && optionsArray.length) {
+          optionsArray.filter((el) => modelValue.indexOf(el.value) !== -1)
+            .forEach((el) => {
+              el.check = true;
+            });
+        }
       },
       getSingleValue(value) {
         let output = {};
@@ -134,7 +145,9 @@
         return {};
       },
       setTextAndValue(modelValue) {
-        const output = this.multiple ? this.getMultipleValue(modelValue) : this.getSingleValue(modelValue);
+        const output = this.multiple ?
+          this.getMultipleValue(modelValue) :
+          this.getSingleValue(modelValue);
 
         this.selectedValue = output.value;
         this.selectedText = output.text;

@@ -6,6 +6,7 @@
     :required="required"
     :placeholder="placeholder"
     :maxlength="maxlength"
+    :readonly="readonly"
     @focus="onFocus"
     @blur="onBlur"
     @input="onInput"></textarea>
