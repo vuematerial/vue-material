@@ -75,15 +75,13 @@ $chip-icon-font: $chip-icon-size - 4px;
 }
 
 .md-chips {
+  min-height: 54px;
+  display: flex;
+  flex-wrap: wrap;
+
   .md-chip {
     margin-right: 8px;
     margin-bottom: 4px;
-  }
-
-  .md-input-container {
-    min-height: 54px;
-    display: flex;
-    flex-wrap: wrap;
   }
 
   .md-input {
