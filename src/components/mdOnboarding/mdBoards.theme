@@ -1,0 +1,116 @@
+.THEME_NAME {
+  &.md-boards {
+    > .md-boards-navigation {
+      background-color: transparent;
+
+      .md-board-header {
+        color: #{'BACKGROUND-CONTRAST-0.54'};
+
+        &.md-active,
+        &:focus {
+          color: #{'PRIMARY-COLOR'};
+        }
+
+        &.md-disabled {
+          color: #{'BACKGROUND-CONTRAST-0.26'}
+        }
+      }
+
+      .md-button {
+        color: #{'PRIMARY-COLOR'};
+      }
+    }
+
+    &.md-transparent {
+      > .md-boards-navigation {
+        background-color: transparent;
+
+        .md-board-header {
+          color: #{'PRIMARY-CONTRAST-0.54'};
+
+          &.md-active,
+          &:focus {
+            color: #{'PRIMARY-CONTRAST'};
+          }
+
+          &.md-disabled {
+            color: #{'PRIMARY-CONTRAST-0.26'}
+          }
+        }
+
+        .md-button {
+          color: #{'PRIMARY-CONTRAST-0.54'};
+        }
+      }
+    }
+
+    &.md-primary {
+      > .md-boards-navigation {
+        background-color: #{'PRIMARY-COLOR'};
+
+        .md-board-header {
+          color: #{'PRIMARY-CONTRAST-0.54'};
+
+          &.md-active,
+          &:focus {
+            color: #{'PRIMARY-CONTRAST'};
+          }
+
+          &.md-disabled {
+            color: #{'PRIMARY-CONTRAST-0.26'}
+          }
+        }
+
+        .md-button {
+          color: #{'PRIMARY-CONTRAST-0.54'};
+        }
+      }
+    }
+
+    &.md-accent {
+      > .md-boards-navigation {
+        background-color: #{'ACCENT-COLOR'};
+
+        .md-board-header {
+          color: #{'ACCENT-CONTRAST-0.54'};
+
+          &.md-active,
+          &:focus {
+            color: #{'ACCENT-CONTRAST'};
+          }
+
+          &.md-disabled {
+            color: #{'ACCENT-CONTRAST-0.26'}
+          }
+        }
+
+        .md-button {
+          color: #{'ACCENT-CONTRAST-0.54'};
+        }
+      }
+    }
+
+    &.md-warn {
+      > .md-boards-navigation {
+        background-color: #{'WARN-COLOR'};
+
+        .md-board-header {
+          color: #{'WARN-CONTRAST-0.54'};
+
+          &.md-active,
+          &:focus {
+            color: #{'WARN-CONTRAST'};
+          }
+
+          &.md-disabled {
+            color: #{'WARN-CONTRAST-0.26'}
+          }
+        }
+
+        .md-button {
+          color: #{'WARN-CONTRAST-0.54'};
+        }
+      }
+    }
+  }
+}

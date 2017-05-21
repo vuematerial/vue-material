@@ -100,6 +100,10 @@
                 </md-list-item>
 
                 <md-list-item class="md-inset">
+                  <router-link exact to="/components/onboarding">Onboarding</router-link>
+                </md-list-item>
+
+                <md-list-item class="md-inset">
                   <router-link exact to="/components/progress">Progress</router-link>
                 </md-list-item>
 
