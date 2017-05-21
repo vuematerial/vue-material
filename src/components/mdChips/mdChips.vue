@@ -25,34 +25,6 @@
 
     <slot></slot>
   </md-input-container>
-  
-  <!--<div class="md-chips" :class="[themeClass, classes]">
-    <md-input-container @click.native="applyInputFocus">
-      <md-chip
-        v-for="chip in selectedChips"
-        :md-deletable="!mdStatic"
-        :md-editable="!mdStatic"
-        :disabled="disabled"
-        @delete="deleteChip(chip)"
-        @edit="editChip(chip)">
-        <slot :value="chip"></slot>
-      </md-chip>
-
-      <md-input
-        v-show="!mdStatic"
-        v-model="currentChip"
-        :type="mdInputType"
-        :placeholder="mdInputPlaceholder"
-        :id="inputId"
-        :name="mdInputName"
-        :disabled="disabled"
-        @keydown.native.delete="deleteLastChip"
-        @keydown.native.prevent.enter="addChip"
-        tabindex="0"
-        ref="input">
-      </md-input>
-    </md-input-container>
-  </div>-->
 </template>
 
 <style lang="scss" src="./mdChips.scss"></style>
