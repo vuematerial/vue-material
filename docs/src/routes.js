@@ -29,6 +29,7 @@ const Sidenav = (r) => require.ensure([], () => r(require('./pages/components/Si
 const Snackbar = (r) => require.ensure([], () => r(require('./pages/components/Snackbar')), 'snackbar');
 const SpeedDial = (r) => require.ensure([], () => r(require('./pages/components/SpeedDial')), 'speed-dial');
 const Spinner = (r) => require.ensure([], () => r(require('./pages/components/Spinner')), 'spinner');
+const Stepper = (r) => require.ensure([], () => r(require('./pages/components/Stepper')), 'stepper');
 const Subheader = (r) => require.ensure([], () => r(require('./pages/components/Subheader')), 'subheader');
 const Switch = (r) => require.ensure([], () => r(require('./pages/components/Switch')), 'switch');
 const Table = (r) => require.ensure([], () => r(require('./pages/components/Table')), 'table');
@@ -188,6 +189,11 @@ const components = [
     path: '/components/spinner',
     name: 'components:spinner',
     component: Spinner
+  },
+  {
+    path: '/components/stepper',
+    name: 'components:stepper',
+    component: Stepper
   },
   {
     path: '/components/subheader',
