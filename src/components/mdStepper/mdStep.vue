@@ -3,7 +3,7 @@
     <md-step-header
       v-if="vertical"
       :step="getStepData()"
-      @click.native="setActiveStep()">
+      @click="setActiveStep()">
     </md-step-header>
     <div class="md-step-content" v-if="!vertical || (vertical && isCurrentStep)">
       <slot></slot>
@@ -102,17 +102,17 @@
         if (this.index === 0) {
           return false;
         }
-  
+
         if (!this.parentStepper) {
           return false;
         }
-  
+
         var previousStep = this.parentStepper.getPreviousStep(this.stepId);
-  
+
         if (previousStep !== undefined && !previousStep.editable) {
           return false;
         }
-  
+
         return true;
       },
       continueText() {
@@ -133,7 +133,7 @@
         if (this.vertical) {
           return {};
         }
-  
+
         return {
           width: this.width,
           left: this.left
@@ -172,16 +172,16 @@
     },
     mounted() {
       let stepData = this.getStepData();
-  
+
       this.parentStepper = getClosestVueParent(this.$parent, 'md-stepper');
-  
+
       if (!this.parentStepper) {
         throw new Error('You must wrap the md-step in a md-stepper');
       }
 
       this.mounted = true;
       this.parentStepper.updateStep(stepData);
-  
+
       if (this.mdActive) {
         this.parentStepper.setActiveStep(stepData);
       }

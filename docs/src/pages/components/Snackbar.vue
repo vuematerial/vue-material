@@ -107,7 +107,7 @@
 
               <md-snackbar :md-position="vertical + ' ' + horizontal" ref="snackbar" :md-duration="duration">
                 <span>Connection timeout. Showing limited messages.</span>
-                <md-button class="md-accent" md-theme="light-blue" @click.native="$refs.snackbar.close()">Retry</md-button>
+                <md-button class="md-accent" md-theme="light-blue" @click="$refs.snackbar.close()">Retry</md-button>
               </md-snackbar>
             </form>
           </div>
@@ -140,7 +140,7 @@
 
                 &lt;md-snackbar :md-position=&quot;vertical + &#039; &#039; + horizontal&quot; ref=&quot;snackbar&quot; :md-duration=&quot;duration&quot;&gt;
                   &lt;span&gt;Connection timeout. Showing limited messages.&lt;/span&gt;
-                  &lt;md-button class=&quot;md-accent&quot; md-theme=&quot;light-blue&quot; @click.native=&quot;$refs.snackbar.close()&quot;&gt;Retry&lt;/md-button&gt;
+                  &lt;md-button class=&quot;md-accent&quot; md-theme=&quot;light-blue&quot; @click=&quot;$refs.snackbar.close()&quot;&gt;Retry&lt;/md-button&gt;
                 &lt;/md-snackbar&gt;
               &lt;/form&gt;
             </code-block>

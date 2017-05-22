@@ -286,8 +286,8 @@
               <md-dialog-content>Nemo, nobis necessitatibus ut illo, ducimus ex.</md-dialog-content>
 
               <md-dialog-actions>
-                <md-button class="md-primary" @click.native="closeDialog('dialog1')">Cancel</md-button>
-                <md-button class="md-primary" @click.native="closeDialog('dialog1')">Ok</md-button>
+                <md-button class="md-primary" @click="closeDialog('dialog1')">Cancel</md-button>
+                <md-button class="md-primary" @click="closeDialog('dialog1')">Ok</md-button>
               </md-dialog-actions>
             </md-dialog>
 
@@ -304,13 +304,13 @@
               </md-dialog-content>
 
               <md-dialog-actions>
-                <md-button class="md-primary" @click.native="closeDialog('dialog2')">Cancel</md-button>
-                <md-button class="md-primary" @click.native="closeDialog('dialog2')">Create</md-button>
+                <md-button class="md-primary" @click="closeDialog('dialog2')">Cancel</md-button>
+                <md-button class="md-primary" @click="closeDialog('dialog2')">Create</md-button>
               </md-dialog-actions>
             </md-dialog>
 
-            <md-button class="md-primary md-raised" id="custom" @click.native="openDialog('dialog1')">Custom</md-button>
-            <md-button class="md-fab md-fab-bottom-right" id="fab" @click.native="openDialog('dialog2')">
+            <md-button class="md-primary md-raised" id="custom" @click="openDialog('dialog1')">Custom</md-button>
+            <md-button class="md-fab md-fab-bottom-right" id="fab" @click="openDialog('dialog2')">
               <md-icon>add</md-icon>
             </md-button>
           </div>
@@ -323,8 +323,8 @@
                 &lt;md-dialog-content&gt;Nemo, nobis necessitatibus ut illo, ducimus ex.&lt;/md-dialog-content&gt;
 
                 &lt;md-dialog-actions&gt;
-                  &lt;md-button class=&quot;md-primary&quot; @click.native=&quot;closeDialog(&apos;dialog1&apos;)&quot;&gt;Cancel&lt;/md-button&gt;
-                  &lt;md-button class=&quot;md-primary&quot; @click.native=&quot;closeDialog(&apos;dialog1&apos;)&quot;&gt;Ok&lt;/md-button&gt;
+                  &lt;md-button class=&quot;md-primary&quot; @click=&quot;closeDialog(&apos;dialog1&apos;)&quot;&gt;Cancel&lt;/md-button&gt;
+                  &lt;md-button class=&quot;md-primary&quot; @click=&quot;closeDialog(&apos;dialog1&apos;)&quot;&gt;Ok&lt;/md-button&gt;
                 &lt;/md-dialog-actions&gt;
               &lt;/md-dialog&gt;
 
@@ -341,13 +341,13 @@
                 &lt;/md-dialog-content&gt;
 
                 &lt;md-dialog-actions&gt;
-                  &lt;md-button class=&quot;md-primary&quot; @click.native=&quot;closeDialog(&apos;dialog2&apos;)&quot;&gt;Cancel&lt;/md-button&gt;
-                  &lt;md-button class=&quot;md-primary&quot; @click.native=&quot;closeDialog(&apos;dialog2&apos;)&quot;&gt;Create&lt;/md-button&gt;
+                  &lt;md-button class=&quot;md-primary&quot; @click=&quot;closeDialog(&apos;dialog2&apos;)&quot;&gt;Cancel&lt;/md-button&gt;
+                  &lt;md-button class=&quot;md-primary&quot; @click=&quot;closeDialog(&apos;dialog2&apos;)&quot;&gt;Create&lt;/md-button&gt;
                 &lt;/md-dialog-actions&gt;
               &lt;/md-dialog&gt;
 
-              &lt;md-button class=&quot;md-primary md-raised&quot; id=&quot;custom&quot; @click.native=&quot;openDialog(&apos;dialog1&apos;)&quot;&gt;Custom&lt;/md-button&gt;
-              &lt;md-button class=&quot;md-fab md-fab-bottom-right&quot; id=&quot;fab&quot; @click.native=&quot;openDialog(&apos;dialog2&apos;)&quot;&gt;
+              &lt;md-button class=&quot;md-primary md-raised&quot; id=&quot;custom&quot; @click=&quot;openDialog(&apos;dialog1&apos;)&quot;&gt;Custom&lt;/md-button&gt;
+              &lt;md-button class=&quot;md-fab md-fab-bottom-right&quot; id=&quot;fab&quot; @click=&quot;openDialog(&apos;dialog2&apos;)&quot;&gt;
                 &lt;md-icon&gt;add&lt;/md-icon&gt;
               &lt;/md-button&gt;
             </code-block>
@@ -391,8 +391,8 @@
               ref="dialog4">
             </md-dialog-alert>
 
-            <md-button class="md-primary md-raised" @click.native="openDialog('dialog3')">Alert</md-button>
-            <md-button class="md-primary md-raised" @click.native="openDialog('dialog4')">Alert with HTML</md-button>
+            <md-button class="md-primary md-raised" @click="openDialog('dialog3')">Alert</md-button>
+            <md-button class="md-primary md-raised" @click="openDialog('dialog4')">Alert with HTML</md-button>
           </div>
 
           <div slot="code">
@@ -413,8 +413,8 @@
                 ref=&quot;dialog4&quot;&gt;
               &lt;/md-dialog-alert&gt;
 
-              &lt;md-button class=&quot;md-primary md-raised&quot; @click.native=&quot;openDialog(&apos;dialog3&apos;)&quot;&gt;Alert&lt;/md-button&gt;
-              &lt;md-button class=&quot;md-primary md-raised&quot; @click.native=&quot;openDialog(&apos;dialog4&apos;)&quot;&gt;Alert with HTML&lt;/md-button&gt;
+              &lt;md-button class=&quot;md-primary md-raised&quot; @click=&quot;openDialog(&apos;dialog3&apos;)&quot;&gt;Alert&lt;/md-button&gt;
+              &lt;md-button class=&quot;md-primary md-raised&quot; @click=&quot;openDialog(&apos;dialog4&apos;)&quot;&gt;Alert with HTML&lt;/md-button&gt;
             </code-block>
 
             <code-block lang="javascript">
@@ -460,7 +460,7 @@
               ref="dialog5">
             </md-dialog-confirm>
 
-            <md-button class="md-primary md-raised" @click.native="openDialog('dialog5')">Confirm</md-button>
+            <md-button class="md-primary md-raised" @click="openDialog('dialog5')">Confirm</md-button>
           </div>
 
           <div slot="code">
@@ -475,7 +475,7 @@
                 ref=&quot;dialog5&quot;&gt;
               &lt;/md-dialog-confirm&gt;
 
-              &lt;md-button class=&quot;md-primary md-raised&quot; @click.native=&quot;openDialog(&apos;dialog5&apos;)&quot;&gt;Confirm&lt;/md-button&gt;
+              &lt;md-button class=&quot;md-primary md-raised&quot; @click=&quot;openDialog(&apos;dialog5&apos;)&quot;&gt;Confirm&lt;/md-button&gt;
             </code-block>
 
             <code-block lang="javascript">
@@ -523,7 +523,7 @@
               ref="dialog6">
             </md-dialog-prompt>
 
-            <md-button class="md-primary md-raised" @click.native="openDialog('dialog6')">Prompt</md-button>
+            <md-button class="md-primary md-raised" @click="openDialog('dialog6')">Prompt</md-button>
           </div>
 
           <div slot="code">
@@ -538,7 +538,7 @@
                 ref=&quot;dialog6&quot;&gt;
               &lt;/md-dialog-prompt&gt;
 
-              &lt;md-button class=&quot;md-primary md-raised&quot; @click.native=&quot;openDialog(&apos;dialog6&apos;)&quot;&gt;Prompt&lt;/md-button&gt;
+              &lt;md-button class=&quot;md-primary md-raised&quot; @click=&quot;openDialog(&apos;dialog6&apos;)&quot;&gt;Prompt&lt;/md-button&gt;
             </code-block>
 
             <code-block lang="javascript">

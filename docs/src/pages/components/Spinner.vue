@@ -53,7 +53,7 @@
       <div slot="example">
         <example-box card-title="Determinate">
           <div class="spinner-demo" slot="demo">
-            <md-button class="md-primary md-raised" @click.native="restartProgress">Restart</md-button>
+            <md-button class="md-primary md-raised" @click="restartProgress">Restart</md-button>
             <md-spinner :md-progress="progress" v-if="transition"></md-spinner>
             <md-spinner :md-progress="progress" v-if="transition" class="md-accent"></md-spinner>
             <md-spinner :md-progress="progress" v-if="transition" class="md-warn"></md-spinner>
@@ -111,7 +111,7 @@
         <example-box card-title="Complete Example">
           <div slot="demo">
             <md-theme class="complete-example" md-name="orange">
-              <md-button class="md-fab" @click.native="restartProgress" :class="{ 'md-primary': done }">
+              <md-button class="md-fab" @click="restartProgress" :class="{ 'md-primary': done }">
                 <md-icon v-if="!done">cloud_upload</md-icon>
                 <md-icon v-if="done">done</md-icon>
               </md-button>
@@ -123,7 +123,7 @@
           <div slot="code">
             <code-block lang="xml">
               &lt;md-theme class=&quot;complete-example&quot; md-name=&quot;orange&quot;&gt;
-                &lt;md-button class=&quot;md-fab&quot; @click.native=&quot;restartProgress&quot; :class=&quot;{ &#039;md-primary&#039;: done }&quot;&gt;
+                &lt;md-button class=&quot;md-fab&quot; @click=&quot;restartProgress&quot; :class=&quot;{ &#039;md-primary&#039;: done }&quot;&gt;
                   &lt;md-icon v-if=&quot;!done&quot;&gt;cloud_upload&lt;/md-icon&gt;
                   &lt;md-icon v-if=&quot;done&quot;&gt;done&lt;/md-icon&gt;
                 &lt;/md-button&gt;

@@ -30,8 +30,8 @@
       <div slot="example">
         <example-box card-title="Default">
           <div slot="demo">
-            <md-button class="md-primary md-raised" @click.native="loadImage">Load Image</md-button>
-            <md-button class="md-primary md-raised" @click.native="clearImage">Clear Image</md-button>
+            <md-button class="md-primary md-raised" @click="loadImage">Load Image</md-button>
+            <md-button class="md-primary md-raised" @click="clearImage">Clear Image</md-button>
 
             <div>
               <md-image :md-src="src"></md-image>
@@ -40,8 +40,8 @@
 
           <div slot="code">
             <code-block lang="xml">
-              &lt;md-button class=&quot;md-primary md-raised&quot; @click.native=&quot;loadImage&quot;&gt;Load Image&lt;/md-button&gt;
-              &lt;md-button class=&quot;md-primary md-raised&quot; @click.native=&quot;clearImage&quot;&gt;Clear Image&lt;/md-button&gt;
+              &lt;md-button class=&quot;md-primary md-raised&quot; @click=&quot;loadImage&quot;&gt;Load Image&lt;/md-button&gt;
+              &lt;md-button class=&quot;md-primary md-raised&quot; @click=&quot;clearImage&quot;&gt;Clear Image&lt;/md-button&gt;
 
               &lt;div&gt;
                 &lt;md-image :md-src=&quot;src&quot;&gt;&lt;/md-image&gt;

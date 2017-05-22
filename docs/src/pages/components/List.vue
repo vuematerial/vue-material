@@ -858,7 +858,7 @@
               <md-list>
                 <md-list-item>Plain Text</md-list-item>
                 <md-list-item target="_blank" href="https://google.com">Link</md-list-item>
-                <md-list-item @click.native="openAlert">Button</md-list-item>
+                <md-list-item @click="openAlert">Button</md-list-item>
                 <md-list-item>
                   <router-link to="/components/list">Router View</router-link>
                 </md-list-item>
@@ -876,7 +876,7 @@
                   &lt;md-list&gt;
                     &lt;md-list-item&gt;Plain Text&lt;/md-list-item&gt;
                     &lt;md-list-item target=&quot;_blank&quot; href=&quot;https://google.com&quot;&gt;Link&lt;/md-list-item&gt;
-                    &lt;md-list-item @click.native=&quot;openAlert&quot;&gt;Button&lt;/md-list-item&gt;
+                    &lt;md-list-item @click=&quot;openAlert&quot;&gt;Button&lt;/md-list-item&gt;
                     &lt;md-list-item&gt;
                         &lt;router-link to=&quot;/components/list&quot;&gt;Router View&lt;/router-link&gt;
                     &lt;/md-list-item&gt;
@@ -1001,7 +1001,7 @@
                 &lt;md-list&gt;
                   &lt;md-list-item&gt;Plain Text&lt;/md-list-item&gt;
                   &lt;md-list-item target="_blank" href="https://google.com"&gt;Link&lt;/md-list-item&gt;
-                  &lt;md-list-item @click.native="openAlert"&gt;Button&lt;/md-list-item&gt;
+                  &lt;md-list-item @click="openAlert"&gt;Button&lt;/md-list-item&gt;
                   &lt;md-list-item&gt;
                     &lt;router-link to="/components/list"&gt;Router View&lt;/router-link&gt;
                   &lt;/md-list-item&gt;

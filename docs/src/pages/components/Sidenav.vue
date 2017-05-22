@@ -120,7 +120,7 @@
           <div slot="demo">
             <div class="phone-viewport">
               <md-toolbar>
-                <md-button class="md-icon-button" @click.native="toggleLeftSidenav">
+                <md-button class="md-icon-button" @click="toggleLeftSidenav">
                   <md-icon>menu</md-icon>
                 </md-button>
 
@@ -128,7 +128,7 @@
               </md-toolbar>
 
               <div>
-                <md-button class="md-raised md-accent" @click.native="toggleRightSidenav">Toggle right</md-button>
+                <md-button class="md-raised md-accent" @click="toggleRightSidenav">Toggle right</md-button>
                 <p>Open console to see the events</p>
               </div>
 
@@ -149,7 +149,7 @@
                   </div>
                 </md-toolbar>
 
-                <md-button class="md-raised md-accent" @click.native="closeRightSidenav">Close</md-button>
+                <md-button class="md-raised md-accent" @click="closeRightSidenav">Close</md-button>
               </md-sidenav>
             </div>
           </div>
@@ -158,7 +158,7 @@
             <code-block lang="xml">
               &lt;div class=&quot;phone-viewport&quot;&gt;
                 &lt;md-toolbar&gt;
-                  &lt;md-button class=&quot;md-icon-button&quot; @click.native=&quot;toggleLeftSidenav&quot;&gt;
+                  &lt;md-button class=&quot;md-icon-button&quot; @click=&quot;toggleLeftSidenav&quot;&gt;
                     &lt;md-icon&gt;menu&lt;/md-icon&gt;
                   &lt;/md-button&gt;
 
@@ -166,7 +166,7 @@
                 &lt;/md-toolbar&gt;
 
                 &lt;div&gt;
-                  &lt;md-button class=&quot;md-raised md-accent&quot; @click.native=&quot;toggleRightSidenav&quot;&gt;Toggle right&lt;/md-button&gt;
+                  &lt;md-button class=&quot;md-raised md-accent&quot; @click=&quot;toggleRightSidenav&quot;&gt;Toggle right&lt;/md-button&gt;
                   &lt;p&gt;Open console to see the events&lt;/p&gt;
                 &lt;/div&gt;
 
@@ -187,7 +187,7 @@
                     &lt;/div&gt;
                   &lt;/md-toolbar&gt;
 
-                  &lt;md-button class=&quot;md-raised md-accent&quot; @click.native=&quot;closeRightSidenav&quot;&gt;Close&lt;/md-button&gt;
+                  &lt;md-button class=&quot;md-raised md-accent&quot; @click=&quot;closeRightSidenav&quot;&gt;Close&lt;/md-button&gt;
                 &lt;/md-sidenav&gt;
               &lt;/div&gt;
             </code-block>
