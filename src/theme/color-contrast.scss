@@ -324,7 +324,7 @@ $md-linear-channel-values:
 
   @if ($lightContrast > $darkContrast) {
     @return 'dark';
-  } @else {
-    @return 'light';
   }
+
+  @return 'light';
 }

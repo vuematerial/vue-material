@@ -1,49 +1,89 @@
 <template>
   <div class="md-button" :class="[$mdActiveTheme]">
-    <slot />
+    <span class="md-button-content"><slot /></span>
   </div>
 </template>
 
 <style lang="scss">
   @import '~components/MdAnimation/variables';
+  @import '~components/MdElevation/index';
 
   $md-button-min-width: 88px;
   $md-button-height: 36px;
   $md-button-radius: 2px;
+  $md-button-font-size: 14px;
+
+  $md-button-dense-height: 32px;
 
   .md-button {
     min-width: $md-button-min-width;
     height: $md-button-height;
     margin: 6px 8px;
     padding: 0 8px;
-    display: inline-block;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
     overflow: hidden;
     user-select: none;
-    cursor: pointer;
     outline: none;
-    background: none;
     border: 0;
     border-radius: $md-button-radius;
     transition: $md-transition-default;
-    color: currentColor;
     font: inherit;
-    font-size: 14px;
+    font-size: $md-button-font-size;
     font-weight: 500;
     line-height: $md-button-height;
-    text-align: center;
     text-transform: uppercase;
     text-decoration: none;
-    vertical-align: top;
     white-space: nowrap;
 
-    &:focus {
+    &:active {
       outline: none;
     }
 
-    &::-moz-focus-inner {
-      border:0;
+    &:hover:not([disabled]) {
+      cursor: pointer;
     }
+
+    &::-moz-focus-inner {
+      padding: 0;
+      border: 0;
+    }
+
+    &:before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+      transition: $md-transition-default;
+      content: " ";
+    }
+
+    &.md-dense {
+      height: $md-button-dense-height;
+      line-height: $md-button-dense-height;
+      font-size: 13px;
+    }
+
+    &.md-raised:not([disabled]) {
+      @include md-elevation(2);
+
+      &:active {
+        @include md-elevation(8);
+      }
+    }
+
+    + .md-button {
+      margin-left: 0;
+    }
+  }
+
+  .md-button-content {
+    position: relative;
+    z-index: 2;
   }
 </style>
 

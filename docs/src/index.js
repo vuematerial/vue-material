@@ -3,15 +3,9 @@ import VueMaterial from 'vue-material'
 import MdButton from 'components/MdButton'
 import App from './App'
 
-Vue.use(VueMaterial, {
-  theming: {
-    enabled: false,
-    theme: 'default'
-  }
-})
+Vue.use(VueMaterial)
 Vue.use(MdButton)
 Vue.config.productionTip = false
-// Vue.material.theming.enabled = false
 
 const root = new Vue({
   name: 'root',
