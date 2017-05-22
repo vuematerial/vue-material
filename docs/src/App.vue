@@ -2,21 +2,33 @@
   <div class="container">
     <slot />
 
-    <a href="">Test</a>
-
     <div>
+      <div>Default</div>
       <md-button>Button</md-button>
+      <md-button class="md-primary">Button</md-button>
       <md-button class="md-accent">Button</md-button>
     </div>
 
     <div>
-      <md-button md-theme="secondary">Button</md-button>
-      <md-button md-theme="secondary" class="md-accent">Button</md-button>
+      <div>Raised</div>
+      <md-button md-theme="secondary" class="md-raised">Button</md-button>
+      <md-button md-theme="secondary" class="md-raised md-primary">Button</md-button>
+      <md-button md-theme="secondary" class="md-raised md-accent">Button</md-button>
     </div>
 
     <div>
-      <md-button md-theme="tertiary">Button</md-button>
-      <md-button md-theme="tertiary" class="md-accent">Button</md-button>
+      <div>Dense</div>
+      <md-button md-theme="secondary" class="md-dense">Button</md-button>
+      <md-button md-theme="secondary" class="md-dense md-raised">Button</md-button>
+      <md-button md-theme="secondary" class="md-dense md-raised md-primary">Button</md-button>
+      <md-button md-theme="secondary" class="md-dense md-raised md-accent">Button</md-button>
+    </div>
+
+    <div>
+      <div>Disabled</div>
+      <md-button disabled md-theme="tertiary">Button</md-button>
+      <md-button disabled md-theme="tertiary" class="md-raised md-primary">Button</md-button>
+      <md-button disabled md-theme="tertiary" class="md-raised md-accent">Button</md-button>
     </div>
   </div>
 </template>
