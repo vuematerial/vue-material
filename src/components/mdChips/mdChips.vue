@@ -1,31 +1,30 @@
 <template>
-  <div class="md-chips" :class="[themeClass, classes]">
-    <md-input-container @click.native="applyInputFocus">
-      <md-chip
-        v-for="chip in selectedChips"
-        :md-deletable="!mdStatic"
-        :md-editable="!mdStatic"
-        :disabled="disabled"
-        @delete="deleteChip(chip)"
-        @edit="editChip(chip)">
-        <slot :value="chip"></slot>
-      </md-chip>
+  <md-input-container class="md-chips" :class="[themeClass, classes]" @click.native="applyInputFocus">
+    <md-chip
+      v-for="chip in selectedChips"
+      :md-deletable="!mdStatic"
+      :disabled="disabled"
+      @delete="deleteChip(chip)">
+      <slot name="chip" :value="chip">{{ chip }}</slot>
+    </md-chip>
 
-      <md-input
-        v-show="!mdStatic"
-        v-model="currentChip"
-        :type="mdInputType"
-        :placeholder="mdInputPlaceholder"
-        :id="inputId"
-        :name="mdInputName"
-        :disabled="disabled"
-        @keydown.native.delete="deleteLastChip"
-        @keydown.native.prevent.enter="addChip"
-        tabindex="0"
-        ref="input">
-      </md-input>
-    </md-input-container>
-  </div>
+    <md-input
+      v-show="!mdStatic"
+      v-model="currentChip"
+      :type="mdInputType"
+      :placeholder="mdInputPlaceholder"
+      :id="inputId"
+      :name="mdInputName"
+      :disabled="disabled"
+      @keydown.native.delete="deleteLastChip"
+      @keydown.native.prevent.enter="addChip"
+      @keydown.native.prevent.186="addChip"
+      tabindex="0"
+      ref="input">
+    </md-input>
+
+    <slot></slot>
+  </md-input-container>
 </template>
 
 <style lang="scss" src="./mdChips.scss"></style>
@@ -69,7 +68,8 @@
       classes() {
         return {
           'md-static': this.mdStatic,
-          'md-disabled': this.disabled
+          'md-disabled': this.disabled,
+          'md-chips': true
         };
       }
     },

@@ -848,7 +848,7 @@
           </div>
         </example-box>
 
-        <example-box card-title="Controls">
+        <example-box card-title="Multiple Options">
           <div slot="demo">
             <div class="phone-viewport">
               <md-toolbar md-theme="white">
@@ -864,7 +864,30 @@
                 </md-list-item>
               </md-list>
             </div>
+          </div>
 
+          <div slot="code">
+            <code-block lang="xml">
+              &lt;div class=&quot;phone-viewport&quot;&gt;
+                  &lt;md-toolbar md-theme=&quot;white&quot;&gt;
+                  &lt;span class=&quot;md-title&quot;&gt;Multiple options&lt;/span&gt;
+                  &lt;/md-toolbar&gt;
+
+                  &lt;md-list&gt;
+                    &lt;md-list-item&gt;Plain Text&lt;/md-list-item&gt;
+                    &lt;md-list-item target=&quot;_blank&quot; href=&quot;https://google.com&quot;&gt;Link&lt;/md-list-item&gt;
+                    &lt;md-list-item @click.native=&quot;openAlert&quot;&gt;Button&lt;/md-list-item&gt;
+                    &lt;md-list-item&gt;
+                        &lt;router-link to=&quot;/components/list&quot;&gt;Router View&lt;/router-link&gt;
+                    &lt;/md-list-item&gt;
+                  &lt;/md-list&gt;
+              &lt;/div&gt;
+            </code-block>
+          </div>
+        </example-box>
+
+        <example-box card-title="Expand List">
+          <div slot="demo">
             <div class="phone-viewport">
               <md-toolbar md-theme="white">
                 <span class="md-title">Single Expand</span>
@@ -986,52 +1009,109 @@
               &lt;/div&gt;
 
               &lt;div class=&quot;phone-viewport&quot;&gt;
-                &lt;md-list&gt;
-                  &lt;md-list-item&gt;
-                    &lt;md-icon&gt;whatshot&lt;/md-icon&gt;
-                    &lt;span&gt;News&lt;/span&gt;
+                  &lt;md-toolbar md-theme=&quot;white&quot;&gt;
+                  &lt;span class=&quot;md-title&quot;&gt;Single Expand&lt;/span&gt;
+                  &lt;/md-toolbar&gt;
 
-                    &lt;md-list-expand&gt;
+                  &lt;md-list&gt;
+                  &lt;md-list-item&gt;
+                      &lt;md-icon&gt;whatshot&lt;/md-icon&gt;
+                      &lt;span&gt;News&lt;/span&gt;
+
+                      &lt;md-list-expand&gt;
                       &lt;md-list&gt;
-                        &lt;md-list-item class=&quot;md-inset&quot;&gt;World&lt;/md-list-item&gt;
-                        &lt;md-list-item class=&quot;md-inset&quot;&gt;Americas&lt;/md-list-item&gt;
-                        &lt;md-list-item class=&quot;md-inset&quot;&gt;Europe&lt;/md-list-item&gt;
+                          &lt;md-list-item class=&quot;md-inset&quot;&gt;World&lt;/md-list-item&gt;
+                          &lt;md-list-item class=&quot;md-inset&quot;&gt;Americas&lt;/md-list-item&gt;
+                          &lt;md-list-item class=&quot;md-inset&quot;&gt;Europe&lt;/md-list-item&gt;
                       &lt;/md-list&gt;
-                    &lt;/md-list-expand&gt;
+                      &lt;/md-list-expand&gt;
                   &lt;/md-list-item&gt;
 
                   &lt;md-list-item&gt;
-                    &lt;md-icon&gt;videogame_asset&lt;/md-icon&gt;
-                    &lt;span&gt;Games&lt;/span&gt;
+                      &lt;md-icon&gt;videogame_asset&lt;/md-icon&gt;
+                      &lt;span&gt;Games&lt;/span&gt;
 
-                    &lt;md-list-expand&gt;
+                      &lt;md-list-expand&gt;
                       &lt;md-list&gt;
-                        &lt;md-list-item class=&quot;md-inset&quot;&gt;Console&lt;/md-list-item&gt;
-                        &lt;md-list-item class=&quot;md-inset&quot;&gt;PC&lt;/md-list-item&gt;
-                        &lt;md-list-item class=&quot;md-inset&quot;&gt;Phone&lt;/md-list-item&gt;
+                          &lt;md-list-item class=&quot;md-inset&quot;&gt;Console&lt;/md-list-item&gt;
+                          &lt;md-list-item class=&quot;md-inset&quot;&gt;PC&lt;/md-list-item&gt;
+                          &lt;md-list-item class=&quot;md-inset&quot;&gt;Phone&lt;/md-list-item&gt;
                       &lt;/md-list&gt;
-                    &lt;/md-list-expand&gt;
+                      &lt;/md-list-expand&gt;
                   &lt;/md-list-item&gt;
 
                   &lt;md-list-item&gt;
-                    &lt;md-icon&gt;video_library&lt;/md-icon&gt;
-                    &lt;span&gt;Video&lt;/span&gt;
+                      &lt;md-icon&gt;video_library&lt;/md-icon&gt;
+                      &lt;span&gt;Video&lt;/span&gt;
 
-                    &lt;md-list-expand&gt;
+                      &lt;md-list-expand&gt;
                       &lt;md-list&gt;
-                        &lt;md-list-item class=&quot;md-inset&quot;&gt;Humor&lt;/md-list-item&gt;
-                        &lt;md-list-item class=&quot;md-inset&quot;&gt;Music&lt;/md-list-item&gt;
-                        &lt;md-list-item class=&quot;md-inset&quot;&gt;Movies&lt;/md-list-item&gt;
-                        &lt;md-list-item class=&quot;md-inset&quot;&gt;TV Shows&lt;/md-list-item&gt;
+                          &lt;md-list-item class=&quot;md-inset&quot;&gt;Humor&lt;/md-list-item&gt;
+                          &lt;md-list-item class=&quot;md-inset&quot;&gt;Music&lt;/md-list-item&gt;
+                          &lt;md-list-item class=&quot;md-inset&quot;&gt;Movies&lt;/md-list-item&gt;
+                          &lt;md-list-item class=&quot;md-inset&quot;&gt;TV Shows&lt;/md-list-item&gt;
                       &lt;/md-list&gt;
-                    &lt;/md-list-expand&gt;
+                      &lt;/md-list-expand&gt;
                   &lt;/md-list-item&gt;
 
                   &lt;md-list-item&gt;
-                    &lt;md-icon&gt;shopping_basket&lt;/md-icon&gt;
-                    &lt;span&gt;Shop&lt;/span&gt;
+                      &lt;md-icon&gt;shopping_basket&lt;/md-icon&gt;
+                      &lt;span&gt;Shop&lt;/span&gt;
                   &lt;/md-list-item&gt;
-                &lt;/md-list&gt;
+                  &lt;/md-list&gt;
+              &lt;/div&gt;
+
+              &lt;div class=&quot;phone-viewport&quot;&gt;
+                  &lt;md-toolbar md-theme=&quot;white&quot;&gt;
+                  &lt;span class=&quot;md-title&quot;&gt;Multiple Expand&lt;/span&gt;
+                  &lt;/md-toolbar&gt;
+
+                  &lt;md-list&gt;
+                  &lt;md-list-item md-expand-multiple&gt;
+                      &lt;md-icon&gt;whatshot&lt;/md-icon&gt;
+                      &lt;span&gt;News&lt;/span&gt;
+
+                      &lt;md-list-expand&gt;
+                      &lt;md-list&gt;
+                          &lt;md-list-item class=&quot;md-inset&quot;&gt;World&lt;/md-list-item&gt;
+                          &lt;md-list-item class=&quot;md-inset&quot;&gt;Americas&lt;/md-list-item&gt;
+                          &lt;md-list-item class=&quot;md-inset&quot;&gt;Europe&lt;/md-list-item&gt;
+                      &lt;/md-list&gt;
+                      &lt;/md-list-expand&gt;
+                  &lt;/md-list-item&gt;
+
+                  &lt;md-list-item md-expand-multiple&gt;
+                      &lt;md-icon&gt;videogame_asset&lt;/md-icon&gt;
+                      &lt;span&gt;Games&lt;/span&gt;
+
+                      &lt;md-list-expand&gt;
+                      &lt;md-list&gt;
+                          &lt;md-list-item class=&quot;md-inset&quot;&gt;Console&lt;/md-list-item&gt;
+                          &lt;md-list-item class=&quot;md-inset&quot;&gt;PC&lt;/md-list-item&gt;
+                          &lt;md-list-item class=&quot;md-inset&quot;&gt;Phone&lt;/md-list-item&gt;
+                      &lt;/md-list&gt;
+                      &lt;/md-list-expand&gt;
+                  &lt;/md-list-item&gt;
+
+                  &lt;md-list-item md-expand-multiple&gt;
+                      &lt;md-icon&gt;video_library&lt;/md-icon&gt;
+                      &lt;span&gt;Video&lt;/span&gt;
+
+                      &lt;md-list-expand&gt;
+                      &lt;md-list&gt;
+                          &lt;md-list-item class=&quot;md-inset&quot;&gt;Humor&lt;/md-list-item&gt;
+                          &lt;md-list-item class=&quot;md-inset&quot;&gt;Music&lt;/md-list-item&gt;
+                          &lt;md-list-item class=&quot;md-inset&quot;&gt;Movies&lt;/md-list-item&gt;
+                          &lt;md-list-item class=&quot;md-inset&quot;&gt;TV Shows&lt;/md-list-item&gt;
+                      &lt;/md-list&gt;
+                      &lt;/md-list-expand&gt;
+                  &lt;/md-list-item&gt;
+
+                  &lt;md-list-item&gt;
+                      &lt;md-icon&gt;shopping_basket&lt;/md-icon&gt;
+                      &lt;span&gt;Shop&lt;/span&gt;
+                  &lt;/md-list-item&gt;
+                  &lt;/md-list&gt;
               &lt;/div&gt;
 
               &lt;div class="phone-viewport"&gt;

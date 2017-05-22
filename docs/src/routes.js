@@ -21,6 +21,7 @@ const InkRipple = (r) => require.ensure([], () => r(require('./pages/components/
 const Input = (r) => require.ensure([], () => r(require('./pages/components/Input')), 'input');
 const List = (r) => require.ensure([], () => r(require('./pages/components/List')), 'list');
 const Menu = (r) => require.ensure([], () => r(require('./pages/components/Menu')), 'menu');
+const Onboarding = (r) => require.ensure([], () => r(require('./pages/components/Onboarding')), 'onboarding');
 const Progress = (r) => require.ensure([], () => r(require('./pages/components/Progress')), 'progress');
 const Radio = (r) => require.ensure([], () => r(require('./pages/components/Radio')), 'radio');
 const Select = (r) => require.ensure([], () => r(require('./pages/components/Select')), 'select');
@@ -148,6 +149,11 @@ const components = [
     path: '/components/menu',
     name: 'components:menu',
     component: Menu
+  },
+  {
+    path: '/components/onboarding',
+    name: 'components:onboarding',
+    component: Onboarding
   },
   {
     path: '/components/progress',

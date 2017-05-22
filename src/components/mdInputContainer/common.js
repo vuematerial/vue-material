@@ -9,7 +9,8 @@ export default {
     required: Boolean,
     maxlength: [Number, String],
     name: String,
-    placeholder: String
+    placeholder: String,
+    readonly: Boolean
   },
   data() {
     return {

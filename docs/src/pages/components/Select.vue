@@ -174,7 +174,7 @@
                   <md-option value="arial">Arial</md-option>
                   <md-option value="calibri">Calibri</md-option>
                   <md-option value="cambria">Cambria</md-option>
-                  <md-option value="comic_sans">Comic Sans</md-option>
+                  <md-option value="comic_sans" :disabled="true">Comic Sans</md-option>
                   <md-option value="consolas">Consolas</md-option>
                   <md-option value="courier">Courier</md-option>
                   <md-option value="droid_sans">Droid Sans</md-option>
@@ -185,7 +185,7 @@
                   <md-option value="segoe_ui">Segoe UI</md-option>
                   <md-option value="times_new_roman">Times New Roman</md-option>
                   <md-option value="ubuntu">Ubuntu</md-option>
-                  <md-option value="verdana">Verdana</md-option>
+                  <md-option value="verdana" :disabled="isDisabled">Verdana</md-option>
                 </md-select>
               </md-input-container>
 
@@ -244,7 +244,7 @@
                     &lt;md-option value=&quot;arial&quot;&gt;Arial&lt;/md-option&gt;
                     &lt;md-option value=&quot;calibri&quot;&gt;Calibri&lt;/md-option&gt;
                     &lt;md-option value=&quot;cambria&quot;&gt;Cambria&lt;/md-option&gt;
-                    &lt;md-option value=&quot;comic_sans&quot;&gt;Comic Sans&lt;/md-option&gt;
+                    &lt;md-option value=&quot;comic_sans&quot; :disabled=&quot;true&quot;&gt;Comic Sans&lt;/md-option&gt;
                     &lt;md-option value=&quot;consolas&quot;&gt;Consolas&lt;/md-option&gt;
                     &lt;md-option value=&quot;courier&quot;&gt;Courier&lt;/md-option&gt;
                     &lt;md-option value=&quot;droid_sans&quot;&gt;Droid Sans&lt;/md-option&gt;
@@ -255,7 +255,7 @@
                     &lt;md-option value=&quot;segoe_ui&quot;&gt;Segoe UI&lt;/md-option&gt;
                     &lt;md-option value=&quot;times_new_roman&quot;&gt;Times New Roman&lt;/md-option&gt;
                     &lt;md-option value=&quot;ubuntu&quot;&gt;Ubuntu&lt;/md-option&gt;
-                    &lt;md-option value=&quot;verdana&quot;&gt;Verdana&lt;/md-option&gt;
+                    &lt;md-option value=&quot;verdana&quot; :disabled=&quot;isDisabled&quot;&gt;Verdana&lt;/md-option&gt;
                   &lt;/md-select&gt;
                 &lt;/md-input-container&gt;
 
@@ -289,6 +289,11 @@
                   country: '',
                   font: ''
                 }),
+                computed: {
+                  isDisabled() {
+                    return true;
+                  }
+                },
                 methods: {
                   setPulpFiction() {
                     this.movie = 'pulp_fiction';
@@ -303,7 +308,24 @@
           <div class="multiple" slot="demo">
             <div class="field-group">
               <md-input-container>
-                <label for="users">Users</label>
+                <label for="users">Simple multiselect</label>
+                <md-select name="option" id="option" multiple v-model="items">
+                  <md-option v-for="option in options"
+                    :key="option"
+                    :value="option">
+                    {{ option.name }}
+                  </md-option>
+                </md-select>
+              </md-input-container>
+            </div>
+
+            <div>Selected letters: {{ items }}</div>
+            <br/>
+            <br/>
+            
+            <div class="field-group">
+              <md-input-container>
+                <label for="users">Multiselect with subheaders</label>
                 <md-select name="users" id="users" multiple v-model="users">
                   <md-subheader>Managers</md-subheader>
                   <md-option value="jim_halpert">Jim Halpert</md-option>
@@ -325,12 +347,27 @@
                 </md-select>
               </md-input-container>
             </div>
-
+            
             <div>Selected users: {{ users }}</div>
+
           </div>
 
           <div slot="code">
             <code-block lang="xml">
+              &lt;md-input-container&gt;
+                &lt;label for=&quot;users=&quot;&gt;Simple multiselect&lt;/label&gt;
+                &lt;md-select name=&quot;option=&quot; id=&quot;option=&quot; multiple v-model=&quot;items=&quot;&gt;
+                  &lt;md-option v-for=&quot;option in options=&quot;
+                    :key=&quot;option=&quot;
+                    :value=&quot;option=&quot;&gt;
+                    { { option.name } }
+                  &lt;/md-option&gt;
+                &lt;md-select&gt;
+              &lt;/md-input-container&gt;
+
+              &lt;div&gt;Selected letters: {{ items }}&lt;/div&gt;              
+              
+              
               &lt;md-input-container&gt;
                 &lt;label for=&quot;users&quot;&gt;Users&lt;/label&gt;
                 &lt;md-select name=&quot;users&quot; id=&quot;users&quot; multiple v-model=&quot;users&quot;&gt;
@@ -361,10 +398,15 @@
               export default {
                 data: () => ({
                   food: '',
-                  users: [
-                    'jim_halpert',
-                    'michael_scott'
-                  ]
+                  users: [],
+                  options: [
+                    { id: 1, name: 'a' },
+                    { id: 2, name: 'b' },
+                    { id: 3, name: 'c' },
+                    { id: 4, name: 'd' },
+                    { id: 5, name: 'e' }
+                  ],
+                  items: []
                 })
               };
             </code-block>
@@ -400,11 +442,21 @@
       country: '',
       font: '',
       food: '',
-      users: [
-        'jim_halpert',
-        'michael_scott'
-      ]
+      users: [],
+      options: [
+        { id: 1, name: 'a' },
+        { id: 2, name: 'b' },
+        { id: 3, name: 'c' },
+        { id: 4, name: 'd' },
+        { id: 5, name: 'e' }
+      ],
+      items: []
     }),
+    computed: {
+      isDisabled() {
+        return true;
+      }
+    },
     methods: {
       setPulpFiction() {
         this.movie = 'pulp_fiction';

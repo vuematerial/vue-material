@@ -106,6 +106,132 @@
                 <md-table-cell><code>Number</code></md-table-cell>
                 <md-table-cell>Sets the maxlength and enable the text counter.</md-table-cell>
               </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>readonly</md-table-cell>
+                <md-table-cell><code>Boolean</code></md-table-cell>
+                <md-table-cell>Sets the component to read only mode.</md-table-cell>
+              </md-table-row>
+            </md-table-body>
+          </md-table>
+        </api-table>
+
+        <api-table name="md-autocomplete">
+          <md-table slot="properties">
+            <md-table-header>
+              <md-table-row>
+                <md-table-head>Name</md-table-head>
+                <md-table-head>Type</md-table-head>
+                <md-table-head>Description</md-table-head>
+              </md-table-row>
+            </md-table-header>
+
+            <md-table-body>
+              <md-table-row>
+                <md-table-cell>v-model</md-table-cell>
+                <md-table-cell><code>String</code></md-table-cell>
+                <md-table-cell>A required model object to bind the value.</md-table-cell>
+              </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>debounce</md-table-cell>
+                <md-table-cell><code>Number</code></md-table-cell>
+                <md-table-cell>Sets the debounce time. Default <code>1000</code> milliseconds</md-table-cell>
+              </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>fetch</md-table-cell>
+                <md-table-cell><code>Function</code></md-table-cell>
+                <md-table-cell>Sets the fetch function mdAutocomplete will call after the debounce is reached. Chosing <code>fetch</code> prop <strong>disables</strong> the use of either <code>list</code> and <code>filterList</code> props.</md-table-cell>
+              </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>list</md-table-cell>
+                <md-table-cell><code>Array</code></md-table-cell>
+                <md-table-cell>Sets an array of possible values. Default <code>[]</code>. MdAutocomplete will only search in this list if it's set. Chosing <code>list</code> prop <strong>disables</strong> the use of <code>fetch</code> prop.</md-table-cell>
+              </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>filter-list</md-table-cell>
+                <md-table-cell><code>Function</code></md-table-cell>
+                <md-table-cell>Sets a filter function which will be used to filter the <code>list</code> props. Chosing <code>filterList</code> prop <strong>requires</strong> the use of <code>list</code> props and <strong>disables</strong> the use of <code>fetch</code> prop.</md-table-cell>
+              </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>min-chars</md-table-cell>
+                <md-table-cell><code>Number</code></md-table-cell>
+                <md-table-cell>Sets the minimum number of characters before making opening the autocomplete options or making a request. Default <code>3</code></md-table-cell>
+              </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>prepare-response-data</md-table-cell>
+                <md-table-cell><code>Function</code></md-table-cell>
+                <md-table-cell>This function will be called once the <code>fetch</code> prop has a response. It can manipulate the data received from the server. The output should always be an <code>Array</code>.</md-table-cell>
+              </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>print-attribute</md-table-cell>
+                <md-table-cell><code>String</code></md-table-cell>
+                <md-table-cell>This prop will be used to print values on the autocomplete list. It shall match an object key expected on the <code>fetch</code> result list. Default <code>name</code></md-table-cell>
+              </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>query-param</md-table-cell>
+                <md-table-cell><code>String</code></md-table-cell>
+                <md-table-cell>Sets the query parameter. Example: http//api.com/<strong>q</strong>?=SOMETHING. Default <code>q</code></md-table-cell>
+              </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>disabled</md-table-cell>
+                <md-table-cell><code>Boolean</code></md-table-cell>
+                <md-table-cell>Disable the input and prevent his actions. Default <code>false</code></md-table-cell>
+              </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>required</md-table-cell>
+                <md-table-cell><code>Boolean</code></md-table-cell>
+                <md-table-cell>Apply the required rule to style the label with an "*". Default <code>false</code></md-table-cell>
+              </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>placeholder</md-table-cell>
+                <md-table-cell><code>String</code></md-table-cell>
+                <md-table-cell>Sets the placeholder.</md-table-cell>
+              </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>maxlength</md-table-cell>
+                <md-table-cell><code>Number</code></md-table-cell>
+                <md-table-cell>Sets the maxlength and enable the text counter.</md-table-cell>
+              </md-table-row>
+            </md-table-body>
+          </md-table>
+
+          <md-table slot="events">
+            <md-table-header>
+              <md-table-row>
+                <md-table-head>Name</md-table-head>
+                <md-table-head>Value</md-table-head>
+                <md-table-head>Description</md-table-head>
+              </md-table-row>
+            </md-table-header>
+
+            <md-table-body>
+              <md-table-row>
+                <md-table-cell>change</md-table-cell>
+                <md-table-cell>The <code>String</code> selected</md-table-cell>
+                <md-table-cell>Triggered when the user selects an item from the autocomplete list</md-table-cell>
+              </md-table-row>
+              <md-table-row>
+                <md-table-cell>input</md-table-cell>
+                <md-table-cell>The <code>String</code> selected</md-table-cell>
+                <md-table-cell>Triggered when the user selects an item from the autocomplete list</md-table-cell>
+              </md-table-row>
+              <md-table-row>
+                <md-table-cell>selected</md-table-cell>
+                <md-table-cell>Emits the <code>Object</code> as well as the <code>String</code> selected.</md-table-cell>
+                <md-table-cell>Triggered when the user selects an item from the autocomplete list</md-table-cell>
+              </md-table-row>
             </md-table-body>
           </md-table>
         </api-table>
@@ -156,6 +282,12 @@
                 <md-table-cell><code>Number</code></md-table-cell>
                 <md-table-cell>Sets the maxlength and enable the text counter.</md-table-cell>
               </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>readonly</md-table-cell>
+                <md-table-cell><code>Boolean</code></md-table-cell>
+                <md-table-cell>Sets the component to read only mode.</md-table-cell>
+              </md-table-row>
             </md-table-body>
           </md-table>
         </api-table>
@@ -168,6 +300,16 @@
               <md-input-container>
                 <label>Initial value</label>
                 <md-input v-model="initialValue"></md-input>
+              </md-input-container>
+              
+              <md-input-container>
+                <label>Initial value (read only)</label>
+                <md-input v-model="initialValue" readonly></md-input>
+              </md-input-container>
+
+              <md-input-container>
+                <label>Autocomplete (with fetch)</label>
+                <md-autocomplete v-model="autocompleteValue" :fetch="fetchAutocomplete"></md-autocomplete>
               </md-input-container>
 
               <md-input-container>
@@ -211,6 +353,11 @@
                 &lt;/md-input-container&gt;
 
                 &lt;md-input-container&gt;
+                  &lt;label&gt;Autocomplete (with fetch)&lt;/label&gt;
+                  &lt;md-input v-model=&quot;autocompleteValue&quot; :fetch=&quot;fetchFunction&quot;&gt;&lt;/md-input&gt;
+                &lt;/md-input-container&gt;
+
+                &lt;md-input-container&gt;
                   &lt;label&gt;With label&lt;/label&gt;
                   &lt;md-input placeholder=&quot;My nice placeholder&quot;&gt;&lt;/md-input&gt;
                 &lt;/md-input-container&gt;
@@ -248,7 +395,19 @@
                   return {
                     initialValue: &apos;My initial value&apos;
                   };
-                }
+                },
+                methods: {
+                  fetchFunction(param) {
+                    // param = { queryParam: query }
+
+                    // &apos;fetchAutocomplete&apos; should return a Promise.
+
+                    // md-autocomplete will call fetchAutocomplete and pass
+                    // &apos;param&apos; as an argument.
+                    // the &apos;param&apos; is composed by a query param and
+                    // a query.
+                  },
+                },
               };
             </code-block>
           </div>
@@ -478,8 +637,34 @@
   export default {
     data() {
       return {
-        initialValue: 'My initial value'
+        autocompleteValue: '',
+        initialValue: 'My initial value',
+        listAutocomplete: [
+          {name: 'oi'},
+          {name: 'hello'},
+          {name: 'salut'}
+        ]
       };
+    },
+    methods: {
+      fetchAutocomplete(param) {
+        const myInit = {
+          method: 'GET',
+          headers: new Headers(),
+          mode: 'cors',
+          cache: 'default'
+        };
+        const url = 'https://typeahead-js-twitter-api-proxy.herokuapp.com/demo/search';
+        const queryParam = Object.keys(param)[0];
+        const queryValue = param[queryParam];
+        const queryUrl = `${url}?${queryParam}=${queryValue}`;
+
+        return window.fetch(queryUrl, myInit)
+          .then((res) => res.json());
+      },
+      filterList(list, query) {
+        return list.filter((el) => el.name.indexOf(query) !== -1);
+      }
     }
   };
 </script>

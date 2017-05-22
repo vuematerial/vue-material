@@ -1,28 +1,34 @@
 <template>
   <div class="md-tabs" :class="[themeClass, tabClasses]">
     <md-whiteframe md-tag="nav" class="md-tabs-navigation" :md-elevation="mdElevation" :class="navigationClasses" ref="tabNavigation">
-      <div class="md-tabs-navigation-container" ref="tabsContainer" @scroll="calculateIndicatorPos">
-      <button
-        v-for="header in tabList"
-        :key="header.id"
-        type="button"
-        class="md-tab-header"
-        :class="getHeaderClass(header)"
-        :disabled="header.disabled"
-        @click="setActiveTab(header)"
-        ref="tabHeader">
-        <md-ink-ripple :md-disabled="header.disabled"></md-ink-ripple>
-        <div class="md-tab-header-container">
-          <slot name="header-item" :header="header">
-            <md-icon v-if="header.icon">{{ header.icon }}</md-icon>
-            <span v-if="header.label">{{ header.label }}</span>
-          </slot>
-          <md-tooltip v-if="header.tooltip" :md-direction="header.tooltipDirection" :md-delay="header.tooltipDelay">{{ header.tooltip }}</md-tooltip>
-        </div>
-      </button>
+      <div class="md-tabs-navigation-container" ref="tabsContainer" @scroll="handleNavigationScroll">
+        <div class="md-tabs-navigation-scroll-container">
+          <button
+            v-for="header in tabList"
+            :key="header.id"
+            type="button"
+            class="md-tab-header"
+            :class="getHeaderClass(header)"
+            :disabled="header.disabled"
+            @click="setActiveTab(header)"
+            ref="tabHeader">
+            <md-ink-ripple :md-disabled="header.disabled"></md-ink-ripple>
+            <div class="md-tab-header-container">
+              <md-icon v-if="header.icon">{{ header.icon }}</md-icon>
+              <span v-if="header.label">{{ header.label }}</span>
+              <md-tooltip v-if="header.tooltip" :md-direction="header.tooltipDirection" :md-delay="header.tooltipDelay">{{ header.tooltip }}</md-tooltip>
+            </div>
+          </button>
 
-      <span class="md-tab-indicator" :class="indicatorClasses" ref="indicator"></span>
+          <span class="md-tab-indicator" :class="indicatorClasses" ref="indicator"></span>
+        </div>
       </div>
+      <button v-if="mdNavigation && hasNavigationScroll" @click="navigationScrollLeft" class="md-tab-header-navigation-button md-left" :class="navigationLeftButtonClasses">
+        <md-icon>keyboard_arrow_left</md-icon>
+      </button>
+      <button v-if="mdNavigation && hasNavigationScroll" @click="navigationScrollRight" class="md-tab-header-navigation-button md-right" :class="navigationRightButtonClasses">
+        <md-icon>keyboard_arrow_right</md-icon>
+      </button>
     </md-whiteframe>
 
     <div class="md-tabs-content" ref="tabContent" :style="{ height: contentHeight }">
@@ -45,6 +51,10 @@
       mdFixed: Boolean,
       mdCentered: Boolean,
       mdRight: Boolean,
+      mdNavigation: {
+        type: Boolean,
+        default: true
+      },
       mdDynamicHeight: {
         type: Boolean,
         default: true
@@ -61,6 +71,9 @@
       activeTabNumber: 0,
       hasIcons: false,
       hasLabel: false,
+      hasNavigationScroll: false,
+      isNavigationOnStart: true,
+      isNavigationOnEnd: false,
       transitionControl: null,
       transitionOff: false,
       contentHeight: '0px',
@@ -79,7 +92,8 @@
           'md-has-label': this.hasLabel,
           'md-fixed': this.mdFixed,
           'md-right': !this.mdCentered && this.mdRight,
-          'md-centered': this.mdCentered || this.mdFixed
+          'md-centered': this.mdCentered || this.mdFixed,
+          'md-has-navigation-scroll': this.hasNavigationScroll
         };
       },
       indicatorClasses() {
@@ -91,6 +105,16 @@
           'md-transition-off': this.transitionOff,
           'md-to-right': !toLeft,
           'md-to-left': toLeft
+        };
+      },
+      navigationLeftButtonClasses() {
+        return {
+          'md-disabled': this.isNavigationOnStart
+        };
+      },
+      navigationRightButtonClasses() {
+        return {
+          'md-disabled': this.isNavigationOnEnd
         };
       }
     },
@@ -178,6 +202,7 @@
           this.calculateIndicatorPos();
           this.calculateTabsWidthAndPosition();
           this.calculateContentHeight();
+          this.checkNavigationScroll();
         });
       },
       debounceTransition() {
@@ -195,6 +220,23 @@
         this.transitionOff = true;
         this.calculateOnWatch();
       },
+      calculateScrollPos() {
+        const { scrollLeft, scrollWidth, clientWidth } = this.$refs.tabsContainer;
+
+        this.isNavigationOnStart = scrollLeft < 32;
+        this.isNavigationOnEnd = scrollWidth - scrollLeft - 32 < clientWidth;
+      },
+      handleNavigationScroll() {
+        window.requestAnimationFrame(() => {
+          this.calculateIndicatorPos();
+          this.calculateScrollPos();
+        });
+      },
+      checkNavigationScroll() {
+        const { scrollWidth, clientWidth } = this.$refs.tabsContainer;
+
+        this.hasNavigationScroll = scrollWidth > clientWidth;
+      },
       setActiveTab(tabData) {
         this.hasIcons = !!tabData.icon;
         this.hasLabel = !!tabData.label;
@@ -202,6 +244,16 @@
         this.activeTabNumber = this.getTabIndex(this.activeTab);
         this.calculatePosition();
         this.$emit('change', this.activeTabNumber);
+      },
+      navigationScrollLeft() {
+        const { scrollLeft, clientWidth } = this.$refs.tabsContainer;
+
+        this.$refs.tabsContainer.scrollLeft = Math.max(0, scrollLeft - clientWidth);
+      },
+      navigationScrollRight() {
+        const { scrollLeft, clientWidth, scrollWidth } = this.$refs.tabsContainer;
+
+        this.$refs.tabsContainer.scrollLeft = Math.min(scrollWidth, scrollLeft + clientWidth);
       }
     },
     mounted() {
