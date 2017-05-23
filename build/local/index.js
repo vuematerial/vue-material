@@ -13,7 +13,11 @@ const devMiddlewareInstance = devMiddleware(compiler, {
   publicPath: config.public,
   index: config.index,
   quiet: true,
-  historyApiFallback: true
+  historyApiFallback: true,
+  watchOptions: {
+    aggregateTimeout: 10,
+    poll: 10
+  }
 })
 
 const hotMiddlewareInstance = hotMiddleware(compiler, {
