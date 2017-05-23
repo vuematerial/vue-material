@@ -1,6 +1,8 @@
 <template>
   <div class="md-button" :class="[$mdActiveTheme]">
-    <span class="md-button-content"><slot /></span>
+    <span class="md-button-content">
+      <slot />
+    </span>
   </div>
 </template>
 
@@ -72,7 +74,7 @@
       @include md-elevation(2);
 
       &:active {
-        @include md-elevation(8);
+        @include md-elevation(6);
       }
     }
 

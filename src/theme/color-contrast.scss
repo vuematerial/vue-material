@@ -314,8 +314,16 @@ $md-linear-channel-values:
   @return max($bgLum, $fgLum) / min($bgLum, $fgLum);
 }
 
-// Determine whether to use dark or light text on top of given color.
-// Returns black for dark text and white for light text.
+
+/**
+ * Determine whether to use dark or light text on top of given color.
+ * Returns dark or light depending on the contrast ratio.
+ * ---
+ * @access private
+ * ---
+ * @param {string} $color —  The desired color to be compared
+ */
+
 @function md-pick-contrast($color) {
   $lightColor: map-get(map-get($md-color-levels, dark), text-primary);
   $lightContrast: md-calculate-contrast($color, $lightColor);

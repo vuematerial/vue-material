@@ -1,49 +1,47 @@
 .md-button {
-  &:not([disabled]) {
-    &:hover,
-    &:focus {
-      &:before {
-        @include md-theme-property(background-color, focused);
-      }
-    }
-
-    &:active {
-      &:before {
-        @include md-theme-property(background-color, pressed);
-      }
-    }
-  }
-
-  &:not(.md-raised) {
-    &.md-primary {
-      @include md-theme-property(color, primary, background);
-    }
-
-    &.md-accent {
-      @include md-theme-property(color, accent, background);
-    }
-
-    &[disabled] {
-      @include md-theme-property(color, disabled, background);
-    }
-  }
-
-  &.md-raised {
-    &[disabled] {
-      @include md-theme-property(color, disabled, background);
-      @include md-theme-property(background-color, focused, background);
-    }
-
+  @include md-theme-component() {
     &:not([disabled]) {
-      &.md-primary {
-        @include md-theme-component() {
-          @include md-theme-property(background-color, primary);
-          @include md-theme-property(color, text-primary, primary);
+      &:hover,
+      &:focus {
+        &:before {
+          @include md-theme-property(background-color, focused);
         }
       }
 
+      &:active {
+        &:before {
+          @include md-theme-property(background-color, pressed);
+        }
+      }
+    }
+
+    &:not(.md-raised) {
+      &.md-primary {
+        @include md-theme-property(color, primary, background);
+      }
+
       &.md-accent {
-        @include md-theme-component() {
+        @include md-theme-property(color, accent, background);
+      }
+
+      &[disabled] {
+        @include md-theme-property(color, disabled, background);
+      }
+    }
+
+    &.md-raised {
+      &[disabled] {
+        @include md-theme-property(color, disabled, background);
+        @include md-theme-property(background-color, focused, background);
+      }
+
+      &:not([disabled]) {
+        &.md-primary {
+          @include md-theme-property(background-color, primary);
+          @include md-theme-property(color, text-primary, primary);
+        }
+
+        &.md-accent {
           @include md-theme-property(background-color, accent);
           @include md-theme-property(color, text-primary, accent);
         }
