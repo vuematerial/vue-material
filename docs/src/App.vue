@@ -18,17 +18,17 @@
 
     <div>
       <div>Dense</div>
-      <md-button md-theme="secondary" class="md-dense">Button</md-button>
-      <md-button md-theme="secondary" class="md-dense md-raised">Button</md-button>
-      <md-button md-theme="secondary" class="md-dense md-raised md-primary">Button</md-button>
-      <md-button md-theme="secondary" class="md-dense md-raised md-accent">Button</md-button>
+      <md-button md-theme="tertiary" class="md-dense">Button</md-button>
+      <md-button md-theme="tertiary" class="md-dense md-raised">Button</md-button>
+      <md-button md-theme="tertiary" class="md-dense md-raised md-primary">Button</md-button>
+      <md-button md-theme="tertiary" class="md-dense md-raised md-accent">Button</md-button>
     </div>
 
     <div>
       <div>Disabled</div>
-      <md-button disabled md-theme="tertiary">Button</md-button>
-      <md-button disabled md-theme="tertiary" class="md-raised md-primary">Button</md-button>
-      <md-button disabled md-theme="tertiary" class="md-raised md-accent">Button</md-button>
+      <md-button disabled>Button</md-button>
+      <md-button disabled class="md-raised md-primary">Button</md-button>
+      <md-button disabled class="md-raised md-accent">Button</md-button>
     </div>
   </div>
 </template>
@@ -36,9 +36,9 @@
 <style lang="scss">
   @import '~theme/index';
 
-  @include md-register-theme('default', $md-theme-black-green);
+  @include md-register-theme('default', $md-theme-blue-red);
   @include md-register-theme('secondary', $md-theme-green-orange);
-  @include md-register-theme('tertiary', $md-theme-blue-red);
+  @include md-register-theme('tertiary', $md-theme-black-green);
 
   @import '~base/theme';
   @import '~components/mdButton/theme';
