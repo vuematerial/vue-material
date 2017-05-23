@@ -1,10 +1,12 @@
 import MdButton from './MdButton'
+import MdRipple from './MdRipple'
 
 export const components = {
-  MdButton
+  MdButton,
+  MdRipple
 }
 
-export const registerAll = (Vue) => {
+export const install = (Vue) => {
   Object.values(components).forEach((component) => {
     Vue.use(component)
   })
