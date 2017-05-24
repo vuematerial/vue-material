@@ -2,6 +2,7 @@
   @include md-theme-component() {
     &:not([disabled]) {
       &:hover,
+      &:active,
       &:focus {
         &:before {
           background-color: currentColor;
@@ -9,7 +10,6 @@
         }
       }
 
-      &:focus,
       &:active {
         &:before {
           opacity: .2;

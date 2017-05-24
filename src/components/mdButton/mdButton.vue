@@ -31,7 +31,7 @@
     outline: none;
     border: 0;
     border-radius: $md-button-radius;
-    transition: $md-transition-default;
+    transition: .3s $md-transition-default-timing;
     font: inherit;
     font-size: $md-button-font-size;
     font-weight: 500;
@@ -60,7 +60,7 @@
       left: 0;
       z-index: 1;
       opacity: 0;
-      transition: $md-transition-default;
+      transition: .3s $md-transition-default-timing;
       content: " ";
     }
 
@@ -73,7 +73,7 @@
       @include md-elevation(2);
 
       &:active {
-        @include md-elevation(6);
+        @include md-elevation(8);
       }
     }
 

@@ -18,7 +18,6 @@
 
     <div>
       <div>Dense</div>
-      <md-button md-theme="tertiary" class="md-dense">Button</md-button>
       <md-button md-theme="tertiary" class="md-dense md-raised">Button</md-button>
       <md-button md-theme="tertiary" class="md-dense md-raised md-primary">Button</md-button>
       <md-button md-theme="tertiary" class="md-dense md-raised md-accent">Button</md-button>
