@@ -1,5 +1,10 @@
 <template>
-  <div class="md-ripple" @touchstart.stop="startRipple" @touchend.stop="endRipple" @mousedown.stop="startRipple" @mouseup.stop="endRipple" :class="{ pressed }">
+  <div class="md-ripple"
+    @touchstart.passive.stop="startRipple"
+    @touchend.passive.stop="endRipple"
+    @mousedown.passive.stop="startRipple"
+    @mouseup.passive.stop="endRipple"
+    :class="pressedStyles">
     <transition name="md-ripple" appear @after-enter="clearWave">
       <span class="md-ripple-wave" ref="rippleWave" :style="waveStyles" v-if="animating"></span>
     </transition>
@@ -20,7 +25,7 @@
     -webkit-mask-image: radial-gradient(circle, white 100%, black 100%);
     transition: background-color $md-transition-default;
 
-    &.pressed {
+    &.md-pressed {
       background-color: rgba(#000, .12);
     }
   }
@@ -36,7 +41,7 @@
   }
 
   .md-ripple-enter-active {
-    transition: .8s $md-transition-enter-timing;
+    transition: 1s $md-transition-stand-timing;
     transition-property: opacity, transform;
     will-change: opacity, transform;
   }
@@ -58,6 +63,13 @@
       animating: false,
       pressed: false
     }),
+    computed: {
+      pressedStyles () {
+        return {
+          'md-pressed': this.pressed
+        }
+      }
+    },
     methods: {
       async startRipple ($event) {
         if (!this.eventType || this.eventType === $event.type) {
