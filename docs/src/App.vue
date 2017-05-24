@@ -4,7 +4,7 @@
 
     <div>
       <div>Default</div>
-      <md-button>Button</md-button>
+      <md-button :md-ripple="false">Button</md-button>
       <md-button class="md-primary">Button</md-button>
       <md-button class="md-accent">Button</md-button>
     </div>

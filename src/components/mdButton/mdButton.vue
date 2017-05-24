@@ -4,7 +4,7 @@
       <slot />
     </span>
 
-    <md-ripple />
+    <md-ripple :md-disabled="!mdRipple" />
   </div>
 </template>
 
@@ -99,6 +99,12 @@
     name: 'MdButton',
     components: {
       MdRipple
+    },
+    props: {
+      mdRipple: {
+        type: Boolean,
+        default: true
+      }
     }
   })
 </script>
