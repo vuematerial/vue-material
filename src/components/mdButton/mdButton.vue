@@ -59,6 +59,7 @@
       bottom: 0;
       left: 0;
       z-index: 1;
+      opacity: 0;
       transition: $md-transition-default;
       content: " ";
     }
