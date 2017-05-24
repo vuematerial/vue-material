@@ -1,10 +1,10 @@
 <template>
   <div class="md-button" :class="[$mdActiveTheme]">
-    <span class="md-button-content">
-      <slot />
-    </span>
-
-    <md-ripple :md-disabled="!mdRipple" />
+    <md-ripple :md-disabled="!mdRipple">
+      <span class="md-button-content">
+        <slot />
+      </span>
+    </md-ripple>
   </div>
 </template>
 
@@ -25,8 +25,6 @@
     margin: 6px 8px;
     padding: 0 8px;
     display: inline-flex;
-    justify-content: center;
-    align-items: center;
     position: relative;
     overflow: hidden;
     user-select: none;
@@ -80,6 +78,12 @@
 
     + .md-button {
       margin-left: 0;
+    }
+
+    .md-ripple {
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 

@@ -16,6 +16,7 @@
 
       &:active {
         &:before {
+          opacity: 1;
           @include md-theme-property(background-color, pressed);
         }
       }

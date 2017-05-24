@@ -1,14 +1,10 @@
 <template>
-  <div class="md-ripple"
-    @touchstart.passive.stop="startRipple"
-    @touchend.passive.stop="endRipple"
-    @mousedown.passive.stop="startRipple"
-    @mouseup.passive.stop="endRipple"
-    :class="pressedStyles"
-    v-if="!mdDisabled">
-    <transition name="md-ripple" appear @after-enter="clearWave">
-      <span class="md-ripple-wave" ref="rippleWave" :style="waveStyles" v-if="animating"></span>
+  <div class="md-ripple" @touchstart.passive.stop="startRipple" @mousedown.passive.stop="startRipple">
+    <transition name="md-ripple" appear @after-enter="clearWave" v-if="!mdDisabled">
+      <span class="md-ripple-wave" ref="rippleWave" :style="waveStyles" v-if="animating" />
     </transition>
+
+    <slot />
   </div>
 </template>
 
@@ -21,24 +17,25 @@
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: 3;
+    z-index: 99;
     overflow: hidden;
-    -webkit-mask-image: radial-gradient(circle, white 100%, black 100%);
+    -webkit-mask-image: radial-gradient(circle, #fff 100%, #000 100%);
     transition: background-color $md-transition-default;
-
-    &.md-pressed {
-      background-color: rgba(#000, .12);
-    }
   }
 
   .md-ripple-wave {
     position: absolute;
-    z-index: 4;
+    z-index: 1;
     pointer-events: none;
     background: #000;
     border-radius: 50%;
     opacity: 0;
     transform: scale(2) translateZ(0);
+
+    ~ * {
+      position: relative;
+      z-index: 2;
+    }
   }
 
   .md-ripple-enter-active {
@@ -64,19 +61,13 @@
     data: () => ({
       eventType: null,
       waveStyles: null,
-      animating: false,
-      pressed: false
+      animating: false
     }),
-    computed: {
-      pressedStyles () {
-        return {
-          'md-pressed': this.pressed
-        }
-      }
-    },
     methods: {
       async startRipple ($event) {
-        if (!this.eventType || this.eventType === $event.type) {
+        const { eventType, mdDisabled } = this
+
+        if (!mdDisabled && (!eventType || eventType === $event.type)) {
           let rippleSize = this.getSize()
           const touchPosition = this.getTouchPosition($event, rippleSize)
 
@@ -86,16 +77,12 @@
 
           this.eventType = $event.type
           this.animating = true
-          this.pressed = true
           this.waveStyles = {
             ...touchPosition,
             width: rippleSize,
             height: rippleSize
           }
         }
-      },
-      endRipple () {
-        this.pressed = false
       },
       clearWave () {
         this.waveStyles = null
