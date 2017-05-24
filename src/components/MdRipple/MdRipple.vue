@@ -45,7 +45,7 @@
   }
 
   .md-ripple-enter {
-    opacity: .38;
+    opacity: .26;
     transform: scale(0) translateZ(0);
   }
 </style>
