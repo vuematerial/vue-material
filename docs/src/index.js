@@ -7,9 +7,9 @@ Vue.use(VueMaterial)
 Vue.use(VueMaterialComponents)
 Vue.config.productionTip = false
 
-const root = new Vue({
+// eslint-disable-next-line
+new Vue({
   name: 'root',
+  el: '#docs',
   render: mount => mount(App)
 })
-
-root.$mount('#docs')

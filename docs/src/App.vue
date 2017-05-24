@@ -2,8 +2,6 @@
   <div class="container">
     <slot />
 
-    <md-ripple />
-
     <div>
       <div>Default</div>
       <md-button>Button</md-button>
