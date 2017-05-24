@@ -37,7 +37,6 @@
     font: inherit;
     font-size: $md-button-font-size;
     font-weight: 500;
-    line-height: $md-button-height;
     text-transform: uppercase;
     text-decoration: none;
     white-space: nowrap;
@@ -68,7 +67,6 @@
 
     &.md-dense {
       height: $md-button-dense-height;
-      line-height: $md-button-dense-height;
       font-size: 13px;
     }
 
@@ -92,19 +90,9 @@
 </style>
 
 <script>
-  import MdComponent from 'core/MdComponent'
-  import MdRipple from 'components/MdRipple/MdRipple'
+  import MdUseRipple from 'core/MdUseRipple'
 
-  export default new MdComponent({
-    name: 'MdButton',
-    components: {
-      MdRipple
-    },
-    props: {
-      mdRipple: {
-        type: Boolean,
-        default: true
-      }
-    }
+  export default new MdUseRipple({
+    name: 'MdButton'
   })
 </script>
