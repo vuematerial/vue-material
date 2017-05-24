@@ -42,7 +42,7 @@ $md-transition-leave: $md-transition-leave-duration $md-transition-leave-timing;
 
 /**
  * The stand transition, used when the element is going to accelerate,
- * like movements to top
+ * like movements from bottom to top
  * ---
  * @access private
  * @type transition
@@ -55,8 +55,8 @@ $md-transition-stand: $md-transition-stand-duration $md-transition-stand-timing;
 
 
 /**
- * The out transition, used when the element is going to accelerate,
- * like movements to top
+ * The out transition, used when the element is going to deaccelerate,
+ * like movements from top to bottom
  * ---
  * @access private
  * @type transition

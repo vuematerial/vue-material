@@ -1,7 +1,13 @@
 .md-button {
   @include md-theme-component() {
     &:not([disabled]) {
-      &:hover,
+      &:hover {
+        &:before {
+          @include md-theme-property(background-color, focused);
+          opacity: .5;
+        }
+      }
+
       &:focus {
         &:before {
           @include md-theme-property(background-color, focused);

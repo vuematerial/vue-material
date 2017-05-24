@@ -3,6 +3,8 @@
     <span class="md-button-content">
       <slot />
     </span>
+
+    <md-ripple />
   </div>
 </template>
 
@@ -91,8 +93,12 @@
 
 <script>
   import MdComponent from 'core/MdComponent'
+  import MdRipple from 'components/MdRipple/MdRipple'
 
   export default new MdComponent({
-    name: 'MdButton'
+    name: 'MdButton',
+    components: {
+      MdRipple
+    }
   })
 </script>
