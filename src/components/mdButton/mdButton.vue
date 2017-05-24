@@ -31,7 +31,8 @@
     outline: none;
     border: 0;
     border-radius: $md-button-radius;
-    transition: .3s $md-transition-default-timing;
+    transition: $md-transition-default;
+    will-change: box-shadow, color, background-color;
     font: inherit;
     font-size: $md-button-font-size;
     font-weight: 500;
@@ -60,7 +61,8 @@
       left: 0;
       z-index: 1;
       opacity: 0;
-      transition: .3s $md-transition-default-timing;
+      transition: $md-transition-default;
+      will-change: background-color, opacity;
       content: " ";
     }
 
