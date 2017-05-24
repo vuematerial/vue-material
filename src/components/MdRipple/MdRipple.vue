@@ -27,7 +27,7 @@
     position: absolute;
     z-index: 1;
     pointer-events: none;
-    background: #000;
+    background: currentColor;
     border-radius: 50%;
     opacity: 0;
     transform: scale(2) translateZ(0);
