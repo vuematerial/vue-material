@@ -1,4 +1,5 @@
 import MdTheme from 'core/MdTheme'
+import deepmerge from 'deepmerge'
 
 export default function (newComponent) {
   const defaults = {
@@ -18,8 +19,5 @@ export default function (newComponent) {
     }
   }
 
-  return {
-    ...defaults,
-    ...newComponent
-  }
+  return deepmerge(defaults, newComponent)
 }

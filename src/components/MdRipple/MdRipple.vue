@@ -4,7 +4,8 @@
     @touchend.passive.stop="endRipple"
     @mousedown.passive.stop="startRipple"
     @mouseup.passive.stop="endRipple"
-    :class="pressedStyles">
+    :class="pressedStyles"
+    v-if="!mdDisabled">
     <transition name="md-ripple" appear @after-enter="clearWave">
       <span class="md-ripple-wave" ref="rippleWave" :style="waveStyles" v-if="animating"></span>
     </transition>
@@ -57,6 +58,9 @@
 
   export default new MdComponent({
     name: 'MdRipple',
+    props: {
+      mdDisabled: Boolean
+    },
     data: () => ({
       eventType: null,
       waveStyles: null,
