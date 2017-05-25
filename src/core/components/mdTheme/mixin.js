@@ -36,8 +36,6 @@ export default {
   beforeMount() {
     const localTheme = this.mdTheme;
 
-    if (localTheme) {
-      this.$material.useTheme(localTheme);
-    }
+    this.$material.useTheme(localTheme ? localTheme : 'default');
   }
 };

@@ -62,6 +62,7 @@
     watch: {
       value(value) {
         this.setTextAndValue(value);
+
         if (this.multiple) {
           this.selectOptions(value);
         }

@@ -73,11 +73,6 @@
   flex-basis: auto;
   overflow: auto;
   position: relative;
-  background: linear-gradient(to bottom, #fff 0, #fff 1px, transparent 1px),
-              linear-gradient(to top, #fff 0, #fff 3px, transparent 3px),
-              linear-gradient(to bottom, rgba(#000, .12) 0, rgba(#000, .12) 1px, transparent 1px),
-              linear-gradient(to top, rgba(#000, .2) 1px, rgba(#000, .2) 2px, transparent 2px);
-  background-attachment: local, local, scroll, scroll;
 
   &:first-child {
     padding-top: 24px;
@@ -112,7 +107,6 @@
     top: -1px;
     right: 0;
     left: 0;
-    background-color: #fff;
     content: " ";
   }
 
