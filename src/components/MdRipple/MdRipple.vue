@@ -1,7 +1,7 @@
 <template>
   <div class="md-ripple" @touchstart.passive.stop="startRipple" @mousedown.passive.stop="startRipple">
     <transition name="md-ripple" appear @after-enter="clearWave" v-if="!mdDisabled">
-      <span class="md-ripple-wave" ref="rippleWave" :style="waveStyles" v-if="animating" />
+      <span class="md-ripple-wave" :class="rippleClass" :style="waveStyles" v-if="animating" ref="rippleWave" />
     </transition>
 
     <slot />
@@ -32,6 +32,11 @@
     opacity: 0;
     transform: scale(2) translateZ(0);
 
+    &.md-centered {
+      top: 50%;
+      left: 50%;
+    }
+
     ~ * {
       position: relative;
       z-index: 2;
@@ -42,6 +47,10 @@
     transition: 1s $md-transition-stand-timing;
     transition-property: opacity, transform;
     will-change: opacity, transform;
+
+    &.md-centered {
+      transition-duration: 1.2s;
+    }
   }
 
   .md-ripple-enter {
@@ -56,32 +65,49 @@
   export default new MdComponent({
     name: 'MdRipple',
     props: {
-      mdDisabled: Boolean
+      mdDisabled: Boolean,
+      mdCentered: Boolean
     },
     data: () => ({
       eventType: null,
       waveStyles: null,
       animating: false
     }),
+    computed: {
+      rippleClass () {
+        return {
+          'md-centered': this.mdCentered
+        }
+      }
+    },
     methods: {
       async startRipple ($event) {
-        const { eventType, mdDisabled } = this
+        const { eventType, mdDisabled, mdCentered } = this
 
         if (!mdDisabled && (!eventType || eventType === $event.type)) {
           let rippleSize = this.getSize()
-          const touchPosition = this.getRipplePosition($event, rippleSize)
+          let ripplePosition = null
+
+          if (mdCentered) {
+            ripplePosition = this.getCenteredPosition(rippleSize)
+          } else {
+            ripplePosition = this.getHitPosition($event, rippleSize)
+          }
 
           await this.clearWave()
 
-          rippleSize += 'px'
-
           this.eventType = $event.type
           this.animating = true
-          this.waveStyles = {
-            ...touchPosition,
-            width: rippleSize,
-            height: rippleSize
-          }
+          this.applyStyles(ripplePosition, rippleSize)
+        }
+      },
+      applyStyles (position, size) {
+        size += 'px'
+
+        this.waveStyles = {
+          ...position,
+          width: size,
+          height: size
         }
       },
       clearWave () {
@@ -95,7 +121,15 @@
 
         return Math.round(Math.max(offsetWidth, offsetHeight))
       },
-      getRipplePosition ($event, elementSize) {
+      getCenteredPosition (size) {
+        const halfSize = -size / 2 + 'px'
+
+        return {
+          'margin-top': halfSize,
+          'margin-left': halfSize
+        }
+      },
+      getHitPosition ($event, elementSize) {
         const rect = this.$el.getBoundingClientRect()
         let top = $event.pageY
         let left = $event.pageX
