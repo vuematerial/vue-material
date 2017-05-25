@@ -69,7 +69,7 @@
 
         if (!mdDisabled && (!eventType || eventType === $event.type)) {
           let rippleSize = this.getSize()
-          const touchPosition = this.getTouchPosition($event, rippleSize)
+          const touchPosition = this.getRipplePosition($event, rippleSize)
 
           await this.clearWave()
 
@@ -95,7 +95,7 @@
 
         return Math.round(Math.max(offsetWidth, offsetHeight))
       },
-      getTouchPosition ($event, elementSize) {
+      getRipplePosition ($event, elementSize) {
         const rect = this.$el.getBoundingClientRect()
         let top = $event.pageY
         let left = $event.pageX
