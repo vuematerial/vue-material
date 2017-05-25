@@ -2,8 +2,10 @@
   <md-input-container class="md-chips" :class="[themeClass, classes]" @click.native="applyInputFocus">
     <md-chip
       v-for="chip in selectedChips"
+      :md-editable="!mdStatic"
       :md-deletable="!mdStatic"
       :disabled="disabled"
+      @edit="editChip(chip)"
       @delete="deleteChip(chip)">
       <slot name="chip" :value="chip">{{ chip }}</slot>
     </md-chip>
