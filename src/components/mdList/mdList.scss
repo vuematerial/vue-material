@@ -151,6 +151,13 @@
       padding-left: 72px;
     }
   }
+  
+  a {
+    display: flex;
+    .md-list-item-holder {
+      align-self: center;
+    }
+  }
 
   .md-button-ghost {
     width: 100%;
