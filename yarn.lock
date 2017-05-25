@@ -3655,6 +3655,10 @@ pluralize@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/pluralize/-/pluralize-1.2.1.tgz#d1a21483fd22bb41e58a12fa3421823140897c45"
 
+popper.js@^1.9.9:
+  version "1.9.9"
+  resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.9.9.tgz#bcc8d2e4e40fa0ce26ce33ee0f9f8e7ad8c75809"
+
 postcss-calc@^5.2.0:
   version "5.3.1"
   resolved "https://registry.yarnpkg.com/postcss-calc/-/postcss-calc-5.3.1.tgz#77bae7ca928ad85716e2fda42f261bf7c1d65b5e"

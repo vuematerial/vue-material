@@ -3,6 +3,18 @@
     <slot />
 
     <div>
+      <div>Menu</div>
+      <div class="parent">
+        <div class="md-menu">
+
+        </div>
+      </div>
+
+      <md-button class="trigger" @click.native="create">Create</md-button>
+      <md-button class="trigger" @click.native="remove">Remove</md-button>
+    </div>
+
+    <div>
       <div>Default</div>
       <md-button :md-ripple="false">Button</md-button>
       <md-button class="md-primary">Button</md-button>
@@ -41,10 +53,39 @@
 
   @import '~base/theme';
   @import '~components/mdButton/theme';
+
+  .parent {
+    z-index: 1;
+    overflow: hidden;
+    height: 100px;
+    position: relative;
+  }
+
+  .md-menu {
+    width: 150px;
+    height: 200px;
+    background-color: rgba(#000, .2);
+    z-index: 99;
+  }
 </style>
 
 <script>
+  import MdPopover from 'core/MdPopover'
+
+  let positionManager = null
+
   export default {
-    name: 'app'
+    name: 'app',
+    methods: {
+      create () {
+        positionManager.createElement()
+      },
+      remove () {
+        positionManager.removeElement()
+      }
+    },
+    mounted () {
+      positionManager = new MdPopover('.trigger', '.md-menu')
+    }
   }
 </script>
