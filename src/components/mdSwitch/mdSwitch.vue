@@ -2,7 +2,7 @@
   <div class="md-switch" :class="[themeClass, classes]">
     <div class="md-switch-container" @click="toggle($event)">
       <div class="md-switch-thumb" :style="styles">
-        <input type="checkbox" :name="name" :id="id" :disabled="disabled" :value="value">
+        <input type="checkbox" :name="name" :id="id" :disabled="disabled" :value="value" tabindex="-1">
         <button :type="type" class="md-switch-holder"></button>
         <md-ink-ripple :md-disabled="disabled" />
       </div>
