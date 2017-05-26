@@ -81,12 +81,13 @@
 
   .splash-call {
     flex: 0 0 50%;
-    font-size: 17px;
+    font-size: 18px;
+    line-height: 1.6em;
   }
 
   .splash-name {
     margin: 0;
-    font-size: 52px;
+    font-size: 56px;
     font-weight: 500;
     line-height: 1em;
 
