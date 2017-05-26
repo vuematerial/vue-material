@@ -1,9 +1,9 @@
 <template>
   <div id="app" class="container">
-    <nav v-if="!isSplash">
-      <router-link exact to="/">{{ $t('nav.home') }}</router-link>
-      <router-link exact to="/about">{{ $t('nav.about') }}</router-link>
-    </nav>
+    <md-toolbar class="main-header">
+      <img src="https://vuematerial.github.io/assets/logo-vue-material-default.png" alt="Vue Material">
+      <span>Vue Material</span>
+    </md-toolbar>
 
     <router-view />
   </div>
@@ -16,16 +16,17 @@
   .container {
     font-family: 'Roboto Mono', monospace;
   }
+
+  .main-header {
+    img {
+      width: 48px;
+    }
+  }
 </style>
 
 <script lang="babel">
   export default {
     name: 'app',
-    computed: {
-      isSplash () {
-        return this.$route.name === 'splash'
-      }
-    },
     watch: {
       $route: {
         immediate: true,
