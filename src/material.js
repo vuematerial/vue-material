@@ -18,10 +18,10 @@ const VueMaterial = new MdReactive({
 })
 
 Object.defineProperties(VueMaterial.theming, {
-  currentTheme: {
-    get: () => MdTheme.active,
-    set (active) {
-      MdTheme.active = active
+  theme: {
+    get: () => MdTheme.theme,
+    set (theme) {
+      MdTheme.theme = theme
     }
   },
   enabled: {
