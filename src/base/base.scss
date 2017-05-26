@@ -1,3 +1,5 @@
+@import "~components/MdAnimation/variables";
+
 /**
  * Structure - The main styles for html and body tags
  */
@@ -25,6 +27,7 @@ body {
   -webkit-font-smoothing: antialiased;
   font-family: Roboto, sans-serif;
   @extend .md-body-1;
+  transition: background-color .3s $md-transition-stand-timing;
 }
 
 

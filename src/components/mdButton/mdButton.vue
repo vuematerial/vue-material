@@ -1,11 +1,11 @@
 <template>
-  <div class="md-button" :class="[$mdActiveTheme]">
+  <button type="button" class="md-button" :class="[$mdActiveTheme]">
     <md-ripple :md-disabled="!mdRipple">
       <span class="md-button-content">
         <slot />
       </span>
     </md-ripple>
-  </div>
+  </button>
 </template>
 
 <style lang="scss">
@@ -23,8 +23,8 @@
     min-width: $md-button-min-width;
     height: $md-button-height;
     margin: 6px 8px;
-    padding: 0 8px;
-    display: inline-flex;
+    padding: 0;
+    display: inline-block;
     position: relative;
     overflow: hidden;
     user-select: none;
@@ -38,6 +38,7 @@
     font-weight: 500;
     text-transform: uppercase;
     text-decoration: none;
+    vertical-align: top;
     white-space: nowrap;
 
     &:active {
@@ -84,10 +85,15 @@
     }
 
     .md-ripple {
+      padding: 0 8px;
       display: flex;
       justify-content: center;
       align-items: center;
     }
+  }
+
+  .md-button-spaced .md-ripple {
+    padding: 0 16px;
   }
 
   .md-button-content {
