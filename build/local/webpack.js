@@ -8,7 +8,7 @@ export default {
   devtool: '#source-map',
   entry: {
     docs: [
-      './docs/src/index.js',
+      './docs/app/index.js',
       './build/local/client'
     ]
   },

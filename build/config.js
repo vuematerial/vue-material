@@ -17,7 +17,7 @@ export const config = {
   },
   resolve: ['.vue', '.js', '.json'],
   alias: {
-    'vue-material': resolvePath('src/index.js'),
+    'vue-material': resolvePath('src'),
     theme: resolvePath('src/theme'),
     base: resolvePath('src/base'),
     core: resolvePath('src/core'),

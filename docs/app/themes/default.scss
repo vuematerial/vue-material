@@ -1,0 +1,8 @@
+@import '~vue-material/theme/factory';
+
+@include md-register-theme('default', (
+  primary: md-get-palette-color(blue, 500),
+  accent: md-get-palette-color(pink, 700)
+));
+
+@import '~vue-material/theme/all';

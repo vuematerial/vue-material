@@ -1,7 +1,5 @@
 <template>
-  <div class="container">
-    <slot />
-
+  <div class="main-content">
     <div>
       <div>Menu</div>
       <div class="parent">
@@ -45,14 +43,13 @@
 </template>
 
 <style lang="scss">
-  @import '~theme/index';
+  @import '~vue-material/theme/factory';
 
   @include md-register-theme('default', $md-theme-blue-red);
   @include md-register-theme('secondary', $md-theme-green-orange);
   @include md-register-theme('tertiary', $md-theme-black-green);
 
-  @import '~base/theme';
-  @import '~components/mdButton/theme';
+  @import '~vue-material/theme/all';
 
   .parent {
     z-index: 1;
@@ -70,12 +67,12 @@
 </style>
 
 <script>
-  import MdPopover from 'core/MdPopover'
+  import MdPopover from 'vue-material/core/MdPopover'
 
   let positionManager = null
 
   export default {
-    name: 'app',
+    name: 'Error',
     methods: {
       create () {
         positionManager.createElement()
