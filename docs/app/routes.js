@@ -7,7 +7,7 @@ export const routes = [
   {
     path: '/',
     name: 'splash',
-    component: () => import('./pages/Splash.vue')
+    component: () => import('./pages/Splash/Splash.vue')
   },
   {
     path: '/',
