@@ -140,7 +140,7 @@
  * @param {string} $background —  The background color to analyse contrast
  */
 
-@mixin md-theme-property ($property, $type, $background: "") {
+@mixin md-theme-property ($property, $type, $background: "", $hue: "") {
   $value: md-theme($type, $background);
   $variant: null;
 
@@ -150,4 +150,38 @@
 
   #{$property}: $value;
   #{$property}: var(--md-theme-#{$md-current-theme}-#{$type}#{$variant}, $value);
+}
+
+/**
+ * Theme a single css property by
+ * ---
+ * Usage example:
+ *
+ * .md-button {
+ *   min-width: 88px;
+ *   height: 40px;
+ *   display: inline-block;
+ *   border-radius: 2px;
+ *   transition: .3s ease;
+ *
+ *   @include md-theme-component() {
+ *     @include md-theme-property-by-hue(background, grey, 100, toolbar, background);
+ *     @include md-theme-property(color, text-primary, background);
+ *   }
+ * }
+ *
+ * ---
+ * @access public
+ * @param {string} $property —  The css property
+ * @param {string} $color —  A valid material palette color name
+ * @param {string} $hue —  The hue amount to get the hex color
+ * @param {string} $type —  The type of variable
+ * @param {string} $variant —  The type of constrasted variable
+ */
+
+@mixin md-theme-property-by-hue ($property, $color, $hue, $type, $variant) {
+  $hex: md-get-palette-color($color, $hue);
+
+  #{$property}: $hex;
+  #{$property}: var(--md-theme-#{$md-current-theme}-#{$type}-$variant, $hex);
 }

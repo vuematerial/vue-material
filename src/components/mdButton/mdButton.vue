@@ -1,6 +1,6 @@
 <template>
-  <button type="button" class="md-button" :class="[$mdActiveTheme]">
-    <md-ripple :md-disabled="!mdRipple">
+  <button type="button" class="md-button" :class="[$mdActiveTheme]" :disabled="disabled">
+    <md-ripple :md-disabled="!mdRipple || disabled">
       <span class="md-button-content">
         <slot />
       </span>
@@ -29,6 +29,7 @@
     overflow: hidden;
     user-select: none;
     outline: none;
+    background: transparent;
     border: 0;
     border-radius: $md-button-radius;
     transition: $md-transition-default;
@@ -45,8 +46,23 @@
       outline: none;
     }
 
-    &:hover:not([disabled]) {
+    &:not([disabled]) {
       cursor: pointer;
+
+      &:hover,
+      &:active,
+      &:focus {
+        &:before {
+          background-color: currentColor;
+          opacity: .12;
+        }
+      }
+
+      &:active {
+        &:before {
+          opacity: .2;
+        }
+      }
     }
 
     &::-moz-focus-inner {
@@ -106,6 +122,9 @@
   import MdUseRipple from 'core/MdUseRipple'
 
   export default new MdUseRipple({
-    name: 'MdButton'
+    name: 'MdButton',
+    props: {
+      disabled: Boolean
+    }
   })
 </script>
