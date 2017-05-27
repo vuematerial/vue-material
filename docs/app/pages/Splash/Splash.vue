@@ -55,7 +55,7 @@
   }
 
   .splash-header {
-    margin-bottom: 80px;
+    margin-top: 40px;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -84,6 +84,7 @@
   }
 
   .splash-features {
+    margin: 120px 0 40px;
     display: flex;
   }
 
