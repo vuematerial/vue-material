@@ -18,19 +18,19 @@
     <div class="splash-features">
       <div class="splash-feature">
         <splash-icon-square />
-        <h2>Material Design</h2>
+        <h2 class="md-title">Material Design</h2>
         <p>Simple, lightweight and built exactly according to the Google Material Design specs.</p>
       </div>
 
       <div class="splash-feature">
         <splash-icon-devices />
-        <h2>Compatible</h2>
+        <h2 class="md-title">Compatible</h2>
         <p>Build well-designed apps that can fit on every screen with support to all modern Web Browsers.</p>
       </div>
 
       <div class="splash-feature">
         <splash-icon-circle />
-        <h2>Full-featured</h2>
+        <h2 class="md-title">Full-featured</h2>
         <p>Complete with dynamic themes, components on demand and all with an ease-to-use API.</p>
       </div>
     </div>
@@ -93,6 +93,11 @@
 
     + .splash-feature {
       margin-left: 40px;
+    }
+
+    h2 {
+      font-size: 22px;
+      font-weight: 500;
     }
   }
 </style>

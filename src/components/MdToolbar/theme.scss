@@ -11,16 +11,32 @@
     &.md-primary {
       @include md-theme-property(background-color, primary);
       @include md-theme-property(color, text-primary, primary);
+
+      .md-icon {
+        @include md-theme-property(fill, text-primary, primary);
+      }
     }
 
     &.md-accent {
       @include md-theme-property(background-color, accent);
       @include md-theme-property(color, text-primary, accent);
+
+      .md-icon {
+        @include md-theme-property(fill, text-primary, accent);
+      }
     }
 
     &.md-transparent {
       background-color: transparent;
       @include md-theme-property(color, text-primary, background);
+
+      .md-icon {
+        @include md-theme-property(fill, text-primary, background);
+      }
+    }
+
+    .md-icon {
+      @include md-theme-property(fill, text-primary, background);
     }
   }
 }

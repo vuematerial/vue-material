@@ -11,7 +11,7 @@ export const config = {
   dist: 'dist',
   public: '/',
   index: 'docs/index.html',
-  assets: 'docs/src/assets',
+  assets: 'docs/assets',
   server: {
     port: process.env.PORT || '8080'
   },

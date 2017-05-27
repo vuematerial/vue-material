@@ -6,6 +6,8 @@
       </div>
 
       <span class="md-title">Vue Material</span>
+
+      <md-icon md-src="assets/icon-github.svg" />
     </md-toolbar>
 
     <router-view />
@@ -30,6 +32,10 @@
       top: 0;
       right: 0;
       left: 0;
+    }
+
+    .md-title {
+      flex: 1;
     }
   }
 

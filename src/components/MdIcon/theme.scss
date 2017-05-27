@@ -1,0 +1,13 @@
+.md-icon {
+  @include md-theme-component() {
+    @include md-theme-property(color, icon, background);
+
+    &.md-primary {
+      @include md-theme-property(color, primary, background);
+    }
+
+    &.md-accent {
+      @include md-theme-property(color, primary, background);
+    }
+  }
+}
