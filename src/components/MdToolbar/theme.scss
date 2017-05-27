@@ -1,0 +1,26 @@
+.md-toolbar {
+  @include md-theme-component() {
+    @include md-theme-property(color, text-primary, background-variant);
+
+    @if md-get-theme-mode() == light {
+      @include md-theme-property-by-hue(background-color, grey, 100, toolbar, background);
+    } @else {
+      @include md-theme-property-by-hue(background-color, grey, 900, toolbar, background);
+    }
+
+    &.md-primary {
+      @include md-theme-property(background-color, primary);
+      @include md-theme-property(color, text-primary, primary);
+    }
+
+    &.md-accent {
+      @include md-theme-property(background-color, accent);
+      @include md-theme-property(color, text-primary, accent);
+    }
+
+    &.md-transparent {
+      background-color: transparent;
+      @include md-theme-property(color, text-primary, background);
+    }
+  }
+}

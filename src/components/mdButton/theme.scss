@@ -1,22 +1,5 @@
 .md-button {
   @include md-theme-component() {
-    &:not([disabled]) {
-      &:hover,
-      &:active,
-      &:focus {
-        &:before {
-          background-color: currentColor;
-          opacity: .12;
-        }
-      }
-
-      &:active {
-        &:before {
-          opacity: .2;
-        }
-      }
-    }
-
     &:not(.md-raised) {
       &.md-primary {
         @include md-theme-property(color, primary, background);
