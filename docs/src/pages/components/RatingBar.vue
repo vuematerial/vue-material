@@ -88,6 +88,11 @@
                 <md-table-cell>Receive the new rating</md-table-cell>
                 <md-table-cell>Triggered when the rating changes his value by user interaction.</md-table-cell>
               </md-table-row>
+              <md-table-row>
+                <md-table-cell>hover</md-table-cell>
+                <md-table-cell>Receive the pointer rating</md-table-cell>
+                <md-table-cell>Triggered when the user points over a new rating.</md-table-cell>
+              </md-table-row>
             </md-table-body>
           </md-table>
         </api-table>

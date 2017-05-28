@@ -131,6 +131,7 @@
       hoverStars(evt) {
         if (!this.disabled) {
           this.rating = this.getIconIndex(evt.currentTarget);
+          this.$emit('hover', this.rating);
         }
       },
       clickStars(evt) {
