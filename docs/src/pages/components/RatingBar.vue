@@ -62,7 +62,7 @@
               <md-table-row>
                 <md-table-cell>md-icon-size</md-table-cell>
                 <md-table-cell><code>Number</code></md-table-cell>
-                <md-table-cell>Change the icon size. From 1 to 5. Default <code>1</code>.</md-table-cell>
+                <md-table-cell>Change the icon size. From 1 to 5, it corresponds the 1x to 5x of the md-size-{type} class in md-icon, where in 1x, the icon has <code>24px</code>. Default <code>1</code>.</md-table-cell>
               </md-table-row>
 
               <md-table-row>
