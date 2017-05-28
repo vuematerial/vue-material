@@ -26,7 +26,7 @@
               <md-table-row>
                 <md-table-cell>v-model</md-table-cell>
                 <md-table-cell><code>Number</code></md-table-cell>
-                <md-table-cell>A required model object to bind the value. The value is limited by range [0, 1].</md-table-cell>
+                <md-table-cell>A required model object to bind the value. The value is limited by range [0, <code>md-max-rating</code>].</md-table-cell>
               </md-table-row>
 
               <md-table-row>
@@ -253,20 +253,20 @@
   export default {
     data() {
       return {
-        rating1: 0.70,
-        rating2: 0.6,
-        rating3: 0.2,
-        rating4: 0.84,
-        rating5: 0.7,
-        rating6: 0.5,
-        rating7: 0.90,
-        rating8: 0.9,
-        rating9: 0.18,
-        rating10: 0.45,
-        rating11: 0.82,
-        rating12: 0.5,
-        rating13: 0.7,
-        rating14: 0.4
+        rating1: 5 * 0.70,
+        rating2: 10 * 0.6,
+        rating3: 7 * 0.2,
+        rating4: 7 * 0.84,
+        rating5: 7 * 0.7,
+        rating6: 7 * 0.5,
+        rating7: 5 * 0.90,
+        rating8: 5 * 0.9,
+        rating9: 5 * 0.18,
+        rating10: 5 * 0.45,
+        rating11: 5 * 0.82,
+        rating12: 5 * 0.5,
+        rating13: 5 * 0.7,
+        rating14: 5 * 0.4
       };
     }
   };

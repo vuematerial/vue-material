@@ -56,9 +56,6 @@
       disabled: Boolean,
       value: {
         type: Number,
-        validator: (value) => {
-          return value >= 0 && value <= 1;
-        },
         default: 0
       },
       mdIconSize: {
@@ -114,7 +111,7 @@
       },
       fullIconStyle() {
         return {
-          width: 100 * this.rating + '%',
+          width: 100 / this.mdMaxRating * this.rating + '%',
           'margin-left': -iconSize * this.mdIconSize * this.mdMaxRating + 'px'
         };
       }
@@ -133,15 +130,15 @@
     methods: {
       hoverStars(evt) {
         if (!this.disabled) {
-          this.rating = this.getIconIndex(evt.currentTarget) / this.mdMaxRating;
+          this.rating = this.getIconIndex(evt.currentTarget);
         }
       },
       clickStars(evt) {
         if (!this.disabled) {
           var selected = this.getIconIndex(evt.currentTarget);
 
-          this.$emit('input', selected / this.mdMaxRating);
-          this.$emit('change', selected / this.mdMaxRating);
+          this.$emit('input', selected);
+          this.$emit('change', selected);
         }
       },
       getIconIndex(iconSelected) {//iconSelected is a dom element
