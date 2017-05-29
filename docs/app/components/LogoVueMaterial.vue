@@ -2,7 +2,7 @@
   <md-svg-loader class="logo-vue-material" md-src="assets/logo.svg" @md-loaded="svgLoaded" />
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
   @import "~vue-material/components/MdAnimation/variables";
   @import "~vue-material/theme/factory";
 
@@ -35,14 +35,14 @@
     }
 
     &:hover {
-      >>> use {
+      use {
         animation-play-state: running !important;
       }
     }
 
     $timer: $length * 1s;
 
-    >>> use {
+    use {
       &:first-of-type {
         animation: $timer cycle-big linear infinite paused;
         transition: $md-transition-stand;
