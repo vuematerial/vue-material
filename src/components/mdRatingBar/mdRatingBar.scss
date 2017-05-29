@@ -1,0 +1,40 @@
+@import '../../core/stylesheets/variables.scss';
+
+$button-radius: 2px;
+
+.md-rating-bar {
+  width: auto;
+  display: flex;
+  width: fit-content;
+  padding: 3px;
+  border-radius: 2px;
+
+  > .md-full-icon {
+    overflow-x: hidden;
+    display: inherit;
+  }
+
+  > .md-empty-icon,
+  > .md-full-icon {
+    > .md-icon {
+      margin: 0;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+  }
+
+  &:not([disabled]) {
+    &:hover{
+      background-color: rgba(#999, .2);
+    }
+  }
+
+  &[disabled] {
+    > .md-empty-icon,
+    > .md-full-icon {
+       > .md-icon {
+        cursor: default;
+      }
+    }
+  }
+}

@@ -19,6 +19,7 @@ import MdMenu from './components/mdMenu';
 import MdOnboarding from './components/mdOnboarding';
 import MdProgress from './components/mdProgress';
 import MdRadio from './components/mdRadio';
+import MdRatingBar from './components/mdRatingBar';
 import MdSelect from './components/mdSelect';
 import MdSidenav from './components/mdSidenav';
 import MdSnackbar from './components/mdSnackbar';
@@ -55,6 +56,7 @@ const options = {
   MdOnboarding,
   MdProgress,
   MdRadio,
+  MdRatingBar,
   MdSelect,
   MdSidenav,
   MdSnackbar,
