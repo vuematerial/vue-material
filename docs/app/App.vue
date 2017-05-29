@@ -2,12 +2,12 @@
   <div id="app" class="container">
     <md-toolbar class="main-header" :class="{ fixed: splash }">
       <div class="logo">
-        <img src="https://vuematerial.github.io/assets/logo-vue-material-default.png" alt="Vue Material">
+        <logo-vue-material />
       </div>
 
       <span class="md-title">Vue Material</span>
 
-      <md-icon md-src="assets/icon-github.svg" />
+      <md-icon md-src="assets/icon-github.svg" class="icon-github" />
     </md-toolbar>
 
     <router-view />
@@ -21,17 +21,24 @@
 
 <style lang="scss" scoped>
   @import "~vue-material/theme/factory";
+  @import "~vue-material/components/MdAnimation/variables";
 
   .container {
     font-family: 'Roboto Mono', monospace;
   }
 
   .main-header {
+    transition: background-color .3s $md-transition-stand-timing;
+
     &.fixed {
       position: fixed;
       top: 0;
       right: 0;
       left: 0;
+
+      .logo {
+        background: md-get-palette-color(grey, 200);
+      }
     }
 
     .md-title {
@@ -46,11 +53,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: md-get-palette-color(grey, 200);
+    background: md-get-palette-color(grey, 300);
     border-radius: 50%;
 
-    img {
+    .logo-vue-material {
       max-width: 80%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 </style>

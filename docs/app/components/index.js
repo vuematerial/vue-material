@@ -1,4 +1,5 @@
 /* Components */
-// import Vue from 'vue'
+import Vue from 'vue'
+import LogoVueMaterial from './LogoVueMaterial'
 
-// Vue.component('say-hello', SayHello)
+Vue.component(LogoVueMaterial.name, LogoVueMaterial)
