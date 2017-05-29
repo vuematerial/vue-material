@@ -44,18 +44,6 @@
 
         await this.$nextTick()
 
-        const dataset = [].filter.call(this.$el.attributes, attribute => /^data-/.test(attribute.name))
-
-        dataset.forEach(data => {
-          const childrenArray = Array.from(this.$el.querySelectorAll('*'))
-
-          childrenArray.forEach(node => {
-            node.setAttribute(data.name.toLowerCase(), '')
-          })
-        })
-
-        await this.$nextTick()
-
         this.$emit('md-loaded')
       },
       loadSVG () {
