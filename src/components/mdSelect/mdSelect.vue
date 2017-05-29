@@ -1,7 +1,8 @@
 <template>
   <div class="md-select" :class="[themeClass, classes]">
-    <md-menu :md-close-on-select="!multiple" @open="onOpen" @close="$emit('closed')">
-      <span class="md-select-value" md-menu-trigger ref="value">{{ selectedText || placeholder }}</span>
+    <md-menu :md-close-on-select="!multiple" @opened="$emit('open')" @closed="$emit('close')" v-bind="mdMenuOptions">
+      <slot name="icon"></slot>
+      <span class="md-select-value" md-menu-trigger ref="value" :style="valueStyle">{{ selectedText || placeholder }}</span>
 
       <md-menu-content class="md-select-content" :class="[themeClass, contentClasses]">
         <slot></slot>
@@ -32,7 +33,8 @@
       value: [String, Number, Array],
       disabled: Boolean,
       placeholder: String,
-      mdMenuClass: String
+      mdMenuClass: String,
+      mdMenuOptions: Object
     },
     mixins: [theme],
     data() {
@@ -48,7 +50,8 @@
     computed: {
       classes() {
         return {
-          'md-disabled': this.disabled
+          'md-disabled': this.disabled,
+          'md-select-icon': this.hasIcon
         };
       },
       contentClasses() {
@@ -57,6 +60,14 @@
         }
 
         return this.mdMenuClass;
+      },
+      hasIcon() {
+        return this.$slots['icon'];
+      },
+      valueStyle() {
+        return this.hasIcon ? {
+          display: 'none'
+        } : {};
       }
     },
     watch: {
@@ -96,7 +107,7 @@
       },
       selectOptions(modelValue) {
         const optionsArray = Object.keys(this.options).map((el) => this.options[el]);
-  
+
         if (optionsArray && optionsArray.length) {
           optionsArray.filter((el) => modelValue.indexOf(el.value) !== -1)
             .forEach((el) => {
