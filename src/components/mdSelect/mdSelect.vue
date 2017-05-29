@@ -1,6 +1,6 @@
 <template>
   <div class="md-select" :class="[themeClass, classes]">
-    <md-menu :md-close-on-select="!multiple" @opened="$emit('open')" @closed="$emit('close')">
+    <md-menu :md-close-on-select="!multiple" @open="onOpen" @opened="$emit('open')" @closed="$emit('close')">
       <span class="md-select-value" md-menu-trigger ref="value">{{ selectedText || placeholder }}</span>
 
       <md-menu-content class="md-select-content" :class="[themeClass, contentClasses]">
@@ -73,6 +73,17 @@
       }
     },
     methods: {
+      onOpen() {
+        Object.filter = (obj, predicate) =>
+          Object.keys(obj)
+            .filter((key) => predicate(obj[key]))
+            .map((key) => {
+              return obj[key];
+            });
+
+        var filtered = Object.filter(this.options, (option) => option.isSelected);  
+        filtered[0].$el.scrollIntoView(true);
+      },
       setParentDisabled() {
         this.parentContainer.isDisabled = this.disabled;
       },
