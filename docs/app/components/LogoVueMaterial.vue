@@ -76,7 +76,7 @@
           window.setTimeout(() => {
             small.setAttribute('transform', 'translate(80.5 138)')
             big.setAttribute('transform', 'translate(0 0)')
-          }, 1000)
+          }, 500)
         }
       }
     }

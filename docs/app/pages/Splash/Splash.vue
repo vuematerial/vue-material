@@ -1,7 +1,9 @@
 <template>
-  <div class="splash-page">
+  <div class="splash-page" v-once>
     <header class="splash-header">
-      <splash-illustration />
+      <div class="splash-logo">
+        <logo-vue-material />
+      </div>
 
       <div class="splash-call">
         <h1 class="splash-name">Vue Material</h1>
@@ -56,12 +58,23 @@
 
   .splash-header {
     margin-top: 40px;
-    display: flex;
+    text-align: center;
+  }
+
+  .splash-logo {
+    max-width: 192px;
+    display: inline-flex;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
+    position: relative;
+  }
+
+  .logo-vue-material {
+    width: 100%;
   }
 
   .splash-call {
+    margin-top: 24px;
     flex: 0 0 50%;
     font-size: 18px;
     line-height: 1.6em;
@@ -69,7 +82,7 @@
 
   .splash-name {
     margin: 0;
-    font-size: 56px;
+    font-size: 50px;
     font-weight: 500;
     line-height: 1em;
   }
@@ -77,6 +90,7 @@
   .splash-actions {
     margin-top: 24px;
     display: flex;
+    justify-content: center;
 
     .md-button {
       margin-left: 0;
@@ -103,7 +117,6 @@
 </style>
 
 <script>
-  import SplashIllustration from './SplashIllustration'
   import SplashIconSquare from './SplashIconSquare'
   import SplashIconCircle from './SplashIconCircle'
   import SplashIconDevices from './SplashIconDevices'
@@ -111,7 +124,6 @@
   export default {
     name: 'Splash',
     components: {
-      SplashIllustration,
       SplashIconSquare,
       SplashIconCircle,
       SplashIconDevices
