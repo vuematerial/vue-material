@@ -407,6 +407,80 @@
             </code-block>
           </div>
         </example-box>
+        
+        <example-box card-title="Icon">
+          <div slot="demo">
+            <div class="field-group select-icon">
+              <md-select name="users" id="usersIcon" multiple v-model="usersIcon" md-align-trigger :md-menu-options="iconMenuOptions">
+                <md-button class="md-icon-button" md-menu-trigger slot="icon">
+                  <md-icon>people</md-icon>
+                </md-button>
+                
+                <md-subheader>Managers</md-subheader>
+                <md-option value="jim_halpert">Jim Halpert</md-option>
+                <md-option value="dwight_schrute">Dwight Schrute</md-option>
+                <md-option value="michael_scott">Michael Scott</md-option>
+  
+                <md-subheader>Employees</md-subheader>
+                <md-option value="pam_beesly">Pam Beesly</md-option>
+                <md-option value="angela_martin">Angela Martin</md-option>
+                <md-option value="kelly_kapoor">Kelly Kapoor</md-option>
+                <md-option value="ryan_howard">Ryan Howard</md-option>
+                <md-option value="kevin_malone">Kevin Malone</md-option>
+                <md-option value="creed_bratton">Creed Bratton</md-option>
+                <md-option value="oscar_nunez">Oscar Nunez</md-option>
+                <md-option value="toby_flenderson">Toby Flenderson</md-option>
+                <md-option value="stanley_hudson">Stanley Hudson</md-option>
+                <md-option value="meredith_palmer">Meredith Palmer</md-option>
+                <md-option value="phyllis_lapin_vance">Phyllis Lapin-Vance</md-option>
+              </md-select>
+            </div>
+
+            <div>Selected users: {{ usersIcon }}</div>
+          </div>
+
+          <div slot="code">
+            <code-block lang="xml">
+              &lt;md-select name=&quot;users&quot; id=&quot;users&quot; multiple v-model=&quot;users&quot;&gt;
+                &lt;md-button class=&quot;md-icon-button&quot; md-menu-trigger slot=&quot;icon&quot;&gt;
+                  &lt;md-icon&gt;people&lt;/md-icon&gt;
+                &lt;/md-button&gt;
+                
+                &lt;md-subheader&gt;Managers&lt;/md-subheader&gt;
+                &lt;md-option value=&quot;jim_halpert&quot;&gt;Jim Halpert&lt;/md-option&gt;
+                &lt;md-option value=&quot;dwight_schrute&quot;&gt;Dwight Schrute&lt;/md-option&gt;
+                &lt;md-option value=&quot;michael_scott&quot;&gt;Michael Scott&lt;/md-option&gt;
+  
+                &lt;md-subheader&gt;Employees&lt;/md-subheader&gt;
+                &lt;md-option value=&quot;pam_beesly&quot;&gt;Pam Beesly&lt;/md-option&gt;
+                &lt;md-option value=&quot;angela_martin&quot;&gt;Angela Martin&lt;/md-option&gt;
+                &lt;md-option value=&quot;kelly_kapoor&quot;&gt;Kelly Kapoor&lt;/md-option&gt;
+                &lt;md-option value=&quot;ryan_howard&quot;&gt;Ryan Howard&lt;/md-option&gt;
+                &lt;md-option value=&quot;kevin_malone&quot;&gt;Kevin Malone&lt;/md-option&gt;
+                &lt;md-option value=&quot;creed_bratton&quot;&gt;Creed Bratton&lt;/md-option&gt;
+                &lt;md-option value=&quot;oscar_nunez&quot;&gt;Oscar Nunez&lt;/md-option&gt;
+                &lt;md-option value=&quot;toby_flenderson&quot;&gt;Toby Flenderson&lt;/md-option&gt;
+                &lt;md-option value=&quot;stanley_hudson&quot;&gt;Stanley Hudson&lt;/md-option&gt;
+                &lt;md-option value=&quot;meredith_palmer&quot;&gt;Meredith Palmer&lt;/md-option&gt;
+                &lt;md-option value=&quot;phyllis_lapin_vance&quot;&gt;Phyllis Lapin-Vance&lt;/md-option&gt;
+              &lt;/md-select&gt;
+
+              &lt;div&gt;Selected users: {{ users }}&lt;/div&gt;
+            </code-block>
+
+            <code-block lang="javascript">
+              export default {
+                data: () => ({
+                  food: '',
+                  users: [
+                    'jim_halpert',
+                    'michael_scott'
+                  ]
+                })
+              };
+            </code-block>
+          </div>
+        </example-box>
       </div>
     </docs-component>
   </page-content>
@@ -426,7 +500,11 @@
   }
 
   .multiple {
-    height: 300px;
+    height: 150px;
+  }
+  
+  .select-icon {
+    margin-bottom: 20px;
   }
 </style>
 
@@ -445,7 +523,11 @@
         { id: 4, name: 'd' },
         { id: 5, name: 'e' }
       ],
-      items: []
+      items: [],
+      usersIcon: [],
+      iconMenuOptions: {
+        mdAlignTrigger: true
+      }
     }),
     methods: {
       setPulpFiction() {
