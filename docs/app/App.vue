@@ -1,8 +1,8 @@
 <template>
   <div id="app" class="container">
-    <md-toolbar class="main-header" :class="{ fixed: splash }">
+    <md-toolbar class="main-header" :class="mainHeaderClasses">
       <div class="logo">
-        <logo-vue-material />
+        <logo-vue-material @click.native="$router.push('/')" />
       </div>
 
       <span class="md-title">Vue Material</span>
@@ -61,6 +61,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      cursor: pointer;
     }
   }
 </style>
@@ -71,6 +72,14 @@
     computed: {
       splash () {
         return this.$route.name === 'splash'
+      },
+      mainHeaderClasses () {
+        const { splash } = this
+
+        return {
+          'fixed md-transparent': splash,
+          'md-elevation-2': !splash
+        }
       }
     },
     watch: {

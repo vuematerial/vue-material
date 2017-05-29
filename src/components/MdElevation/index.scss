@@ -1,3 +1,13 @@
 @import '~components/MdAnimation/variables';
 @import './variables';
 @import './mixins';
+
+$md-elevation-count: length($md-elevation-umbra) - 1;
+
+@for $i from 0 through $md-elevation-count {
+  @debug $i;
+
+  .md-elevation-#{$i} {
+    @include md-elevation($i);
+  }
+}

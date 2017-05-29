@@ -10,7 +10,7 @@ export const routes = [
     component: () => import('./pages/Splash/Splash.vue')
   },
   {
-    path: '/',
+    path: '/components',
     name: 'components',
     component: () => import('./pages/Components.vue')
   },
