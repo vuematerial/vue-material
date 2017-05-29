@@ -149,7 +149,7 @@
             <md-icon md-iconset="fa fa-users" class="md-size-3x md-accent"></md-icon>
             <md-icon md-iconset="fa fa-clock-o" class="md-size-4x md-warn"></md-icon>  
             <hr/>
-            <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"/>
+            <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"/>
             <div>This second example uses <a href="http://ionicons.com/" target="ion_icons">Ion Icons</a></div>
             <md-icon md-iconset="ion-home"></md-icon>
             <md-icon md-iconset="ion-navicon-round" class="md-size-2x md-primary"></md-icon>
