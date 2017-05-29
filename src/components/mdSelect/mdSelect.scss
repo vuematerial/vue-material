@@ -12,7 +12,7 @@ $select-height: 32px;
     outline: none;
   }
 
-  &:after {
+  &:not(.md-select-icon):after {
     margin-top: 2px;
     position: absolute;
     top: 50%;
