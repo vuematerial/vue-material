@@ -1,5 +1,5 @@
 <template>
-  <i class="md-icon" :class="[$mdActiveTheme]" v-html="svgContent"></i>
+  <md-svg-loader class="md-icon" :md-src="mdSrc" :class="[$mdActiveTheme]" />
 </template>
 
 <style lang="scss">
@@ -52,77 +52,18 @@
 
 <script lang="babel">
   import MdComponent from 'core/MdComponent'
-
-  let registeredIcons = {}
+  import MdSvgLoader from 'core/MdSvgLoader'
 
   export default new MdComponent({
     name: 'MdIcon',
+    components: {
+      MdSvgLoader
+    },
     props: {
       mdSrc: {
         type: String,
         required: true
       }
-    },
-    data: () => ({
-      svgContent: null,
-      imageSrc: null
-    }),
-    watch: {
-      mdSrc () {
-        this.svgContent = null
-        this.loadSVG()
-      }
-    },
-    methods: {
-      isImage (mimetype) {
-        return mimetype.indexOf('image') >= 0
-      },
-      isSVG (mimetype) {
-        return mimetype.indexOf('svg') >= 0
-      },
-      async setSVGContent (value) {
-        this.svgContent = await registeredIcons[this.mdSrc]
-
-        await this.$nextTick()
-
-        const dataset = [].filter.call(this.$el.attributes, attribute => /^data-/.test(attribute.name))
-
-        dataset.forEach(data => {
-          const childrenArray = Array.from(this.$el.querySelectorAll('*'))
-
-          childrenArray.forEach(node => {
-            node.setAttribute(data.name.toLowerCase(), '')
-          })
-        })
-      },
-      loadSVG () {
-        if (!registeredIcons.hasOwnProperty(this.mdSrc)) {
-          registeredIcons[this.mdSrc] = new Promise((resolve, reject) => {
-            const request = new window.XMLHttpRequest()
-            const self = this
-
-            request.open('GET', this.mdSrc, true)
-
-            request.onload = function () {
-              const mimetype = this.getResponseHeader('content-type')
-
-              if (this.status >= 200 && this.status < 400 && self.isSVG(mimetype)) {
-                resolve(this.response)
-                self.setSVGContent()
-              } else {
-                reject(new Error(`The file ${self.mdSrc} is not a valid image.`))
-              }
-            }
-
-            request.send()
-          })
-        } else {
-          this.setSVGContent()
-        }
-      }
-    },
-    mounted () {
-      this.loadSVG()
     }
   })
 </script>
