@@ -109,8 +109,8 @@
         if (this.$el.parentNode.tagName.toLowerCase() === 'thead') {
           this.headRow = true;
         } else {
-          if (!this.mdItem) {
-            throw new Error('You should set the md-item property.');
+          if (!this.mdItem && this.mdSelection) {
+            throw new Error('You should set the md-item property when using mdSelection. Example: <md-table-row md-selection :md-item="ITEM" ...>');
           }
 
           if (this.mdSelection) {

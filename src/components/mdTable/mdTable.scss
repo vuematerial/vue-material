@@ -160,8 +160,9 @@
         justify-content: center;
         align-items: center;
 
-        .md-icon {
-          margin: 0;
+        .md-icon,
+        .md-button .md-icon {
+          margin: auto;
         }
       }
     }
@@ -404,8 +405,8 @@
   }
 }
 
-.md-table .md-table-cell.md-has-action .md-table-cell-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+// .md-table .md-table-cell.md-has-action .md-table-cell-container {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// }
