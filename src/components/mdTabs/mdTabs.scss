@@ -58,18 +58,18 @@ $tab-max-width: 264px;
     }
 
     &.md-centered {
-      .md-tabs-navigation-container {
-        justify-content: center;
-      }
+      justify-content: center;
     }
 
     &.md-fixed {
-      .md-tabs-navigation-container {
+      .md-tabs-navigation-container,
+      .md-tabs-navigation-scroll-container {
         flex: 1;
       }
 
       .md-tab-header {
         flex: 1;
+        max-width: none;
       }
     }
 
