@@ -108,6 +108,10 @@
                 </md-list-item>
 
                 <md-list-item class="md-inset">
+                  <router-link exact to="/components/rating-bar">Rating Bar</router-link>
+                </md-list-item>
+
+                <md-list-item class="md-inset">
                   <router-link exact to="/components/select">Select</router-link>
                 </md-list-item>
 

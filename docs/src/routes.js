@@ -23,6 +23,7 @@ const List = (r) => require.ensure([], () => r(require('./pages/components/List'
 const Menu = (r) => require.ensure([], () => r(require('./pages/components/Menu')), 'menu');
 const Progress = (r) => require.ensure([], () => r(require('./pages/components/Progress')), 'progress');
 const Radio = (r) => require.ensure([], () => r(require('./pages/components/Radio')), 'radio');
+const RatingBar = (r) => require.ensure([], () => r(require('./pages/components/RatingBar')), 'rating-bar');
 const Select = (r) => require.ensure([], () => r(require('./pages/components/Select')), 'select');
 const Sidenav = (r) => require.ensure([], () => r(require('./pages/components/Sidenav')), 'sidenav');
 const Snackbar = (r) => require.ensure([], () => r(require('./pages/components/Snackbar')), 'snackbar');
@@ -157,6 +158,11 @@ const components = [
     path: '/components/radio',
     name: 'components:radio',
     component: Radio
+  },
+  {
+    path: '/components/rating-bar',
+    name: 'components:rating-bar',
+    component: RatingBar
   },
   {
     path: '/components/select',

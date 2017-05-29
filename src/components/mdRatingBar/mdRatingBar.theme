@@ -1,0 +1,24 @@
+.THEME_NAME {
+  &.md-rating-bar {
+    > .md-empty-icon .md-icon {
+      color: #{'BACKGROUND-CONTRAST-0.26'};
+    }
+
+    > .md-full-icon .md-icon {
+      color: #{'BACKGROUND-CONTRAST-0.38'};
+    }
+
+    &.md-primary > .md-full-icon .md-icon {
+      color: #{'PRIMARY-COLOR'};
+    }
+
+    &.md-accent > .md-full-icon .md-icon {
+      color: #{'ACCENT-COLOR'};
+
+    }
+
+    &.md-warn > .md-full-icon .md-icon {
+      color: #{'WARN-COLOR'};
+    }
+  }
+}
