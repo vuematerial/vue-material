@@ -35,14 +35,14 @@
     }
 
     &:hover {
-      use {
+      >>> use {
         animation-play-state: running !important;
       }
     }
 
     $timer: $length * 1s;
 
-    use {
+    >>> use {
       &:first-of-type {
         animation: $timer cycle-big linear infinite paused;
         transition: $md-transition-stand;
