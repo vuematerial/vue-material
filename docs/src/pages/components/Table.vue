@@ -207,6 +207,34 @@
               </md-table-row>
             </md-table-body>
           </md-table>
+
+          <md-table slot="events">
+            <md-table-header>
+              <md-table-row>
+                <md-table-head>Name</md-table-head>
+                <md-table-head>Value</md-table-head>
+                <md-table-head>Description</md-table-head>
+              </md-table-row>
+            </md-table-header>
+
+            <md-table-body>
+              <md-table-row>
+                <md-table-cell>pagination</md-table-cell>
+                <md-table-cell>Emits an <code>Object</code> containing the current list size and current page.</md-table-cell>
+                <md-table-cell>Triggered when the user selects change pages or the pagination size changes.</md-table-cell>
+              </md-table-row>
+              <md-table-row>
+                <md-table-cell>size</md-table-cell>
+                <md-table-cell>The <code>Number</code> of current list size.</md-table-cell>
+                <md-table-cell>Triggered when the pagination size changes.</md-table-cell>
+              </md-table-row>
+              <md-table-row>
+                <md-table-cell>page</md-table-cell>
+                <md-table-cell>Emits the <code>Number</code> of current pagination page.</md-table-cell>
+                <md-table-cell>Triggered when the pagination page changes.</md-table-cell>
+              </md-table-row>
+            </md-table-body>
+          </md-table>
         </api-table>
 
         <api-table name="md-table-alternate-header">
