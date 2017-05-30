@@ -4,7 +4,8 @@ export default new Vue({
   data: () => ({
     prefix: 'md-theme-',
     theme: 'default',
-    enabled: true
+    enabled: true,
+    themeTarget: document.documentElement
   }),
   computed: {
     fullThemeName () {
@@ -15,18 +16,20 @@ export default new Vue({
     enabled: {
       immediate: true,
       handler () {
-        if (this.enabled) {
-          document.body.classList.add(this.fullThemeName)
+        const { fullThemeName, themeTarget, enabled } = this
+
+        if (enabled) {
+          themeTarget.classList.add(fullThemeName)
         } else {
-          document.body.classList.remove(this.fullThemeName)
+          themeTarget.classList.remove(fullThemeName)
         }
       }
     },
     theme (newTheme, oldTheme) {
-      const { getThemeName } = this
+      const { getThemeName, themeTarget } = this
 
-      document.body.classList.remove(getThemeName(oldTheme))
-      document.body.classList.add(getThemeName(newTheme))
+      themeTarget.classList.remove(getThemeName(oldTheme))
+      themeTarget.classList.add(getThemeName(newTheme))
     }
   },
   methods: {
