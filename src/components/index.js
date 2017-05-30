@@ -1,4 +1,5 @@
 import MdButton from './MdButton'
+import MdElevation from './MdElevation'
 import MdIcon from './MdIcon'
 import MdImage from './MdImage'
 import MdPaper from './MdPaper'
@@ -7,6 +8,7 @@ import MdToolbar from './MdToolbar'
 
 export const MdComponents = {
   MdButton,
+  MdElevation,
   MdIcon,
   MdImage,
   MdPaper,

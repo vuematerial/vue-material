@@ -1,8 +1,8 @@
 <template>
-  <div class="splash-page" v-once>
+  <page-container splash class="splash-page">
     <header class="splash-header">
       <div class="splash-logo">
-        <logo-vue-material />
+        <logo-vue-material animated />
       </div>
 
       <div class="splash-call">
@@ -11,7 +11,7 @@
         <p>Build beautiful apps with Material Design and Vue.js</p>
 
         <div class="splash-actions">
-          <md-button class="md-button-spaced md-primary md-raised">Getting Started</md-button>
+          <md-button class="md-button-spaced md-primary md-raised" @click.native="$router.push('/getting-started')">Getting Started</md-button>
           <md-button class="md-button-spaced md-primary md-raised" @click.native="$router.push('/components')">Components</md-button>
         </div>
       </div>
@@ -36,17 +36,22 @@
         <p>Complete with dynamic themes, components on demand and all with an ease-to-use API.</p>
       </div>
     </div>
-  </div>
+  </page-container>
 </template>
 
 <style lang="scss" scoped>
   @import "~vue-material/components/MdAnimation/variables";
 
-  .splash-page {
-    height: 100vh;
+  .splash-page >>> .main-header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+  }
+
+  .splash-page >>> .main-content {
     width: 100%;
-    max-width: 1280px;
-    margin: auto;
+    height: 100vh;
     padding: 40px;
     display: flex;
     flex-direction: column;

@@ -6,7 +6,7 @@
 
 <style lang="scss">
   @import '~components/MdAnimation/variables';
-  @import '~components/MdElevation/index';
+  @import '~components/MdElevation/mixins';
 
 
 </style>

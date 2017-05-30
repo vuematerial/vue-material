@@ -1,7 +1,7 @@
 <template>
-  <div class="main-content">
-    <h1 class="md-title">Error</h1>
-  </div>
+  <page-container :title="$t('pages.error.title')">
+
+  </page-container>
 </template>
 
 <style lang="scss">

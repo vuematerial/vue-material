@@ -10,7 +10,7 @@
 
 <style lang="scss">
   @import '~components/MdAnimation/variables';
-  @import '~components/MdElevation/index';
+  @import '~components/MdElevation/mixins';
 
   $md-button-min-width: 88px;
   $md-button-height: 36px;

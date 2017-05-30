@@ -8,7 +8,6 @@
 
 <style lang="scss" scoped>
   @import "~vue-material/components/MdAnimation/variables";
-  @import "~vue-material/components/MdElevation/index";
   @import "~vue-material/theme/factory";
 
   .splash-icon-devices {

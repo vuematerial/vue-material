@@ -64,19 +64,24 @@
     components: {
       MdSvgLoader
     },
+    props: {
+      animated: Boolean
+    },
     methods: {
       svgLoaded () {
-        const small = this.$el.querySelector('#small-m')
-        const big = this.$el.querySelector('#big-m')
+        if (this.animated) {
+          const small = this.$el.querySelector('#small-m')
+          const big = this.$el.querySelector('#big-m')
 
-        if (small) {
-          small.setAttribute('transform', 'translate(80.5 344)')
-          big.setAttribute('transform', 'translate(0 -346)')
+          if (small) {
+            small.setAttribute('transform', 'translate(80.5 344)')
+            big.setAttribute('transform', 'translate(0 -346)')
 
-          window.setTimeout(() => {
-            small.setAttribute('transform', 'translate(80.5 138)')
-            big.setAttribute('transform', 'translate(0 0)')
-          }, 500)
+            window.setTimeout(() => {
+              small.setAttribute('transform', 'translate(80.5 138)')
+              big.setAttribute('transform', 'translate(0 0)')
+            }, 500)
+          }
         }
       }
     }
