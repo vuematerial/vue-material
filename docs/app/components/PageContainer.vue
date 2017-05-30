@@ -1,5 +1,5 @@
 <template>
-  <div class="page-container" :class="{ centered }">
+  <div class="page-container main-container" :class="{ centered }">
     <slot />
   </div>
 </template>

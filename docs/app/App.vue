@@ -47,6 +47,7 @@
     top: 0;
     right: 0;
     left: 0;
+    z-index: 2;
     transition: .3s $md-transition-default-timing,
                 box-shadow .4s .1s $md-transition-stand-timing;
     will-change: box-shadow, max-width, background-color;
@@ -79,6 +80,11 @@
       align-items: center;
       cursor: pointer;
     }
+  }
+
+  .main-container {
+    position: relative;
+    z-index: 1;
   }
 </style>
 

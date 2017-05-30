@@ -1,5 +1,5 @@
 <template>
-  <div class="splash-container">
+  <div class="splash-container main-container">
     <slot />
   </div>
 </template>
