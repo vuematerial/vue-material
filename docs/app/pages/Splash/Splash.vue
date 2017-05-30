@@ -1,5 +1,5 @@
 <template>
-  <page-container splash class="splash-page">
+  <splash-container splash class="splash-page">
     <header class="splash-header">
       <div class="splash-logo">
         <logo-vue-material animated />
@@ -36,7 +36,7 @@
         <p>Complete with dynamic themes, components on demand and all with an ease-to-use API.</p>
       </div>
     </div>
-  </page-container>
+  </splash-container>
 </template>
 
 <style lang="scss" scoped>

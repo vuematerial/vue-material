@@ -1,7 +1,7 @@
 <template>
-  <page-container splash :title="$t('pages.components.title')">
+  <splash-container splash :title="$t('pages.components.title')">
     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde quasi non, consectetur. Dolores atque fugiat distinctio tenetur earum accusamus consequuntur voluptatem velit recusandae, quasi blanditiis quos illo at reprehenderit molestias!
-  </page-container>
+  </splash-container>
 </template>
 
 <style lang="scss" scoped>
