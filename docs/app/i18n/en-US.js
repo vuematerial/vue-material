@@ -20,5 +20,11 @@ export default {
     error: {
       title: 'Not Found'
     }
+  },
+  components: {
+    code: {
+      copyMessage: 'Code copied!',
+      copy: 'Copy'
+    }
   }
 }
