@@ -1,6 +1,7 @@
 /* Third Party */
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import 'babel-polyfill';
 
 /* Configs */
 import './config.js';
