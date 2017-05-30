@@ -71,7 +71,9 @@
     watch: {
       value(value) {
         this.setTextAndValue(value);
-        this.selectOptions(value);
+        if (this.multiple) {
+          this.selectOptions(value);
+        }
       },
       disabled() {
         this.setParentDisabled();
