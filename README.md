@@ -111,8 +111,8 @@ Vue Material supports the latest version of all Browsers. This means:
 
 ## Credits and Thanks
 * This library aims to delivery components using almost the same API of <a href="https://material.angularjs.org/latest/" target="_blank">Angular Material</a>
-* Thanks a lot to <a href="https://github.com/elviskang" target="_blank">elviskang</a> for donating the npm package name!
-* Thanks to <a href="https://github.com/yyx990803" target="_blank">Evan You</a> for allowing me to use Vue.js Logo.
+* <a href="https://github.com/elviskang" target="_blank">elviskang</a> for donating the npm package name!
+* <a href="https://github.com/brunocastro" target="_blank">Bruno Castro</a> for the awesome Vue Material Logo.
 
 ## Internal Dependencies
 You don't need to include any other library to work with vue-material. The focus of this project is to have a standalone build with no external dependence, but aiming to deliver the best experience without break the compatibility with the Vue.js core.
