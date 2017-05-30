@@ -8,11 +8,11 @@
       <div class="home-call">
         <h1 class="home-name">Vue Material</h1>
 
-        <p>Build beautiful apps with Material Design and Vue.js</p>
+        <p>{{ $t('pages.home.slogan') }}</p>
 
         <div class="home-actions">
-          <md-button class="md-button-spaced md-primary md-raised" @click.native="$router.push('/getting-started')">Getting Started</md-button>
-          <md-button class="md-button-spaced md-primary md-raised" @click.native="$router.push('/components')">Components</md-button>
+          <md-button class="md-button-spaced md-primary md-raised" @click.native="$router.push('/getting-started')">{{ $t('pages.gettingStarted.title') }}</md-button>
+          <md-button class="md-button-spaced md-primary md-raised" @click.native="$router.push('/components')">{{ $t('pages.components.title') }}</md-button>
         </div>
       </div>
     </header>
@@ -20,20 +20,20 @@
     <div class="home-features">
       <div class="home-feature">
         <home-icon-square />
-        <h2 class="md-title">Material Design</h2>
-        <p>Simple, lightweight and built exactly according to the Google Material Design specs.</p>
+        <h2 class="md-title">{{ $t('pages.home.material') }}</h2>
+        <p>{{ $t('pages.home.materialContent') }}</p>
       </div>
 
       <div class="home-feature">
         <home-icon-devices />
-        <h2 class="md-title">Compatible</h2>
-        <p>Build well-designed apps that can fit on every screen with support to all modern Web Browsers.</p>
+        <h2 class="md-title">{{ $t('pages.home.compatible') }}</h2>
+        <p>{{ $t('pages.home.compatibleContent') }}</p>
       </div>
 
       <div class="home-feature">
         <home-icon-circle />
-        <h2 class="md-title">Full-featured</h2>
-        <p>Complete with dynamic themes, components on demand and all with an ease-to-use API.</p>
+        <h2 class="md-title">{{ $t('pages.home.featured') }}</h2>
+        <p>{{ $t('pages.home.featuredContent') }}</p>
       </div>
     </div>
   </splash-container>
