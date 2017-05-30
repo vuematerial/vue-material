@@ -2,7 +2,7 @@
   <div class="container" :class="containerClass">
     <md-toolbar class="main-header" :class="mainHeaderClasses">
       <div class="logo">
-        <logo-vue-material :animated="isHome" @click.native="$router.push('/')" />
+        <logo-vue-material :animated="isHome" :blending="false" @click.native="$router.push('/')" />
       </div>
 
       <span class="md-title">Vue Material {{ pageTitle }}</span>
@@ -42,7 +42,7 @@
     will-change: box-shadow, max-width, background-color;
 
     &.md-transparent .logo {
-      background: #fff;
+      background: transparent;
     }
 
     .md-title {
@@ -57,11 +57,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: md-get-palette-color(grey, 300);
-    border-radius: 50%;
 
     .logo-vue-material {
-      max-width: 75%;
+      max-width: 90%;
       display: flex;
       justify-content: center;
       align-items: center;

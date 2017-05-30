@@ -1,5 +1,5 @@
 <template>
-  <md-svg-loader class="logo-vue-material" md-src="assets/logo.svg" @md-loaded="svgLoaded" />
+  <md-svg-loader class="logo-vue-material" :class="{ blending }" md-src="assets/logo.svg" />
 </template>
 
 <style lang="scss">
@@ -7,51 +7,72 @@
   @import "~vue-material/theme/factory";
 
   .logo-vue-material {
-    $colors: green, lightblue, lightgreen, blue, purple, cyan, red, bluegrey;
-    $length: length($colors);
+    $hue1: blue, red, pink, green, indigo, amber;
+    $hue2: lightgreen, yellow, cyan, lightblue, purple, teal;
+    $length: length($hue1);
     $factor: 100 / $length;
-    $counter: $factor;
+    $counter: 0;
 
-    @keyframes cycle-big {
-      @each $color, $item in $colors {
-        #{$counter}% {
-          fill: md-get-palette-color($color, 800);
-        }
-
-        $counter: $counter + $factor;
-      }
-
-      $counter: $factor;
-    }
-
-    @keyframes cycle-small {
-      @each $color, $item in $colors {
+    @keyframes first-cycle {
+      @each $color, $item in $hue1 {
         #{$counter}% {
           fill: md-get-palette-color($color, A200);
         }
 
         $counter: $counter + $factor;
       }
+
+      100% {
+        fill: md-get-palette-color(orange, A200);
+      }
+
+      $counter: 0;
+    }
+
+    @keyframes last-cycle {
+      @each $color, $item in $hue2 {
+        #{$counter}% {
+          fill: md-get-palette-color($color, A200);
+        }
+
+        $counter: $counter + $factor;
+      }
+
+      100% {
+        fill: md-get-palette-color(lime, A200);
+      }
     }
 
     &:hover {
-      use {
+      path {
         animation-play-state: running !important;
       }
     }
 
     $timer: $length * 1s;
 
-    use {
-      &:first-of-type {
-        animation: $timer cycle-big linear infinite paused;
-        transition: $md-transition-stand;
+    &.blending {
+      svg {
+        mix-blend-mode: overlay;
       }
 
-      &:last-of-type {
-        animation: $timer cycle-small linear infinite paused;
-        transition: $md-transition-default;
+      .last-square {
+        mix-blend-mode: overlay;
       }
+
+      .middle-square {
+        display: none;
+      }
+    }
+
+    .first-square {
+      animation: $timer first-cycle linear infinite paused;
+      transition: $md-transition-stand;
+    }
+
+    .last-square {
+      animation: $timer last-cycle linear infinite paused;
+      transition: $md-transition-default;
     }
   }
 </style>
@@ -65,21 +86,25 @@
       MdSvgLoader
     },
     props: {
-      animated: Boolean
+      animated: Boolean,
+      blending: {
+        type: Boolean,
+        default: true
+      }
     },
     methods: {
       svgLoaded () {
         if (this.animated) {
-          const small = this.$el.querySelector('#small-m')
-          const big = this.$el.querySelector('#big-m')
+          const firstSquare = this.$el.querySelector('.first-square')
+          const lastSquare = this.$el.querySelector('.last-square')
 
-          if (small) {
-            small.setAttribute('transform', 'translate(80.5 344)')
-            big.setAttribute('transform', 'translate(0 -346)')
+          if (firstSquare) {
+            firstSquare.setAttribute('transform', 'translate(80.5 344)')
+            lastSquare.setAttribute('transform', 'translate(0 -346)')
 
             window.setTimeout(() => {
-              small.setAttribute('transform', 'translate(80.5 138)')
-              big.setAttribute('transform', 'translate(0 0)')
+              firstSquare.setAttribute('transform', 'translate(80.5 138)')
+              lastSquare.setAttribute('transform', 'translate(0 0)')
             }, 500)
           }
         }
