@@ -1,8 +1,26 @@
 <template>
-  <div class="page-container">
+  <div class="page-container" :class="{ centered }">
     <slot />
   </div>
 </template>
+
+<style lang="scss" scoped>
+  .page-container.centered {
+    max-width: 1280px;
+    margin: auto;
+    padding: 16px;
+  }
+
+  .page-container-section {
+    font-size: 16px;
+    letter-spacing: .01em;
+    line-height: 1.6em;
+
+    + .page-container-section {
+      margin-top: 40px;
+    }
+  }
+</style>
 
 <script>
   import * as types from 'store/mutation-types'
@@ -11,7 +29,8 @@
   export default {
     name: 'PageContainer',
     props: {
-      title: String
+      title: String,
+      centered: Boolean
     },
     methods: {
       ...mapMutations({

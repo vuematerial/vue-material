@@ -1,7 +1,11 @@
 <template>
-  <splash-container splash :title="$t('pages.gettingStarted.title')">
+  <page-container centered :title="$t('pages.gettingStarted.title')">
+    <div class="page-container-section">{{ $t('pages.gettingStarted.introduction') }}</div>
 
-  </splash-container>
+    <div class="page-container-section">
+      <h2 class="md-headline">{{ $t('pages.gettingStarted.installation') }}</h2>
+    </div>
+  </page-container>
 </template>
 
 <style lang="scss" scoped>

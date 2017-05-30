@@ -5,7 +5,12 @@
         <logo-vue-material :animated="isHome" :blending="false" @click.native="$router.push('/')" />
       </div>
 
-      <span class="md-title">Vue Material {{ pageTitle }}</span>
+      <div class="md-title">
+        <span>Vue Material</span>
+        <span v-if="pageTitle"> - </span>
+        <span v-if="isHome">{{ pageTitle }}</span>
+        <h1 class="md-title" v-else>{{ pageTitle }}</h1>
+      </div>
 
       <md-icon md-src="assets/icon-github.svg" class="icon-github" />
     </md-toolbar>
@@ -48,6 +53,10 @@
     .md-title {
       flex: 1;
     }
+
+    h1 {
+      display: inline-block;
+    }
   }
 
   .logo {
@@ -85,11 +94,7 @@
       pageTitle () {
         const { stateTitle } = this
 
-        if (stateTitle) {
-          return '- ' + stateTitle
-        }
-
-        return null
+        return stateTitle && stateTitle
       },
       isHome () {
         return this.$route.path === '/'

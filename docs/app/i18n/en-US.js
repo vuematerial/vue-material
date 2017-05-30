@@ -10,7 +10,9 @@ export default {
       featuredContent: 'Complete with dynamic themes, components on demand and all with an ease-to-use API.'
     },
     gettingStarted: {
-      title: 'Getting Started'
+      title: 'Getting Started',
+      introduction: 'Vue Material is the better integration between Vue.js and Material Design specs! You can easily configure to suit your needs. All you have to do is to choose an installation method that fits you better and follow it\'s instructions. Let\'s see...',
+      installation: 'Installation'
     },
     components: {
       title: 'Components'
