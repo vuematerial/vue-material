@@ -2,7 +2,7 @@
   <div class="container" :class="containerClass">
     <md-toolbar class="main-header" :class="mainHeaderClasses">
       <div class="logo">
-        <logo-vue-material :animated="isHome" :blending="false" @click.native="$router.push('/')" />
+        <logo-vue-material :animated="isHome" :blending="isSplash" @click.native="$router.push('/')" />
       </div>
 
       <div class="md-title">

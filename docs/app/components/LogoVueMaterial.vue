@@ -1,5 +1,5 @@
 <template>
-  <md-svg-loader class="logo-vue-material" :class="{ blending }" md-src="assets/logo.svg" />
+  <md-svg-loader class="logo-vue-material" :class="{ blending }" md-src="assets/logo.svg" @md-loaded="svgLoaded" />
 </template>
 
 <style lang="scss">
@@ -65,14 +65,16 @@
       }
     }
 
+    $transition-square: .6s .5s $md-transition-stand-timing;
+
     .first-square {
       animation: $timer first-cycle linear infinite paused;
-      transition: $md-transition-stand;
+      transition: $transition-square;
     }
 
     .last-square {
       animation: $timer last-cycle linear infinite paused;
-      transition: $md-transition-default;
+      transition: $transition-square;
     }
   }
 </style>
@@ -98,15 +100,13 @@
           const firstSquare = this.$el.querySelector('.first-square')
           const lastSquare = this.$el.querySelector('.last-square')
 
-          if (firstSquare) {
-            firstSquare.setAttribute('transform', 'translate(80.5 344)')
-            lastSquare.setAttribute('transform', 'translate(0 -346)')
+          firstSquare.setAttribute('transform', 'translate(48 0)')
+          lastSquare.setAttribute('transform', 'translate(-48 0)')
 
-            window.setTimeout(() => {
-              firstSquare.setAttribute('transform', 'translate(80.5 138)')
-              lastSquare.setAttribute('transform', 'translate(0 0)')
-            }, 500)
-          }
+          window.setTimeout(() => {
+            firstSquare.setAttribute('transform', 'translate(0 0)')
+            lastSquare.setAttribute('transform', 'translate(0 0)')
+          }, 10)
         }
       }
     }
