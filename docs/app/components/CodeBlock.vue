@@ -257,7 +257,9 @@
         }
       }
     },
-    mounted () {
+    async mounted () {
+      await this.$nextTick()
+
       this.reindentSource()
       this.enableCopy()
 
