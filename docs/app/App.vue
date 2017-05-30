@@ -39,6 +39,7 @@
     max-width: 100%;
     transition: .3s $md-transition-default-timing,
                 box-shadow .4s .1s $md-transition-stand-timing;
+    will-change: box-shadow, max-width, background-color;
 
     &.md-transparent .logo {
       background: #fff;
