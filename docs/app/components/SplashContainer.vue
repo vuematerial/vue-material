@@ -31,7 +31,7 @@
       })
     },
     mounted () {
-      this.$material.theming.theme = 'splash'
+      this.$material.theming.theme = 'dark'
       this.setPageTitle(this.title)
       this.setSplashMode(true)
     },

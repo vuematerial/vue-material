@@ -1,6 +1,6 @@
 @import '~vue-material/theme/factory';
 
-@include md-register-theme('splash', (
+@include md-register-theme('dark', (
   primary: md-get-palette-color(white, 500),
   accent: md-get-palette-color(blue, 500),
   theme: dark

@@ -21,7 +21,7 @@
 
 <style lang="scss">
   @import './themes/default';
-  @import './themes/splash';
+  @import './themes/dark';
 </style>
 
 <style lang="scss" scoped>
@@ -113,13 +113,6 @@
           'md-transparent': isSplash,
           'md-elevation-2': !isSplash
         }
-      }
-    },
-    mounted () {
-      if (this.isSplash) {
-        this.$material.theming.theme = 'splash'
-      } else {
-        this.$material.theming.theme = 'default'
       }
     }
   }
