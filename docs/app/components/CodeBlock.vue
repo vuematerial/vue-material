@@ -1,7 +1,7 @@
 <template>
   <div class="code-block md-theme-dark" :data-lang="lang">
     <div class="code-block-wrapper md-scrollbar" :style="{ 'max-height': height }">
-      <pre><code :class="lang" ref="block"><slot></slot></code></pre>
+      <pre><code ref="block"><slot></slot></code></pre>
 
       <span class="copy-message" :class="{ 'active': showMessage }">{{ $t('components.code.copyMessage') }}</span>
     </div>
@@ -103,14 +103,6 @@
     letter-spacing: normal;
     line-height: 1.4em;
     text-shadow: 0 0 1px rgba(md-get-palette-color(grey, 200), .1);
-
-    &.scss {
-      color: #89dcfe;
-    }
-
-    &.javascript .hljs-attr {
-      color: #bbdf88;
-    }
   }
 
   .hljs-comment,
@@ -187,6 +179,15 @@
 
   .hljs-strong {
     font-weight: bold;
+  }
+
+  .scss,
+  .undefined {
+    color: #89dcfe;
+  }
+
+  .javascript .hljs-attr {
+    color: #bbdf88;
   }
 </style>
 

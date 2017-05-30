@@ -29,7 +29,8 @@
   @import "~vue-material/theme/factory";
 
   .container {
-    font-family: 'Roboto Mono', monospace;
+    padding-top: 64px;
+    font-family: "Roboto Mono", monospace;
 
     &.splash .main-header {
       max-width: 1280px;
@@ -42,6 +43,10 @@
   .main-header {
     margin: auto;
     max-width: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
     transition: .3s $md-transition-default-timing,
                 box-shadow .4s .1s $md-transition-stand-timing;
     will-change: box-shadow, max-width, background-color;
@@ -74,10 +79,6 @@
       align-items: center;
       cursor: pointer;
     }
-  }
-
-  .main-content {
-    padding: 16px;
   }
 </style>
 
