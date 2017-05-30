@@ -1,16 +1,16 @@
 <template>
-  <splash-icon class="splash-icon-square" v-once>
+  <home-icon class="home-icon-square" v-once>
     <div class="square"></div>
     <div class="square"></div>
     <div class="square"></div>
-  </splash-icon>
+  </home-icon>
 </template>
 
 <style lang="scss" scoped>
   @import "~vue-material/components/MdAnimation/variables";
   @import "~vue-material/theme/factory";
 
-  .splash-icon-square {
+  .home-icon-square {
     &:hover {
       .square {
         opacity: .87;
@@ -50,12 +50,12 @@
 </style>
 
 <script>
-  import SplashIcon from './SplashIcon'
+  import HomeIcon from './HomeIcon'
 
   export default {
-    name: 'SplashIconSquare',
+    name: 'HomeIconSquare',
     components: {
-      SplashIcon
+      HomeIcon
     }
   }
 </script>

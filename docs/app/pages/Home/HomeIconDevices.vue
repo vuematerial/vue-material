@@ -1,16 +1,16 @@
 <template>
-  <splash-icon class="splash-icon-devices" v-once>
+  <home-icon class="home-icon-devices" v-once>
     <div class="device"></div>
     <div class="device"></div>
     <div class="device"></div>
-  </splash-icon>
+  </home-icon>
 </template>
 
 <style lang="scss" scoped>
   @import "~vue-material/components/MdAnimation/variables";
   @import "~vue-material/theme/factory";
 
-  .splash-icon-devices {
+  .home-icon-devices {
     width: 160px;
   }
 
@@ -90,12 +90,12 @@
 </style>
 
 <script>
-  import SplashIcon from './SplashIcon'
+  import HomeIcon from './HomeIcon'
 
   export default {
-    name: 'SplashIcondevices',
+    name: 'HomeIcondevices',
     components: {
-      SplashIcon
+      HomeIcon
     }
   }
 </script>

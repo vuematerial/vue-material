@@ -1,5 +1,5 @@
 <template>
-  <i class="splash-icon" v-once>
+  <i class="home-icon" v-once>
     <slot />
   </i>
 </template>
@@ -8,7 +8,7 @@
   $container-size: 100px;
   $item-size: $container-size * .8;
 
-  .splash-icon {
+  .home-icon {
     width: $container-size;
     height: $container-size;
     margin-bottom: 32px;
@@ -24,6 +24,6 @@
 
 <script>
   export default {
-    name: 'SplashIcon'
+    name: 'HomeIcon'
   }
 </script>

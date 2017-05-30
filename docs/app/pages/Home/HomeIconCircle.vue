@@ -1,18 +1,18 @@
 <template>
-  <splash-icon class="splash-icon-circle" v-once>
+  <home-icon class="home-icon-circle" v-once>
     <div class="circle"></div>
     <div class="circle"></div>
     <div class="circle">
       <md-ripple md-centered />
     </div>
-  </splash-icon>
+  </home-icon>
 </template>
 
 <style lang="scss" scoped>
   @import "~vue-material/components/MdAnimation/variables";
   @import "~vue-material/theme/factory";
 
-  .splash-icon-circle {
+  .home-icon-circle {
     &:hover .circle {
       &:nth-child(2) {
         transform: scale(.66) translate3D(0, -75%, 0);
@@ -55,12 +55,12 @@
 </style>
 
 <script>
-  import SplashIcon from './SplashIcon'
+  import HomeIcon from './HomeIcon'
 
   export default {
-    name: 'SplashIconCircle',
+    name: 'HomeIconCircle',
     components: {
-      SplashIcon
+      HomeIcon
     }
   }
 </script>
