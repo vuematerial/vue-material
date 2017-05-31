@@ -273,7 +273,7 @@
   </page-content>
 </template>
 
-<style lang="sass" scoped>
+<style lang="scss" scoped>
   .speed-dial-demo {
     height: 250px;
   }

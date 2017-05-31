@@ -112,7 +112,7 @@
   </page-content>
 </template>
 
-<style lang="sass" scoped>
+<style lang="scss" scoped>
   .main-content {
     position: relative;
   }

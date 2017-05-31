@@ -99,7 +99,7 @@
   </page-content>
 </template>
 
-<style lang="sass" scoped>
+<style lang="scss" scoped>
   .progress-area {
     height: 44px;
 

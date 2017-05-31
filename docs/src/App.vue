@@ -200,7 +200,7 @@
   </div>
 </template>
 
-<style lang="sass">
+<style lang="scss">
   @import '../../src/core/stylesheets/variables.scss';
 
   $sizebar-size: 280px;
@@ -417,6 +417,8 @@
       closeSidenav() {
         this.$refs['main-sidebar'].close();
       }
+    },
+    mounted() {
     }
   };
 </script>

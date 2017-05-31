@@ -731,7 +731,7 @@
   </page-content>
 </template>
 
-<style lang="sass" scoped>
+<style lang="scss" scoped>
   .md-table + .md-table-card,
   .md-table-card + .md-table-card {
     margin-top: 24px;

@@ -137,7 +137,7 @@
   </page-content>
 </template>
 
-<style lang="sass" scoped>
+<style lang="scss" scoped>
   .md-avatar + .md-avatar {
     margin-left: 8px;
   }

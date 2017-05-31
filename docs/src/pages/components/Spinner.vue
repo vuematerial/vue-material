@@ -194,7 +194,7 @@
   </page-content>
 </template>
 
-<style lang="sass" scoped>
+<style lang="scss" scoped>
   .spinner-demo {
     min-height: 55px;
   }

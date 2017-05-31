@@ -18,7 +18,7 @@
   </div>
 </template>
 
-<style lang="sass" scoped>
+<style lang="scss" scoped>
   .page-content {
     min-height: 100%;
     max-height: 100%;

@@ -3,7 +3,7 @@
     <span class="md-table-pagination-label">{{ mdLabel }}:</span>
 
     <md-select v-model="currentSize" md-menu-class="md-pagination-select" @change="changeSize" v-if="mdPageOptions">
-      <md-option v-for="amount in mdPageOptions" :value="amount">{{ amount }}</md-option>
+      <md-option v-for="amount in mdPageOptions" :key="amount" :value="amount">{{ amount }}</md-option>
     </md-select>
 
     <span>{{ ((currentPage - 1) * currentSize) + 1 }}-{{ subTotal }} {{ mdSeparator }} {{ mdTotal }}</span>

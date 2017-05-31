@@ -630,7 +630,7 @@
   </page-content>
 </template>
 
-<style lang="sass" scoped>
+<style lang="scss" scoped>
   .md-menu {
     margin-right: 36px;
   }
