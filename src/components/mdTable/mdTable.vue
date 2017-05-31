@@ -25,10 +25,20 @@
         sortBy: this.mdSort,
         hasRowSelection: false,
         data: [],
-        numberOfRows: 0,
-        numberOfSelected: 0,
-        selectedRows: {}
+        selectedRows: []
       };
+    },
+    computed: {
+      numberOfRows() {
+        return this.data ?
+          this.data.length :
+          0;
+      },
+      numberOfSelected() {
+        return this.selectedRows ?
+          this.selectedRows.length :
+          0;
+      }
     },
     methods: {
       emitSort(name) {
@@ -40,15 +50,42 @@
       },
       emitSelection() {
         this.$emit('select', this.selectedRows);
+      },
+      removeRow(row, array = null) {
+        const list = array || this.data;
+        const index = list.indexOf(row);
+
+        if (index !== -1) {
+          list.splice(index, 1);
+        }
+      },
+      setRowSelection(isSelected, row) {
+        if (isSelected) {
+          this.selectedRows.push(row);
+          return;
+        }
+        this.removeRow(row, this.selectedRows);
+      },
+      // setRowSelection(isSelected, uuid) {
+      //   const row = this.mappedRows[uuid];
+      //
+      //   if (isSelected) {
+      //     this.selectedRows.push(Object.assign({}, row));
+      //     return;
+      //   }
+      //   const index = this.data.indexOf(row);
+      //
+      //   if (index !== -1) {
+      //     this.selectedRows.splice(index, 1);
+      //   }
+      // },
+      setMultipleRowSelection(isSelected) {
+        this.selectedRows = isSelected ?
+          Object.assign([], this.data) :
+          [];
       }
     },
     watch: {
-      data() {
-        this.numberOfRows = this.data.length;
-      },
-      selectedRows() {
-        this.numberOfSelected = Object.keys(this.selectedRows).length;
-      },
       mdSort() {
         this.sortBy = this.mdSort;
         this.$emit('sortInput');

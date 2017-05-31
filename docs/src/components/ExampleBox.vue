@@ -48,7 +48,7 @@ var App = new Vue({
   </div>
 </template>
 
-<style lang="sass">
+<style lang="scss">
   .example-box .code-content {
     .code-block {
       margin: -16px;
@@ -64,7 +64,7 @@ var App = new Vue({
   }
 </style>
 
-<style lang="sass" scoped>
+<style lang="scss" scoped>
   .example-box {
     margin-bottom: 16px;
   }

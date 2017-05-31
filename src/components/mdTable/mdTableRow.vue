@@ -1,15 +1,26 @@
 <template>
-  <tr class="md-table-row" :class="classes" @click="autoSelect">
-    <md-table-cell class="md-table-selection" v-if="hasSelection">
-      <md-checkbox v-model="checkbox" :disabled="isDisabled" @change="select"></md-checkbox>
+  <tr
+    class="md-table-row"
+    :class="classes"
+    @click="autoSelect"
+    @click.native="autoSelect">
+    <md-table-cell
+      v-if="hasSelection"
+      class="md-table-selection">
+      <md-checkbox
+        v-model="checkbox"
+        :disabled="isDisabled"
+        @change="select"
+        @change.native="select"/>
     </md-table-cell>
 
-    <slot></slot>
+    <slot/>
   </tr>
 </template>
 
 <script>
   import getClosestVueParent from '../../core/utils/getClosestVueParent';
+  import uniqueId from '../../core/utils/uniqueId';
 
   const transitionClass = 'md-transition-off';
 
@@ -25,7 +36,8 @@
         parentTable: {},
         headRow: false,
         checkbox: false,
-        index: 0
+        index: 0,
+        uuid: `mdrow_uuid_${uniqueId()}`
       };
     },
     computed: {
@@ -48,50 +60,41 @@
       }
     },
     methods: {
-      setSelectedRow(value, index) {
-        if (value) {
-          this.parentTable.selectedRows[index] = this.parentTable.data[index];
-          ++this.parentTable.numberOfSelected;
-        } else {
-          delete this.parentTable.selectedRows[index];
-          --this.parentTable.numberOfSelected;
-        }
+      setRowSelection(value, row) {
+        this.parentTable.setRowSelection(value, row);
       },
       handleSingleSelection(value) {
-        this.setSelectedRow(value, this.index - 1);
-        this.parentTable.$children[0].checkbox = this.parentTable.numberOfSelected === this.parentTable.numberOfRows;
+        this.parentTable.setRowSelection(value, this.mdItem);
+        this.parentTable.$children[0].checkbox = this.parentTable.numberOfSelected === this.parentTable.rowsCounter;
       },
       handleMultipleSelection(value) {
         if (this.parentTable.numberOfRows > 25) {
           this.parentTable.$el.classList.add(transitionClass);
         }
 
-        this.parentTable.$children.forEach((row, index) => {
+        this.parentTable.$children.forEach((row) => {
           row.checkbox = value;
-
-          if (!row.headRow) {
-            this.setSelectedRow(value, index - 1);
-          }
         });
 
-        if (value) {
-          this.parentTable.numberOfSelected = this.parentTable.numberOfRows;
-        } else {
-          this.parentTable.numberOfSelected = 0;
-        }
+        this.parentTable.setMultipleRowSelection(value);
 
-        window.setTimeout(() => this.parentTable.$el.classList.remove(transitionClass));
+        window.setTimeout(() =>
+          this.parentTable.$el.classList.remove(transitionClass),
+          100);
       },
       select(value) {
-        if (this.hasSelection) {
-          if (this.headRow) {
-            this.handleMultipleSelection(value);
-          } else {
-            this.handleSingleSelection(value);
-          }
-
-          this.parentTable.emitSelection();
+        if (!this.hasSelection) {
+          return;
         }
+
+        if (this.headRow) {
+          this.handleMultipleSelection(value);
+        } else {
+          this.handleSingleSelection(value);
+        }
+
+        this.parentTable.emitSelection();
+        this.$emit(value ? 'selected' : 'deselected', value);
       },
       autoSelect() {
         if (this.mdAutoSelect && this.hasSelection) {
@@ -99,25 +102,29 @@
           this.handleSingleSelection(this.checkbox);
           this.parentTable.emitSelection();
         }
-      }
-    },
-    mounted() {
-      this.parentTable = getClosestVueParent(this.$parent, 'md-table');
+      },
+      startTableRow() {
+        this.parentTable = getClosestVueParent(this.$parent, 'md-table');
 
-      if (this.$el.parentNode.tagName.toLowerCase() === 'thead') {
-        this.headRow = true;
-      } else {
-        this.parentTable.numberOfRows++;
-        this.index = this.parentTable.numberOfRows;
+        if (this.$el.parentNode.tagName.toLowerCase() === 'thead') {
+          this.headRow = true;
+        } else {
+          if (!this.mdItem && this.mdSelection) {
+            throw new Error('You should set the md-item property when using mdSelection. Example: <md-table-row md-selection :md-item="ITEM" ...>');
+          }
 
-        if (this.mdSelection) {
-          this.parentTable.hasRowSelection = true;
-        }
-
-        if (this.mdItem) {
+          if (this.mdSelection) {
+            this.parentTable.hasRowSelection = true;
+          }
           this.parentTable.data.push(this.mdItem);
         }
       }
+    },
+    destroyed() {
+      this.parentTable.removeRow(this.mdItem);
+    },
+    mounted() {
+      this.startTableRow();
     }
   };
 </script>

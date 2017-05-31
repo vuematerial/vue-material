@@ -151,8 +151,19 @@
     &.md-numeric {
       text-align: right;
 
+      .md-icon {
+        margin: 0;
+      }
+
       .md-table-cell-container {
-        justify-content: flex-end;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .md-icon,
+        .md-button .md-icon {
+          margin: auto;
+        }
       }
     }
 
@@ -182,6 +193,7 @@
 
       .md-icon {
         $size: 18px;
+        margin: auto;
 
         width: $size;
         min-width: $size;
@@ -392,3 +404,9 @@
     flex: 1;
   }
 }
+
+// .md-table .md-table-cell.md-has-action .md-table-cell-container {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// }

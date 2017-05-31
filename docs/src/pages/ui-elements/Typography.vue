@@ -45,7 +45,7 @@
   </page-content>
 </template>
 
-<style lang="sass" scoped>
+<style lang="scss" scoped>
   .demo > * {
     margin: .5em 0;
     display: block;

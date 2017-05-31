@@ -491,7 +491,7 @@
   </page-content>
 </template>
 
-<style lang="sass" scoped>
+<style lang="scss" scoped>
   .field-group {
     display: flex;
   }

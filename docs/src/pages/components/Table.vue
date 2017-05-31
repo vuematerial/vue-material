@@ -207,6 +207,34 @@
               </md-table-row>
             </md-table-body>
           </md-table>
+
+          <md-table slot="events">
+            <md-table-header>
+              <md-table-row>
+                <md-table-head>Name</md-table-head>
+                <md-table-head>Value</md-table-head>
+                <md-table-head>Description</md-table-head>
+              </md-table-row>
+            </md-table-header>
+
+            <md-table-body>
+              <md-table-row>
+                <md-table-cell>pagination</md-table-cell>
+                <md-table-cell>Emits an <code>Object</code> containing the current list size and current page.</md-table-cell>
+                <md-table-cell>Triggered when the user selects change pages or the pagination size changes.</md-table-cell>
+              </md-table-row>
+              <md-table-row>
+                <md-table-cell>size</md-table-cell>
+                <md-table-cell>The <code>Number</code> of current list size.</md-table-cell>
+                <md-table-cell>Triggered when the pagination size changes.</md-table-cell>
+              </md-table-row>
+              <md-table-row>
+                <md-table-cell>page</md-table-cell>
+                <md-table-cell>Emits the <code>Number</code> of current pagination page.</md-table-cell>
+                <md-table-cell>Triggered when the pagination page changes.</md-table-cell>
+              </md-table-row>
+            </md-table-body>
+          </md-table>
         </api-table>
 
         <api-table name="md-table-alternate-header">
@@ -233,7 +261,7 @@
       <div slot="example">
         <example-box card-title="Plain">
           <div slot="demo">
-            <md-table v-once>
+            <md-table>
               <md-table-header>
                 <md-table-row>
                   <md-table-head>Dessert (100g serving)</md-table-head>
@@ -245,7 +273,10 @@
               </md-table-header>
 
               <md-table-body>
-                <md-table-row v-for="(row, index) in 5" :key="index">
+                <md-table-row
+                  v-for="(row, index) in 5"
+                  :md-item="{ item: index }"
+                  :key="index">
                   <md-table-cell>Dessert Name</md-table-cell>
                   <md-table-cell v-for="(col, index) in 4" :key="index" md-numeric>10</md-table-cell>
                 </md-table-row>
@@ -291,7 +322,10 @@
               </md-table-header>
 
               <md-table-body>
-                <md-table-row v-for="(row, index) in 5" :key="index">
+                <md-table-row
+                  v-for="(row, index) in 5"
+                  :md-item="{ item: index }"
+                  :key="index">
                   <md-table-cell>Dessert Name</md-table-cell>
                   <md-table-cell v-for="(col, index) in 4" :key="index" md-numeric>10</md-table-cell>
                 </md-table-row>
@@ -337,7 +371,11 @@
                 </md-button>
               </md-toolbar>
 
-              <md-table :md-sort="sortInput.name" :md-sort-type="sortInput.type" @select="onSelect" @sort="onSort">
+              <md-table
+                :md-sort="sortInput.name"
+                :md-sort-type="sortInput.type"
+                @select="onSelect"
+                @sort="onSort">
                 <md-table-header>
                   <md-table-row>
                     <md-table-head md-sort-by="dessert">Dessert (100g serving)</md-table-head>
@@ -351,7 +389,12 @@
                 </md-table-header>
 
                 <md-table-body>
-                  <md-table-row v-for="(row, rowIndex) in nutrition" :key="rowIndex" :md-item="row" md-auto-select md-selection>
+                  <md-table-row
+                    v-for="(row, rowIndex) in nutrition"
+                    :md-item="row"
+                    :key="rowIndex"
+                    md-auto-select
+                    md-selection>
                     <md-table-cell v-for="(column, columnIndex) in row" :key="columnIndex" :md-numeric="columnIndex !== 'dessert' && columnIndex !== 'comment'" v-if="columnIndex !== 'type'">
                       {{ column }}
                     </md-table-cell>
@@ -538,9 +581,16 @@
                 </md-table-header>
 
                 <md-table-body>
-                  <md-table-row v-for="(row, rowIndex) in nutrition" :key="rowIndex" :md-item="row" md-selection>
+                  <md-table-row
+                    v-for="(row, rowIndex) in nutrition"
+                    :key="rowIndex"
+                    :mdItem="row"
+                    md-selection>
                     <md-table-cell v-for="(column, columnIndex) in row" :key="columnIndex" :md-numeric="columnIndex !== 'dessert' && columnIndex !== 'comment' && columnIndex !== 'type'">
-                      <span v-if="columnIndex === 'comment'">{{ column }}</span>
+                      <template v-if="columnIndex === 'comment'">
+                        <span>{{ column }}</span>
+                        <md-icon>message</md-icon>
+                      </template>
 
                       <md-button class="md-icon-button" v-if="columnIndex === 'comment'">
                         <md-icon>edit</md-icon>
@@ -681,7 +731,7 @@
   </page-content>
 </template>
 
-<style lang="sass" scoped>
+<style lang="scss" scoped>
   .md-table + .md-table-card,
   .md-table-card + .md-table-card {
     margin-top: 24px;
@@ -755,6 +805,9 @@
       onPagination(page) {
         this.page = page;
       }
+    },
+    mounted() {
+      window.nutrition = this.nutrition;
     }
   };
 </script>

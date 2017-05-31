@@ -156,7 +156,7 @@
   </page-content>
 </template>
 
-<style lang="sass" scoped>
+<style lang="scss" scoped>
   .has-ripple {
     margin-bottom: 16px;
     padding: 20px;

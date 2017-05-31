@@ -1170,7 +1170,7 @@
   </page-content>
 </template>
 
-<style lang="sass" scoped>
+<style lang="scss" scoped>
   .phone-viewport {
     height: 480px;
     overflow: auto;

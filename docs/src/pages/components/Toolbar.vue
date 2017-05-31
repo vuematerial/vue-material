@@ -867,7 +867,7 @@
   </page-content>
 </template>
 
-<style lang="sass" scoped>
+<style lang="scss" scoped>
   .md-toolbar + .md-toolbar {
     margin-top: 16px;
   }

@@ -34,7 +34,7 @@
   </page-content>
 </template>
 
-<style lang="sass" scoped>
+<style lang="scss" scoped>
   .introduction {
     max-width: 960px;
     margin: 0 auto;

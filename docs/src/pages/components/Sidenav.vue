@@ -220,7 +220,7 @@
   </page-content>
 </template>
 
-<style lang="sass" scoped>
+<style lang="scss" scoped>
   .phone-viewport p {
     padding: 8px 16px;
   }

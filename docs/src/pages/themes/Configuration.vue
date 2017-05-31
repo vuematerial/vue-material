@@ -135,7 +135,7 @@
   </page-content>
 </template>
 
-<style lang="sass" scoped>
+<style lang="scss" scoped>
   section {
     max-width: 960px;
 

@@ -4,7 +4,7 @@
   </page-content>
 </template>
 
-<style lang="sass">
+<style lang="scss">
   .changelog section {
     max-width: 960px;
 

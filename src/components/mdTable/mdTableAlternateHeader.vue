@@ -2,7 +2,7 @@
   <div class="md-table-alternate-header" :class="[themeClass, classes]">
     <md-toolbar>
       <div class="md-counter">
-        <span ref="counter">{{ tableInstance.numberOfSelected }}</span>
+        <span ref="counter">{{ numberOfSelected }}</span>
         <span>{{ mdSelectedLabel }}</span>
       </div>
 
@@ -17,18 +17,23 @@
 
   export default {
     name: 'md-table-alternate-header',
+    mixins: [theme],
     props: {
       mdSelectedLabel: {
         type: String,
         default: 'selected'
       }
     },
-    mixins: [theme],
     data() {
       return {
         classes: {},
         tableInstance: {}
       };
+    },
+    computed: {
+      numberOfSelected() {
+        return this.tableInstance.numberOfSelected || 0;
+      }
     },
     mounted() {
       this.parentCard = getClosestVueParent(this.$parent, 'md-table-card');

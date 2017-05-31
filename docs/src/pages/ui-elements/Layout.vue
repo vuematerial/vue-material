@@ -663,7 +663,7 @@
   </page-content>
 </template>
 
-<style lang="sass" scoped>
+<style lang="scss" scoped>
   .layout-demo {
     min-height: 100px;
   }

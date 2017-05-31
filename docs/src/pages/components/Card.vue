@@ -1098,7 +1098,7 @@
   </page-content>
 </template>
 
-<style lang="sass" scoped>
+<style lang="scss" scoped>
   .card-holder {
     .md-card {
       width: 100%;

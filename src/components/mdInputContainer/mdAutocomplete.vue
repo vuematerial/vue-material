@@ -21,8 +21,9 @@
         @input="debounceUpdate"/>
 
       <md-menu-content>
-        <md-menu-item v-for="item in items"
-          v-if="items.length"
+        <md-menu-item v-if="items.length"
+          v-for="item in items"
+          :key="item"
           @keyup.enter="hit(item)"
           @click.native="hit(item)">
           {{ item[printAttribute] }}

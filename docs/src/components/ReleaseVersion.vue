@@ -3,13 +3,13 @@
     <div v-if="availableDocs.length > 1">
       <span>Version:</span>
       <md-select id="docs-select" v-model="currentDocs" @change="changeDocs">
-        <md-option v-for="doc in availableDocs" :value="doc">{{ doc }}</md-option>
+        <md-option v-for="doc in availableDocs" :key="doc" :value="doc">{{ doc }}</md-option>
       </md-select>
     </div>
   </div>
 </template>
 
-<style lang="sass" scoped>
+<style lang="scss" scoped>
   .release-version {
     font-size: 15px;
 
