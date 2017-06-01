@@ -141,9 +141,6 @@
           this.tabList[tabData.id].active = true;
         }
       },
-      registerTab(tabData) {
-        this.$set(this.tabList, tabData.id, tabData);
-      },
       unregisterTab(tabData) {
         this.$delete(this.tabList, tabData.id);
       },
