@@ -126,7 +126,20 @@
         };
       },
       registerTab(tabData) {
+        let hasActive = false;
+
+        for (let tab of Object.keys(this.tabList)) {
+          if (this.tabList[tab].active) {
+            hasActive = true;
+            break;
+          }
+        }
+
         this.$set(this.tabList, tabData.id, tabData);
+
+        if (!hasActive) {
+          this.tabList[tabData.id].active = true;
+        }
       },
       unregisterTab(tabData) {
         this.$delete(this.tabList, tabData.id);
