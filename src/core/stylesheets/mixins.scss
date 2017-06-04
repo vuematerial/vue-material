@@ -29,49 +29,61 @@
 }
 
 @mixin layout-small {
-  @media (max-width: #{$breakpoint-small - 16px}) {
+  @media (max-width: #{$breakpoint-small}) {
     @content;
   }
 }
 
 @mixin layout-medium {
-  @media (max-width: #{$breakpoint-medium - 16px}) {
+  @media (max-width: #{$breakpoint-medium}) {
     @content;
   }
 }
 
 @mixin layout-large {
-  @media (max-width: #{$breakpoint-large - 17px}) {
+  @media (max-width: #{$breakpoint-large}) {
     @content;
   }
 }
 
 @mixin layout-xlarge {
-  @media (min-width: #{$breakpoint-large - 16px}) {
+  @media (min-width: #{$breakpoint-large}) {
     @content;
   }
 }
 
 @mixin layout-xsmall-and-up {
-  @media (min-width: #{$breakpoint-xsmall - 300px}) {
+  @warn "xsmall and up includes everything.";
+  @media (min-width: 0) {
     @content;
   }
 }
 
+/* The min-width breakpoint for small (since we're including small) is the breakpoint for xsmall + 1
+ * In other words, we want to hide at 600 (xsmall), and show at 601 (small)
+ */
 @mixin layout-small-and-up {
-  @media (min-width: #{$breakpoint-small - 300px}) {
+  @media (min-width: #{$breakpoint-xsmall + 1px}) {
     @content;
   }
 }
 
+/* Likewise, the min-width breakpoint for medium is small + 1 */
 @mixin layout-medium-and-up {
-  @media (min-width: #{$breakpoint-small - 16px}) {
+  @media (min-width: #{$breakpoint-small + 1px}) {
     @content;
   }
 }
 
 @mixin layout-large-and-up {
-  @media (min-width: #{$breakpoint-medium - 16px}) {
+  @media (min-width: #{$breakpoint-medium + 1px}) {
+    @content;
+  }
+}
+
+@mixin layout-xlarge-and-up {
+  @warn "xlarge is the largest value. Please use layout-xlarge.";
+  @media (min-width: #{$breakpoint-large + 1px}) {
     @content;
   }
 }
