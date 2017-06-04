@@ -72,10 +72,12 @@ export default {
       if (this.parentContainer) {
         this.parentContainer.isFocused = true;
       }
+      this.$emit('focus');
     },
     onBlur() {
       this.parentContainer.isFocused = false;
       this.setParentValue();
+      this.$emit('blur');
     },
     onInput() {
       this.updateValues();
