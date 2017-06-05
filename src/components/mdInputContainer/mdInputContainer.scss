@@ -169,6 +169,20 @@ $input-size: 32px;
     }
   }
 
+  &.md-input-stacked {
+    label {
+      pointer-events: auto;
+      top: 0;
+      opacity: 1;
+      font-size: 12px;
+    }
+
+    input,
+    textarea {
+      font-size: 16px;
+    }
+  }
+
   &.md-has-value {
     input,
     textarea {
