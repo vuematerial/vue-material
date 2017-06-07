@@ -1,6 +1,7 @@
 export default {
   pages: {
     home: {
+      title: 'Introduction',
       slogan: 'Build beautiful apps with Material Design and Vue.js',
       material: 'Material Design',
       materialContent: 'Simple, lightweight and built exactly according to the Google Material Design specs.',

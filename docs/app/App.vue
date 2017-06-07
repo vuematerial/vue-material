@@ -15,7 +15,19 @@
       <md-icon md-src="assets/icon-github.svg" class="icon-github" />
     </md-toolbar>
 
-    <router-view />
+    <div class="container-wrapper">
+      <nav class="main-navigation" v-if="!isSplash">
+        <router-link to="/">{{ $t('pages.home.title') }}</router-link>
+        <router-link to="/getting-started">{{ $t('pages.gettingStarted.title') }}</router-link>
+        <router-link to="/components">{{ $t('pages.components.title') }}</router-link>
+        <div class="main-navigation-level">
+          <router-link to="/components/button">{{ $t('pages.button.title') }}</router-link>
+        </div>
+        <router-link to="/ui-elements">{{ $t('pages.uiElements.title') }}</router-link>
+      </nav>
+
+      <router-view />
+    </div>
   </div>
 </template>
 
@@ -83,9 +95,37 @@
     }
   }
 
+  .container-wrapper {
+    display: flex;
+  }
+
+  .main-navigation {
+    width: 220px;
+    padding: 16px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    font-size: 15px;
+
+    a {
+      color: inherit;
+      line-height: 2em;
+    }
+
+    .router-link-exact-active {
+      color: md-get-palette-color(pink, 700);
+    }
+  }
+
+  .main-navigation-level {
+    margin-bottom: 8px;
+    margin-left: 16px;
+  }
+
   .main-container {
     position: relative;
     z-index: 1;
+    flex: 1;
   }
 </style>
 
