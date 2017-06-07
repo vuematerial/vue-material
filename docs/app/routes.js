@@ -30,6 +30,11 @@ export const routes = [
     component: () => import('./pages/UiElements.vue')
   },
   {
+    path: '/temp',
+    name: 'temp',
+    component: () => import('./pages/Temp.vue')
+  },
+  {
     path: '*',
     name: 'error',
     component: () => import('./pages/Error.vue')
