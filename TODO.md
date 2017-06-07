@@ -120,6 +120,10 @@
   - [ ] Extending Vue Material
   - [ ] Third Party Components
 
+- [ ] Migration Guide
+- [ ] Changelog
+- [ ] About
+
 ### Components
 - [ ] Avatar
 - [ ] Bottom Bar
@@ -187,15 +191,6 @@
 - [ ] Tabs
 - [ ] Toolbar
 - [ ] Tooltip
-
-- [ ] UI Elements
-  - [ ] Layout
-  - [ ] Typography
-  - [ ] Ripple
-
-- [ ] Changelog
-- [ ] About
-
 
 ### UI Elements
 - [ ] Animations
