@@ -14,7 +14,7 @@ export default {
   },
   output: {
     path: resolvePath(config.dist),
-    publicPath: config.dist.public,
+    publicPath: '/',
     filename: '[name].js'
   },
   resolve: {

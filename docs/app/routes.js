@@ -20,13 +20,25 @@ export const routes = [
     component: () => import('./pages/Components.vue')
   },
   {
+    path: '/components/button',
+    name: 'components/button',
+    component: () => import('./pages/Components/Button.vue')
+  },
+  {
+    path: '/ui-elements',
+    name: 'ui-elements',
+    component: () => import('./pages/UiElements.vue')
+  },
+  {
     path: '*',
     name: 'error',
     component: () => import('./pages/Error.vue')
   }
 ]
 
+const debug = process.env.NODE_ENV !== 'production'
+
 export default new VueRouter({
-  mode: 'history',
+  mode: debug ? 'hash' : 'history',
   routes
 })

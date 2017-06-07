@@ -1,0 +1,15 @@
+@import '~vue-material/theme/factory';
+
+@include md-register-theme('demo-dark', (
+  primary: md-get-palette-color(blue, 500),
+  accent: md-get-palette-color(pink, 700),
+  theme: dark
+));
+
+@include md-register-theme('demo-light', (
+  primary: md-get-palette-color(blue, 500),
+  accent: md-get-palette-color(pink, 700),
+  theme: light
+));
+
+@import '~vue-material/theme/all';

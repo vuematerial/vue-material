@@ -1,6 +1,8 @@
 .md-button {
   @include md-theme-component() {
     &:not(.md-raised) {
+      @include md-theme-property(color, text-primary, background);
+
       &.md-primary {
         @include md-theme-property(color, primary, background);
       }

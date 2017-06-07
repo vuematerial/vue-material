@@ -43,14 +43,6 @@
       margin: 0;
       font-size: 20px;
       font-weight: 400;
-
-      &:first-child {
-        margin-left: 8px;
-      }
-
-      + .md-input-container {
-        margin-left: 24px;
-      }
     }
   }
 </style>

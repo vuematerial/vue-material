@@ -1,12 +1,12 @@
 <template>
-  <splash-container splash :title="$t('pages.components.title')">
+  <splash-container splash :title="$t('pages.uiElements.title')">
     <grid-layout>
       <grid-layout-item
-        v-for="{ key, name } in components"
+        v-for="{ key, name } in elements"
         :key="key"
         :icon="`icon-${key}`"
         :title="$t(`pages.${name}.title`)"
-        :href="`/components/${key}`">
+        :link="`/ui-elements/${key}`">
         {{ $t(`pages.${name}.description`) }}
       </grid-layout-item>
     </grid-layout>
@@ -15,13 +15,10 @@
 
 <script>
   export default {
-    name: 'Components',
+    name: 'UiElements',
     data: () => ({
-      components: [
-        {
-          name: 'button',
-          key: 'button'
-        }
+      elements: [
+
       ]
     })
   }

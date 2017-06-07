@@ -1,7 +1,7 @@
 <template>
-  <div class="code-block md-theme-dark" :data-lang="lang">
+  <div class="code-block md-theme-dark" :data-label="label">
     <div class="code-block-wrapper md-scrollbar" :style="{ 'max-height': height }">
-      <pre><code ref="block"><slot></slot></code></pre>
+      <pre><code ref="block" :class="lang"><slot v-pre /></code></pre>
 
       <span class="copy-message" :class="{ 'active': showMessage }">{{ $t('components.code.copyMessage') }}</span>
     </div>
@@ -17,7 +17,6 @@
   .code-block {
     overflow: hidden;
     position: relative;
-    border-radius: 2px;
     background-color: md-get-palette-color(grey, 900);
 
     ::selection {
@@ -61,12 +60,16 @@
   .code-block-wrapper {
     min-width: 100%;
     max-height: 450px;
+    min-height: 86px;
     padding: 16px;
+    display: flex;
+    align-items: center;
     overflow: auto;
   }
 
   .md-button {
     min-width: 56px;
+    margin: 8px;
     position: absolute;
     right: 0;
     bottom: 0;
@@ -196,18 +199,19 @@
   import highlightSCSS from 'highlight.js/lib/languages/scss'
   import highlightXML from 'highlight.js/lib/languages/xml'
   import highlightJavascript from 'highlight.js/lib/languages/javascript'
-  import highlightBash from 'highlight.js/lib/languages/bash'
+  import highlightShell from 'highlight.js/lib/languages/shell'
   import Clipboard from 'clipboard'
 
   highlight.registerLanguage('scss', highlightSCSS)
   highlight.registerLanguage('xml', highlightXML)
   highlight.registerLanguage('javascript', highlightJavascript)
-  highlight.registerLanguage('bash', highlightBash)
+  highlight.registerLanguage('shell', highlightShell)
 
   export default {
     name: 'CodeBlock',
     props: {
       lang: String,
+      label: String,
       height: {
         type: [Number, String],
         default: '450px'

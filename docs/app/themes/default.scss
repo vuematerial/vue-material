@@ -5,4 +5,7 @@
   accent: md-get-palette-color(pink, 700)
 ));
 
-@import '~vue-material/theme/all';
+@import '~vue-material/base/theme';
+@import '~vue-material/components/MdButton/theme';
+@import '~vue-material/components/MdContent/theme';
+@import '~vue-material/components/MdToolbar/theme';

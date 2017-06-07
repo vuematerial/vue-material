@@ -5,6 +5,8 @@ export default {
     state.pageTitle = title
   },
   [types.SET_SPLASH_MODE] (state, mode) {
-    state.splashPage = mode
+    if (state.splashPage !== mode) {
+      state.splashPage = mode
+    }
   }
 }

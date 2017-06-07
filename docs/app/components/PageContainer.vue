@@ -6,7 +6,7 @@
 
 <style lang="scss" scoped>
   .page-container.centered {
-    max-width: 1280px;
+    max-width: 1100px;
     margin: auto;
     padding: 16px;
   }
