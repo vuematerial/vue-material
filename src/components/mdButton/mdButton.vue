@@ -34,7 +34,7 @@
     border-radius: $md-button-radius;
     transition: $md-transition-default;
     will-change: box-shadow, color, background-color;
-    font: inherit;
+    font-family: inherit;
     font-size: $md-button-font-size;
     font-weight: 500;
     text-transform: uppercase;
