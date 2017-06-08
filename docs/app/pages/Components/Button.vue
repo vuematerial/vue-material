@@ -3,42 +3,16 @@
     <code-example title="Buttons" label="HTML">
       <div slot="demo">
         <md-button>Button</md-button>
-        <md-toolbar class="md-transparent">
-          <div class="md-title">Toolbar</div>
-        </md-toolbar>
-
-        <md-toolbar>
-          <div class="md-title">Toolbar</div>
-        </md-toolbar>
-
-        <md-toolbar class="md-primary md-elevation-2">
-          <div class="md-title">Toolbar</div>
-        </md-toolbar>
-
-        <md-toolbar class="md-accent md-elevation-2">
-          <div class="md-title">Toolbar</div>
-        </md-toolbar>
       </div>
 
       <div slot="code">
         &lt;md-button&gt;Button&lt;/md-button&gt;
-        &lt;md-toolbar class=&quot;md-transparent&quot;&gt;
-          &lt;div class=&quot;md-title&quot;&gt;Toolbar&lt;/div&gt;
-        &lt;/md-toolbar&gt;
-
-        &lt;md-toolbar&gt;
-          &lt;div class=&quot;md-title&quot;&gt;Toolbar&lt;/div&gt;
-        &lt;/md-toolbar&gt;
-
-        &lt;md-toolbar class=&quot;md-primary md-elevation-2&quot;&gt;
-          &lt;div class=&quot;md-title&quot;&gt;Toolbar&lt;/div&gt;
-        &lt;/md-toolbar&gt;
-
-        &lt;md-toolbar class=&quot;md-accent md-elevation-2&quot;&gt;
-          &lt;div class=&quot;md-title&quot;&gt;Toolbar&lt;/div&gt;
-        &lt;/md-toolbar&gt;
       </div>
     </code-example>
+
+    <api-table :title="'Button'" :headings="api.flat.headings" :props="api.flat.props">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia eos adipisci quos inventore dolor rem explicabo enim sed, harum doloribus illo expedita itaque! Ad id obcaecati atque similique error ab!</p>
+    </api-table>
   </page-container>
 </template>
 
@@ -48,6 +22,27 @@
 
 <script>
   export default {
-    name: 'Button'
+    name: 'Button',
+    data: () => ({
+      api: {
+        flat: {
+          headings: ['Name', 'Description', 'Default'],
+          props: [
+            {
+              name: 'disabled',
+              type: 'Boolean',
+              description: 'Disable the button and prevent his actions.',
+              defaults: 'false'
+            },
+            {
+              name: 'type',
+              type: 'String',
+              description: 'Apply a type to button - Don\'t affect links.',
+              defaults: 'button'
+            }
+          ]
+        }
+      }
+    })
   }
 </script>
