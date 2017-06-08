@@ -33,6 +33,12 @@
             headings: ['Name', 'Description', 'Default'],
             props: [
               {
+                name: 'href',
+                type: 'String',
+                description: 'Create a anchor on the button. In this case the generated tag will be <a>.',
+                defaults: 'null'
+              },
+              {
                 name: 'disabled',
                 type: 'Boolean',
                 description: 'Disable the button and prevent his actions.',
