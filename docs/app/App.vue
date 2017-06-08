@@ -16,17 +16,19 @@
     </md-toolbar>
 
     <div class="container-wrapper">
-      <nav class="main-navigation" v-if="!isSplash">
-        <router-link to="/">{{ $t('pages.home.title') }}</router-link>
-        <router-link to="/getting-started">{{ $t('pages.gettingStarted.title') }}</router-link>
-        <router-link to="/components">{{ $t('pages.components.title') }}</router-link>
-        <div class="main-navigation-level">
-          <router-link to="/components/button">{{ $t('pages.button.title') }}</router-link>
-        </div>
-        <router-link to="/ui-elements">{{ $t('pages.uiElements.title') }}</router-link>
-      </nav>
+      <transition name="nav">
+        <nav class="main-navigation" v-if="!isSplash">
+          <router-link to="/">{{ $t('pages.home.title') }}</router-link>
+          <router-link to="/getting-started">{{ $t('pages.gettingStarted.title') }}</router-link>
+          <router-link to="/components">{{ $t('pages.components.title') }}</router-link>
+          <div class="main-navigation-level">
+            <router-link to="/components/button">{{ $t('pages.button.title') }}</router-link>
+          </div>
+          <router-link to="/ui-elements">{{ $t('pages.uiElements.title') }}</router-link>
+        </nav>
+      </transition>
 
-      <transition name="page">
+      <transition :name="isSplash && 'page'" appear>
         <router-view />
       </transition>
     </div>
@@ -101,6 +103,23 @@
     display: flex;
   }
 
+  .nav-leave-active {
+    display: none;
+  }
+
+  .nav-enter-active {
+    opacity: 0;
+    transform: translate3d(-100%, 0, 0);
+    transition: .4s $md-transition-default-timing;
+    transition-property: opacity, transform;
+    will-change: opacity, transform;
+  }
+
+  .nav-enter-to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+
   .main-navigation {
     width: 220px;
     padding: 16px;
@@ -124,7 +143,8 @@
     margin-left: 16px;
   }
 
-  .page-leave-active {
+  .page-leave-active,
+  .splash-leave-active {
     display: none;
   }
 
