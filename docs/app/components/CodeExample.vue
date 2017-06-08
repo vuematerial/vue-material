@@ -25,12 +25,14 @@
   @import "~vue-material/components/MdAnimation/variables";
   @import "~vue-material/theme/factory";
 
+  $color: md-get-palette-color(grey, 700);
+
   .code-example {
     margin: 24px 0;
   }
 
   .md-toolbar.md-primary {
-    background-color: md-get-palette-color(grey, 700);
+    background-color: $color;
     color: #fff;
   }
 
@@ -46,7 +48,7 @@
   .demo {
     padding: 16px;
     position: relative;
-    border: 1px solid md-get-palette-color(grey, 800);
+    border: 1px solid $color;
   }
 
   .demo-content {
