@@ -4,6 +4,8 @@ import FriendlyErrorsPlugin from 'friendly-errors-webpack-plugin'
 import eslintFormatter from 'eslint-friendly-formatter'
 import { config, resolvePath } from '../config'
 
+const docsComponentLoader = require.resolve('./loaders/docs-component-loader.js')
+
 export default {
   devtool: '#source-map',
   entry: {
@@ -38,7 +40,8 @@ export default {
         options: {
           loaders: {
             css: 'vue-style-loader!css-loader',
-            scss: 'vue-style-loader!css-loader!sass-loader?outputStyle=compressed'
+            scss: 'vue-style-loader!css-loader!sass-loader?outputStyle=compressed',
+            docs: docsComponentLoader
           }
         }
       },

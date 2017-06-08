@@ -62,8 +62,6 @@
     max-height: 450px;
     min-height: 86px;
     padding: 16px;
-    display: flex;
-    align-items: center;
     overflow: auto;
   }
 

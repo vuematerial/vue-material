@@ -1,3 +1,35 @@
+<docs>
+  <docs-loader name="regular-buttons">
+    <div>
+      <small>Flat</small>
+      <md-button>Default</md-button>
+      <md-button class="md-primary">Primary</md-button>
+      <md-button class="md-accent">Accent</md-button>
+      <md-button disabled>Disabled</md-button>
+    </div>
+
+    <div>
+      <small>Raised</small>
+      <md-button class="md-raised">Default</md-button>
+      <md-button class="md-raised md-primary">Primary</md-button>
+      <md-button class="md-raised md-accent">Accent</md-button>
+      <md-button class="md-raised" disabled>Disabled</md-button>
+    </div>
+
+    <div>
+      <small>Dense</small>
+      <md-button class="md-dense md-primary">Flat</md-button>
+      <md-button class="md-dense md-raised md-primary">Raised</md-button>
+    </div>
+  </docs-loader>
+</docs>
+
+<docs>
+  <docs-loader name="floating-buttons">
+    <div>Second</div>
+  </docs-loader>
+</docs>
+
 <template>
   <page-container centered :title="$t('pages.button.title')">
     <div class="page-container-section">
@@ -5,35 +37,7 @@
     </div>
 
     <div class="page-container-section">
-      <code-example title="Regular Button" label="HTML">
-        <div slot="demo">
-          <div>
-            <small>Flat</small>
-            <md-button>Default</md-button>
-            <md-button class="md-primary">Primary</md-button>
-            <md-button class="md-accent">Accent</md-button>
-            <md-button disabled>Disabled</md-button>
-          </div>
-
-          <div>
-            <small>Raised</small>
-            <md-button class="md-raised">Default</md-button>
-            <md-button class="md-raised md-primary">Primary</md-button>
-            <md-button class="md-raised md-accent">Accent</md-button>
-            <md-button class="md-raised" disabled>Disabled</md-button>
-          </div>
-
-          <div>
-            <small>Dense</small>
-            <md-button class="md-dense md-primary">Flat</md-button>
-            <md-button class="md-dense md-raised md-primary">Raised</md-button>
-          </div>
-        </div>
-
-        <div slot="code">
-          &lt;md-button&gt;Button&lt;/md-button&gt;
-        </div>
-      </code-example>
+      <code-example title="Regular Button" label="HTML" :component="docs['regular-buttons']" />
     </div>
 
     <api-item title="API">
@@ -106,6 +110,11 @@
           }
         }
       }
-    })
+    }),
+    computed: {
+      docs () {
+        return this.$options.docs
+      }
+    }
   }
 </script>

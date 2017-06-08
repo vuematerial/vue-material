@@ -2,22 +2,20 @@
   <div class="code-example">
     <md-toolbar class="md-primary md-dense" md-theme="dark">
       <span class="md-title">{{ title }}</span>
-      <md-button class="md-dense" @click="toggleCode" v-if="$slots.demo">{{ codeContent }}</md-button>
+      <md-button class="md-dense" @click="toggleCode" v-if="component.name">{{ codeContent }}</md-button>
     </md-toolbar>
 
-    <code-block :label="label" :lang="lang" v-if="!$slots.demo || codeActive">
-      <slot name="code" />
+    <code-block :label="label" :lang="lang" v-if="!component.name || codeActive">
+      {{ component.encoded }}
     </code-block>
 
     <md-content class="demo" :md-theme="theme" v-else>
       <div class="demo-content">
-        <slot name="demo" />
+        <component :is="component.name" />
       </div>
 
-      <md-button class="button-theme md-dense md-raised md-primary" @click="toggleDarkTheme" v-if="$slots.demo">{{ themeContent }}</md-button>
+      <md-button class="button-theme md-dense md-raised md-primary" @click="toggleDarkTheme" v-if="component.name">{{ themeContent }}</md-button>
     </md-content>
-
-    <slot />
   </div>
 </template>
 
@@ -67,6 +65,7 @@
   export default {
     name: 'CodeExample',
     props: {
+      component: Object,
       title: String,
       label: String,
       lang: String

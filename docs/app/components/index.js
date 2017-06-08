@@ -9,6 +9,7 @@ import GridLayout from './GridLayout'
 import GridLayoutItem from './GridLayoutItem'
 import ApiItem from './ApiItem'
 import ApiTable from './ApiTable'
+import DocsLoader from './DocsLoader'
 
 Vue.component(PageContainer.name, PageContainer)
 Vue.component(SplashContainer.name, SplashContainer)
@@ -19,3 +20,4 @@ Vue.component(GridLayout.name, GridLayout)
 Vue.component(GridLayoutItem.name, GridLayoutItem)
 Vue.component(ApiItem.name, ApiItem)
 Vue.component(ApiTable.name, ApiTable)
+Vue.component(DocsLoader.name, DocsLoader)
