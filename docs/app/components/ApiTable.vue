@@ -56,7 +56,7 @@
     line-height: 23px;
 
     &:first-child,
-    &:last-child {
+    &:nth-child(2) ~ &:last-child {
       width: 17%;
     }
   }

@@ -22,6 +22,12 @@
             <md-button class="md-raised md-accent">Accent</md-button>
             <md-button class="md-raised" disabled>Disabled</md-button>
           </div>
+
+          <div>
+            <small>Dense</small>
+            <md-button class="md-dense md-primary">Flat</md-button>
+            <md-button class="md-dense md-raised md-primary">Raised</md-button>
+          </div>
         </div>
 
         <div slot="code">
@@ -31,9 +37,10 @@
     </div>
 
     <api-item title="API">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia eos adipisci quos inventore dolor rem explicabo enim sed, harum doloribus illo expedita itaque! Ad id obcaecati atque similique error ab!</p>
+      <p>The following options can be applied to all buttons, even the FAB ones:</p>
 
       <api-table :headings="api.flat.props.headings" :props="api.flat.props.props" slot="props" />
+      <api-table :headings="api.flat.classes.headings" :props="api.flat.classes.props" slot="classes" />
       <api-table :headings="api.flat.events.headings" :props="api.flat.events.props" slot="events" />
     </api-item>
   </page-container>
@@ -81,6 +88,19 @@
                 name: 'click',
                 description: 'Triggered after a mouse click',
                 value: '$event'
+              }
+            ]
+          },
+          classes: {
+            headings: ['Name', 'Description'],
+            props: [
+              {
+                name: 'md-raised',
+                description: 'Create raised buttons with elevation'
+              },
+              {
+                name: 'md-dense',
+                description: 'A slight small variant of buttons. Useful to create a compact UI.'
               }
             ]
           }
