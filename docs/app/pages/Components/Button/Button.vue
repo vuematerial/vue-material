@@ -1,34 +1,5 @@
-<docs>
-  <docs-loader name="regular-buttons">
-    <div>
-      <small>Flat</small>
-      <md-button>Default</md-button>
-      <md-button class="md-primary">Primary</md-button>
-      <md-button class="md-accent">Accent</md-button>
-      <md-button disabled>Disabled</md-button>
-    </div>
-
-    <div>
-      <small>Raised</small>
-      <md-button class="md-raised">Default</md-button>
-      <md-button class="md-raised md-primary">Primary</md-button>
-      <md-button class="md-raised md-accent">Accent</md-button>
-      <md-button class="md-raised" disabled>Disabled</md-button>
-    </div>
-
-    <div>
-      <small>Dense</small>
-      <md-button class="md-dense md-primary">Flat</md-button>
-      <md-button class="md-dense md-raised md-primary">Raised</md-button>
-    </div>
-  </docs-loader>
-</docs>
-
-<docs>
-  <docs-loader name="floating-buttons">
-    <div>Second</div>
-  </docs-loader>
-</docs>
+<docs src="./examples/RegularButtons.vue" />
+<docs src="./examples/FloatingButtons.vue" />
 
 <template>
   <page-container centered :title="$t('pages.button.title')">
@@ -47,6 +18,10 @@
       <api-table :headings="api.flat.classes.headings" :props="api.flat.classes.props" slot="classes" />
       <api-table :headings="api.flat.events.headings" :props="api.flat.events.props" slot="events" />
     </api-item>
+
+    <div class="page-container-section">
+      <code-example title="Floating Action Button" label="HTML" :component="docs['floating-buttons']" />
+    </div>
   </page-container>
 </template>
 
