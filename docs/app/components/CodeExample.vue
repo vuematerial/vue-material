@@ -46,6 +46,7 @@
   }
 
   .demo {
+    min-height: 86px;
     padding: 16px;
     position: relative;
     border: 1px solid $color;

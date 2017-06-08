@@ -32,8 +32,7 @@
     transform: translate3d(0, 0, 0);
   }
 
-  .page-container-section {
-    font-size: 16px;
+  >>> .page-container-section {
     letter-spacing: .01em;
     line-height: 1.6em;
 

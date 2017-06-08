@@ -1,8 +1,9 @@
 .md-button {
   @include md-theme-component() {
-    &:not(.md-raised) {
-      @include md-theme-property(color, text-primary, background);
+    @include md-theme-property(color, text-primary, background);
+    @include md-theme-property(background-color, background);
 
+    &:not(.md-raised) {
       &.md-primary {
         @include md-theme-property(color, primary, background);
       }
@@ -18,19 +19,19 @@
 
     &.md-raised {
       &[disabled] {
-        @include md-theme-property(color, disabled, background);
         @include md-theme-property(background-color, focused, background);
+        @include md-theme-property(color, disabled, background);
       }
 
       &:not([disabled]) {
         &.md-primary {
-          @include md-theme-property(background-color, primary);
           @include md-theme-property(color, text-primary, primary);
+          @include md-theme-property(background-color, primary);
         }
 
         &.md-accent {
-          @include md-theme-property(background-color, accent);
           @include md-theme-property(color, text-primary, accent);
+          @include md-theme-property(background-color, accent);
         }
       }
     }
