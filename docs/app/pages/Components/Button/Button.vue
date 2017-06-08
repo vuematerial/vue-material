@@ -9,15 +9,15 @@
 
     <div class="page-container-section">
       <code-example title="Regular Button" label="HTML" :component="docs['regular-buttons']" />
+
+      <api-item title="API">
+        <p>The following options can be applied to all buttons, even the FAB ones:</p>
+
+        <api-table :headings="api.regular.props.headings" :props="api.regular.props.props" slot="props" />
+        <api-table :headings="api.regular.classes.headings" :props="api.regular.classes.props" slot="classes" />
+        <api-table :headings="api.regular.events.headings" :props="api.regular.events.props" slot="events" />
+      </api-item>
     </div>
-
-    <api-item title="API">
-      <p>The following options can be applied to all buttons, even the FAB ones:</p>
-
-      <api-table :headings="api.flat.props.headings" :props="api.flat.props.props" slot="props" />
-      <api-table :headings="api.flat.classes.headings" :props="api.flat.classes.props" slot="classes" />
-      <api-table :headings="api.flat.events.headings" :props="api.flat.events.props" slot="events" />
-    </api-item>
 
     <div class="page-container-section">
       <code-example title="Floating Action Button" label="HTML" :component="docs['floating-buttons']" />
@@ -36,7 +36,7 @@
     name: 'Button',
     data: () => ({
       api: {
-        flat: {
+        regular: {
           props: {
             headings: ['Name', 'Description', 'Default'],
             props: [
