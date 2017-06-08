@@ -1,22 +1,19 @@
 <template>
   <div class="api-table">
-    <h3>{{ title }}</h3>
-
-    <slot />
-
     <table>
       <tr>
         <th v-for="heading in headings">{{ heading }}</th>
       </tr>
 
-      <tr v-for="{ name, type, description, defaults } in props">
+      <tr v-for="{ name, type, description, defaults, value } in props">
         <td>
           <span class="prop-name">{{ name }}</span>
-          <small class="prop-type">{{ type }}</small>
+          <small class="prop-type" v-if="type">{{ type }}</small>
         </td>
 
         <td>{{ description }}</td>
         <td v-if="defaults">{{ defaults }}</td>
+        <td v-if="value">{{ value }}</td>
       </tr>
     </table>
   </div>
@@ -31,7 +28,6 @@
 
   table {
     width: 100%;
-    margin: 1em 0;
     table-layout: auto;
     border-collapse: collapse;
     border-spacing: 0;
@@ -59,8 +55,9 @@
     color: md-get-palette-color(grey, 700);
     line-height: 23px;
 
-    &:first-child {
-      width: 20%;
+    &:first-child,
+    &:last-child {
+      width: 17%;
     }
   }
 
@@ -79,7 +76,6 @@
   export default {
     name: 'ApiTable',
     props: {
-      title: String,
       props: Array,
       headings: Array
     }

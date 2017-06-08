@@ -10,9 +10,12 @@
       </div>
     </code-example>
 
-    <api-table :title="'Button'" :headings="api.flat.headings" :props="api.flat.props">
+    <api-item title="Button">
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia eos adipisci quos inventore dolor rem explicabo enim sed, harum doloribus illo expedita itaque! Ad id obcaecati atque similique error ab!</p>
-    </api-table>
+
+      <api-table :headings="api.flat.props.headings" :props="api.flat.props.props" slot="props" />
+      <api-table :headings="api.flat.events.headings" :props="api.flat.events.props" slot="events" />
+    </api-item>
   </page-container>
 </template>
 
@@ -26,21 +29,33 @@
     data: () => ({
       api: {
         flat: {
-          headings: ['Name', 'Description', 'Default'],
-          props: [
-            {
-              name: 'disabled',
-              type: 'Boolean',
-              description: 'Disable the button and prevent his actions.',
-              defaults: 'false'
-            },
-            {
-              name: 'type',
-              type: 'String',
-              description: 'Apply a type to button - Don\'t affect links.',
-              defaults: 'button'
-            }
-          ]
+          props: {
+            headings: ['Name', 'Description', 'Default'],
+            props: [
+              {
+                name: 'disabled',
+                type: 'Boolean',
+                description: 'Disable the button and prevent his actions.',
+                defaults: 'false'
+              },
+              {
+                name: 'type',
+                type: 'String',
+                description: 'Apply a type to button - Don\'t affect links.',
+                defaults: 'button'
+              }
+            ]
+          },
+          events: {
+            headings: ['Name', 'Description', 'Value'],
+            props: [
+              {
+                name: 'click',
+                description: 'Triggered after a mouse click',
+                value: '$event'
+              }
+            ]
+          }
         }
       }
     })

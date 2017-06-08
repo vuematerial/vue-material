@@ -8,8 +8,8 @@
         </div>
       </div>
 
-      <md-button class="trigger" @click.native="create">Create</md-button>
-      <md-button class="trigger" @click.native="remove">Remove</md-button>
+      <md-button class="trigger" @click="create">Create</md-button>
+      <md-button class="trigger" @click="remove">Remove</md-button>
     </div>
 
     <div>

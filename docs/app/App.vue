@@ -16,7 +16,7 @@
     </md-toolbar>
 
     <div class="container-wrapper">
-      <transition name="nav">
+      <transition name="nav" appear>
         <nav class="main-navigation" v-if="!isSplash">
           <router-link to="/">{{ $t('pages.home.title') }}</router-link>
           <router-link to="/getting-started">{{ $t('pages.gettingStarted.title') }}</router-link>
@@ -28,9 +28,8 @@
         </nav>
       </transition>
 
-      <transition :name="isSplash && 'page'" appear>
-        <router-view />
-      </transition>
+
+      <router-view />
     </div>
   </div>
 </template>
@@ -141,24 +140,6 @@
   .main-navigation-level {
     margin-bottom: 8px;
     margin-left: 16px;
-  }
-
-  .page-leave-active,
-  .splash-leave-active {
-    display: none;
-  }
-
-  .page-enter-active {
-    opacity: 0;
-    transform: translate3d(0, 10%, 0);
-    transition: .4s $md-transition-default-timing;
-    transition-property: opacity, transform;
-    will-change: opacity, transform;
-  }
-
-  .page-enter-to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
   }
 
   .main-container {

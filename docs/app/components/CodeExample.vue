@@ -2,7 +2,7 @@
   <div class="code-example">
     <md-toolbar class="md-primary md-dense" md-theme="dark">
       <span class="md-title">{{ title }}</span>
-      <md-button class="md-dense" @click.native="toggleCode" v-if="$slots.demo">{{ codeContent }}</md-button>
+      <md-button class="md-dense" @click="toggleCode" v-if="$slots.demo">{{ codeContent }}</md-button>
     </md-toolbar>
 
     <code-block :label="label" :lang="lang" v-if="!$slots.demo || codeActive">
@@ -14,7 +14,7 @@
         <slot name="demo" />
       </div>
 
-      <md-button class="button-theme md-dense md-raised md-primary" @click.native="toggleDarkTheme" v-if="$slots.demo">{{ themeContent }}</md-button>
+      <md-button class="button-theme md-dense md-raised md-primary" @click="toggleDarkTheme" v-if="$slots.demo">{{ themeContent }}</md-button>
     </md-content>
 
     <slot />

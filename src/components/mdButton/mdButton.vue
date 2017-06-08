@@ -1,5 +1,5 @@
 <template>
-  <button type="button" class="md-button" :class="[$mdActiveTheme]" :disabled="disabled">
+  <button type="button" class="md-button" :class="[$mdActiveTheme]" :disabled="disabled" @click="$emit('click', $event)">
     <md-ripple :md-disabled="!mdRipple || disabled">
       <span class="md-button-content">
         <slot />

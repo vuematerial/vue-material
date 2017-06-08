@@ -1,14 +1,35 @@
 <template>
-  <div class="page-container main-container" :class="{ centered }">
-    <slot />
-  </div>
+  <transition name="page" appear>
+    <div class="page-container main-container" :class="{ centered }">
+      <slot />
+    </div>
+  </transition>
 </template>
 
 <style lang="scss" scoped>
+  @import "~vue-material/components/MdAnimation/variables";
+
   .page-container.centered {
     max-width: 1100px;
     margin: auto;
     padding: 16px;
+  }
+
+  .page-leave-active {
+    display: none;
+  }
+
+  .page-enter-active {
+    opacity: 0;
+    transform: translate3d(0, 10%, 0);
+    transition: .4s $md-transition-default-timing;
+    transition-property: opacity, transform;
+    will-change: opacity, transform;
+  }
+
+  .page-enter-to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
   }
 
   .page-container-section {

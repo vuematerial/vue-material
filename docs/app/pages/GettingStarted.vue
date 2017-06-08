@@ -4,14 +4,14 @@
 
     <div class="page-container-section">
       <h2 class="md-headline">{{ $t('pages.gettingStarted.installation') }}</h2>
-    </div>
 
-    <code-example title="NPM or Yarn" label="Shell" lang="shell">
-      <div slot="code">
-        $ npm install vue-material --save
-        $ yarn add vue-material
-      </div>
-    </code-example>
+      <code-example title="NPM or Yarn" label="Shell" lang="shell">
+        <div slot="code">
+          $ npm install vue-material --save
+          $ yarn add vue-material
+        </div>
+      </code-example>
+    </div>
   </page-container>
 </template>
 

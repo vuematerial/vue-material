@@ -11,8 +11,8 @@
         <p>{{ $t('pages.home.slogan') }}</p>
 
         <div class="home-actions">
-          <md-button class="md-button-spaced md-primary md-raised" @click.native="$router.push('/getting-started')">{{ $t('pages.gettingStarted.title') }}</md-button>
-          <md-button class="md-button-spaced md-primary md-raised" @click.native="$router.push('/components')">{{ $t('pages.components.title') }}</md-button>
+          <md-button class="md-button-spaced md-primary md-raised" @click="$router.push('/getting-started')">{{ $t('pages.gettingStarted.title') }}</md-button>
+          <md-button class="md-button-spaced md-primary md-raised" @click="$router.push('/components')">{{ $t('pages.components.title') }}</md-button>
         </div>
       </div>
     </header>
