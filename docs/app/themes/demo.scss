@@ -2,13 +2,13 @@
 
 @include md-register-theme('demo-dark', (
   primary: md-get-palette-color(blue, 500),
-  accent: md-get-palette-color(pink, 700),
+  accent: md-get-palette-color(pink, A200),
   theme: dark
 ));
 
 @include md-register-theme('demo-light', (
   primary: md-get-palette-color(blue, 500),
-  accent: md-get-palette-color(pink, 700),
+  accent: md-get-palette-color(pink, A200),
   theme: light
 ));
 
