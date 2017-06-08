@@ -122,6 +122,12 @@
 
   - [ ] Migration Guide
   - [ ] Changelog
+  - [ ] Contribute
+    - [ ] Guide
+    - [ ] Code of Conduct
+    - [ ] Issue Template
+    - [ ] PR Template
+
   - [ ] About
 
 ### Components
