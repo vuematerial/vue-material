@@ -1,27 +1,19 @@
 const compiler = require('vue-template-compiler')
 const CircularJSON = require('circular-json')
+const transpile = require('vue-template-es2015-compiler')
 const ent = require('ent');
 
-function createFunction (code) {
-  try {
-    return new Function(code)
-  } catch (err) {
-    console.log(err)
-    return noop
-  }
+function toFunction (code) {
+  return `function () {
+    ${code}
+  }`
 }
 
 module.exports = function (source) {
   const parsedComponent = compiler.parseComponent(source, { pad: 'line' })
   const target = parsedComponent.customBlocks[0]
-  const output = {
-    name: target.attrs.name,
-    ...compiler.compile(source)
-  }
   const raw = target.content.trim()
-
-  output.render = createFunction(output.render)
-
+  const compiled = compiler.compile(source)
   const code = `
     const Vue = require("vue");
 
@@ -34,8 +26,12 @@ module.exports = function (source) {
         encoded: ${JSON.stringify(raw)}
       };
 
-      Vue.default.component("${target.attrs.name}", ${CircularJSON.stringify(output)});
+      Vue.default.component("${target.attrs.name}", {
+        name: "${target.attrs.name}",
+        render: ${toFunction(compiled.render)},
+        staticRenderFns: [${compiled.staticRenderFns.map(toFunction).join(',')}]
+      });
     }`
 
-  this.callback(null, code)
+  this.callback(null, transpile(code))
 }
