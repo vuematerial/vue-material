@@ -18,7 +18,7 @@
 
     &.md-raised {
       &[disabled] {
-        @include md-theme-property(background-color, focused, background);
+        @include md-theme-property(background-color, disabled-background, background);
         @include md-theme-property(color, disabled, background);
       }
 
