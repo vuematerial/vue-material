@@ -26,7 +26,9 @@
         <router-link to="/ui-elements">{{ $t('pages.uiElements.title') }}</router-link>
       </nav>
 
-      <router-view />
+      <transition name="page">
+        <router-view />
+      </transition>
     </div>
   </div>
 </template>
@@ -120,6 +122,23 @@
   .main-navigation-level {
     margin-bottom: 8px;
     margin-left: 16px;
+  }
+
+  .page-leave-active {
+    display: none;
+  }
+
+  .page-enter-active {
+    opacity: 0;
+    transform: translate3d(0, 10%, 0);
+    transition: .4s $md-transition-default-timing;
+    transition-property: opacity, transform;
+    will-change: opacity, transform;
+  }
+
+  .page-enter-to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
   }
 
   .main-container {
