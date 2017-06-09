@@ -5,8 +5,6 @@
     @keydown.tab.prevent="close"
     @keydown.up.prevent="highlightItem('up')"
     @keydown.down.prevent="highlightItem('down')"
-    @keydown.enter.prevent="fireClick"
-    @keydown.space.prevent="fireClick"
     tabindex="-1">
     <md-list>
       <slot></slot>
