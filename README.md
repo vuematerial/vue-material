@@ -28,11 +28,11 @@
   </a>
 </p>
 
-Vue Material is lightweight framework built exactly according to the <a href="http://material.google.com" target="_blank">Material Design</a> specs. 
+Vue Material is a lightweight framework built exactly according to the <a href="http://material.google.com" target="_blank">Material Design</a> specs. 
 
-It aims to deliver a collection of reusable components and a series of UI Elements to build applications with support to all modern Web Browsers through Vue 2. 
+It aims to deliver a collection of reusable components and a series of UI Elements to build applications with support for all modern Web Browsers through Vue 2. 
 
-Build powerful and well-designed web apps that can fit on every screen. You can generate and use themes dynamically, use components on demand, take advantage of UI Elements and Components with an ease-to-use API.
+Build powerful and well-designed web apps that can fit on every screen. You can generate and use themes dynamically, use components on demand, take advantage of UI Elements and Components with an easy-to-use API.
 
 ## Demo and Documentation
 <a href="https://vuematerial.github.io/" target="_blank">Demo</a>
@@ -66,7 +66,7 @@ var VueMaterial = require('vue-material')
 require('vue-material/dist/vue-material.css')
 ```
 
-Alternativelly you can <a href="https://github.com/marcosmoura/vue-material/archive/master.zip" target="_blank" rel="noopener">download</a> and reference the script and the stylesheet in your HTML:
+Alternatively you can <a href="https://github.com/marcosmoura/vue-material/archive/master.zip" target="_blank" rel="noopener">download</a> and reference the script and the stylesheet in your HTML:
 
 ``` html
 <link rel="stylesheet" href="path/to/vue-material.css">
@@ -110,12 +110,12 @@ Vue Material supports the latest version of all Browsers. This means:
 <small>May work in other browsers but it's untested.</small>
 
 ## Credits and Thanks
-* This library aims to delivery components using almost the same API of <a href="https://material.angularjs.org/latest/" target="_blank">Angular Material</a>
+* This library aims to deliver components using almost the same API as <a href="https://material.angularjs.org/latest/" target="_blank">Angular Material</a>
 * Thanks a lot to <a href="https://github.com/elviskang" target="_blank">elviskang</a> for donating the npm package name!
-* Thanks to <a href="https://github.com/yyx990803" target="_blank">Evan You</a> for allowing me to use Vue.js Logo.
+* Thanks to <a href="https://github.com/yyx990803" target="_blank">Evan You</a> for allowing me to use the Vue.js Logo.
 
 ## Internal Dependencies 
-You don't need to include any other library to work with vue-material. The focus of this project is to have a standalone build with no external dependence, but aiming to deliver the best experience without break the compatibility with the Vue.js core.
+You don't need to include any other library to work with vue-material. The focus of this project is to have a standalone build with no external dependence, but aiming to deliver the best experience without breaking compatibility with the Vue.js core.
 * <a href="http://vuejs.org" target="_blank">vue</a>
 * <a href="http://www.jacklmoore.com/autosize/" target="_blank">autosize</a>
 * <a href="https://www.npmjs.com/package/element.scrollintoviewifneeded-polyfill" target="_blank">element.scrollintoviewifneeded-polyfill</a>
