@@ -1,11 +1,19 @@
-<docs-loader name="floating-buttons">
+<template name="floating-buttons">
   <div>
-    <small>Regular</small>
-    <md-button class="md-fab">Default</md-button>
-  </div>
+    <div>
+      <small>Regular</small>
+      <md-button class="md-fab">{{ $t('default') }}</md-button>
+    </div>
 
-  <div>
-    <small>Dense</small>
-    <md-button class="md-fab">Default</md-button>
+    <div>
+      <small>Dense</small>
+      <md-button class="md-fab">{{ $t('default') }}</md-button>
+    </div>
   </div>
-</docs-loader>
+</template>
+
+<script>
+  export default {
+    name: 'FloatingButtons'
+  }
+</script>

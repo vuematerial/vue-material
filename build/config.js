@@ -19,6 +19,7 @@ export const config = {
   alias: {
     'vue-material': resolvePath('src'),
     store: resolvePath('docs/app/store'),
+    'docs-mixins': resolvePath('docs/app/mixins'),
     theme: resolvePath('src/theme'),
     base: resolvePath('src/base'),
     core: resolvePath('src/core'),

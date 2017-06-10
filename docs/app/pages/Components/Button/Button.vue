@@ -32,8 +32,11 @@
 </style>
 
 <script>
+  import docsExample from 'docs-mixins/docsExample'
+
   export default {
     name: 'Button',
+    mixins: [docsExample],
     data: () => ({
       api: {
         regular: {
@@ -85,11 +88,6 @@
           }
         }
       }
-    }),
-    computed: {
-      docs () {
-        return this.$options.docs
-      }
-    }
+    })
   }
 </script>

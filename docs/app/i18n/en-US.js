@@ -37,6 +37,7 @@ export default {
   },
   code: 'Code',
   example: 'Example',
+  default: 'Default',
   darkTheme: 'Dark Theme',
   lightTheme: 'Light Theme'
 }
