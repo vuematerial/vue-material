@@ -6,7 +6,7 @@
     </md-toolbar>
 
     <code-block :label="label" :lang="lang" v-if="!component.name || $slots.default || codeActive">
-      <slot>{{ component.encoded }}</slot>
+      <slot>{{ component.source }}</slot>
     </code-block>
 
     <md-content class="demo" :md-theme="theme" v-else>

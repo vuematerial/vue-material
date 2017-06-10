@@ -1,4 +1,4 @@
-<template name="floating-buttons">
+<template>
   <div>
     <div>
       <small>Regular</small>
@@ -11,6 +11,12 @@
     </div>
   </div>
 </template>
+
+<style lang="scss" scoped>
+  .md-button {
+    border-radius: 0;
+  }
+</style>
 
 <script>
   export default {

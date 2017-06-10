@@ -1,4 +1,4 @@
-<template name="regular-buttons">
+<template>
   <div>
     <div>
       <small>Flat</small>
