@@ -34,9 +34,7 @@ module.exports = function (source) {
         })
       }
 
-      output += `<${blockConfig.type}${attributes}>
-        ${content}
-      </${blockConfig.type}>
+      output += `<${blockConfig.type}${attributes}>${content}</${blockConfig.type}>
 
       `
     }
