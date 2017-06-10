@@ -5,8 +5,8 @@
       <md-button class="md-dense" @click="toggleCode" v-if="component.name">{{ codeContent }}</md-button>
     </md-toolbar>
 
-    <code-block :label="label" :lang="lang" v-if="!component.name || codeActive">
-      {{ component.encoded }}
+    <code-block :label="label" :lang="lang" v-if="!component.name || $slots.default || codeActive">
+      <slot>{{ component.encoded }}</slot>
     </code-block>
 
     <md-content class="demo" :md-theme="theme" v-else>
@@ -65,7 +65,10 @@
   export default {
     name: 'CodeExample',
     props: {
-      component: Object,
+      component: {
+        type: Object,
+        default: () => ({})
+      },
       title: String,
       label: String,
       lang: String
