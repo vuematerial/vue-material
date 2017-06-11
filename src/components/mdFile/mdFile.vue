@@ -62,9 +62,14 @@
       },
       openPicker() {
         if (!this.disabled) {
+          this.resetFile();
           this.$refs.fileInput.click();
           this.$refs.textInput.$el.focus();
         }
+      },
+      resetFile() {
+        this.parentContainer.value = '';
+        this.$refs.fileInput.value = '';
       },
       onFileSelected($event) {
         const files = $event.target.files || $event.dataTransfer.files;
