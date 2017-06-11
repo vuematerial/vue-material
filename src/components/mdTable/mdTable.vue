@@ -66,19 +66,6 @@
         }
         this.removeRow(row, this.selectedRows);
       },
-      // setRowSelection(isSelected, uuid) {
-      //   const row = this.mappedRows[uuid];
-      //
-      //   if (isSelected) {
-      //     this.selectedRows.push(Object.assign({}, row));
-      //     return;
-      //   }
-      //   const index = this.data.indexOf(row);
-      //
-      //   if (index !== -1) {
-      //     this.selectedRows.splice(index, 1);
-      //   }
-      // },
       setMultipleRowSelection(isSelected) {
         this.selectedRows = isSelected ?
           Object.assign([], this.data) :

@@ -589,7 +589,6 @@
                     <md-table-cell v-for="(column, columnIndex) in row" :key="columnIndex" :md-numeric="columnIndex !== 'dessert' && columnIndex !== 'comment' && columnIndex !== 'type'">
                       <template v-if="columnIndex === 'comment'">
                         <span>{{ column }}</span>
-                        <md-icon>message</md-icon>
                       </template>
 
                       <md-button class="md-icon-button" v-if="columnIndex === 'comment'">
