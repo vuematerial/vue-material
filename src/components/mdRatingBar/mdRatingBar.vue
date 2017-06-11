@@ -1,41 +1,49 @@
 <template>
   <div class="md-rating-bar" :class="[themeClass]" :disabled="disabled">
     <div class="md-empty-icon" v-if="srcEmptyIcon">
-      <md-icon v-for="i in mdMaxRating"
-               @mouseover.native="hoverStars"
-               @click.native="clickStars"
-               @mouseout.native="onMouseOut"
-               :md-src="srcEmptyIcon"
-               :class="[iconClasses]"
-               v-if="srcEmptyIcon"></md-icon>
+      <md-icon
+        v-if="srcEmptyIcon"
+        v-for="i in mdMaxRating"
+        :key="i"
+        @mouseover.native="hoverStars"
+        @click.native="clickStars"
+        @mouseout.native="onMouseOut"
+        :md-src="srcEmptyIcon"
+        :class="[iconClasses]"/>
     </div>
     <div class="md-empty-icon" v-else>
-      <md-icon v-for="i in mdMaxRating"
-               :md-iconset="mdEmptyIconset"
-               @mouseover.native="hoverStars"
-               @click.native="clickStars"
-               @mouseout.native="onMouseOut"
-               :class="[iconClasses]"
-               v-html="emptyIcon"></md-icon>
+      <md-icon
+        v-for="i in mdMaxRating"
+        :key="i"
+        :md-iconset="mdEmptyIconset"
+        @mouseover.native="hoverStars"
+        @click.native="clickStars"
+        @mouseout.native="onMouseOut"
+        :class="[iconClasses]"
+        v-html="emptyIcon"/>
     </div>
 
     <div class="md-full-icon" :style="fullIconStyle" v-if="srcFullIcon">
-      <md-icon v-for="i in mdMaxRating"
-               @mouseover.native="hoverStars"
-               @click.native="clickStars"
-               @mouseout.native="onMouseOut"
-               :md-src="srcFullIcon"
-               :class="[iconClasses]"
-               v-if="srcFullIcon"></md-icon>
+      <md-icon
+        v-if="srcFullIcon"
+        v-for="i in mdMaxRating"
+        :key="i"
+        @mouseover.native="hoverStars"
+        @click.native="clickStars"
+        @mouseout.native="onMouseOut"
+        :md-src="srcFullIcon"
+        :class="[iconClasses]"/>
     </div>
     <div class="md-full-icon" :style="fullIconStyle" v-else>
-      <md-icon v-for="i in mdMaxRating"
-               :md-iconset="mdFullIconset"
-               @mouseover.native="hoverStars"
-               @click.native="clickStars"
-               @mouseout.native="onMouseOut"
-               :class="[iconClasses]"
-               v-html="fullIcon"></md-icon>
+      <md-icon
+        v-for="i in mdMaxRating"
+        :key="i"
+        :md-iconset="mdFullIconset"
+        @mouseover.native="hoverStars"
+        @click.native="clickStars"
+        @mouseout.native="onMouseOut"
+        :class="[iconClasses]"
+        v-html="fullIcon"/>
     </div>
   </div>
 </template>
