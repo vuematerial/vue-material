@@ -12,8 +12,12 @@
         </td>
 
         <td>{{ description }}</td>
-        <td v-if="defaults">{{ defaults }}</td>
-        <td v-if="value">{{ value }}</td>
+        <td v-if="defaults">
+          <code>{{ defaults }}</code>
+        </td>
+        <td v-if="value">
+          <code>{{ value }}</code>
+        </td>
       </tr>
     </table>
   </div>
@@ -69,6 +73,10 @@
 
   .prop-type {
     color: md-get-palette-color(grey, 600);
+  }
+
+  code {
+    color: md-get-palette-color(red, A200)
   }
 </style>
 
