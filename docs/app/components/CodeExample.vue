@@ -5,17 +5,19 @@
       <md-button class="md-dense" @click="toggleCode" v-if="component.name">{{ codeContent }}</md-button>
     </md-toolbar>
 
-    <code-block :label="label" :lang="lang" v-if="!component.name || $slots.default || codeActive">
-      <slot>{{ component.source }}</slot>
-    </code-block>
+    <transition name="block" appear>
+      <code-block :label="label" :lang="lang" v-if="!component.name || $slots.default || codeActive">
+        <slot>{{ component.source }}</slot>
+      </code-block>
 
-    <md-content class="demo" :md-theme="theme" v-else>
-      <div class="demo-content">
-        <component :is="component.name" />
-      </div>
+      <md-content class="demo" :md-theme="theme" v-else>
+        <div class="demo-content">
+          <component :is="component.name" />
+        </div>
 
-      <md-button class="button-theme md-dense md-raised md-primary" @click="toggleDarkTheme" v-if="component.name">{{ themeContent }}</md-button>
-    </md-content>
+        <md-button class="button-theme md-dense md-raised md-primary" @click="toggleDarkTheme" v-if="component.name">{{ themeContent }}</md-button>
+      </md-content>
+    </transition>
   </div>
 </template>
 
@@ -30,6 +32,8 @@
   }
 
   .md-toolbar.md-primary {
+    position: relative;
+    z-index: 1;
     background-color: $color;
     color: #fff;
   }
@@ -48,6 +52,7 @@
     padding: 16px;
     position: relative;
     border: 1px solid $color;
+    border-top: 0;
   }
 
   .demo-content {
@@ -58,6 +63,20 @@
     position: absolute;
     right: 0;
     bottom: 0;
+  }
+
+  .block-leave-active {
+    display: none;
+  }
+
+  .block-enter-active {
+    opacity: 0;
+    transition: opacity .4s $md-transition-default-timing;
+    will-change: opacity;
+  }
+
+  .block-enter-to {
+    opacity: 1;
   }
 </style>
 

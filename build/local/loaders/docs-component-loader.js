@@ -15,28 +15,37 @@ module.exports = function (source) {
   const { template, script, styles: style } = parsedComponent
   let output = ''
 
-  Object.keys(parsedComponent).forEach(block => {
-    block = block.replace('styles', 'style')
+  function parseTag (tag, schema) {
+    let attributes = ''
+    let content = schema.content
 
-    const blockConfig = parsedComponent[block]
+    if (tag === 'script') {
+      content = uncomment(content)
+    }
 
-    if (blockConfig && block !== 'customBlocks') {
-      let attributes = ''
-      let content = blockConfig.content
+    if (schema.attrs) {
+      Object.keys(schema.attrs).forEach(attr => {
+        attributes += ` ${attr}="${schema.attrs[attr]}"`
+      })
+    }
 
-      if (block === 'script') {
-        content = uncomment(content)
-      }
+    return `<${tag}${attributes}>${content}</${tag}>
 
-      if (blockConfig.attrs) {
-        Object.keys(blockConfig.attrs).forEach(attr => {
-          attributes += `${attr}="${blockConfig.attrs[attr]}"`
+    `
+  }
+
+  Object.keys(parsedComponent).forEach(b => {
+    const schema = parsedComponent[b]
+    const tag = b.replace('styles', 'style')
+
+    if (schema && tag !== 'customBlocks') {
+      if (Array.isArray(schema)) {
+        schema.forEach(config => {
+          output += parseTag(tag, config)
         })
+      } else {
+        output += parseTag(tag, schema)
       }
-
-      output += `<${blockConfig.type}${attributes}>${content}</${blockConfig.type}>
-
-      `
     }
   })
 
