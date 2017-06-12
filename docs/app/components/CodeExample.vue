@@ -2,7 +2,7 @@
   <div class="code-example">
     <md-toolbar class="md-primary md-dense" md-theme="dark">
       <span class="md-title">{{ title }}</span>
-      <jsfiddle-edit :component="component" />
+      <jsfiddle-edit :component="component" v-if="component.name" />
       <md-button class="md-dense" @click="toggleCode" v-if="component.name">{{ codeContent }}</md-button>
     </md-toolbar>
 
