@@ -1,5 +1,5 @@
-<docs src="./examples/RegularButtons.vue" />
-<docs src="./examples/FloatingButtons.vue" />
+<example src="./examples/RegularButtons.vue" />
+<example src="./examples/FloatingButtons.vue" />
 
 <template>
   <page-container centered :title="$t('pages.button.title')">
@@ -8,7 +8,7 @@
     </div>
 
     <div class="page-container-section">
-      <code-example title="Regular Button" label="HTML" :component="docs['regular-buttons']" />
+      <code-example title="Regular Button" label="HTML" :component="example['regular-buttons']" />
 
       <api-item title="API">
         <p>The following options can be applied to all buttons, even the FAB ones:</p>
@@ -20,7 +20,7 @@
     </div>
 
     <div class="page-container-section">
-      <code-example title="Floating Action Button" label="HTML" :component="docs['floating-buttons']" />
+      <code-example title="Floating Action Button" label="HTML" :component="example['floating-buttons']" />
     </div>
   </page-container>
 </template>
@@ -32,11 +32,11 @@
 </style>
 
 <script>
-  import docsExample from 'docs-mixins/docsExample'
+  import examples from 'docs-mixins/docsExample'
 
   export default {
     name: 'Button',
-    mixins: [docsExample],
+    mixins: [examples],
     data: () => ({
       api: {
         regular: {
