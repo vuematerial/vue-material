@@ -7,6 +7,8 @@ function camelCaseToDash (str) {
 }
 
 module.exports = function (source) {
+  this.cacheable && this.cacheable()
+
   const filePath = this.resourcePath
   const fileName = camelCaseToDash(path.basename(filePath).replace('.vue', ''))
   const parsedComponent = compiler.parseComponent(source)
