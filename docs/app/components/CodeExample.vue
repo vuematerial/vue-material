@@ -5,7 +5,7 @@
       <md-button class="md-dense" @click="toggleCode" v-if="component.name">{{ codeContent }}</md-button>
     </md-toolbar>
 
-    <transition name="block" appear>
+    <transition name="block">
       <code-block :label="label" :lang="lang" v-if="!component.name || $slots.default || codeActive">
         <slot>{{ component.source }}</slot>
       </code-block>

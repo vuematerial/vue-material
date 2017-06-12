@@ -25,7 +25,7 @@ module.exports = function (source) {
 
     if (schema.attrs) {
       Object.keys(schema.attrs).forEach(attr => {
-        attributes += ` ${attr}="${schema.attrs[attr]}"`
+        attributes += ` ${attr}='${schema.attrs[attr]}'`
       })
     }
 
@@ -51,14 +51,15 @@ module.exports = function (source) {
 
   const code = `
     const Vue = require('vue');
-    const newComponent = require("${filePath}");
 
     module.exports = function(c) {
-      Vue.default.component("${fileName}", newComponent)
+      Vue.default.component('${fileName}', resolve => {
+        require(['${filePath}'], resolve)
+      })
 
       c.options.examples = c.options.examples || {};
-      c.options.examples["${fileName}"] = {
-        name: "${fileName}",
+      c.options.examples['${fileName}'] = {
+        name: '${fileName}',
         source: ${JSON.stringify(pretty(output))},
         template: ${JSON.stringify(template.content)},
         script: ${JSON.stringify(script.content)},
