@@ -2,7 +2,7 @@
   <div>
     <div>
       <small>Flat</small>
-      <md-button @click="count++">Default</md-button>
+      <md-button>Default</md-button>
       <md-button class="md-primary">Primary</md-button>
       <md-button class="md-accent">Accent</md-button>
       <md-button disabled>Disabled</md-button>
