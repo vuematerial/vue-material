@@ -1,15 +1,17 @@
 @import '~vue-material/theme/factory';
 
-@include md-register-theme('demo-dark', (
-  primary: md-get-palette-color(blue, 500),
-  accent: md-get-palette-color(pink, A200),
+$demo-base: (
+  primary: md-get-palette-color(blue, A200),
+  accent: md-get-palette-color(red, A200),
+);
+$demo-base-light: map-merge($demo-base, (
+  theme: light
+));
+$demo-base-dark: map-merge($demo-base, (
   theme: dark
 ));
 
-@include md-register-theme('demo-light', (
-  primary: md-get-palette-color(blue, 500),
-  accent: md-get-palette-color(pink, A200),
-  theme: light
-));
+@include md-register-theme('demo-dark', $demo-base-dark);
+@include md-register-theme('demo-light', $demo-base-light);
 
 @import '~vue-material/theme/all';

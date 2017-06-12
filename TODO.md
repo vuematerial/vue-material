@@ -100,10 +100,10 @@
 ### Core
   - [x] Code Block
   - [x] Code Example
-  - [ ] Lazy Loaded Examples
+  - [x] Lazy Loaded Examples
   - [x] API Table
   - [x] Page Structure
-  - [ ] Codepen/JSFiddle integration
+  - [x] JSFiddle integration
   - [x] Sidebar
 
 ### Pages

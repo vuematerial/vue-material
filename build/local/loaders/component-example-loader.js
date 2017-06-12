@@ -2,26 +2,21 @@ const path = require('path')
 const compiler = require('vue-template-compiler')
 const transpile = require('vue-template-es2015-compiler')
 const pretty = require('pretty')
-const uncomment = require('uncomment')
 
 function camelCaseToDash (str) {
-  return str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
+  return str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase()
 }
 
 module.exports = function (source) {
   const filePath = this.resourcePath
   const fileName = camelCaseToDash(path.basename(filePath).replace('.vue', ''))
-  const parsedComponent = compiler.parseComponent(source, { pad: 'line' })
-  const { template, script, styles: style } = parsedComponent
+  const parsedComponent = compiler.parseComponent(source)
+  const parsedTags = {}
   let output = ''
 
   function parseTag (tag, schema) {
     let attributes = ''
     let content = schema.content
-
-    if (tag === 'script') {
-      content = uncomment(content)
-    }
 
     if (schema.attrs) {
       Object.keys(schema.attrs).forEach(attr => {
@@ -29,7 +24,13 @@ module.exports = function (source) {
       })
     }
 
-    return `<${tag}${attributes}>${content}</${tag}>
+    if (tag !== 'style') {
+      parsedTags[tag] = pretty(content)
+    } else {
+      parsedTags[tag] = content
+    }
+
+    return `<${tag}${attributes}>${parsedTags[tag]}</${tag}>
 
     `
   }
@@ -49,6 +50,12 @@ module.exports = function (source) {
     }
   })
 
+  let { script, template, style } = parsedTags
+
+  if (script) {
+    script = script.replace('export default ', '')
+  }
+
   const code = `
     const Vue = require('vue');
 
@@ -61,9 +68,9 @@ module.exports = function (source) {
       c.options.examples['${fileName}'] = {
         name: '${fileName}',
         source: ${JSON.stringify(pretty(output))},
-        template: ${JSON.stringify(template.content)},
-        script: ${JSON.stringify(script.content)},
-        style: ${JSON.stringify(style.content)}
+        template: ${JSON.stringify(template)},
+        script: ${JSON.stringify(script)},
+        style: ${JSON.stringify(style)}
       };
     }`
 

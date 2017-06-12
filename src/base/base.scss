@@ -32,6 +32,16 @@ body {
 
 
 /**
+ * Overrides - Default buttons
+ */
+
+a:not(.md-button) {
+  transition: .3s $md-transition-stand-timing;
+  transition-property: color, opacity;
+}
+
+
+/**
  * Overrides - Apply fluid media styles
  */
 

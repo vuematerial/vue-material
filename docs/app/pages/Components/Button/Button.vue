@@ -25,12 +25,6 @@
   </page-container>
 </template>
 
-<style lang="scss" scoped>
-  .code-example small {
-    display: block;
-  }
-</style>
-
 <script>
   import examples from 'docs-mixins/docsExample'
 
