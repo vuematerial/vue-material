@@ -8,7 +8,7 @@
     </div>
 
     <div class="page-container-section">
-      <code-example title="Regular Button" label="HTML" :component="example['regular-buttons']" />
+      <code-example title="Regular Button" label="HTML" :component="examples['regular-buttons']" />
 
       <api-item title="API">
         <p>The following options can be applied to all buttons, even the FAB ones:</p>
@@ -20,7 +20,7 @@
     </div>
 
     <div class="page-container-section">
-      <code-example title="Floating Action Button" label="HTML" :component="example['floating-buttons']" />
+      <code-example title="Floating Action Button" label="HTML" :component="examples['floating-buttons']" />
     </div>
   </page-container>
 </template>

@@ -1,7 +1,7 @@
 export default {
   computed: {
-    docs () {
-      return this.$options.docs
+    examples () {
+      return this.$options.examples
     }
   }
 }

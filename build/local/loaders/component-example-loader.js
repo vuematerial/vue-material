@@ -56,8 +56,8 @@ module.exports = function (source) {
     module.exports = function(c) {
       Vue.default.component("${fileName}", newComponent)
 
-      c.options.docs = c.options.docs || {};
-      c.options.docs["${fileName}"] = {
+      c.options.examples = c.options.examples || {};
+      c.options.examples["${fileName}"] = {
         name: "${fileName}",
         source: ${JSON.stringify(pretty(output))},
         template: ${JSON.stringify(template.content)},
