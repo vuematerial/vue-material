@@ -7,6 +7,7 @@
   - [ ] Keyboard Navigation
   - [x] Base Styles
   - [ ] Platform adaptation
+  - [ ] Responsive Components
   - [ ] RTL
   - [x] Text Selection
   - [ ] Theme
@@ -20,8 +21,13 @@
 ### Components
   - [ ] Avatar
   - [ ] Bottom Bar
+    - [ ] Link vs Button
+    - [ ] router-link
+
   - [ ] Bottom Sheet
   - [ ] Button
+    - [ ] Link vs Button
+    - [ ] router-link
     - [ ] Fab
     - [x] Flat
     - [x] Icon
@@ -61,7 +67,13 @@
 
   - [ ] Image
   - [ ] List
+    - [ ] Link vs Button
+    - [ ] router-link
+
   - [ ] Menu
+    - [ ] Link vs Button
+    - [ ] router-link
+
   - [ ] Onboarding
 
   - [ ] Pickers
@@ -83,6 +95,9 @@
   - [ ] Switch
   - [ ] Table
   - [ ] Tabs
+    - [ ] Link vs Button
+    - [ ] router-link
+
   - [ ] Toolbar
   - [ ] Tooltip
 
@@ -109,6 +124,7 @@
   - [x] Page Structure
   - [x] JSFiddle integration
   - [x] Sidebar
+  - [ ] Responsive Navigation
 
 ### Pages
   - [x] Home
