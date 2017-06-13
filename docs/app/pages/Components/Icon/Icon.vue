@@ -3,7 +3,7 @@
 <example src="./examples/SvgAssets.vue" />
 
 <template>
-  <page-container centered :title="$t('pages.button.title')">
+  <page-container centered :title="$t('pages.icon.title')">
     <div class="page-container-section">
       <p>Material icons use geometric shapes to visually represent core ideas, capabilities, or topics. They are generally used along with the <a href="https://material.io/icons/" target="_blank">Material icons</a>, but not restricted to. Icons can use icon fonts or external SVGs. Also, can accept some size dimensions, like <strong>2x</strong>, <strong>3x</strong>, <strong>4x</strong> and <strong>5x</strong>.</p>
     </div>

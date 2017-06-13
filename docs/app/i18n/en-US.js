@@ -22,12 +22,13 @@ export default {
       title: 'UI Elements'
     },
     button: {
-      title: 'Button',
-      description: 'Buttons communicate the action that will occur when the user touches them.'
+      title: 'Button'
+    },
+    content: {
+      title: 'Content'
     },
     icon: {
-      title: 'Icon',
-      description: 'Icons communicate the action that will occur when the user touches them.'
+      title: 'Icon'
     },
     error: {
       title: 'Not Found'

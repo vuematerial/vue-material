@@ -25,6 +25,7 @@
           <router-link to="/components">{{ $t('pages.components.title') }}</router-link>
           <div class="main-navigation-level">
             <router-link to="/components/button">{{ $t('pages.button.title') }}</router-link>
+            <router-link to="/components/content">{{ $t('pages.content.title') }}</router-link>
             <router-link to="/components/icon">{{ $t('pages.icon.title') }}</router-link>
           </div>
           <router-link to="/ui-elements">{{ $t('pages.uiElements.title') }}</router-link>
