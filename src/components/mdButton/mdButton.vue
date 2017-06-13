@@ -19,6 +19,8 @@
 
   $md-button-dense-height: 32px;
 
+  $md-button-icon-size: 40px;
+
   .md-button {
     min-width: $md-button-min-width;
     height: $md-button-height;
@@ -121,6 +123,35 @@
     padding: 0 16px;
   }
 
+  .md-icon-button {
+    width: $md-button-icon-size;
+    min-width: $md-button-icon-size;
+    height: $md-button-icon-size;
+    margin: 0 6px;
+    border-radius: 50%;
+
+    &.md-dense {
+      width: $md-button-dense-height;
+      min-width: $md-button-dense-height;
+      height: $md-button-dense-height;
+    }
+
+    .md-ripple {
+      border-radius: 50%;
+    }
+
+    .md-ripple-wave {
+      top: 0 !important;
+      right: 0 !important;
+      bottom: 0 !important;
+      left: 0 !important;
+    }
+
+    .md-ripple-enter-active {
+      transition-duration: 1.2s;
+    }
+  }
+
   .md-button-content {
     position: relative;
     z-index: 2;
@@ -130,11 +161,11 @@
 <script>
   import MdComponent from 'core/MdComponent'
   import ripple from 'core/mixins/ripple'
-  import focusable from 'core/mixins/focusable'
+  // import focusable from 'core/mixins/focusable'
 
   export default new MdComponent({
     name: 'MdButton',
-    mixins: [ripple, focusable],
+    mixins: [ripple],
     props: {
       disabled: Boolean
     }

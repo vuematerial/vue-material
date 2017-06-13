@@ -28,7 +28,7 @@ export default {
     this.$el.addEventListener('focus', this.onFocus)
     this.$el.addEventListener('blur', this.onBlur)
   },
-  beforeDEstroy () {
+  beforeDestroy () {
     this.$el.removeEventListener('click', this.onClick)
     this.$el.removeEventListener('focus', this.onFocus)
     this.$el.removeEventListener('blur', this.onBlur)

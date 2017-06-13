@@ -1,4 +1,5 @@
 <example src="./examples/RegularButtons.vue" />
+<example src="./examples/IconButtons.vue" />
 <example src="./examples/FloatingButtons.vue" />
 
 <template>
@@ -23,8 +24,16 @@
     </div>
 
     <div class="page-container-section">
-      <h2>FAB</h2>
-      <code-example title="Floating Action Button" :component="examples['floating-buttons']" />
+      <h2>Icons</h2>
+      <p>To show icons inside buttons you only need to add a class and you're good to go. And you can also combine it with the raised class.</p>
+
+      <code-example title="Buttons with Icons" :component="examples['icon-buttons']" />
+
+      <api-item title="API">
+        <p>The following options can be applied to all buttons, even the FAB ones:</p>
+
+        <api-table :headings="api.icons.classes.headings" :props="api.icons.classes.props" slot="classes" />
+      </api-item>
     </div>
   </page-container>
 </template>
@@ -81,6 +90,17 @@
               {
                 name: 'md-dense',
                 description: 'A slight small variant of buttons. Useful to create a compact UI.'
+              }
+            ]
+          }
+        },
+        icons: {
+          classes: {
+            headings: ['Name', 'Description'],
+            props: [
+              {
+                name: 'md-icon-button',
+                description: 'Enable the rounded-shape icon button'
               }
             ]
           }

@@ -11,6 +11,8 @@
   - [x] Text Selection
   - [ ] Theme
     - [x] Base
+    - [x] HTML Attributes
+    - [ ] CSS Variables
     - [x] Dynamic
     - [ ] Hue
     - [x] Multiple
@@ -21,9 +23,9 @@
   - [ ] Bottom Sheet
   - [ ] Button
     - [ ] Fab
-    - [ ] Flat
-    - [ ] Icon
-    - [ ] Raised
+    - [x] Flat
+    - [x] Icon
+    - [x] Raised
     - [ ] Toggle
 
   - [ ] Card
