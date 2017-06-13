@@ -8,6 +8,7 @@
 
 <style lang="scss" scoped>
   @import "~vue-material/components/MdAnimation/variables";
+  @import "~vue-material/theme/factory";
 
   .page-container.centered {
     max-width: 1100px;
@@ -37,7 +38,15 @@
     line-height: 1.6em;
 
     + .page-container-section {
-      margin-top: 40px;
+      margin-top: 32px;
+    }
+
+    p > code {
+      padding: 0 4px;
+      display: inline-block;
+      color: md-get-palette-color(red, A200);
+      background: darken(md-get-palette-color(red, 50), 1%);
+      border-radius: 2px;
     }
   }
 </style>

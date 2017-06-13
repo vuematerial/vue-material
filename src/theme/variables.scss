@@ -67,8 +67,8 @@ $md-color-levels: (
     text-hint: rgba(#000, .38),
     disabled: rgba(#000, .26),
     disabled-background: rgba(#000, .12),
-    icon: rgba(#000, .38),
-    icon-active: rgba(#000, .54),
+    icon: rgba(#000, .54),
+    icon-disabled: rgba(#000, .38),
     divider: rgba(#000, .12),
     scrollbar: #757575,
     scrollbar-background: #E0E0E0
@@ -81,8 +81,8 @@ $md-color-levels: (
     text-hint: rgba(#fff, .5),
     disabled: rgba(#fff, .3),
     disabled-background: rgba(#fff, .12),
-    icon: rgba(#fff, .5),
-    icon-active: #fff,
+    icon: #fff,
+    icon-disabled: rgba(#fff, .5),
     divider: rgba(#fff, .12),
     scrollbar: #424242,
     scrollbar-background: #757575

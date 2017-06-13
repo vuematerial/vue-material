@@ -25,6 +25,10 @@ export default {
       title: 'Button',
       description: 'Buttons communicate the action that will occur when the user touches them.'
     },
+    icon: {
+      title: 'Icon',
+      description: 'Icons communicate the action that will occur when the user touches them.'
+    },
     error: {
       title: 'Not Found'
     }

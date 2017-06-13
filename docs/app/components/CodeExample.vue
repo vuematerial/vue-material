@@ -90,7 +90,10 @@
         default: () => ({})
       },
       title: String,
-      label: String,
+      label: {
+        type: String,
+        default: 'Vue'
+      },
       lang: String
     },
     data: () => ({

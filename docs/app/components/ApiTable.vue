@@ -5,18 +5,15 @@
         <th v-for="heading in headings">{{ heading }}</th>
       </tr>
 
-      <tr v-for="{ name, type, description, defaults, value } in props">
+      <tr v-for="{ name, type, description, defaults, value, example } in props">
         <td>
           <span class="prop-name">{{ name }}</span>
           <small class="prop-type" v-if="type">{{ type }}</small>
         </td>
 
         <td>{{ description }}</td>
-        <td v-if="defaults">
-          <code>{{ defaults }}</code>
-        </td>
-        <td v-if="value">
-          <code>{{ value }}</code>
+        <td v-if="defaults || value || example">
+          <code>{{ defaults || value || example }}</code>
         </td>
       </tr>
     </table>
@@ -29,6 +26,10 @@
 
   $bg-color: md-get-palette-color(grey, 200);
   $border-color: darken($bg-color, 3%);
+
+  .api-table {
+    padding-bottom: 16px;
+  }
 
   table {
     width: 100%;
@@ -59,7 +60,10 @@
     color: md-get-palette-color(grey, 700);
     line-height: 23px;
 
-    &:first-child,
+    &:first-child {
+      width: 22%;
+    }
+
     &:nth-child(2) ~ &:last-child {
       width: 17%;
     }

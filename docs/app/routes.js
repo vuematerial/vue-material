@@ -25,6 +25,11 @@ export const routes = [
     component: () => import('./pages/Components/Button/Button.vue')
   },
   {
+    path: '/components/icon',
+    name: 'components/icon',
+    component: () => import('./pages/Components/Icon/Icon.vue')
+  },
+  {
     path: '/ui-elements',
     name: 'ui-elements',
     component: () => import('./pages/UiElements.vue')

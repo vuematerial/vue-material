@@ -23,6 +23,7 @@
           <router-link to="/components">{{ $t('pages.components.title') }}</router-link>
           <div class="main-navigation-level">
             <router-link to="/components/button">{{ $t('pages.button.title') }}</router-link>
+            <router-link to="/components/icon">{{ $t('pages.icon.title') }}</router-link>
           </div>
           <router-link to="/ui-elements">{{ $t('pages.uiElements.title') }}</router-link>
         </nav>
@@ -140,6 +141,9 @@
   .main-navigation-level {
     margin-bottom: 8px;
     margin-left: 16px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
   }
 
   .main-container {

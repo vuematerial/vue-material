@@ -4,11 +4,14 @@
 <template>
   <page-container centered :title="$t('pages.button.title')">
     <div class="page-container-section">
-      <p>Buttons communicate the action that will occur when the user touches them. They can be <strong>Flat</strong>, <strong>Raised</strong> or <strong>Floating</strong>. The regular form accepts only text (by default) but with an special class the button can place an icon. They also can be smaller than the usual with a <strong>Dense</strong> class.</p>
+      <p>Buttons communicate the action that will occur when the user touches them. They can be <strong>Flat</strong>, <strong>Raised</strong> or <strong>Floating</strong>. Flat and raised buttons accepts only text (by default) but with an special class the button can place an icon. Floating Buttons only accept icons. They also can be smaller than the usual with a <strong>Dense</strong> class.</p>
     </div>
 
     <div class="page-container-section">
-      <code-example title="Regular Button" label="HTML" :component="examples['regular-buttons']" />
+      <h2>Flat and Raised</h2>
+      <p>The flat button is the default one. No classes or properties needs to be attached to it to make it flat. The raised button can be achieved with the <code>md-raised</code> class.</p>
+
+      <code-example title="Regular Button" :component="examples['regular-buttons']" />
 
       <api-item title="API">
         <p>The following options can be applied to all buttons, even the FAB ones:</p>
@@ -20,7 +23,8 @@
     </div>
 
     <div class="page-container-section">
-      <code-example title="Floating Action Button" label="HTML" :component="examples['floating-buttons']" />
+      <h2>FAB</h2>
+      <code-example title="Floating Action Button" :component="examples['floating-buttons']" />
     </div>
   </page-container>
 </template>
