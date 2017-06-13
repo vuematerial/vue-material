@@ -52,9 +52,10 @@
     - [ ] Switch
 
   - [ ] Grid
-  - [ ] Icon
-    - [ ] Font
-    - [ ] Image
+  - [x] Icon
+    - [x] Material
+    - [x] Custom
+    - [x] SVG
 
   - [ ] Image
   - [ ] List
@@ -130,74 +131,6 @@
     - [ ] PR Template
 
   - [ ] About
-
-### Components
-  - [ ] Avatar
-  - [ ] Bottom Bar
-  - [ ] Bottom Sheet
-  - [ ] Button
-    - [ ] Fab
-    - [ ] Flat
-    - [ ] Icon
-    - [ ] Raised
-    - [ ] Toggle
-
-  - [ ] Card
-  - [ ] Chips
-  - [ ] Content
-  - [ ] Dialog
-  - [ ] Discovery
-    - [ ] Hint Text
-    - [ ] Tap Target
-
-  - [ ] Divider
-  - [ ] Drawer
-    - [ ] Floating
-    - [ ] Mini
-    - [ ] Permanent
-    - [ ] Persistent
-    - [ ] Temporary
-
-  - [ ] Expansion Panel
-  - [ ] File
-  - [ ] Form
-    - [ ] Checkbox
-    - [ ] Input
-    - [ ] Radio
-    - [ ] Select
-    - [ ] Switch
-
-  - [ ] Grid
-  - [ ] Icon
-    - [ ] Font
-    - [ ] Image
-
-  - [ ] Image
-  - [ ] List
-  - [ ] Menu
-  - [ ] Onboarding
-
-  - [ ] Pickers
-    - [ ] Date
-    - [ ] Range
-    - [ ] Time
-
-  - [ ] Progress
-    - [ ] Bar
-    - [ ] Spinner
-
-  - [ ] Search Bar
-  - [ ] Slider
-  - [ ] Snackbar
-  - [ ] Speed Dial
-  - [ ] Split Screen
-  - [ ] Stepper
-  - [ ] Subheader
-  - [ ] Switch
-  - [ ] Table
-  - [ ] Tabs
-  - [ ] Toolbar
-  - [ ] Tooltip
 
 ### UI Elements
   - [ ] Animations
