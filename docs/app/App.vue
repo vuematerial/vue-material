@@ -12,7 +12,9 @@
         <h1 class="md-title" v-else>{{ pageTitle }}</h1>
       </div>
 
-      <md-icon md-src="assets/icon-github.svg" class="icon-github" />
+      <md-button class="md-icon-button" @click="openGithub">
+        <md-icon md-src="assets/icon-github.svg" class="icon-github" />
+      </md-button>
     </md-toolbar>
 
     <div class="container-wrapper">
@@ -28,7 +30,6 @@
           <router-link to="/ui-elements">{{ $t('pages.uiElements.title') }}</router-link>
         </nav>
       </transition>
-
 
       <router-view />
     </div>
@@ -185,6 +186,11 @@
           'md-transparent': isSplash,
           'md-elevation-2': !isSplash
         }
+      }
+    },
+    methods: {
+      openGithub () {
+        window.open('http://github.com/vuematerial/vue-material-experiments')
       }
     }
   }

@@ -2,8 +2,10 @@
   <div class="code-example">
     <md-toolbar class="md-primary md-dense" md-theme="dark">
       <span class="md-title">{{ title }}</span>
+      <md-button class="md-icon-button md-dense" @click="toggleCode" v-if="component.name">
+        <md-icon>code</md-icon>
+      </md-button>
       <jsfiddle-edit :component="component" v-if="component.name" />
-      <md-button class="md-dense" @click="toggleCode" v-if="component.name">{{ codeContent }}</md-button>
     </md-toolbar>
 
     <transition name="block">
@@ -16,7 +18,9 @@
           <component :is="component.name" />
         </div>
 
-        <md-button class="button-theme md-dense md-raised md-primary" @click="toggleDarkTheme" v-if="component.name">{{ themeContent }}</md-button>
+        <md-button class="button-theme md-icon-button md-dense md-raised md-primary" @click="toggleDarkTheme" v-if="component.name">
+          <md-icon>invert_colors</md-icon>
+        </md-button>
       </md-content>
     </transition>
   </div>
@@ -44,7 +48,6 @@
   }
 
   .md-button {
-    min-width: 56px;
     margin: 8px;
   }
 
@@ -101,20 +104,6 @@
       darkTheme: false
     }),
     computed: {
-      codeContent () {
-        if (this.codeActive) {
-          return this.$t('example')
-        }
-
-        return this.$t('code')
-      },
-      themeContent () {
-        if (this.darkTheme) {
-          return this.$t('lightTheme')
-        }
-
-        return this.$t('darkTheme')
-      },
       theme () {
         if (this.darkTheme) {
           return 'demo-dark'

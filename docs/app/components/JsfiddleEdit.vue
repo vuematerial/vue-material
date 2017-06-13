@@ -1,6 +1,8 @@
 <template>
   <form class="jsfiddle-edit" method="post" :action="apiUrl" target="check">
-    <md-button type="submit" class="md-dense">Edit on JSFiddle</md-button>
+    <md-button type="submit" class="md-icon-button md-dense">
+      <md-icon>launch</md-icon>
+    </md-button>
 
     <div class="form-data">
       <select name="panel_html">

@@ -1,5 +1,5 @@
 <template>
-  <button type="button" class="md-button" :class="[$mdActiveTheme, $mdFocusedClass]" :disabled="disabled">
+  <button type="button" class="md-button" :class="[$mdActiveTheme]" :disabled="disabled" @click="$emit('click', $event)">
     <md-ripple :md-disabled="!mdRipple || disabled">
       <span class="md-button-content">
         <slot />
@@ -161,7 +161,6 @@
 <script>
   import MdComponent from 'core/MdComponent'
   import ripple from 'core/mixins/ripple'
-  // import focusable from 'core/mixins/focusable'
 
   export default new MdComponent({
     name: 'MdButton',
