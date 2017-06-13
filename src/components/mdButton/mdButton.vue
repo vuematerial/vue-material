@@ -50,17 +50,20 @@
       cursor: pointer;
 
       &:hover,
-      &:active {
+      &:active,
+      &.md-focused {
         &:before {
           background-color: currentColor;
-          opacity: .12;
+          opacity: .15;
         }
       }
 
       &.md-focused {
-        &:before {
-          background-color: currentColor;
-          opacity: .26;
+        &.md-primary,
+        &.md-accent {
+          &:before {
+            opacity: .2;
+          }
         }
       }
 
