@@ -1,5 +1,5 @@
 <template>
-  <button type="button" class="md-button" :class="[$mdActiveTheme]" :disabled="disabled" @click="$emit('click', $event)">
+  <button type="button" class="md-button" :class="[$mdActiveTheme, $mdFocusedClass]" :disabled="disabled">
     <md-ripple :md-disabled="!mdRipple || disabled">
       <span class="md-button-content">
         <slot />
@@ -50,11 +50,17 @@
       cursor: pointer;
 
       &:hover,
-      &:active,
-      &:focus {
+      &:active {
         &:before {
           background-color: currentColor;
           opacity: .12;
+        }
+      }
+
+      &.md-focused {
+        &:before {
+          background-color: currentColor;
+          opacity: .26;
         }
       }
 
@@ -119,10 +125,13 @@
 </style>
 
 <script>
-  import MdUseRipple from 'core/MdUseRipple'
+  import MdComponent from 'core/MdComponent'
+  import ripple from 'core/mixins/ripple'
+  import focusable from 'core/mixins/focusable'
 
-  export default new MdUseRipple({
+  export default new MdComponent({
     name: 'MdButton',
+    mixins: [ripple, focusable],
     props: {
       disabled: Boolean
     }

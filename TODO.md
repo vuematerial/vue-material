@@ -4,6 +4,7 @@
 
 ### Core
   - [ ] Accessibility - A11y
+  - [ ] Keyboard Navigation
   - [x] Base Styles
   - [ ] Platform adaptation
   - [ ] RTL
