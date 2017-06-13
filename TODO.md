@@ -9,6 +9,7 @@
   - [ ] Platform adaptation
   - [ ] Responsive Components
   - [ ] RTL
+  - [ ] SSR Support
   - [x] Text Selection
   - [ ] Theme
     - [x] Base
