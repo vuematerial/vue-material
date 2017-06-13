@@ -39,10 +39,17 @@
 
 @mixin md-register-theme ($name, $palette: $md-default-palette) {
   $palette: map-merge($md-default-palette, $palette);
-
-  $md-themes: map-merge($md-themes, (
+  $theme: map-merge($md-themes, (
     #{$name}: $palette
-  )) !global;
+  ));
+
+  :root {
+    @each $type, $value in $palette {
+      --md-theme-#{$name}-#{$type}: $value
+    }
+  }
+
+  $md-themes: $theme !global;
 }
 
 

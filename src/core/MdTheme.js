@@ -1,5 +1,9 @@
 import Vue from 'vue'
 
+const msColor = document.querySelector('[name="msapplication-TileColor"]')
+const themeColor = document.querySelector('[name="theme-color"]')
+const maskIcon = document.querySelector('[rel="mask-icon"]')
+
 export default new Vue({
   data: () => ({
     prefix: 'md-theme-',
@@ -20,16 +24,21 @@ export default new Vue({
 
         if (enabled) {
           themeTarget.classList.add(fullThemeName)
+          this.setHtmlMetaColors(fullThemeName)
         } else {
           themeTarget.classList.remove(fullThemeName)
+          this.setHtmlMetaColors()
         }
       }
     },
     theme (newTheme, oldTheme) {
       const { getThemeName, themeTarget } = this
 
+      newTheme = getThemeName(newTheme)
+
       themeTarget.classList.remove(getThemeName(oldTheme))
-      themeTarget.classList.add(getThemeName(newTheme))
+      themeTarget.classList.add(newTheme)
+      this.setHtmlMetaColors(newTheme)
     }
   },
   methods: {
@@ -59,6 +68,36 @@ export default new Vue({
       const themeName = theme || this.theme
 
       return this.prefix + themeName
+    },
+    setHtmlMetaColors (themeName) {
+      let primaryColor = '#fff'
+
+      if (themeName) {
+        const computedStyle = window.getComputedStyle(document.documentElement)
+
+        primaryColor = computedStyle.getPropertyValue(`--${themeName}-primary`)
+      }
+
+      if (primaryColor) {
+        if (msColor) {
+          msColor.setAttribute('content', primaryColor)
+        }
+
+        if (themeColor) {
+          themeColor.setAttribute('content', primaryColor)
+        }
+
+        if (maskIcon) {
+          maskIcon.setAttribute('color', primaryColor)
+        }
+      }
+    }
+  },
+  created () {
+    if (this.enabled) {
+      window.addEventListener('load', () => {
+        this.setHtmlMetaColors(this.fullThemeName)
+      })
     }
   }
 })

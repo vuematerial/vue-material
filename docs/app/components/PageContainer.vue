@@ -53,7 +53,7 @@
 
 <script>
   import * as types from 'store/mutation-types'
-  import { mapMutations } from 'vuex'
+  import { mapActions } from 'vuex'
 
   export default {
     name: 'PageContainer',
@@ -62,7 +62,7 @@
       centered: Boolean
     },
     methods: {
-      ...mapMutations({
+      ...mapActions({
         setPageTitle: types.SET_PAGE_TITLE
       })
     },

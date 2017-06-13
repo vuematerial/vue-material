@@ -14,7 +14,7 @@
 
 <script>
   import * as types from 'store/mutation-types'
-  import { mapMutations, mapState } from 'vuex'
+  import { mapActions, mapMutations, mapState } from 'vuex'
 
   export default {
     name: 'SplashContainer',
@@ -25,8 +25,10 @@
       ...mapState(['splashPage'])
     },
     methods: {
+      ...mapActions({
+        setPageTitle: types.SET_PAGE_TITLE
+      }),
       ...mapMutations({
-        setPageTitle: types.SET_PAGE_TITLE,
         setSplashMode: types.SET_SPLASH_MODE
       })
     },
