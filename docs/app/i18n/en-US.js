@@ -31,6 +31,9 @@ export default {
     icon: {
       title: 'Icon'
     },
+    layout: {
+      title: 'Layout'
+    },
     error: {
       title: 'Not Found'
     }

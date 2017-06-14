@@ -29,6 +29,9 @@
             <router-link to="/components/icon">{{ $t('pages.icon.title') }}</router-link>
           </div>
           <router-link to="/ui-elements">{{ $t('pages.uiElements.title') }}</router-link>
+          <div class="main-navigation-level">
+            <router-link to="/ui-elements/layout">{{ $t('pages.layout.title') }}</router-link>
+          </div>
         </nav>
       </transition>
 

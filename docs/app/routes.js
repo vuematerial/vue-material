@@ -40,6 +40,11 @@ export const routes = [
     component: () => import('./pages/UiElements.vue')
   },
   {
+    path: '/ui-elements/layout',
+    name: 'ui-elements/layout',
+    component: () => import('./pages/UiElements/Layout/Layout.vue')
+  },
+  {
     path: '/temp',
     name: 'temp',
     component: () => import('./pages/Temp.vue')
