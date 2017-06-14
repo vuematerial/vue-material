@@ -6,7 +6,7 @@
 
 <style lang="scss" scoped>
   .splash-container {
-    max-width: 1280px;
+    max-width: 1312px;
     margin: auto;
     padding: 16px;
   }

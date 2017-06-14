@@ -22,7 +22,8 @@ export default {
       title: 'UI Elements'
     },
     button: {
-      title: 'Button'
+      title: 'Button',
+      description: 'Buttons communicate the action that will occur when the user touches them.'
     },
     content: {
       title: 'Content'

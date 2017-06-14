@@ -1,6 +1,8 @@
 <example src="./examples/RegularButtons.vue" />
 <example src="./examples/IconButtons.vue" />
 <example src="./examples/FloatingButtons.vue" />
+<example src="./examples/ButtonVsLink.vue" />
+<example src="./examples/VueRouter.vue" />
 
 <template>
   <page-container centered :title="$t('pages.button.title')">
@@ -30,10 +32,24 @@
       <code-example title="Buttons with Icons" :component="examples['icon-buttons']" />
 
       <api-item title="API">
-        <p>The following options can be applied to all buttons, even the FAB ones:</p>
+        <p>The following option will turn a button in a icon button:</p>
 
         <api-table :headings="api.icons.classes.headings" :props="api.icons.classes.props" slot="classes" />
       </api-item>
+    </div>
+
+    <div class="page-container-section">
+      <h2>Link Vs Buttons</h2>
+      <p>All buttons by default will output a <code>button</code> tag. If you want to change it to a <code>a</code> tag, just pass a href to it:</p>
+
+      <code-example title="Links and Buttons" :component="examples['button-vs-link']" />
+    </div>
+
+    <div class="page-container-section">
+      <h2>Vue Router</h2>
+      <p><code>md-buttons</code> also supports Vue Router by default. All <a href="https://router.vuejs.org/en/api/router-link.html" target="_blank">options</a> of <code>router-link</code> could be simply used here.</p>
+
+      <code-example title="router-link" :component="examples['vue-router']" />
     </div>
   </page-container>
 </template>

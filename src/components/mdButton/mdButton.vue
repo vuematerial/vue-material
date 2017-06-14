@@ -1,13 +1,3 @@
-<template>
-  <button type="button" class="md-button" :class="[$mdActiveTheme]" :disabled="disabled" @click="$emit('click', $event)">
-    <md-ripple :md-disabled="!mdRipple || disabled">
-      <span class="md-button-content">
-        <slot />
-      </span>
-    </md-ripple>
-  </button>
-</template>
-
 <style lang="scss">
   @import '~components/MdAnimation/variables';
   @import '~components/MdElevation/mixins';
@@ -46,6 +36,10 @@
 
     &:active {
       outline: none;
+    }
+
+    &[disabled] {
+      pointer-events: none;
     }
 
     &:not([disabled]) {
@@ -161,12 +155,54 @@
 <script>
   import MdComponent from 'core/MdComponent'
   import ripple from 'core/mixins/ripple'
+  import MdButtonContent from './MdButtonContent'
 
   export default new MdComponent({
     name: 'MdButton',
+    components: {
+      MdButtonContent
+    },
     mixins: [ripple],
     props: {
-      disabled: Boolean
+      href: String,
+      type: {
+        type: String,
+        default: 'button'
+      },
+      disabled: Boolean,
+      to: [String, Object]
+    },
+    render (createElement) {
+      const buttonContent = createElement('md-button-content', {
+        attrs: {
+          mdRipple: this.mdRipple,
+          disabled: this.disabled
+        }
+      }, this.$slots.default)
+      let buttonAttrs = {
+        staticClass: 'md-button',
+        class: [this.$mdActiveTheme],
+        attrs: {
+          href: this.href,
+          disabled: this.disabled,
+          type: this.type || 'button'
+        },
+        on: {
+          click: ($event) => {
+            this.$emit('click', $event)
+          }
+        }
+      }
+      let tag = 'button'
+
+      if (this.href) {
+        tag = 'a'
+      } else if (this.to) {
+        tag = 'router-link'
+        buttonAttrs.attrs = this.$options.propsData
+      }
+
+      return createElement(tag, buttonAttrs, [buttonContent])
     }
   })
 </script>

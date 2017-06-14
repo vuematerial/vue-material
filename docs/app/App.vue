@@ -52,7 +52,7 @@
     font-family: "Roboto Mono", monospace;
 
     &.splash .main-header {
-      max-width: 1280px;
+      max-width: 1312px;
       padding: 16px;
       transition: .3s $md-transition-default-timing;
       transition-property: max-width;
