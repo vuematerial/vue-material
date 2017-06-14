@@ -5,6 +5,8 @@
 </template>
 
 <style lang="scss" scoped>
+  @import "~vue-material/components/MdLayout/mixins";
+
   $container-size: 100px;
   $item-size: $container-size * .8;
 
@@ -14,6 +16,10 @@
     margin-bottom: 32px;
     display: block;
     position: relative;
+
+    @include md-layout-xsmall {
+      margin: 0 auto;
+    }
 
     > div {
       width: $item-size;

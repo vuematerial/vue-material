@@ -1,17 +1,19 @@
 import MdButton from './MdButton'
+import MdContent from './MdContent'
 import MdElevation from './MdElevation'
 import MdIcon from './MdIcon'
 import MdImage from './MdImage'
-import MdContent from './MdContent'
+import MdLayout from './MdLayout'
 import MdRipple from './MdRipple'
 import MdToolbar from './MdToolbar'
 
 export const MdComponents = {
   MdButton,
+  MdContent,
   MdElevation,
   MdIcon,
   MdImage,
-  MdContent,
+  MdLayout,
   MdRipple,
   MdToolbar
 }

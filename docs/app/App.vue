@@ -2,12 +2,12 @@
   <div class="container" :class="containerClass">
     <md-toolbar class="main-header" :class="mainHeaderClasses">
       <div class="logo">
-        <logo-vue-material :animated="isHome" :blending="isSplash" @click.native="$router.push('/')" />
+        <logo-vue-material :animated="isHome" :blending="false" @click.native="$router.push('/')" />
       </div>
 
       <div class="md-title">
-        <span>Vue Material</span>
-        <span v-if="pageTitle"> - </span>
+        <span class="md-hide-small">Vue Material</span>
+        <span class="md-hide-small" v-if="pageTitle"> - </span>
         <span v-if="isHome">{{ pageTitle }}</span>
         <h1 class="md-title" v-else>{{ pageTitle }}</h1>
       </div>
@@ -17,7 +17,7 @@
       </md-button>
     </md-toolbar>
 
-    <div class="container-wrapper">
+    <div class="container-wrapper md-layout-row md-layout-column-small">
       <transition name="nav" appear>
         <nav class="main-navigation" v-if="!isSplash">
           <router-link to="/">{{ $t('pages.home.title') }}</router-link>
@@ -56,7 +56,6 @@
 
     &.splash .main-header {
       max-width: 1312px;
-      padding: 16px;
       transition: .3s $md-transition-default-timing;
       transition-property: max-width;
     }
@@ -74,8 +73,8 @@
                 box-shadow .4s .1s $md-transition-stand-timing;
     will-change: box-shadow, max-width, background-color;
 
-    &.md-transparent .logo {
-      background: transparent;
+    &.md-transparent {
+      background-color: #303030;
     }
 
     .md-title {
@@ -102,10 +101,6 @@
       align-items: center;
       cursor: pointer;
     }
-  }
-
-  .container-wrapper {
-    display: flex;
   }
 
   .nav-leave-active {

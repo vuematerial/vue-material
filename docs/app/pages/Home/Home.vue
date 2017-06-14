@@ -17,20 +17,20 @@
       </div>
     </header>
 
-    <div class="home-features">
-      <div class="home-feature">
+    <div class="home-features md-layout-row md-layout-column-xsmall md-gutter">
+      <div class="home-feature md-flex">
         <home-icon-square />
         <h2 class="md-title">{{ $t('pages.home.material') }}</h2>
         <p>{{ $t('pages.home.materialContent') }}</p>
       </div>
 
-      <div class="home-feature">
+      <div class="home-feature md-flex">
         <home-icon-devices />
         <h2 class="md-title">{{ $t('pages.home.compatible') }}</h2>
         <p>{{ $t('pages.home.compatibleContent') }}</p>
       </div>
 
-      <div class="home-feature">
+      <div class="home-feature md-flex">
         <home-icon-circle />
         <h2 class="md-title">{{ $t('pages.home.featured') }}</h2>
         <p>{{ $t('pages.home.featuredContent') }}</p>
@@ -41,6 +41,7 @@
 
 <style lang="scss" scoped>
   @import "~vue-material/components/MdAnimation/variables";
+  @import "~vue-material/components/MdLayout/mixins";
 
   .home-page >>> .main-header {
     position: fixed;
@@ -90,6 +91,10 @@
     font-size: 50px;
     font-weight: 500;
     line-height: 1em;
+
+    @include md-layout-xsmall {
+      font-size: 36px;
+    }
   }
 
   .home-actions {
@@ -103,15 +108,17 @@
   }
 
   .home-features {
-    margin: 120px 0 40px;
-    display: flex;
+    margin-top: 120px;
+    margin-bottom: 40px;
+
+    @include md-layout-xsmall {
+      margin-top: 60px;
+    }
   }
 
   .home-feature {
-    flex: 1;
-
-    + .home-feature {
-      margin-left: 40px;
+    @include md-layout-xsmall {
+      text-align: center;
     }
 
     h2 {

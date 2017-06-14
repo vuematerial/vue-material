@@ -10,6 +10,7 @@
 
 <style lang="scss" scoped>
   @import "~vue-material/components/MdAnimation/variables";
+  @import "~vue-material/components/MdLayout/mixins";
   @import "~vue-material/theme/factory";
 
   .home-icon-circle {
@@ -33,14 +34,27 @@
     transition: $md-transition-stand;
     will-change: transform;
 
+    @include md-layout-xsmall {
+      left: 50%;
+      transform: translate3D(-50%, -50%, 0);
+    }
+
     &:nth-child(1) {
       background: md-get-palette-color(cyan, 300);
       transform: scale(.98) translate3D(0, -50%, 0);
+
+      @include md-layout-xsmall {
+        transform: scale(.98) translate3D(-50%, -50%, 0);
+      }
     }
 
     &:nth-child(2) {
       background: md-get-palette-color(red, 400);
       transform: scale(.98) translate3D(0, -50%, 0);
+
+      @include md-layout-xsmall {
+        transform: scale(.98) translate3D(-50%, -50%, 0);
+      }
     }
 
     &:nth-child(3) {

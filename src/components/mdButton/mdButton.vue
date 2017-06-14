@@ -1,6 +1,7 @@
 <style lang="scss">
   @import '~components/MdAnimation/variables';
   @import '~components/MdElevation/mixins';
+  @import '~components/MdElevation/variables';
 
   $md-button-min-width: 88px;
   $md-button-height: 36px;
@@ -24,7 +25,11 @@
     background: transparent;
     border: 0;
     border-radius: $md-button-radius;
-    transition: $md-transition-default;
+    transition-timing-function: $md-transition-stand-timing;
+    transition-property: box-shadow, color, background-color;
+    transition-duration: $md-elevation-transition-duration,
+                         $md-transition-default-duration,
+                         $md-transition-default-duration;
     will-change: box-shadow, color, background-color;
     font-family: inherit;
     font-size: $md-button-font-size;
