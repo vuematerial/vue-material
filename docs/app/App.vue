@@ -6,8 +6,8 @@
       </div>
 
       <div class="md-title">
-        <span class="md-hide-small">Vue Material</span>
-        <span class="md-hide-small" v-if="pageTitle"> - </span>
+        <span class="md-hide-xsmall">Vue Material</span>
+        <span class="md-hide-xsmall" v-if="pageTitle"> - </span>
         <span v-if="isHome">{{ pageTitle }}</span>
         <h1 class="md-title" v-else>{{ pageTitle }}</h1>
       </div>
