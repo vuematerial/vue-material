@@ -47,7 +47,7 @@
 
     <div class="page-container-section">
       <h2>Vue Router</h2>
-      <p><code>md-buttons</code> also supports Vue Router by default. All <a href="https://router.vuejs.org/en/api/router-link.html" target="_blank">options</a> of <code>router-link</code> could be simply used here.</p>
+      <p><code>md-button</code> also supports Vue Router by default. All <a href="https://router.vuejs.org/en/api/router-link.html" target="_blank">options</a> of <code>router-link</code> could be simply used here.</p>
 
       <code-example title="router-link" :component="examples['vue-router']" />
     </div>
