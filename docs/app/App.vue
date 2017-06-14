@@ -17,7 +17,7 @@
       </md-button>
     </md-toolbar>
 
-    <div class="container-wrapper md-layout-row md-layout-column-small">
+    <div class="container-wrapper md-layout-row md-layout-column-xsmall">
       <transition name="nav" appear>
         <nav class="main-navigation" v-if="!isSplash">
           <router-link to="/">{{ $t('pages.home.title') }}</router-link>
@@ -48,11 +48,19 @@
 
 <style lang="scss" scoped>
   @import "~vue-material/components/MdAnimation/variables";
+  @import "~vue-material/components/MdLayout/mixins";
   @import "~vue-material/theme/factory";
+
+  $sizebar-width: 200px;
 
   .container {
     padding-top: 64px;
+    padding-left: $sizebar-width;
     font-family: "Roboto Mono", monospace;
+
+    @include md-layout-xsmall {
+      padding-left: 0;
+    }
 
     &.splash .main-header {
       max-width: 1312px;
@@ -103,6 +111,35 @@
     }
   }
 
+  .main-navigation {
+    width: $sizebar-width;
+    padding: 0 16px 16px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    overflow: auto;
+    position: fixed;
+    top: 90px;
+    bottom: 0;
+    left: 0;
+    font-size: 14px;
+
+    @include md-layout-xsmall {
+      padding: 16px;
+      position: static;
+    }
+
+    a {
+      display: block;
+      color: inherit;
+      line-height: 2em;
+    }
+
+    .router-link-exact-active {
+      color: md-get-palette-color(pink, 700);
+    }
+  }
+
   .nav-leave-active {
     display: none;
   }
@@ -120,30 +157,9 @@
     transform: translate3d(0, 0, 0);
   }
 
-  .main-navigation {
-    width: 220px;
-    padding: 16px;
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-    font-size: 15px;
-
-    a {
-      color: inherit;
-      line-height: 2em;
-    }
-
-    .router-link-exact-active {
-      color: md-get-palette-color(pink, 700);
-    }
-  }
-
   .main-navigation-level {
     margin-bottom: 8px;
     margin-left: 16px;
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
   }
 
   .main-container {
