@@ -1,4 +1,4 @@
-@import '~vue-material/theme/factory';
+@import "~vue-material/theme/factory";
 
 $demo-base: (
   primary: md-get-palette-color(blue, A200),
@@ -11,7 +11,7 @@ $demo-base-dark: map-merge($demo-base, (
   theme: dark
 ));
 
-@include md-register-theme('demo-dark', $demo-base-dark);
-@include md-register-theme('demo-light', $demo-base-light);
+@include md-register-theme("demo-dark", $demo-base-dark);
+@include md-register-theme("demo-light", $demo-base-light);
 
-@import '~vue-material/theme/all';
+@import "~vue-material/theme/all";

@@ -1,7 +1,7 @@
 <style lang="scss">
-  @import '~components/MdAnimation/variables';
-  @import '~components/MdElevation/mixins';
-  @import '~components/MdElevation/variables';
+  @import "~components/MdAnimation/variables";
+  @import "~components/MdElevation/mixins";
+  @import "~components/MdElevation/variables";
 
   $md-button-min-width: 88px;
   $md-button-height: 36px;

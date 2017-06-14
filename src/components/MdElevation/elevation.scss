@@ -1,6 +1,6 @@
-@import '~components/MdAnimation/variables';
-@import './variables';
-@import './mixins';
+@import "~components/MdAnimation/variables";
+@import "./variables";
+@import "./mixins";
 
 $md-elevation-count: length($md-elevation-umbra) - 1;
 

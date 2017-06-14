@@ -6,7 +6,7 @@
 </template>
 
 <style lang="scss">
-  @import '~components/MdAnimation/variables';
+  @import "~components/MdAnimation/variables";
 
   $icon-size: 24px;
 
@@ -53,8 +53,8 @@
   .md-icon {
     transition: color .4s $md-transition-default-timing;
     direction: ltr;
-    font-family: 'Material Icons';
-    font-feature-settings: 'liga';
+    font-family: "Material Icons";
+    font-feature-settings: "liga";
     font-style: normal;
     letter-spacing: normal;
     line-height: 1;

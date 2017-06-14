@@ -7,7 +7,7 @@
  * $foo-palette: (
  *   primary: md-get-palette-color(indigo, 500),
  *   accent: md-get-palette-color(pink, 500),
- *   theme: 'light'
+ *   theme: "light"
  * );
  *
  * ---
@@ -59,7 +59,7 @@
 @function md-theme($type, $background: "") {
   $color-theme: null;
 
-  @if $type == 'primary' or $type == 'accent' {
+  @if $type == "primary" or $type == "accent" {
     @return md-get-color-by-type($type, null);
   } @else {
     $color-theme: map-get($md-theme-palette, theme);

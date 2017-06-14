@@ -1,11 +1,11 @@
-@import '~vue-material/theme/factory';
+@import "~vue-material/theme/factory";
 
-@include md-register-theme('default', (
+@include md-register-theme("default", (
   primary: md-get-palette-color(blue, A200),
   accent: md-get-palette-color(pink, 700)
 ));
 
-@import '~vue-material/base/theme';
-@import '~vue-material/components/MdButton/theme';
-@import '~vue-material/components/MdContent/theme';
-@import '~vue-material/components/MdToolbar/theme';
+@import "~vue-material/base/theme";
+@import "~vue-material/components/MdButton/theme";
+@import "~vue-material/components/MdContent/theme";
+@import "~vue-material/components/MdToolbar/theme";

@@ -9,7 +9,7 @@
 </template>
 
 <style lang="scss">
-  @import '~components/MdAnimation/variables';
+  @import "~components/MdAnimation/variables";
 
   .md-ripple {
     width: 100%;

@@ -331,8 +331,8 @@ $md-linear-channel-values:
   $darkContrast: md-calculate-contrast($color, $darkColor);
 
   @if ($lightContrast > $darkContrast) {
-    @return 'dark';
+    @return "dark";
   }
 
-  @return 'light';
+  @return "light";
 }

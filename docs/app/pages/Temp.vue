@@ -43,15 +43,15 @@
 </template>
 
 <style lang="scss">
-  @import '~vue-material/theme/factory';
+  @import "~vue-material/theme/factory";
 
-  @include md-register-theme('secondary', $md-theme-green-orange);
-  @include md-register-theme('tertiary', $md-theme-black-green);
+  @include md-register-theme("secondary", $md-theme-green-orange);
+  @include md-register-theme("tertiary", $md-theme-black-green);
 
-  @import '~vue-material/theme/all';
+  @import "~vue-material/theme/all";
 
   .main-content {
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
   }
 
   .parent {

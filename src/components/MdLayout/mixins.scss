@@ -1,8 +1,8 @@
-@import './variables.scss';
+@import "./variables.scss";
 
 @mixin md-rows-and-md-columns ($size: "") {
-  @if $size != '' {
-    $size : '-#{$size}';
+  @if $size != "" {
+    $size : "-#{$size}";
   }
 
   &.md-layout-row#{$size} {
@@ -15,8 +15,8 @@
 }
 
 @mixin md-layout-align($size: "") {
-  @if $size != '' {
-    $size : '-#{$size}';
+  @if $size != "" {
+    $size : "-#{$size}";
   }
 
   &.md-align#{$size}-start-start {
@@ -66,8 +66,8 @@
 }
 
 @mixin md-gutter($size: $md-gutter-large, $breakpoint: "") {
-  @if $breakpoint != '' {
-    $breakpoint : '-#{$breakpoint}';
+  @if $breakpoint != "" {
+    $breakpoint : "-#{$breakpoint}";
   }
 
   .md-gutter {
@@ -88,8 +88,8 @@
 }
 
 @mixin md-flex($size: "") {
-  @if $size != '' {
-    $size : '-#{$size}';
+  @if $size != "" {
+    $size : "-#{$size}";
   }
 
   > {
@@ -119,20 +119,20 @@
       $counter: $i * 5;
 
       .md-flex#{$size}-#{$counter} {
-        min-width: #{$counter + '%'};
-        flex: 0 1 #{$counter + '%'};
+        min-width: #{$counter + "%"};
+        flex: 0 1 #{$counter + "%"};
       }
 
       .md-flex-offset#{$size}-#{$counter} {
-        margin-left: #{$counter + '%'};
+        margin-left: #{$counter + "%"};
       }
     }
   }
 }
 
 @mixin md-hide($size: "") {
-  @if $size != '' {
-    $size : '-#{$size}';
+  @if $size != "" {
+    $size : "-#{$size}";
   }
 
   .md-hide#{$size} {

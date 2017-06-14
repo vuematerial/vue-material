@@ -41,9 +41,9 @@
 </template>
 
 <style lang="scss">
-  @import './themes/default';
-  @import './themes/dark';
-  @import './themes/demo';
+  @import "./themes/default";
+  @import "./themes/dark";
+  @import "./themes/demo";
 </style>
 
 <style lang="scss" scoped>
