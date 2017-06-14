@@ -129,6 +129,10 @@
     margin: 0 6px;
     border-radius: 50%;
 
+    &:before {
+      border-radius: 50%;
+    }
+
     &.md-dense {
       width: $md-button-dense-height;
       min-width: $md-button-dense-height;
@@ -204,7 +208,10 @@
         tag = 'a'
       } else if (this.to) {
         tag = 'router-link'
-        buttonAttrs.attrs = this.$options.propsData
+        buttonAttrs.attrs = {
+          to: this.to,
+          ...this.$options.propsData
+        }
       }
 
       return createElement(tag, buttonAttrs, [buttonContent])
