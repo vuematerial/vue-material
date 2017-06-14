@@ -55,11 +55,14 @@
 
   .container {
     padding-top: 64px;
-    padding-left: $sizebar-width;
     font-family: "Roboto Mono", monospace;
 
-    @include md-layout-xsmall {
-      padding-left: 0;
+    &:not(.splash) {
+      padding-left: $sizebar-width;
+
+      @include md-layout-xsmall {
+        padding-left: 0;
+      }
     }
 
     &.splash .main-header {
