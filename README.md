@@ -1,10 +1,6 @@
 <p align="center">
   <a href="https://vuematerial.github.io/" target="_blank">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 272 176" width="150px" height="97px">
-      <path  d="M176 0v176H0" class="first-square" />
-      <path  d="M272 0v176H96" class="last-square" />
-      <path fill="#84FFFF" d="M176 96v80H96l80-80z" class="middle-square" />
-    </svg>
+    <img width="150" src="https://raw.githubusercontent.com/vuematerial/vue-material-experiments/master/docs/assets/logo-color.png">
   </a>
 </p>
 
