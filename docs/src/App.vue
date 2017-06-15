@@ -229,7 +229,6 @@
     flex-flow: column nowrap;
     flex: 1;
     transition: $swift-ease-out;
-
     @media (min-width: 1281px) {
       padding-left: $sizebar-size;
     }
@@ -241,11 +240,10 @@
       display: flex;
       flex-flow: column;
       overflow: hidden;
-
       @media (min-width: 1281px) {
         top: 0;
         pointer-events: auto;
-        transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0) !important;
         box-shadow: $material-shadow-2dp;
       }
     }
@@ -264,7 +262,6 @@
 
     .vue-material-logo {
       font-size: 24px;
-
       a {
         width: 100%;
         display: flex;
@@ -273,13 +270,11 @@
         align-items: center;
         color: inherit;
         text-decoration: none;
-
         &:hover {
           color: inherit;
           text-decoration: none;
         }
       }
-
       img {
         width: 160px;
         margin-bottom: 16px;
@@ -335,11 +330,9 @@
     top: 0;
     right: 0;
     left: 0;
-
     @media (min-width: 1281px) {
       left: $sizebar-size;
     }
-
     .main-content {
       opacity: 0;
       overflow: hidden;
@@ -355,7 +348,6 @@
   .md-router-enter {
     z-index: 2;
     transition: $swift-ease-out;
-
     .main-content {
       transform: translate3D(0, 10%, 0);
     }
@@ -369,7 +361,6 @@
       display: inline-block;
       border-radius: 2px;
       font-family: "Operator Mono", "Fira Code", Menlo, Hack, "Roboto Mono", "Liberation Mono", Monaco, monospace;
-
       pre {
         margin: 8px 0;
       }
