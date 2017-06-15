@@ -1469,18 +1469,6 @@ css-mqpacker@^6.0.1:
     minimist "^1.2.0"
     postcss "^6.0.0"
 
-css-node-extract@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/css-node-extract/-/css-node-extract-0.1.0.tgz#8ee622c1556fb87f98643375fd8a9c659c97887e"
-  dependencies:
-    postcss "^5.2.8"
-
-css-node-extract@^0.2.1:
-  version "0.2.3"
-  resolved "https://registry.yarnpkg.com/css-node-extract/-/css-node-extract-0.2.3.tgz#8ef875d30642c11510f384964046300b35540aa6"
-  dependencies:
-    postcss "^6.0.1"
-
 css-parse@1.7.x:
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/css-parse/-/css-parse-1.7.0.tgz#321f6cf73782a6ff751111390fc05e2c657d8c9b"
@@ -1493,12 +1481,6 @@ css-select@^1.1.0:
     css-what "2.1"
     domutils "1.5.1"
     nth-check "~1.0.1"
-
-css-selector-extract@^2.0.1:
-  version "2.0.6"
-  resolved "https://registry.yarnpkg.com/css-selector-extract/-/css-selector-extract-2.0.6.tgz#2bfc03b787902c6f3d8b1cebe5ddf3ec81ddf810"
-  dependencies:
-    postcss "^6.0.1"
 
 css-selector-tokenizer@^0.7.0:
   version "0.7.0"
@@ -2211,6 +2193,10 @@ find-cache-dir@^0.1.1:
     mkdirp "^0.5.1"
     pkg-dir "^1.0.0"
 
+find-parent-dir@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/find-parent-dir/-/find-parent-dir-0.3.0.tgz#33c44b429ab2b2f0646299c5f9f718f376ff8d54"
+
 find-up@^1.0.0:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/find-up/-/find-up-1.1.2.tgz#6b2e9822b1a2ce0a60ab64d610eccad53cb24d0f"
@@ -2400,7 +2386,7 @@ glob@7.0.x:
     once "^1.3.0"
     path-is-absolute "^1.0.0"
 
-glob@^7.0.0, glob@^7.0.3, glob@^7.0.5, glob@^7.1.1, glob@~7.1.1:
+glob@^7.0.0, glob@^7.0.3, glob@^7.0.5, glob@~7.1.1:
   version "7.1.2"
   resolved "https://registry.yarnpkg.com/glob/-/glob-7.1.2.tgz#c19c9df9a028702d678612384a6552404c636d15"
   dependencies:
@@ -3449,33 +3435,9 @@ node-pre-gyp@^0.6.29:
     tar "^2.2.1"
     tar-pack "^3.4.0"
 
-node-sass-filter-importer@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/node-sass-filter-importer/-/node-sass-filter-importer-1.0.1.tgz#875cb640681ab597fc9e0cb515cacb4f282a22ad"
-  dependencies:
-    css-node-extract "^0.1.0"
-    postcss-scss "^0.4.0"
-    unique-concat "^0.2.2"
-
-node-sass-glob-importer@^3.0.2:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/node-sass-glob-importer/-/node-sass-glob-importer-3.0.2.tgz#8a8e7f57a76cb33ee5e9f3da4f263f11d65316e7"
-  dependencies:
-    glob "^7.1.1"
-    unique-concat "^0.2.2"
-
-node-sass-magic-importer@^4.1.5:
-  version "4.1.5"
-  resolved "https://registry.yarnpkg.com/node-sass-magic-importer/-/node-sass-magic-importer-4.1.5.tgz#2c648b550a1ff680b3bc4cb7fdf3dcff4a4c619a"
-  dependencies:
-    css-node-extract "^0.2.1"
-    glob "^7.1.1"
-    node-sass-filter-importer "^1.0.1"
-    node-sass-glob-importer "^3.0.2"
-    node-sass-package-importer "^3.0.4"
-    node-sass-selector-importer "^4.2.0"
-    postcss-scss "^0.4.0"
-    unique-concat "^0.2.2"
+node-sass-importer@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/node-sass-importer/-/node-sass-importer-1.0.0.tgz#c397d55b41d997d8eead1c030a235dbb0a164c71"
 
 node-sass-package-importer@^3.0.4:
   version "3.0.4"
@@ -3483,13 +3445,11 @@ node-sass-package-importer@^3.0.4:
   dependencies:
     resolve "^1.1.7"
 
-node-sass-selector-importer@^4.2.0:
-  version "4.2.1"
-  resolved "https://registry.yarnpkg.com/node-sass-selector-importer/-/node-sass-selector-importer-4.2.1.tgz#4298a62403dad4c75b7be0d524455f8dcbf0f502"
+node-sass-tilde-importer@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/node-sass-tilde-importer/-/node-sass-tilde-importer-1.0.0.tgz#653d048a270464a1865ef9a99cc80ee2d80f9c97"
   dependencies:
-    css-selector-extract "^2.0.1"
-    node-sass "^3.13.0"
-    postcss-scss "^0.3.1"
+    find-parent-dir "^0.3.0"
 
 "node-sass@>= 3.8.0", node-sass@^4.5.0, node-sass@^4.5.3:
   version "4.5.3"
@@ -3514,7 +3474,7 @@ node-sass-selector-importer@^4.2.0:
     sass-graph "^2.1.1"
     stdout-stream "^1.4.0"
 
-node-sass@^3.10.1, node-sass@^3.13.0:
+node-sass@^3.10.1:
   version "3.13.1"
   resolved "https://registry.yarnpkg.com/node-sass/-/node-sass-3.13.1.tgz#7240fbbff2396304b4223527ed3020589c004fc2"
   dependencies:
@@ -4064,18 +4024,6 @@ postcss-reduce-transforms@^1.0.3:
     postcss "^5.0.8"
     postcss-value-parser "^3.0.1"
 
-postcss-scss@^0.3.1:
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/postcss-scss/-/postcss-scss-0.3.1.tgz#65c610d8e2a7ee0e62b1835b71b8870734816e4b"
-  dependencies:
-    postcss "^5.2.4"
-
-postcss-scss@^0.4.0:
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/postcss-scss/-/postcss-scss-0.4.1.tgz#ad771b81f0f72f5f4845d08aa60f93557653d54c"
-  dependencies:
-    postcss "^5.2.13"
-
 postcss-selector-parser@^2.0.0, postcss-selector-parser@^2.2.2, postcss-selector-parser@^2.2.3:
   version "2.2.3"
   resolved "https://registry.yarnpkg.com/postcss-selector-parser/-/postcss-selector-parser-2.2.3.tgz#f9437788606c3c9acee16ffe8d8b16297f27bb90"
@@ -4121,7 +4069,7 @@ postcss@6.0.1, postcss@^6.0.0, postcss@^6.0.1:
     source-map "^0.5.6"
     supports-color "^3.2.3"
 
-postcss@^5.0.10, postcss@^5.0.11, postcss@^5.0.12, postcss@^5.0.13, postcss@^5.0.14, postcss@^5.0.16, postcss@^5.0.2, postcss@^5.0.21, postcss@^5.0.4, postcss@^5.0.5, postcss@^5.0.6, postcss@^5.0.8, postcss@^5.2.11, postcss@^5.2.13, postcss@^5.2.16, postcss@^5.2.4, postcss@^5.2.8:
+postcss@^5.0.10, postcss@^5.0.11, postcss@^5.0.12, postcss@^5.0.13, postcss@^5.0.14, postcss@^5.0.16, postcss@^5.0.2, postcss@^5.0.21, postcss@^5.0.4, postcss@^5.0.5, postcss@^5.0.6, postcss@^5.0.8, postcss@^5.2.11, postcss@^5.2.16, postcss@^5.2.8:
   version "5.2.17"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-5.2.17.tgz#cf4f597b864d65c8a492b2eabe9d706c879c388b"
   dependencies:
@@ -5269,10 +5217,6 @@ uniqid@^4.0.0:
 uniqs@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/uniqs/-/uniqs-2.0.0.tgz#ffede4b36b25290696e6e165d4a59edb998e6b02"
-
-unique-concat@^0.2.2:
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/unique-concat/-/unique-concat-0.2.2.tgz#9210f9bdcaacc5e1e3929490d7c019df96f18712"
 
 unpipe@~1.0.0:
   version "1.0.0"

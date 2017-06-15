@@ -7,7 +7,7 @@ import commonjs from 'rollup-plugin-commonjs'
 import nodeGlobals from 'rollup-plugin-node-globals'
 import resolve from 'rollup-plugin-node-resolve'
 import scss from 'rollup-plugin-scss'
-import magicImporter from 'node-sass-magic-importer'
+import scssImporter from 'node-sass-package-importer'
 import postcss from 'postcss'
 import autoprefixer from 'autoprefixer'
 import mediaPacker from 'css-mqpacker'
@@ -53,7 +53,7 @@ const entries = {
 
 
 const scssConfig = {
-  importer: magicImporter
+  importer: scssImporter
 }
 
 function generateConfig ({ dest, format, env, css }) {
