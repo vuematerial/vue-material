@@ -15,7 +15,7 @@ export const config = {
   server: {
     port: process.env.PORT || '8080'
   },
-  resolve: ['.vue', '.js', '.json'],
+  resolve: ['.vue', '.js', '.json', '.scss'],
   alias: {
     'vue-material': resolvePath('src'),
     store: resolvePath('docs/app/store'),
@@ -23,7 +23,8 @@ export const config = {
     theme: resolvePath('src/theme'),
     base: resolvePath('src/base'),
     core: resolvePath('src/core'),
-    components: resolvePath('src/components')
+    components: resolvePath('src/components'),
+    '~': resolvePath('')
   }
 }
 

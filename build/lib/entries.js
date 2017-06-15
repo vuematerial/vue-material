@@ -1,8 +1,12 @@
-import { writeFileSync } from 'fs'
+import { writeFileSync, readFileSync } from 'fs'
 import replace from 'rollup-plugin-replace'
 import buble from 'rollup-plugin-buble'
 import vue from 'rollup-plugin-vue'
 import alias from 'rollup-plugin-alias'
+import commonjs from 'rollup-plugin-commonjs'
+import nodeGlobals from 'rollup-plugin-node-globals'
+import scss from 'rollup-plugin-scss'
+import magicImporter from 'node-sass-magic-importer'
 import postcss from 'postcss'
 import autoprefixer from 'autoprefixer'
 import mediaPacker from 'css-mqpacker'
@@ -53,19 +57,44 @@ function generateConfig ({ dest, format, env, css }) {
     format,
     banner,
     moduleName,
+    external: [
+      'vue'
+    ],
+    globals: {
+      vue: 'Vue'
+    },
     plugins: [
       alias({
         ...config.alias,
         resolve: config.resolve
       }),
-      buble(),
+      vue({
+        async css (style) {
+          if (style && env === 'production') {
+            const styles = await postcss([autoprefixer, mediaPacker, cssnano]).process(style)
+
+            styles.warnings().forEach(warn => console.warn(warn.toString()))
+
+            writeFileSync(resolvePath(dest.replace('js', 'css')), styles.css)
+          }
+        }
+      }),
+      scss({
+        importer: magicImporter
+      }),
       postcss({
         plugins: [
           autoprefixer(),
           mediaPacker(),
           cssnano()
         ]
-      })
+      }),
+      buble({
+        objectAssign: 'Object.assign',
+        exclude: 'node_modules/**'
+      }),
+      commonjs(),
+      nodeGlobals()
     ]
   }
 
@@ -73,20 +102,8 @@ function generateConfig ({ dest, format, env, css }) {
 
   if (env) {
     replacePluginOptions['process.env.NODE_ENV'] = JSON.stringify(env)
+    entryConfig.plugins.push(replace(replacePluginOptions))
   }
-
-  entryConfig.plugins.unshift(vue({
-    async css (style) {
-      if (style && env === 'production') {
-        const styles = await postcss([autoprefixer, mediaPacker, cssnano]).process(style)
-
-        styles.warnings().forEach(warn => console.warn(warn.toString()))
-
-        writeFileSync(resolvePath(dest.replace('js', 'css')), styles.css)
-      }
-    }
-  }))
-  entryConfig.plugins.push(replace(replacePluginOptions))
 
   return entryConfig
 }
