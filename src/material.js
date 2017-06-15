@@ -1,7 +1,7 @@
 import MdReactive from 'core/MdReactive'
 import MdTheme from 'core/MdTheme'
 
-const VueMaterial = new MdReactive({
+const material = new MdReactive({
   inkRipple: true,
   theming: {},
   locale: {
@@ -17,7 +17,7 @@ const VueMaterial = new MdReactive({
   }
 })
 
-Object.defineProperties(VueMaterial.theming, {
+Object.defineProperties(material.theming, {
   theme: {
     get: () => MdTheme.theme,
     set (theme) {
@@ -32,4 +32,9 @@ Object.defineProperties(VueMaterial.theming, {
   }
 })
 
-export default VueMaterial
+export default Vue => {
+  if (!Vue.material) {
+    Vue.material = material
+    Vue.prototype.$material = material
+  }
+}

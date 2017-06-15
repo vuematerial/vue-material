@@ -7,7 +7,7 @@ import MdLayout from './MdLayout'
 import MdRipple from './MdRipple'
 import MdToolbar from './MdToolbar'
 
-export const MdComponents = {
+export default {
   MdButton,
   MdContent,
   MdElevation,
@@ -16,12 +16,4 @@ export const MdComponents = {
   MdLayout,
   MdRipple,
   MdToolbar
-}
-
-export default {
-  install (Vue) {
-    Object.values(MdComponents).forEach((component) => {
-      Vue.use(component)
-    })
-  }
 }

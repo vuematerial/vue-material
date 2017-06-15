@@ -1,5 +1,5 @@
 import MdImage from './MdImage'
 
-export default function install (Vue) {
+export default Vue => {
   Vue.component(MdImage.name, MdImage)
 }

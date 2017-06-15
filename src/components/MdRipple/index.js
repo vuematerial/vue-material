@@ -1,5 +1,5 @@
 import MdRipple from './MdRipple'
 
-export default function install (Vue) {
+export default Vue => {
   Vue.component(MdRipple.name, MdRipple)
 }

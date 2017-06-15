@@ -1,5 +1,5 @@
 import MdToolbar from './MdToolbar'
 
-export default function install (Vue) {
+export default Vue => {
   Vue.component(MdToolbar.name, MdToolbar)
 }

@@ -1,5 +1,5 @@
 import MdIcon from './MdIcon'
 
-export default function install (Vue) {
+export default Vue => {
   Vue.component(MdIcon.name, MdIcon)
 }

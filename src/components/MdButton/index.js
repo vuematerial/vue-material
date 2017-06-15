@@ -1,5 +1,5 @@
 import MdButton from './MdButton'
 
-export default function install (Vue) {
+export default Vue => {
   Vue.component(MdButton.name, MdButton)
 }

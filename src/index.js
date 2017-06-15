@@ -1,15 +1,19 @@
-import VueMaterial from './material'
+import setup from './material'
+import MdComponents from './components'
 import './base/index.scss'
 
-let plugin = (Vue) => {
-  Vue.material = VueMaterial
-  Vue.prototype.$material = VueMaterial
+let VueMaterial = Vue => {
+  setup(Vue)
+
+  Object.values(MdComponents).forEach((MdComponent) => {
+    Vue.use(MdComponent)
+  })
 }
 
-plugin.version = '__VERSION__'
+VueMaterial.version = '__VERSION__'
 
 if (typeof window !== 'undefined' && window.Vue) {
-  window.Vue.use(plugin)
+  window.Vue.use(VueMaterial)
 }
 
-export default plugin
+export default VueMaterial

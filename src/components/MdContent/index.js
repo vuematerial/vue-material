@@ -1,5 +1,5 @@
 import MdContent from './MdContent'
 
-export default function install (Vue) {
+export default Vue => {
   Vue.component(MdContent.name, MdContent)
 }

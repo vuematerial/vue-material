@@ -15,16 +15,15 @@ export const config = {
   server: {
     port: process.env.PORT || '8080'
   },
-  resolve: ['.vue', '.js', '.json', '.scss'],
+  resolve: ['.vue', '.scss', '.js', '.json'],
   alias: {
     'vue-material': resolvePath('src'),
-    store: resolvePath('docs/app/store'),
-    'docs-mixins': resolvePath('docs/app/mixins'),
     theme: resolvePath('src/theme'),
     base: resolvePath('src/base'),
     core: resolvePath('src/core'),
     components: resolvePath('src/components'),
-    '~': resolvePath('')
+    store: resolvePath('docs/app/store'),
+    'docs-mixins': resolvePath('docs/app/mixins')
   }
 }
 

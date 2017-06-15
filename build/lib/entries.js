@@ -5,6 +5,7 @@ import vue from 'rollup-plugin-vue'
 import alias from 'rollup-plugin-alias'
 import commonjs from 'rollup-plugin-commonjs'
 import nodeGlobals from 'rollup-plugin-node-globals'
+import resolve from 'rollup-plugin-node-resolve'
 import scss from 'rollup-plugin-scss'
 import magicImporter from 'node-sass-magic-importer'
 import postcss from 'postcss'
@@ -50,6 +51,11 @@ const entries = {
   }
 }
 
+
+const scssConfig = {
+  importer: magicImporter
+}
+
 function generateConfig ({ dest, format, env, css }) {
   const entryConfig = {
     entry,
@@ -68,7 +74,16 @@ function generateConfig ({ dest, format, env, css }) {
         ...config.alias,
         resolve: config.resolve
       }),
+      resolve({
+        jsnext: true,
+        main: true,
+        extensions: config.resolve
+      }),
+      commonjs(),
+      nodeGlobals(),
+      scss(scssConfig),
       vue({
+        scss: scssConfig,
         async css (style) {
           if (style && env === 'production') {
             const styles = await postcss([autoprefixer, mediaPacker, cssnano]).process(style)
@@ -78,9 +93,6 @@ function generateConfig ({ dest, format, env, css }) {
             writeFileSync(resolvePath(dest.replace('js', 'css')), styles.css)
           }
         }
-      }),
-      scss({
-        importer: magicImporter
       }),
       postcss({
         plugins: [
@@ -92,9 +104,7 @@ function generateConfig ({ dest, format, env, css }) {
       buble({
         objectAssign: 'Object.assign',
         exclude: 'node_modules/**'
-      }),
-      commonjs(),
-      nodeGlobals()
+      })
     ]
   }
 
