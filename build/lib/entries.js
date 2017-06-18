@@ -1,21 +1,17 @@
-import { writeFileSync, readFileSync } from 'fs'
+import { writeFileSync } from 'fs'
 import replace from 'rollup-plugin-replace'
 import buble from 'rollup-plugin-buble'
 import vue from 'rollup-plugin-vue'
 import alias from 'rollup-plugin-alias'
-import commonjs from 'rollup-plugin-commonjs'
-import nodeGlobals from 'rollup-plugin-node-globals'
 import resolve from 'rollup-plugin-node-resolve'
 import scss from 'rollup-plugin-scss'
-import scssImporter from 'node-sass-package-importer'
 import postcss from 'postcss'
 import autoprefixer from 'autoprefixer'
 import mediaPacker from 'css-mqpacker'
 import cssnano from 'cssnano'
 import banner from './banner'
-import { config, resolvePath, pack } from '../config.js'
-
-const entry = 'src/index.js'
+import { config, resolvePath, pack } from '../config'
+import sassResolve from './sass-resolve'
 
 function toUpperCase (_, c) {
   return c ? c.toUpperCase() : ''
@@ -24,8 +20,9 @@ function toUpperCase (_, c) {
 function classify (str) {
   return str.replace(/(?:^|[-_/])(\w)/g, toUpperCase)
 }
-const moduleName = classify(pack.name)
 
+const moduleName = classify(pack.name)
+const entry = 'src/index.js'
 const entries = {
   commonjs: {
     dest: `dist/${pack.name}.common.js`,
@@ -51,9 +48,8 @@ const entries = {
   }
 }
 
-
 const scssConfig = {
-  importer: scssImporter
+  importer: sassResolve
 }
 
 function generateConfig ({ dest, format, env, css }) {
@@ -75,12 +71,8 @@ function generateConfig ({ dest, format, env, css }) {
         resolve: config.resolve
       }),
       resolve({
-        jsnext: true,
-        main: true,
         extensions: config.resolve
       }),
-      commonjs(),
-      nodeGlobals(),
       scss(scssConfig),
       vue({
         scss: scssConfig,
