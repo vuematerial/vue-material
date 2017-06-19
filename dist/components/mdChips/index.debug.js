@@ -73,7 +73,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "/";
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 404);
+/******/ 	return __webpack_require__(__webpack_require__.s = 454);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -81,11 +81,17 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ 0:
 /***/ (function(module, exports) {
 
+/* globals __VUE_SSR_CONTEXT__ */
+
+// this module is a runtime utility for cleaner component module output and will
+// be included in the final webpack user bundle
+
 module.exports = function normalizeComponent (
   rawScriptExports,
   compiledTemplate,
+  injectStyles,
   scopeId,
-  cssModules
+  moduleIdentifier /* server only */
 ) {
   var esModule
   var scriptExports = rawScriptExports = rawScriptExports || {}
@@ -113,13 +119,51 @@ module.exports = function normalizeComponent (
     options._scopeId = scopeId
   }
 
-  // inject cssModules
-  if (cssModules) {
-    var computed = options.computed || (options.computed = {})
-    Object.keys(cssModules).forEach((function (key) {
-      var module = cssModules[key]
-      computed[key] = function () { return module }
-    }))
+  var hook
+  if (moduleIdentifier) { // server build
+    hook = function (context) {
+      // 2.3 injection
+      context =
+        context || // cached call
+        (this.$vnode && this.$vnode.ssrContext) || // stateful
+        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
+      // 2.2 with runInNewContext: true
+      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+        context = __VUE_SSR_CONTEXT__
+      }
+      // inject component styles
+      if (injectStyles) {
+        injectStyles.call(this, context)
+      }
+      // register component module identifier for async chunk inferrence
+      if (context && context._registeredComponents) {
+        context._registeredComponents.add(moduleIdentifier)
+      }
+    }
+    // used by ssr in case component is cached and beforeCreate
+    // never gets called
+    options._ssrRegister = hook
+  } else if (injectStyles) {
+    hook = injectStyles
+  }
+
+  if (hook) {
+    var functional = options.functional
+    var existing = functional
+      ? options.render
+      : options.beforeCreate
+    if (!functional) {
+      // inject component registration as beforeCreate hook
+      options.beforeCreate = existing
+        ? [].concat(existing, hook)
+        : [hook]
+    } else {
+      // register for functioal component in vue file
+      options.render = function renderWithStyleInjection (h, context) {
+        hook.call(context)
+        return existing(h, context)
+      }
+    }
   }
 
   return {
@@ -141,60 +185,52 @@ module.exports = function normalizeComponent (
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+// Theme mixin
+
+// Grab the closest ancestor component's `md-theme` attribute OR grab the
+// `md-name` attribute from an `<md-theme>` component.
+function getAncestorThemeName(component) {
+  if (!component) {
+    return null;
+  }
+
+  var name = component.mdTheme;
+
+  if (!name && component.$options._componentTag === 'md-theme') {
+    name = component.mdName;
+  }
+
+  return name || getAncestorThemeName(component.$parent);
+}
+
 exports.default = {
   props: {
     mdTheme: String
   },
-  data: function data() {
-    return {
-      closestThemedParent: false
-    };
-  },
-  methods: {
-    getClosestThemedParent: function getClosestThemedParent($parent) {
-      if (!$parent || !$parent.$el || $parent._uid === 0) {
-        return false;
-      }
-
-      if ($parent.mdTheme || $parent.mdName) {
-        return $parent;
-      }
-
-      return this.getClosestThemedParent($parent.$parent);
-    }
-  },
   computed: {
+    mdEffectiveTheme: function mdEffectiveTheme() {
+      return getAncestorThemeName(this) || this.$material.currentTheme;
+    },
     themeClass: function themeClass() {
-      if (this.mdTheme) {
-        return 'md-theme-' + this.mdTheme;
-      }
-
-      var theme = this.closestThemedParent.mdTheme;
-
-      if (!theme) {
-        if (this.closestThemedParent) {
-          theme = this.closestThemedParent.mdName;
-        } else {
-          theme = this.$material.currentTheme;
-        }
-      }
-
-      return 'md-theme-' + theme;
+      return this.$material.prefix + this.mdEffectiveTheme;
     }
   },
-  mounted: function mounted() {
-    this.closestThemedParent = this.getClosestThemedParent(this.$parent);
-
-    if (!this.$material.currentTheme) {
-      this.$material.setCurrentTheme('default');
+  watch: {
+    mdTheme: function mdTheme(value) {
+      this.$material.useTheme(value);
     }
+  },
+  beforeMount: function beforeMount() {
+    var localTheme = this.mdTheme;
+
+    this.$material.useTheme(localTheme ? localTheme : 'default');
   }
 };
 module.exports = exports['default'];
 
 /***/ }),
 
-/***/ 144:
+/***/ 143:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -211,16 +247,19 @@ var _mixin2 = _interopRequireDefault(_mixin);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
+  name: 'md-chip',
   props: {
     disabled: Boolean,
-    mdDeletable: Boolean
+    mdDeletable: Boolean,
+    mdEditable: Boolean
   },
   mixins: [_mixin2.default],
   computed: {
     classes: function classes() {
       return {
         'md-deletable': this.mdDeletable,
-        'md-disabled': this.disabled
+        'md-disabled': this.disabled,
+        'md-editable': this.mdEditable
       };
     }
   }
@@ -239,12 +278,14 @@ exports.default = {
 //
 //
 //
+//
+//
 
 module.exports = exports['default'];
 
 /***/ }),
 
-/***/ 145:
+/***/ 144:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -258,7 +299,7 @@ var _mixin = __webpack_require__(1);
 
 var _mixin2 = _interopRequireDefault(_mixin);
 
-var _uniqueId = __webpack_require__(48);
+var _uniqueId = __webpack_require__(36);
 
 var _uniqueId2 = _interopRequireDefault(_uniqueId);
 
@@ -295,8 +336,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
+//
 
 exports.default = {
+  name: 'md-chips',
   props: {
     value: Array,
     disabled: Boolean,
@@ -331,7 +376,8 @@ exports.default = {
     classes: function classes() {
       return {
         'md-static': this.mdStatic,
-        'md-disabled': this.disabled
+        'md-disabled': this.disabled,
+        'md-chips': true
       };
     }
   },
@@ -366,6 +412,17 @@ exports.default = {
       this.$emit('change', this.selectedChips);
       this.applyInputFocus();
     },
+    editChip: function editChip(chip) {
+      var index = this.selectedChips.indexOf(chip);
+
+      if (index >= 0) {
+        this.selectedChips.splice(index, 1);
+      }
+
+      this.currentChip = chip;
+      this.$emit('change', this.selectedChips);
+      this.applyInputFocus();
+    },
     deleteLastChip: function deleteLastChip() {
       if (!this.currentChip) {
         this.selectedChips.pop();
@@ -379,35 +436,38 @@ module.exports = exports['default'];
 
 /***/ }),
 
-/***/ 219:
+/***/ 250:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 239:
+/***/ 272:
 /***/ (function(module, exports) {
 
-module.exports = ".THEME_NAME.md-chip {\n  background-color: BACKGROUND-CONTRAST-0.12; }\n  .THEME_NAME.md-chip.md-deletable:hover, .THEME_NAME.md-chip.md-deletable:focus {\n    background-color: BACKGROUND-CONTRAST-0.54;\n    color: BACKGROUND-COLOR; }\n    .THEME_NAME.md-chip.md-deletable:hover .md-delete, .THEME_NAME.md-chip.md-deletable:focus .md-delete {\n      color: BACKGROUND-COLOR; }\n  .THEME_NAME.md-chip .md-delete {\n    color: BACKGROUND-CONTRAST-0.38; }\n    .THEME_NAME.md-chip .md-delete .md-ripple {\n      color: BACKGROUND-COLOR; }\n"
+module.exports = ".THEME_NAME.md-chip {\n  background-color: BACKGROUND-CONTRAST-0.12; }\n  .THEME_NAME.md-chip.md-deletable:hover, .THEME_NAME.md-chip.md-deletable:focus, .THEME_NAME.md-chip.md-editable:hover, .THEME_NAME.md-chip.md-editable:focus {\n    background-color: BACKGROUND-CONTRAST-0.54;\n    color: BACKGROUND-COLOR; }\n    .THEME_NAME.md-chip.md-deletable:hover .md-delete, .THEME_NAME.md-chip.md-deletable:focus .md-delete, .THEME_NAME.md-chip.md-editable:hover .md-delete, .THEME_NAME.md-chip.md-editable:focus .md-delete {\n      color: BACKGROUND-COLOR; }\n  .THEME_NAME.md-chip .md-delete {\n    color: BACKGROUND-CONTRAST-0.38; }\n    .THEME_NAME.md-chip .md-delete .md-ripple {\n      color: BACKGROUND-COLOR; }\n  .THEME_NAME.md-chip.md-primary {\n    color: PRIMARY-CONTRAST;\n    background-color: PRIMARY-COLOR; }\n  .THEME_NAME.md-chip.md-accent {\n    color: ACCENT-CONTRAST;\n    background-color: ACCENT-COLOR; }\n  .THEME_NAME.md-chip.md-warn {\n    color: WARN-CONTRAST;\n    background-color: WARN-COLOR; }\n"
 
 /***/ }),
 
-/***/ 277:
+/***/ 313:
 /***/ (function(module, exports, __webpack_require__) {
 
+var disposed = false
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(144),
+  __webpack_require__(143),
   /* template */
-  __webpack_require__(352),
+  __webpack_require__(396),
+  /* styles */
+  null,
   /* scopeId */
   null,
-  /* cssModules */
+  /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "/Users/mrufino/Projects/personal/github/vue-material/src/components/mdChips/mdChip.vue"
-if (Component.esModule && Object.keys(Component.esModule).some((function (key) {return key !== "default" && key !== "__esModule"}))) {console.error("named exports are not supported in *.vue files.")}
+Component.options.__file = "/Users/pablohpsilva/Code/vue-material/src/components/mdChips/mdChip.vue"
+if (Component.esModule && Object.keys(Component.esModule).some((function (key) {return key !== "default" && key.substr(0, 2) !== "__"}))) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] mdChip.vue: functional components are not supported with templates, they should use render functions.")}
 
 /* hot reload */
@@ -421,6 +481,9 @@ if (false) {(function () {
   } else {
     hotAPI.reload("data-v-2c2a829d", Component.options)
   }
+  module.hot.dispose((function (data) {
+    disposed = true
+  }))
 })()}
 
 module.exports = Component.exports
@@ -428,25 +491,28 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 278:
+/***/ 314:
 /***/ (function(module, exports, __webpack_require__) {
 
-
-/* styles */
-__webpack_require__(219)
-
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(250)
+}
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(145),
+  __webpack_require__(144),
   /* template */
-  __webpack_require__(369),
+  __webpack_require__(418),
+  /* styles */
+  injectStyle,
   /* scopeId */
   null,
-  /* cssModules */
+  /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "/Users/mrufino/Projects/personal/github/vue-material/src/components/mdChips/mdChips.vue"
-if (Component.esModule && Object.keys(Component.esModule).some((function (key) {return key !== "default" && key !== "__esModule"}))) {console.error("named exports are not supported in *.vue files.")}
+Component.options.__file = "/Users/pablohpsilva/Code/vue-material/src/components/mdChips/mdChips.vue"
+if (Component.esModule && Object.keys(Component.esModule).some((function (key) {return key !== "default" && key.substr(0, 2) !== "__"}))) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] mdChips.vue: functional components are not supported with templates, they should use render functions.")}
 
 /* hot reload */
@@ -460,6 +526,9 @@ if (false) {(function () {
   } else {
     hotAPI.reload("data-v-5cd17226", Component.options)
   }
+  module.hot.dispose((function (data) {
+    disposed = true
+  }))
 })()}
 
 module.exports = Component.exports
@@ -467,135 +536,7 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 352:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "md-chip",
-    class: [_vm.themeClass, _vm.classes],
-    attrs: {
-      "tabindex": "0"
-    }
-  }, [_vm._t("default"), _vm._v(" "), (_vm.mdDeletable) ? _c('md-button', {
-    staticClass: "md-icon-button md-dense md-delete",
-    attrs: {
-      "tabindex": "-1"
-    },
-    nativeOn: {
-      "click": function($event) {
-        !_vm.disabled && _vm.$emit('delete')
-      },
-      "keyup": function($event) {
-        if (_vm._k($event.keyCode, "delete", [8, 46])) { return; }
-        !_vm.disabled && _vm.$emit('delete')
-      }
-    }
-  }, [_c('md-icon', {
-    staticClass: "md-icon-delete"
-  }, [_vm._v("cancel")])], 1) : _vm._e()], 2)
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-2c2a829d", module.exports)
-  }
-}
-
-/***/ }),
-
-/***/ 369:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "md-chips",
-    class: [_vm.themeClass, _vm.classes]
-  }, [_c('md-input-container', {
-    nativeOn: {
-      "click": function($event) {
-        _vm.applyInputFocus($event)
-      }
-    }
-  }, [_vm._l((_vm.selectedChips), (function(chip) {
-    return _c('md-chip', {
-      attrs: {
-        "md-deletable": !_vm.mdStatic,
-        "disabled": _vm.disabled
-      },
-      on: {
-        "delete": function($event) {
-          _vm.deleteChip(chip)
-        }
-      }
-    }, [_vm._t("default", null, {
-      value: chip
-    })], 2)
-  })), _vm._v(" "), _c('md-input', {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: (!_vm.mdStatic),
-      expression: "!mdStatic"
-    }, {
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.currentChip),
-      expression: "currentChip"
-    }],
-    ref: "input",
-    attrs: {
-      "type": _vm.mdInputType,
-      "placeholder": _vm.mdInputPlaceholder,
-      "id": _vm.inputId,
-      "name": _vm.mdInputName,
-      "disabled": _vm.disabled,
-      "tabindex": "0"
-    },
-    domProps: {
-      "value": (_vm.currentChip)
-    },
-    on: {
-      "input": function($event) {
-        _vm.currentChip = $event
-      }
-    },
-    nativeOn: {
-      "keydown": [function($event) {
-        if (_vm._k($event.keyCode, "delete", [8, 46])) { return; }
-        _vm.deleteLastChip($event)
-      }, function($event) {
-        if (_vm._k($event.keyCode, "enter", 13)) { return; }
-        $event.preventDefault();
-        _vm.addChip($event)
-      }, function($event) {
-        if ($event.keyCode !== 186) { return; }
-        $event.preventDefault();
-        _vm.addChip($event)
-      }]
-    }
-  })], 2)], 1)
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-5cd17226", module.exports)
-  }
-}
-
-/***/ }),
-
-/***/ 404:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(97);
-
-
-/***/ }),
-
-/***/ 48:
+/***/ 36:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -613,7 +554,140 @@ module.exports = exports["default"];
 
 /***/ }),
 
-/***/ 97:
+/***/ 396:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "md-chip",
+    class: [_vm.themeClass, _vm.classes],
+    attrs: {
+      "tabindex": "0"
+    }
+  }, [_c('div', {
+    staticClass: "md-chip-container",
+    on: {
+      "click": function($event) {
+        !_vm.disabled && _vm.mdEditable && _vm.$emit('edit')
+      }
+    }
+  }, [_vm._t("default")], 2), _vm._v(" "), (_vm.mdDeletable) ? _c('md-button', {
+    staticClass: "md-icon-button md-dense md-delete",
+    attrs: {
+      "tabindex": "-1"
+    },
+    nativeOn: {
+      "click": function($event) {
+        !_vm.disabled && _vm.$emit('delete')
+      },
+      "keyup": function($event) {
+        if (!('button' in $event) && _vm._k($event.keyCode, "delete", [8, 46])) { return null; }
+        !_vm.disabled && _vm.$emit('delete')
+      }
+    }
+  }, [_c('md-icon', {
+    staticClass: "md-icon-delete"
+  }, [_vm._v("cancel")])], 1) : _vm._e()], 1)
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-2c2a829d", module.exports)
+  }
+}
+
+/***/ }),
+
+/***/ 418:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('md-input-container', {
+    staticClass: "md-chips",
+    class: [_vm.themeClass, _vm.classes],
+    nativeOn: {
+      "click": function($event) {
+        _vm.applyInputFocus($event)
+      }
+    }
+  }, [_vm._l((_vm.selectedChips), (function(chip) {
+    return _c('md-chip', {
+      key: chip,
+      attrs: {
+        "md-editable": !_vm.mdStatic,
+        "md-deletable": !_vm.mdStatic,
+        "disabled": _vm.disabled
+      },
+      on: {
+        "edit": function($event) {
+          _vm.editChip(chip)
+        },
+        "delete": function($event) {
+          _vm.deleteChip(chip)
+        }
+      }
+    }, [_vm._t("chip", [_vm._v(_vm._s(chip))], {
+      value: chip
+    })], 2)
+  })), _vm._v(" "), _c('md-input', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (!_vm.mdStatic),
+      expression: "!mdStatic"
+    }],
+    ref: "input",
+    attrs: {
+      "type": _vm.mdInputType,
+      "placeholder": _vm.mdInputPlaceholder,
+      "id": _vm.inputId,
+      "name": _vm.mdInputName,
+      "disabled": _vm.disabled,
+      "tabindex": "0"
+    },
+    nativeOn: {
+      "keydown": [function($event) {
+        if (!('button' in $event) && _vm._k($event.keyCode, "delete", [8, 46])) { return null; }
+        _vm.deleteLastChip($event)
+      }, function($event) {
+        if (!('button' in $event) && _vm._k($event.keyCode, "enter", 13)) { return null; }
+        $event.preventDefault();
+        _vm.addChip($event)
+      }, function($event) {
+        if (!('button' in $event) && $event.keyCode !== 186) { return null; }
+        $event.preventDefault();
+        _vm.addChip($event)
+      }]
+    },
+    model: {
+      value: (_vm.currentChip),
+      callback: function($$v) {
+        _vm.currentChip = $$v
+      },
+      expression: "currentChip"
+    }
+  }), _vm._v(" "), _vm._t("default")], 2)
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-5cd17226", module.exports)
+  }
+}
+
+/***/ }),
+
+/***/ 454:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(87);
+
+
+/***/ }),
+
+/***/ 87:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -624,15 +698,15 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = install;
 
-var _mdChips = __webpack_require__(278);
+var _mdChips = __webpack_require__(314);
 
 var _mdChips2 = _interopRequireDefault(_mdChips);
 
-var _mdChip = __webpack_require__(277);
+var _mdChip = __webpack_require__(313);
 
 var _mdChip2 = _interopRequireDefault(_mdChip);
 
-var _mdChips3 = __webpack_require__(239);
+var _mdChips3 = __webpack_require__(272);
 
 var _mdChips4 = _interopRequireDefault(_mdChips3);
 

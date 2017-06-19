@@ -73,7 +73,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "/";
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 411);
+/******/ 	return __webpack_require__(__webpack_require__.s = 461);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -81,11 +81,17 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ 0:
 /***/ (function(module, exports) {
 
+/* globals __VUE_SSR_CONTEXT__ */
+
+// this module is a runtime utility for cleaner component module output and will
+// be included in the final webpack user bundle
+
 module.exports = function normalizeComponent (
   rawScriptExports,
   compiledTemplate,
+  injectStyles,
   scopeId,
-  cssModules
+  moduleIdentifier /* server only */
 ) {
   var esModule
   var scriptExports = rawScriptExports = rawScriptExports || {}
@@ -113,13 +119,51 @@ module.exports = function normalizeComponent (
     options._scopeId = scopeId
   }
 
-  // inject cssModules
-  if (cssModules) {
-    var computed = options.computed || (options.computed = {})
-    Object.keys(cssModules).forEach((function (key) {
-      var module = cssModules[key]
-      computed[key] = function () { return module }
-    }))
+  var hook
+  if (moduleIdentifier) { // server build
+    hook = function (context) {
+      // 2.3 injection
+      context =
+        context || // cached call
+        (this.$vnode && this.$vnode.ssrContext) || // stateful
+        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
+      // 2.2 with runInNewContext: true
+      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+        context = __VUE_SSR_CONTEXT__
+      }
+      // inject component styles
+      if (injectStyles) {
+        injectStyles.call(this, context)
+      }
+      // register component module identifier for async chunk inferrence
+      if (context && context._registeredComponents) {
+        context._registeredComponents.add(moduleIdentifier)
+      }
+    }
+    // used by ssr in case component is cached and beforeCreate
+    // never gets called
+    options._ssrRegister = hook
+  } else if (injectStyles) {
+    hook = injectStyles
+  }
+
+  if (hook) {
+    var functional = options.functional
+    var existing = functional
+      ? options.render
+      : options.beforeCreate
+    if (!functional) {
+      // inject component registration as beforeCreate hook
+      options.beforeCreate = existing
+        ? [].concat(existing, hook)
+        : [hook]
+    } else {
+      // register for functioal component in vue file
+      options.render = function renderWithStyleInjection (h, context) {
+        hook.call(context)
+        return existing(h, context)
+      }
+    }
   }
 
   return {
@@ -132,31 +176,7 @@ module.exports = function normalizeComponent (
 
 /***/ }),
 
-/***/ 104:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = install;
-
-var _mdLayout = __webpack_require__(293);
-
-var _mdLayout2 = _interopRequireDefault(_mdLayout);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function install(Vue) {
-  Vue.component('md-layout', _mdLayout2.default);
-}
-module.exports = exports['default'];
-
-/***/ }),
-
-/***/ 156:
+/***/ 160:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -169,6 +189,7 @@ Object.defineProperty(exports, "__esModule", {
 //
 
 exports.default = {
+  name: 'md-layout',
   props: {
     mdTag: {
       type: String,
@@ -203,6 +224,12 @@ exports.default = {
     mdAlignMedium: String,
     mdAlignLarge: String,
     mdAlignXlarge: String,
+    mdVerticalAlign: String,
+    mdVerticalAlignXsmall: String,
+    mdVerticalAlignSmall: String,
+    mdVerticalAlignMedium: String,
+    mdVerticalAlignLarge: String,
+    mdVerticalAlignXlarge: String,
     mdFlex: [String, Number, Boolean],
     mdFlexXsmall: [String, Number, Boolean],
     mdFlexSmall: [String, Number, Boolean],
@@ -267,13 +294,21 @@ exports.default = {
       this.generatePropClasses('md-flex-offset', 'large', 'mdFlexOffsetLarge', classes);
       this.generatePropClasses('md-flex-offset', 'xlarge', 'mdFlexOffsetXlarge', classes);
 
-      /* Alignment */
+      /* Horizontal Alignment */
       this.generatePropClasses('md-align', '', 'mdAlign', classes);
       this.generatePropClasses('md-align', 'xsmall', 'mdAlignXsmall', classes);
       this.generatePropClasses('md-align', 'small', 'mdAlignSmall', classes);
       this.generatePropClasses('md-align', 'medium', 'mdAlignMedium', classes);
       this.generatePropClasses('md-align', 'large', 'mdAlignLarge', classes);
       this.generatePropClasses('md-align', 'xlarge', 'mdAlignXlarge', classes);
+
+      /* Vertical Alignment */
+      this.generatePropClasses('md-vertical-align', '', 'mdVerticalAlign', classes);
+      this.generatePropClasses('md-vertical-align', 'xsmall', 'mdVerticalAlignXsmall', classes);
+      this.generatePropClasses('md-vertical-align', 'small', 'mdVerticalAlignSmall', classes);
+      this.generatePropClasses('md-vertical-align', 'medium', 'mdVerticalAlignMedium', classes);
+      this.generatePropClasses('md-vertical-align', 'large', 'mdVerticalAlignLarge', classes);
+      this.generatePropClasses('md-vertical-align', 'xlarge', 'mdVerticalAlignXlarge', classes);
 
       return classes;
     }
@@ -308,32 +343,35 @@ module.exports = exports['default'];
 
 /***/ }),
 
-/***/ 227:
+/***/ 259:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 293:
+/***/ 330:
 /***/ (function(module, exports, __webpack_require__) {
 
-
-/* styles */
-__webpack_require__(227)
-
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(259)
+}
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(156),
+  __webpack_require__(160),
   /* template */
   null,
+  /* styles */
+  injectStyle,
   /* scopeId */
   null,
-  /* cssModules */
+  /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "/Users/mrufino/Projects/personal/github/vue-material/src/components/mdLayout/mdLayout.vue"
-if (Component.esModule && Object.keys(Component.esModule).some((function (key) {return key !== "default" && key !== "__esModule"}))) {console.error("named exports are not supported in *.vue files.")}
+Component.options.__file = "/Users/pablohpsilva/Code/vue-material/src/components/mdLayout/mdLayout.vue"
+if (Component.esModule && Object.keys(Component.esModule).some((function (key) {return key !== "default" && key.substr(0, 2) !== "__"}))) {console.error("named exports are not supported in *.vue files.")}
 
 /* hot reload */
 if (false) {(function () {
@@ -346,6 +384,9 @@ if (false) {(function () {
   } else {
     hotAPI.reload("data-v-a85016b8", Component.options)
   }
+  module.hot.dispose((function (data) {
+    disposed = true
+  }))
 })()}
 
 module.exports = Component.exports
@@ -353,11 +394,35 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 411:
+/***/ 461:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(104);
+module.exports = __webpack_require__(94);
 
+
+/***/ }),
+
+/***/ 94:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = install;
+
+var _mdLayout = __webpack_require__(330);
+
+var _mdLayout2 = _interopRequireDefault(_mdLayout);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function install(Vue) {
+  Vue.component('md-layout', _mdLayout2.default);
+}
+module.exports = exports['default'];
 
 /***/ })
 
