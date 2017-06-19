@@ -41,10 +41,6 @@ export default entry => {
         {
           test: /\.js$/,
           loader: 'babel-loader',
-          options: {
-            presets: ['env'],
-            plugins: ['transform-runtime']
-          },
           exclude: /node_modules/
         }
       ]
