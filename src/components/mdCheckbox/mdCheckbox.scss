@@ -1,0 +1,93 @@
+@import '../../core/stylesheets/variables.scss';
+
+$checkbox-size: 20px;
+$checkbox-touch-size: 48px;
+
+.md-checkbox {
+  width: auto;
+  margin: 16px 8px 16px 0;
+  display: inline-flex;
+  position: relative;
+  cursor: pointer;
+
+  .md-checkbox-container {
+    width: $checkbox-size;
+    min-width: $checkbox-size;
+    height: $checkbox-size;
+    position: relative;
+    border-radius: 2px;
+    border: 2px solid rgba(#000, .54);
+    transition: $swift-ease-out;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:before {
+      width: $checkbox-touch-size;
+      height: $checkbox-touch-size;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: $swift-ease-in;
+      content: " ";
+    }
+
+    &:after {
+      width: 6px;
+      height: 13px;
+      position: absolute;
+      top: 0;
+      left: 5px;
+      border: 2px solid #fff;
+      border-top: 0;
+      border-left: 0;
+      opacity: 0;
+      transform: rotate(45deg) scale3D(.15, .15, 1);
+      transition: $swift-ease-in;
+      content: " ";
+    }
+
+    input {
+      position: absolute;
+      left: -999em;
+    }
+
+    .md-ink-ripple {
+      top: -16px;
+      right: -16px;
+      bottom: -16px;
+      left: -16px;
+      border-radius: 50%;
+      color: rgba(#000, .54);
+
+      .md-ripple {
+        width: $checkbox-touch-size !important;
+        height: $checkbox-touch-size !important;
+        top: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        left: 0 !important;
+      }
+    }
+  }
+
+  .md-checkbox-label {
+    height: $checkbox-size;
+    padding-left: 8px;
+    line-height: $checkbox-size;
+    cursor: pointer;
+  }
+}
+
+.md-checkbox.md-checked {
+  .md-checkbox-container {
+    &:after {
+      opacity: 1;
+      transform: rotate(45deg) scale3D(1, 1, 1);
+      transition: $swift-ease-out;
+    }
+  }
+}

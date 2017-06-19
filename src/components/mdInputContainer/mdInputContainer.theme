@@ -1,0 +1,65 @@
+.THEME_NAME {
+  &.md-input-container {
+    &.md-input-invalid {
+      &:after {
+        background-color: #{'WARN-COLOR'};
+      }
+
+      label,
+      input,
+      textarea,
+      .md-error,
+      .md-count,
+      .md-icon:not(.md-icon-delete) {
+        color: #{'WARN-COLOR'};
+      }
+    }
+
+    &.md-input-focused {
+      &.md-input-inline {
+        label {
+          color: rgba(#000, .54);
+        }
+      }
+
+      &.md-input-required {
+        label:after {
+          color: #{'WARN-COLOR'};
+        }
+      }
+
+      &:after {
+        height: 2px;
+        background-color: #{'PRIMARY-COLOR'};
+      }
+
+      input,
+      textarea {
+        color: #{'PRIMARY-COLOR'};
+        text-shadow: 0 0 0 #{'BACKGROUND-CONTRAST'};
+        -webkit-text-fill-color: transparent;
+      }
+
+      label,
+      .md-icon:not(.md-icon-delete) {
+        color: #{'PRIMARY-COLOR'};
+      }
+    }
+
+    &.md-input-disabled {
+      label,
+      input,
+      textarea,
+      .md-error,
+      .md-count,
+      .md-icon:not(.md-icon-delete),
+      ::-webkit-input-placeholder {
+        color: #{'BACKGROUND-CONTRAST-0.38'};
+      }
+    }
+
+    .md-icon:not(.md-icon-delete):after {
+      background: #{'BACKGROUND-COLOR'};
+    }
+  }
+}

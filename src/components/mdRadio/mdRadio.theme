@@ -1,0 +1,69 @@
+.THEME_NAME {
+  &.md-radio {
+    .md-radio-container:after {
+      background-color: #{'ACCENT-COLOR'};
+    }
+
+    &.md-checked {
+      .md-radio-container {
+        border-color: #{'ACCENT-COLOR'};
+      }
+
+      .md-ink-ripple {
+        color: #{'ACCENT-COLOR'};
+      }
+
+      .md-ripple {
+        opacity: .38;
+      }
+    }
+
+    &.md-primary {
+      .md-radio-container:after {
+        background-color: #{'PRIMARY-COLOR'};
+      }
+
+      &.md-checked {
+        .md-radio-container {
+          border-color: #{'PRIMARY-COLOR'};
+        }
+
+        .md-ink-ripple {
+          color: #{'PRIMARY-COLOR'};
+        }
+      }
+    }
+
+    &.md-warn {
+      .md-radio-container:after {
+        background-color: #{'WARN-COLOR'};
+      }
+
+      &.md-checked {
+        .md-radio-container {
+          border-color: #{'WARN-COLOR'};
+        }
+
+        .md-ink-ripple {
+          color: #{'WARN-COLOR'};
+        }
+      }
+    }
+
+    &.md-disabled {
+      .md-radio-container {
+        border-color: rgba(#000, .26);
+
+        &:after {
+          background-color: rgba(#000, .26);
+        }
+      }
+
+      &.md-checked {
+        .md-radio-container {
+          border-color: rgba(#000, .26);
+        }
+      }
+    }
+  }
+}

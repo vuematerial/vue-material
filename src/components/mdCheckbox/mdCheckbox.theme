@@ -1,0 +1,71 @@
+.THEME_NAME {
+  &.md-checkbox {
+    &.md-checked {
+      .md-checkbox-container {
+        background-color: #{'ACCENT-COLOR'};
+        border-color: #{'ACCENT-COLOR'};
+
+        &:after {
+          border-color: #{'ACCENT-CONTRAST'};
+        }
+      }
+    }
+
+    .md-ink-ripple {
+      color: #{'ACCENT-COLOR'};
+    }
+
+    .md-ripple {
+      opacity: .26;
+    }
+
+    &.md-primary {
+      &.md-checked {
+        .md-checkbox-container {
+          background-color: #{'PRIMARY-COLOR'};
+          border-color: #{'PRIMARY-COLOR'};
+
+          &:after {
+            border-color: #{'PRIMARY-CONTRAST'};
+          }
+        }
+      }
+
+      .md-ink-ripple {
+        color: #{'PRIMARY-COLOR'};
+      }
+    }
+
+    &.md-warn {
+      &.md-checked {
+        .md-checkbox-container {
+          background-color: #{'WARN-COLOR'};
+          border-color: #{'WARN-COLOR'};
+
+          &:after {
+            border-color: #{'WARN-CONTRAST'};
+          }
+        }
+      }
+
+      .md-ink-ripple {
+        color: #{'WARN-COLOR'};
+      }
+    }
+
+    &.md-disabled {
+      &.md-checked {
+        .md-checkbox-container {
+          background-color: rgba(#000, .26);
+          border-color: transparent;
+        }
+      }
+
+      &:not(.md-checked) {
+        .md-checkbox-container {
+          border-color: rgba(#000, .26);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,91 @@
+@import '../../core/stylesheets/variables.scss';
+
+$chip-height: 32px;
+$chip-icon-size: 24px;
+$chip-icon-font: $chip-icon-size - 4px;
+
+.md-chip {
+  height: $chip-height;
+  padding: 8px 12px;
+  display: inline-block;
+  border-radius: $chip-height;
+  transition: $swift-ease-out;
+  font-size: 13px;
+  line-height: 16px;
+  white-space: nowrap;
+
+  &.md-deletable {
+    position: relative;
+    padding-right: 32px;
+  }
+
+  &.md-editable {
+    .md-chip-container {
+      cursor: pointer;
+    }
+  }
+
+  &:focus,
+  &:active {
+    outline: none;
+
+    &:not(.md-disabled) {
+      cursor: pointer;
+      box-shadow: $material-shadow-2dp;
+    }
+  }
+
+  &.md-disabled {
+    .md-button {
+      pointer-events: none;
+      cursor: default;
+    }
+  }
+
+  .md-button.md-delete {
+    width: $chip-icon-size;
+    min-width: $chip-icon-size;
+    height: $chip-icon-size;
+    min-height: $chip-icon-size;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    border-radius: $chip-icon-size;
+    transition: $swift-ease-out;
+
+    .md-icon {
+      width: $chip-icon-font;
+      min-width: $chip-icon-font;
+      height: $chip-icon-font;
+      min-height: $chip-icon-font;
+      margin: 0;
+      font-size: $chip-icon-font;
+    }
+
+    .md-ink-ripple {
+      border-radius: $chip-height;
+    }
+
+    .md-ripple {
+      opacity: .54;
+    }
+  }
+}
+
+.md-chips {
+  min-height: 54px;
+  display: flex;
+  flex-wrap: wrap;
+
+  .md-chip {
+    margin-right: 8px;
+    margin-bottom: 4px;
+  }
+
+  .md-input {
+    width: 128px;
+    flex: 1;
+  }
+}

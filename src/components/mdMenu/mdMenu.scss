@@ -1,0 +1,120 @@
+@import '../../core/stylesheets/variables.scss';
+
+$menu-base-width: 56px;
+
+.md-menu {
+  display: inline-block;
+}
+
+.md-menu-content {
+  width: $menu-base-width * 3;
+  min-width: $menu-base-width * 1.5;
+  max-width: $menu-base-width * 7;
+  min-height: 64px;
+  max-height: calc(100vh - 32px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: absolute;
+  z-index: 131;
+  transform: scale(.9, .85) translateZ(0);
+  border-radius: 2px;
+  box-shadow: $material-shadow-2dp;
+  opacity: 0;
+  transition: width $swift-ease-out-duration $swift-ease-out-timing-function,
+              opacity .3s $swift-ease-in-timing-function,
+              margin .3s $swift-ease-in-timing-function,
+              transform 0s .4s $swift-ease-in-timing-function;
+  will-change: transform, opacity, width;
+
+  &.md-direction-bottom-right {
+    margin-top: -20px;
+    margin-left: -8px;
+    transform-origin: top left;
+
+    &.md-active {
+      margin-top: -11px;
+    }
+  }
+
+  &.md-direction-bottom-left {
+    margin-top: -20px;
+    margin-left: 8px;
+    transform-origin: top right;
+
+    &.md-active {
+      margin-top: -11px;
+    }
+  }
+
+  &.md-direction-top-right {
+    margin-top: 20px;
+    margin-left: -8px;
+    transform-origin: bottom left;
+
+    &.md-active {
+      margin-top: 11px;
+    }
+  }
+
+  &.md-direction-top-left {
+    margin-top: 20px;
+    margin-left: 8px;
+    transform-origin: bottom right;
+
+    &.md-active {
+      margin-top: 11px;
+    }
+  }
+
+  &.md-align-trigger {
+    margin: 0;
+  }
+
+  &.md-size-1 {
+    width: $menu-base-width * 1.5;
+  }
+
+  @for $i from 2 through 7 {
+    &.md-size-#{$i} {
+      width: $menu-base-width * $i;
+    }
+  }
+
+  &.md-active {
+    pointer-events: auto;
+    opacity: 1;
+    transform: scale(1) translateZ(0);
+    transition: width $swift-ease-out-duration $swift-ease-out-timing-function,
+                opacity .4s $swift-ease-out-timing-function,
+                transform .3s $swift-ease-out-timing-function;
+
+    .md-list {
+      opacity: 1;
+      transition: opacity .3s $swift-ease-out-timing-function;
+    }
+  }
+
+  .md-list {
+    opacity: 0;
+    transition: opacity .3s $swift-ease-out-timing-function;
+  }
+}
+
+.md-menu-item {
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1.2em;
+
+  &[disabled] {
+    cursor: default;
+  }
+
+  .md-list-item-holder {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.md-menu-backdrop {
+  z-index: 130;
+}

@@ -1,0 +1,40 @@
+.THEME_NAME {
+  &.md-chip {
+    background-color: #{'BACKGROUND-CONTRAST-0.12'};
+
+    &.md-deletable, &.md-editable {
+      &:hover,
+      &:focus {
+        background-color: #{'BACKGROUND-CONTRAST-0.54'};
+        color: #{'BACKGROUND-COLOR'};
+
+        .md-delete {
+          color: #{'BACKGROUND-COLOR'};
+        }
+      }
+    }
+
+    .md-delete {
+      color: #{'BACKGROUND-CONTRAST-0.38'};
+
+      .md-ripple {
+        color: #{'BACKGROUND-COLOR'};
+      }
+    }
+
+    &.md-primary {
+      color: #{'PRIMARY-CONTRAST'};
+      background-color: #{'PRIMARY-COLOR'};
+    }
+
+    &.md-accent {
+      color: #{'ACCENT-CONTRAST'};
+      background-color: #{'ACCENT-COLOR'};
+    }
+
+    &.md-warn {
+      color: #{'WARN-CONTRAST'};
+      background-color: #{'WARN-COLOR'};
+    }
+  }
+}

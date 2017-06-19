@@ -1,0 +1,47 @@
+@import '../../core/stylesheets/variables.scss';
+
+$icon-size: 24px;
+
+@mixin icon-size($size: $icon-size) {
+  width: $size;
+  min-width: $size;
+  height: $size;
+  min-height: $size;
+  font-size: $size;
+}
+
+.md-icon {
+  @include icon-size();
+  margin: auto;
+  display: inline-flex;
+  align-items: center;
+  fill: currentColor;
+  text-rendering: optimizeLegibility;
+  vertical-align: middle;
+
+  &.md-size-2x {
+    @include icon-size($icon-size * 2);
+  }
+
+  &.md-size-3x {
+    @include icon-size($icon-size * 3);
+  }
+
+  &.md-size-4x {
+    @include icon-size($icon-size * 4);
+  }
+
+  &.md-size-5x {
+    @include icon-size($icon-size * 5);
+  }
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+img.md-icon {
+  user-select: none;
+  -webkit-user-drag: none;
+}

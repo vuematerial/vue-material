@@ -1,0 +1,190 @@
+@import '../../core/stylesheets/variables.scss';
+@import '../../core/stylesheets/mixins.scss';
+
+.md-stepper {
+  display: flex;
+  flex-flow: column;
+  position: relative;
+  width: 100%;
+
+  .md-step-header {
+    background: none;
+    border: 0;
+    cursor: pointer;
+    flex-shrink: 0;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 500;
+    margin: 0;
+    max-height: 72px;
+    padding: 24px;
+    position: relative;
+    transition: $swift-ease-out;
+
+    .md-step-icons, .md-step-titles {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    
+    &.md-has-sub-message {
+      padding: 15px 24px;
+
+      .md-step-title {
+        margin-bottom: -4px;
+      }
+    }
+
+    .md-step-icon {
+      border-radius: 50%;
+      font-size: 12px;
+      height: 24px;
+      line-height: 24px;
+      margin-right: 8px;
+      min-width: 24px;
+      padding: 0px 6px;
+      pointer-events: none;
+      user-select: none;
+      width: 24px;
+    }
+
+    .md-step-number {
+      border-radius: 50%;
+      display: inline-block;
+      font-size: 12px;
+      margin-right: 8px;
+      width: 24px; 
+
+      span {
+        display: block;
+        line-height: 24px;
+        text-align: center;
+      }
+    }
+
+    .md-step-title {
+      font-size: inherit;
+    }
+    
+    &.md-disabled {
+      cursor: default;
+      pointer-events: none;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+  }
+  .md-steps-navigation {
+    display: flex;
+    height: 72px;
+    min-height: 72px;
+    overflow: hidden;
+    position: relative;
+    transition: $swift-ease-out;
+    z-index: 1;
+
+    &.md-alternate-labels {
+      height: 104px;
+      min-height: 104px;
+    }
+    
+    .md-steps-navigation-container {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+
+      @include layout-small-and-up {
+        margin-bottom: -15px;
+      }
+
+      .md-divider {
+        margin: 36px 0;
+        position: relative;
+        width: 100%;
+      }
+
+      .md-step-header {
+        &.md-alternate-labels {
+          max-height: 104px;
+          text-align: center;
+
+          &.md-has-sub-message {
+            padding: 24px;
+          }
+
+          .md-step-icon {
+            padding: 0;
+          }
+
+          .md-step-icons, .md-step-titles {
+            display: block;
+          }
+
+          .md-step-titles {
+            margin-top: 10px;
+          }
+        }
+      }
+    }
+  }
+
+  .md-steps-container {
+    height: 0;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    
+    .md-steps-wrapper {
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transform: translate3d(0, 0, 0);
+      transition: transform $swift-ease-out-duration $swift-ease-out-timing-function;
+      width: 9999em;
+
+      .md-step {
+        left: 0;
+        padding: 16px;
+        position: absolute;
+        right: 0;
+        top: 0;
+
+        .md-step-content {
+          padding: 16px;
+          font-size: 14px;
+          line-height: 22px;
+
+          &:last-child {
+            padding-bottom: 24px;
+          }
+        }
+      }
+    }
+  }
+
+  .md-steps-vertical-container {
+    .md-step {
+      .md-step-header {
+        padding-bottom: 8px;
+      }
+      &:not(:first-of-type) {
+        .md-step-header {
+          padding-top: 8px;
+        }    
+      }
+
+      .md-step-content {
+        margin: 0 24px 0 34px;
+        padding-bottom: 32px;
+        padding-left: 24px;
+        padding-top: 8px;
+      }
+
+      &:not(:last-of-type) {
+        .md-step-content {
+          border-left: 1px solid #BDBDBD;
+        }
+      }
+    }
+  }
+}

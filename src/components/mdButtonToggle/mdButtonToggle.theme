@@ -1,0 +1,75 @@
+.THEME_NAME {
+  &.md-button-toggle {
+    .md-button {
+      &:after {
+        width: 1px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        content: " ";
+      }
+    }
+
+    .md-toggle {
+      color: #{'BACKGROUND-CONTRAST-0.54'};
+      background-color: #{'BACKGROUND-CONTRAST-0.26'};
+
+      &:hover:not([disabled]) {
+        background-color: #{'BACKGROUND-CONTRAST-0.38'};
+      }
+
+      + .md-toggle:after {
+        background-color: #{'BACKGROUND-CONTRAST-0.12'};
+      }
+    }
+
+    &.md-primary .md-toggle {
+      color: #{'PRIMARY-CONTRAST'};
+      background-color: #{'PRIMARY-COLOR'};
+
+      &:hover:not([disabled]) {
+        background-color: #{'PRIMARY-COLOR'};
+      }
+
+      + .md-toggle:after {
+        background-color: #{'PRIMARY-COLOR-600'};
+      }
+    }
+
+    &.md-accent .md-toggle {
+      color: #{'ACCENT-CONTRAST'};
+      background-color: #{'ACCENT-COLOR'};
+
+      &:hover:not([disabled]) {
+        background-color: #{'ACCENT-COLOR'};
+      }
+
+      + .md-toggle:after {
+        background-color: #{'ACCENT-COLOR-600'};
+      }
+    }
+
+    &.md-warn .md-toggle {
+      color: #{'WARN-CONTRAST'};
+      background-color: #{'WARN-COLOR'};
+
+      &:hover:not([disabled]) {
+        background-color: #{'WARN-COLOR'};
+      }
+
+      + .md-toggle:after {
+        background-color: #{'WARN-COLOR-600'};
+      }
+    }
+
+    [disabled] {
+      color: rgba(#000, .26);
+
+      &.md-toggle {
+        color: #{'BACKGROUND-CONTRAST-0.2'};
+        background-color: rgba(#000, .26);
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+@import '../../core/stylesheets/variables.scss';
+
+$button-radius: 2px;
+
+.md-button-toggle {
+  width: auto;
+  display: flex;
+
+  > .md-button {
+    margin: 0;
+    overflow: hidden;
+    border-width: 1px 0 1px 1px;
+    border-radius: 0;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    &:first-child {
+      border-radius: 2px 0 0 2px;
+    }
+
+    &:last-child {
+      border-right-width: 1px;
+      border-radius: 0 2px 2px 0;
+    }
+
+    &:not([disabled]) {
+      color: rgba(#000, .54);
+
+      &:hover:not(.md-toggle) {
+        &:not(.md-raised) {
+          background-color: rgba(#999, .2);
+          text-decoration: none;
+        }
+      }
+    }
+
+    .md-ink-ripple {
+      border-radius: $button-radius;
+    }
+  }
+}

@@ -1,0 +1,62 @@
+@import '../../core/stylesheets/variables.scss';
+
+.md-sidenav {
+  &.md-left .md-sidenav-content {
+    left: 0;
+    transform: translate3D(-100%, 0, 0);
+  }
+
+  &.md-right .md-sidenav-content {
+    right: 0;
+    transform: translate3D(100%, 0, 0);
+  }
+
+  &.md-fixed {
+    .md-sidenav-content,
+    .md-sidenav-backdrop {
+      position: fixed;
+    }
+  }
+
+  .md-sidenav-content {
+    width: 304px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 100;
+    pointer-events: none;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    transition: $swift-ease-out;
+    transition-property: transform;
+    will-change: transform;
+  }
+
+  .md-backdrop {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 99;
+    pointer-events: none;
+    background-color: rgba(#000, .54);
+    opacity: 0;
+    transition: $swift-ease-in-out;
+    transition-property: opacity;
+    will-change: opacity;
+  }
+}
+
+.md-sidenav.md-active {
+  .md-sidenav-content {
+    box-shadow: $material-shadow-16dp;
+    pointer-events: auto;
+    transform: translate3D(0, 0, 0);
+  }
+
+  .md-sidenav-backdrop {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}

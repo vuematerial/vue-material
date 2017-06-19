@@ -1,0 +1,56 @@
+.THEME_NAME {
+  @mixin toolbar-spec($main-color, $second-color, $third-color) {
+    background-color: $main-color;
+    color: $second-color;
+
+    .md-input-container {
+      &.md-input-focused {
+        input,
+        textarea {
+          color: $second-color;
+          text-shadow: 0 0 0 $second-color;
+        }
+
+        label,
+        .md-icon:not(.md-icon-delete) {
+          color: $second-color;
+        }
+      }
+
+      &:after {
+        background-color: $second-color;
+      }
+
+      input,
+      textarea {
+        color: $second-color;
+        text-shadow: 0 0 0 $second-color;
+
+        &::-webkit-input-placeholder {
+          color: $third-color;
+        }
+      }
+
+      label,
+      .md-icon:not(.md-icon-delete) {
+        color: $second-color;
+      }
+    }
+  }
+
+  &.md-toolbar {
+    @include toolbar-spec(#{'PRIMARY-COLOR'}, #{'PRIMARY-CONTRAST'}, #{'PRIMARY-CONTRAST-0.54'})
+
+    &.md-accent {
+      @include toolbar-spec(#{'ACCENT-COLOR'}, #{'ACCENT-CONTRAST'}, #{'ACCENT-CONTRAST-0.54'})
+    }
+
+    &.md-warn {
+      @include toolbar-spec(#{'WARN-COLOR'}, #{'WARN-CONTRAST'}, #{'WARN-CONTRAST-0.54'})
+    }
+
+    &.md-transparent {
+      @include toolbar-spec(transparent, #{'BACKGROUND-CONTRAST'}, #{'BACKGROUND-CONTRAST-0.54'})
+    }
+  }
+}

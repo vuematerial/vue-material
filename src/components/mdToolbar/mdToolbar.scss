@@ -1,0 +1,139 @@
+@import '../../core/stylesheets/variables.scss';
+
+.md-toolbar {
+  min-height: 64px;
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  flex-flow: row wrap;
+  position: relative;
+  transition: $swift-ease-out;
+  transform: translate3D(0, 0, 0);
+
+  &.md-dense {
+    min-height: 48px;
+
+    &.md-medium {
+      min-height: 72px;
+    }
+
+    &.md-large {
+      min-height: 96px;
+    }
+
+    .md-toolbar-container {
+      height: 48px;
+    }
+  }
+
+  &.md-medium {
+    min-height: 88px;
+
+    .md-toolbar-container:nth-child(2) {
+      .md-title:first-child {
+        margin-left: 56px;
+      }
+    }
+  }
+
+  &.md-large {
+    min-height: 128px;
+    align-content: inherit;
+
+    .md-toolbar-container:nth-child(2) {
+      .md-title:first-child {
+        margin-left: 56px;
+      }
+    }
+  }
+
+  &.md-account-header {
+    min-height: 164px;
+
+    .md-ink-ripple {
+      color: #fff;
+    }
+
+    .md-list-item-container {
+      &:hover:not([disabled]) {
+        background-color: rgba(#fff, .12);
+      }
+    }
+
+    .md-avatar-list {
+      margin: 16px 0 8px;
+
+      .md-list-item-container {
+        align-items: flex-start;
+      }
+
+      .md-avatar + .md-avatar {
+        margin-left: 16px;
+      }
+    }
+  }
+
+  .md-toolbar-container {
+    width: 100%;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    align-self: flex-start;
+
+    > .md-button {
+      &:first-child {
+        margin-left: 0;
+        margin-right: 16px;
+      }
+
+      + .md-button {
+        margin-left: 0;
+      }
+    }
+  }
+
+  > .md-button {
+    &:first-child {
+      margin-left: 0;
+      margin-right: 16px;
+    }
+
+    + .md-button {
+      margin-left: 0;
+    }
+  }
+
+  .md-button:hover {
+    &:not([disabled]):not(.md-raised):not(.md-icon-button):not(.md-fab) {
+      background-color: rgba(#fff, .1);
+    }
+  }
+
+  .md-title {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 400;
+
+    &:first-child {
+      margin-left: 8px;
+    }
+
+    + .md-input-container {
+      margin-left: 24px;
+    }
+  }
+
+  .md-input-container {
+    min-height: 32px;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+  }
+
+  .md-list {
+    padding: 0;
+    margin: 0 -8px;
+    flex: 1;
+  }
+}

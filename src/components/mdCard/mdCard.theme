@@ -1,0 +1,100 @@
+.THEME_NAME {
+  @mixin card-spec($main-color, $second-color, $second-color-hue, $third-color) {
+    background-color: $main-color;
+    color: $second-color;
+
+    .md-card-header,
+    .md-card-actions {
+      .md-icon-button:not(.md-primary):not(.md-warn):not(.md-accent) {
+        .md-icon {
+          color: $second-color-hue;
+        }
+      }
+    }
+
+    .md-input-container {
+      &.md-input-focused {
+        input,
+        textarea {
+          color: $second-color;
+          text-shadow: 0 0 0 $second-color;
+        }
+
+        label,
+        .md-icon:not(.md-icon-delete) {
+          color: $second-color;
+        }
+      }
+
+      &:after {
+        background-color: $second-color;
+      }
+
+      input,
+      textarea {
+        color: $second-color;
+        text-shadow: 0 0 0 $second-color;
+
+        &::-webkit-input-placeholder {
+          color: $third-color;
+        }
+      }
+
+      label,
+      .md-icon:not(.md-icon-delete) {
+        color: $second-color;
+      }
+    }
+  }
+
+  &.md-card {
+    background-color: #{'BACKGROUND-COLOR'};
+
+    &.md-primary {
+      @include card-spec(#{'PRIMARY-COLOR'}, #{'PRIMARY-CONTRAST'}, #{'PRIMARY-CONTRAST-0.87'}, #{'PRIMARY-CONTRAST-0.54'})
+    }
+
+    &.md-accent {
+      @include card-spec(#{'ACCENT-COLOR'}, #{'ACCENT-CONTRAST'}, #{'ACCENT-CONTRAST-0.87'}, #{'ACCENT-CONTRAST-0.54'})
+    }
+
+    &.md-warn {
+      @include card-spec(#{'WARN-COLOR'}, #{'WARN-CONTRAST'}, #{'WARN-CONTRAST-0.87'}, #{'WARN-CONTRAST-0.54'})
+    }
+
+    .md-card-header,
+    .md-card-actions {
+      .md-icon-button:not(.md-primary):not(.md-warn):not(.md-accent) {
+        .md-icon {
+          color: #{'BACKGROUND-CONTRAST-0.54'};
+        }
+      }
+    }
+
+    > .md-card-area {
+      &:after {
+        background-color: #{'BACKGROUND-CONTRAST-0.12'};
+      }
+    }
+
+    .md-card-media-cover {
+      &.md-text-scrim {
+        .md-backdrop {
+          background: linear-gradient(to bottom, #{'BACKGROUND-CONTRAST-0.0'} 20%, #{'BACKGROUND-CONTRAST-0.275'} 66%, #{'BACKGROUND-CONTRAST-0.55'} 100%);
+        }
+      }
+
+      &.md-solid {
+        .md-card-area {
+          background-color: #{'BACKGROUND-CONTRAST-0.4'};
+        }
+      }
+    }
+
+    .md-card-expand {
+      .md-card-actions {
+        background-color: #{'BACKGROUND-COLOR'};
+      }
+    }
+  }
+}

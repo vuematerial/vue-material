@@ -1,0 +1,95 @@
+.THEME_NAME {
+  &.md-button:not([disabled]) {
+    &.md-raised {
+      &:not(.md-icon-button) {
+        color: #{'BACKGROUND-CONTRAST'};
+        background-color: #{'BACKGROUND-COLOR'};
+
+        &:hover {
+          background-color: #{'BACKGROUND-COLOR-200'};
+        }
+      }
+
+      &.md-icon-button:not(.md-raised) {
+        color: #{'BACKGROUND-CONTRAST'};
+      }
+    }
+
+    &.md-fab {
+      color: #{'ACCENT-CONTRAST'};
+      background-color: #{'ACCENT-COLOR'};
+
+      &:hover {
+        background-color: #{'ACCENT-COLOR-600'};
+      }
+
+      &.md-clean {
+        color: #{'BACKGROUND-CONTRAST'};
+        background-color: #{'BACKGROUND-COLOR'};
+
+        &:hover {
+          background-color: #{'BACKGROUND-COLOR-200'};
+        }
+      }
+    }
+
+    &.md-primary {
+      &:not(.md-icon-button) {
+        color: #{'PRIMARY-COLOR'};
+      }
+
+      &.md-raised,
+      &.md-fab {
+        background-color: #{'PRIMARY-COLOR'};
+        color: #{'PRIMARY-CONTRAST'};
+
+        &:hover {
+          background-color: #{'PRIMARY-COLOR-600'};
+        }
+      }
+
+      &.md-icon-button:not(.md-raised) {
+        color: #{'PRIMARY-COLOR'};
+      }
+    }
+
+    &.md-accent {
+      &:not(.md-icon-button) {
+        color: #{'ACCENT-COLOR'};
+      }
+
+      &.md-raised {
+        background-color: #{'ACCENT-COLOR'};
+        color: #{'ACCENT-CONTRAST'};
+
+        &:hover {
+          background-color: #{'ACCENT-COLOR-600'};
+        }
+      }
+
+      &.md-icon-button:not(.md-raised) {
+        color: #{'ACCENT-COLOR'};
+      }
+    }
+
+    &.md-warn {
+      &:not(.md-icon-button) {
+        color: #{'WARN-COLOR'};
+      }
+
+      &.md-raised,
+      &.md-fab {
+        background-color: #{'WARN-COLOR'};
+        color: #{'WARN-CONTRAST'};
+
+        &:hover {
+          background-color: #{'WARN-COLOR-600'};
+        }
+      }
+
+      &.md-icon-button:not(.md-raised) {
+        color: #{'WARN-COLOR'};
+      }
+    }
+  }
+}

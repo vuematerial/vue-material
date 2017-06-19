@@ -1,0 +1,60 @@
+.THEME_NAME {
+  &.md-switch {
+    &.md-checked {
+      .md-switch-container {
+        background-color: #{'ACCENT-COLOR-500-0.5'};
+      }
+
+      .md-switch-thumb {
+        background-color: #{'ACCENT-COLOR'};
+      }
+
+      .md-ink-ripple {
+        color: #{'ACCENT-COLOR'};
+      }
+
+      .md-ripple {
+        opacity: .38;
+      }
+    }
+
+    &.md-checked.md-primary {
+      .md-switch-container {
+        background-color: #{'PRIMARY-COLOR-500-0.5'};
+      }
+
+      .md-switch-thumb {
+        background-color: #{'PRIMARY-COLOR'};
+      }
+
+      .md-ink-ripple {
+        color: #{'PRIMARY-COLOR'};
+      }
+    }
+
+    &.md-checked.md-warn {
+      .md-switch-container {
+        background-color: #{'WARN-COLOR-500-0.5'};
+      }
+
+      .md-switch-thumb {
+        background-color: #{'WARN-COLOR'};
+      }
+
+      .md-ink-ripple {
+        color: #{'WARN-COLOR'};
+      }
+    }
+
+    &.md-disabled,
+    &.md-disabled.md-checked {
+      .md-switch-container {
+        background-color: rgba(#000, .12);
+      }
+
+      .md-switch-thumb {
+        background-color: #bdbdbd;
+      }
+    }
+  }
+}

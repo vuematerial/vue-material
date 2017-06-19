@@ -1,0 +1,108 @@
+.THEME_NAME {
+  &.md-bottom-bar {
+    &.md-fixed {
+      background-color: #{'BACKGROUND-COLOR'};
+
+      .md-bottom-bar-item {
+        color: #{'BACKGROUND-CONTRAST-0.54'};
+
+        &:hover:not([disabled]):not(.md-active) {
+          color: #{'BACKGROUND-CONTRAST-0.87'};
+        }
+
+        &.md-active {
+          color: #{'PRIMARY-COLOR'};
+        }
+      }
+
+      &.md-accent {
+        .md-bottom-bar-item {
+          &.md-active {
+            color: #{'ACCENT-COLOR'};
+          }
+        }
+      }
+
+      &.md-warn {
+        .md-bottom-bar-item {
+          &.md-active {
+            color: #{'WARN-COLOR'};
+          }
+        }
+      }
+
+      &.md-transparent {
+        .md-bottom-bar-item {
+          &.md-active {
+            color: #{'BACKGROUND-CONTRAST'};
+          }
+        }
+      }
+    }
+
+    &.md-shift {
+      background-color: #{'PRIMARY-COLOR'};
+      color: #{'PRIMARY-CONTRAST'};
+
+      .md-bottom-bar-item {
+        color: #{'PRIMARY-CONTRAST-0.54'};
+
+        &:hover:not([disabled]):not(.md-active) {
+          color: #{'PRIMARY-CONTRAST-0.87'};
+        }
+
+        &.md-active {
+          color: #{'PRIMARY-CONTRAST'};
+        }
+      }
+
+      &.md-accent {
+        background-color: #{'ACCENT-COLOR'};
+
+        .md-bottom-bar-item {
+          color: #{'ACCENT-CONTRAST-0.54'};
+
+          &:hover:not([disabled]):not(.md-active) {
+            color: #{'ACCENT-CONTRAST-0.87'};
+          }
+
+          &.md-active {
+            color: #{'ACCENT-CONTRAST'};
+          }
+        }
+      }
+
+      &.md-warn {
+        background-color: #{'WARN-COLOR'};
+
+        .md-bottom-bar-item {
+          color: #{'WARN-CONTRAST-0.54'};
+
+          &:hover:not([disabled]):not(.md-active) {
+            color: #{'WARN-CONTRAST-0.87'};
+          }
+
+          &.md-active {
+            color: #{'WARN-CONTRAST'};
+          }
+        }
+      }
+
+      &.md-transparent {
+        background-color: transparent;
+
+        .md-bottom-bar-item {
+          color: #{'BACKGROUND-CONTRAST-0.54'};
+
+          &:hover:not([disabled]):not(.md-active) {
+            color: #{'BACKGROUND-CONTRAST-0.87'};
+          }
+
+          &.md-active {
+            color: #{'BACKGROUND-CONTRAST'};
+          }
+        }
+      }
+    }
+  }
+}

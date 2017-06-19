@@ -1,0 +1,249 @@
+@import '../../core/stylesheets/variables.scss';
+@import '../../core/stylesheets/mixins.scss';
+
+
+/* Rows and Columns */
+
+.md-layout {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+@mixin layout($size: null) {
+  @if $size == null {
+    $size : '';
+  }
+
+  @if $size != '' {
+    $size : '-#{$size}';
+  }
+
+  .md-row#{$size} {
+    flex-direction: row;
+  }
+
+  .md-column#{$size} {
+    flex-direction: column;
+  }
+}
+
+@include layout();
+
+
+/* Container */
+
+.md-layout.md-container {
+  width: 100%;
+  max-width: 1200px;
+
+  &.md-centered {
+    margin: 0 auto;
+  }
+}
+
+
+/* Alignments */
+
+@mixin layout-align($size: null) {
+  @if $size == null {
+    $size : '';
+  }
+
+  @if $size != '' {
+    $size : '-#{$size}';
+  }
+
+  .md-align#{$size}-start {
+    justify-content: flex-start;
+  }
+
+  .md-align#{$size}-center {
+    justify-content: center;
+  }
+
+  .md-align#{$size}-end {
+    justify-content: flex-end;
+  }
+}
+
+@include layout-align();
+
+
+/* Vertical Alignments */
+
+@mixin layout-vertical-align($size: null) {
+  @if $size == null {
+    $size : '';
+  }
+
+  @if $size != '' {
+    $size : '-#{$size}';
+  }
+
+  .md-vertical-align#{$size}-start {
+    align-items: flex-start;
+    align-content: flex-start;
+  }
+
+  .md-vertical-align#{$size}-center {
+    align-items: center;
+    align-content: center;
+  }
+
+  .md-vertical-align#{$size}-end {
+    align-items: flex-end;
+    align-content: flex-end;
+  }
+
+  .md-vertical-align#{$size}-stretch {
+    align-items: stretch;
+    align-content: stretch;
+  }
+}
+
+@include layout-vertical-align();
+
+
+/* Gutter Size */
+
+@mixin layout-gutter($margin: -12px, $padding: 12px) {
+  &:not(.md-column) {
+    margin-right: $margin;
+    margin-left: $margin;
+
+    > .md-layout {
+      padding-right: $padding;
+      padding-left: $padding;
+    }
+  }
+
+  .md-column {
+    margin-top: $margin;
+    margin-bottom: $margin;
+
+    > .md-layout {
+      padding-top: $padding;
+      padding-bottom: $padding;
+    }
+  }
+}
+
+.md-gutter {
+  @include layout-gutter();
+
+  @include layout-small {
+    @include layout-gutter(-8px, 8px);
+  }
+}
+
+$sizes: (8, 16, 24, 40);
+
+@each $item in $sizes {
+  $margin: -$item / 2 + px;
+  $padding: $item / 2 + px;
+
+  .md-gutter-#{$item} {
+    @include layout-gutter($margin, $padding);
+  }
+}
+
+
+/* Flex Size */
+
+@mixin layout-flex($size: null) {
+  @if $size == null {
+    $size : '';
+  }
+
+  @if $size != '' {
+    $size : '-#{$size}';
+  }
+
+  .md-flex#{$size} {
+    flex: 1 1;
+  }
+
+  .md-flex#{$size}-33 {
+    min-width: 33.33333%;
+    flex: 0 1 33.33333%;
+  }
+
+  .md-flex#{$size}-66 {
+    min-width: 33.33333%;
+    flex: 0 1 66.66666%;
+  }
+
+  .md-flex-offset#{$size}-33 {
+    margin-left: 33.33333%;
+  }
+
+  .md-flex-offset#{$size}-66 {
+    margin-left: 66.66666%;
+  }
+
+  @for $i from 1 through 20 {
+    $counter: $i * 5;
+
+    .md-flex#{$size}-#{$counter} {
+      min-width: #{$counter + '%'};
+      flex: 0 1 #{$counter + '%'};
+    }
+
+    .md-flex-offset#{$size}-#{$counter} {
+      margin-left: #{$counter + '%'};
+    }
+  }
+}
+
+@include layout-flex();
+
+
+/* Responsive Breakpoints */
+
+@mixin breakpoint-layout($size) {
+  @include layout($size);
+  @include layout-flex($size);
+  @include layout-align($size);
+
+  .md-hide-#{$size} {
+    display: none;
+  }
+}
+
+@include layout-xlarge {
+  @include breakpoint-layout(xlarge);
+}
+
+@include layout-large {
+  @include breakpoint-layout(large);
+}
+
+@include layout-medium {
+  @include breakpoint-layout(medium);
+}
+
+@include layout-small {
+  @include breakpoint-layout(small);
+}
+
+@include layout-xsmall {
+  @include breakpoint-layout(xsmall);
+}
+
+@include layout-large-and-up {
+  @include breakpoint-layout(large-and-up);
+}
+
+@include layout-medium-and-up {
+  @include breakpoint-layout(medium-and-up);
+}
+
+@include layout-small-and-up {
+  @include breakpoint-layout(small-and-up);
+}
+
+@include layout-xsmall-and-up {
+  @include breakpoint-layout(xsmall-and-up);
+}

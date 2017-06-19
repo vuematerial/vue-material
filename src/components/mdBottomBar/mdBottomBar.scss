@@ -1,0 +1,100 @@
+@import '../../core/stylesheets/variables.scss';
+
+.md-bottom-bar {
+  width: 100%;
+  min-width: 100%;
+  height: 56px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  box-shadow: $material-shadow-8dp;
+  transition: $swift-ease-out;
+}
+
+.md-bottom-bar-item {
+  max-width: 168px;
+  min-width: 80px;
+  height: 100%;
+  padding: 8px 12px 10px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+  position: relative;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  transform: translate3d(0, 0, 0);
+  color: currentColor;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1em;
+  text-decoration: none;
+
+  &.md-active {
+    padding-top: 6px;
+
+    .md-text {
+      transform: scale(1) translate3d(0, 0, 0);
+    }
+
+    .md-text,
+    .md-icon {
+      color: currentColor;
+    }
+  }
+
+  &[disabled] {
+    opacity: .38;
+  }
+
+  .md-bottom-bar.md-shift & {
+    min-width: 56px;
+    max-width: 96px;
+    position: static;
+    flex: 1 1 32px;
+    transition: $swift-ease-out-duration $swift-ease-out-timing-function;
+    transition-property: flex, min-width, max-width;
+
+    .md-icon {
+      transform: translate3d(0, 8px, 0);
+    }
+
+    .md-text {
+      opacity: 0;
+      transform: scale(1) translate3d(0, 6px, 0);
+    }
+
+    &.md-active {
+      min-width: 96px;
+      max-width: 168px;
+      flex: 1 1 72px;
+
+      .md-icon,
+      .md-text {
+        opacity: 1;
+      }
+
+      .md-icon {
+        transform: scale(1) translate3d(0, 0, 0);
+      }
+
+      .md-text {
+        transform: scale(1) translate3d(0, 2px, 0);
+      }
+    }
+  }
+
+  .md-text {
+    transform: scale(.8571) translateY(2px);
+    transition: $swift-ease-out,
+                color $swift-linear-duration $swift-linear-timing-function,
+                opacity $swift-linear-duration $swift-linear-timing-function;
+  }
+
+  .md-icon {
+    transition: $swift-ease-out,
+                color $swift-linear-duration $swift-linear-timing-function;
+  }
+}

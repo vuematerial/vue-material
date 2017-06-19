@@ -1,0 +1,20 @@
+.THEME_NAME {
+  &.md-select {
+    &:after {
+      color: #{'BACKGROUND-CONTRAST-0.54'};
+    }
+
+    &:after {
+      color: #{'BACKGROUND-CONTRAST-0.38'};
+    }
+  }
+
+  &.md-select-content {
+    .md-menu-item {
+      &.md-selected,
+      &.md-checked {
+        color: #{'PRIMARY-COLOR'};
+      }
+    }
+  }
+}

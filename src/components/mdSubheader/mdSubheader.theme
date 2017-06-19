@@ -1,0 +1,15 @@
+.THEME_NAME {
+  &.md-subheader {
+    &.md-primary {
+      color: #{'PRIMARY-COLOR'};
+    }
+
+    &.md-accent {
+      color: #{'ACCENT-COLOR'};
+    }
+
+    &.md-warn {
+      color: #{'WARN-COLOR'};
+    }
+  }
+}

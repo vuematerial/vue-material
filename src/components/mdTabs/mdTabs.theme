@@ -1,0 +1,99 @@
+.THEME_NAME {
+  &.md-tabs {
+    > .md-tabs-navigation {
+      background-color: #{'PRIMARY-COLOR'};
+
+      .md-tab-header {
+        color: #{'PRIMARY-CONTRAST-0.54'};
+
+        &.md-active,
+        &:focus {
+          color: #{'PRIMARY-CONTRAST'};
+        }
+
+        &.md-disabled {
+          color: #{'PRIMARY-CONTRAST-0.26'}
+        }
+      }
+
+      .md-tab-indicator {
+        background-color: #{'ACCENT-COLOR'};
+      }
+
+      .md-tab-header-navigation-button {
+        color: #{'PRIMARY-CONTRAST-0.54'};
+        background-color: #{'PRIMARY-COLOR'};
+      }
+    }
+
+    &.md-transparent {
+      > .md-tabs-navigation {
+        background-color: transparent;
+        border-bottom: 1px solid #{'BACKGROUND-CONTRAST-0.12'};
+
+        .md-tab-header {
+          color: #{'BACKGROUND-CONTRAST-0.54'};
+
+          &.md-active,
+          &:focus {
+            color: #{'PRIMARY-COLOR'};
+          }
+
+          &.md-disabled {
+            color: #{'BACKGROUND-CONTRAST-0.26'}
+          }
+        }
+
+        .md-tab-indicator {
+          background-color: #{'PRIMARY-COLOR'};
+        }
+      }
+    }
+
+    &.md-accent {
+      > .md-tabs-navigation {
+        background-color: #{'ACCENT-COLOR'};
+
+        .md-tab-header {
+          color: #{'ACCENT-CONTRAST-0.54'};
+
+          &.md-active,
+          &:focus {
+            color: #{'ACCENT-CONTRAST'};
+          }
+
+          &.md-disabled {
+            color: #{'ACCENT-CONTRAST-0.26'}
+          }
+        }
+
+        .md-tab-indicator {
+          background-color: #{'BACKGROUND-COLOR'};
+        }
+      }
+    }
+
+    &.md-warn {
+      > .md-tabs-navigation {
+        background-color: #{'WARN-COLOR'};
+
+        .md-tab-header {
+          color: #{'WARN-CONTRAST-0.54'};
+
+          &.md-active,
+          &:focus {
+            color: #{'WARN-CONTRAST'};
+          }
+
+          &.md-disabled {
+            color: #{'WARN-CONTRAST-0.26'}
+          }
+        }
+
+        .md-tab-indicator {
+          background-color: #{'BACKGROUND-COLOR'};
+        }
+      }
+    }
+  }
+}

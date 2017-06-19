@@ -1,0 +1,24 @@
+@import '../../core/stylesheets/variables.scss';
+
+.md-backdrop {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+  pointer-events: none;
+  background-color: rgba(#000, .54);
+  transform: translate3d(0, 0, 0);
+  opacity: 0;
+  transition: $swift-ease-in-out;
+
+  &.md-active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  &.md-transparent {
+    background: rgba(#000, .005);
+  }
+}

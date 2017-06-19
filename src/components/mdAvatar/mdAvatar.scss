@@ -1,0 +1,83 @@
+@import '../../core/stylesheets/variables.scss';
+
+$avatar-size: 40px;
+$avatar-large-size: 64px;
+$avatar-large-icon: 40px;
+
+.md-avatar {
+  width: $avatar-size;
+  min-width: $avatar-size;
+  height: $avatar-size;
+  min-height: $avatar-size;
+  margin: auto;
+  display: inline-block;
+  overflow: hidden;
+  user-select: none;
+  position: relative;
+  border-radius: $avatar-size;
+  vertical-align: middle;
+
+  &.md-large {
+    width: $avatar-large-size;
+    min-width: $avatar-large-size;
+    height: $avatar-large-size;
+    min-height: $avatar-large-size;
+    border-radius: $avatar-large-size;
+
+    .md-icon {
+      width: $avatar-large-icon;
+      min-width: $avatar-large-icon;
+      height: $avatar-large-icon;
+      min-height: $avatar-large-icon;
+      font-size: $avatar-large-icon;
+      line-height: $avatar-large-icon;
+    }
+  }
+
+  &.md-avatar-icon {
+    background-color: rgba(#000, .38);
+
+    .md-icon {
+      color: #fff;
+    }
+  }
+
+  .md-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .md-ink-ripple {
+    border-radius: 50%;
+
+    .md-ripple.md-active {
+      animation-duration: .9s;
+    }
+  }
+}
+
+.md-avatar-tooltip {
+  &.md-tooltip-top {
+    margin-top: -8px;
+  }
+
+  &.md-tooltip-right {
+    margin-left: 8px;
+  }
+
+  &.md-tooltip-bottom {
+    margin-top: 8px;
+  }
+
+  &.md-tooltip-left {
+    margin-left: -8px;
+  }
+}

@@ -1,0 +1,19 @@
+.THEME_NAME {
+  &.md-spinner {
+    .md-spinner-path {
+      stroke: #{'PRIMARY-COLOR'};
+    }
+
+    &.md-accent {
+      .md-spinner-path {
+        stroke: #{'ACCENT-COLOR'};
+      }
+    }
+
+    &.md-warn {
+      .md-spinner-path {
+        stroke: #{'WARN-COLOR'};
+      }
+    }
+  }
+}
