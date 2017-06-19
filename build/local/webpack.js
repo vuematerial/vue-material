@@ -77,6 +77,7 @@ export default {
     new webpack.WatchIgnorePlugin([resolvePath('node_modules')]),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
+    new webpack.NamedModulesPlugin(),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'docs/index.html',

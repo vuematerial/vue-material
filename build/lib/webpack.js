@@ -3,9 +3,10 @@ import merge from 'webpack-merge'
 import autoprefixer from 'autoprefixer'
 import mediaPacker from 'css-mqpacker'
 import cssnano from 'cssnano'
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
-import OptimizeJsPlugin from 'optimize-js-plugin';
-import OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin';
+import ExtractTextPlugin from 'extract-text-webpack-plugin'
+import OptimizeJsPlugin from 'optimize-js-plugin'
+import OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin'
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import { config, resolvePath, pack } from '../config'
 import banner from './banner'
 
@@ -21,7 +22,7 @@ const moduleName = classify(pack.name)
 
 export default entry => {
   let webpackConfig = {
-    stats: 'errors-only',
+    stats: 'verbose',
     entry: {
       [pack.name]: './src/index'
     },
@@ -40,6 +41,9 @@ export default entry => {
         {
           test: /\.js$/,
           loader: 'babel-loader',
+          options: {
+            presets: ['env']
+          },
           exclude: /node_modules/
         }
       ]
@@ -67,7 +71,10 @@ export default entry => {
         }),
         new webpack.optimize.UglifyJsPlugin({
           compress: {
-            warnings: false
+            warnings: false,
+            screw_ie8: true,
+            unused: true,
+            dead_code: true
           },
           output: {
             comments: false
@@ -129,26 +136,28 @@ export default entry => {
     }, webpackConfig)
   } else {
     webpackConfig = merge({
-      module: [
-        {
-          test: /\.vue$/,
-          loader: 'vue-loader',
-          options: {
-            loaders: {
-              css: 'vue-style-loader!css-loader',
-              scss: 'vue-style-loader!css-loader!sass-loader?outputStyle=compressed',
+      module: {
+        rules: [
+          {
+            test: /\.vue$/,
+            loader: 'vue-loader',
+            options: {
+              loaders: {
+                css: 'vue-style-loader!css-loader',
+                scss: 'vue-style-loader!css-loader!sass-loader?outputStyle=compressed',
+              }
             }
+          },
+          {
+            test: /\.css$/,
+            use: ['vue-style-loader', 'css-loader']
+          },
+          {
+            test: /\.scss$/,
+            use: ['vue-style-loader', 'css-loader', 'sass-loader']
           }
-        },
-        {
-          test: /\.css$/,
-          use: ['vue-style-loader', 'css-loader']
-        },
-        {
-          test: /\.scss$/,
-          use: ['vue-style-loader', 'css-loader', 'sass-loader']
-        }
-      ]
+        ]
+      }
     }, webpackConfig)
   }
 
@@ -158,7 +167,12 @@ export default entry => {
         banner: banner,
         raw: true,
         entryOnly: true
-      })
+      }),
+      new webpack.optimize.OccurrenceOrderPlugin(),
+      new BundleAnalyzerPlugin({
+        analyzerPort: entry.port
+      }),
+      new webpack.IgnorePlugin(/^vue/)
     ]
   }, webpackConfig)
 
