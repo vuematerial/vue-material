@@ -194,9 +194,3 @@
     </docs-component>
   </page-content>
 </template>
-
-<style>
-  .md-boards-content {
-    height: 150px !important;
-  }
-</style>
