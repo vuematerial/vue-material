@@ -1,6 +1,7 @@
 <template>
   <input
     class="md-input"
+    :name="name"
     :type="type"
     :value="value"
     :disabled="disabled"
