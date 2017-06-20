@@ -70,7 +70,6 @@
                 <md-table-cell><code>Boolean</code></md-table-cell>
                 <md-table-cell>Disable the item and prevent its actions. Default <code>false</code></md-table-cell>
               </md-table-row>
-              </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-expand-multiple</md-table-cell>
@@ -92,6 +91,24 @@
               <md-table-row>
                 <md-table-cell>md-inset</md-table-cell>
                 <md-table-cell>Add an empty space on the left of the table. <br>Useful to show list items without icons aligned with another that have an icon.</md-table-cell>
+              </md-table-row>
+            </md-table-body>
+          </md-table>
+
+          <md-table slot="events">
+            <md-table-header>
+              <md-table-row>
+                <md-table-head>Name</md-table-head>
+                <md-table-head>Value</md-table-head>
+                <md-table-head>Description</md-table-head>
+              </md-table-row>
+            </md-table-header>
+
+            <md-table-body>
+              <md-table-row>
+                <md-table-cell>click</md-table-cell>
+                <md-table-cell>Receive the click event</md-table-cell>
+                <md-table-cell>Triggered when an item is clicked.</md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>

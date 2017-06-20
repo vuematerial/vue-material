@@ -78,6 +78,12 @@
                 <md-table-cell>None</md-table-cell>
                 <md-table-cell>Triggered when the menu starts to close.</md-table-cell>
               </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>click</md-table-cell>
+                <md-table-cell>Receive the click event</md-table-cell>
+                <md-table-cell>Triggered when an item is clicked.</md-table-cell>
+              </md-table-row>
             </md-table-body>
           </md-table>
 
