@@ -2,6 +2,7 @@
   <input
     class="md-input"
     :type="type"
+    :name="name"
     :value="value"
     :disabled="disabled"
     :required="required"
