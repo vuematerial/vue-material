@@ -100,25 +100,18 @@ Please make sure to read the [Contributing Guide](https://github.com/marcosmoura
 
 ## Browser Support
 Vue Material supports the latest version of all Browsers. This means:
-* Google Chrome 52+
-* Firefox 48+
+* Google Chrome
+* Firefox
 * Safari 9+
-* Opera 38+
-* Edge 12+
+* Opera
+* Edge
 * IE 11
 
 <small>May work in other browsers but it's untested.</small>
 
 ## Credits and Thanks
-* This library aims to delivery components using almost the same API of <a href="https://material.angularjs.org/latest/" target="_blank">Angular Material</a>
 * <a href="https://github.com/elviskang" target="_blank">elviskang</a> for donating the npm package name!
 * <a href="https://github.com/brunocastro" target="_blank">Bruno Castro</a> for the awesome Vue Material Logo.
-
-## Internal Dependencies
-You don't need to include any other library to work with vue-material. The focus of this project is to have a standalone build with no external dependence, but aiming to deliver the best experience without break the compatibility with the Vue.js core.
-* <a href="http://vuejs.org" target="_blank">vue</a>
-* <a href="http://www.jacklmoore.com/autosize/" target="_blank">autosize</a>
-* <a href="https://www.npmjs.com/package/element.scrollintoviewifneeded-polyfill" target="_blank">element.scrollintoviewifneeded-polyfill</a>
 
 ## License
 MIT
