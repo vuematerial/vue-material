@@ -5,6 +5,21 @@
   </i>
 </template>
 
+<script lang="babel">
+  import MdComponent from 'core/MdComponent'
+  import MdSvgLoader from 'core/MdSvgLoader'
+
+  export default new MdComponent({
+    name: 'MdIcon',
+    components: {
+      MdSvgLoader
+    },
+    props: {
+      mdSrc: String
+    }
+  })
+</script>
+
 <style lang="scss">
   @import "~components/MdAnimation/variables";
 
@@ -66,18 +81,3 @@
     -moz-osx-font-smoothing: grayscale;
   }
 </style>
-
-<script lang="babel">
-  import MdComponent from 'core/MdComponent'
-  import MdSvgLoader from 'core/MdSvgLoader'
-
-  export default new MdComponent({
-    name: 'MdIcon',
-    components: {
-      MdSvgLoader
-    },
-    props: {
-      mdSrc: String
-    }
-  })
-</script>

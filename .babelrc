@@ -11,5 +11,16 @@
   ],
   "plugins": [
     "transform-runtime"
-  ]
+  ],
+  "env": {
+    "test": {
+      "presets": [
+        "es2015",
+        "stage-2"
+      ],
+      "plugins": [
+        "transform-runtime"
+      ]
+    }
+  }
 }
