@@ -1,5 +1,5 @@
 <template>
-  <md-svg-loader class="md-icon md-icon-image" :md-src="mdSrc" :class="[$mdActiveTheme]" v-if="mdSrc" />
+  <md-svg-loader class="md-icon md-icon-image" :md-src="mdSrc" :class="[$mdActiveTheme]" v-if="mdSrc" @md-loaded="$emit('md-loaded')" />
   <i class="md-icon md-icon-font" :class="[$mdActiveTheme]" v-else>
     <slot />
   </i>

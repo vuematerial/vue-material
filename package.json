@@ -25,7 +25,8 @@
     "dev": "babel-node build/local",
     "build": "rm -rf dist; babel-node build/lib",
     "lint": "eslint --ext .js,.vue src build",
-    "test": "cross-env NODE_ENV=test jest"
+    "test": "cross-env NODE_ENV=test jest",
+    "coverage": "yarn test -- --coverage"
   },
   "engines": {
     "node": ">= 7.0"
@@ -87,6 +88,7 @@
     "rollup-plugin-scss": "^0.2.0",
     "rollup-plugin-vue": "^2.4.0",
     "sass-loader": "^6.0.6",
+    "sinon": "^2.3.5",
     "uglify-js": "^3.0.18",
     "url-loader": "^0.5.9",
     "vue-i18n": "^7.0.3",
@@ -119,7 +121,6 @@
       "^.+\\.js?$": "babel-jest",
       ".*\\.(vue)$": "jest-vue-preprocessor"
     },
-    "collectCoverage": true,
     "collectCoverageFrom": [
       "src/**/*.{js,vue}",
       "!src/**/index.js",

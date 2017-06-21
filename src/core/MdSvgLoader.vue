@@ -33,9 +33,6 @@
       }
     },
     methods: {
-      isImage (mimetype) {
-        return mimetype.indexOf('image') >= 0
-      },
       isSVG (mimetype) {
         return mimetype.indexOf('svg') >= 0
       },
