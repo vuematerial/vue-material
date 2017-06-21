@@ -1,5 +1,6 @@
 <template>
-  <div class="md-card-expand" ref="expand">
+  <div class="md-card-expand"
+    ref="expand">
     <slot></slot>
   </div>
 </template>
@@ -7,15 +8,15 @@
 <script>
   export default {
     name: 'md-card-expand',
+    data() {
+      return {
+        trigger: null,
+        content: null
+      };
+    },
     methods: {
-      setContentMargin() {
-        this.content.style.marginTop = -this.content.offsetHeight + 'px';
-      },
       toggle() {
         this.$refs.expand.classList.toggle('md-active');
-      },
-      onWindowResize() {
-        window.requestAnimationFrame(this.setContentMargin);
       }
     },
     mounted() {
@@ -24,17 +25,13 @@
         this.content = this.$el.querySelector('.md-card-content');
 
         if (this.content) {
-          this.setContentMargin();
-
           this.trigger.addEventListener('click', this.toggle);
-          window.addEventListener('resize', this.onWindowResize);
         }
       }, 200);
     },
     destroyed() {
       if (this.content) {
         this.trigger.removeEventListener('click', this.toggle);
-        window.removeEventListener('resize', this.onWindowResize);
       }
     }
   };
