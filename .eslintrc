@@ -2,11 +2,15 @@
   "root": true,
   "parser": "babel-eslint",
   "plugins": [
-    "html"
+    "html",
+    "jest"
   ],
   "extends": [
     "standard"
   ],
+  "env": {
+    "jest/globals": true
+  },
   "rules": {
     "arrow-parens": 0,
     "generator-star-spacing": 0

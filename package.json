@@ -61,6 +61,7 @@
     "eslint-loader": "^1.8.0",
     "eslint-plugin-html": "^3.0.0",
     "eslint-plugin-import": "^2.3.0",
+    "eslint-plugin-jest": "^20.0.3",
     "eslint-plugin-node": "^5.0.0",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
