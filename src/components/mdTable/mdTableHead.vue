@@ -68,7 +68,7 @@
       initSort() {
         if (this.hasMatchSort()) {
           this.sorted = true;
-          this.sortType = this.parentTable.sortType;
+          this.sortType = this.parentTable.sortType || 'asc';
         }
       }
     },
