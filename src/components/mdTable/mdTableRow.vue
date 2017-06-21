@@ -65,7 +65,7 @@
       },
       handleSingleSelection(value) {
         this.parentTable.setRowSelection(value, this.mdItem);
-        this.parentTable.$children[0].checkbox = this.parentTable.numberOfSelected === this.parentTable.rowsCounter;
+        this.parentTable.$children[0].checkbox = this.parentTable.numberOfSelected === this.parentTable.numberOfRows;
       },
       handleMultipleSelection(value) {
         if (this.parentTable.numberOfRows > 25) {

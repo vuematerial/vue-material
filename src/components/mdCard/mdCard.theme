@@ -89,6 +89,15 @@
           background-color: #{'BACKGROUND-CONTRAST-0.4'};
         }
       }
+
+      .md-card-header,
+      .md-card-actions {
+        .md-icon-button:not(.md-primary):not(.md-warn):not(.md-accent) {
+          .md-icon {
+            color: #fff;
+          }
+        }
+      }
     }
 
     .md-card-expand {

@@ -8,7 +8,14 @@ $radio-touch-size: 48px;
   margin: 16px 8px 16px 0;
   display: inline-flex;
   position: relative;
-  cursor: pointer;
+  
+  &:not(.md-disabled) {
+    cursor: pointer;
+
+    .md-radio-label {
+      cursor: pointer;
+    }
+  }
 
   .md-radio-container {
     width: $radio-size;
@@ -71,7 +78,6 @@ $radio-touch-size: 48px;
     height: $radio-size;
     padding-left: 8px;
     line-height: $radio-size;
-    cursor: pointer;
   }
 }
 
