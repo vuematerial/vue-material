@@ -1,5 +1,5 @@
 <template>
-  <md-input-container class="md-chips" :class="[themeClass, classes]" @click.native="applyInputFocus">
+  <md-input-container class="md-chips" :class="[themeClass, classes]" @click="applyInputFocus">
     <md-chip
       v-for="chip in selectedChips"
       :key="chip"

@@ -17,7 +17,7 @@
         </md-tabs>
       </md-card-area>
 
-      <!-- <button type="button" class="md-codepen" @click.native="editOnCodepen">
+      <!-- <button type="button" class="md-codepen" @click="editOnCodepen">
         <img src="assets/codepen.png" alt="Edit on Codepen">
         <md-tooltip md-direction="left">Edit on codepen</md-tooltip>
       </button> -->

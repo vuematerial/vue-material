@@ -420,7 +420,7 @@
             <div class="phone-viewport complete-example">
               <md-whiteframe md-tag="md-toolbar" md-elevation="2" md-theme="light-blue" class="md-large">
                 <div class="md-toolbar-container">
-                  <md-button class="md-icon-button" @click.native="$refs.sidenav.toggle()">
+                  <md-button class="md-icon-button" @click="$refs.sidenav.toggle()">
                     <md-icon>menu</md-icon>
                   </md-button>
 
@@ -590,23 +590,23 @@
                 </md-toolbar>
 
                 <md-list>
-                  <md-list-item @click.native="$refs.sidenav.toggle()" class="md-primary">
+                  <md-list-item @click="$refs.sidenav.toggle()" class="md-primary">
                     <md-icon>insert_drive_file</md-icon> <span>My files</span>
                   </md-list-item>
 
-                  <md-list-item @click.native="$refs.sidenav.toggle()">
+                  <md-list-item @click="$refs.sidenav.toggle()">
                     <md-icon>people</md-icon> <span>Shared with me</span>
                   </md-list-item>
 
-                  <md-list-item @click.native="$refs.sidenav.toggle()">
+                  <md-list-item @click="$refs.sidenav.toggle()">
                     <md-icon>access_time</md-icon> <span>Recent</span>
                   </md-list-item>
 
-                  <md-list-item @click.native="$refs.sidenav.toggle()">
+                  <md-list-item @click="$refs.sidenav.toggle()">
                     <md-icon>start</md-icon> <span>Starred</span>
                   </md-list-item>
 
-                  <md-list-item @click.native="$refs.sidenav.toggle()">
+                  <md-list-item @click="$refs.sidenav.toggle()">
                     <md-icon>delete</md-icon> <span>Trash</span>
                   </md-list-item>
                 </md-list>
@@ -619,7 +619,7 @@
               &lt;div class=&quot;phone-viewport complete-example&quot;&gt;
                 &lt;md-whiteframe md-tag=&quot;md-toolbar&quot; md-elevation=&quot;2&quot; md-theme=&quot;light-blue&quot; class=&quot;md-large&quot;&gt;
                   &lt;div class=&quot;md-toolbar-container&quot;&gt;
-                    &lt;md-button class=&quot;md-icon-button&quot; @click.native=&quot;$refs.sidenav.toggle()&quot;&gt;
+                    &lt;md-button class=&quot;md-icon-button&quot; @click=&quot;$refs.sidenav.toggle()&quot;&gt;
                       &lt;md-icon&gt;menu&lt;/md-icon&gt;
                     &lt;/md-button&gt;
 
@@ -789,23 +789,23 @@
                   &lt;/md-toolbar&gt;
 
                   &lt;md-list&gt;
-                    &lt;md-list-item @click.native=&quot;$refs.sidenav.toggle()&quot; class=&quot;md-primary&quot;&gt;
+                    &lt;md-list-item @click=&quot;$refs.sidenav.toggle()&quot; class=&quot;md-primary&quot;&gt;
                       &lt;md-icon&gt;insert_drive_file&lt;/md-icon&gt; &lt;span&gt;My files&lt;/span&gt;
                     &lt;/md-list-item&gt;
 
-                    &lt;md-list-item @click.native=&quot;$refs.sidenav.toggle()&quot;&gt;
+                    &lt;md-list-item @click=&quot;$refs.sidenav.toggle()&quot;&gt;
                       &lt;md-icon&gt;people&lt;/md-icon&gt; &lt;span&gt;Shared with me&lt;/span&gt;
                     &lt;/md-list-item&gt;
 
-                    &lt;md-list-item @click.native=&quot;$refs.sidenav.toggle()&quot;&gt;
+                    &lt;md-list-item @click=&quot;$refs.sidenav.toggle()&quot;&gt;
                       &lt;md-icon&gt;access_time&lt;/md-icon&gt; &lt;span&gt;Recent&lt;/span&gt;
                     &lt;/md-list-item&gt;
 
-                    &lt;md-list-item @click.native=&quot;$refs.sidenav.toggle()&quot;&gt;
+                    &lt;md-list-item @click=&quot;$refs.sidenav.toggle()&quot;&gt;
                       &lt;md-icon&gt;start&lt;/md-icon&gt; &lt;span&gt;Starred&lt;/span&gt;
                     &lt;/md-list-item&gt;
 
-                    &lt;md-list-item @click.native=&quot;$refs.sidenav.toggle()&quot;&gt;
+                    &lt;md-list-item @click=&quot;$refs.sidenav.toggle()&quot;&gt;
                       &lt;md-icon&gt;delete&lt;/md-icon&gt; &lt;span&gt;Trash&lt;/span&gt;
                     &lt;/md-list-item&gt;
                   &lt;/md-list&gt;

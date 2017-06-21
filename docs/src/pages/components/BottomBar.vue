@@ -46,6 +46,12 @@
                 <md-table-cell>Receive the item index</md-table-cell>
                 <md-table-cell>Triggered when an item is activated.</md-table-cell>
               </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>click</md-table-cell>
+                <md-table-cell>Receive the click event</md-table-cell>
+                <md-table-cell>Triggered when an item is clicked.</md-table-cell>
+              </md-table-row>
             </md-table-body>
           </md-table>
         </api-table>
@@ -123,7 +129,7 @@
             </code-block>
           </div>
         </example-box>
-        
+
         <example-box card-title="Using SVG">
           <div slot="demo">
             <div class="phone-viewport">
@@ -145,7 +151,7 @@
             </code-block>
           </div>
         </example-box>
-        
+
         <example-box card-title="Using Iconsets">
           <div slot="demo">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css"/>
@@ -240,10 +246,10 @@
           <div slot="demo">
             <div class="phone-viewport">
               <md-bottom-bar md-shift :md-theme="playground.theme">
-                <md-bottom-bar-item @click.native="setTheme('blue')" md-icon="ondemand_video">Movies</md-bottom-bar-item>
-                <md-bottom-bar-item @click.native="setTheme('teal')" md-icon="music_note">Music</md-bottom-bar-item>
-                <md-bottom-bar-item @click.native="setTheme('brown')" md-icon="books" md-active>Books</md-bottom-bar-item>
-                <md-bottom-bar-item @click.native="setTheme('indigo')" md-icon="photo">Pictures</md-bottom-bar-item>
+                <md-bottom-bar-item @click="setTheme('blue')" md-icon="ondemand_video">Movies</md-bottom-bar-item>
+                <md-bottom-bar-item @click="setTheme('teal')" md-icon="music_note">Music</md-bottom-bar-item>
+                <md-bottom-bar-item @click="setTheme('brown')" md-icon="books" md-active>Books</md-bottom-bar-item>
+                <md-bottom-bar-item @click="setTheme('indigo')" md-icon="photo">Pictures</md-bottom-bar-item>
               </md-bottom-bar>
             </div>
           </div>
@@ -252,10 +258,10 @@
             <code-block lang="xml">
               &lt;md-theme :md-name=&quot;playground.theme&quot;&gt;
                 &lt;md-bottom-bar md-shift&gt;
-                  &lt;md-bottom-bar-item @click.native=&quot;setTheme(&#039;blue&#039;)&quot; md-icon=&quot;ondemand_video&quot;&gt;Movies&lt;/md-bottom-bar-item&gt;
-                  &lt;md-bottom-bar-item @click.native=&quot;setTheme(&#039;teal&#039;)&quot; md-icon=&quot;music_note&quot;&gt;Music&lt;/md-bottom-bar-item&gt;
-                  &lt;md-bottom-bar-item @click.native=&quot;setTheme(&#039;brown&#039;)&quot; md-icon=&quot;books&quot; md-active&gt;Books&lt;/md-bottom-bar-item&gt;
-                  &lt;md-bottom-bar-item @click.native=&quot;setTheme(&#039;indigo&#039;)&quot; md-icon=&quot;photo&quot;&gt;Pictures&lt;/md-bottom-bar-item&gt;
+                  &lt;md-bottom-bar-item @click=&quot;setTheme(&#039;blue&#039;)&quot; md-icon=&quot;ondemand_video&quot;&gt;Movies&lt;/md-bottom-bar-item&gt;
+                  &lt;md-bottom-bar-item @click=&quot;setTheme(&#039;teal&#039;)&quot; md-icon=&quot;music_note&quot;&gt;Music&lt;/md-bottom-bar-item&gt;
+                  &lt;md-bottom-bar-item @click=&quot;setTheme(&#039;brown&#039;)&quot; md-icon=&quot;books&quot; md-active&gt;Books&lt;/md-bottom-bar-item&gt;
+                  &lt;md-bottom-bar-item @click=&quot;setTheme(&#039;indigo&#039;)&quot; md-icon=&quot;photo&quot;&gt;Pictures&lt;/md-bottom-bar-item&gt;
                 &lt;/md-bottom-bar&gt;
               &lt;/div&gt;
             </code-block>

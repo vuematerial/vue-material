@@ -78,6 +78,12 @@
                 <md-table-cell>None</md-table-cell>
                 <md-table-cell>Triggered when the menu starts to close.</md-table-cell>
               </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>click</md-table-cell>
+                <md-table-cell>Receive the click event</md-table-cell>
+                <md-table-cell>Triggered when an item is clicked.</md-table-cell>
+              </md-table-row>
             </md-table-body>
           </md-table>
 
@@ -523,7 +529,7 @@
               </md-menu-content>
             </md-menu>
 
-            <md-button class="md-raised md-primary" @click.native="$refs.menu.open">Open contact card</md-button>
+            <md-button class="md-raised md-primary" @click="$refs.menu.open">Open contact card</md-button>
           </div>
 
           <div slot="code">
@@ -591,7 +597,7 @@
                 &lt;/md-menu-content&gt;
               &lt;/md-menu&gt;
 
-              &lt;md-button class=&quot;md-raised md-primary&quot; @click.native=&quot;$refs.menu.open&quot;&gt;Open contact card&lt;/md-button&gt;
+              &lt;md-button class=&quot;md-raised md-primary&quot; @click=&quot;$refs.menu.open&quot;&gt;Open contact card&lt;/md-button&gt;
             </code-block>
 
             <code-block lang="sass">

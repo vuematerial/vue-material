@@ -7,7 +7,7 @@
           :key="step.id"
           :step="step"
           :md-alternate-labels="mdAlternateLabels"
-          @click.native="setActiveStep(step)">
+          @click="setActiveStep(step)">
         </md-step-header>
       </md-step-header-container>
     </md-whiteframe>
@@ -77,32 +77,32 @@
         if (currentIndex === this.stepList.length) {
           return undefined;
         }
-  
+
         var nextStepId = Object.keys(this.stepList)[currentIndex + 1];
         var nextStep = this.stepList[nextStepId];
-  
+
         return nextStep;
       },
       getPreviousStep(id) {
         var currentIndex = this.getStepIndex(id);
-  
+
         if (currentIndex === 0) {
           return undefined;
         }
 
         var previousStepId = Object.keys(this.stepList)[currentIndex - 1];
         var previousStep = this.stepList[previousStepId];
-  
+
         return previousStep;
       },
       getStepsCount() {
         const idList = Object.keys(this.stepList);
-  
+
         return idList.length;
       },
       getStepIndex(id) {
         const idList = Object.keys(this.stepList);
-  
+
         return idList.indexOf(id);
       },
       registerStep(stepData) {
@@ -111,7 +111,7 @@
       moveNextStep() {
         if (this.activeStepNumber < this.getStepsCount() - 1) {
           var nextStep = this.getNextStep(this.activeStep);
-  
+
           this.setActiveStep(nextStep);
         } else {
           this.$emit('completed');
@@ -120,7 +120,7 @@
       movePreviousStep() {
         if (this.activeStepNumber > 0 && this.activeStepNumber < this.getStepsCount()) {
           var prevStep = this.getPreviousStep(this.activeStep);
-  
+
           this.setActiveStep(prevStep);
         }
       },
@@ -128,7 +128,7 @@
         if (this.activeStepNumber > this.getStepIndex(stepData.id) && !stepData.editable) {
           return;
         }
-  
+
         this.activeStep = stepData.id;
         this.activeStepNumber = this.getStepIndex(this.activeStep);
         this.calculatePosition();
@@ -186,7 +186,7 @@
         this.$nextTick(() => {
           if (!this.mdVertical && Object.keys(this.stepList).length) {
             let height = this.stepList[this.activeStep].ref.$el.offsetHeight;
-  
+
             this.contentHeight = height + 'px';
           } else {
             this.contentHeight = 'initial';

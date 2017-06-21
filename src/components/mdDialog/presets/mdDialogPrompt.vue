@@ -19,8 +19,8 @@
     </md-dialog-content>
 
     <md-dialog-actions>
-      <md-button class="md-primary" @click.native="close('cancel')">{{ mdCancelText }}</md-button>
-      <md-button class="md-primary" @click.native="confirmValue">{{ mdOkText }}</md-button>
+      <md-button class="md-primary" @click="close('cancel')">{{ mdCancelText }}</md-button>
+      <md-button class="md-primary" @click="confirmValue">{{ mdOkText }}</md-button>
     </md-dialog-actions>
   </md-dialog>
 </template>
