@@ -194,6 +194,7 @@ $card-radius: 2px;
     }
   }
 
+
   .md-card-actions {
     padding: 8px;
     display: flex;
@@ -285,6 +286,8 @@ $card-radius: 2px;
       .md-card-content {
         margin-top: 0 !important;
         opacity: 1;
+        padding: 4px 16px 24px 16px ;
+        height: auto;
       }
     }
 
@@ -300,13 +303,14 @@ $card-radius: 2px;
     }
 
     .md-card-content {
-      padding-top: 4px;
+      height: 0;
+      padding: 0 16px;
       position: relative;
       z-index: 1;
       opacity: 0;
       transform: translate3D(0, 0, 0);
       transition: $swift-ease-out;
-      will-change: margin;
+      will-change: margin, height;
     }
   }
 }
