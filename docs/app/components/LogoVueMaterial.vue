@@ -80,7 +80,7 @@
 </style>
 
 <script>
-  import MdSvgLoader from 'vue-material/core/MdSvgLoader'
+  import MdSvgLoader from 'vue-material/core/MdSvgLoader/MdSvgLoader'
 
   export default {
     name: 'LogoVueMaterial',

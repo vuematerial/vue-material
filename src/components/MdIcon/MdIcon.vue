@@ -5,9 +5,9 @@
   </i>
 </template>
 
-<script lang="babel">
+<script>
   import MdComponent from 'core/MdComponent'
-  import MdSvgLoader from 'core/MdSvgLoader'
+  import MdSvgLoader from 'core/MdSvgLoader/MdSvgLoader'
 
   export default new MdComponent({
     name: 'MdIcon',

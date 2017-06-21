@@ -2,17 +2,7 @@
   <i class="md-svg-loader" v-html="html"></i>
 </template>
 
-<style lang="scss">
-  .md-svg-loader {
-    display: block;
-
-    svg {
-      width: 100%;
-    }
-  }
-</style>
-
-<script lang="babel">
+<script>
   let mdSVGStore = {}
 
   export default {
@@ -24,7 +14,8 @@
       }
     },
     data: () => ({
-      html: null
+      html: null,
+      error: null
     }),
     watch: {
       mdSrc () {
@@ -36,12 +27,16 @@
       isSVG (mimetype) {
         return mimetype.indexOf('svg') >= 0
       },
-      async sethtml (value) {
+      async setHtml (value) {
         this.html = await mdSVGStore[this.mdSrc]
 
         await this.$nextTick()
 
         this.$emit('md-loaded')
+      },
+      unexpectedError (reject) {
+        this.error = `Something bad happened trying to fetch ${this.mdSrc}.`
+        reject(this.error)
       },
       loadSVG () {
         if (!mdSVGStore.hasOwnProperty(this.mdSrc)) {
@@ -54,18 +49,34 @@
             request.onload = function () {
               const mimetype = this.getResponseHeader('content-type')
 
-              if (this.status >= 200 && this.status < 400 && self.isSVG(mimetype)) {
-                resolve(this.response)
-                self.sethtml()
+              if (this.status === 200) {
+                if (self.isSVG(mimetype)) {
+                  resolve(this.response)
+                  self.setHtml()
+                } else {
+                  self.error = `The file ${self.mdSrc} is not a valid SVG.`
+                  reject(self.error)
+                }
+              } else if (this.status >= 400 && this.status < 500) {
+                self.error = `The file ${self.mdSrc} do not exists.`
+                reject(self.error)
               } else {
-                reject(new Error(`The file ${self.mdSrc} is not a valid SVG.`))
+                self.unexpectedError(reject)
               }
+            }
+
+            request.onerror = () => {
+              this.unexpectedError(reject)
+            }
+
+            request.onabort = () => {
+              this.unexpectedError(reject)
             }
 
             request.send()
           })
         } else {
-          this.sethtml()
+          this.setHtml()
         }
       }
     },
@@ -74,3 +85,13 @@
     }
   }
 </script>
+
+<style lang="scss">
+  .md-svg-loader {
+    display: block;
+
+    svg {
+      width: 100%;
+    }
+  }
+</style>

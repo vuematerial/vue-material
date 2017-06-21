@@ -10,6 +10,6 @@ export default ({ method, url, status, headers, content }) => {
     server.respond()
     server.restore()
 
-    return Vue.nextTick()
+    return Vue.nextTick().then(() => server)
   }
 }

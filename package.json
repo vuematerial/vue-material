@@ -121,6 +121,7 @@
       "^.+\\.js?$": "babel-jest",
       ".*\\.(vue)$": "jest-vue-preprocessor"
     },
+    "mapCoverage": true,
     "collectCoverageFrom": [
       "src/**/*.{js,vue}",
       "!src/**/index.js",
