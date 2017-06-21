@@ -25,7 +25,7 @@
       display: inline-block;
       vertical-align: middle;
     }
-    
+
     &.md-has-sub-message {
       padding: 15px 24px;
 
@@ -52,7 +52,7 @@
       display: inline-block;
       font-size: 12px;
       margin-right: 8px;
-      width: 24px; 
+      width: 24px;
 
       span {
         display: block;
@@ -64,7 +64,7 @@
     .md-step-title {
       font-size: inherit;
     }
-    
+
     &.md-disabled {
       cursor: default;
       pointer-events: none;
@@ -85,7 +85,7 @@
       height: 104px;
       min-height: 104px;
     }
-    
+
     .md-steps-navigation-container {
       display: flex;
       justify-content: space-between;
@@ -109,11 +109,7 @@
           &.md-has-sub-message {
             padding: 24px;
           }
-
-          .md-step-icon {
-            padding: 0;
-          }
-
+          
           .md-step-icons, .md-step-titles {
             display: block;
           }
@@ -131,7 +127,7 @@
     overflow: hidden;
     position: relative;
     width: 100%;
-    
+
     .md-steps-wrapper {
       bottom: 0;
       left: 0;
@@ -170,7 +166,7 @@
       &:not(:first-of-type) {
         .md-step-header {
           padding-top: 8px;
-        }    
+        }
       }
 
       .md-step-content {
