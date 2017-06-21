@@ -6,9 +6,10 @@ export default ({ method, url, status, headers, content }) => {
 
   server.respondWith(method || 'GET', url, [status || 200, headers, content])
 
-  return Promise.resolve(async () => {
+  return () => {
     server.respond()
     server.restore()
+
     return Vue.nextTick()
-  })
+  }
 }

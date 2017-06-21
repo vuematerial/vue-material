@@ -17,7 +17,7 @@ test('should render a svg icon from a XMLHttpRequest', async () => {
   const prop = 'mdSrc'
   let wrapper = null
 
-  const mock = await mockRequest({
+  const mock = mockRequest({
     url: svgUrl,
     content: svgContent,
     headers: {
