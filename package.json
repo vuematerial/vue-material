@@ -118,7 +118,9 @@
     "transform": {
       "^.+\\.js?$": "babel-jest",
       ".*\\.(vue)$": "jest-vue-preprocessor"
-    }
+    },
+    "collectCoverage": true,
+    "coverageFormats": ["json", "html"]
   },
   "browserslist": [
     "last 2 versions",
