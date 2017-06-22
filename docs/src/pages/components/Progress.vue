@@ -47,7 +47,7 @@
               <md-progress class="md-warn" :md-progress="progress" v-if="transition"></md-progress>
             </div>
 
-            <md-button class="md-primary md-raised" @click.native="restartProgress">Restart</md-button>
+            <md-button class="md-primary md-raised" @click="restartProgress">Restart</md-button>
           </div>
 
           <div slot="code">

@@ -13,7 +13,7 @@
 
       <md-button
         v-if="mdControls"
-        @click.native="movePrevBoard()">
+        @click="movePrevBoard()">
         <div class="md-board-header-container">
           <md-icon class="md-control">chevron_left</md-icon>
         </div>
@@ -34,12 +34,12 @@
           <md-icon>fiber_manual_record</md-icon>
         </div>
       </button>
-      
+
       <span style="flex: 1"></span>
 
       <md-button
         v-if="mdControls"
-        @click.native="moveNextBoard()">
+        @click="moveNextBoard()">
         <div class="md-board-header-container">
           <md-icon class="md-control">chevron_right</md-icon>
         </div>
@@ -277,7 +277,7 @@
           this.setActiveBoard(this.boardList[target], true);
         } else if (this.mdInfinite) {
           let firstBoard = Object.keys(this.boardList)[0];
-  
+
           this.setActiveBoard(this.boardList[firstBoard], true);
         }
       },
@@ -306,7 +306,7 @@
           const action = difference > 0
             ? 'moveNextBoard'
             : 'movePrevBoard';
-  
+
           if (Math.abs(difference) > this.mdSwipeDistance) {
             this[action]();
           }

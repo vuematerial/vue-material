@@ -1,6 +1,6 @@
 <template>
   <li class="md-list-item" :class="classes">
-    <a class="md-list-item-container md-button" :href="href" :target="target" :disabled="disabled">
+    <a class="md-list-item-container md-button" :href="href" :target="target" @click="$emit('click', $event)" :disabled="disabled">
       <slot />
     </a>
 

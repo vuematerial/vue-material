@@ -1,7 +1,7 @@
 <template>
   <md-list-item
     class="md-menu-item"
-    @click.native="close"
+    @click="close"
     :class="classes"
     :href="href"
     :target="target"
@@ -62,6 +62,7 @@
             this.parentContent.close();
           }
 
+          this.$emit('click', $event);
           this.$emit('selected', $event);
         }
       }

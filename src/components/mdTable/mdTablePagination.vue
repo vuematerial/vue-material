@@ -8,11 +8,11 @@
 
     <span>{{ ((currentPage - 1) * currentSize) + 1 }}-{{ subTotal }} {{ mdSeparator }} {{ mdTotal }}</span>
 
-    <md-button class="md-icon-button md-table-pagination-previous" @click.native="previousPage" :disabled="currentPage === 1">
+    <md-button class="md-icon-button md-table-pagination-previous" @click="previousPage" :disabled="currentPage === 1">
       <md-icon>keyboard_arrow_left</md-icon>
     </md-button>
 
-    <md-button class="md-icon-button md-table-pagination-next" @click.native="nextPage" :disabled="shouldDisable">
+    <md-button class="md-icon-button md-table-pagination-next" @click="nextPage" :disabled="shouldDisable">
       <md-icon>keyboard_arrow_right</md-icon>
     </md-button>
   </div>

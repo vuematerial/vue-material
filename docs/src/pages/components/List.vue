@@ -70,7 +70,6 @@
                 <md-table-cell><code>Boolean</code></md-table-cell>
                 <md-table-cell>Disable the item and prevent its actions. Default <code>false</code></md-table-cell>
               </md-table-row>
-              </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-expand-multiple</md-table-cell>
@@ -92,6 +91,24 @@
               <md-table-row>
                 <md-table-cell>md-inset</md-table-cell>
                 <md-table-cell>Add an empty space on the left of the table. <br>Useful to show list items without icons aligned with another that have an icon.</md-table-cell>
+              </md-table-row>
+            </md-table-body>
+          </md-table>
+
+          <md-table slot="events">
+            <md-table-header>
+              <md-table-row>
+                <md-table-head>Name</md-table-head>
+                <md-table-head>Value</md-table-head>
+                <md-table-head>Description</md-table-head>
+              </md-table-row>
+            </md-table-header>
+
+            <md-table-body>
+              <md-table-row>
+                <md-table-cell>click</md-table-cell>
+                <md-table-cell>Receive the click event</md-table-cell>
+                <md-table-cell>Triggered when an item is clicked.</md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>
@@ -858,7 +875,7 @@
               <md-list>
                 <md-list-item>Plain Text</md-list-item>
                 <md-list-item target="_blank" href="https://google.com">Link</md-list-item>
-                <md-list-item @click.native="openAlert">Button</md-list-item>
+                <md-list-item @click="openAlert">Button</md-list-item>
                 <md-list-item>
                   <router-link to="/components/list">Router View</router-link>
                 </md-list-item>
@@ -876,7 +893,7 @@
                   &lt;md-list&gt;
                     &lt;md-list-item&gt;Plain Text&lt;/md-list-item&gt;
                     &lt;md-list-item target=&quot;_blank&quot; href=&quot;https://google.com&quot;&gt;Link&lt;/md-list-item&gt;
-                    &lt;md-list-item @click.native=&quot;openAlert&quot;&gt;Button&lt;/md-list-item&gt;
+                    &lt;md-list-item @click=&quot;openAlert&quot;&gt;Button&lt;/md-list-item&gt;
                     &lt;md-list-item&gt;
                         &lt;router-link to=&quot;/components/list&quot;&gt;Router View&lt;/router-link&gt;
                     &lt;/md-list-item&gt;
@@ -1001,7 +1018,7 @@
                 &lt;md-list&gt;
                   &lt;md-list-item&gt;Plain Text&lt;/md-list-item&gt;
                   &lt;md-list-item target="_blank" href="https://google.com"&gt;Link&lt;/md-list-item&gt;
-                  &lt;md-list-item @click.native="openAlert"&gt;Button&lt;/md-list-item&gt;
+                  &lt;md-list-item @click="openAlert"&gt;Button&lt;/md-list-item&gt;
                   &lt;md-list-item&gt;
                     &lt;router-link to="/components/list"&gt;Router View&lt;/router-link&gt;
                   &lt;/md-list-item&gt;

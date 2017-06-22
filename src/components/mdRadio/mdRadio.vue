@@ -1,11 +1,11 @@
 <template>
   <div class="md-radio" :class="[themeClass, classes]">
-    <div class="md-radio-container" @click="toggleCheck">
-      <input type="radio" :name="name" :id="id" :disabled="disabled" :value="value" @click="toggleCheck">
+    <div class="md-radio-container" @click.stop="toggleCheck">
+      <input type="radio" :name="name" :id="id" :disabled="disabled" :value="value">
       <md-ink-ripple :md-disabled="disabled" />
     </div>
 
-    <label :for="id || name" class="md-radio-label" v-if="$slots.default">
+    <label :for="id || name" class="md-radio-label" v-if="$slots.default" @click="toggleCheck">
       <slot></slot>
     </label>
   </div>

@@ -2,7 +2,7 @@
   <md-menu-item
     class="md-option"
     :class="classes"
-    @click.native="selectOption"
+    @click="selectOption"
     tabindex="-1">
     <md-checkbox class="md-primary" v-model="check" v-if="parentSelect.multiple">
       <span ref="item">

@@ -7,7 +7,7 @@
     <md-button
       class="md-icon-button md-dense md-delete"
       v-if="mdDeletable"
-      @click.native="!disabled && $emit('delete')"
+      @click="!disabled && $emit('delete')"
       @keyup.native.delete="!disabled && $emit('delete')"
       tabindex="-1">
       <md-icon class="md-icon-delete">cancel</md-icon>

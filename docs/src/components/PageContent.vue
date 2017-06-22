@@ -1,7 +1,7 @@
 <template>
   <div class="page-content">
     <md-whiteframe md-tag="md-toolbar" md-elevation="1" class="main-header">
-      <md-button class="md-icon-button nav-trigger" @click.native="toggleSidenav">
+      <md-button class="md-icon-button nav-trigger" @click="toggleSidenav">
         <md-icon>menu</md-icon>
       </md-button>
 

@@ -25,7 +25,7 @@
           v-for="item in items"
           :key="item"
           @keyup.enter="hit(item)"
-          @click.native="hit(item)">
+          @click="hit(item)">
           {{ item[printAttribute] }}
         </md-menu-item>
       </md-menu-content>

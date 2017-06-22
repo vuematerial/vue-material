@@ -13,9 +13,13 @@
             @click="setActiveTab(header)"
             ref="tabHeader">
             <md-ink-ripple :md-disabled="header.disabled"></md-ink-ripple>
+
             <div class="md-tab-header-container">
               <md-icon v-if="header.icon">{{ header.icon }}</md-icon>
+              <md-icon v-else-if="header.iconset" :md-iconset="header.iconset">{{ header.icon }}</md-icon>
+
               <span v-if="header.label">{{ header.label }}</span>
+
               <md-tooltip v-if="header.tooltip" :md-direction="header.tooltipDirection" :md-delay="header.tooltipDelay">{{ header.tooltip }}</md-tooltip>
             </div>
           </button>
@@ -23,9 +27,11 @@
           <span class="md-tab-indicator" :class="indicatorClasses" ref="indicator"></span>
         </div>
       </div>
+
       <button v-if="mdNavigation && hasNavigationScroll" @click="navigationScrollLeft" class="md-tab-header-navigation-button md-left" :class="navigationLeftButtonClasses">
         <md-icon>keyboard_arrow_left</md-icon>
       </button>
+
       <button v-if="mdNavigation && hasNavigationScroll" @click="navigationScrollRight" class="md-tab-header-navigation-button md-right" :class="navigationRightButtonClasses">
         <md-icon>keyboard_arrow_right</md-icon>
       </button>
@@ -251,7 +257,7 @@
         this.hasNavigationScroll = scrollWidth > clientWidth;
       },
       setActiveTab(tabData) {
-        this.hasIcons = !!tabData.icon;
+        this.hasIcons = !!tabData.icon || !!tabData.iconset;
         this.hasLabel = !!tabData.label;
         this.activeTab = tabData.id;
         this.activeTabNumber = this.getTabIndex(this.activeTab);

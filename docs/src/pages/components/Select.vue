@@ -209,7 +209,7 @@
               </md-input-container>
             </div>
 
-            <md-button class="md-raised md-primary" @click.native="setPulpFiction">Set Pulp Fiction</md-button>
+            <md-button class="md-raised md-primary" @click="setPulpFiction">Set Pulp Fiction</md-button>
           </div>
 
           <div slot="code">
@@ -279,7 +279,7 @@
                 &lt;/md-input-container&gt;
               &lt;/div&gt;
 
-              &lt;md-button class=&quot;md-raised md-primary&quot; @click.native=&quot;setPulpFiction&quot;&gt;Set Pulp Fiction&lt;/md-button&gt;
+              &lt;md-button class=&quot;md-raised md-primary&quot; @click=&quot;setPulpFiction&quot;&gt;Set Pulp Fiction&lt;/md-button&gt;
             </code-block>
 
             <code-block lang="javascript">
@@ -322,7 +322,7 @@
             <div>Selected letters: {{ items }}</div>
             <br/>
             <br/>
-            
+
             <div class="field-group">
               <md-input-container>
                 <label for="users">Multiselect with subheaders</label>
@@ -347,7 +347,7 @@
                 </md-select>
               </md-input-container>
             </div>
-            
+
             <div>Selected users: {{ users }}</div>
 
           </div>
@@ -365,9 +365,9 @@
                 &lt;md-select&gt;
               &lt;/md-input-container&gt;
 
-              &lt;div&gt;Selected letters: {{ items }}&lt;/div&gt;              
-              
-              
+              &lt;div&gt;Selected letters: {{ items }}&lt;/div&gt;
+
+
               &lt;md-input-container&gt;
                 &lt;label for=&quot;users&quot;&gt;Users&lt;/label&gt;
                 &lt;md-select name=&quot;users&quot; id=&quot;users&quot; multiple v-model=&quot;users&quot;&gt;
