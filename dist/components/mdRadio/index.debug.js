@@ -364,7 +364,10 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('div', {
     staticClass: "md-radio-container",
     on: {
-      "click": _vm.toggleCheck
+      "click": function($event) {
+        $event.stopPropagation();
+        _vm.toggleCheck($event)
+      }
     }
   }, [_c('input', {
     attrs: {
@@ -375,9 +378,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     },
     domProps: {
       "value": _vm.value
-    },
-    on: {
-      "click": _vm.toggleCheck
     }
   }), _vm._v(" "), _c('md-ink-ripple', {
     attrs: {
@@ -387,6 +387,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "md-radio-label",
     attrs: {
       "for": _vm.id || _vm.name
+    },
+    on: {
+      "click": _vm.toggleCheck
     }
   }, [_vm._t("default")], 2) : _vm._e()])
 },staticRenderFns: []}

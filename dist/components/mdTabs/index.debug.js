@@ -498,6 +498,7 @@ exports.default = {
     id: [String, Number],
     mdLabel: [String, Number],
     mdIcon: String,
+    mdIconset: String,
     mdActive: Boolean,
     mdDisabled: Boolean,
     mdOptions: {
@@ -530,6 +531,9 @@ exports.default = {
       this.updateTabData();
     },
     mdIcon: function mdIcon() {
+      this.updateTabData();
+    },
+    mdIconset: function mdIconset() {
       this.updateTabData();
     },
 
@@ -566,6 +570,7 @@ exports.default = {
         id: this.tabId,
         label: this.mdLabel,
         icon: this.mdIcon,
+        iconset: this.mdIconset,
         options: this.mdOptions,
         active: this.mdActive,
         disabled: this.mdDisabled,
@@ -631,6 +636,12 @@ var _throttle2 = _interopRequireDefault(_throttle);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -919,7 +930,7 @@ exports.default = {
       this.hasNavigationScroll = scrollWidth > clientWidth;
     },
     setActiveTab: function setActiveTab(tabData) {
-      this.hasIcons = !!tabData.icon;
+      this.hasIcons = !!tabData.icon || !!tabData.iconset;
       this.hasLabel = !!tabData.label;
       this.activeTab = tabData.id;
       this.activeTabNumber = this.getTabIndex(this.activeTab);
@@ -1463,7 +1474,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }
     }), _vm._v(" "), _c('div', {
       staticClass: "md-tab-header-container"
-    }, [(header.icon) ? _c('md-icon', [_vm._v(_vm._s(header.icon))]) : _vm._e(), _vm._v(" "), (header.label) ? _c('span', [_vm._v(_vm._s(header.label))]) : _vm._e(), _vm._v(" "), (header.tooltip) ? _c('md-tooltip', {
+    }, [(header.icon) ? _c('md-icon', [_vm._v(_vm._s(header.icon))]) : (header.iconset) ? _c('md-icon', {
+      attrs: {
+        "md-iconset": header.iconset
+      }
+    }, [_vm._v(_vm._s(header.icon))]) : _vm._e(), _vm._v(" "), (header.label) ? _c('span', [_vm._v(_vm._s(header.label))]) : _vm._e(), _vm._v(" "), (header.tooltip) ? _c('md-tooltip', {
       attrs: {
         "md-direction": header.tooltipDirection,
         "md-delay": header.tooltipDelay

@@ -1052,17 +1052,15 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   })], 1)], 1), _vm._v(" "), _c('md-dialog-actions', [_c('md-button', {
     staticClass: "md-primary",
-    nativeOn: {
+    on: {
       "click": function($event) {
         _vm.close('cancel')
       }
     }
   }, [_vm._v(_vm._s(_vm.mdCancelText))]), _vm._v(" "), _c('md-button', {
     staticClass: "md-primary",
-    nativeOn: {
-      "click": function($event) {
-        _vm.confirmValue($event)
-      }
+    on: {
+      "click": _vm.confirmValue
     }
   }, [_vm._v(_vm._s(_vm.mdOkText))])], 1)], 1)
 },staticRenderFns: []}
@@ -1203,7 +1201,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }) : _c('md-dialog-content', [_vm._v(_vm._s(_vm.mdContent))]), _vm._v(" "), _c('md-dialog-actions', [_c('md-button', {
     staticClass: "md-primary",
-    nativeOn: {
+    on: {
       "click": function($event) {
         _vm.close()
       }
@@ -1256,14 +1254,14 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }) : _c('md-dialog-content', [_vm._v(_vm._s(_vm.mdContent))]), _vm._v(" "), _c('md-dialog-actions', [_c('md-button', {
     staticClass: "md-primary",
-    nativeOn: {
+    on: {
       "click": function($event) {
         _vm.close('cancel')
       }
     }
   }, [_vm._v(_vm._s(_vm.mdCancelText))]), _vm._v(" "), _c('md-button', {
     staticClass: "md-primary",
-    nativeOn: {
+    on: {
       "click": function($event) {
         _vm.close('ok')
       }

@@ -690,13 +690,14 @@ exports.default = {
         }));
       }));
     },
-    toggleExpandList: function toggleExpandList() {
+    toggleExpandList: function toggleExpandList($event) {
       if (!this.mdExpandMultiple) {
         this.resetSiblings();
       }
 
       this.calculatePadding();
       this.active = !this.active;
+      this.$emit('click', $event);
     },
     recalculateAfterChange: function recalculateAfterChange() {
       this.transitionOff = true;
@@ -1946,6 +1947,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "type": "button",
       "disabled": _vm.disabled
+    },
+    on: {
+      "click": function($event) {
+        _vm.$emit('click', $event)
+      }
     }
   })], 1)
 },staticRenderFns: []}
@@ -1976,10 +1982,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "type": "button",
       "disabled": _vm.disabled
     },
-    nativeOn: {
-      "click": function($event) {
-        _vm.toggleExpandList($event)
-      }
+    on: {
+      "click": _vm.toggleExpandList
     }
   }), _vm._v(" "), _c('div', {
     ref: "expand",
@@ -2078,6 +2082,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "href": _vm.href,
       "target": _vm.target,
       "disabled": _vm.disabled
+    },
+    on: {
+      "click": function($event) {
+        _vm.$emit('click', $event)
+      }
     }
   }, [_vm._t("default")], 2), _vm._v(" "), _c('md-ink-ripple', {
     attrs: {

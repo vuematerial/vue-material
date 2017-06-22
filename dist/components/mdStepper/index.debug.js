@@ -1530,7 +1530,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "step": step,
         "md-alternate-labels": _vm.mdAlternateLabels
       },
-      nativeOn: {
+      on: {
         "click": function($event) {
           _vm.setActiveStep(step)
         }
@@ -1614,7 +1614,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "step": _vm.getStepData()
     },
-    nativeOn: {
+    on: {
       "click": function($event) {
         _vm.setActiveStep()
       }
