@@ -1,4 +1,4 @@
-/*import { existsSync, mkdirSync } from 'fs'
+/* import { existsSync, mkdirSync } from 'fs'
 import entries from './entries'
 import build from './bundle'
 import { pack } from '../config'
@@ -7,10 +7,9 @@ if (!existsSync('dist')) {
   mkdirSync('dist')
 }
 
-build(entries)*/
+build(entries) */
 
 import webpack from 'webpack'
-import merge from 'webpack-merge'
 import ora from 'ora'
 import webpackConfig from './webpack'
 import { pack } from '../config'
@@ -22,8 +21,8 @@ const spinner = ora({
 
 spinner.start()
 
-function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+function getRandomInt (min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
 const entries = [
@@ -68,4 +67,3 @@ webpack(entries, (error, stats) => {
 
   spinner.stop()
 })
-
