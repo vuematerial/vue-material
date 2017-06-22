@@ -3,12 +3,18 @@ node_js:
   - "7"
 sudo: false
 dist: trusty
+env:
+  - NODE_ENV="CI"
+addons:
+  code_climate:
+    repo_token: 2bcf2bd351aa016cb70c405b0571f454f353d5150531fb92e6a111634c6e0feb
 install:
   - yarn add --dev babel-cli
   - yarn
-env:
-  - NODE_ENV="CI"
 script:
   - yarn lint
   - yarn coverage
   - yarn build
+after_success:
+  - yarn add --dev codeclimate-test-reporter
+  - codeclimate-test-reporter < lcov.info
