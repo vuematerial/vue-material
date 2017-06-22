@@ -14,6 +14,7 @@
       id: [String, Number],
       mdLabel: [String, Number],
       mdIcon: String,
+      mdIconset: String,
       mdActive: Boolean,
       mdDisabled: Boolean,
       mdOptions: {
@@ -45,6 +46,9 @@
         this.updateTabData();
       },
       mdIcon() {
+        this.updateTabData();
+      },
+      mdIconset() {
         this.updateTabData();
       },
       mdOptions: {
@@ -80,6 +84,7 @@
           id: this.tabId,
           label: this.mdLabel,
           icon: this.mdIcon,
+          iconset: this.mdIconset,
           options: this.mdOptions,
           active: this.mdActive,
           disabled: this.mdDisabled,

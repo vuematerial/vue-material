@@ -57,9 +57,5 @@
         color: #{'BACKGROUND-CONTRAST-0.38'};
       }
     }
-
-    .md-icon:not(.md-icon-delete):after {
-      background: #{'BACKGROUND-COLOR'};
-    }
   }
 }
