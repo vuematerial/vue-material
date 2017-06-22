@@ -3,6 +3,8 @@ node_js:
   - "7"
 dist: trusty
 install: yarn
+env:
+  - NODE_ENV="CI"
 script:
   - yarn lint
   - yarn coverage
