@@ -12,7 +12,7 @@ export default {
   },
   render(createElement, { children, data, props }) {
     const getItemComponent = () => {
-      const nativeOn = data.nativeOn;
+      const on = data.on;
       const interactionEvents = [
         'contextmenu',
         'dblclick',
@@ -25,16 +25,6 @@ export default {
 
       if (props.href) {
         return MdListItemLink;
-      }
-
-      if (nativeOn) {
-        let counter = interactionEvents.length;
-
-        while (counter--) {
-          if (nativeOn[interactionEvents[counter]]) {
-            return MdListItemButton;
-          }
-        }
       }
 
       while (childrenCount--) {
@@ -55,6 +45,16 @@ export default {
             children[childrenCount].data.staticClass = 'md-list-item-container md-button';
 
             return MdListItemRouter;
+          }
+        }
+      }
+
+      if (on) {
+        let counter = interactionEvents.length;
+
+        while (counter--) {
+          if (on[interactionEvents[counter]]) {
+            return MdListItemButton;
           }
         }
       }
