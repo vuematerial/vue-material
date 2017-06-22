@@ -3,7 +3,9 @@ node_js:
   - "7"
 sudo: false
 dist: trusty
-install: yarn
+install:
+  - yarn add --dev babel-cli
+  - yarn
 env:
   - NODE_ENV="CI"
 script:
