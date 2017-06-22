@@ -17,4 +17,4 @@ script:
   - yarn build
 after_success:
   - yarn add --dev codeclimate-test-reporter
-  - codeclimate-test-reporter < lcov.info
+  - codeclimate-test-reporter < ./coverage/lcov.info
