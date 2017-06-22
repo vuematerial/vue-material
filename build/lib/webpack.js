@@ -142,7 +142,7 @@ export default entry => {
             options: {
               loaders: {
                 css: 'vue-style-loader!css-loader',
-                scss: 'vue-style-loader!css-loader!sass-loader?outputStyle=compressed',
+                scss: 'vue-style-loader!css-loader!sass-loader?outputStyle=compressed'
               }
             }
           },

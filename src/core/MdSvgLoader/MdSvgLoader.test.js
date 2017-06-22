@@ -1,4 +1,3 @@
-import mountTemplate from 'test/utils/mountTemplate'
 import mockRequest from 'test/utils/mockRequest'
 import mockConsole from 'test/utils/mockConsole'
 import { mount } from 'avoriaz'
