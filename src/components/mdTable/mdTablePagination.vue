@@ -2,7 +2,7 @@
   <div class="md-table-pagination">
     <span class="md-table-pagination-label">{{ mdLabel }}:</span>
 
-    <md-select v-model="currentSize" md-menu-class="md-pagination-select" @change="changeSize" v-if="mdPageOptions">
+    <md-select v-model="currentSize" md-menu-class="md-pagination-select" @change="changeSize" v-if="mdPageOptions !== false">
       <md-option v-for="amount in mdPageOptions" :key="amount" :value="amount">{{ amount }}</md-option>
     </md-select>
 
@@ -26,7 +26,10 @@
         type: [Number, String],
         default: 10
       },
-      mdPageOptions: [Array, Boolean],
+      mdPageOptions: {
+        type: [Array, Boolean],
+        default: () => [10, 25, 50, 100]
+      },
       mdPage: {
         type: [Number, String],
         default: 1
@@ -110,8 +113,11 @@
     },
     mounted() {
       this.$nextTick(() => {
-        this.mdPageOptions = this.mdPageOptions || [10, 25, 50, 100];
-        this.currentSize = this.mdPageOptions.includes(this.currentSize) ? this.currentSize : this.mdPageOptions[0];
+        if (this.mdPageOptions) {
+          this.currentSize = this.mdPageOptions.includes(this.currentSize) ? this.currentSize : this.mdPageOptions[0];
+        } else {
+          this.currentSize = 0;
+        }
         this.canFireEvents = true;
       });
     }
