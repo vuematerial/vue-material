@@ -1,0 +1,9 @@
+language: node_js
+node_js:
+  - "7"
+dist: trusty
+install: yarn
+script:
+  - yarn lint
+  - yarn coverage
+  - yarn build
