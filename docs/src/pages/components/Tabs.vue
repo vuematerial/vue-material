@@ -440,6 +440,7 @@
     </docs-component>
   </page-content>
 </template>
+
 <style>
   .label-with-new-badge {
     font-weight: bolder;
