@@ -42,37 +42,30 @@
         if (!mdSVGStore.hasOwnProperty(this.mdSrc)) {
           mdSVGStore[this.mdSrc] = new Promise((resolve, reject) => {
             const request = new window.XMLHttpRequest()
-            const self = this
 
             request.open('GET', this.mdSrc, true)
 
-            request.onload = function () {
-              const mimetype = this.getResponseHeader('content-type')
+            request.onload = () => {
+              const mimetype = request.getResponseHeader('content-type')
 
-              if (this.status === 200) {
-                if (self.isSVG(mimetype)) {
-                  resolve(this.response)
-                  self.setHtml()
+              if (request.status === 200) {
+                if (this.isSVG(mimetype)) {
+                  resolve(request.response)
+                  this.setHtml()
                 } else {
-                  self.error = `The file ${self.mdSrc} is not a valid SVG.`
-                  reject(self.error)
+                  this.error = `The file ${this.mdSrc} is not a valid SVG.`
+                  reject(this.error)
                 }
-              } else if (this.status >= 400 && this.status < 500) {
-                self.error = `The file ${self.mdSrc} do not exists.`
-                reject(self.error)
+              } else if (request.status >= 400 && request.status < 500) {
+                this.error = `The file ${this.mdSrc} do not exists.`
+                reject(this.error)
               } else {
-                self.unexpectedError(reject)
+                this.unexpectedError(reject)
               }
             }
 
-            request.onerror = () => {
-              this.unexpectedError(reject)
-            }
-
-            request.onabort = () => {
-              this.unexpectedError(reject)
-            }
-
+            request.onerror = () => this.unexpectedError(reject)
+            request.onabort = () => this.unexpectedError(reject)
             request.send()
           })
         } else {
