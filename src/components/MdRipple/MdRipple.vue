@@ -138,8 +138,8 @@
         }
 
         return {
-          top: top - rect.top - elementSize / 2 - document.body.scrollTop + 'px',
-          left: left - rect.left - elementSize / 2 - document.body.scrollLeft + 'px'
+          top: top - rect.top - elementSize / 2 - document.documentElement.scrollTop + 'px',
+          left: left - rect.left - elementSize / 2 - document.documentElement.scrollLeft + 'px'
         }
       }
     }
