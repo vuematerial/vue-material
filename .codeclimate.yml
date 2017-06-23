@@ -14,6 +14,11 @@ engines:
     enabled: true
   scss-lint:
     enabled: true
+    checks:
+      StringQuotes:
+        enabled: false
+      ColorVariable:
+        enabled: false
   duplication:
     enabled: true
     config:
