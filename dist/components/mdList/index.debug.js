@@ -326,22 +326,12 @@ exports.default = {
         props = _ref.props;
 
     var getItemComponent = function getItemComponent() {
-      var nativeOn = data.nativeOn;
+      var on = data.on;
       var interactionEvents = ['contextmenu', 'dblclick', 'dragend', 'mousedown', 'touchstart', 'click'];
       var childrenCount = children.length;
 
       if (props.href) {
         return _mdListItemLink2.default;
-      }
-
-      if (nativeOn) {
-        var counter = interactionEvents.length;
-
-        while (counter--) {
-          if (nativeOn[interactionEvents[counter]]) {
-            return _mdListItemButton2.default;
-          }
-        }
       }
 
       while (childrenCount--) {
@@ -370,6 +360,16 @@ exports.default = {
             children[childrenCount].data.staticClass = 'md-list-item-container md-button';
 
             return _mdListItemRouter2.default;
+          }
+        }
+      }
+
+      if (on) {
+        var counter = interactionEvents.length;
+
+        while (counter--) {
+          if (on[interactionEvents[counter]]) {
+            return _mdListItemButton2.default;
           }
         }
       }

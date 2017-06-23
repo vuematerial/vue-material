@@ -257,7 +257,7 @@ exports.default = {
   mixins: [_mixin2.default],
   data: function data() {
     return {
-      checked: this.value
+      checked: this.value || false
     };
   },
 
@@ -402,7 +402,10 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "for": _vm.id || _vm.name
     },
     on: {
-      "click": _vm.toggleCheck
+      "click": function($event) {
+        $event.preventDefault();
+        _vm.toggleCheck($event)
+      }
     }
   }, [_vm._t("default")], 2) : _vm._e()])
 },staticRenderFns: []}
