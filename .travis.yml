@@ -4,6 +4,7 @@ node_js:
 sudo: false
 dist: trusty
 env:
+  - CODACY_PROJECT_TOKEN 2c41cbf105884e6fa05a596e8bf031e6
   - NODE_ENV="CI"
 addons:
   code_climate:
@@ -17,4 +18,6 @@ script:
   - yarn build
 after_success:
   - yarn add --dev codeclimate-test-reporter
+  - yarn add --dev codacy-coverage
   - codeclimate-test-reporter < ./coverage/lcov.info
+  - cat ./coverage/lcov.info | ./node_modules/.bin/codacy-coverage
