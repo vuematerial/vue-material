@@ -42,6 +42,10 @@
     props: {
       value: Array,
       disabled: Boolean,
+      debounce: {
+        type: Number,
+        default: 1E2
+      },
       mdInputId: String,
       mdInputName: String,
       mdInputPlaceholder: String,
