@@ -1,13 +1,31 @@
+ratings:
+  paths:
+    - build/**
+    - docs/**
+    - src/**
+    - test/**
+
 exclude_paths:
-  - build/*
   - coverage/*
   - dist/*
-  - docs/*
 
 engines:
   eslint:
     enabled: true
+  nodesecurity:
+    enabled: true
   scss-lint:
     enabled: true
-  markdownlint:
+  duplication:
     enabled: true
+    config:
+      languages:
+        javascript:
+          mass_threshold: 90
+        vue:
+          mass_threshold: 90
+  fixme:
+    enabled: true
+    exclude_paths:
+      - "build/"
+      - "docs/"
