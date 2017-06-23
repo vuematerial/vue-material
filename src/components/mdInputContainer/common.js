@@ -3,7 +3,7 @@ export default {
     value: [String, Number],
     debounce: {
       type: Number,
-      default: 3E2
+      default: 1E2
     },
     disabled: Boolean,
     required: Boolean,

@@ -23,6 +23,7 @@
       @keydown.native.prevent.enter="addChip"
       @keydown.native.prevent.186="addChip"
       tabindex="0"
+      :debounce="0"
       ref="input">
     </md-input>
 
@@ -41,6 +42,10 @@
     props: {
       value: Array,
       disabled: Boolean,
+      debounce: {
+        type: Number,
+        default: 1E2
+      },
       mdInputId: String,
       mdInputName: String,
       mdInputPlaceholder: String,
