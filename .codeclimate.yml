@@ -17,9 +17,7 @@ engines:
     config:
       languages:
         javascript:
-          mass_threshold: 90
-        vue:
-          mass_threshold: 90
+          mass_threshold: 70
   fixme:
     enabled: true
     exclude_paths:
