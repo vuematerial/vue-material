@@ -1,0 +1,13 @@
+ratings:
+   paths:
+   - "src/**/*"
+
+JavaScript: true
+
+engines:
+  eslint:
+    enabled: true
+  scss-lint:
+    enabled: true
+  markdownlint:
+    enabled: true
