@@ -1,13 +1,25 @@
 ## Git Commit Message Convention
 
-> This is adapted from [Angular's commit convention](https://github.com/conventional-changelog/conventional-changelog/blob/master/packages/conventional-changelog-angular/convention.md).
+> This is adapted from [Vue.js's commit convention](https://github.com/vuejs/vue/blob/dev/.github/COMMIT_CONVENTION.md).
 
 #### Examples
 
-Appears under "Features" header, pencil subheader:
+Appears under "Components" header, pencil subheader:
 
 ```
-feat(pencil): add 'graphiteWidth' option
+component(pencil): add 'graphiteWidth' option
+```
+
+Appears under "UI Elements" header, pencil subheader:
+
+```
+ui(pencil): add 'graphiteWidth' option
+```
+
+Appears under "Core" header, pencil subheader:
+
+```
+core(pencil): add 'graphiteWidth' option
 ```
 
 Appears under "Bug Fixes" header, graphite subheader, with a link to issue #28:

@@ -1,7 +1,7 @@
 {
   "name": "vue-material",
   "description": "Material Design for Vue.js",
-  "version": "2.0.0",
+  "version": "0.8.0",
   "license": "MIT",
   "author": {
     "name": "marcosmoura",
@@ -28,6 +28,7 @@
     "test": "cross-env NODE_ENV=test jest",
     "coverage": "yarn test -- --coverage",
     "postinstall": "babel-node build/git-hooks/install.js",
+    "changelog": "babel-node build/generate-changelog.js",
     "commit": "git-cz"
   },
   "engines": {
@@ -52,8 +53,10 @@
     "chalk": "^1.1.3",
     "clipboard": "^1.7.1",
     "commitizen": "^2.9.6",
+    "concat": "^1.0.3",
     "connect-history-api-fallback": "^1.3.0",
     "conventional-changelog": "^1.1.3",
+    "conventional-changelog-vue-material": "^0.0.1",
     "cross-env": "^5.0.1",
     "css-loader": "^0.28.4",
     "css-mqpacker": "^6.0.1",
