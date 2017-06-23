@@ -4,7 +4,7 @@ node_js:
 sudo: false
 dist: trusty
 env:
-  - CODACY_PROJECT_TOKEN 2c41cbf105884e6fa05a596e8bf031e6
+  - CODACY_PROJECT_TOKEN="2c41cbf105884e6fa05a596e8bf031e6"
   - NODE_ENV="CI"
 addons:
   code_climate:
