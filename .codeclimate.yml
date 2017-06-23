@@ -12,8 +12,6 @@ exclude_paths:
 engines:
   eslint:
     enabled: true
-  nodesecurity:
-    enabled: true
   scss-lint:
     enabled: true
   duplication:
