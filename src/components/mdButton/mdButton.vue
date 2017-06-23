@@ -209,8 +209,8 @@
       } else if (this.to) {
         tag = 'router-link'
         buttonAttrs.attrs = {
-          to: this.to,
-          ...this.$options.propsData
+          ...this.$options.propsData,
+          to: this.to
         }
       }
 
