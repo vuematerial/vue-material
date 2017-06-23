@@ -576,10 +576,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "tabindex": "-1"
     },
-    nativeOn: {
+    on: {
       "click": function($event) {
         !_vm.disabled && _vm.$emit('delete')
-      },
+      }
+    },
+    nativeOn: {
       "keyup": function($event) {
         if (!('button' in $event) && _vm._k($event.keyCode, "delete", [8, 46])) { return null; }
         !_vm.disabled && _vm.$emit('delete')
@@ -606,10 +608,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   return _c('md-input-container', {
     staticClass: "md-chips",
     class: [_vm.themeClass, _vm.classes],
-    nativeOn: {
-      "click": function($event) {
-        _vm.applyInputFocus($event)
-      }
+    on: {
+      "click": _vm.applyInputFocus
     }
   }, [_vm._l((_vm.selectedChips), (function(chip) {
     return _c('md-chip', {

@@ -1361,7 +1361,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "flex": "1"
     }
   }) : _vm._e(), _vm._v(" "), (_vm.mdControls) ? _c('md-button', {
-    nativeOn: {
+    on: {
       "click": function($event) {
         _vm.movePrevBoard()
       }
@@ -1398,7 +1398,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "flex": "1"
     }
   }), _vm._v(" "), (_vm.mdControls) ? _c('md-button', {
-    nativeOn: {
+    on: {
       "click": function($event) {
         _vm.moveNextBoard()
       }

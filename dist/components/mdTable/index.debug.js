@@ -922,7 +922,7 @@ exports.default = {
     initSort: function initSort() {
       if (this.hasMatchSort()) {
         this.sorted = true;
-        this.sortType = this.parentTable.sortType;
+        this.sortType = this.parentTable.sortType || 'asc';
       }
     }
   },
@@ -1182,7 +1182,7 @@ exports.default = {
     },
     handleSingleSelection: function handleSingleSelection(value) {
       this.parentTable.setRowSelection(value, this.mdItem);
-      this.parentTable.$children[0].checkbox = this.parentTable.numberOfSelected === this.parentTable.rowsCounter;
+      this.parentTable.$children[0].checkbox = this.parentTable.numberOfSelected === this.parentTable.numberOfRows;
     },
     handleMultipleSelection: function handleMultipleSelection(value) {
       var _this = this;
@@ -1929,20 +1929,16 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "disabled": _vm.currentPage === 1
     },
-    nativeOn: {
-      "click": function($event) {
-        _vm.previousPage($event)
-      }
+    on: {
+      "click": _vm.previousPage
     }
   }, [_c('md-icon', [_vm._v("keyboard_arrow_left")])], 1), _vm._v(" "), _c('md-button', {
     staticClass: "md-icon-button md-table-pagination-next",
     attrs: {
       "disabled": _vm.shouldDisable
     },
-    nativeOn: {
-      "click": function($event) {
-        _vm.nextPage($event)
-      }
+    on: {
+      "click": _vm.nextPage
     }
   }, [_c('md-icon', [_vm._v("keyboard_arrow_right")])], 1)], 1)
 },staticRenderFns: []}

@@ -4320,9 +4320,13 @@ exports.default = {
     }
   },
   methods: {
-    setActive: function setActive(active) {
+    setActive: function setActive(active, $event) {
       if (active) {
         this.$parent.setActive(this);
+      }
+
+      if ($event) {
+        this.$emit('click', $event);
       }
     }
   },
@@ -4597,18 +4601,20 @@ Object.defineProperty(exports, "__esModule", {
 //
 //
 //
+//
 
 exports.default = {
   name: 'md-card-expand',
+  data: function data() {
+    return {
+      trigger: null,
+      content: null
+    };
+  },
+
   methods: {
-    setContentMargin: function setContentMargin() {
-      this.content.style.marginTop = -this.content.offsetHeight + 'px';
-    },
     toggle: function toggle() {
       this.$refs.expand.classList.toggle('md-active');
-    },
-    onWindowResize: function onWindowResize() {
-      window.requestAnimationFrame(this.setContentMargin);
     }
   },
   mounted: function mounted() {
@@ -4619,17 +4625,13 @@ exports.default = {
       _this.content = _this.$el.querySelector('.md-card-content');
 
       if (_this.content) {
-        _this.setContentMargin();
-
         _this.trigger.addEventListener('click', _this.toggle);
-        window.addEventListener('resize', _this.onWindowResize);
       }
     }), 200);
   },
   destroyed: function destroyed() {
     if (this.content) {
       this.trigger.removeEventListener('click', this.toggle);
-      window.removeEventListener('resize', this.onWindowResize);
     }
   }
 };
@@ -4716,11 +4718,21 @@ exports.default = {
   },
   computed: {
     classes: function classes() {
-      var classes = {
-        'md-16-9': this.mdRatio === '16:9' || this.mdRatio === '16/9',
-        'md-4-3': this.mdRatio === '4:3' || this.mdRatio === '4/3',
-        'md-1-1': this.mdRatio === '1:1' || this.mdRatio === '1/1'
-      };
+      var classes = {};
+
+      if (this.mdRatio) {
+        var ratio = [];
+
+        if (this.mdRatio.indexOf(':') !== -1) {
+          ratio = this.mdRatio.split(':');
+        } else if (this.mdRatio.indexOf('/') !== -1) {
+          ratio = this.mdRatio.split('/');
+        }
+
+        if (ratio.length === 2) {
+          classes['md-' + ratio[0] + '-' + ratio[1]] = true;
+        }
+      }
 
       if (this.mdMedium || this.mdBig) {
         classes = {
@@ -6233,6 +6245,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
 
 exports.default = {
   name: 'md-input',
@@ -6830,13 +6843,14 @@ exports.default = {
         }));
       }));
     },
-    toggleExpandList: function toggleExpandList() {
+    toggleExpandList: function toggleExpandList($event) {
       if (!this.mdExpandMultiple) {
         this.resetSiblings();
       }
 
       this.calculatePadding();
       this.active = !this.active;
+      this.$emit('click', $event);
     },
     recalculateAfterChange: function recalculateAfterChange() {
       this.transitionOff = true;
@@ -7348,6 +7362,7 @@ exports.default = {
           this.parentContent.close();
         }
 
+        this.$emit('click', $event);
         this.$emit('selected', $event);
       }
     }
@@ -10215,7 +10230,7 @@ exports.default = {
     initSort: function initSort() {
       if (this.hasMatchSort()) {
         this.sorted = true;
-        this.sortType = this.parentTable.sortType;
+        this.sortType = this.parentTable.sortType || 'asc';
       }
     }
   },
@@ -10473,7 +10488,7 @@ exports.default = {
     },
     handleSingleSelection: function handleSingleSelection(value) {
       this.parentTable.setRowSelection(value, this.mdItem);
-      this.parentTable.$children[0].checkbox = this.parentTable.numberOfSelected === this.parentTable.rowsCounter;
+      this.parentTable.$children[0].checkbox = this.parentTable.numberOfSelected === this.parentTable.numberOfRows;
     },
     handleMultipleSelection: function handleMultipleSelection(value) {
       var _this = this;
@@ -10573,6 +10588,7 @@ exports.default = {
     id: [String, Number],
     mdLabel: [String, Number],
     mdIcon: String,
+    mdIconset: String,
     mdActive: Boolean,
     mdDisabled: Boolean,
     mdOptions: {
@@ -10605,6 +10621,9 @@ exports.default = {
       this.updateTabData();
     },
     mdIcon: function mdIcon() {
+      this.updateTabData();
+    },
+    mdIconset: function mdIconset() {
       this.updateTabData();
     },
 
@@ -10641,6 +10660,7 @@ exports.default = {
         id: this.tabId,
         label: this.mdLabel,
         icon: this.mdIcon,
+        iconset: this.mdIconset,
         options: this.mdOptions,
         active: this.mdActive,
         disabled: this.mdDisabled,
@@ -10705,6 +10725,12 @@ var _throttle2 = _interopRequireDefault(_throttle);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -10993,7 +11019,7 @@ exports.default = {
       this.hasNavigationScroll = scrollWidth > clientWidth;
     },
     setActiveTab: function setActiveTab(tabData) {
-      this.hasIcons = !!tabData.icon;
+      this.hasIcons = !!tabData.icon || !!tabData.iconset;
       this.hasLabel = !!tabData.label;
       this.activeTab = tabData.id;
       this.activeTabNumber = this.getTabIndex(this.activeTab);
@@ -12660,7 +12686,7 @@ module.exports = ".THEME_NAME.md-button-toggle .md-button:after {\n  width: 1px;
 /* 270 */
 /***/ (function(module, exports) {
 
-module.exports = ".THEME_NAME.md-card {\n  background-color: BACKGROUND-COLOR; }\n  .THEME_NAME.md-card.md-primary {\n    background-color: PRIMARY-COLOR;\n    color: PRIMARY-CONTRAST; }\n    .THEME_NAME.md-card.md-primary .md-card-header .md-icon-button:not(.md-primary):not(.md-warn):not(.md-accent) .md-icon,\n    .THEME_NAME.md-card.md-primary .md-card-actions .md-icon-button:not(.md-primary):not(.md-warn):not(.md-accent) .md-icon {\n      color: PRIMARY-CONTRAST-0.87; }\n    .THEME_NAME.md-card.md-primary .md-input-container.md-input-focused input,\n    .THEME_NAME.md-card.md-primary .md-input-container.md-input-focused textarea {\n      color: PRIMARY-CONTRAST;\n      text-shadow: 0 0 0 PRIMARY-CONTRAST; }\n    .THEME_NAME.md-card.md-primary .md-input-container.md-input-focused label,\n    .THEME_NAME.md-card.md-primary .md-input-container.md-input-focused .md-icon:not(.md-icon-delete) {\n      color: PRIMARY-CONTRAST; }\n    .THEME_NAME.md-card.md-primary .md-input-container:after {\n      background-color: PRIMARY-CONTRAST; }\n    .THEME_NAME.md-card.md-primary .md-input-container input,\n    .THEME_NAME.md-card.md-primary .md-input-container textarea {\n      color: PRIMARY-CONTRAST;\n      text-shadow: 0 0 0 PRIMARY-CONTRAST; }\n      .THEME_NAME.md-card.md-primary .md-input-container input::-webkit-input-placeholder,\n      .THEME_NAME.md-card.md-primary .md-input-container textarea::-webkit-input-placeholder {\n        color: PRIMARY-CONTRAST-0.54; }\n    .THEME_NAME.md-card.md-primary .md-input-container label,\n    .THEME_NAME.md-card.md-primary .md-input-container .md-icon:not(.md-icon-delete) {\n      color: PRIMARY-CONTRAST; }\n  .THEME_NAME.md-card.md-accent {\n    background-color: ACCENT-COLOR;\n    color: ACCENT-CONTRAST; }\n    .THEME_NAME.md-card.md-accent .md-card-header .md-icon-button:not(.md-primary):not(.md-warn):not(.md-accent) .md-icon,\n    .THEME_NAME.md-card.md-accent .md-card-actions .md-icon-button:not(.md-primary):not(.md-warn):not(.md-accent) .md-icon {\n      color: ACCENT-CONTRAST-0.87; }\n    .THEME_NAME.md-card.md-accent .md-input-container.md-input-focused input,\n    .THEME_NAME.md-card.md-accent .md-input-container.md-input-focused textarea {\n      color: ACCENT-CONTRAST;\n      text-shadow: 0 0 0 ACCENT-CONTRAST; }\n    .THEME_NAME.md-card.md-accent .md-input-container.md-input-focused label,\n    .THEME_NAME.md-card.md-accent .md-input-container.md-input-focused .md-icon:not(.md-icon-delete) {\n      color: ACCENT-CONTRAST; }\n    .THEME_NAME.md-card.md-accent .md-input-container:after {\n      background-color: ACCENT-CONTRAST; }\n    .THEME_NAME.md-card.md-accent .md-input-container input,\n    .THEME_NAME.md-card.md-accent .md-input-container textarea {\n      color: ACCENT-CONTRAST;\n      text-shadow: 0 0 0 ACCENT-CONTRAST; }\n      .THEME_NAME.md-card.md-accent .md-input-container input::-webkit-input-placeholder,\n      .THEME_NAME.md-card.md-accent .md-input-container textarea::-webkit-input-placeholder {\n        color: ACCENT-CONTRAST-0.54; }\n    .THEME_NAME.md-card.md-accent .md-input-container label,\n    .THEME_NAME.md-card.md-accent .md-input-container .md-icon:not(.md-icon-delete) {\n      color: ACCENT-CONTRAST; }\n  .THEME_NAME.md-card.md-warn {\n    background-color: WARN-COLOR;\n    color: WARN-CONTRAST; }\n    .THEME_NAME.md-card.md-warn .md-card-header .md-icon-button:not(.md-primary):not(.md-warn):not(.md-accent) .md-icon,\n    .THEME_NAME.md-card.md-warn .md-card-actions .md-icon-button:not(.md-primary):not(.md-warn):not(.md-accent) .md-icon {\n      color: WARN-CONTRAST-0.87; }\n    .THEME_NAME.md-card.md-warn .md-input-container.md-input-focused input,\n    .THEME_NAME.md-card.md-warn .md-input-container.md-input-focused textarea {\n      color: WARN-CONTRAST;\n      text-shadow: 0 0 0 WARN-CONTRAST; }\n    .THEME_NAME.md-card.md-warn .md-input-container.md-input-focused label,\n    .THEME_NAME.md-card.md-warn .md-input-container.md-input-focused .md-icon:not(.md-icon-delete) {\n      color: WARN-CONTRAST; }\n    .THEME_NAME.md-card.md-warn .md-input-container:after {\n      background-color: WARN-CONTRAST; }\n    .THEME_NAME.md-card.md-warn .md-input-container input,\n    .THEME_NAME.md-card.md-warn .md-input-container textarea {\n      color: WARN-CONTRAST;\n      text-shadow: 0 0 0 WARN-CONTRAST; }\n      .THEME_NAME.md-card.md-warn .md-input-container input::-webkit-input-placeholder,\n      .THEME_NAME.md-card.md-warn .md-input-container textarea::-webkit-input-placeholder {\n        color: WARN-CONTRAST-0.54; }\n    .THEME_NAME.md-card.md-warn .md-input-container label,\n    .THEME_NAME.md-card.md-warn .md-input-container .md-icon:not(.md-icon-delete) {\n      color: WARN-CONTRAST; }\n  .THEME_NAME.md-card .md-card-header .md-icon-button:not(.md-primary):not(.md-warn):not(.md-accent) .md-icon,\n  .THEME_NAME.md-card .md-card-actions .md-icon-button:not(.md-primary):not(.md-warn):not(.md-accent) .md-icon {\n    color: BACKGROUND-CONTRAST-0.54; }\n  .THEME_NAME.md-card > .md-card-area:after {\n    background-color: BACKGROUND-CONTRAST-0.12; }\n  .THEME_NAME.md-card .md-card-media-cover.md-text-scrim .md-backdrop {\n    background: linear-gradient(to bottom, BACKGROUND-CONTRAST-0.0 20%, BACKGROUND-CONTRAST-0.275 66%, BACKGROUND-CONTRAST-0.55 100%); }\n  .THEME_NAME.md-card .md-card-media-cover.md-solid .md-card-area {\n    background-color: BACKGROUND-CONTRAST-0.4; }\n  .THEME_NAME.md-card .md-card-expand .md-card-actions {\n    background-color: BACKGROUND-COLOR; }\n"
+module.exports = ".THEME_NAME.md-card {\n  background-color: BACKGROUND-COLOR; }\n  .THEME_NAME.md-card.md-primary {\n    background-color: PRIMARY-COLOR;\n    color: PRIMARY-CONTRAST; }\n    .THEME_NAME.md-card.md-primary .md-card-header .md-icon-button:not(.md-primary):not(.md-warn):not(.md-accent) .md-icon,\n    .THEME_NAME.md-card.md-primary .md-card-actions .md-icon-button:not(.md-primary):not(.md-warn):not(.md-accent) .md-icon {\n      color: PRIMARY-CONTRAST-0.87; }\n    .THEME_NAME.md-card.md-primary .md-input-container.md-input-focused input,\n    .THEME_NAME.md-card.md-primary .md-input-container.md-input-focused textarea {\n      color: PRIMARY-CONTRAST;\n      text-shadow: 0 0 0 PRIMARY-CONTRAST; }\n    .THEME_NAME.md-card.md-primary .md-input-container.md-input-focused label,\n    .THEME_NAME.md-card.md-primary .md-input-container.md-input-focused .md-icon:not(.md-icon-delete) {\n      color: PRIMARY-CONTRAST; }\n    .THEME_NAME.md-card.md-primary .md-input-container:after {\n      background-color: PRIMARY-CONTRAST; }\n    .THEME_NAME.md-card.md-primary .md-input-container input,\n    .THEME_NAME.md-card.md-primary .md-input-container textarea {\n      color: PRIMARY-CONTRAST;\n      text-shadow: 0 0 0 PRIMARY-CONTRAST; }\n      .THEME_NAME.md-card.md-primary .md-input-container input::-webkit-input-placeholder,\n      .THEME_NAME.md-card.md-primary .md-input-container textarea::-webkit-input-placeholder {\n        color: PRIMARY-CONTRAST-0.54; }\n    .THEME_NAME.md-card.md-primary .md-input-container label,\n    .THEME_NAME.md-card.md-primary .md-input-container .md-icon:not(.md-icon-delete) {\n      color: PRIMARY-CONTRAST; }\n  .THEME_NAME.md-card.md-accent {\n    background-color: ACCENT-COLOR;\n    color: ACCENT-CONTRAST; }\n    .THEME_NAME.md-card.md-accent .md-card-header .md-icon-button:not(.md-primary):not(.md-warn):not(.md-accent) .md-icon,\n    .THEME_NAME.md-card.md-accent .md-card-actions .md-icon-button:not(.md-primary):not(.md-warn):not(.md-accent) .md-icon {\n      color: ACCENT-CONTRAST-0.87; }\n    .THEME_NAME.md-card.md-accent .md-input-container.md-input-focused input,\n    .THEME_NAME.md-card.md-accent .md-input-container.md-input-focused textarea {\n      color: ACCENT-CONTRAST;\n      text-shadow: 0 0 0 ACCENT-CONTRAST; }\n    .THEME_NAME.md-card.md-accent .md-input-container.md-input-focused label,\n    .THEME_NAME.md-card.md-accent .md-input-container.md-input-focused .md-icon:not(.md-icon-delete) {\n      color: ACCENT-CONTRAST; }\n    .THEME_NAME.md-card.md-accent .md-input-container:after {\n      background-color: ACCENT-CONTRAST; }\n    .THEME_NAME.md-card.md-accent .md-input-container input,\n    .THEME_NAME.md-card.md-accent .md-input-container textarea {\n      color: ACCENT-CONTRAST;\n      text-shadow: 0 0 0 ACCENT-CONTRAST; }\n      .THEME_NAME.md-card.md-accent .md-input-container input::-webkit-input-placeholder,\n      .THEME_NAME.md-card.md-accent .md-input-container textarea::-webkit-input-placeholder {\n        color: ACCENT-CONTRAST-0.54; }\n    .THEME_NAME.md-card.md-accent .md-input-container label,\n    .THEME_NAME.md-card.md-accent .md-input-container .md-icon:not(.md-icon-delete) {\n      color: ACCENT-CONTRAST; }\n  .THEME_NAME.md-card.md-warn {\n    background-color: WARN-COLOR;\n    color: WARN-CONTRAST; }\n    .THEME_NAME.md-card.md-warn .md-card-header .md-icon-button:not(.md-primary):not(.md-warn):not(.md-accent) .md-icon,\n    .THEME_NAME.md-card.md-warn .md-card-actions .md-icon-button:not(.md-primary):not(.md-warn):not(.md-accent) .md-icon {\n      color: WARN-CONTRAST-0.87; }\n    .THEME_NAME.md-card.md-warn .md-input-container.md-input-focused input,\n    .THEME_NAME.md-card.md-warn .md-input-container.md-input-focused textarea {\n      color: WARN-CONTRAST;\n      text-shadow: 0 0 0 WARN-CONTRAST; }\n    .THEME_NAME.md-card.md-warn .md-input-container.md-input-focused label,\n    .THEME_NAME.md-card.md-warn .md-input-container.md-input-focused .md-icon:not(.md-icon-delete) {\n      color: WARN-CONTRAST; }\n    .THEME_NAME.md-card.md-warn .md-input-container:after {\n      background-color: WARN-CONTRAST; }\n    .THEME_NAME.md-card.md-warn .md-input-container input,\n    .THEME_NAME.md-card.md-warn .md-input-container textarea {\n      color: WARN-CONTRAST;\n      text-shadow: 0 0 0 WARN-CONTRAST; }\n      .THEME_NAME.md-card.md-warn .md-input-container input::-webkit-input-placeholder,\n      .THEME_NAME.md-card.md-warn .md-input-container textarea::-webkit-input-placeholder {\n        color: WARN-CONTRAST-0.54; }\n    .THEME_NAME.md-card.md-warn .md-input-container label,\n    .THEME_NAME.md-card.md-warn .md-input-container .md-icon:not(.md-icon-delete) {\n      color: WARN-CONTRAST; }\n  .THEME_NAME.md-card .md-card-header .md-icon-button:not(.md-primary):not(.md-warn):not(.md-accent) .md-icon,\n  .THEME_NAME.md-card .md-card-actions .md-icon-button:not(.md-primary):not(.md-warn):not(.md-accent) .md-icon {\n    color: BACKGROUND-CONTRAST-0.54; }\n  .THEME_NAME.md-card > .md-card-area:after {\n    background-color: BACKGROUND-CONTRAST-0.12; }\n  .THEME_NAME.md-card .md-card-media-cover.md-text-scrim .md-backdrop {\n    background: linear-gradient(to bottom, BACKGROUND-CONTRAST-0.0 20%, BACKGROUND-CONTRAST-0.275 66%, BACKGROUND-CONTRAST-0.55 100%); }\n  .THEME_NAME.md-card .md-card-media-cover.md-solid .md-card-area {\n    background-color: BACKGROUND-CONTRAST-0.4; }\n  .THEME_NAME.md-card .md-card-media-cover .md-card-header .md-icon-button:not(.md-primary):not(.md-warn):not(.md-accent) .md-icon,\n  .THEME_NAME.md-card .md-card-media-cover .md-card-actions .md-icon-button:not(.md-primary):not(.md-warn):not(.md-accent) .md-icon {\n    color: #fff; }\n  .THEME_NAME.md-card .md-card-expand .md-card-actions {\n    background-color: BACKGROUND-COLOR; }\n"
 
 /***/ }),
 /* 271 */
@@ -12702,7 +12728,7 @@ module.exports = ""
 /* 277 */
 /***/ (function(module, exports) {
 
-module.exports = ".THEME_NAME.md-input-container.md-input-invalid:after {\n  background-color: WARN-COLOR; }\n\n.THEME_NAME.md-input-container.md-input-invalid label,\n.THEME_NAME.md-input-container.md-input-invalid input,\n.THEME_NAME.md-input-container.md-input-invalid textarea,\n.THEME_NAME.md-input-container.md-input-invalid .md-error,\n.THEME_NAME.md-input-container.md-input-invalid .md-count,\n.THEME_NAME.md-input-container.md-input-invalid .md-icon:not(.md-icon-delete) {\n  color: WARN-COLOR; }\n\n.THEME_NAME.md-input-container.md-input-focused.md-input-inline label {\n  color: rgba(0, 0, 0, 0.54); }\n\n.THEME_NAME.md-input-container.md-input-focused.md-input-required label:after {\n  color: WARN-COLOR; }\n\n.THEME_NAME.md-input-container.md-input-focused:after {\n  height: 2px;\n  background-color: PRIMARY-COLOR; }\n\n.THEME_NAME.md-input-container.md-input-focused input,\n.THEME_NAME.md-input-container.md-input-focused textarea {\n  color: PRIMARY-COLOR;\n  text-shadow: 0 0 0 BACKGROUND-CONTRAST;\n  -webkit-text-fill-color: transparent; }\n\n.THEME_NAME.md-input-container.md-input-focused label,\n.THEME_NAME.md-input-container.md-input-focused .md-icon:not(.md-icon-delete) {\n  color: PRIMARY-COLOR; }\n\n.THEME_NAME.md-input-container.md-input-disabled label,\n.THEME_NAME.md-input-container.md-input-disabled input,\n.THEME_NAME.md-input-container.md-input-disabled textarea,\n.THEME_NAME.md-input-container.md-input-disabled .md-error,\n.THEME_NAME.md-input-container.md-input-disabled .md-count,\n.THEME_NAME.md-input-container.md-input-disabled .md-icon:not(.md-icon-delete),\n.THEME_NAME.md-input-container.md-input-disabled ::-webkit-input-placeholder {\n  color: BACKGROUND-CONTRAST-0.38; }\n\n.THEME_NAME.md-input-container .md-icon:not(.md-icon-delete):after {\n  background: BACKGROUND-COLOR; }\n"
+module.exports = ".THEME_NAME.md-input-container.md-input-invalid:after {\n  background-color: WARN-COLOR; }\n\n.THEME_NAME.md-input-container.md-input-invalid label,\n.THEME_NAME.md-input-container.md-input-invalid input,\n.THEME_NAME.md-input-container.md-input-invalid textarea,\n.THEME_NAME.md-input-container.md-input-invalid .md-error,\n.THEME_NAME.md-input-container.md-input-invalid .md-count,\n.THEME_NAME.md-input-container.md-input-invalid .md-icon:not(.md-icon-delete) {\n  color: WARN-COLOR; }\n\n.THEME_NAME.md-input-container.md-input-focused.md-input-inline label {\n  color: rgba(0, 0, 0, 0.54); }\n\n.THEME_NAME.md-input-container.md-input-focused.md-input-required label:after {\n  color: WARN-COLOR; }\n\n.THEME_NAME.md-input-container.md-input-focused:after {\n  height: 2px;\n  background-color: PRIMARY-COLOR; }\n\n.THEME_NAME.md-input-container.md-input-focused input,\n.THEME_NAME.md-input-container.md-input-focused textarea {\n  color: PRIMARY-COLOR;\n  text-shadow: 0 0 0 BACKGROUND-CONTRAST;\n  -webkit-text-fill-color: transparent; }\n\n.THEME_NAME.md-input-container.md-input-focused label,\n.THEME_NAME.md-input-container.md-input-focused .md-icon:not(.md-icon-delete) {\n  color: PRIMARY-COLOR; }\n\n.THEME_NAME.md-input-container.md-input-disabled label,\n.THEME_NAME.md-input-container.md-input-disabled input,\n.THEME_NAME.md-input-container.md-input-disabled textarea,\n.THEME_NAME.md-input-container.md-input-disabled .md-error,\n.THEME_NAME.md-input-container.md-input-disabled .md-count,\n.THEME_NAME.md-input-container.md-input-disabled .md-icon:not(.md-icon-delete),\n.THEME_NAME.md-input-container.md-input-disabled ::-webkit-input-placeholder {\n  color: BACKGROUND-CONTRAST-0.38; }\n"
 
 /***/ }),
 /* 278 */
@@ -16056,7 +16082,10 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('div', {
     staticClass: "md-radio-container",
     on: {
-      "click": _vm.toggleCheck
+      "click": function($event) {
+        $event.stopPropagation();
+        _vm.toggleCheck($event)
+      }
     }
   }, [_c('input', {
     attrs: {
@@ -16067,9 +16096,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     },
     domProps: {
       "value": _vm.value
-    },
-    on: {
-      "click": _vm.toggleCheck
     }
   }), _vm._v(" "), _c('md-ink-ripple', {
     attrs: {
@@ -16079,6 +16105,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "md-radio-label",
     attrs: {
       "for": _vm.id || _vm.name
+    },
+    on: {
+      "click": _vm.toggleCheck
     }
   }, [_vm._t("default")], 2) : _vm._e()])
 },staticRenderFns: []}
@@ -16125,20 +16154,16 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "disabled": _vm.currentPage === 1
     },
-    nativeOn: {
-      "click": function($event) {
-        _vm.previousPage($event)
-      }
+    on: {
+      "click": _vm.previousPage
     }
   }, [_c('md-icon', [_vm._v("keyboard_arrow_left")])], 1), _vm._v(" "), _c('md-button', {
     staticClass: "md-icon-button md-table-pagination-next",
     attrs: {
       "disabled": _vm.shouldDisable
     },
-    nativeOn: {
-      "click": function($event) {
-        _vm.nextPage($event)
-      }
+    on: {
+      "click": _vm.nextPage
     }
   }, [_c('md-icon', [_vm._v("keyboard_arrow_right")])], 1)], 1)
 },staticRenderFns: []}
@@ -16241,6 +16266,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "type": "button",
       "disabled": _vm.disabled
+    },
+    on: {
+      "click": function($event) {
+        _vm.$emit('click', $event)
+      }
     }
   })], 1)
 },staticRenderFns: []}
@@ -16339,10 +16369,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "target": _vm.target,
       "disabled": _vm.disabled
     },
-    nativeOn: {
-      "click": function($event) {
-        _vm.close($event)
-      }
+    on: {
+      "click": _vm.close
     }
   }, [_vm._t("default")], 2)
 },staticRenderFns: []}
@@ -16390,10 +16418,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "type": "button",
       "disabled": _vm.disabled
     },
-    nativeOn: {
-      "click": function($event) {
-        _vm.toggleExpandList($event)
-      }
+    on: {
+      "click": _vm.toggleExpandList
     }
   }), _vm._v(" "), _c('div', {
     ref: "expand",
@@ -16423,7 +16449,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "disabled": _vm.disabled
     },
     on: {
-      "click": _vm.setActive
+      "click": function($event) {
+        _vm.setActive(true, $event)
+      }
     }
   }, [(_vm.mdIcon || _vm.mdIconSrc || _vm.mdIconset) ? _c('md-icon', {
     attrs: {
@@ -16444,7 +16472,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "disabled": _vm.disabled
     },
     on: {
-      "click": _vm.setActive
+      "click": function($event) {
+        _vm.setActive(true, $event)
+      }
     }
   }, [(_vm.mdIcon || _vm.mdIconSrc || _vm.mdIconset) ? _c('md-icon', {
     attrs: {
@@ -16494,6 +16524,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "md-input",
     attrs: {
       "type": _vm.type,
+      "name": _vm.name,
       "disabled": _vm.disabled,
       "required": _vm.required,
       "placeholder": _vm.placeholder,
@@ -16615,9 +16646,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "keyup": function($event) {
           if (!('button' in $event) && _vm._k($event.keyCode, "enter", 13)) { return null; }
           _vm.hit(item)
-        }
-      },
-      nativeOn: {
+        },
         "click": function($event) {
           _vm.hit(item)
         }
@@ -16645,17 +16674,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "md-count"
   }, [_vm._v(_vm._s(_vm.inputLength) + " / " + _vm._s(_vm.counterLength))]) : _vm._e(), _vm._v(" "), (_vm.mdHasPassword) ? _c('md-button', {
     staticClass: "md-icon-button md-toggle-password",
-    nativeOn: {
-      "click": function($event) {
-        _vm.togglePasswordType($event)
-      }
+    on: {
+      "click": _vm.togglePasswordType
     }
   }, [_c('md-icon', [_vm._v(_vm._s(_vm.showPassword ? 'visibility_off' : 'visibility'))])], 1) : _vm._e(), _vm._v(" "), (_vm.mdClearable && _vm.hasValue) ? _c('md-button', {
     staticClass: "md-icon-button md-clear-input",
-    nativeOn: {
-      "click": function($event) {
-        _vm.clearInput($event)
-      }
+    on: {
+      "click": _vm.clearInput
     }
   }, [_c('md-icon', [_vm._v("clear")])], 1) : _vm._e()], 2)
 },staticRenderFns: []}
@@ -16727,17 +16752,15 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   })], 1)], 1), _vm._v(" "), _c('md-dialog-actions', [_c('md-button', {
     staticClass: "md-primary",
-    nativeOn: {
+    on: {
       "click": function($event) {
         _vm.close('cancel')
       }
     }
   }, [_vm._v(_vm._s(_vm.mdCancelText))]), _vm._v(" "), _c('md-button', {
     staticClass: "md-primary",
-    nativeOn: {
-      "click": function($event) {
-        _vm.confirmValue($event)
-      }
+    on: {
+      "click": _vm.confirmValue
     }
   }, [_vm._v(_vm._s(_vm.mdOkText))])], 1)], 1)
 },staticRenderFns: []}
@@ -16772,10 +16795,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "tabindex": "-1"
     },
-    nativeOn: {
+    on: {
       "click": function($event) {
         !_vm.disabled && _vm.$emit('delete')
-      },
+      }
+    },
+    nativeOn: {
       "keyup": function($event) {
         if (!('button' in $event) && _vm._k($event.keyCode, "delete", [8, 46])) { return null; }
         !_vm.disabled && _vm.$emit('delete')
@@ -16958,7 +16983,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }
     }), _vm._v(" "), _c('div', {
       staticClass: "md-tab-header-container"
-    }, [(header.icon) ? _c('md-icon', [_vm._v(_vm._s(header.icon))]) : _vm._e(), _vm._v(" "), (header.label) ? _c('span', [_vm._v(_vm._s(header.label))]) : _vm._e(), _vm._v(" "), (header.tooltip) ? _c('md-tooltip', {
+    }, [(header.icon) ? _c('md-icon', [_vm._v(_vm._s(header.icon))]) : (header.iconset) ? _c('md-icon', {
+      attrs: {
+        "md-iconset": header.iconset
+      }
+    }, [_vm._v(_vm._s(header.icon))]) : _vm._e(), _vm._v(" "), (header.label) ? _c('span', [_vm._v(_vm._s(header.label))]) : _vm._e(), _vm._v(" "), (header.tooltip) ? _c('md-tooltip', {
       attrs: {
         "md-direction": header.tooltipDirection,
         "md-delay": header.tooltipDelay
@@ -17029,7 +17058,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "step": step,
         "md-alternate-labels": _vm.mdAlternateLabels
       },
-      nativeOn: {
+      on: {
         "click": function($event) {
           _vm.setActiveStep(step)
         }
@@ -17112,6 +17141,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "href": _vm.href,
       "target": _vm.target,
       "disabled": _vm.disabled
+    },
+    on: {
+      "click": function($event) {
+        _vm.$emit('click', $event)
+      }
     }
   }, [_vm._t("default")], 2), _vm._v(" "), _c('md-ink-ripple', {
     attrs: {
@@ -17511,7 +17545,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "step": _vm.getStepData()
     },
-    nativeOn: {
+    on: {
       "click": function($event) {
         _vm.setActiveStep()
       }
@@ -17553,10 +17587,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   return _c('md-input-container', {
     staticClass: "md-chips",
     class: [_vm.themeClass, _vm.classes],
-    nativeOn: {
-      "click": function($event) {
-        _vm.applyInputFocus($event)
-      }
+    on: {
+      "click": _vm.applyInputFocus
     }
   }, [_vm._l((_vm.selectedChips), (function(chip) {
     return _c('md-chip', {
@@ -17643,7 +17675,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }) : _c('md-dialog-content', [_vm._v(_vm._s(_vm.mdContent))]), _vm._v(" "), _c('md-dialog-actions', [_c('md-button', {
     staticClass: "md-primary",
-    nativeOn: {
+    on: {
       "click": function($event) {
         _vm.close()
       }
@@ -17723,10 +17755,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "tabindex": "-1"
     },
-    nativeOn: {
-      "click": function($event) {
-        _vm.selectOption($event)
-      }
+    on: {
+      "click": _vm.selectOption
     }
   }, [(_vm.parentSelect.multiple) ? _c('md-checkbox', {
     staticClass: "md-primary",
@@ -18139,7 +18169,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "flex": "1"
     }
   }) : _vm._e(), _vm._v(" "), (_vm.mdControls) ? _c('md-button', {
-    nativeOn: {
+    on: {
       "click": function($event) {
         _vm.movePrevBoard()
       }
@@ -18176,7 +18206,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "flex": "1"
     }
   }), _vm._v(" "), (_vm.mdControls) ? _c('md-button', {
-    nativeOn: {
+    on: {
       "click": function($event) {
         _vm.moveNextBoard()
       }
@@ -18430,14 +18460,14 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }) : _c('md-dialog-content', [_vm._v(_vm._s(_vm.mdContent))]), _vm._v(" "), _c('md-dialog-actions', [_c('md-button', {
     staticClass: "md-primary",
-    nativeOn: {
+    on: {
       "click": function($event) {
         _vm.close('cancel')
       }
     }
   }, [_vm._v(_vm._s(_vm.mdCancelText))]), _vm._v(" "), _c('md-button', {
     staticClass: "md-primary",
-    nativeOn: {
+    on: {
       "click": function($event) {
         _vm.close('ok')
       }

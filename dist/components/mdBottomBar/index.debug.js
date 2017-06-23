@@ -342,9 +342,13 @@ exports.default = {
     }
   },
   methods: {
-    setActive: function setActive(active) {
+    setActive: function setActive(active, $event) {
       if (active) {
         this.$parent.setActive(this);
+      }
+
+      if ($event) {
+        this.$emit('click', $event);
       }
     }
   },
@@ -495,7 +499,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "disabled": _vm.disabled
     },
     on: {
-      "click": _vm.setActive
+      "click": function($event) {
+        _vm.setActive(true, $event)
+      }
     }
   }, [(_vm.mdIcon || _vm.mdIconSrc || _vm.mdIconset) ? _c('md-icon', {
     attrs: {
@@ -516,7 +522,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "disabled": _vm.disabled
     },
     on: {
-      "click": _vm.setActive
+      "click": function($event) {
+        _vm.setActive(true, $event)
+      }
     }
   }, [(_vm.mdIcon || _vm.mdIconSrc || _vm.mdIconset) ? _c('md-icon', {
     attrs: {

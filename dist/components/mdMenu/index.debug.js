@@ -651,6 +651,7 @@ exports.default = {
           this.parentContent.close();
         }
 
+        this.$emit('click', $event);
         this.$emit('selected', $event);
       }
     }
@@ -859,10 +860,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "target": _vm.target,
       "disabled": _vm.disabled
     },
-    nativeOn: {
-      "click": function($event) {
-        _vm.close($event)
-      }
+    on: {
+      "click": _vm.close
     }
   }, [_vm._t("default")], 2)
 },staticRenderFns: []}

@@ -1193,10 +1193,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "tabindex": "-1"
     },
-    nativeOn: {
-      "click": function($event) {
-        _vm.selectOption($event)
-      }
+    on: {
+      "click": _vm.selectOption
     }
   }, [(_vm.parentSelect.multiple) ? _c('md-checkbox', {
     staticClass: "md-primary",

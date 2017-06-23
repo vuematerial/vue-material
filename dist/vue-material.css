@@ -979,6 +979,8 @@ button:focus {
 .md-card .md-card-expand.md-active .md-card-content {
       margin-top: 0 !important;
       opacity: 1;
+      padding: 4px 16px 24px 16px;
+      height: auto;
 }
 .md-card .md-card-expand .md-card-actions {
       padding-top: 0;
@@ -990,13 +992,14 @@ button:focus {
       will-change: transform;
 }
 .md-card .md-card-expand .md-card-content {
-      padding-top: 4px;
+      height: 0;
+      padding: 0 16px;
       position: relative;
       z-index: 1;
       opacity: 0;
       transform: translate3D(0, 0, 0);
       transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-      will-change: margin;
+      will-change: margin, height;
 }
 /* Common */
 /* Responsive Breakpoints */
@@ -1008,7 +1011,12 @@ button:focus {
   display: -ms-inline-flexbox;
   display: inline-flex;
   position: relative;
-  cursor: pointer;
+}
+.md-checkbox:not(.md-disabled) {
+    cursor: pointer;
+}
+.md-checkbox:not(.md-disabled) .md-checkbox-label {
+      cursor: pointer;
 }
 .md-checkbox .md-checkbox-container {
     width: 20px;
@@ -1071,7 +1079,6 @@ button:focus {
     height: 20px;
     padding-left: 8px;
     line-height: 20px;
-    cursor: pointer;
 }
 .md-checkbox.md-checked .md-checkbox-container:after {
   opacity: 1;
@@ -4211,7 +4218,6 @@ img.md-icon {
     transition: height 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 .md-boards .md-boards-navigation {
-    position: absolute !important;
     bottom: 0;
     width: 100%;
     height: 48px;
@@ -4271,7 +4277,6 @@ img.md-icon {
 }
 .md-boards .md-boards-content {
     width: 100%;
-    height: 100% !important;
     position: relative;
     overflow: hidden;
 }
@@ -4374,7 +4379,12 @@ img.md-icon {
   display: -ms-inline-flexbox;
   display: inline-flex;
   position: relative;
-  cursor: pointer;
+}
+.md-radio:not(.md-disabled) {
+    cursor: pointer;
+}
+.md-radio:not(.md-disabled) .md-radio-label {
+      cursor: pointer;
 }
 .md-radio .md-radio-container {
     width: 20px;
@@ -4431,7 +4441,6 @@ img.md-icon {
     height: 20px;
     padding-left: 8px;
     line-height: 20px;
-    cursor: pointer;
 }
 .md-radio.md-checked .md-radio-container:after {
   opacity: 1;
@@ -4589,7 +4598,6 @@ img.md-icon {
 .md-sidenav.md-fixed .md-sidenav-content,
 .md-sidenav.md-fixed .md-sidenav-backdrop {
   position: fixed;
-  transform: initial;
 }
 .md-sidenav .md-sidenav-content {
   width: 304px;
@@ -5112,9 +5120,6 @@ to {
 }
 .md-stepper .md-steps-navigation .md-steps-navigation-container .md-step-header.md-alternate-labels.md-has-sub-message {
           padding: 24px;
-}
-.md-stepper .md-steps-navigation .md-steps-navigation-container .md-step-header.md-alternate-labels .md-step-icon {
-          padding: 0;
 }
 .md-stepper .md-steps-navigation .md-steps-navigation-container .md-step-header.md-alternate-labels .md-step-icons, .md-stepper .md-steps-navigation .md-steps-navigation-container .md-step-header.md-alternate-labels .md-step-titles {
           display: block;

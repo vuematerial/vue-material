@@ -278,6 +278,8 @@
 .md-card .md-card-expand.md-active .md-card-content {
       margin-top: 0 !important;
       opacity: 1;
+      padding: 4px 16px 24px 16px;
+      height: auto;
 }
 .md-card .md-card-expand .md-card-actions {
       padding-top: 0;
@@ -289,13 +291,14 @@
       will-change: transform;
 }
 .md-card .md-card-expand .md-card-content {
-      padding-top: 4px;
+      height: 0;
+      padding: 0 16px;
       position: relative;
       z-index: 1;
       opacity: 0;
       transform: translate3D(0, 0, 0);
       transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-      will-change: margin;
+      will-change: margin, height;
 }
 
 /*# sourceMappingURL=index.css.map*/

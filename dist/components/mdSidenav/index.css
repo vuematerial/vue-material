@@ -13,7 +13,6 @@
 .md-sidenav.md-fixed .md-sidenav-content,
 .md-sidenav.md-fixed .md-sidenav-backdrop {
   position: fixed;
-  transform: initial;
 }
 .md-sidenav .md-sidenav-content {
   width: 304px;

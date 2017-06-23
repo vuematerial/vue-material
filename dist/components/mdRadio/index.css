@@ -8,7 +8,12 @@
   display: -ms-inline-flexbox;
   display: inline-flex;
   position: relative;
-  cursor: pointer;
+}
+.md-radio:not(.md-disabled) {
+    cursor: pointer;
+}
+.md-radio:not(.md-disabled) .md-radio-label {
+      cursor: pointer;
 }
 .md-radio .md-radio-container {
     width: 20px;
@@ -65,7 +70,6 @@
     height: 20px;
     padding-left: 8px;
     line-height: 20px;
-    cursor: pointer;
 }
 .md-radio.md-checked .md-radio-container:after {
   opacity: 1;

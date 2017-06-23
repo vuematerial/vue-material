@@ -8,7 +8,12 @@
   display: -ms-inline-flexbox;
   display: inline-flex;
   position: relative;
-  cursor: pointer;
+}
+.md-checkbox:not(.md-disabled) {
+    cursor: pointer;
+}
+.md-checkbox:not(.md-disabled) .md-checkbox-label {
+      cursor: pointer;
 }
 .md-checkbox .md-checkbox-container {
     width: 20px;
@@ -71,7 +76,6 @@
     height: 20px;
     padding-left: 8px;
     line-height: 20px;
-    cursor: pointer;
 }
 .md-checkbox.md-checked .md-checkbox-container:after {
   opacity: 1;
