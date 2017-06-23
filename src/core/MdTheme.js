@@ -69,6 +69,21 @@ export default new Vue({
 
       return this.prefix + themeName
     },
+    setMicrosoftColors (primaryColor) {
+      if (msColor) {
+        msColor.setAttribute('content', primaryColor)
+      }
+    },
+    setThemeColors (primaryColor) {
+      if (themeColor) {
+        themeColor.setAttribute('content', primaryColor)
+      }
+    },
+    setMaskColors (primaryColor) {
+      if (maskIcon) {
+        maskIcon.setAttribute('color', primaryColor)
+      }
+    },
     setHtmlMetaColors (themeName) {
       let primaryColor = '#fff'
 
@@ -79,17 +94,9 @@ export default new Vue({
       }
 
       if (primaryColor) {
-        if (msColor) {
-          msColor.setAttribute('content', primaryColor)
-        }
-
-        if (themeColor) {
-          themeColor.setAttribute('content', primaryColor)
-        }
-
-        if (maskIcon) {
-          maskIcon.setAttribute('color', primaryColor)
-        }
+        this.setMicrosoftColors(primaryColor)
+        this.setThemeColors(primaryColor)
+        this.setMaskColors(primaryColor)
       }
     }
   },
