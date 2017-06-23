@@ -529,7 +529,7 @@
               </md-menu-content>
             </md-menu>
 
-            <md-button class="md-raised md-primary" @click="$refs.menu.open">Open contact card</md-button>
+            <md-button class="md-raised md-primary" @click="$refs.menu.open()">Open contact card</md-button>
           </div>
 
           <div slot="code">
