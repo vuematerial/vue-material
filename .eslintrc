@@ -13,6 +13,21 @@
   },
   "rules": {
     "arrow-parens": 0,
-    "generator-star-spacing": 0
+    "generator-star-spacing": 0,
+    "max-depth": [
+      "error",
+      4
+    ],
+    "max-params": ["error", 4],
+    "max-nested-callbacks": [
+      "error",
+      3
+    ],
+    "complexity": [
+      "error",
+      {
+        "max": 4
+      }
+    ]
   }
 }
