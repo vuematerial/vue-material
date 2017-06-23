@@ -23,5 +23,4 @@ engines:
   fixme:
     enabled: true
     exclude_paths:
-      - "build/"
-      - "docs/"
+      - ".github/"
