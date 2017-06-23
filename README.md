@@ -7,24 +7,20 @@
 <p align="center">Material Design for Vue.js</p>
 
 <p align="center">
+  <a href="https://travis-ci.org/vuematerial/vue-material-experiments">
+    <img src="https://travis-ci.org/vuematerial/vue-material-experiments.svg?branch=master" alt="Build Status">
+  </a>
+
+  <a href="https://codeclimate.com/github/codeclimate/codeclimate/coverage">
+    <img src="https://codeclimate.com/github/codeclimate/codeclimate/badges/coverage.svg">
+  </a>
+
   <a href="https://www.npmjs.com/package/vue-material">
     <img src="https://img.shields.io/npm/dt/vue-material.svg" alt="Downloads">
   </a>
 
   <a href="https://www.npmjs.com/package/vue-material">
-    <img src="https://img.shields.io/npm/v/vue-material.svg" alt="Version">
-  </a>
-
-  <a href="https://cdnjs.com/libraries/vue-material">
-    <img src="https://img.shields.io/cdnjs/v/vue-material.svg" alt="Version">
-  </a>
-
-  <a href="https://www.npmjs.com/package/vue-material">
     <img src="https://img.shields.io/npm/l/vue-material.svg" alt="License">
-  </a>
-
-  <a href="https://gitter.im/vuematerial">
-    <img src="https://img.shields.io/gitter/room/vuematerial/home.svg" alt="Gitter Chat">
   </a>
 </p>
 
