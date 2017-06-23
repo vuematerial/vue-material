@@ -1,8 +1,8 @@
-ratings:
-   paths:
-   - "src/**/*"
-
-JavaScript: true
+exclude_paths:
+  - build/*
+  - coverage/*
+  - dist/*
+  - docs/*
 
 engines:
   eslint:
