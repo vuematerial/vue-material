@@ -22,5 +22,8 @@
         "transform-runtime"
       ]
     }
-  }
+  },
+  "ignore": [
+    "dist/*.js"
+  ]
 }
