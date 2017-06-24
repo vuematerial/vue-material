@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 files_to_lint=$(git diff --staged --cached --name-only --diff-filter=ACM | grep '\.vue|.js$')
 
