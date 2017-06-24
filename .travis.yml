@@ -1,11 +1,12 @@
 language: node_js
 node_js:
-  - "7"
+  - '7'
 sudo: false
 dist: trusty
 env:
-  - CODACY_PROJECT_TOKEN="2c41cbf105884e6fa05a596e8bf031e6"
+  global:
   - NODE_ENV="CI"
+  - secure: n8S9oRQc7C9vq6UsQKFS3dclz83GohtPH5iF0xUkOurhgIrZ8NwFtxYNoi5BDHuxCo/HdVd1vN8hKBcyPdsuVZstvA39O8xbtdDs+pgDAPDmoVLCkEK10yva+aYvf8fdleJi40mcoucgtWCBYkOwMZlbBqwNZ7pf9CT3QMzjvbnC7skP1A5Ju0PXm43eFgZ8OEBWEd0qHl8cFIwOljWcYcwErdcq9Xo0VNwbp8cELTAM+GkNbGLtSJmArG3dkGxb1MINb+FkjjW94j2oF3U1QjbdTvQ2f/gbrrg0i9el+T1mLdukGoaZRpG3LzBTYs9e37MyIqgIm3kwCwjYTJP4Uqv9cI6egSnBDsuQ314LEyKkQeYFIXzeKEoNJ8PnROY20TjFmoAvNoA09hbgdrfcCALn5Tpp6PjayD0pb7+HWSfY0tEqJsLWzArRsKRXSozYud8sDMyySyQTAtAG4AxsDR5+wFz1T7faZP61JJulHJYZY5UbmjDPe8FHUq8SNrxwOFYa59jb1yCyGftTgWfLCNrYL9JOw0jMPTVuCeo94l0yCF5N8Mo18iYnnZd/6btWR0OO7Q3CgPJQGUMxLx6UhfYiIlhDq4OKsAEUD/+ZQDfWueM0lmHyn3tsRi9bVwNvf5HlFYkgc5x4UbkGUsCQUjM8ceoKlnfhup72fyWesQI=
 addons:
   code_climate:
     repo_token: 2bcf2bd351aa016cb70c405b0571f454f353d5150531fb92e6a111634c6e0feb
@@ -20,4 +21,18 @@ after_success:
   - yarn add --dev codeclimate-test-reporter
   - yarn add --dev codacy-coverage
   - codeclimate-test-reporter < ./coverage/lcov.info
-  - cat ./coverage/lcov.info | ./node_modules/.bin/codacy-coverage
+  - yarn changelog
+  - RELEASE_NOTES=`cat RELEASE_NOTES.md`
+  - PACKAGE_VERSION=$(grep '"version":' package.json | cut -d\" -f4)
+  - yarn github-release -- delete \
+      --owner=vuematerial \
+      --repo=vue-material-experiments \
+      --tag="v${PACKAGE_VERSION}" \
+      --name="v${PACKAGE_VERSION}"
+  - yarn github-release -- upload \
+      --owner=vuematerial \
+      --repo=vue-material-experiments \
+      --tag="${PACKAGE_VERSION}" \
+      --name="v${PACKAGE_VERSION}" \
+      --body="v${RELEASE_NOTES}"
+  - rm -rf RELEASE_NOTES.md CHANGELOG.md

@@ -90,7 +90,9 @@ export default entry => {
     webpackConfig = merge({
       plugins: [
         new ExtractTextPlugin('[name].min.css'),
-        new OptimizeCssAssetsPlugin()
+        new OptimizeCssAssetsPlugin({
+          canPrint: false
+        })
       ],
       module: {
         rules: [
