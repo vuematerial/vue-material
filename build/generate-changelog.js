@@ -18,7 +18,7 @@ const spinner = ora({
 spinner.start()
 
 config.then(data => {
-  cc({
+  const changelogConfig = {
     config: data,
     pkg: {
       transform (pkg) {
@@ -26,11 +26,11 @@ config.then(data => {
         return pkg
       }
     }
-  })
-  .pipe(releaseNotes)
-  .on('close', () => {
+  }
+
+  cc(changelogConfig).pipe(releaseNotes).on('close', () => {
     concat([releaseNotesFile, changelogFile], changelogFile)
 
-    spinner.succeed(green(`Changelog released!`))
+    spinner.succeed(green('Changelog released!'))
   })
 })
