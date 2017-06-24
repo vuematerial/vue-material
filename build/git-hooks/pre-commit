@@ -2,6 +2,8 @@
 
 files_to_lint=$(git diff --cached --name-only --diff-filter=ACM | grep '\.vue|.js$')
 
+echo $files_to_lint
+
 if [ -n "$files_to_lint" ]; then
   NODE_ENV=production node ./node_modules/eslint/bin/eslint --quiet $files_to_lint
 fi
