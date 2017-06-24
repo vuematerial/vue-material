@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-files_to_lint=$(git diff --cached --name-only --diff-filter=ACM | grep '\.vue|.js$')
+files_to_lint=$(git diff --staged --cached --name-only --diff-filter=ACM | grep '\.vue|.js$')
 
 echo $files_to_lint
 

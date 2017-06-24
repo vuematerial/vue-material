@@ -29,8 +29,8 @@ config.then(data => {
   }
 
   cc(changelogConfig).pipe(releaseNotes).on('close', () => {
-    concat([releaseNotesFile, changelogFile], changelogFile)
+    concat([releaseNotesFile, changelogFile], changelogFile
 
-    spinner.succeed(green('Changelog released!'))
+  spinner.succeed(green('Changelog released!'))
   })
 })
