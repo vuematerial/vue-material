@@ -275,6 +275,9 @@
         this.$refs.tabsContainer.scrollLeft = Math.min(scrollWidth, scrollLeft + clientWidth);
       }
     },
+    activated() {
+      this.calculateOnResize();
+    },
     mounted() {
       this.$nextTick(() => {
         this.observeElementChanges();
