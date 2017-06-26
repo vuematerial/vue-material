@@ -39,6 +39,21 @@
   </splash-container>
 </template>
 
+<script>
+  import HomeIconSquare from './HomeIconSquare'
+  import HomeIconCircle from './HomeIconCircle'
+  import HomeIconDevices from './HomeIconDevices'
+
+  export default {
+    name: 'Home',
+    components: {
+      HomeIconSquare,
+      HomeIconCircle,
+      HomeIconDevices
+    }
+  }
+</script>
+
 <style lang="scss" scoped>
   @import "~vue-material/components/MdAnimation/variables";
   @import "~vue-material/components/MdLayout/mixins";
@@ -127,18 +142,3 @@
     }
   }
 </style>
-
-<script>
-  import HomeIconSquare from './HomeIconSquare'
-  import HomeIconCircle from './HomeIconCircle'
-  import HomeIconDevices from './HomeIconDevices'
-
-  export default {
-    name: 'Home',
-    components: {
-      HomeIconSquare,
-      HomeIconCircle,
-      HomeIconDevices
-    }
-  }
-</script>
