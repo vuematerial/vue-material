@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://vuematerial.github.io/" target="_blank">
+  <a href="https://vuematerial.io/" target="_blank">
     <img width="150" src="https://raw.githubusercontent.com/vuematerial/vue-material-experiments/master/docs/assets/logo-color.png">
   </a>
 </p>
@@ -24,23 +24,14 @@
   </a>
 </p>
 
-Vue Material is lightweight framework built exactly according to the <a href="http://material.google.com" target="_blank">Material Design</a> specs.
+Vue Material is Simple, lightweight and built exactly according to the Google <a href="http://material.google.com" target="_blank">Material Design</a> specs
 
-It aims to deliver a collection of reusable components and a series of UI Elements to build applications with support to all modern Web Browsers through Vue 2.
-
-Build powerful and well-designed web apps that can fit on every screen. You can generate and use themes dynamically, use components on demand, take advantage of UI Elements and Components with an ease-to-use API.
+Build well-designed apps that can fit on every screen with support to all modern Web Browsers with dynamic themes, components on demand and all with an ease-to-use API
 
 ## Demo and Documentation
-<a href="https://vuematerial.github.io/" target="_blank">Demo</a>
+<a href="https://vuematerial.io/" target="_blank">Demo</a>
 
-## Installation
-
-Import Roboto and Material Icons from Google CDN:
-
-``` html
-<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
-<link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
-```
+## Installation and Usage
 
 Install Vue Material through npm or yarn
 ``` bash
@@ -55,44 +46,42 @@ import Vue from 'vue'
 import VueMaterial from 'vue-material'
 import 'vue-material/dist/vue-material.css'
 
-// OR
-
-var Vue = require('vue')
-var VueMaterial = require('vue-material')
-require('vue-material/dist/vue-material.css')
+Vue.use(VueMaterial)
 ```
 
-Alternativelly you can <a href="https://github.com/marcosmoura/vue-material/archive/master.zip" target="_blank" rel="noopener">download</a> and reference the script and the stylesheet in your HTML:
+Or use individual components:
+``` javascript
+import { MdButton, MdIcon, MdSidenav, MdToolbar } from 'vue-material'
+import 'vue-material/dist/vue-material.css'
+
+Vue.use(MdButton)
+Vue.use(MdIcon)
+Vue.use(MdSidenav)
+Vue.use(MdToolbar)
+```
+
+Alternativelly you can <a href="https://github.com/vuematerial/vue-material/archive/master.zip" target="_blank" rel="noopener">download</a> and reference the script and the stylesheet in your HTML:
 
 ``` html
 <link rel="stylesheet" href="path/to/vue-material.css">
 <script src="path/to/vue-material.js"></script>
 ```
 
-## Usage
+Optionally import Roboto font from Google CDN:
 
-Enable Vue Material in your application using ```Vue.use()```. You can always enable individual components:
-``` javascript
-Vue.use(VueMaterial)
-
-// OR
-
-Vue.use(VueMaterial.MdCore) //Required to boot vue material
-Vue.use(VueMaterial.MdButton)
-Vue.use(VueMaterial.MdIcon)
-Vue.use(VueMaterial.MdSidenav)
-Vue.use(VueMaterial.MdToolbar)
+``` html
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
 ```
 
 ## Changelog
-<a href="https://vuematerial.github.io/#/changelog" target="_blank">Changelog</a>
+<a href="https://vuematerial.io/#/changelog" target="_blank">Changelog</a>
 
 ## Questions
-The issue list is exclusively for reports, bugs and feature requests. Use the [Gitter Channel]( https://gitter.im/vuematerial) instead.
+The issue list is exclusively for bugs and feature requests. Use the [Slack Channel](https://vue-material.slack.com) instead.
 
 ## Contributing
 
-Please make sure to read the [Contributing Guide](https://github.com/marcosmoura/vue-material/blob/master/.github/CONTRIBUTING.md) before making a pull request.
+Please make sure to read the [Contributing Guide](https://github.com/vuematerial/vue-material/blob/master/.github/CONTRIBUTING.md) before making a pull request.
 
 ## Browser Support
 Vue Material supports the latest version of all Browsers. This means:
@@ -102,7 +91,6 @@ Vue Material supports the latest version of all Browsers. This means:
 * Opera
 * Edge
 * IE 11
-
 <small>May work in other browsers but it's untested.</small>
 
 ## Credits and Thanks
