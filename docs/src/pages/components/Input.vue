@@ -114,6 +114,29 @@
               </md-table-row>
             </md-table-body>
           </md-table>
+
+          <md-table slot="events">
+            <md-table-header>
+              <md-table-row>
+                <md-table-head>Name</md-table-head>
+                <md-table-head>Value</md-table-head>
+                <md-table-head>Description</md-table-head>
+              </md-table-row>
+            </md-table-header>
+
+            <md-table-body>
+              <md-table-row>
+                <md-table-cell>focus</md-table-cell>
+                <md-table-cell>Emits the <code>Event</code> object</md-table-cell>
+                <md-table-cell>Triggered when the user focuses the input</md-table-cell>
+              </md-table-row>
+              <md-table-row>
+                <md-table-cell>blur</md-table-cell>
+                <md-table-cell>Emits the <code>Event</code> object</md-table-cell>
+                <md-table-cell>Triggered when the user loses focus of the input</md-table-cell>
+              </md-table-row>
+            </md-table-body>
+          </md-table>
         </api-table>
 
         <api-table name="md-autocomplete">
