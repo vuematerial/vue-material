@@ -57,6 +57,16 @@
   .container {
     padding-top: 64px;
     font-family: "Roboto Mono", monospace;
+    transition: $md-transition-default;
+    transition-property: padding-top;
+
+    @include md-layout-small {
+      padding-top: 48px;
+    }
+
+    @include md-layout-xsmall {
+      padding-top: 56px;
+    }
 
     &:not(.splash) {
       padding-left: $sizebar-width;
@@ -126,9 +136,16 @@
     top: 90px;
     bottom: 0;
     left: 0;
+    transition: $md-transition-default;
+    transition-property: top;
     font-size: 14px;
 
+    @include md-layout-small {
+      top: 74px;
+    }
+
     @include md-layout-xsmall {
+      top: 82px;
       padding: 16px;
       position: static;
     }
