@@ -18,6 +18,8 @@ test('should render tag <button> with type "button"', async () => {
   const template = '<md-button>Button</md-button>'
   const wrapper = await mountTemplate(MdButton, template)
 
+  wrapper.trigger('click')
+
   expect(wrapper.hasClass('md-button')).toBe(true)
   expect(wrapper.is('button')).toBe(true)
   expect(wrapper.hasAttribute('type', 'button')).toBe(true)
