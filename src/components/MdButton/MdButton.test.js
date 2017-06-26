@@ -4,6 +4,16 @@ import { use } from 'avoriaz'
 import MdButton from './MdButton.vue'
 import MdRipple from 'components/MdRipple/MdRipple.vue'
 
+test('should render the theme class', async () => {
+  const template = '<md-button md-theme="alt">Button</md-button>'
+  const wrapper = await mountTemplate(MdButton, template)
+
+  expect(wrapper.hasClass('md-button')).toBe(true)
+  expect(wrapper.hasClass('md-theme-alt')).toBe(true)
+  expect(wrapper.is('button')).toBe(true)
+  expect(wrapper.hasAttribute('type', 'button')).toBe(true)
+})
+
 test('should render tag <button> with type "button"', async () => {
   const template = '<md-button>Button</md-button>'
   const wrapper = await mountTemplate(MdButton, template)
