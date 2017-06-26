@@ -1,7 +1,6 @@
-import Vue from 'vue'
 import VueRouter from 'vue-router'
 import mountTemplate from 'test/utils/mountTemplate'
-import { mount, use } from 'avoriaz'
+import { use } from 'avoriaz'
 import MdButton from './MdButton.vue'
 import MdRipple from 'components/MdRipple/MdRipple.vue'
 
