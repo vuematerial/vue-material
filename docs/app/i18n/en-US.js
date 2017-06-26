@@ -31,6 +31,9 @@ export default {
     icon: {
       title: 'Icon'
     },
+    toolbar: {
+      title: 'Toolbar'
+    },
     layout: {
       title: 'Layout'
     },
