@@ -5,7 +5,7 @@
       <md-button class="md-fab">
         <md-icon>menu</md-icon>
       </md-button>
-      <md-button class="md-fab md-accent">
+      <md-button class="md-fab md-primary">
         <md-icon>add</md-icon>
       </md-button>
       <md-button class="md-fab md-plain">
@@ -18,7 +18,7 @@
       <md-button class="md-fab md-mini">
         <md-icon>menu</md-icon>
       </md-button>
-      <md-button class="md-fab md-mini md-accent">
+      <md-button class="md-fab md-mini md-primary">
         <md-icon>add</md-icon>
       </md-button>
       <md-button class="md-fab md-mini md-plain">

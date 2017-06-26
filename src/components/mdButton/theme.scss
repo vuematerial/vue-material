@@ -55,14 +55,14 @@
       }
 
       &:not([disabled]) {
-        @include md-theme-property(color, text-primary, primary);
-        @include md-theme-property(background-color, primary);
-        @include md-icon-on-buttons(text-primary, primary);
+        @include md-theme-property(color, text-primary, accent);
+        @include md-theme-property(background-color, accent);
+        @include md-icon-on-buttons(text-primary, accent);
 
-        &.md-accent {
-          @include md-theme-property(color, text-primary, accent);
-          @include md-theme-property(background-color, accent);
-          @include md-icon-on-buttons(text-primary, accent);
+        &.md-primary {
+          @include md-theme-property(color, text-primary, primary);
+          @include md-theme-property(background-color, primary);
+          @include md-icon-on-buttons(text-primary, primary);
         }
       }
     }

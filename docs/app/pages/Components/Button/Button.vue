@@ -40,7 +40,7 @@
 
     <div class="page-container-section">
       <h2>Floating Action Buttons</h2>
-      <p>A floating action button represents the primary action in an application and is used for a promoted action. FAB buttons can have it regular size or mini. This type of buttons can only have icons, so it should be used along with <code>&lt;md-icon&gt;</code>.</p>
+      <p>A floating action button represents the primary action in an application and is used for a promoted action. FAB buttons can have it regular size or mini, with an accent color by default. This type of buttons can only have icons, so it should be used along with <code>&lt;md-icon&gt;</code>.</p>
 
       <code-example title="FAB" :component="examples['floating-buttons']" />
 
