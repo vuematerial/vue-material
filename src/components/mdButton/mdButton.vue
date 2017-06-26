@@ -1,3 +1,70 @@
+<script>
+  import MdComponent from 'core/MdComponent'
+  import ripple from 'core/mixins/ripple'
+  import MdButtonContent from './MdButtonContent'
+
+  export default new MdComponent({
+    name: 'MdButton',
+    components: {
+      MdButtonContent
+    },
+    mixins: [ripple],
+    props: {
+      href: String,
+      type: {
+        type: String,
+        default: 'button'
+      },
+      disabled: Boolean,
+      mdRipple: {
+        type: Boolean,
+        default: true
+      },
+      to: [String, Object]
+    },
+    render (createElement) {
+      const buttonContent = createElement('md-button-content', {
+        attrs: {
+          mdRipple: this.mdRipple,
+          disabled: this.disabled
+        }
+      }, this.$slots.default)
+      let buttonAttrs = {
+        staticClass: 'md-button',
+        class: [
+          this.$mdActiveTheme,
+          {
+            'md-ripple-off': !this.mdRipple
+          }
+        ],
+        attrs: {
+          href: this.href,
+          disabled: this.disabled,
+          type: !this.href && (this.type || 'button')
+        },
+        on: {
+          click: ($event) => {
+            this.$emit('click', $event)
+          }
+        }
+      }
+      let tag = 'button'
+
+      if (this.href) {
+        tag = 'a'
+      } else if (this.$router && this.to) {
+        tag = 'router-link'
+        buttonAttrs.attrs = {
+          ...this.$options.propsData,
+          to: this.to
+        }
+      }
+
+      return createElement(tag, buttonAttrs, [buttonContent])
+    }
+  })
+</script>
+
 <style lang="scss">
   @import "~components/MdAnimation/variables";
   @import "~components/MdElevation/mixins";
@@ -12,6 +79,9 @@
 
   $md-button-icon-size: 40px;
 
+  $md-button-fab-size: 56px;
+  $md-button-fab-size-mini: $md-button-icon-size;
+
   .md-button {
     min-width: $md-button-min-width;
     height: $md-button-height;
@@ -25,11 +95,8 @@
     background: transparent;
     border: 0;
     border-radius: $md-button-radius;
-    transition-timing-function: $md-transition-stand-timing;
+    transition: $md-transition-default;
     transition-property: box-shadow, color, background-color;
-    transition-duration: $md-elevation-transition-duration,
-                         $md-transition-default-duration,
-                         $md-transition-default-duration;
     will-change: box-shadow, color, background-color;
     font-family: inherit;
     font-size: $md-button-font-size;
@@ -73,6 +140,10 @@
           opacity: .2;
         }
       }
+
+      &.md-ripple-off:active:before {
+        opacity: .26;
+      }
     }
 
     &::-moz-focus-inner {
@@ -104,6 +175,10 @@
       &:active {
         @include md-elevation(8);
       }
+
+      &.md-ripple-off:active:before {
+        opacity: .2;
+      }
     }
 
     + .md-button {
@@ -122,16 +197,35 @@
     padding: 0 16px;
   }
 
-  .md-icon-button {
-    width: $md-button-icon-size;
-    min-width: $md-button-icon-size;
-    height: $md-button-icon-size;
-    margin: 0 6px;
+  .md-icon-button,
+  .md-fab {
     border-radius: 50%;
 
     &:before {
       border-radius: 50%;
     }
+
+    .md-ripple {
+      border-radius: 50%;
+    }
+  }
+
+  .md-icon-button,
+  .md-fab.md-mini,
+  .md-fab.md-dense {
+    .md-ripple-wave {
+      top: 0 !important;
+      right: 0 !important;
+      bottom: 0 !important;
+      left: 0 !important;
+    }
+  }
+
+  .md-icon-button {
+    width: $md-button-icon-size;
+    min-width: $md-button-icon-size;
+    height: $md-button-icon-size;
+    margin: 0 6px;
 
     &.md-dense {
       width: $md-button-dense-height;
@@ -139,82 +233,41 @@
       height: $md-button-dense-height;
     }
 
-    .md-ripple {
-      border-radius: 50%;
-    }
-
-    .md-ripple-wave {
-      top: 0 !important;
-      right: 0 !important;
-      bottom: 0 !important;
-      left: 0 !important;
-    }
-
     .md-ripple-enter-active {
       transition-duration: 1.2s;
     }
   }
 
-  .md-button-content {
-    position: relative;
-    z-index: 2;
+  .md-fab {
+    @include md-elevation(6);
+
+    width: $md-button-fab-size;
+    height: $md-button-fab-size;
+    padding: 0;
+    min-width: 0;
+    overflow: hidden;
+
+    &:active {
+      @include md-elevation(12);
+    }
+
+    &.md-plain.md-button:not([disabled]) {
+      color: rgba(#000, .87);
+      background-color: #fff;
+
+      .md-icon-font {
+        color: rgba(#000, .87);
+      }
+
+      .md-icon-image {
+        fill: rgba(#000, .87);
+      }
+    }
+
+    &.md-mini,
+    &.md-dense {
+      width: $md-button-fab-size-mini;
+      height: $md-button-fab-size-mini;
+    }
   }
 </style>
-
-<script>
-  import MdComponent from 'core/MdComponent'
-  import ripple from 'core/mixins/ripple'
-  import MdButtonContent from './MdButtonContent'
-
-  export default new MdComponent({
-    name: 'MdButton',
-    components: {
-      MdButtonContent
-    },
-    mixins: [ripple],
-    props: {
-      href: String,
-      type: {
-        type: String,
-        default: 'button'
-      },
-      disabled: Boolean,
-      to: [String, Object]
-    },
-    render (createElement) {
-      const buttonContent = createElement('md-button-content', {
-        attrs: {
-          mdRipple: this.mdRipple,
-          disabled: this.disabled
-        }
-      }, this.$slots.default)
-      let buttonAttrs = {
-        staticClass: 'md-button',
-        class: [this.$mdActiveTheme],
-        attrs: {
-          href: this.href,
-          disabled: this.disabled,
-          type: this.type || 'button'
-        },
-        on: {
-          click: ($event) => {
-            this.$emit('click', $event)
-          }
-        }
-      }
-      let tag = 'button'
-
-      if (this.href) {
-        tag = 'a'
-      } else if (this.to) {
-        tag = 'router-link'
-        buttonAttrs.attrs = {
-          ...this.$options.propsData,
-          to: this.to
-        }
-      }
-
-      return createElement(tag, buttonAttrs, [buttonContent])
-    }
-  })
-</script>
