@@ -5,19 +5,19 @@
     </md-toolbar>
 
     <md-toolbar class="md-medium">
-      <div class="md-toolbar-container">
+      <div class="md-toolbar-row">
         <h3 class="md-title">Medium</h3>
       </div>
     </md-toolbar>
 
     <md-toolbar class="md-large">
-      <div class="md-toolbar-container">
+      <div class="md-toolbar-row">
         <h3 class="md-title">Large</h3>
       </div>
     </md-toolbar>
 
     <md-toolbar class="md-large md-dense">
-      <div class="md-toolbar-container">
+      <div class="md-toolbar-row">
         <h3 class="md-title">Large Dense</h3>
       </div>
     </md-toolbar>

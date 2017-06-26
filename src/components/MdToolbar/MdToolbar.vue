@@ -28,8 +28,8 @@
   $md-toolbar-height-landscape: 48px;
   $md-toolbar-height-dense: 48px;
 
-  .md-toolbar-container,
-  .md-toolbar {
+  .md-toolbar,
+  .md-toolbar-row {
     width: 100%;
     min-height: $md-toolbar-height;
     display: flex;
@@ -59,7 +59,7 @@
 
     &.md-medium,
     &.md-large {
-      .md-toolbar-container {
+      .md-toolbar-row {
         min-height: $md-toolbar-height;
       }
     }
@@ -79,12 +79,16 @@
 
     .md-title {
       margin: 0;
-      font-size: 20px;
+      overflow: hidden;
       font-weight: 400;
+      letter-spacing: .02em;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      vertical-align: top
     }
   }
 
-  .md-toolbar-container {
+  .md-toolbar-row {
     align-self: flex-start;
   }
 </style>

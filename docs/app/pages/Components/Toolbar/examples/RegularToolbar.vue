@@ -4,6 +4,14 @@
       <h3 class="md-title">Default</h3>
     </md-toolbar>
 
+    <md-toolbar md-elevation="0">
+      <h3 class="md-title">No Elevation</h3>
+    </md-toolbar>
+
+    <md-toolbar class="md-transparent">
+      <h3 class="md-title">Transparent</h3>
+    </md-toolbar>
+
     <md-toolbar class="md-primary">
       <h3 class="md-title">Primary</h3>
     </md-toolbar>

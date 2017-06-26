@@ -11,6 +11,13 @@
       <h2>Toolbars</h2>
 
       <code-example title="Regular Toolbars" :component="examples['regular-toolbar']" />
+
+      <api-item title="API">
+        <p>The following options can be applied to all buttons, even the FAB ones:</p>
+
+        <api-table :headings="api.regular.props.headings" :props="api.regular.props.props" slot="props" />
+        <api-table :headings="api.regular.classes.headings" :props="api.regular.classes.props" slot="classes" />
+      </api-item>
     </div>
 
     <div class="page-container-section">
@@ -28,7 +35,42 @@
     name: 'Content',
     mixins: [examples],
     data: () => ({
-
+      api: {
+        regular: {
+          props: {
+            headings: ['Name', 'Description', 'Default'],
+            props: [
+              {
+                name: 'md-elevation',
+                type: 'String|Number',
+                description: 'Set the toolbar shadow elevation',
+                defaults: '4'
+              }
+            ]
+          },
+          classes: {
+            headings: ['Name', 'Description'],
+            props: [
+              {
+                name: 'md-transparent',
+                description: 'Make the Toolbar background transparent'
+              },
+              {
+                name: 'md-dense',
+                description: 'Create a small sized toolbar'
+              },
+              {
+                name: 'md-medium',
+                description: 'Create a medium sized toolbar'
+              },
+              {
+                name: 'md-large',
+                description: 'Create a large sized toolbar'
+              }
+            ]
+          }
+        }
+      }
     })
   }
 </script>
