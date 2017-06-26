@@ -4,6 +4,14 @@
   </div>
 </template>
 
+<script>
+  import MdComponent from 'core/MdComponent'
+
+  export default new MdComponent({
+    name: 'MdToolbar'
+  })
+</script>
+
 <style lang="scss">
   @import "~components/MdAnimation/variables";
 
@@ -46,11 +54,3 @@
     }
   }
 </style>
-
-<script>
-  import MdComponent from 'core/MdComponent'
-
-  export default new MdComponent({
-    name: 'MdToolbar'
-  })
-</script>
