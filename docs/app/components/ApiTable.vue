@@ -20,6 +20,16 @@
   </div>
 </template>
 
+<script>
+  export default {
+    name: 'ApiTable',
+    props: {
+      props: Array,
+      headings: Array
+    }
+  }
+</script>
+
 <style lang="scss" scoped>
   @import "~vue-material/components/MdAnimation/variables";
   @import "~vue-material/theme/factory";
@@ -83,13 +93,3 @@
     color: md-get-palette-color(red, A200)
   }
 </style>
-
-<script>
-  export default {
-    name: 'ApiTable',
-    props: {
-      props: Array,
-      headings: Array
-    }
-  }
-</script>

@@ -39,6 +39,53 @@ test('should render a external svg', async () => {
   expect(wrapper.vm.$props[prop]).toBe(svgUrl)
 })
 
+test('should change the current SVG to another', async () => {
+  const svgUrl1 = 'external1.svg'
+  const svgUrl2 = 'external2.svg'
+  const svgContent1 = '<svg xmlns="http://www.w3.org/2000/svg"></svg>'
+  const svgContent2 = '<svg width="24" xmlns="http://www.w3.org/2000/svg"></svg>'
+  const prop = 'mdSrc'
+  let wrapper = null
+
+  const mock1 = mockRequest({
+    url: svgUrl1,
+    content: svgContent1,
+    headers: {
+      'Content-Type': 'image/svg+xml'
+    }
+  })
+
+  wrapper = mount(MdSvgLoader, {
+    propsData: {
+      [prop]: svgUrl1
+    }
+  })
+
+  await mock1()
+
+  expect(wrapper.contains('svg')).toBe(true)
+  expect(wrapper.vm.$props[prop]).toBe(svgUrl1)
+  expect(wrapper.vm.$el.innerHTML).toBe(svgContent1)
+
+  const mock2 = mockRequest({
+    url: svgUrl2,
+    content: svgContent2,
+    headers: {
+      'Content-Type': 'image/svg+xml'
+    }
+  })
+
+  wrapper.setProps({
+    mdSrc: svgUrl2
+  })
+
+  await mock2()
+
+  expect(wrapper.contains('svg')).toBe(true)
+  expect(wrapper.vm.$props[prop]).toBe(svgUrl2)
+  expect(wrapper.vm.$el.innerHTML).toBe(svgContent2)
+})
+
 test('should create a cache blocking equal requests', async () => {
   const svgUrl = 'equals.svg'
   const svgContent = '<svg xmlns="http://www.w3.org/2000/svg"></svg>'

@@ -18,6 +18,7 @@
         <p>The following options can be applied to all icons:</p>
 
         <api-table :headings="api.material.classes.headings" :props="api.material.classes.props" slot="classes" />
+        <api-table :headings="api.material.events.headings" :props="api.material.events.props" slot="events" />
       </api-item>
     </div>
 
@@ -59,6 +60,16 @@
                 name: 'md-size-[dimension]',
                 description: 'Increase the size of the icon. It accepts 2x, 3x, 4x or 5x',
                 example: 'md-size-3x'
+              }
+            ]
+          },
+          events: {
+            headings: ['Name', 'Description', 'Value'],
+            props: [
+              {
+                name: 'md-loaded',
+                description: 'Triggered right after fetch of the SVG icon',
+                example: 'null'
               }
             ]
           }
