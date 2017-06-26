@@ -1,3 +1,70 @@
+<script>
+  import MdComponent from 'core/MdComponent'
+  import ripple from 'core/mixins/ripple'
+  import MdButtonContent from './MdButtonContent'
+
+  export default new MdComponent({
+    name: 'MdButton',
+    components: {
+      MdButtonContent
+    },
+    mixins: [ripple],
+    props: {
+      href: String,
+      type: {
+        type: String,
+        default: 'button'
+      },
+      disabled: Boolean,
+      mdRipple: {
+        type: Boolean,
+        default: true
+      },
+      to: [String, Object]
+    },
+    render (createElement) {
+      const buttonContent = createElement('md-button-content', {
+        attrs: {
+          mdRipple: this.mdRipple,
+          disabled: this.disabled
+        }
+      }, this.$slots.default)
+      let buttonAttrs = {
+        staticClass: 'md-button',
+        class: [
+          this.$mdActiveTheme,
+          {
+            'md-ripple-off': !this.mdRipple
+          }
+        ],
+        attrs: {
+          href: this.href,
+          disabled: this.disabled,
+          type: !this.href && (this.type || 'button')
+        },
+        on: {
+          click: ($event) => {
+            this.$emit('click', $event)
+          }
+        }
+      }
+      let tag = 'button'
+
+      if (this.href) {
+        tag = 'a'
+      } else if (this.$router && this.to) {
+        tag = 'router-link'
+        buttonAttrs.attrs = {
+          ...this.$options.propsData,
+          to: this.to
+        }
+      }
+
+      return createElement(tag, buttonAttrs, [buttonContent])
+    }
+  })
+</script>
+
 <style lang="scss">
   @import "~components/MdAnimation/variables";
   @import "~components/MdElevation/mixins";
@@ -73,6 +140,10 @@
           opacity: .2;
         }
       }
+
+      &.md-ripple-off:active:before {
+        opacity: .26;
+      }
     }
 
     &::-moz-focus-inner {
@@ -103,6 +174,10 @@
 
       &:active {
         @include md-elevation(8);
+      }
+
+      &.md-ripple-off:active:before {
+        opacity: .2;
       }
     }
 
@@ -154,67 +229,4 @@
       transition-duration: 1.2s;
     }
   }
-
-  .md-button-content {
-    position: relative;
-    z-index: 2;
-  }
 </style>
-
-<script>
-  import MdComponent from 'core/MdComponent'
-  import ripple from 'core/mixins/ripple'
-  import MdButtonContent from './MdButtonContent'
-
-  export default new MdComponent({
-    name: 'MdButton',
-    components: {
-      MdButtonContent
-    },
-    mixins: [ripple],
-    props: {
-      href: String,
-      type: {
-        type: String,
-        default: 'button'
-      },
-      disabled: Boolean,
-      to: [String, Object]
-    },
-    render (createElement) {
-      const buttonContent = createElement('md-button-content', {
-        attrs: {
-          mdRipple: this.mdRipple,
-          disabled: this.disabled
-        }
-      }, this.$slots.default)
-      let buttonAttrs = {
-        staticClass: 'md-button',
-        class: [this.$mdActiveTheme],
-        attrs: {
-          href: this.href,
-          disabled: this.disabled,
-          type: this.type || 'button'
-        },
-        on: {
-          click: ($event) => {
-            this.$emit('click', $event)
-          }
-        }
-      }
-      let tag = 'button'
-
-      if (this.href) {
-        tag = 'a'
-      } else if (this.to) {
-        tag = 'router-link'
-        buttonAttrs.attrs = {
-          ...this.$options.propsData,
-          to: this.to
-        }
-      }
-
-      return createElement(tag, buttonAttrs, [buttonContent])
-    }
-  })
-</script>

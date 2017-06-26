@@ -73,16 +73,22 @@
                 defaults: 'null'
               },
               {
+                name: 'type',
+                type: 'String',
+                description: 'Apply a type to button - Don\'t affect links.',
+                defaults: 'button'
+              },
+              {
                 name: 'disabled',
                 type: 'Boolean',
                 description: 'Disable the button and prevent his actions.',
                 defaults: 'false'
               },
               {
-                name: 'type',
-                type: 'String',
-                description: 'Apply a type to button - Don\'t affect links.',
-                defaults: 'button'
+                name: 'md-ripple',
+                type: 'Boolean',
+                description: 'Enable/Disable the ripple effect.',
+                defaults: 'true'
               }
             ]
           },
