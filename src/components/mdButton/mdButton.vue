@@ -79,6 +79,9 @@
 
   $md-button-icon-size: 40px;
 
+  $md-button-fab-size: 56px;
+  $md-button-fab-size-mini: $md-button-icon-size;
+
   .md-button {
     min-width: $md-button-min-width;
     height: $md-button-height;
@@ -92,11 +95,8 @@
     background: transparent;
     border: 0;
     border-radius: $md-button-radius;
-    transition-timing-function: $md-transition-stand-timing;
+    transition: $md-transition-default;
     transition-property: box-shadow, color, background-color;
-    transition-duration: $md-elevation-transition-duration,
-                         $md-transition-default-duration,
-                         $md-transition-default-duration;
     will-change: box-shadow, color, background-color;
     font-family: inherit;
     font-size: $md-button-font-size;
@@ -197,16 +197,35 @@
     padding: 0 16px;
   }
 
-  .md-icon-button {
-    width: $md-button-icon-size;
-    min-width: $md-button-icon-size;
-    height: $md-button-icon-size;
-    margin: 0 6px;
+  .md-icon-button,
+  .md-fab {
     border-radius: 50%;
 
     &:before {
       border-radius: 50%;
     }
+
+    .md-ripple {
+      border-radius: 50%;
+    }
+  }
+
+  .md-icon-button,
+  .md-fab.md-mini,
+  .md-fab.md-dense {
+    .md-ripple-wave {
+      top: 0 !important;
+      right: 0 !important;
+      bottom: 0 !important;
+      left: 0 !important;
+    }
+  }
+
+  .md-icon-button {
+    width: $md-button-icon-size;
+    min-width: $md-button-icon-size;
+    height: $md-button-icon-size;
+    margin: 0 6px;
 
     &.md-dense {
       width: $md-button-dense-height;
@@ -214,19 +233,41 @@
       height: $md-button-dense-height;
     }
 
-    .md-ripple {
-      border-radius: 50%;
-    }
-
-    .md-ripple-wave {
-      top: 0 !important;
-      right: 0 !important;
-      bottom: 0 !important;
-      left: 0 !important;
-    }
-
     .md-ripple-enter-active {
       transition-duration: 1.2s;
+    }
+  }
+
+  .md-fab {
+    @include md-elevation(6);
+
+    width: $md-button-fab-size;
+    height: $md-button-fab-size;
+    padding: 0;
+    min-width: 0;
+    overflow: hidden;
+
+    &:active {
+      @include md-elevation(12);
+    }
+
+    &.md-plain.md-button:not([disabled]) {
+      color: rgba(#000, .87);
+      background-color: #fff;
+
+      .md-icon-font {
+        color: rgba(#000, .87);
+      }
+
+      .md-icon-image {
+        fill: rgba(#000, .87);
+      }
+    }
+
+    &.md-mini,
+    &.md-dense {
+      width: $md-button-fab-size-mini;
+      height: $md-button-fab-size-mini;
     }
   }
 </style>

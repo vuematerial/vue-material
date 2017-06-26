@@ -17,7 +17,7 @@
       @include md-icon-on-buttons(icon-disabled, background);
     }
 
-    &:not(.md-raised) {
+    &:not(.md-raised):not(.md-fab) {
       &.md-primary {
         @include md-theme-property(color, primary, background);
         @include md-icon-on-buttons(primary, background);
@@ -40,6 +40,24 @@
           @include md-theme-property(background-color, primary);
           @include md-icon-on-buttons(text-primary, primary);
         }
+
+        &.md-accent {
+          @include md-theme-property(color, text-primary, accent);
+          @include md-theme-property(background-color, accent);
+          @include md-icon-on-buttons(text-primary, accent);
+        }
+      }
+    }
+
+    &.md-fab {
+      &[disabled] {
+        @include md-theme-property(background-color, disabled-background, background);
+      }
+
+      &:not([disabled]) {
+        @include md-theme-property(color, text-primary, primary);
+        @include md-theme-property(background-color, primary);
+        @include md-icon-on-buttons(text-primary, primary);
 
         &.md-accent {
           @include md-theme-property(color, text-primary, accent);

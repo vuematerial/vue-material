@@ -32,9 +32,22 @@
       <code-example title="Buttons with Icons" :component="examples['icon-buttons']" />
 
       <api-item title="API">
-        <p>The following option will turn a button in a icon button:</p>
+        <p>The following class will turn a button in a icon button:</p>
 
         <api-table :headings="api.icons.classes.headings" :props="api.icons.classes.props" slot="classes" />
+      </api-item>
+    </div>
+
+    <div class="page-container-section">
+      <h2>Floating Action Buttons</h2>
+      <p>A floating action button represents the primary action in an application and is used for a promoted action. FAB buttons can have it regular size or mini. This type of buttons can only have icons, so it should be used along with <code>&lt;md-icon&gt;</code>.</p>
+
+      <code-example title="FAB" :component="examples['floating-buttons']" />
+
+      <api-item title="API">
+        <p>The following classes can be used to turn a button into a FAB:</p>
+
+        <api-table :headings="api.fab.classes.headings" :props="api.fab.classes.props" slot="classes" />
       </api-item>
     </div>
 
@@ -123,6 +136,29 @@
               {
                 name: 'md-icon-button',
                 description: 'Enable the rounded-shape icon button'
+              }
+            ]
+          }
+        },
+        fab: {
+          classes: {
+            headings: ['Name', 'Description'],
+            props: [
+              {
+                name: 'md-fab',
+                description: 'Turn a button into a FAB'
+              },
+              {
+                name: 'md-plain',
+                description: 'Make the button white'
+              },
+              {
+                name: 'md-mini',
+                description: 'Create a smaller FAB'
+              },
+              {
+                name: 'md-dense',
+                description: 'An alias for "md-mini"'
               }
             ]
           }

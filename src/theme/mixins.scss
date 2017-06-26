@@ -186,9 +186,14 @@
  * @param {string} $variant —  The type of constrasted variable
  */
 
-@mixin md-theme-property-by-hue ($property, $color, $hue, $type, $variant) {
+@mixin md-theme-property-by-hue ($property, $color, $hue, $type, $secondary) {
   $hex: md-get-palette-color($color, $hue);
+  $variant: null;
+
+  @if $secondary != "" {
+    $variant: -#{$secondary};
+  }
 
   #{$property}: $hex;
-  #{$property}: var(--md-theme-#{$md-current-theme}-#{$type}-$variant, $hex);
+  #{$property}: var(--md-theme-#{$md-current-theme}-#{$type}#{variant}, $hex);
 }
