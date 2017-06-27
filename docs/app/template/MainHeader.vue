@@ -1,5 +1,5 @@
 <template>
-  <md-toolbar class="main-header" :class="mainHeaderClasses">
+  <md-toolbar class="main-header" :class="mainHeaderClasses" :md-elevation="mainHeaderElevation">
     <div class="logo">
       <logo-vue-material :animated="isHome" :blending="false" @click.native="$router.push('/')" />
     </div>
@@ -42,6 +42,13 @@
           'md-transparent': isSplash,
           'md-elevation-2': !isSplash
         }
+      },
+      mainHeaderElevation () {
+        if (this.isSplash) {
+          return 0
+        }
+
+        return 2
       }
     }
   }

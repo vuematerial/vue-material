@@ -9,6 +9,7 @@
         <router-link to="/components/button">{{ $t('pages.button.title') }}</router-link>
         <router-link to="/components/content">{{ $t('pages.content.title') }}</router-link>
         <router-link to="/components/icon">{{ $t('pages.icon.title') }}</router-link>
+        <router-link to="/components/toolbar">{{ $t('pages.toolbar.title') }}</router-link>
       </div>
 
       <router-link to="/ui-elements">{{ $t('pages.uiElements.title') }}</router-link>
@@ -49,9 +50,16 @@
     bottom: 0;
     left: 0;
     z-index: 3;
+    transition: .3s $md-transition-default-timing;
+    transition-property: top;
     font-size: 14px;
 
+    @include md-layout-small {
+      top: 74px;
+    }
+
     @include md-layout-xsmall {
+      top: 82px;
       padding: 16px;
       position: static;
     }

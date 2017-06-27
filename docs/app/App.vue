@@ -61,6 +61,16 @@
     display: flex;
     flex-direction: column;
     font-family: "Roboto Mono", monospace;
+    transition: $md-transition-default;
+    transition-property: padding-top;
+
+    @include md-layout-small {
+      padding-top: 48px;
+    }
+
+    @include md-layout-xsmall {
+      padding-top: 56px;
+    }
 
     &.splash .main-header {
       max-width: 1312px;

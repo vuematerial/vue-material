@@ -1,6 +1,6 @@
 <template>
   <div class="code-example">
-    <md-toolbar class="md-primary md-dense" md-theme="dark">
+    <md-toolbar class="md-primary md-dense" md-theme="dark" md-elevation="0">
       <span class="md-title">{{ title }}</span>
       <md-button class="md-icon-button md-dense" @click="toggleCode" v-if="component.name">
         <md-icon>code</md-icon>
@@ -26,6 +26,45 @@
   </div>
 </template>
 
+<script>
+  export default {
+    name: 'CodeExample',
+    props: {
+      component: {
+        type: Object,
+        default: () => ({})
+      },
+      title: String,
+      label: {
+        type: String,
+        default: 'Vue'
+      },
+      lang: String
+    },
+    data: () => ({
+      codeActive: false,
+      darkTheme: false
+    }),
+    computed: {
+      theme () {
+        if (this.darkTheme) {
+          return 'demo-dark'
+        }
+
+        return 'demo-light'
+      }
+    },
+    methods: {
+      toggleCode () {
+        this.codeActive = !this.codeActive
+      },
+      toggleDarkTheme () {
+        this.darkTheme = !this.darkTheme
+      }
+    }
+  }
+</script>
+
 <style lang="scss" scoped>
   @import "~vue-material/components/MdAnimation/variables";
   @import "~vue-material/theme/factory";
@@ -41,6 +80,10 @@
     z-index: 1;
     background-color: $color;
     color: #fff;
+
+    .md-icon {
+      color: #fff;
+    }
   }
 
   .md-title {
@@ -83,42 +126,3 @@
     opacity: 1;
   }
 </style>
-
-<script>
-  export default {
-    name: 'CodeExample',
-    props: {
-      component: {
-        type: Object,
-        default: () => ({})
-      },
-      title: String,
-      label: {
-        type: String,
-        default: 'Vue'
-      },
-      lang: String
-    },
-    data: () => ({
-      codeActive: false,
-      darkTheme: false
-    }),
-    computed: {
-      theme () {
-        if (this.darkTheme) {
-          return 'demo-dark'
-        }
-
-        return 'demo-light'
-      }
-    },
-    methods: {
-      toggleCode () {
-        this.codeActive = !this.codeActive
-      },
-      toggleDarkTheme () {
-        this.darkTheme = !this.darkTheme
-      }
-    }
-  }
-</script>
