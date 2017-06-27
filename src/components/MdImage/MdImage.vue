@@ -1,5 +1,5 @@
 <template>
-  <div class="md-image" v-html="svgContent">
+  <div class="md-image" :class="[$mdActiveTheme]">
     <slot />
   </div>
 </template>
