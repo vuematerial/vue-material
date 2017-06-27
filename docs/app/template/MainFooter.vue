@@ -34,7 +34,7 @@
     align-items: center;
     justify-content: space-between;
     position: relative;
-    z-index: 3;
+    z-index: 4;
     background-color: md-get-palette-color(grey, 200);
 
     a {
