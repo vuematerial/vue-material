@@ -46,12 +46,6 @@ new Vue({
   </form>
 </template>
 
-<style lang="scss" scoped>
-  .form-data {
-    display: none;
-  }
-</style>
-
 <script>
   const vueMaterialUrl = 'https://unpkg.com/vue-material'
 
@@ -87,3 +81,17 @@ new Vue({
     }
   }
 </script>
+
+<style lang="scss" scoped>
+  .jsfiddle-edit {
+    .form-data {
+      display: none;
+    }
+
+    .md-button {
+      .md-icon {
+        color: #fff;
+      }
+    }
+  }
+</style>

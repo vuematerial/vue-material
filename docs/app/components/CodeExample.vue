@@ -80,6 +80,10 @@
     z-index: 1;
     background-color: $color;
     color: #fff;
+
+    .md-icon {
+      color: #fff;
+    }
   }
 
   .md-title {

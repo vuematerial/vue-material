@@ -1,3 +1,18 @@
+@mixin md-toolbar-icon($primary, $secondary) {
+  .md-icon {
+    @include md-theme-property(fill, $primary, $secondary);
+    @include md-theme-property(color, $primary, $secondary);
+  }
+}
+
+@mixin md-toolbar-button($primary, $secondary) {
+  .md-button:not([disabled]) {
+    &:not(.md-raised) {
+      @include md-theme-property(color, $primary, $secondary);
+    }
+  }
+}
+
 .md-toolbar {
   @include md-theme-component() {
     @include md-theme-property(color, text-primary, background-variant);
@@ -8,35 +23,26 @@
       @include md-theme-property-by-hue(background-color, grey, 900, toolbar, background);
     }
 
+    @include md-toolbar-icon(text-primary, background-variant);
+
     &.md-primary {
       @include md-theme-property(background-color, primary);
       @include md-theme-property(color, text-primary, primary);
-
-      .md-icon {
-        @include md-theme-property(fill, text-primary, primary);
-      }
+      @include md-toolbar-icon(text-primary, primary);
+      @include md-toolbar-button(text-primary, primary);
     }
 
     &.md-accent {
       @include md-theme-property(background-color, accent);
       @include md-theme-property(color, text-primary, accent);
-
-      .md-icon {
-        @include md-theme-property(fill, text-primary, accent);
-      }
+      @include md-toolbar-icon(text-primary, accent);
+      @include md-toolbar-button(text-primary, accent);
     }
 
     &.md-transparent {
       background-color: transparent;
       @include md-theme-property(color, text-primary, background);
-
-      .md-icon {
-        @include md-theme-property(fill, text-primary, background);
-      }
-    }
-
-    .md-icon {
-      @include md-theme-property(fill, text-primary, background);
+      @include md-toolbar-icon(text-primary, background);
     }
   }
 }

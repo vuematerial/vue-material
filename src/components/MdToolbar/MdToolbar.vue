@@ -35,9 +35,9 @@
     display: flex;
     align-items: center;
     align-content: center;
-    transition: $md-transition-default;
-    transition-property: background-color, min-height;
-    will-change: background-color, min-height;
+    transition: .3s $md-transition-default-timing;
+    transition-property: background-color, color, min-height;
+    will-change: background-color, color, min-height;
 
     @include md-layout-small {
       min-height: $md-toolbar-height-landscape;
@@ -49,7 +49,7 @@
   }
 
   .md-toolbar {
-    padding: 0 8px 0 16px;
+    padding: 0 8px;
     flex-flow: row wrap;
     position: relative;
 
@@ -74,11 +74,20 @@
 
       &.md-dense {
         min-height: 96px;
+
+        .md-toolbar-row + .md-toolbar-row {
+          min-height: 32px;
+        }
       }
+    }
+
+    .md-toolbar-offset {
+      margin-left: 48px;
     }
 
     .md-title {
       margin: 0;
+      margin-left: 8px;
       overflow: hidden;
       font-weight: 400;
       letter-spacing: .02em;
@@ -86,9 +95,36 @@
       white-space: nowrap;
       vertical-align: top
     }
+
+    .md-button {
+      &:last-child,
+      + .md-button {
+        margin-right: 0;
+      }
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
   }
 
   .md-toolbar-row {
     align-self: flex-start;
+  }
+
+  .md-toolbar-section-start,
+  .md-toolbar-section-end {
+    display: flex;
+    flex: 1;
+  }
+
+  .md-toolbar-section-start {
+    justify-content: flex-start;
+    order: 1;
+  }
+
+  .md-toolbar-section-end {
+    justify-content: flex-end;
+    order: 2;
   }
 </style>
