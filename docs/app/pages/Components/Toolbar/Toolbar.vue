@@ -3,7 +3,7 @@
 <example src="./examples/ContentActions.vue" />
 
 <template>
-  <page-container centered :title="$t('pages.content.title')">
+  <page-container centered :title="$t('pages.toolbar.title')">
     <div class="page-container-section">
       <p>Toolbar actions appear above the view affected by their actions. They may constrain their width to accommodate material passing over them.</p>
     </div>
