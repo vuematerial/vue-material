@@ -40,6 +40,48 @@
   </div>
 </template>
 
+<script>
+  import { mapState } from 'vuex'
+
+  export default {
+    name: 'App',
+    computed: {
+      ...mapState({
+        stateTitle: 'pageTitle',
+        isSplash: 'splashPage'
+      }),
+      pageTitle () {
+        const { stateTitle } = this
+
+        return stateTitle && stateTitle
+      },
+      isHome () {
+        return this.$route.path === '/'
+      },
+      containerClass () {
+        const { isSplash } = this
+
+        return {
+          splash: isSplash
+        }
+      },
+      mainHeaderClasses () {
+        const { isSplash } = this
+
+        return {
+          'md-transparent': isSplash,
+          'md-elevation-2': !isSplash
+        }
+      }
+    },
+    methods: {
+      openGithub () {
+        window.open('http://github.com/vuematerial/vue-material-experiments')
+      }
+    }
+  }
+</script>
+
 <style lang="scss">
   @import "./themes/default";
   @import "./themes/dark";
@@ -171,45 +213,3 @@
     flex: 1;
   }
 </style>
-
-<script>
-  import { mapState } from 'vuex'
-
-  export default {
-    name: 'App',
-    computed: {
-      ...mapState({
-        stateTitle: 'pageTitle',
-        isSplash: 'splashPage'
-      }),
-      pageTitle () {
-        const { stateTitle } = this
-
-        return stateTitle && stateTitle
-      },
-      isHome () {
-        return this.$route.path === '/'
-      },
-      containerClass () {
-        const { isSplash } = this
-
-        return {
-          splash: isSplash
-        }
-      },
-      mainHeaderClasses () {
-        const { isSplash } = this
-
-        return {
-          'md-transparent': isSplash,
-          'md-elevation-2': !isSplash
-        }
-      }
-    },
-    methods: {
-      openGithub () {
-        window.open('http://github.com/vuematerial/vue-material-experiments')
-      }
-    }
-  }
-</script>
