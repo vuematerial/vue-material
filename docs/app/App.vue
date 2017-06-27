@@ -1,6 +1,6 @@
 <template>
   <div class="container" :class="containerClass">
-    <md-toolbar class="main-header" :class="mainHeaderClasses">
+    <md-toolbar class="main-header" :md-elevation="mainHeaderElevation" :class="mainHeaderClasses">
       <div class="logo">
         <logo-vue-material :animated="isHome" :blending="false" @click.native="$router.push('/')" />
       </div>
@@ -27,6 +27,7 @@
             <router-link to="/components/button">{{ $t('pages.button.title') }}</router-link>
             <router-link to="/components/content">{{ $t('pages.content.title') }}</router-link>
             <router-link to="/components/icon">{{ $t('pages.icon.title') }}</router-link>
+            <router-link to="/components/toolbar">{{ $t('pages.toolbar.title') }}</router-link>
           </div>
           <router-link to="/ui-elements">{{ $t('pages.uiElements.title') }}</router-link>
           <div class="main-navigation-level">
@@ -56,6 +57,16 @@
   .container {
     padding-top: 64px;
     font-family: "Roboto Mono", monospace;
+    transition: $md-transition-default;
+    transition-property: padding-top;
+
+    @include md-layout-small {
+      padding-top: 48px;
+    }
+
+    @include md-layout-xsmall {
+      padding-top: 56px;
+    }
 
     &:not(.splash) {
       padding-left: $sizebar-width;
@@ -125,9 +136,16 @@
     top: 90px;
     bottom: 0;
     left: 0;
+    transition: $md-transition-default;
+    transition-property: top;
     font-size: 14px;
 
+    @include md-layout-small {
+      top: 74px;
+    }
+
     @include md-layout-xsmall {
+      top: 82px;
       padding: 16px;
       position: static;
     }
@@ -201,9 +219,15 @@
         const { isSplash } = this
 
         return {
-          'md-transparent': isSplash,
-          'md-elevation-2': !isSplash
+          'md-transparent': isSplash
         }
+      },
+      mainHeaderElevation () {
+        if (this.isSplash) {
+          return 0
+        }
+
+        return 2
       }
     },
     methods: {
