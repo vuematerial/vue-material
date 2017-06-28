@@ -324,7 +324,7 @@
                 <label>Initial value</label>
                 <md-input v-model="initialValue"></md-input>
               </md-input-container>
-              
+
               <md-input-container>
                 <label>Initial value (read only)</label>
                 <md-input v-model="initialValue" readonly></md-input>
@@ -504,7 +504,7 @@
                     &lt;md-tooltip&gt;Be careful. You&#039;re almost broken!&lt;/md-tooltip&gt;
                   &lt;/md-icon&gt;
                   &lt;label&gt;Money&lt;/label&gt;
-                  &lt;md-input type=&quot;text&quot;&gt;&lt;/md-input&gt;
+                  &lt;md-input type=&quot;number&quot;&gt;&lt;/md-input&gt;
                   &lt;md-icon&gt;attach_money&lt;/md-icon&gt;
                 &lt;/md-input-container&gt;
 
