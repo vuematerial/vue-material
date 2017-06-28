@@ -8,5 +8,11 @@ export default {
     if (state.splashPage !== mode) {
       state.splashPage = mode
     }
+  },
+  [types.SHOW_MENU] (state) {
+    state.menuVisible = true
+  },
+  [types.HIDE_MENU] (state) {
+    state.menuVisible = false
   }
 }

@@ -1,8 +1,12 @@
 <template>
   <md-toolbar class="main-header" :class="mainHeaderClasses" :md-elevation="mainHeaderElevation">
-    <div class="logo">
-      <logo-vue-material :animated="isHome" :blending="false" @click.native="$router.push('/')" />
-    </div>
+    <md-button to="/" class="md-icon-button logo">
+      <logo-vue-material :animated="isHome" />
+    </md-button>
+
+    <md-button class="md-icon-button menu" @click="showMenu">
+      <md-icon>menu</md-icon>
+    </md-button>
 
     <div class="md-title">
       <span class="md-hide-xsmall">Vue Material</span>
@@ -18,7 +22,8 @@
 </template>
 
 <script>
-  import { mapState } from 'vuex'
+  import { mapState, mapMutations } from 'vuex'
+  import * as types from 'store/mutation-types'
 
   export default {
     name: 'MainHeader',
@@ -50,12 +55,18 @@
 
         return 2
       }
+    },
+    methods: {
+      ...mapMutations({
+        showMenu: types.SHOW_MENU
+      })
     }
   }
 </script>
 
 <style lang="scss" scoped>
   @import "~vue-material/components/MdAnimation/variables";
+  @import "~components/MdLayout/mixins";
 
   .main-header {
     margin: auto;
@@ -75,6 +86,10 @@
 
     .md-title {
       flex: 1;
+
+      .md-title {
+        margin-left: 0;
+      }
     }
 
     h1 {
@@ -83,19 +98,37 @@
   }
 
   .logo {
-    width: 32px;
-    height: 32px;
-    margin-right: 16px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    border-radius: 0;
+
+    @include md-layout-xsmall {
+      display: none;
+    }
+
+    >>> .md-ripple {
+      padding: 0;
+      overflow: visible;
+    }
+
+    >>> .md-button-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
     .logo-vue-material {
-      max-width: 90%;
+      max-width: 72%;
       display: flex;
       justify-content: center;
       align-items: center;
       cursor: pointer;
+    }
+  }
+
+  .menu {
+    display: none;
+
+    @include md-layout-xsmall {
+      display: inline-block;
     }
   }
 </style>

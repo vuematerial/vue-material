@@ -84,7 +84,7 @@
       padding-left: 200px !important;
 
       @include md-layout-xsmall {
-        padding-left: 16px !important;
+        padding-left: 0 !important;
       }
     }
   }

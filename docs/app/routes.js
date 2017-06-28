@@ -30,6 +30,11 @@ export const routes = [
     component: () => import('./pages/Components/Content/Content.vue')
   },
   {
+    path: '/components/drawer',
+    name: 'components/drawer',
+    component: () => import('./pages/Components/Drawer/Drawer.vue')
+  },
+  {
     path: '/components/icon',
     name: 'components/icon',
     component: () => import('./pages/Components/Icon/Icon.vue')

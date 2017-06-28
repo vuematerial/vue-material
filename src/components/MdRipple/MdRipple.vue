@@ -104,7 +104,7 @@
     width: 100%;
     height: 100%;
     position: relative;
-    z-index: 99;
+    z-index: 10;
     overflow: hidden;
     -webkit-mask-image: radial-gradient(circle, #fff 100%, #000 100%);
     transition: background-color $md-transition-default;

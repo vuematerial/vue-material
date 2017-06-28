@@ -49,9 +49,13 @@
   }
 
   .md-toolbar {
-    padding: 0 8px;
+    padding: 0 16px;
     flex-flow: row wrap;
     position: relative;
+
+    @include md-layout-small {
+      padding: 0 8px;
+    }
 
     &.md-dense {
       min-height: $md-toolbar-height-dense;
@@ -85,6 +89,28 @@
       margin-left: 48px;
     }
 
+    .md-button,
+    .md-icon {
+      ~ .md-title {
+        margin-left: 24px;
+
+        @include md-layout-small {
+          margin-left: 16px;
+        }
+      }
+    }
+
+    .md-button {
+      &:last-of-type,
+      + .md-button {
+        margin-right: 0;
+      }
+
+      &:first-of-type {
+        margin-left: 0;
+      }
+    }
+
     .md-title {
       margin: 0;
       margin-left: 8px;
@@ -94,17 +120,6 @@
       text-overflow: ellipsis;
       white-space: nowrap;
       vertical-align: top
-    }
-
-    .md-button {
-      &:last-child,
-      + .md-button {
-        margin-right: 0;
-      }
-
-      &:first-child {
-        margin-left: 0;
-      }
     }
   }
 

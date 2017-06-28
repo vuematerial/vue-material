@@ -210,7 +210,7 @@
     }
   }
 
-  .md-icon-button.md-dense,
+  .md-icon-button,
   .md-fab.md-mini,
   .md-fab.md-dense {
     .md-ripple-wave {

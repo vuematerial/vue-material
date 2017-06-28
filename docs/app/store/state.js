@@ -1,4 +1,5 @@
 export default {
   pageTitle: '',
-  splashPage: false
+  splashPage: false,
+  menuVisible: false
 }

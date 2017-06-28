@@ -28,6 +28,9 @@ export default {
     content: {
       title: 'Content'
     },
+    drawer: {
+      title: 'Drawer'
+    },
     icon: {
       title: 'Icon'
     },
