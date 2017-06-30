@@ -35,9 +35,19 @@ export const routes = [
     component: () => import('./pages/Components/Drawer/Drawer.vue')
   },
   {
+    path: '/components/form',
+    name: 'form',
+    redirect: '/components/input'
+  },
+  {
     path: '/components/icon',
     name: 'components/icon',
     component: () => import('./pages/Components/Icon/Icon.vue')
+  },
+  {
+    path: '/components/input',
+    name: 'components/input',
+    component: () => import('./pages/Components/Input/Input.vue')
   },
   {
     path: '/components/toolbar',

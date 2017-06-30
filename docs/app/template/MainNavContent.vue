@@ -8,6 +8,12 @@
       <router-link to="/components/button">{{ $t('pages.button.title') }}</router-link>
       <router-link to="/components/content">{{ $t('pages.content.title') }}</router-link>
       <router-link to="/components/drawer">{{ $t('pages.drawer.title') }}</router-link>
+
+      <router-link to="/components/form">{{ $t('pages.form.title') }}</router-link>
+      <div class="main-nav-level">
+        <router-link to="/components/input">{{ $t('pages.input.title') }}</router-link>
+      </div>
+
       <router-link to="/components/icon">{{ $t('pages.icon.title') }}</router-link>
       <router-link to="/components/toolbar">{{ $t('pages.toolbar.title') }}</router-link>
     </div>

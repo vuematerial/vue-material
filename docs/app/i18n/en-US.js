@@ -31,8 +31,14 @@ export default {
     drawer: {
       title: 'Drawer'
     },
+    form: {
+      title: 'Form'
+    },
     icon: {
       title: 'Icon'
+    },
+    input: {
+      title: 'Input & Textarea'
     },
     toolbar: {
       title: 'Toolbar'

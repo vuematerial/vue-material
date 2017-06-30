@@ -1,0 +1,16 @@
+.md-content {
+  @include md-theme-component() {
+    @include md-theme-property(background-color, background);
+    @include md-theme-property(color, text-primary, background);
+
+    &.md-primary {
+      @include md-theme-property(background-color, primary);
+      @include md-theme-property(color, text-primary, primary);
+    }
+
+    &.md-accent {
+      @include md-theme-property(background-color, accent);
+      @include md-theme-property(color, text-primary, accent);
+    }
+  }
+}

@@ -53,7 +53,7 @@
   @import "~vue-material/components/MdLayout/mixins";
 
   .main-nav {
-    width: 200px;
+    width: 210px;
     padding: 24px 16px 16px;
     display: flex;
     align-items: flex-start;
