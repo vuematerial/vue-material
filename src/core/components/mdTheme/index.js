@@ -170,8 +170,8 @@ export default function install(Vue) {
         if (changeHtmlMetaColor) {
           changeHtmlMetaColor(
             registeredPrimaryColor[name],
-            prefix + this.currentTheme,
-            prefix + name
+            prefix + name,
+            prefix + this.currentTheme
           );
         }
 
