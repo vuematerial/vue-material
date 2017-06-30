@@ -62,7 +62,6 @@ export default entry => {
   if (entry.env === 'production') {
     webpackConfig = merge({
       plugins: [
-        new webpack.optimize.ModuleConcatenationPlugin(),
         new webpack.LoaderOptionsPlugin({
           minimize: true,
           debug: false
