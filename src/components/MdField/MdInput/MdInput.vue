@@ -1,8 +1,8 @@
 <template>
   <input
     v-bind="{ type, id, disabled, required, placeholder, readonly, maxlength }"
+    v-model="content"
     class="md-input"
-    :class="[$mdActiveTheme]"
     @focus="onFocus"
     @blur="onBlur"
     @input="onInput"
@@ -12,43 +12,10 @@
 
 <script>
   import MdComponent from 'core/MdComponent'
-  import MdUuid from 'core/MdUuid'
+  import MdFieldMixin from '../MdFieldMixin'
 
   export default new MdComponent({
     name: 'MdInput',
-    props: {
-      type: {
-        type: String,
-        default: 'text'
-      },
-      id: {
-        type: String,
-        default: 'md-field-' + MdUuid()
-      },
-      placeholder: String,
-      maxlength: [String, Number],
-      readonly: Boolean,
-      required: Boolean,
-      disabled: Boolean
-    },
-    methods: {
-      onFocus () {
-
-      },
-      onBlur () {
-
-      },
-      onInput () {
-
-      }
-    }
+    mixins: [MdFieldMixin]
   })
 </script>
-
-<style lang="scss">
-  @import "~components/MdAnimation/variables";
-
-  .md-input {
-    transition: .3s $md-transition-default-timing;
-  }
-</style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="md-field">
+  <div class="md-field" :class="[$mdActiveTheme, fieldClasses]">
     <slot />
   </div>
 </template>
@@ -8,7 +8,44 @@
   import MdComponent from 'core/MdComponent'
 
   export default new MdComponent({
-    name: 'MdField'
+    name: 'MdField',
+    provide: {
+      state: {}
+    },
+    props: {
+      mdInline: Boolean
+    },
+    data: () => ({
+      state: {
+        value: null,
+        focused: false,
+        disabled: false,
+        placeholder: false,
+        textarea: false,
+        autogrow: false
+      }
+    }),
+    computed: {
+      fieldClasses () {
+        return {
+          'md-inline': this.mdInline,
+          'md-focused': this.state.focused,
+          'md-disabled': this.state.disabled,
+          'md-required': this.state.required,
+          'md-has-value': this.state.value && this.state.value.length > 0,
+          'md-has-placeholder': this.state.placeholder,
+          'md-has-textarea': this.state.textarea,
+          'md-autogrow': this.state.autogrow
+          /* 'md-has-password': this.state.mdHasPassword,
+          'md-has-select': this.state.mdHasSelect,
+          'md-has-file': this.state.hasFile,
+          'md-clearable': this.state.mdClearable */
+        }
+      }
+    },
+    created () {
+      this._provided.state = this.state
+    }
   })
 </script>
 
@@ -23,17 +60,25 @@
     margin: 4px 0 24px;
     padding-top: 16px;
     display: flex;
+    flex-direction: column;
     position: relative;
 
+    &:before,
     &:after {
       height: 1px;
       position: absolute;
+      top: 47px;
       right: 0;
-      bottom: 0;
       left: 0;
-      background-color: rgba(#000, .12);
+      z-index: 1;
       transition: $md-transition-stand;
+      transition-property: background-color, transform, height, border;
       content: " ";
+    }
+
+    &:before {
+      z-index: 2;
+      transform: scaleX(.54);
     }
 
     label {
@@ -43,7 +88,6 @@
       pointer-events: none;
       transition: $md-transition-stand;
       transition-duration: .3s;
-      color: rgba(#000, .54);
       font-size: 16px;
       line-height: 20px;
     }
@@ -58,8 +102,7 @@
       border: none;
       background: none;
       transition: $md-transition-stand;
-      transition-property: font-size;
-      color: rgba(#000, .54);
+      transition-property: font-size, padding-top, color;
       font-family: inherit;
       font-size: 1px;
       line-height: $md-input-height;
@@ -69,10 +112,11 @@
       }
 
       &::-webkit-input-placeholder {
-        color: rgba(#000, .54);
         font-size: 16px;
         text-shadow: none;
         -webkit-text-fill-color: initial;
+        transition: $md-transition-stand;
+        transition-property: font-size, color;
       }
 
       ~ .md-icon:not(.md-icon-delete) {
@@ -93,12 +137,14 @@
       line-height: 1.3em;
     }
 
+    .md-helper-text,
     .md-error,
     .md-count {
       height: 20px;
       position: absolute;
       bottom: -22px;
       font-size: 12px;
+      transition: $md-transition-default;
     }
 
     .md-error {
@@ -106,7 +152,6 @@
       left: 0;
       opacity: 0;
       transform: translate3d(0, -8px, 0);
-      transition: $md-transition-drop;
     }
 
     .md-count {
@@ -143,7 +188,7 @@
   }
 
   .md-field {
-    &.md-input-placeholder {
+    &.md-has-placeholder {
       label {
         pointer-events: auto;
         top: 10px;
@@ -157,7 +202,68 @@
       }
     }
 
-    &.md-input-focused,
+    &.md-has-textarea:not(.md-autogrow) {
+      padding-top: 0;
+
+      &:after {
+        display: none;
+      }
+
+      &:before {
+        height: auto;
+        top: 0;
+        bottom: 0;
+        transform: none;
+        background: none !important;
+        border: 1px solid transparent;
+        border-radius: 3px;
+        pointer-events: none;
+      }
+
+      label {
+        top: 16px;
+        left: 16px;
+      }
+
+      textarea {
+        min-height: 100px;
+        padding: 16px 16px 0;
+      }
+
+      &:hover,
+      &.md-focused {
+        &:before {
+          border-width: 2px;
+        }
+      }
+
+      &.md-focused,
+      &.md-has-value {
+        label {
+          top: 6px;
+        }
+
+        textarea {
+          padding-top: 26px;
+        }
+      }
+    }
+
+    &:hover,
+    &.md-focused {
+      &:after,
+      &:before {
+        height: 2px;
+      }
+    }
+
+    &.md-focused {
+      &:before {
+        transform: scaleX(1);
+      }
+    }
+
+    &.md-focused,
     &.md-has-value {
       label {
         pointer-events: auto;
@@ -179,12 +285,12 @@
       }
     }
 
-    &.md-input-inline {
+    &.md-inline {
       label {
         pointer-events: none;
       }
 
-      &.md-input-focused {
+      &.md-focused {
         label {
           top: 23px;
           font-size: 16px;
@@ -198,22 +304,15 @@
       }
     }
 
-    &.md-input-disabled {
+    &.md-disabled {
       &:after {
         background: bottom left repeat-x;
-        background-image: linear-gradient(to right, rgba(#000, .38) 0%, rgba(#000, .38) 33%, transparent 0%);
         background-size: 4px 1px;
-      }
-
-      label,
-      input,
-      textarea {
-        color: rgba(#000, .38);
       }
     }
 
     &.md-has-password {
-      &.md-input-focused .md-toggle-password {
+      &.md-focused .md-toggle-password {
         color: rgba(#000, .54);
       }
 
@@ -231,7 +330,7 @@
     }
 
     &.md-clearable {
-      &.md-input-focused .md-clear-input {
+      &.md-focused .md-clear-input {
         color: rgba(#000, .54);
       }
 
@@ -248,14 +347,19 @@
       }
     }
 
-    &.md-input-invalid {
+    &.md-invalid {
       .md-error {
         opacity: 1;
         transform: translate3d(0, 0, 0);
       }
+
+      .md-helper-text {
+        opacity: 0;
+        transform: translate3d(0, -8px, 0);
+      }
     }
 
-    &.md-input-required {
+    &.md-required {
       label:after {
         position: absolute;
         top: 2px;
