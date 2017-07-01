@@ -1,6 +1,7 @@
 <example src="./examples/TextFields.vue" />
 <example src="./examples/ErrorsMessages.vue" />
 <example src="./examples/Counters.vue" />
+<example src="./examples/Icons.vue" />
 
 <template>
   <page-container centered :title="$t('pages.input.title')">
@@ -24,6 +25,12 @@
       <h2>Character count</h2>
 
       <code-example title="Counter" :component="examples['counters']" />
+    </div>
+
+    <div class="page-container-section">
+      <h2>Icons and Clear button</h2>
+
+      <code-example title="Outside, inline and clear" :component="examples['icons']" />
     </div>
   </page-container>
 </template>

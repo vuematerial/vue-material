@@ -81,7 +81,6 @@
     margin: 4px 0 24px;
     padding-top: 16px;
     display: flex;
-    flex-direction: column;
     position: relative;
 
     &:before,
@@ -179,18 +178,23 @@
       right: 0;
     }
 
-    .md-icon:not(.md-icon-delete) {
+    > .md-icon {
       margin: 4px auto;
+      position: relative;
+      z-index: 3;
       color: rgba(#000, .54);
       transition: $md-transition-stand;
+
+      &:last-of-type:not(:first-child):after {
+        display: none;
+      }
 
       &:after {
         width: 36px;
         height: 2px;
         position: absolute;
         left: 0;
-        bottom: 0;
-        z-index: 2;
+        bottom: -4px;
         content: "";
       }
 
@@ -251,6 +255,13 @@
       textarea {
         min-height: 100px;
         padding: 0 16px;
+      }
+
+      .md-icon {
+        position: absolute;
+        top: 6px;
+        right: 6px;
+        z-index: 3;
       }
 
       .md-count {

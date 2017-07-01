@@ -5,7 +5,6 @@
         background-color: rgba(#000, .42);
       }
 
-
       .md-helper-text,
       .md-count,
       label {
@@ -86,6 +85,13 @@
         textarea {
           color: rgba(#fff, .5);
         }
+      }
+    }
+
+
+    > .md-icon {
+      &:after {
+        @include md-theme-property(background-color, background);
       }
     }
 
