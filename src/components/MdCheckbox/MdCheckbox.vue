@@ -26,7 +26,9 @@
       },
       id: {
         type: String,
-        default: 'md-checkbox-' + MdUuid()
+        default () {
+          return 'md-checkbox-' + MdUuid()
+        }
       },
       required: Boolean,
       disabled: Boolean

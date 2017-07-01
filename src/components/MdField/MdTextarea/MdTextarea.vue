@@ -22,7 +22,9 @@
     props: {
       id: {
         type: String,
-        default: 'md-textarea-' + MdUuid()
+        default () {
+          return 'md-textarea-' + MdUuid()
+        }
       },
       mdAutogrow: Boolean
     },

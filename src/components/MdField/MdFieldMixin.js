@@ -44,6 +44,14 @@ export default {
       this.setStateValue()
       this.$emit('input', '')
     },
+    setLabelFor () {
+      const label = this.$parent.$el.querySelector('label')
+      const forAttribute = label.getAttribute('for')
+
+      if (!forAttribute) {
+        label.setAttribute('for', this.id)
+      }
+    },
     setStateValue () {
       this.state.value = this.content
     },
@@ -75,5 +83,8 @@ export default {
     this.setDisabled()
     this.setRequired()
     this.setMaxlength()
+  },
+  mounted () {
+    this.setLabelFor()
   }
 }

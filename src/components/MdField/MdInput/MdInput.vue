@@ -21,7 +21,9 @@
     props: {
       id: {
         type: String,
-        default: 'md-input-' + MdUuid()
+        default () {
+          return 'md-input-' + MdUuid()
+        }
       },
       type: {
         type: String,
