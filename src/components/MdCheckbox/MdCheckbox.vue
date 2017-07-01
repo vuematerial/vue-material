@@ -15,9 +15,13 @@
 <script>
   import MdComponent from 'core/MdComponent'
   import MdUuid from 'core/MdUuid'
+  import MdRipple from 'components/MdRipple/MdRipple'
 
   export default new MdComponent({
     name: 'MdCheckbox',
+    components: {
+      MdRipple
+    },
     props: {
       model: [String, Number, Boolean, Array],
       value: {
