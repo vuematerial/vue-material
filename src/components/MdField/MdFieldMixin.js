@@ -32,6 +32,9 @@ export default {
     },
     required () {
       this.setRequired()
+    },
+    maxlength () {
+      this.setMaxlength()
     }
   },
   methods: {
@@ -46,6 +49,9 @@ export default {
     },
     setRequired () {
       this.state.required = Boolean(this.required)
+    },
+    setMaxlength () {
+      this.state.maxlength = parseInt(this.maxlength, 10)
     },
     onFocus () {
       this.state.focused = true
@@ -62,5 +68,6 @@ export default {
     this.setPlaceholder()
     this.setDisabled()
     this.setRequired()
+    this.setMaxlength()
   }
 }

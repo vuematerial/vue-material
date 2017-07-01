@@ -1,6 +1,8 @@
 <template>
   <div class="md-field" :class="[$mdActiveTheme, fieldClasses]">
     <slot />
+
+    <span class="md-count" v-if="hasCounter">{{ valueLength }} / {{ state.maxlength }}</span>
   </div>
 </template>
 
@@ -13,7 +15,11 @@
       state: {}
     },
     props: {
-      mdInline: Boolean
+      mdInline: Boolean,
+      mdCounter: {
+        type: Boolean,
+        default: true
+      }
     },
     data: () => ({
       state: {
@@ -23,10 +29,24 @@
         required: false,
         placeholder: false,
         textarea: false,
-        autogrow: false
+        autogrow: false,
+        maxlength: null
       }
     }),
     computed: {
+      hasCounter () {
+        return this.mdCounter && this.state.maxlength
+      },
+      hasValue () {
+        return this.state.value && this.state.value.length > 0
+      },
+      valueLength () {
+        if (this.state.value) {
+          return this.state.value.length
+        }
+
+        return 0
+      },
       fieldClasses () {
         return {
           'md-inline': this.mdInline,
@@ -68,7 +88,7 @@
     &:after {
       height: 1px;
       position: absolute;
-      top: 47px;
+      bottom: 0;
       right: 0;
       left: 0;
       z-index: 1;
@@ -231,6 +251,11 @@
       textarea {
         min-height: 100px;
         padding: 0 16px;
+      }
+
+      .md-count {
+        right: 6px;
+        bottom: 2px;
       }
 
       &:hover,

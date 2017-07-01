@@ -1,5 +1,6 @@
 <example src="./examples/TextFields.vue" />
 <example src="./examples/ErrorsMessages.vue" />
+<example src="./examples/Counters.vue" />
 
 <template>
   <page-container centered :title="$t('pages.input.title')">
@@ -17,6 +18,12 @@
       <h2>Errors and Messages</h2>
 
       <code-example title="Validation" :component="examples['errors-messages']" />
+    </div>
+
+    <div class="page-container-section">
+      <h2>Character count</h2>
+
+      <code-example title="Counter" :component="examples['counters']" />
     </div>
   </page-container>
 </template>
