@@ -29,6 +29,9 @@ export default {
     },
     disabled () {
       this.setDisabled()
+    },
+    required () {
+      this.setRequired()
     }
   },
   methods: {
@@ -40,6 +43,9 @@ export default {
     },
     setDisabled () {
       this.state.disabled = Boolean(this.disabled)
+    },
+    setRequired () {
+      this.state.required = Boolean(this.required)
     },
     onFocus () {
       this.state.focused = true
@@ -55,5 +61,6 @@ export default {
     this.setStateValue()
     this.setPlaceholder()
     this.setDisabled()
+    this.setRequired()
   }
 }

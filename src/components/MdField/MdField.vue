@@ -20,6 +20,7 @@
         value: null,
         focused: false,
         disabled: false,
+        required: false,
         placeholder: false,
         textarea: false,
         autogrow: false
@@ -188,6 +189,10 @@
   }
 
   .md-field {
+    + .md-has-textarea:not(.md-autogrow) {
+      margin-top: 36px;
+    }
+
     &.md-has-placeholder {
       label {
         pointer-events: auto;
@@ -203,8 +208,6 @@
     }
 
     &.md-has-textarea:not(.md-autogrow) {
-      padding-top: 0;
-
       &:after {
         display: none;
       }
@@ -227,7 +230,7 @@
 
       textarea {
         min-height: 100px;
-        padding: 16px 16px 0;
+        padding: 0 16px;
       }
 
       &:hover,
@@ -244,7 +247,7 @@
         }
 
         textarea {
-          padding-top: 26px;
+          padding-top: 10px;
         }
       }
     }
@@ -348,6 +351,12 @@
     }
 
     &.md-invalid {
+      &.md-has-textarea:not(.md-autogrow) {
+        &:before {
+          border-width: 2px;
+        }
+      }
+
       .md-error {
         opacity: 1;
         transform: translate3d(0, 0, 0);
@@ -366,7 +375,6 @@
         right: 0;
         transform: translateX(calc(100% + 2px));
         content: "*";
-        font-size: 12px;
         line-height: 1em;
         vertical-align: top;
       }

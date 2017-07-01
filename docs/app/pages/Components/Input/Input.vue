@@ -1,4 +1,5 @@
 <example src="./examples/TextFields.vue" />
+<example src="./examples/ErrorsMessages.vue" />
 
 <template>
   <page-container centered :title="$t('pages.input.title')">
@@ -10,6 +11,12 @@
       <h2>Text Fields</h2>
 
       <code-example title="Input and Textarea" :component="examples['text-fields']" />
+    </div>
+
+    <div class="page-container-section">
+      <h2>Errors and Messages</h2>
+
+      <code-example title="Validation" :component="examples['errors-messages']" />
     </div>
   </page-container>
 </template>

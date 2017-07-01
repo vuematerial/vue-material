@@ -18,10 +18,6 @@
         }
       }
 
-      .md-error {
-        @include md-theme-property-by-hue(color, red, A400, field, error);
-      }
-
       &.md-focused,
       &.md-has-value {
         input,
@@ -88,6 +84,26 @@
         textarea {
           color: rgba(#fff, .5);
         }
+      }
+    }
+
+    &.md-invalid {
+      &:after {
+        @include md-theme-property-by-hue(background-color, red, A400, field, error);
+      }
+
+      &.md-has-textarea:not(.md-autogrow) {
+        &:before {
+          @include md-theme-property-by-hue(border-color, red, A400, field, error);
+        }
+      }
+
+      label {
+        @include md-theme-property-by-hue(color, red, A400, field, error);
+      }
+
+      .md-error {
+        @include md-theme-property-by-hue(color, red, A400, field, error);
       }
     }
 
