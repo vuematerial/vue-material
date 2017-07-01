@@ -247,10 +247,11 @@
 
       &:after {
         width: 36px;
-        height: 2px;
+        height: 3px;
         position: absolute;
         left: 0;
-        bottom: -4px;
+        bottom: -5px;
+        transition: .3s $md-transition-default-timing;
         content: "";
       }
 
