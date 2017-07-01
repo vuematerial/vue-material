@@ -14,6 +14,7 @@
   export default new MdComponent({
     name: 'MdRipple',
     props: {
+      mdActive: Boolean,
       mdDisabled: Boolean,
       mdCentered: Boolean
     },
@@ -26,6 +27,16 @@
       rippleClass () {
         return {
           'md-centered': this.mdCentered
+        }
+      }
+    },
+    watch: {
+      mdActive (active) {
+        if (this.mdCentered && active) {
+          this.startRipple({
+            type: 'mousedown'
+          })
+          this.$emit('update:mdActive', false)
         }
       }
     },

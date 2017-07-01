@@ -1,4 +1,5 @@
 import MdButton from './MdButton'
+import MdCheckbox from './MdCheckbox'
 import MdContent from './MdContent'
 import MdDrawer from './MdDrawer'
 import MdElevation from './MdElevation'
@@ -11,6 +12,7 @@ import MdToolbar from './MdToolbar'
 
 export default {
   MdButton,
+  MdCheckbox,
   MdContent,
   MdDrawer,
   MdElevation,

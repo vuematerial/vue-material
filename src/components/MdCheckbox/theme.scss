@@ -1,0 +1,32 @@
+.md-checkbox {
+  @include md-theme-component() {
+    @if md-get-theme-mode() == light {
+      .md-checkbox-container {
+        border-color: rgba(#000, .54);
+      }
+    } @else {
+      .md-checkbox-container {
+        border-color: rgba(#fff, .7);
+      }
+    }
+
+    &.md-checked {
+      .md-checkbox-container {
+        @include md-theme-property(background-color, accent);
+        @include md-theme-property(border-color, accent);
+
+        &:after {
+          @include md-theme-property(border-color, background);
+        }
+      }
+
+      .md-ink-ripple {
+        @include md-theme-property(color, accent);
+      }
+    }
+/*
+    .md-ripple {
+      opacity: .26;
+    } */
+  }
+}
