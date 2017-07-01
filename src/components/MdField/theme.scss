@@ -11,17 +11,21 @@
         color: rgba(#000, .54);
       }
 
-      input,
-      textarea {
+      .md-input,
+      .md-textarea {
         &::-webkit-input-placeholder {
           color: rgba(#000, .54);
         }
       }
 
+      .md-clear  {
+        background-color: rgba(#000, .26);
+      }
+
       &.md-focused,
       &.md-has-value {
-        input,
-        textarea {
+        .md-input,
+        .md-textarea {
           -webkit-text-fill-color: rgba(#000, .87);
         }
       }
@@ -38,8 +42,8 @@
         }
 
         label,
-        input,
-        textarea {
+        .md-input,
+        .md-textarea {
           color: rgba(#000, .42);
         }
       }
@@ -54,17 +58,21 @@
         color: rgba(#fff, .7);
       }
 
-      input,
-      textarea {
+      .md-input,
+      .md-textarea {
         &::-webkit-input-placeholder {
           color: rgba(#fff, .7);
         }
       }
 
+      .md-clear  {
+        background-color: rgba(#fff, .26);
+      }
+
       &.md-focused,
       &.md-has-value {
-        input,
-        textarea {
+        .md-input,
+        .md-textarea {
           -webkit-text-fill-color: #fff;
         }
       }
@@ -81,13 +89,12 @@
         }
 
         label,
-        input,
-        textarea {
+        .md-input,
+        .md-textarea {
           color: rgba(#fff, .5);
         }
       }
     }
-
 
     > .md-icon {
       &:after {
@@ -124,8 +131,8 @@
         @include md-theme-property(color, primary);
       }
 
-      input,
-      textarea {
+      .md-input,
+      .md-textarea {
         @include md-theme-property(color, primary);
       }
 

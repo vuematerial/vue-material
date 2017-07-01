@@ -3,19 +3,30 @@
     <slot />
 
     <span class="md-count" v-if="hasCounter">{{ valueLength }} / {{ state.maxlength }}</span>
+
+    <transition name="md-clear" appear>
+      <md-button tabindex="-1" class="md-icon-button md-dense md-clear" @click="clearInput" v-if="hasValue && mdClearable">
+        <md-clear-icon />
+      </md-button>
+    </transition>
   </div>
 </template>
 
 <script>
   import MdComponent from 'core/MdComponent'
+  import MdClearIcon from 'core/Icons/MdClearIcon'
 
   export default new MdComponent({
     name: 'MdField',
+    components: {
+      MdClearIcon
+    },
     provide: {
       state: {}
     },
     props: {
       mdInline: Boolean,
+      mdClearable: Boolean,
       mdCounter: {
         type: Boolean,
         default: true
@@ -30,7 +41,8 @@
         placeholder: false,
         textarea: false,
         autogrow: false,
-        maxlength: null
+        maxlength: null,
+        clear: false
       }
     }),
     computed: {
@@ -50,6 +62,7 @@
       fieldClasses () {
         return {
           'md-inline': this.mdInline,
+          'md-clearable': this.mdClearable,
           'md-focused': this.state.focused,
           'md-disabled': this.state.disabled,
           'md-required': this.state.required,
@@ -60,8 +73,15 @@
           /* 'md-has-password': this.state.mdHasPassword,
           'md-has-select': this.state.mdHasSelect,
           'md-has-file': this.state.hasFile,
-          'md-clearable': this.state.mdClearable */
+           */
         }
+      }
+    },
+    methods: {
+      async clearInput () {
+        this.state.clear = true
+        await this.$nextTick()
+        this.state.clear = false
       }
     },
     created () {
@@ -112,8 +132,8 @@
       line-height: 20px;
     }
 
-    input,
-    textarea {
+    .md-input,
+    .md-textarea {
       width: 100%;
       height: $md-input-height;
       padding: 0;
@@ -149,7 +169,7 @@
       }
     }
 
-    textarea {
+    .md-textarea {
       min-height: 32px;
       max-height: 230px;
       padding: 5px 0;
@@ -225,8 +245,8 @@
         font-size: 12px;
       }
 
-      input,
-      textarea {
+      .md-input,
+      .md-textarea {
         font-size: 16px;
       }
     }
@@ -252,12 +272,12 @@
         left: 16px;
       }
 
-      textarea {
+      .md-textarea {
         min-height: 100px;
         padding: 0 16px;
       }
 
-      .md-icon {
+      > .md-icon {
         position: absolute;
         top: 6px;
         right: 6px;
@@ -267,6 +287,11 @@
       .md-count {
         right: 6px;
         bottom: 2px;
+      }
+
+      .md-clear {
+        top: 6px;
+        right: 6px;
       }
 
       &:hover,
@@ -282,7 +307,7 @@
           top: 6px;
         }
 
-        textarea {
+        .md-textarea {
           padding-top: 10px;
         }
       }
@@ -311,15 +336,15 @@
         font-size: 12px;
       }
 
-      input,
-      textarea {
+      .md-input,
+      .md-textarea {
         font-size: 16px;
       }
     }
 
     &.md-has-value {
-      input,
-      textarea {
+      .md-input,
+      .md-textarea {
         color: rgba(#000, .87);
       }
     }
@@ -369,19 +394,32 @@
     }
 
     &.md-clearable {
-      &.md-focused .md-clear-input {
-        color: rgba(#000, .54);
+      .md-input {
+        padding-right: 30px;
       }
 
-      .md-clear-input {
+      .md-clear {
+        width: 24px;
+        min-width: 24px;
+        height: 24px;
         margin: 0;
         position: absolute;
+        top: 20px;
         right: 0;
-        bottom: -2px;
-        color: rgba(#000, .38);
+        transition: $md-transition-default;
 
-        .md-ink-ripple {
-          color: rgba(#000, .87);
+        &.md-clear-enter-active,
+        &.md-clear-leave-active {
+          opacity: 0;
+        }
+
+        &.md-clear-enter-to {
+          opacity: 1;
+        }
+
+        svg {
+          width: 17px;
+          height: 17px;
         }
       }
     }

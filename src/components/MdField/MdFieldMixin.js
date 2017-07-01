@@ -23,7 +23,20 @@ export default {
       content: this.value || null
     }
   },
+  computed: {
+    clear () {
+      return this.state.clear
+    }
+  },
   watch: {
+    clear (clear) {
+      if (clear) {
+        this.$el.value = ''
+        this.content = ''
+        this.setStateValue()
+        this.$emit('input', '')
+      }
+    },
     placeholder () {
       this.setPlaceholder()
     },
