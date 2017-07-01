@@ -136,6 +136,11 @@
         @include md-theme-property(color, primary);
       }
 
+      > .md-icon {
+        @include md-theme-property(color, primary);
+        @include md-theme-property(fill, primary);
+      }
+
       &.md-has-textarea:not(.md-autogrow) {
         &:before {
           @include md-theme-property(border-color, primary);

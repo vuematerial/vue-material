@@ -238,7 +238,6 @@
       margin: 4px auto;
       position: relative;
       z-index: 3;
-      color: rgba(#000, .54);
       transition: $md-transition-stand;
 
       &:last-of-type:not(:first-child):after {
@@ -379,13 +378,6 @@
       }
     }
 
-    &.md-has-value {
-      .md-input,
-      .md-textarea {
-        color: rgba(#000, .87);
-      }
-    }
-
     &.md-inline {
       label {
         pointer-events: none;
@@ -471,7 +463,7 @@
 
     &.md-has-select:hover {
       .md-select:not(.md-disabled):after {
-        color: rgba(#000, .87);
+
       }
     }
   }
