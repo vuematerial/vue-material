@@ -1,12 +1,6 @@
-import MdUuid from 'core/MdUuid'
-
 export default {
   props: {
     value: [String, Number],
-    id: {
-      type: String,
-      default: 'md-field-' + MdUuid()
-    },
     placeholder: String,
     maxlength: [String, Number],
     readonly: Boolean,

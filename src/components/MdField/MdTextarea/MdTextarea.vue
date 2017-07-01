@@ -13,12 +13,17 @@
 
 <script>
   import MdComponent from 'core/MdComponent'
+  import MdUuid from 'core/MdUuid'
   import MdFieldMixin from '../MdFieldMixin'
 
   export default new MdComponent({
     name: 'MdTextarea',
     mixins: [MdFieldMixin],
     props: {
+      id: {
+        type: String,
+        default: 'md-textarea-' + MdUuid()
+      },
       mdAutogrow: Boolean
     },
     methods: {

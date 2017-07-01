@@ -12,12 +12,17 @@
 
 <script>
   import MdComponent from 'core/MdComponent'
+  import MdUuid from 'core/MdUuid'
   import MdFieldMixin from '../MdFieldMixin'
 
   export default new MdComponent({
     name: 'MdInput',
     mixins: [MdFieldMixin],
     props: {
+      id: {
+        type: String,
+        default: 'md-input-' + MdUuid()
+      },
       type: {
         type: String,
         default: 'text'
