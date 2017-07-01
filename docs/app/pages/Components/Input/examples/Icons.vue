@@ -24,11 +24,6 @@
       <md-input />
       <md-icon>attach_money</md-icon>
     </md-field>
-
-    <md-field md-clearable>
-      <label>Cleareable</label>
-      <md-input v-model="initial" />
-    </md-field>
   </div>
 </template>
 
@@ -40,9 +35,6 @@
 
 <script>
   export default {
-    name: 'Icons',
-    data: () => ({
-      initial: 'Initial Value'
-    })
+    name: 'Icons'
   }
 </script>

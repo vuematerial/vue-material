@@ -1,6 +1,6 @@
 <template>
   <textarea
-    v-bind="{ type, id, disabled, required, placeholder, readonly, maxlength }"
+    v-bind="{ id, disabled, required, placeholder, readonly, maxlength }"
     v-model="content"
     class="md-textarea"
     @focus="onFocus"

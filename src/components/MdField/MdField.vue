@@ -4,9 +4,16 @@
 
     <span class="md-count" v-if="hasCounter">{{ valueLength }} / {{ state.maxlength }}</span>
 
-    <transition name="md-clear" appear>
-      <md-button tabindex="-1" class="md-icon-button md-dense md-clear" @click="clearInput" v-if="hasValue && mdClearable">
+    <transition name="md-input-action" appear>
+      <md-button tabindex="-1" class="md-icon-button md-dense md-input-action md-clear" @click="clearInput" v-if="hasValue && mdClearable">
         <md-clear-icon />
+      </md-button>
+    </transition>
+
+    <transition name="md-input-action" appear>
+      <md-button tabindex="-1" class="md-icon-button md-dense md-input-action md-toggle-password" @click="togglePassword" v-if="hasPasswordToggle">
+        <md-password-off-icon v-if="state.togglePassword" />
+        <md-password-on-icon v-else />
       </md-button>
     </transition>
   </div>
@@ -15,11 +22,15 @@
 <script>
   import MdComponent from 'core/MdComponent'
   import MdClearIcon from 'core/Icons/MdClearIcon'
+  import MdPasswordOffIcon from 'core/Icons/MdPasswordOffIcon'
+  import MdPasswordOnIcon from 'core/Icons/MdPasswordOnIcon'
 
   export default new MdComponent({
     name: 'MdField',
     components: {
-      MdClearIcon
+      MdClearIcon,
+      MdPasswordOffIcon,
+      MdPasswordOnIcon
     },
     provide: {
       state: {}
@@ -30,9 +41,14 @@
       mdCounter: {
         type: Boolean,
         default: true
+      },
+      mdTogglePassword: {
+        type: Boolean,
+        default: true
       }
     },
     data: () => ({
+      showPassword: false,
       state: {
         value: null,
         focused: false,
@@ -42,12 +58,17 @@
         textarea: false,
         autogrow: false,
         maxlength: null,
+        password: null,
+        togglePassword: false,
         clear: false
       }
     }),
     computed: {
       hasCounter () {
         return this.mdCounter && this.state.maxlength
+      },
+      hasPasswordToggle () {
+        return this.mdTogglePassword && this.state.password
       },
       hasValue () {
         return this.state.value && this.state.value.length > 0
@@ -69,8 +90,9 @@
           'md-has-value': this.state.value && this.state.value.length > 0,
           'md-has-placeholder': this.state.placeholder,
           'md-has-textarea': this.state.textarea,
+          'md-has-password': this.state.password,
           'md-autogrow': this.state.autogrow
-          /* 'md-has-password': this.state.mdHasPassword,
+          /* ,
           'md-has-select': this.state.mdHasSelect,
           'md-has-file': this.state.hasFile,
            */
@@ -82,6 +104,9 @@
         this.state.clear = true
         await this.$nextTick()
         this.state.clear = false
+      },
+      async togglePassword () {
+        this.state.togglePassword = !this.state.togglePassword
       }
     },
     created () {
@@ -158,15 +183,6 @@
         transition: $md-transition-stand;
         transition-property: font-size, color;
       }
-
-      ~ .md-icon:not(.md-icon-delete) {
-        margin-left: 12px;
-
-        &:after {
-          right: 0;
-          left: auto;
-        }
-      }
     }
 
     .md-textarea {
@@ -196,6 +212,26 @@
 
     .md-count {
       right: 0;
+    }
+
+    .md-input-action {
+      width: 24px;
+      min-width: 24px;
+      height: 24px;
+      margin: 0;
+      position: absolute;
+      top: 20px;
+      right: 0;
+      transition: $md-transition-default;
+
+      &.md-input-action-enter-active,
+      &.md-input-action-leave-active {
+        opacity: 0;
+      }
+
+      &.md-input-action-enter-to {
+        opacity: 1;
+      }
     }
 
     > .md-icon {
@@ -376,19 +412,15 @@
     }
 
     &.md-has-password {
-      &.md-focused .md-toggle-password {
-        color: rgba(#000, .54);
-      }
-
       .md-toggle-password {
         margin: 0;
         position: absolute;
         right: 0;
         bottom: -2px;
-        color: rgba(#000, .38);
 
-        .md-ink-ripple {
-          color: rgba(#000, .87);
+        svg {
+          width: 22px;
+          height: 22px;
         }
       }
     }
@@ -399,24 +431,6 @@
       }
 
       .md-clear {
-        width: 24px;
-        min-width: 24px;
-        height: 24px;
-        margin: 0;
-        position: absolute;
-        top: 20px;
-        right: 0;
-        transition: $md-transition-default;
-
-        &.md-clear-enter-active,
-        &.md-clear-leave-active {
-          opacity: 0;
-        }
-
-        &.md-clear-enter-to {
-          opacity: 1;
-        }
-
         svg {
           width: 17px;
           height: 17px;

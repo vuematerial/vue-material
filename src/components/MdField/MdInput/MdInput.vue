@@ -16,6 +16,43 @@
 
   export default new MdComponent({
     name: 'MdInput',
-    mixins: [MdFieldMixin]
+    mixins: [MdFieldMixin],
+    props: {
+      type: {
+        type: String,
+        default: 'text'
+      }
+    },
+    computed: {
+      toggleType () {
+        return this.state.togglePassword
+      }
+    },
+    watch: {
+      type (type) {
+        this.setPassword()
+      },
+      toggleType (toggle) {
+        if (toggle) {
+          this.setTypeText()
+        } else {
+          this.setTypePassword()
+        }
+      }
+    },
+    methods: {
+      setPassword () {
+        this.state.password = this.type === 'password'
+      },
+      setTypePassword () {
+        this.$el.type = 'password'
+      },
+      setTypeText () {
+        this.$el.type = 'text'
+      }
+    },
+    created () {
+      this.setPassword()
+    }
   })
 </script>

@@ -2,6 +2,7 @@
 <example src="./examples/ErrorsMessages.vue" />
 <example src="./examples/Counters.vue" />
 <example src="./examples/Icons.vue" />
+<example src="./examples/InlineActions.vue" />
 
 <template>
   <page-container centered :title="$t('pages.input.title')">
@@ -30,7 +31,13 @@
     <div class="page-container-section">
       <h2>Icons and Clear button</h2>
 
-      <code-example title="Outside, inline and clear" :component="examples['icons']" />
+      <code-example title="Outside and inline icons" :component="examples['icons']" />
+    </div>
+
+    <div class="page-container-section">
+      <h2>Inline Actions</h2>
+
+      <code-example title="Clear and password" :component="examples['inline-actions']" />
     </div>
   </page-container>
 </template>

@@ -3,10 +3,6 @@ import MdUuid from 'core/MdUuid'
 export default {
   props: {
     value: [String, Number],
-    type: {
-      type: String,
-      default: 'text'
-    },
     id: {
       type: String,
       default: 'md-field-' + MdUuid()
@@ -31,10 +27,7 @@ export default {
   watch: {
     clear (clear) {
       if (clear) {
-        this.$el.value = ''
-        this.content = ''
-        this.setStateValue()
-        this.$emit('input', '')
+        this.clearField()
       }
     },
     placeholder () {
@@ -51,6 +44,12 @@ export default {
     }
   },
   methods: {
+    clearField () {
+      this.$el.value = ''
+      this.content = ''
+      this.setStateValue()
+      this.$emit('input', '')
+    },
     setStateValue () {
       this.state.value = this.content
     },
