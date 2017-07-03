@@ -64,7 +64,8 @@
       },
       checkboxClasses () {
         return {
-          'md-checked': this.isSelected
+          'md-checked': this.isSelected,
+          'md-disabled': this.disabled
         }
       }
     },
@@ -98,14 +99,16 @@
         this.$emit('change', !this.isSelected)
       },
       toggleCheck () {
-        this.rippleActive = true
+        if (!this.disabled) {
+          this.rippleActive = true
 
-        if (this.isArray) {
-          this.handleArrayCheckbox()
-        } else if (this.isBoolean) {
-          this.handleBooleanCheckbox()
-        } else {
-          this.handleStringCheckbox()
+          if (this.isArray) {
+            this.handleArrayCheckbox()
+          } else if (this.isBoolean) {
+            this.handleBooleanCheckbox()
+          } else {
+            this.handleStringCheckbox()
+          }
         }
       }
     }
@@ -204,6 +207,12 @@
         transform: rotate(45deg) scale3D(1, 1, 1);
         transition: $md-transition-stand;
       }
+    }
+  }
+
+  .md-checkbox.md-disabled.md-checked {
+    .md-checkbox-container {
+      border-color: transparent !important;
     }
   }
 </style>

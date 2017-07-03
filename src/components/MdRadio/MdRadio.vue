@@ -50,14 +50,17 @@
       },
       radioClasses () {
         return {
-          'md-checked': this.isSelected
+          'md-checked': this.isSelected,
+          'md-disabled': this.disabled
         }
       }
     },
     methods: {
       toggleCheck () {
-        this.rippleActive = true
-        this.$emit('change', this.value)
+        if (!this.disabled) {
+          this.rippleActive = true
+          this.$emit('change', this.value)
+        }
       }
     }
   })
