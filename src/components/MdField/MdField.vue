@@ -245,10 +245,10 @@
       }
 
       &:after {
-        width: 36px;
-        height: 3px;
+        width: 37px;
+        height: 4px;
         position: absolute;
-        left: 0;
+        left: -1px;
         bottom: -5px;
         transition: .3s $md-transition-default-timing;
         content: "";

@@ -80,6 +80,11 @@ export const routes = [
     component: () => import('./pages/UiElements/Layout/Layout.vue')
   },
   {
+    path: '/ui-elements/text-selection',
+    name: 'ui-elements/text-selection',
+    component: () => import('./pages/UiElements/TextSelection/TextSelection.vue')
+  },
+  {
     path: '/temp',
     name: 'temp',
     component: () => import('./pages/Temp.vue')

@@ -55,6 +55,9 @@ export default {
     layout: {
       title: 'Layout'
     },
+    textSelection: {
+      title: 'Text Selection'
+    },
     error: {
       title: 'Not Found'
     }
