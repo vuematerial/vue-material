@@ -1,0 +1,151 @@
+.md-field {
+  @include md-theme-component() {
+    @if md-get-theme-mode() == light {
+      &:after {
+        background-color: rgba(#000, .42);
+      }
+
+      .md-helper-text,
+      .md-count,
+      label {
+        color: rgba(#000, .54);
+      }
+
+      .md-input,
+      .md-textarea {
+        &::-webkit-input-placeholder {
+          color: rgba(#000, .54);
+        }
+      }
+
+      .md-clear  {
+        background-color: rgba(#000, .2);
+      }
+
+      &.md-focused,
+      &.md-has-value {
+        .md-input,
+        .md-textarea {
+          -webkit-text-fill-color: rgba(#000, .87);
+        }
+      }
+
+      &.md-has-textarea:not(.md-autogrow) {
+        &:before {
+          border-color: rgba(#000, .42);
+        }
+      }
+
+      &.md-disabled {
+        &:after {
+          background-image: linear-gradient(to right, rgba(#000, .38) 0%, rgba(#000, .38) 33%, transparent 0%);
+        }
+
+        label,
+        .md-input,
+        .md-textarea {
+          color: rgba(#000, .42);
+        }
+      }
+    } @else {
+      &:after {
+        background-color: rgba(#fff, .7);
+      }
+
+      .md-helper-text,
+      .md-count,
+      label {
+        color: rgba(#fff, .7);
+      }
+
+      .md-input,
+      .md-textarea {
+        &::-webkit-input-placeholder {
+          color: rgba(#fff, .7);
+        }
+      }
+
+      .md-clear  {
+        background-color: rgba(#fff, .2);
+      }
+
+      &.md-focused,
+      &.md-has-value {
+        .md-input,
+        .md-textarea {
+          -webkit-text-fill-color: #fff;
+        }
+      }
+
+      &.md-has-textarea:not(.md-autogrow) {
+        &:before {
+          border-color: #fff;
+        }
+      }
+
+      &.md-disabled {
+        &:after {
+          background-image: linear-gradient(to right, rgba(#fff, .7) 0%, rgba(#fff, .7) 33%, transparent 0%);
+        }
+
+        label,
+        .md-input,
+        .md-textarea {
+          color: rgba(#fff, .5);
+        }
+      }
+    }
+
+    > .md-icon {
+      &:after {
+        @include md-theme-property(background-color, background);
+      }
+    }
+
+    &.md-invalid {
+      &:after {
+        @include md-theme-property-by-hue(background-color, red, A400, field, error);
+      }
+
+      &.md-has-textarea:not(.md-autogrow) {
+        &:before {
+          @include md-theme-property-by-hue(border-color, red, A400, field, error);
+        }
+      }
+
+      label {
+        @include md-theme-property-by-hue(color, red, A400, field, error);
+      }
+
+      .md-error {
+        @include md-theme-property-by-hue(color, red, A400, field, error);
+      }
+    }
+
+    &.md-focused {
+      &:before {
+        @include md-theme-property(background-color, primary);
+      }
+
+      label {
+        @include md-theme-property(color, primary);
+      }
+
+      .md-input,
+      .md-textarea {
+        @include md-theme-property(color, primary);
+      }
+
+      > .md-icon {
+        @include md-theme-property(color, primary);
+        @include md-theme-property(fill, primary);
+      }
+
+      &.md-has-textarea:not(.md-autogrow) {
+        &:before {
+          @include md-theme-property(border-color, primary);
+        }
+      }
+    }
+  }
+}

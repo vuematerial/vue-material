@@ -29,16 +29,13 @@ html {
 }
 
 .md-scrollbar {
-  @include md-theme-component-relative() {
+  @include md-theme-component() {
     &::-webkit-scrollbar-corner,
-    ::-webkit-scrollbar-corner,
-    &::-webkit-scrollbar-track,
-    ::-webkit-scrollbar-track {
+    &::-webkit-scrollbar-track {
       @include md-theme-property(background, scrollbar-background, background-variant);
     }
 
-    &::-webkit-scrollbar-thumb,
-    ::-webkit-scrollbar-thumb {
+    &::-webkit-scrollbar-thumb {
       @include md-theme-property(background, scrollbar, background-variant);
     }
   }

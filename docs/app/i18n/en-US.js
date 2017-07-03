@@ -25,20 +25,41 @@ export default {
       title: 'Button',
       description: 'Buttons communicate the action that will occur when the user touches them.'
     },
+    checkbox: {
+      title: 'Checkbox'
+    },
     content: {
       title: 'Content'
     },
     drawer: {
       title: 'Drawer'
     },
+    form: {
+      title: 'Form'
+    },
     icon: {
       title: 'Icon'
+    },
+    input: {
+      title: 'Input & Textarea'
+    },
+    radio: {
+      title: 'Radio'
+    },
+    scrollbar: {
+      title: 'Scrollbar'
+    },
+    switch: {
+      title: 'Switch'
     },
     toolbar: {
       title: 'Toolbar'
     },
     layout: {
       title: 'Layout'
+    },
+    textSelection: {
+      title: 'Text Selection'
     },
     error: {
       title: 'Not Found'

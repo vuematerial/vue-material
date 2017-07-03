@@ -106,7 +106,7 @@
         margin-right: 0;
       }
 
-      &:first-of-type {
+      &:first-child {
         margin-left: 0;
       }
     }
@@ -119,7 +119,11 @@
       letter-spacing: .02em;
       text-overflow: ellipsis;
       white-space: nowrap;
-      vertical-align: top
+      vertical-align: top;
+
+      &:first-child {
+        margin-left: 0;
+      }
     }
   }
 

@@ -6,7 +6,7 @@ test('should render the drawer', async () => {
   const wrapper = await mountTemplate(MdDrawer, template)
 
   expect(wrapper.hasClass('md-drawer')).toBe(true)
-  expect(wrapper.text()).toBe('Lorem ipsum')
+  expect(wrapper.text()).toBe('Lorem ipsum ')
 })
 
 test('should render the theme class', async () => {

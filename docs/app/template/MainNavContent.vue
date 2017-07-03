@@ -8,6 +8,15 @@
       <router-link to="/components/button">{{ $t('pages.button.title') }}</router-link>
       <router-link to="/components/content">{{ $t('pages.content.title') }}</router-link>
       <router-link to="/components/drawer">{{ $t('pages.drawer.title') }}</router-link>
+
+      <router-link to="/components/form">{{ $t('pages.form.title') }}</router-link>
+      <div class="main-nav-level">
+        <router-link to="/components/input">{{ $t('pages.input.title') }}</router-link>
+        <router-link to="/components/checkbox">{{ $t('pages.checkbox.title') }}</router-link>
+        <router-link to="/components/radio">{{ $t('pages.radio.title') }}</router-link>
+        <router-link to="/components/switch">{{ $t('pages.switch.title') }}</router-link>
+      </div>
+
       <router-link to="/components/icon">{{ $t('pages.icon.title') }}</router-link>
       <router-link to="/components/toolbar">{{ $t('pages.toolbar.title') }}</router-link>
     </div>
@@ -15,6 +24,8 @@
     <router-link to="/ui-elements">{{ $t('pages.uiElements.title') }}</router-link>
     <div class="main-nav-level">
       <router-link to="/ui-elements/layout">{{ $t('pages.layout.title') }}</router-link>
+      <router-link to="/ui-elements/scrollbar">{{ $t('pages.scrollbar.title') }}</router-link>
+      <router-link to="/ui-elements/text-selection">{{ $t('pages.textSelection.title') }}</router-link>
     </div>
   </div>
 </template>

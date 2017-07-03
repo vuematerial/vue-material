@@ -2,7 +2,7 @@
   <div class="container" :class="containerClass">
     <main-header />
 
-    <div class="container-wrapper md-layout-row md-layout-column-xsmall" :class="containerClass">
+    <div class="container-wrapper md-layout-row" :class="containerClass">
       <main-nav :is-splash="isSplash" />
 
       <router-view />
@@ -30,10 +30,8 @@
         isSplash: 'splashPage'
       }),
       containerClass () {
-        const { isSplash } = this
-
         return {
-          splash: isSplash
+          splash: this.isSplash
         }
       }
     }
@@ -81,7 +79,7 @@
 
   .container-wrapper {
     &:not(.splash) {
-      padding-left: 200px !important;
+      padding-left: 210px !important;
 
       @include md-layout-xsmall {
         padding-left: 0 !important;

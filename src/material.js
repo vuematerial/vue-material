@@ -18,6 +18,12 @@ const material = new MdReactive({
 })
 
 Object.defineProperties(material.theming, {
+  metaColors: {
+    get: () => MdTheme.metaColors,
+    set (metaColors) {
+      MdTheme.metaColors = metaColors
+    }
+  },
   theme: {
     get: () => MdTheme.theme,
     set (theme) {

@@ -14,6 +14,7 @@
   export default new MdComponent({
     name: 'MdRipple',
     props: {
+      mdActive: Boolean,
       mdDisabled: Boolean,
       mdCentered: Boolean
     },
@@ -26,6 +27,16 @@
       rippleClass () {
         return {
           'md-centered': this.mdCentered
+        }
+      }
+    },
+    watch: {
+      mdActive (active) {
+        if (this.mdCentered && active) {
+          this.startRipple({
+            type: 'mousedown'
+          })
+          this.$emit('update:mdActive', false)
         }
       }
     },
@@ -107,7 +118,6 @@
     z-index: 10;
     overflow: hidden;
     -webkit-mask-image: radial-gradient(circle, #fff 100%, #000 100%);
-    transition: background-color $md-transition-default;
   }
 
   .md-ripple-wave {

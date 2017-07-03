@@ -1,18 +1,10 @@
 .md-scrollbar {
-  &::-webkit-scrollbar,
-  ::-webkit-scrollbar {
+  &::-webkit-scrollbar {
     width: 7px;
     height: 7px;
-    transition: $md-transition-default;
   }
 
-  &::-webkit-scrollbar-button,
-  ::-webkit-scrollbar-button {
+  &::-webkit-scrollbar-button {
     display: none;
-  }
-
-  &::-webkit-scrollbar-thumb,
-  ::-webkit-scrollbar-thumb {
-    transition: $md-transition-default;
   }
 }

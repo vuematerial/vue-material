@@ -25,6 +25,11 @@ export const routes = [
     component: () => import('./pages/Components/Button/Button.vue')
   },
   {
+    path: '/components/checkbox',
+    name: 'components/checkbox',
+    component: () => import('./pages/Components/Checkbox/Checkbox.vue')
+  },
+  {
     path: '/components/content',
     name: 'components/content',
     component: () => import('./pages/Components/Content/Content.vue')
@@ -35,9 +40,29 @@ export const routes = [
     component: () => import('./pages/Components/Drawer/Drawer.vue')
   },
   {
+    path: '/components/form',
+    name: 'form',
+    redirect: '/components/input'
+  },
+  {
     path: '/components/icon',
     name: 'components/icon',
     component: () => import('./pages/Components/Icon/Icon.vue')
+  },
+  {
+    path: '/components/input',
+    name: 'components/input',
+    component: () => import('./pages/Components/Input/Input.vue')
+  },
+  {
+    path: '/components/radio',
+    name: 'components/radio',
+    component: () => import('./pages/Components/Radio/Radio.vue')
+  },
+  {
+    path: '/components/switch',
+    name: 'components/switch',
+    component: () => import('./pages/Components/Switch/Switch.vue')
   },
   {
     path: '/components/toolbar',
@@ -53,6 +78,16 @@ export const routes = [
     path: '/ui-elements/layout',
     name: 'ui-elements/layout',
     component: () => import('./pages/UiElements/Layout/Layout.vue')
+  },
+  {
+    path: '/ui-elements/scrollbar',
+    name: 'ui-elements/scrollbar',
+    component: () => import('./pages/UiElements/Scrollbar/Scrollbar.vue')
+  },
+  {
+    path: '/ui-elements/text-selection',
+    name: 'ui-elements/text-selection',
+    component: () => import('./pages/UiElements/TextSelection/TextSelection.vue')
   },
   {
     path: '/temp',

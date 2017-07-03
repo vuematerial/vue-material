@@ -9,6 +9,7 @@ export default new Vue({
     prefix: 'md-theme-',
     theme: 'default',
     enabled: true,
+    metaColors: false,
     themeTarget: document.documentElement
   }),
   computed: {
@@ -24,10 +25,10 @@ export default new Vue({
 
         if (enabled) {
           themeTarget.classList.add(fullThemeName)
-          this.setHtmlMetaColors(fullThemeName)
+          this.metaColors && this.setHtmlMetaColors(fullThemeName)
         } else {
           themeTarget.classList.remove(fullThemeName)
-          this.setHtmlMetaColors()
+          this.metaColors && this.setHtmlMetaColors()
         }
       }
     },
@@ -38,7 +39,17 @@ export default new Vue({
 
       themeTarget.classList.remove(getThemeName(oldTheme))
       themeTarget.classList.add(newTheme)
-      this.setHtmlMetaColors(newTheme)
+
+      if (this.metaColors) {
+        this.setHtmlMetaColors(newTheme)
+      }
+    },
+    metaColors (meta) {
+      if (meta) {
+        this.setHtmlMetaColors(this.fullThemeName)
+      } else {
+        this.setHtmlMetaColors()
+      }
     }
   },
   methods: {
@@ -101,7 +112,7 @@ export default new Vue({
     }
   },
   created () {
-    if (this.enabled) {
+    if (this.enabled && this.metaColors) {
       window.addEventListener('load', () => {
         this.setHtmlMetaColors(this.fullThemeName)
       })
