@@ -1,16 +1,16 @@
 import mountTemplate from 'test/utils/mountTemplate'
-import MdCheckbox from './MdCheckbox.vue'
+import MdRadio from './MdRadio.vue'
 
-test('should render the checkbox', async () => {
-  const template = '<md-checkbox></md-checkbox>'
-  const wrapper = await mountTemplate(MdCheckbox, template)
+test('should render the radio', async () => {
+  const template = '<md-radio></md-radio>'
+  const wrapper = await mountTemplate(MdRadio, template)
 
-  expect(wrapper.hasClass('md-checkbox')).toBe(true)
+  expect(wrapper.hasClass('md-radio')).toBe(true)
 })
 
 test('should render the theme class', async () => {
-  const template = '<md-checkbox md-theme="alt"></md-checkbox>'
-  const wrapper = await mountTemplate(MdCheckbox, template)
+  const template = '<md-radio md-theme="alt"></md-radio>'
+  const wrapper = await mountTemplate(MdRadio, template)
 
   expect(wrapper.hasClass('md-theme-alt')).toBe(true)
 })
