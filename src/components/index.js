@@ -9,6 +9,7 @@ import MdImage from './MdImage'
 import MdLayout from './MdLayout'
 import MdRadio from './MdRadio'
 import MdRipple from './MdRipple'
+import MdSwitch from './MdSwitch'
 import MdToolbar from './MdToolbar'
 
 export default {
@@ -23,5 +24,6 @@ export default {
   MdLayout,
   MdRadio,
   MdRipple,
+  MdSwitch,
   MdToolbar
 }

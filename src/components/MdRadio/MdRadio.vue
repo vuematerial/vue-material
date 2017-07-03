@@ -2,7 +2,7 @@
   <div class="md-radio" :class="[$mdActiveTheme, radioClasses]">
     <div class="md-radio-container" @click.stop="toggleCheck">
       <md-ripple md-centered :md-active.sync="rippleActive" :md-disabled="disabled">
-        <input type="radio" v-bind="{ id, disabled, required, value }">
+        <input type="radio" v-bind="{ id, name, disabled, required, value }">
       </md-ripple>
     </div>
 
@@ -34,6 +34,7 @@
           return 'md-radio-' + MdUuid()
         }
       },
+      name: [String, Number],
       required: Boolean,
       disabled: Boolean
     },

@@ -60,6 +60,11 @@ export const routes = [
     component: () => import('./pages/Components/Radio/Radio.vue')
   },
   {
+    path: '/components/switch',
+    name: 'components/switch',
+    component: () => import('./pages/Components/Switch/Switch.vue')
+  },
+  {
     path: '/components/toolbar',
     name: 'components/toolbar',
     component: () => import('./pages/Components/Toolbar/Toolbar.vue')

@@ -1,12 +1,14 @@
 <template>
-  <div class="md-checkbox" :class="[$mdActiveTheme, checkboxClasses]">
-    <div class="md-checkbox-container" @click.stop="toggleCheck">
-      <md-ripple md-centered :md-active.sync="rippleActive" :md-disabled="disabled">
-        <input type="checkbox" v-bind="{ id, name, disabled, required, value }">
-      </md-ripple>
+  <div class="md-switch" :class="[$mdActiveTheme, switchClasses]">
+    <div class="md-switch-container" @click.stop="toggleCheck">
+      <div class="md-switch-thumb" :style="switchStyles">
+        <md-ripple md-centered :md-active.sync="rippleActive" :md-disabled="disabled">
+          <input type="checkbox" v-bind="{ id, name, disabled, required, value }">
+        </md-ripple>
+      </div>
     </div>
 
-    <label :for="id" class="md-checkbox-label" v-if="$slots.default" @click.prevent="toggleCheck">
+    <label :for="id" class="md-switch-label" v-if="$slots.default" @click.prevent="toggleCheck">
       <slot></slot>
     </label>
   </div>
@@ -18,7 +20,7 @@
   import MdRipple from 'components/MdRipple/MdRipple'
 
   export default new MdComponent({
-    name: 'MdCheckbox',
+    name: 'MdSwitch',
     components: {
       MdRipple
     },
@@ -31,7 +33,7 @@
       id: {
         type: String,
         default () {
-          return 'md-checkbox-' + MdUuid()
+          return 'md-switch-' + MdUuid()
         }
       },
       name: [String, Number],
@@ -63,11 +65,16 @@
       isBoolean () {
         return typeof this.model === 'boolean'
       },
-      checkboxClasses () {
+      switchClasses () {
         return {
           'md-checked': this.isSelected,
           'md-disabled': this.disabled,
           'md-required': this.required
+        }
+      },
+      switchStyles () {
+        return {
+
         }
       }
     },
@@ -79,7 +86,7 @@
           newModel.splice(index, 1)
         }
       },
-      handleArrayCheckbox () {
+      handleArraySwitch () {
         const newModel = this.model
 
         if (!this.isSelected) {
@@ -90,14 +97,14 @@
 
         this.$emit('change', newModel)
       },
-      handleStringCheckbox () {
+      handleStringSwitch () {
         if (!this.isSelected) {
           this.$emit('change', this.value)
         } else {
           this.$emit('change', null)
         }
       },
-      handleBooleanCheckbox () {
+      handleBooleanSwitch () {
         this.$emit('change', !this.isSelected)
       },
       toggleCheck () {
@@ -105,11 +112,11 @@
           this.rippleActive = true
 
           if (this.isArray) {
-            this.handleArrayCheckbox()
+            this.handleArraySwitch()
           } else if (this.isBoolean) {
-            this.handleBooleanCheckbox()
+            this.handleBooleanSwitch()
           } else {
-            this.handleStringCheckbox()
+            this.handleStringSwitch()
           }
         }
       }
@@ -119,11 +126,14 @@
 
 <style lang="scss">
   @import "~components/MdAnimation/variables";
+  @import "~components/MdElevation/mixins";
 
-  $md-checkbox-size: 20px;
-  $md-checkbox-touch-size: 48px;
+  $md-switch-width: 34px;
+  $md-switch-height: 14px;
+  $md-switch-size: 20px;
+  $md-switch-touch-size: 48px;
 
-  .md-checkbox {
+  .md-switch {
     width: auto;
     margin: 16px 16px 16px 0;
     display: inline-flex;
@@ -132,59 +142,48 @@
     &:not(.md-disabled) {
       cursor: pointer;
 
-      .md-checkbox-label {
+      .md-switch-label {
         cursor: pointer;
       }
     }
 
-    .md-checkbox-container {
-      width: $md-checkbox-size;
-      min-width: $md-checkbox-size;
-      height: $md-checkbox-size;
+    .md-switch-container {
+      width: $md-switch-width;
+      min-width: $md-switch-width;
+      height: $md-switch-height;
+      margin: 3px 0;
+      display: flex;
+      align-items: center;
       position: relative;
-      border-radius: 2px;
-      border: 2px solid transparent;
+      border-radius: $md-switch-height;
+      transition: $md-transition-stand;
+    }
+
+    .md-switch-thumb {
+      @include md-elevation(1);
+      width: $md-switch-size;
+      height: $md-switch-size;
+      position: relative;
+      border-radius: 50%;
       transition: $md-transition-stand;
 
-      &:focus {
-        outline: none;
-      }
-
-      &:before,
-      &:after {
-        position: absolute;
-        transition: $md-transition-drop;
-        content: " ";
-      }
-
       &:before {
-        width: $md-checkbox-touch-size;
-        height: $md-checkbox-touch-size;
+        width: $md-switch-touch-size;
+        height: $md-switch-touch-size;
+        position: absolute;
         top: 50%;
         left: 50%;
         z-index: 11;
-        border-radius: 50%;
         transform: translate(-50%, -50%);
-      }
-
-      &:after {
-        width: 6px;
-        height: 13px;
-        top: 0;
-        left: 5px;
-        z-index: 12;
-        border: 2px solid transparent;
-        border-top: 0;
-        border-left: 0;
-        opacity: 0;
-        transform: rotate(45deg) scale3D(.15, .15, 1);
+        content: " ";
       }
 
       .md-ripple {
-        width: $md-checkbox-touch-size !important;
-        height: $md-checkbox-touch-size !important;
+        width: $md-switch-touch-size !important;
+        height: $md-switch-touch-size !important;
         top: 50% !important;
         left: 50% !important;
+        position: absolute;
         transform: translate(-50%, -50%);
         border-radius: 50%;
       }
@@ -195,31 +194,21 @@
       }
     }
 
-    .md-checkbox-label {
-      height: $md-checkbox-size;
+    .md-switch-label {
+      height: $md-switch-size;
       padding-left: 16px;
       position: relative;
-      line-height: $md-checkbox-size;
+      line-height: $md-switch-size;
     }
   }
 
-  .md-checkbox.md-checked {
-    .md-checkbox-container {
-      &:after {
-        opacity: 1;
-        transform: rotate(45deg) scale3D(1, 1, 1);
-        transition: $md-transition-stand;
-      }
+  .md-switch.md-checked {
+    .md-switch-thumb {
+      transform: translate3d(15px, 0, 0);
     }
   }
 
-  .md-checkbox.md-disabled.md-checked {
-    .md-checkbox-container {
-      border-color: transparent !important;
-    }
-  }
-
-  .md-checkbox.md-required {
+  .md-switch.md-required {
     label:after {
       position: absolute;
       top: 2px;

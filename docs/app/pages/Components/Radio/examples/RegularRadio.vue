@@ -5,7 +5,7 @@
     <md-radio v-model="radio">No Value</md-radio>
     <md-radio v-model="radio" disabled>Disabled</md-radio>
 
-    Model value: {{ radio }}
+    <small>Model value: {{ radio }}</small>
   </div>
 </template>
 
@@ -19,8 +19,8 @@
 </script>
 
 <style lang="scss" scoped>
-  .md-radio {
-    display: flex;
+  small {
+    display: block;
   }
 </style>
 

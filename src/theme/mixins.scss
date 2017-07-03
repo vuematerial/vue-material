@@ -147,12 +147,16 @@
  * @param {string} $background —  The background color to analyse contrast
  */
 
-@mixin md-theme-property ($property, $type, $background: "", $hue: "") {
+@mixin md-theme-property ($property, $type, $background: "", $opacity: "") {
   $value: md-theme($type, $background);
   $variant: null;
 
   @if $background != "" {
     $variant: -on-#{$background};
+  }
+
+  @if $opacity != "" {
+    $value: rgba($value, $opacity);
   }
 
   #{$property}: $value;
