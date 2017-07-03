@@ -24,6 +24,7 @@
     <router-link to="/ui-elements">{{ $t('pages.uiElements.title') }}</router-link>
     <div class="main-nav-level">
       <router-link to="/ui-elements/layout">{{ $t('pages.layout.title') }}</router-link>
+      <router-link to="/ui-elements/scrollbar">{{ $t('pages.scrollbar.title') }}</router-link>
       <router-link to="/ui-elements/text-selection">{{ $t('pages.textSelection.title') }}</router-link>
     </div>
   </div>

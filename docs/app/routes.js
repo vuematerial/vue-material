@@ -80,6 +80,11 @@ export const routes = [
     component: () => import('./pages/UiElements/Layout/Layout.vue')
   },
   {
+    path: '/ui-elements/scrollbar',
+    name: 'ui-elements/scrollbar',
+    component: () => import('./pages/UiElements/Scrollbar/Scrollbar.vue')
+  },
+  {
     path: '/ui-elements/text-selection',
     name: 'ui-elements/text-selection',
     component: () => import('./pages/UiElements/TextSelection/TextSelection.vue')

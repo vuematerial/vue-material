@@ -46,6 +46,9 @@ export default {
     radio: {
       title: 'Radio'
     },
+    scrollbar: {
+      title: 'Scrollbar'
+    },
     switch: {
       title: 'Switch'
     },
