@@ -55,6 +55,11 @@ export const routes = [
     component: () => import('./pages/Components/Input/Input.vue')
   },
   {
+    path: '/components/radio',
+    name: 'components/radio',
+    component: () => import('./pages/Components/Radio/Radio.vue')
+  },
+  {
     path: '/components/toolbar',
     name: 'components/toolbar',
     component: () => import('./pages/Components/Toolbar/Toolbar.vue')

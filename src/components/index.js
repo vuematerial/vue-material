@@ -7,6 +7,7 @@ import MdField from './MdField'
 import MdIcon from './MdIcon'
 import MdImage from './MdImage'
 import MdLayout from './MdLayout'
+import MdRadio from './MdRadio'
 import MdRipple from './MdRipple'
 import MdToolbar from './MdToolbar'
 
@@ -20,6 +21,7 @@ export default {
   MdIcon,
   MdImage,
   MdLayout,
+  MdRadio,
   MdRipple,
   MdToolbar
 }

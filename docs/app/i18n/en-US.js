@@ -43,6 +43,9 @@ export default {
     input: {
       title: 'Input & Textarea'
     },
+    radio: {
+      title: 'Radio'
+    },
     toolbar: {
       title: 'Toolbar'
     },

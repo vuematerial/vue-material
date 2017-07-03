@@ -118,7 +118,6 @@
     z-index: 10;
     overflow: hidden;
     -webkit-mask-image: radial-gradient(circle, #fff 100%, #000 100%);
-    transition: background-color $md-transition-default;
   }
 
   .md-ripple-wave {

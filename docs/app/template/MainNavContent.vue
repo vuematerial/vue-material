@@ -13,6 +13,7 @@
       <div class="main-nav-level">
         <router-link to="/components/input">{{ $t('pages.input.title') }}</router-link>
         <router-link to="/components/checkbox">{{ $t('pages.checkbox.title') }}</router-link>
+        <router-link to="/components/radio">{{ $t('pages.radio.title') }}</router-link>
       </div>
 
       <router-link to="/components/icon">{{ $t('pages.icon.title') }}</router-link>
