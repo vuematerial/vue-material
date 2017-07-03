@@ -1,10 +1,11 @@
 <template>
   <div>
-    <md-radio v-model="radio" :value="false">Boolean Radio</md-radio>
-    <md-radio v-model="radio" value="my-Radio">String Radio</md-radio>
-    <md-radio v-model="radio">No Value Radio</md-radio>
+    <md-radio v-model="radio" :value="false">Boolean</md-radio>
+    <md-radio v-model="radio" value="my-radio">String</md-radio>
+    <md-radio v-model="radio">No Value</md-radio>
+    <md-radio v-model="radio" disabled>Disabled</md-radio>
 
-    Radio value: {{ radio }}
+    Model value: {{ radio }}
   </div>
 </template>
 

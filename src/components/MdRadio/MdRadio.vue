@@ -51,7 +51,8 @@
       radioClasses () {
         return {
           'md-checked': this.isSelected,
-          'md-disabled': this.disabled
+          'md-disabled': this.disabled,
+          'md-required': this.required
         }
       }
     },
@@ -146,6 +147,7 @@
     .md-radio-label {
       height: $md-radio-size;
       padding-left: 16px;
+      position: relative;
       line-height: $md-radio-size;
     }
   }
@@ -157,6 +159,18 @@
         transform: scale3D(1, 1, 1);
         transition: $md-transition-stand;
       }
+    }
+  }
+
+  .md-radio.md-required {
+    label:after {
+      position: absolute;
+      top: 2px;
+      right: 0;
+      transform: translateX(calc(100% + 2px));
+      content: "*";
+      line-height: 1em;
+      vertical-align: top;
     }
   }
 </style>

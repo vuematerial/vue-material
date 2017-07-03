@@ -1,17 +1,18 @@
 <template>
   <div>
-    <md-checkbox v-model="array" value="1">Array Checkbox</md-checkbox>
-    <md-checkbox v-model="array" value="2">Array Checkbox</md-checkbox>
-    <md-checkbox v-model="boolean" :value="false">Boolean Checkbox</md-checkbox>
-    <md-checkbox v-model="string" value="my-checkbox">String Checkbox</md-checkbox>
-    <md-checkbox v-model="novalue">No Value Checkbox</md-checkbox>
+    <md-checkbox v-model="array" value="1">Array</md-checkbox>
+    <md-checkbox v-model="array" value="2">Array</md-checkbox>
+    <md-checkbox v-model="boolean" :value="false">Boolean</md-checkbox>
+    <md-checkbox v-model="string" required value="my-checkbox">String <small>(required)</small></md-checkbox>
+    <md-checkbox v-model="novalue">No Value</md-checkbox>
+    <md-checkbox v-model="novalue" disabled>Disabled</md-checkbox>
 
     <table>
       <tr>
-        <th>Array Checkbox</th>
-        <th>Boolean Checkbox</th>
-        <th>String Checkbox</th>
-        <th>No Value Checkbox</th>
+        <th>Array</th>
+        <th>Boolean</th>
+        <th>String</th>
+        <th>No Value</th>
       </tr>
 
       <tr>

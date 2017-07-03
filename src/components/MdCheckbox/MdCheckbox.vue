@@ -65,7 +65,8 @@
       checkboxClasses () {
         return {
           'md-checked': this.isSelected,
-          'md-disabled': this.disabled
+          'md-disabled': this.disabled,
+          'md-required': this.required
         }
       }
     },
@@ -196,6 +197,7 @@
     .md-checkbox-label {
       height: $md-checkbox-size;
       padding-left: 16px;
+      position: relative;
       line-height: $md-checkbox-size;
     }
   }
@@ -213,6 +215,18 @@
   .md-checkbox.md-disabled.md-checked {
     .md-checkbox-container {
       border-color: transparent !important;
+    }
+  }
+
+  .md-checkbox.md-required {
+    label:after {
+      position: absolute;
+      top: 2px;
+      right: 0;
+      transform: translateX(calc(100% + 2px));
+      content: "*";
+      line-height: 1em;
+      vertical-align: top;
     }
   }
 </style>
