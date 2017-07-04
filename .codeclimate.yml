@@ -15,14 +15,17 @@ engines:
 
   duplication:
     enabled: true
-    patterns:
-      - "src/**/*.js"
-      - "src/**/*.vue"
-      - "build/**/*.js"
-      - "build/**/*.vue"
-      - "test/**/*.js"
-      - "test/**/*.vue"
-      - "!src/**/*.test.js"
+    config:
+      languages:
+        javascript:
+          patterns:
+            - "src/**/*.js"
+            - "src/**/*.vue"
+            - "build/**/*.js"
+            - "build/**/*.vue"
+            - "test/**/*.js"
+            - "test/**/*.vue"
+            - "!src/**/*.test.js"
 
   markdownlint:
     enabled: true
