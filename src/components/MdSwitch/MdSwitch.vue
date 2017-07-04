@@ -1,7 +1,7 @@
 <template>
-  <div class="md-switch" :class="[$mdActiveTheme, switchClasses]">
+  <div class="md-switch" :class="[$mdActiveTheme, checkClasses]">
     <div class="md-switch-container" @click.stop="toggleCheck">
-      <div class="md-switch-thumb" :style="switchStyles">
+      <div class="md-switch-thumb">
         <md-ripple md-centered :md-active.sync="rippleActive" :md-disabled="disabled">
           <input type="checkbox" v-bind="{ id, name, disabled, required, value }">
         </md-ripple>
@@ -16,108 +16,17 @@
 
 <script>
   import MdComponent from 'core/MdComponent'
+  import MdCheckboxMixin from 'components/MdCheckbox/MdCheckboxMixin'
   import MdUuid from 'core/MdUuid'
-  import MdRipple from 'components/MdRipple/MdRipple'
 
   export default new MdComponent({
     name: 'MdSwitch',
-    components: {
-      MdRipple
-    },
+    mixins: [MdCheckboxMixin],
     props: {
-      model: [String, Number, Boolean, Array],
-      value: {
-        type: [String, Number, Boolean],
-        default: 'on'
-      },
       id: {
         type: String,
         default () {
           return 'md-switch-' + MdUuid()
-        }
-      },
-      name: [String, Number],
-      required: Boolean,
-      disabled: Boolean
-    },
-    model: {
-      prop: 'model',
-      event: 'change'
-    },
-    data: () => ({
-      rippleActive: false
-    }),
-    computed: {
-      isSelected () {
-        if (this.isArray) {
-          return this.model.includes(this.value)
-        }
-
-        if (this.isBoolean) {
-          return Boolean(this.model)
-        }
-
-        return this.model === this.value
-      },
-      isArray () {
-        return Array.isArray(this.model)
-      },
-      isBoolean () {
-        return typeof this.model === 'boolean'
-      },
-      switchClasses () {
-        return {
-          'md-checked': this.isSelected,
-          'md-disabled': this.disabled,
-          'md-required': this.required
-        }
-      },
-      switchStyles () {
-        return {
-
-        }
-      }
-    },
-    methods: {
-      removeItemFromModel (newModel) {
-        const index = newModel.indexOf(this.value)
-
-        if (index !== -1) {
-          newModel.splice(index, 1)
-        }
-      },
-      handleArraySwitch () {
-        const newModel = this.model
-
-        if (!this.isSelected) {
-          newModel.push(this.value)
-        } else {
-          this.removeItemFromModel(newModel)
-        }
-
-        this.$emit('change', newModel)
-      },
-      handleStringSwitch () {
-        if (!this.isSelected) {
-          this.$emit('change', this.value)
-        } else {
-          this.$emit('change', null)
-        }
-      },
-      handleBooleanSwitch () {
-        this.$emit('change', !this.isSelected)
-      },
-      toggleCheck () {
-        if (!this.disabled) {
-          this.rippleActive = true
-
-          if (this.isArray) {
-            this.handleArraySwitch()
-          } else if (this.isBoolean) {
-            this.handleBooleanSwitch()
-          } else {
-            this.handleStringSwitch()
-          }
         }
       }
     }

@@ -16,6 +16,17 @@ test('should render the theme class', async () => {
   expect(wrapper.hasClass('md-theme-alt')).toBe(true)
 })
 
+test('should add id and for on input and label', async () => {
+  const myId = 'my-id'
+  const template = `<md-checkbox id="${myId}">Label</md-checkbox>`
+  const wrapper = await mountTemplate(MdCheckbox, template)
+  const input = wrapper.find('input')[0]
+  const label = wrapper.find('label')[0]
+
+  expect(input.hasAttribute('id', myId)).toBe(true)
+  expect(label.hasAttribute('for', myId)).toBe(true)
+})
+
 test('should create a fallback id if not given', async () => {
   const wrapper = await mountStringSlot(MdCheckbox, 'Label')
   const createdId = wrapper.vm.$props.id

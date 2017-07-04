@@ -2,7 +2,7 @@
   <div>
     <md-switch v-model="array" value="1">Array</md-switch>
     <md-switch v-model="array" value="2">Array</md-switch>
-    <md-switch v-model="boolean" :value="false">Boolean</md-switch>
+    <md-switch v-model="boolean">Boolean</md-switch>
     <md-switch v-model="string" required value="my-switch">String <small>(required)</small></md-switch>
     <md-switch v-model="novalue">No Value</md-switch>
     <md-switch v-model="novalue" disabled>Disabled</md-switch>

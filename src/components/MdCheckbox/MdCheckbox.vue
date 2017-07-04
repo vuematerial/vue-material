@@ -1,5 +1,5 @@
 <template>
-  <div class="md-checkbox" :class="[$mdActiveTheme, checkboxClasses]">
+  <div class="md-checkbox" :class="[$mdActiveTheme, checkClasses]">
     <div class="md-checkbox-container" @click.stop="toggleCheck">
       <md-ripple md-centered :md-active.sync="rippleActive" :md-disabled="disabled">
         <input type="checkbox" v-bind="{ id, name, disabled, required, value }">
@@ -14,105 +14,17 @@
 
 <script>
   import MdComponent from 'core/MdComponent'
+  import MdCheckboxMixin from 'components/MdCheckbox/MdCheckboxMixin'
   import MdUuid from 'core/MdUuid'
-  import MdRipple from 'components/MdRipple/MdRipple'
 
   export default new MdComponent({
     name: 'MdCheckbox',
-    components: {
-      MdRipple
-    },
+    mixins: [MdCheckboxMixin],
     props: {
-      model: [String, Number, Boolean, Array],
-      value: {
-        type: [String, Number, Boolean],
-        default: 'on'
-      },
       id: {
         type: String,
         default () {
           return 'md-checkbox-' + MdUuid()
-        }
-      },
-      name: [String, Number],
-      required: Boolean,
-      disabled: Boolean
-    },
-    model: {
-      prop: 'model',
-      event: 'change'
-    },
-    data: () => ({
-      rippleActive: false
-    }),
-    computed: {
-      isSelected () {
-        if (this.isModelArray) {
-          return this.model.includes(this.value)
-        }
-
-        const isEquals = this.model === this.value
-
-        if (this.isModelBoolean && this.value === 'on') {
-          return this.model
-        }
-
-        return isEquals
-      },
-      isModelArray () {
-        return Array.isArray(this.model)
-      },
-      isModelBoolean () {
-        return typeof this.model === 'boolean'
-      },
-      checkboxClasses () {
-        return {
-          'md-checked': this.isSelected,
-          'md-disabled': this.disabled,
-          'md-required': this.required
-        }
-      }
-    },
-    methods: {
-      removeItemFromModel (newModel) {
-        const index = newModel.indexOf(this.value)
-
-        if (index !== -1) {
-          newModel.splice(index, 1)
-        }
-      },
-      handleArrayCheckbox () {
-        const newModel = this.model
-
-        if (!this.isSelected) {
-          newModel.push(this.value)
-        } else {
-          this.removeItemFromModel(newModel)
-        }
-
-        this.$emit('change', newModel)
-      },
-      handleStringCheckbox () {
-        if (!this.isSelected) {
-          this.$emit('change', this.value)
-        } else {
-          this.$emit('change', null)
-        }
-      },
-      handleBooleanCheckbox () {
-        this.$emit('change', !this.model)
-      },
-      toggleCheck () {
-        if (!this.disabled) {
-          this.rippleActive = true
-
-          if (this.isModelArray) {
-            this.handleArrayCheckbox()
-          } else if (this.isModelBoolean) {
-            this.handleBooleanCheckbox()
-          } else {
-            this.handleStringCheckbox()
-          }
         }
       }
     }
