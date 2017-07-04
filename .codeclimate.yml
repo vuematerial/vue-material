@@ -12,12 +12,12 @@ exclude_paths:
 engines:
   eslint:
     enabled: true
+
   duplication:
     enabled: true
-    config:
-      languages:
-        javascript:
-          mass_threshold: 70
+    exclude_paths:
+    - "*.test.js"
+
   fixme:
     enabled: true
     exclude_paths:

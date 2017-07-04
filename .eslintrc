@@ -18,6 +18,7 @@
       "error",
       4
     ],
+    "max-statements": ["error", 30],
     "max-params": ["error", 4],
     "max-nested-callbacks": [
       "error",
