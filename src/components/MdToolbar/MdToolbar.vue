@@ -86,10 +86,10 @@
     }
 
     .md-toolbar-offset {
-      margin-left: 64px;
+      margin-left: 56px;
 
       @include md-layout-small {
-        margin-left: 56px;
+        margin-left: 48px;
       }
     }
 
