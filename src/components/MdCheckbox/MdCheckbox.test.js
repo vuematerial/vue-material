@@ -33,7 +33,7 @@ test('should create a fallback value if not given', async () => {
   expect(createdValue).toBe('on')
 })
 
-test('should create disabled class', async () => {
+test('should create disabled and required classes', async () => {
   const wrapper = await mountStringSlot(MdCheckbox, 'Label', {
     propsData: {
       disabled: true,
