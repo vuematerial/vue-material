@@ -15,8 +15,20 @@ engines:
 
   duplication:
     enabled: true
-    exclude_paths:
-      - "*.test.js"
+    patterns:
+      - "src/**/*.js"
+      - "src/**/*.vue"
+      - "build/**/*.js"
+      - "build/**/*.vue"
+      - "test/**/*.js"
+      - "test/**/*.vue"
+      - "!src/**/*.test.js"
+
+  markdownlint:
+    enabled: true
+    checks:
+      MD002:
+        enabled: false
 
   fixme:
     enabled: true
