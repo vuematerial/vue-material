@@ -90,6 +90,11 @@ export const routes = [
     component: () => import('./pages/UiElements/TextSelection/TextSelection.vue')
   },
   {
+    path: '/ui-elements/typography',
+    name: 'ui-elements/typography',
+    component: () => import('./pages/UiElements/Typography/Typography.vue')
+  },
+  {
     path: '/temp',
     name: 'temp',
     component: () => import('./pages/Temp.vue')

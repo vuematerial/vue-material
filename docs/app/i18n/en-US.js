@@ -46,9 +46,6 @@ export default {
     radio: {
       title: 'Radio'
     },
-    scrollbar: {
-      title: 'Scrollbar'
-    },
     switch: {
       title: 'Switch'
     },
@@ -58,8 +55,14 @@ export default {
     layout: {
       title: 'Layout'
     },
+    scrollbar: {
+      title: 'Scrollbar'
+    },
     textSelection: {
       title: 'Text Selection'
+    },
+    typography: {
+      title: 'Typography'
     },
     error: {
       title: 'Not Found'
