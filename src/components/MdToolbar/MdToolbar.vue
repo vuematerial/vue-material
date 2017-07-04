@@ -86,7 +86,11 @@
     }
 
     .md-toolbar-offset {
-      margin-left: 48px;
+      margin-left: 64px;
+
+      @include md-layout-small {
+        margin-left: 56px;
+      }
     }
 
     .md-button,
@@ -120,10 +124,6 @@
       text-overflow: ellipsis;
       white-space: nowrap;
       vertical-align: top;
-
-      &:first-child {
-        margin-left: 0;
-      }
     }
   }
 
@@ -134,6 +134,7 @@
   .md-toolbar-section-start,
   .md-toolbar-section-end {
     display: flex;
+    align-items: center;
     flex: 1;
   }
 
