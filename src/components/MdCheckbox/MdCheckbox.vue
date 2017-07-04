@@ -65,9 +65,6 @@
       isModelBoolean () {
         return typeof this.model === 'boolean'
       },
-      isValueBoolean () {
-        return typeof this.value === 'boolean'
-      },
       checkboxClasses () {
         return {
           'md-checked': this.isSelected,
