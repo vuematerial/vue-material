@@ -32,6 +32,8 @@ engines:
     checks:
       MD002:
         enabled: false
+      MD013:
+        enabled: false
 
   fixme:
     enabled: true
