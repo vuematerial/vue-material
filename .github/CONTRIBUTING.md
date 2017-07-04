@@ -48,19 +48,19 @@ $ npm install
 
 ``` bash
 ### Start dev server with hot reload
-npm run dev
+$ npm run dev
 
 ### Check for errors
-npm run lint
+$ npm run lint
 
 ### Build everything
-npm run build
+$ npm run build
 
 ### Build docs only
-npm run build:docs
+$ npm run build:docs
 
 ### Build lib only
-npm run build:lib
+$ npm run build:lib
 ```
 
 The other tasks on package.json **SHOULD NOT** be executed.

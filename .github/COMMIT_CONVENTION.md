@@ -1,31 +1,31 @@
-## Git Commit Message Convention
+# Git Commit Message Convention
 
 > This is adapted from [Vue.js's commit convention](https://github.com/vuejs/vue/blob/dev/.github/COMMIT_CONVENTION.md).
 
-#### Examples
+## Examples
 
 Appears under "Components" header, pencil subheader:
 
 ```
-component(pencil): add 'graphiteWidth' option
+component(MdPencil): add 'graphiteWidth' option
 ```
 
 Appears under "UI Elements" header, pencil subheader:
 
 ```
-ui(pencil): add 'graphiteWidth' option
+ui(MdPencil): add 'graphiteWidth' option
 ```
 
 Appears under "Core" header, pencil subheader:
 
 ```
-core(pencil): add 'graphiteWidth' option
+core(MdPencil): add 'graphiteWidth' option
 ```
 
 Appears under "Bug Fixes" header, graphite subheader, with a link to issue #28:
 
 ```
-fix(graphite): stop graphite breaking when width < 0.1
+fix(MdGraphite): stop graphite breaking when width < 0.1
 
 close #28
 ```
@@ -33,7 +33,7 @@ close #28
 Appears under "Performance Improvements" header, and under "Breaking Changes" with the breaking change explanation:
 
 ```
-perf(pencil): remove graphiteWidth option
+perf(MdPencil): remove graphiteWidth option
 
 BREAKING CHANGE: The graphiteWidth option has been removed. The default graphite width of 10mm is always used for performance reason.
 ```
@@ -41,12 +41,12 @@ BREAKING CHANGE: The graphiteWidth option has been removed. The default graphite
 The following commit and commit `667ecc1` do not appear in the changelog if they are under the same release. If not, the revert commit appears under the "Reverts" header.
 
 ```
-revert: feat(pencil): add 'graphiteWidth' option
+revert: feat(MdPencil): add 'graphiteWidth' option
 
 This reverts commit 667ecc1654a317a13331b17617d973392f415f02.
 ```
 
-### Full Message Format
+## Full Message Format
 
 A commit message consists of a **header**, **body** and **footer**.  The header has a **type**, **scope** and **subject**:
 
@@ -60,21 +60,21 @@ A commit message consists of a **header**, **body** and **footer**.  The header 
 
 The **header** is mandatory and the **scope** of the header is optional.
 
-### Revert
+## Revert
 
 If the commit reverts a previous commit, it should begin with `revert: `, followed by the header of the reverted commit. In the body it should say: `This reverts commit <hash>.`, where the hash is the SHA of the commit being reverted.
 
-### Type
+## Type
 
 If the prefix is `feat`, `fix` or `perf`, it will appear in the changelog. However if there is any [BREAKING CHANGE](#footer), the commit will always appear in the changelog.
 
 Other prefixes are up to your discretion. Suggested prefixes are `docs`, `chore`, `style`, `refactor`, and `test` for non-changelog related tasks.
 
-### Scope
+## Scope
 
 The scope could be anything specifying place of the commit change. For example `core`, `compiler`, `ssr`, `v-model`, `transition` etc...
 
-### Subject
+## Subject
 
 The subject contains succinct description of the change:
 
@@ -82,12 +82,12 @@ The subject contains succinct description of the change:
 * don't capitalize first letter
 * no dot (.) at the end
 
-### Body
+## Body
 
 Just as in the **subject**, use the imperative, present tense: "change" not "changed" nor "changes".
 The body should include the motivation for the change and contrast this with previous behavior.
 
-### Footer
+## Footer
 
 The footer should contain any information about **Breaking Changes** and is also the place to
 reference GitHub issues that this commit **Closes**.

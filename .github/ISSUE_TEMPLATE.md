@@ -26,17 +26,22 @@ Do not create new features based on a problem that will only solve edge cases fo
 <!-- BUG REPORT TEMPLATE -->
 
 ### Steps to reproduce
+
 <!-- I installed this, created that, running those... ? -->
 
 ### Which browser?
+
 <!-- Which versions of Vue, Vue Material, OS, browsers are affected? -->
 
 ### What is expected?
+
 <!-- What do you think that could be the correct behaviour? -->
 
 ### What is actually happening?
+
 <!-- Is there anything else we should know? -->
 
 ### Reproduction Link
+
 <!-- If you want to show your code please use Codepen or JSFiddle. -->
 <!-- You could start with this template: http://codepen.io/vue-material/pen/WGavBE. -->
