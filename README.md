@@ -29,18 +29,22 @@ Vue Material is Simple, lightweight and built exactly according to the Google <a
 Build well-designed apps that can fit on every screen with support to all modern Web Browsers with dynamic themes, components on demand and all with an ease-to-use API
 
 ## Demo and Documentation
+
 <a href="https://vuematerial.io/" target="_blank">Demo</a>
 
 ## Installation and Usage
 
 Install Vue Material through npm or yarn
+
 ``` bash
 npm install --save vue-material
 yarn add vue-material
 ```
+
 <small>* Others package managers like JSPM and Bower are not supported yet.</small>
 
 Import or require Vue and Vue Material in your code:
+
 ``` javascript
 import Vue from 'vue'
 import VueMaterial from 'vue-material'
@@ -50,6 +54,7 @@ Vue.use(VueMaterial)
 ```
 
 Or use individual components:
+
 ``` javascript
 import { MdButton, MdIcon, MdSidenav, MdToolbar } from 'vue-material'
 import 'vue-material/dist/vue-material.css'
@@ -74,9 +79,11 @@ Optionally import Roboto font from Google CDN:
 ```
 
 ## Changelog
+
 <a href="https://vuematerial.io/#/changelog" target="_blank">Changelog</a>
 
 ## Questions
+
 The issue list is exclusively for bugs and feature requests. Use the [Slack Channel](https://vue-material.slack.com) instead.
 
 ## Contributing
@@ -84,18 +91,23 @@ The issue list is exclusively for bugs and feature requests. Use the [Slack Chan
 Please make sure to read the [Contributing Guide](https://github.com/vuematerial/vue-material/blob/master/.github/CONTRIBUTING.md) before making a pull request.
 
 ## Browser Support
+
 Vue Material supports the latest version of all Browsers. This means:
+
 * Google Chrome
 * Firefox
 * Safari 9+
 * Opera
 * Edge
 * IE 11
+
 <small>May work in other browsers but it's untested.</small>
 
 ## Credits and Thanks
+
 * <a href="https://github.com/elviskang" target="_blank">elviskang</a> for donating the npm package name!
 * <a href="https://github.com/brunocastro" target="_blank">Bruno Castro</a> for the awesome Vue Material Logo.
 
 ## License
+
 MIT

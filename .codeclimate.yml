@@ -34,6 +34,12 @@ engines:
         enabled: false
       MD013:
         enabled: false
+      MD038:
+        enabled: false
+      MD026:
+        enabled: false
+      MD033:
+        enabled: false
 
   fixme:
     enabled: true

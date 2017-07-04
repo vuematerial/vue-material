@@ -12,7 +12,7 @@ Before submitting your contribution please read the guidelines.
 
 - Always search for your issue first. It may have already been answered, planned or fixed in some branch. New components and features will be planned on [Milestones](https://github.com/marcosmoura/vue-material/milestones) or on [Projects](https://github.com/marcosmoura/vue-material/projects).
 
-- Only create issues for the newest version. For now. Until 1.0.0. 
+- Only create issues for the newest version. For now. Until 1.0.0.
 
 - Create a declarative title and describe clearly the steps necessary to reproduce the issue. If an issue labeled "need repro" receives no further input from the issue author for more than 3 days, it will be closed.
 
