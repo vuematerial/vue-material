@@ -2,7 +2,7 @@
   <div>
     <md-checkbox v-model="array" value="1">Array</md-checkbox>
     <md-checkbox v-model="array" value="2">Array</md-checkbox>
-    <md-checkbox v-model="boolean" :value="false">Boolean</md-checkbox>
+    <md-checkbox v-model="boolean">Boolean</md-checkbox>
     <md-checkbox v-model="string" required value="my-checkbox">String <small>(required)</small></md-checkbox>
     <md-checkbox v-model="novalue">No Value</md-checkbox>
     <md-checkbox v-model="novalue" disabled>Disabled</md-checkbox>

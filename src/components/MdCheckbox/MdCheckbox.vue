@@ -47,21 +47,26 @@
     }),
     computed: {
       isSelected () {
-        if (this.isArray) {
+        if (this.isModelArray) {
           return this.model.includes(this.value)
         }
 
-        if (this.isBoolean) {
-          return Boolean(this.model)
+        const isEquals = this.model === this.value
+
+        if (this.isModelBoolean && this.value === 'on') {
+          return this.model
         }
 
-        return this.model === this.value
+        return isEquals
       },
-      isArray () {
+      isModelArray () {
         return Array.isArray(this.model)
       },
-      isBoolean () {
+      isModelBoolean () {
         return typeof this.model === 'boolean'
+      },
+      isValueBoolean () {
+        return typeof this.value === 'boolean'
       },
       checkboxClasses () {
         return {
@@ -98,15 +103,15 @@
         }
       },
       handleBooleanCheckbox () {
-        this.$emit('change', !this.isSelected)
+        this.$emit('change', !this.model)
       },
       toggleCheck () {
         if (!this.disabled) {
           this.rippleActive = true
 
-          if (this.isArray) {
+          if (this.isModelArray) {
             this.handleArrayCheckbox()
-          } else if (this.isBoolean) {
+          } else if (this.isModelBoolean) {
             this.handleBooleanCheckbox()
           } else {
             this.handleStringCheckbox()
@@ -231,4 +236,3 @@
     }
   }
 </style>
-

@@ -79,7 +79,7 @@
 
   .container-wrapper {
     &:not(.splash) {
-      padding-left: 210px !important;
+      padding-left: 230px !important;
 
       @include md-layout-xsmall {
         padding-left: 0 !important;

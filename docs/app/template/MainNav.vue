@@ -53,15 +53,15 @@
   @import "~vue-material/components/MdLayout/mixins";
 
   .main-nav {
-    width: 210px;
-    padding: 24px 16px 16px;
+    width: 230px;
+    padding: 24px 16px 96px 16px;
     display: flex;
     align-items: flex-start;
     flex-direction: column;
     overflow: auto;
     position: fixed;
     top: 64px;
-    bottom: 96px;
+    bottom: 0;
     left: 0;
     z-index: 2;
     transition: .3s $md-transition-default-timing;
