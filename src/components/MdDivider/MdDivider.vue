@@ -1,7 +1,5 @@
 <template>
-  <div class="md-divider" :class="[$mdActiveTheme]">
-    <slot />
-  </div>
+  <hr class="md-divider" :class="[$mdActiveTheme]">
 </template>
 
 <script>

@@ -52,6 +52,9 @@ export default {
     switch: {
       title: 'Switch'
     },
+    subheader: {
+      title: 'Subheader'
+    },
     toolbar: {
       title: 'Toolbar'
     },
