@@ -2,7 +2,7 @@
   <page-content page-title="Themes - Dynamic Themes">
     <docs-component>
       <div slot="description">
-        <p>Vue Material have a complete theme suite. You can create several themes and apply them on-demand. Like on this documentation website you can set a different theme per-page using the API. But you can have an advanced way to change themes using dynamic themes.</p>
+        <p>Vue Material has a complete theme suite. You can create several themes and apply them on-demand. Like on this documentation website you can set a different theme per-page using the API. But you can have an advanced way to change themes using dynamic themes.</p>
         <p>You can apply a theme only in a single area of your application using the <code>&lt;md-theme&gt;</code>. If the theme component has only one child element then the theme definition will be attached to this particular element. In other cases the component will wrap all of its children in a <code>&lt;div&gt;</code> tag (or you can customize the output tag).</p>
         <p>Also every single component in Vue Material suite has a <code>md-theme</code> attribute to set its theme.</p>
         <p>All the components will inherit all theme properties from its parents. If the direct parent doesn't have a theme definition the theme will be resolved by its closest parent or the current theme of the entire application.</p>
