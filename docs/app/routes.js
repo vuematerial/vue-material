@@ -35,6 +35,11 @@ export const routes = [
     component: () => import('./pages/Components/Content/Content.vue')
   },
   {
+    path: '/components/divider',
+    name: 'components/divider',
+    component: () => import('./pages/Components/Divider/Divider.vue')
+  },
+  {
     path: '/components/drawer',
     name: 'components/drawer',
     component: () => import('./pages/Components/Drawer/Drawer.vue')

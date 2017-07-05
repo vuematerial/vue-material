@@ -7,6 +7,7 @@
     <div class="main-nav-level">
       <router-link to="/components/button">{{ $t('pages.button.title') }}</router-link>
       <router-link to="/components/content">{{ $t('pages.content.title') }}</router-link>
+      <router-link to="/components/divider">{{ $t('pages.divider.title') }}</router-link>
       <router-link to="/components/drawer">{{ $t('pages.drawer.title') }}</router-link>
 
       <router-link to="/components/form">{{ $t('pages.form.title') }}</router-link>

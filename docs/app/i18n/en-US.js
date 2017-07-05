@@ -31,6 +31,9 @@ export default {
     content: {
       title: 'Content'
     },
+    divider: {
+      title: 'Divider'
+    },
     drawer: {
       title: 'Drawer'
     },
