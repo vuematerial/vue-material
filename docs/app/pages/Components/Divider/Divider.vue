@@ -12,7 +12,7 @@
 
       <code-example title="Divider" :component="examples['divider']" />
 
-      <api-item title="API">
+      <api-item title="API - md-divider">
         <p>The following class can be use in dividers inside any component:</p>
 
         <api-table :headings="classes.headings" :props="classes.props" slot="classes" />

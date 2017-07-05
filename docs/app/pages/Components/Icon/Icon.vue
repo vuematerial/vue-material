@@ -14,7 +14,7 @@
 
       <code-example title="Material Icons" :component="examples['material-icons']" />
 
-      <api-item title="API">
+      <api-item title="API - md-icon">
         <p>The following options can be applied to all icons:</p>
 
         <api-table :headings="api.material.classes.headings" :props="api.material.classes.props" slot="classes" />

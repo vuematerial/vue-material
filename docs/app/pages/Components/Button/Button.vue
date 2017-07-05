@@ -16,7 +16,7 @@
 
       <code-example title="Regular Button" :component="examples['regular-buttons']" />
 
-      <api-item title="API">
+      <api-item title="API - md-button">
         <p>The following options can be applied to all buttons, even the FAB ones:</p>
 
         <api-table :headings="api.regular.props.headings" :props="api.regular.props.props" slot="props" />
@@ -32,7 +32,7 @@
       <code-example title="Buttons with Icons" :component="examples['icon-buttons']" />
 
       <api-item title="API">
-        <p>The following class will turn a button in a icon button:</p>
+        <p>The following class will turn a button into a icon button:</p>
 
         <api-table :headings="api.icons.classes.headings" :props="api.icons.classes.props" slot="classes" />
       </api-item>

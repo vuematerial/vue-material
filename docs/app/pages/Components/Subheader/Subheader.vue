@@ -13,7 +13,7 @@
       <code-example title="Subheader" :component="examples['subheader']" />
 
       <api-item title="API - md-subheader">
-        <p>This componen do not have any extra option.</p>
+        <p>This component do not have any extra option.</p>
       </api-item>
     </div>
   </page-container>

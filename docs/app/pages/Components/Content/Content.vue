@@ -10,6 +10,10 @@
       <h2>Content</h2>
 
       <code-example title="Paper Content" :component="examples['paper-content']" />
+
+      <api-item title="API - md-content">
+        <p>This component do not have any extra option.</p>
+      </api-item>
     </div>
   </page-container>
 </template>
