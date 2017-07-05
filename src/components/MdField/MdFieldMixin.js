@@ -45,11 +45,14 @@ export default {
       this.$emit('input', '')
     },
     setLabelFor () {
-      const label = this.$parent.$el.querySelector('label')
-      const forAttribute = label.getAttribute('for')
+      const label = this.$el.parentNode.querySelector('label')
 
-      if (!forAttribute) {
-        label.setAttribute('for', this.id)
+      if (label) {
+        const forAttribute = label.getAttribute('for')
+
+        if (!forAttribute || forAttribute.indexOf('md-') >= 0) {
+          label.setAttribute('for', this.id)
+        }
       }
     },
     setStateValue () {
