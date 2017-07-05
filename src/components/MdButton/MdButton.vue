@@ -15,12 +15,7 @@
         type: String,
         default: 'button'
       },
-      disabled: Boolean,
-      mdRipple: {
-        type: Boolean,
-        default: true
-      },
-      to: [String, Object]
+      disabled: Boolean
     },
     render (createElement) {
       const buttonContent = createElement('md-button-content', {
@@ -53,11 +48,8 @@
       if (this.href) {
         tag = 'a'
       } else if (this.$router && this.to) {
+        buttonAttrs.props = this.$props
         tag = 'router-link'
-        buttonAttrs.attrs = {
-          ...this.$options.propsData,
-          to: this.to
-        }
       }
 
       return createElement(tag, buttonAttrs, [buttonContent])
