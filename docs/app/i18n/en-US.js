@@ -46,6 +46,9 @@ export default {
     input: {
       title: 'Input & Textarea'
     },
+    list: {
+      title: 'List'
+    },
     radio: {
       title: 'Radio'
     },

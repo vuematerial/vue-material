@@ -1,10 +1,10 @@
 <template>
   <div class="md-ripple" :class="{ 'md-disabled': mdDisabled }" @touchstart.passive.stop="startRipple" @mousedown.passive.stop="startRipple">
+    <slot />
+
     <transition name="md-ripple" appear @after-enter="clearWave" v-if="!mdDisabled">
       <span class="md-ripple-wave" :class="rippleClass" :style="waveStyles" v-if="animating" ref="rippleWave" />
     </transition>
-
-    <slot />
   </div>
 </template>
 

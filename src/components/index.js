@@ -8,6 +8,7 @@ import MdField from './MdField'
 import MdIcon from './MdIcon'
 import MdImage from './MdImage'
 import MdLayout from './MdLayout'
+import MdList from './MdList'
 import MdRadio from './MdRadio'
 import MdRipple from './MdRipple'
 import MdSubheader from './MdSubheader'
@@ -25,6 +26,7 @@ export default {
   MdIcon,
   MdImage,
   MdLayout,
+  MdList,
   MdRadio,
   MdRipple,
   MdSubheader,

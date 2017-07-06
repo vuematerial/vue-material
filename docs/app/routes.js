@@ -60,6 +60,11 @@ export const routes = [
     component: () => import('./pages/Components/Input/Input.vue')
   },
   {
+    path: '/components/list',
+    name: 'components/list',
+    component: () => import('./pages/Components/List/List.vue')
+  },
+  {
     path: '/components/radio',
     name: 'components/radio',
     component: () => import('./pages/Components/Radio/Radio.vue')

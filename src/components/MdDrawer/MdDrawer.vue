@@ -55,6 +55,7 @@
     bottom: 0;
     left: 0;
     z-index: 30;
+    overflow: auto;
     transform: translate3d(-100%, 0, 0);
     transition: .4s $md-transition-default-timing;
     transition-property: box-shadow, transform;

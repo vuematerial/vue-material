@@ -1,0 +1,9 @@
+.md-list {
+  @include md-theme-component() {
+    @include md-theme-property(background-color, background);
+
+    .md-list-item-container {
+      @include md-theme-property(color, text-primary, background);
+    }
+  }
+}
