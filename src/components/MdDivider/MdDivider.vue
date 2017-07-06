@@ -1,12 +1,18 @@
 <template>
-  <hr class="md-divider" :class="[$mdActiveTheme]">
+  <li class="md-divider" :class="[$mdActiveTheme]" v-if="insideList"></li>
+  <hr class="md-divider" :class="[$mdActiveTheme]" v-else>
 </template>
 
 <script>
   import MdComponent from 'core/MdComponent'
 
   export default new MdComponent({
-    name: 'MdDivider'
+    name: 'MdDivider',
+    computed: {
+      insideList () {
+        return this.$parent.$options._componentTag === 'md-list'
+      }
+    }
   })
 </script>
 
