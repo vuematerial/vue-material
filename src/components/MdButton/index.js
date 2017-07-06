@@ -1,13 +1,12 @@
+import MdRouterLinkProps from 'core/MdRouterLinkProps'
 import MdButton from './MdButton'
 
 export default Vue => {
-  const routerLinkProps = Vue.options.components['router-link'].options.props
-
-  delete routerLinkProps.to.required
+  const props = new MdRouterLinkProps(Vue)
 
   MdButton.props = {
     ...MdButton.props,
-    ...routerLinkProps
+    ...props
   }
 
   Vue.component(MdButton.name, MdButton)
