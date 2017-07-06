@@ -74,10 +74,8 @@
   $md-button-fab-size: 56px;
   $md-button-fab-size-mini: $md-button-icon-size;
 
-  .md-button {
-    min-width: $md-button-min-width;
-    height: $md-button-height;
-    margin: 6px 8px;
+  .md-button-clean {
+    margin: 0;
     padding: 0;
     display: inline-block;
     position: relative;
@@ -86,17 +84,24 @@
     outline: none;
     background: transparent;
     border: 0;
-    border-radius: $md-button-radius;
     transition: $md-transition-default;
     transition-property: box-shadow, color, background-color;
     will-change: box-shadow, color, background-color;
     font-family: inherit;
-    font-size: $md-button-font-size;
-    font-weight: 500;
     text-transform: uppercase;
     text-decoration: none;
     vertical-align: top;
     white-space: nowrap;
+  }
+
+  .md-button {
+    @extend .md-button-clean;
+    min-width: $md-button-min-width;
+    height: $md-button-height;
+    margin: 6px 8px;
+    border-radius: $md-button-radius;
+    font-size: $md-button-font-size;
+    font-weight: 500;
 
     &:active {
       outline: none;
