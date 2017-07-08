@@ -1,4 +1,5 @@
 <script>
+  import MdRouterLinkProps from 'core/MdRouterLinkProps'
   import MdListItemButton from './MdListItemButton'
   import MdListItemLink from './MdListItemLink'
   import MdListItemRouter from './MdListItemRouter'
@@ -15,10 +16,9 @@
 
       if (parent && parent.$router && props.to) {
         listComponent = MdListItemRouter
-        listComponent.props = {
-          target: String,
-          ...parent.$options.components['router-link'].options.props
-        }
+        listComponent.props = MdRouterLinkProps(parent, {
+          target: String
+        })
         delete listComponent.props.href
       } else if (props.href) {
         listComponent = MdListItemLink
