@@ -8,10 +8,3 @@ test('should render the list item', async () => {
   expect(wrapper.hasClass('md-list-item')).toBe(true)
   expect(wrapper.text().trim()).toBe('Lorem ipsum')
 })
-
-test('should render the theme class', async () => {
-  const template = '<md-list-item md-theme="alt">Lorem ipsum</md-list-item>'
-  const wrapper = await mountTemplate(MdListItem, template)
-
-  expect(wrapper.hasClass('md-theme-alt')).toBe(true)
-})
