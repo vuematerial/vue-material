@@ -1,10 +1,6 @@
-export default Vue => {
-  let props = Vue.options.components['router-link'].options.props
-
+export default (context, props) => {
   return {
     ...props,
-    to: {
-      type: props.to.type
-    }
+    ...context.$options.components['router-link'].options.props
   }
 }

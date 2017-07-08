@@ -1,6 +1,7 @@
 <script>
   import MdComponent from 'core/MdComponent'
   import ripple from 'core/mixins/ripple'
+  import MdRouterLinkProps from 'core/MdRouterLinkProps'
   import MdButtonContent from './MdButtonContent'
 
   export default new MdComponent({
@@ -15,7 +16,8 @@
         type: String,
         default: 'button'
       },
-      disabled: Boolean
+      disabled: Boolean,
+      to: null
     },
     render (createElement) {
       const buttonContent = createElement('md-button-content', {
@@ -48,8 +50,14 @@
       if (this.href) {
         tag = 'a'
       } else if (this.$router && this.to) {
-        buttonAttrs.props = this.$props
+        this.$options.props = MdRouterLinkProps(this, this.$options.props)
+
         tag = 'router-link'
+        buttonAttrs.props = this.$props
+        delete buttonAttrs.props.type
+        delete buttonAttrs.attrs.type
+        delete buttonAttrs.props.href
+        delete buttonAttrs.attrs.href
       }
 
       return createElement(tag, buttonAttrs, [buttonContent])
