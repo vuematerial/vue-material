@@ -141,7 +141,7 @@
   }
 
   .md-ripple-enter-active {
-    transition: 1s $md-transition-stand-timing;
+    transition: .8s $md-transition-stand-timing;
     transition-property: opacity, transform;
     will-change: opacity, transform;
 
@@ -152,6 +152,6 @@
 
   .md-ripple-enter {
     opacity: .26;
-    transform: scale(0) translateZ(0);
+    transform: scale(.26) translateZ(0);
   }
 </style>
