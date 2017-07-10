@@ -1,9 +1,14 @@
 <template>
-  <div class="md-ripple" :class="{ 'md-disabled': mdDisabled }" @touchstart.passive.stop="startRipple" @mousedown.passive.stop="startRipple">
+  <div
+    class="md-ripple"
+    :class="rippleClasses"
+    @touchstart.passive.stop="touchStartCheck"
+    @touchmove.passive.stop="touchMoveCheck"
+    @mousedown.passive.stop="startRipple">
     <slot />
 
     <transition name="md-ripple" appear @after-enter="clearWave" v-if="!mdDisabled">
-      <span class="md-ripple-wave" :class="rippleClass" :style="waveStyles" v-if="animating" ref="rippleWave" />
+      <span class="md-ripple-wave" :class="waveClasses" :style="waveStyles" v-if="animating" ref="rippleWave" />
     </transition>
   </div>
 </template>
@@ -21,10 +26,16 @@
     data: () => ({
       eventType: null,
       waveStyles: null,
-      animating: false
+      animating: false,
+      touchTimeout: null
     }),
     computed: {
-      rippleClass () {
+      rippleClasses () {
+        return {
+          'md-disabled': this.mdDisabled
+        }
+      },
+      waveClasses () {
         return {
           'md-centered': this.mdCentered
         }
@@ -41,6 +52,14 @@
       }
     },
     methods: {
+      touchMoveCheck () {
+        window.clearTimeout(this.touchTimeout)
+      },
+      touchStartCheck ($event) {
+        this.touchTimeout = window.setTimeout(() => {
+          this.startRipple($event)
+        }, 100)
+      },
       async startRipple ($event) {
         const { eventType, mdDisabled, mdCentered } = this
 
