@@ -26,7 +26,7 @@
 
       return createElement('li', {
         on: listeners,
-        staticClass: 'md-list-item ' + data.staticClass
+        staticClass: 'md-list-item'
       }, [
         createElement(listComponent, {
           staticClass: 'md-list-item-container md-button-clean',

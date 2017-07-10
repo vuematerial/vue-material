@@ -4,6 +4,10 @@
 
     .md-list-item-container {
       @include md-theme-property(color, text-primary, background);
+
+      &:active {
+        @include md-theme-property(background-color, divider, background);
+      }
     }
   }
 }
