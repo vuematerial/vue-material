@@ -52,6 +52,7 @@
     padding: 0 16px;
     flex-flow: row wrap;
     position: relative;
+    z-index: 2;
 
     @include md-layout-small {
       padding: 0 8px;
@@ -95,6 +96,8 @@
 
     .md-button,
     .md-icon {
+      z-index: 1;
+
       ~ .md-title {
         margin-left: 24px;
 
