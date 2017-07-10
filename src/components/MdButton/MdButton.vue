@@ -1,6 +1,7 @@
 <script>
   import MdComponent from 'core/MdComponent'
-  import ripple from 'core/mixins/ripple'
+  import MdFocused from 'core/mixins/MdFocused/MdFocused'
+  import MdRipple from 'core/mixins/MdRipple/MdRipple'
   import MdRouterLinkProps from 'core/MdRouterLinkProps'
   import MdButtonContent from './MdButtonContent'
 
@@ -9,7 +10,10 @@
     components: {
       MdButtonContent
     },
-    mixins: [ripple],
+    mixins: [
+      MdRipple,
+      MdFocused
+    ],
     props: {
       href: String,
       type: {
@@ -31,7 +35,8 @@
         class: [
           this.$mdActiveTheme,
           {
-            'md-ripple-off': !this.mdRipple
+            'md-ripple-off': !this.mdRipple,
+            'md-focused': this.mdHasFocus
           }
         ],
         attrs: {

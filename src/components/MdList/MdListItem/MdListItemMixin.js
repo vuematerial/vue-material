@@ -1,8 +1,8 @@
-import ripple from 'core/mixins/ripple'
+import MdRipple from 'core/mixins/MdRipple/MdRipple'
 import MdListItemContent from './MdListItemContent'
 
 export default {
-  mixins: [ripple],
+  mixins: [MdRipple],
   components: {
     MdListItemContent
   },
