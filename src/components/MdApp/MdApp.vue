@@ -11,22 +11,24 @@
   function buildSlots (children, context, functionalContext, options) {
     let slots = []
 
-    children.forEach(child => {
-      const opts = child.componentOptions
+    if (children) {
+      children.forEach(child => {
+        const opts = child.componentOptions
 
-      if (opts && componentTypes.includes(opts.tag)) {
-        child.data.slot = opts.tag
-        child.data.provide = options.Ctor.options.provide
-        child.context = context
-        child.functionalContext = functionalContext
+        if (opts && componentTypes.includes(opts.tag)) {
+          child.data.slot = opts.tag
+          child.data.provide = options.Ctor.options.provide
+          child.context = context
+          child.functionalContext = functionalContext
 
-        if (opts.tag === 'md-content') {
-          child.data.staticClass = 'md-flex'
+          if (opts.tag === 'md-content') {
+            child.data.staticClass = 'md-flex'
+          }
+
+          slots.push(child)
         }
-
-        slots.push(child)
-      }
-    })
+      })
+    }
 
     return slots
   }
