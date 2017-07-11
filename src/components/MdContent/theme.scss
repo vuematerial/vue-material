@@ -12,5 +12,9 @@
       @include md-theme-property(background-color, accent);
       @include md-theme-property(color, text-primary, accent);
     }
+
+    .md-app & {
+      @include md-theme-property(border-left-color, divider, background);
+    }
   }
 }

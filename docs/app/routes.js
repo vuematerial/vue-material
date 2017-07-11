@@ -25,6 +25,11 @@ export const routes = [
     component: () => import('./pages/Components/Button/Button.vue')
   },
   {
+    path: '/components/app',
+    name: 'components/app',
+    component: () => import('./pages/Components/App/App.vue')
+  },
+  {
     path: '/components/checkbox',
     name: 'components/checkbox',
     component: () => import('./pages/Components/Checkbox/Checkbox.vue')

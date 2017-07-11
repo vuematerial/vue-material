@@ -1,10 +1,10 @@
 <template>
   <div class="page-container">
-    <md-toolbar class="md-primary">
-      <span class="md-title">My Title</span>
-    </md-toolbar>
+    <md-app>
+      <md-toolbar class="md-primary">
+        <span class="md-title">My Title</span>
+      </md-toolbar>
 
-    <main class="page-wrapper md-layout-row">
       <md-drawer md-permanent="clipped">
         <md-list>
           <md-list-item>
@@ -29,13 +29,15 @@
         </md-list>
       </md-drawer>
 
-      <div class="page-content md-flex">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quibusdam, non molestias et! Earum magnam, similique, quo recusandae placeat dicta asperiores modi sint ea repudiandae maxime? Quae non explicabo, neque.</div>
-    </main>
+      <md-content>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quibusdam, non molestias et! Earum magnam, similique, quo recusandae placeat dicta asperiores modi sint ea repudiandae maxime? Quae non explicabo, neque.
+      </md-content>
+    </md-app>
   </div>
 </template>
 
 <style lang="scss" scoped>
-  .page-container {
+  .md-app {
     border: 1px solid rgba(#000, .12);
   }
 
@@ -43,11 +45,6 @@
   .md-drawer {
     width: 230px;
     max-width: calc(100vw - 125px);
-  }
-
-  .page-content {
-    padding: 16px;
-    border-left: 1px solid rgba(#000, .12);
   }
 </style>
 

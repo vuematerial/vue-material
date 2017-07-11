@@ -1,77 +1,81 @@
 <template>
   <div class="page-container md-layout-column">
-    <md-toolbar class="md-primary">
-      <md-button class="md-icon-button" @click="showNavigation = true">
-        <md-icon>menu</md-icon>
-      </md-button>
-      <span class="md-title">My Title</span>
+    <md-app>
+      <md-toolbar class="md-primary">
+        <md-button class="md-icon-button" @click="showNavigation = true">
+          <md-icon>menu</md-icon>
+        </md-button>
+        <span class="md-title">My Title</span>
 
-      <div class="md-toolbar-section-end">
-        <md-button @click="showSidepanel = true">Favorites</md-button>
-      </div>
-    </md-toolbar>
-
-    <md-drawer :md-visible.sync="showNavigation">
-      <md-toolbar class="md-transparent" md-elevation="0">
-        <span class="md-title">My App name</span>
+        <div class="md-toolbar-section-end">
+          <md-button @click="showSidepanel = true">Favorites</md-button>
+        </div>
       </md-toolbar>
 
-      <md-list>
-        <md-list-item>
-          <md-icon>move_to_inbox</md-icon>
-          <span class="md-list-item-text">Inbox</span>
-        </md-list-item>
+      <md-drawer :md-visible.sync="showNavigation">
+        <md-toolbar class="md-transparent" md-elevation="0">
+          <span class="md-title">My App name</span>
+        </md-toolbar>
 
-        <md-list-item>
-          <md-icon>send</md-icon>
-          <span class="md-list-item-text">Sent Mail</span>
-        </md-list-item>
+        <md-list>
+          <md-list-item>
+            <md-icon>move_to_inbox</md-icon>
+            <span class="md-list-item-text">Inbox</span>
+          </md-list-item>
 
-        <md-list-item>
-          <md-icon>delete</md-icon>
-          <span class="md-list-item-text">Trash</span>
-        </md-list-item>
+          <md-list-item>
+            <md-icon>send</md-icon>
+            <span class="md-list-item-text">Sent Mail</span>
+          </md-list-item>
 
-        <md-list-item>
-          <md-icon>error</md-icon>
-          <span class="md-list-item-text">Spam</span>
-        </md-list-item>
-      </md-list>
-    </md-drawer>
+          <md-list-item>
+            <md-icon>delete</md-icon>
+            <span class="md-list-item-text">Trash</span>
+          </md-list-item>
 
-    <md-drawer class="md-right" :md-visible.sync="showSidepanel">
-      <md-toolbar class="md-transparent" md-elevation="0">
-        <span class="md-title">Favorites</span>
-      </md-toolbar>
+          <md-list-item>
+            <md-icon>error</md-icon>
+            <span class="md-list-item-text">Spam</span>
+          </md-list-item>
+        </md-list>
+      </md-drawer>
 
-      <md-list>
-        <md-list-item>
-          <span class="md-list-item-text">Abbey Christansen</span>
+      <md-drawer class="md-right" :md-visible.sync="showSidepanel">
+        <md-toolbar class="md-transparent" md-elevation="0">
+          <span class="md-title">Favorites</span>
+        </md-toolbar>
 
-          <md-button class="md-icon-button md-list-action">
-            <md-icon class="md-primary">chat_bubble</md-icon>
-          </md-button>
-        </md-list-item>
+        <md-list>
+          <md-list-item>
+            <span class="md-list-item-text">Abbey Christansen</span>
 
-        <md-list-item>
-          <span class="md-list-item-text">Alex Nelson</span>
+            <md-button class="md-icon-button md-list-action">
+              <md-icon class="md-primary">chat_bubble</md-icon>
+            </md-button>
+          </md-list-item>
 
-          <md-button class="md-icon-button md-list-action">
-            <md-icon class="md-primary">chat_bubble</md-icon>
-          </md-button>
-        </md-list-item>
+          <md-list-item>
+            <span class="md-list-item-text">Alex Nelson</span>
 
-        <md-list-item>
-          <span class="md-list-item-text">Mary Johnson</span>
+            <md-button class="md-icon-button md-list-action">
+              <md-icon class="md-primary">chat_bubble</md-icon>
+            </md-button>
+          </md-list-item>
 
-          <md-button class="md-icon-button md-list-action">
-            <md-icon>chat_bubble</md-icon>
-          </md-button>
-        </md-list-item>
-      </md-list>
-    </md-drawer>
+          <md-list-item>
+            <span class="md-list-item-text">Mary Johnson</span>
 
-    <main class="page-content md-flex">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quibusdam, non molestias et! Earum magnam, similique, quo recusandae placeat dicta asperiores modi sint ea repudiandae maxime? Quae non explicabo, neque.</main>
+            <md-button class="md-icon-button md-list-action">
+              <md-icon>chat_bubble</md-icon>
+            </md-button>
+          </md-list-item>
+        </md-list>
+      </md-drawer>
+
+      <md-content>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quibusdam, non molestias et! Earum magnam, similique, quo recusandae placeat dicta asperiores modi sint ea repudiandae maxime? Quae non explicabo, neque.
+      </md-content>
+    </md-app>
   </div>
 </template>
 

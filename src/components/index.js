@@ -1,3 +1,4 @@
+import MdApp from './MdApp'
 import MdButton from './MdButton'
 import MdCheckbox from './MdCheckbox'
 import MdContent from './MdContent'
@@ -16,6 +17,7 @@ import MdSwitch from './MdSwitch'
 import MdToolbar from './MdToolbar'
 
 export default {
+  MdApp,
   MdButton,
   MdCheckbox,
   MdContent,

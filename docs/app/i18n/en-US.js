@@ -25,6 +25,9 @@ export default {
       title: 'Button',
       description: 'Buttons communicate the action that will occur when the user touches them.'
     },
+    app: {
+      title: 'App'
+    },
     checkbox: {
       title: 'Checkbox'
     },
