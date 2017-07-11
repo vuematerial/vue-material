@@ -81,6 +81,7 @@
 
     .md-content {
       padding: 16px;
+      overflow: auto;
 
       @include md-layout-small-and-up {
         border-left: 1px solid transparent;
