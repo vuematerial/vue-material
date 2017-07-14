@@ -32,7 +32,7 @@
     },
     computed: {
       toggleType () {
-        return this.state.togglePassword
+        return this.MdField.togglePassword
       }
     },
     watch: {
@@ -49,7 +49,7 @@
     },
     methods: {
       setPassword () {
-        this.state.password = this.type === 'password'
+        this.MdField.password = this.type === 'password'
       },
       setTypePassword () {
         this.$el.type = 'password'

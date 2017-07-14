@@ -38,13 +38,13 @@
         }
       },
       setTextarea () {
-        this.state.textarea = true
+        this.MdField.textarea = true
       },
       setAutogrow () {
-        this.state.autogrow = this.mdAutogrow
+        this.MdField.autogrow = this.mdAutogrow
       },
       onInput () {
-        this.setStateValue()
+        this.setFieldValue()
         this.applyStyles()
       }
     },
