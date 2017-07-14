@@ -7,7 +7,7 @@ export default {
     required: Boolean,
     disabled: Boolean
   },
-  inject: ['state'],
+  inject: ['MdField'],
   data () {
     return {
       content: this.value || null
@@ -15,7 +15,7 @@ export default {
   },
   computed: {
     clear () {
-      return this.state.clear
+      return this.MdField.clear
     }
   },
   watch: {
@@ -41,7 +41,7 @@ export default {
     clearField () {
       this.$el.value = ''
       this.content = ''
-      this.setStateValue()
+      this.setFieldValue()
       this.$emit('input', '')
     },
     setLabelFor () {
@@ -55,39 +55,39 @@ export default {
         }
       }
     },
-    setStateValue () {
-      this.state.value = this.content
+    setFieldValue () {
+      this.MdField.value = this.content
     },
     setPlaceholder () {
-      this.state.placeholder = Boolean(this.placeholder)
+      this.MdField.placeholder = Boolean(this.placeholder)
     },
     setDisabled () {
-      this.state.disabled = Boolean(this.disabled)
+      this.MdField.disabled = Boolean(this.disabled)
     },
     setRequired () {
-      this.state.required = Boolean(this.required)
+      this.MdField.required = Boolean(this.required)
     },
     setMaxlength () {
-      this.state.maxlength = parseInt(this.maxlength, 10)
+      this.MdField.maxlength = parseInt(this.maxlength, 10)
     },
     onFocus () {
-      this.state.focused = true
+      this.MdField.focused = true
     },
     onBlur () {
-      this.state.focused = false
+      this.MdField.focused = false
     },
     onInput () {
-      this.setStateValue()
+      this.setFieldValue()
     }
   },
   created () {
-    this.setStateValue()
+  },
+  mounted () {
+    this.setFieldValue()
     this.setPlaceholder()
     this.setDisabled()
     this.setRequired()
     this.setMaxlength()
-  },
-  mounted () {
     this.setLabelFor()
   }
 }

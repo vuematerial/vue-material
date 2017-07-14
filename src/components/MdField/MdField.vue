@@ -2,7 +2,7 @@
   <div class="md-field" :class="[$mdActiveTheme, fieldClasses]">
     <slot />
 
-    <span class="md-count" v-if="hasCounter">{{ valueLength }} / {{ state.maxlength }}</span>
+    <span class="md-count" v-if="hasCounter">{{ valueLength }} / {{ MdField.maxlength }}</span>
 
     <transition name="md-input-action" appear>
       <md-button tabindex="-1" class="md-icon-button md-dense md-input-action md-clear" @click="clearInput" v-if="hasValue && mdClearable">
@@ -12,7 +12,7 @@
 
     <transition name="md-input-action" appear>
       <md-button tabindex="-1" class="md-icon-button md-dense md-input-action md-toggle-password" @click="togglePassword" v-if="hasPasswordToggle">
-        <md-password-off-icon v-if="state.togglePassword" />
+        <md-password-off-icon v-if="MdField.togglePassword" />
         <md-password-on-icon v-else />
       </md-button>
     </transition>
@@ -33,7 +33,7 @@
       MdPasswordOnIcon
     },
     provide: {
-      state: {}
+      MdField: {}
     },
     props: {
       mdInline: Boolean,
@@ -49,7 +49,7 @@
     },
     data: () => ({
       showPassword: false,
-      state: {
+      MdField: {
         value: null,
         focused: false,
         disabled: false,
@@ -65,17 +65,17 @@
     }),
     computed: {
       hasCounter () {
-        return this.mdCounter && this.state.maxlength
+        return this.mdCounter && this.MdField.maxlength
       },
       hasPasswordToggle () {
-        return this.mdTogglePassword && this.state.password
+        return this.mdTogglePassword && this.MdField.password
       },
       hasValue () {
-        return this.state.value && this.state.value.length > 0
+        return this.MdField.value && this.MdField.value.length > 0
       },
       valueLength () {
-        if (this.state.value) {
-          return this.state.value.length
+        if (this.MdField.value) {
+          return this.MdField.value.length
         }
 
         return 0
@@ -84,33 +84,33 @@
         return {
           'md-inline': this.mdInline,
           'md-clearable': this.mdClearable,
-          'md-focused': this.state.focused,
-          'md-disabled': this.state.disabled,
-          'md-required': this.state.required,
-          'md-has-value': this.state.value && this.state.value.length > 0,
-          'md-has-placeholder': this.state.placeholder,
-          'md-has-textarea': this.state.textarea,
-          'md-has-password': this.state.password,
-          'md-autogrow': this.state.autogrow
+          'md-focused': this.MdField.focused,
+          'md-disabled': this.MdField.disabled,
+          'md-required': this.MdField.required,
+          'md-has-value': this.MdField.value && this.MdField.value.length > 0,
+          'md-has-placeholder': this.MdField.placeholder,
+          'md-has-textarea': this.MdField.textarea,
+          'md-has-password': this.MdField.password,
+          'md-autogrow': this.MdField.autogrow
           /* ,
-          'md-has-select': this.state.mdHasSelect,
-          'md-has-file': this.state.hasFile,
+          'md-has-select': this.MdField.mdHasSelect,
+          'md-has-file': this.MdField.hasFile,
            */
         }
       }
     },
     methods: {
       async clearInput () {
-        this.state.clear = true
+        this.MdField.clear = true
         await this.$nextTick()
-        this.state.clear = false
+        this.MdField.clear = false
       },
       async togglePassword () {
-        this.state.togglePassword = !this.state.togglePassword
+        this.MdField.togglePassword = !this.MdField.togglePassword
       }
     },
     created () {
-      this._provided.state = this.state
+      this._provided.MdField = this.MdField
     }
   })
 </script>
