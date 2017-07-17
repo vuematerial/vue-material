@@ -1,10 +1,12 @@
 <template>
-  <div class="md-app md-app-side-drawer md-layout-row">
-    <slot name="md-drawer"></slot>
+  <div class="md-app md-app-side-drawer md-layout-row" :class="appClasses">
+    <slot name="md-app-drawer"></slot>
 
-    <main class="md-app-container md-flex md-layout-column" :style="containerStyles">
-      <slot name="md-toolbar"></slot>
-      <slot name="md-content" class="md-flex"></slot>
+    <main class="md-app-container md-flex md-layout-column" :style="containerStyles" @scroll.passive="handleScroll">
+      <slot name="md-app-toolbar"></slot>
+      <div class="md-app-scroller md-layout-column md-flex" @scroll.passive="handleScroll">
+        <slot name="md-app-content"></slot>
+      </div>
     </main>
   </div>
 </template>

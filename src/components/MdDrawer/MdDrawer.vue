@@ -21,7 +21,6 @@
     components: {
       MdOverlay
     },
-    inject: ['MdApp'],
     props: {
       mdLeft: Boolean,
       mdRight: Boolean,
@@ -47,16 +46,6 @@
           this.$emit('md-opened')
         } else {
           this.$emit('md-closed')
-        }
-
-        if (this.MdApp) {
-          this.MdApp.drawerWidth = this.getDrawerWidth()
-          this.MdApp.drawerActive = visible
-        }
-      },
-      mode () {
-        if (this.MdApp) {
-          this.MdApp.drawerMode = this.mode
         }
       }
     },
@@ -94,24 +83,8 @@
       }
     },
     methods: {
-      getDrawerWidth () {
-        let drawerWidth = this.$el ? this.$el.offsetWidth : 0
-
-        return drawerWidth + 'px'
-      },
       closeDrawer () {
         this.$emit('update:mdVisible', false)
-      }
-    },
-    created () {
-      if (this.MdApp) {
-        this.MdApp.drawerActive = this.mdVisible
-        this.MdApp.drawerMode = this.mode
-      }
-    },
-    mounted () {
-      if (this.MdApp) {
-        this.MdApp.drawerWidth = this.getDrawerWidth()
       }
     }
   })
