@@ -62,9 +62,6 @@
 
 <script>
   export default {
-    name: 'App',
-    data: () => ({
-      menuVisible: false
-    })
+    name: 'Waterfall'
   }
 </script>

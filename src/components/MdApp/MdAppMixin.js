@@ -26,6 +26,8 @@ export default {
     mdFlexible: Boolean
   },
   data: () => ({
+    revealTimer: null,
+    revealLastPos: false,
     MdApp: {
       options: {
         mode: null,
@@ -33,6 +35,8 @@ export default {
         flexible: false
       },
       toolbar: {
+        element: null,
+        transformY: 0,
         hasElevation: true
       },
       drawer: {
@@ -82,20 +86,36 @@ export default {
       this.MdApp.toolbar.hasElevation = !this.mdWaterfall
     },
     handleWaterfallScroll ($event) {
-      this.MdApp.toolbar.hasElevation = $event.target.scrollTop >= 4
+      let threshold = 4
+
+      if (this.mdMode === 'reveal') {
+        threshold = this.MdApp.toolbar.element.offsetHeight + 10
+      }
+
+      this.MdApp.toolbar.hasElevation = $event.target.scrollTop >= threshold
     },
-    handleModeScroll ($event) {
-      /* const toolbar = this.$el.querySelector('.md-app-toolbar') */
+    handleRevealMode ($event) {
+      /* const height = this.MdApp.toolbar.element.offsetHeight
+      const threshold = height + 10 */
       const scrollTop = $event.target.scrollTop
 
-      console.log(scrollTop)
+      this.MdApp.toolbar.transformY = scrollTop
+    },
+    handleModeScroll ($event) {
+      if (this.mdMode === 'reveal') {
+        this.handleRevealMode($event)
+      }
     },
     handleScroll ($event) {
       window.requestAnimationFrame(() => {
-        if (this.mdWaterfall) {
-          this.handleWaterfallScroll($event)
-        } else if (this.mdMode) {
-          this.handleModeScroll($event)
+        if (this.MdApp.toolbar.element) {
+          if (this.mdWaterfall) {
+            this.handleWaterfallScroll($event)
+          }
+
+          if (this.mdMode) {
+            this.handleModeScroll($event)
+          }
         }
       })
     }

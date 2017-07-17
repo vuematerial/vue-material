@@ -1,5 +1,5 @@
 <template>
-  <md-toolbar class="md-app-toolbar" v-bind="$attrs" v-on="$listeners" :class="toolbarClasses">
+  <md-toolbar class="md-app-toolbar" v-bind="$attrs" v-on="$listeners" :class="toolbarClasses" :style="toolbarStyles">
     <slot></slot>
   </md-toolbar>
 </template>
@@ -10,12 +10,18 @@
     inject: ['MdApp'],
     computed: {
       toolbarClasses () {
-        if (this.MdApp) {
-          return {
-            'md-no-elevation': !this.MdApp.toolbar.hasElevation
-          }
+        return {
+          'md-no-elevation': !this.MdApp.toolbar.hasElevation
+        }
+      },
+      toolbarStyles () {
+        return {
+          transform: `translate3D(0, ${this.MdApp.toolbar.transformY}px, 0)`
         }
       }
+    },
+    mounted () {
+      this.MdApp.toolbar.element = this.$el
     }
   }
 </script>
