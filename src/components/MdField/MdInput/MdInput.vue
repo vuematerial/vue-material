@@ -18,6 +18,7 @@
   export default new MdComponent({
     name: 'MdInput',
     mixins: [MdFieldMixin],
+    inject: ['MdField'],
     props: {
       id: {
         type: String,

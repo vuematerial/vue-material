@@ -19,6 +19,7 @@
   export default new MdComponent({
     name: 'MdTextarea',
     mixins: [MdFieldMixin],
+    inject: ['MdField'],
     props: {
       id: {
         type: String,

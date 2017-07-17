@@ -32,9 +32,6 @@
       MdPasswordOffIcon,
       MdPasswordOnIcon
     },
-    provide: {
-      MdField: {}
-    },
     props: {
       mdInline: Boolean,
       mdClearable: Boolean,
@@ -63,6 +60,11 @@
         clear: false
       }
     }),
+    provide () {
+      return {
+        MdField: this.MdField
+      }
+    },
     computed: {
       hasCounter () {
         return this.mdCounter && this.MdField.maxlength
@@ -108,9 +110,6 @@
       async togglePassword () {
         this.MdField.togglePassword = !this.MdField.togglePassword
       }
-    },
-    created () {
-      this._provided.MdField = this.MdField
     }
   })
 </script>

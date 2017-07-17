@@ -7,7 +7,6 @@ export default {
     required: Boolean,
     disabled: Boolean
   },
-  inject: ['MdField'],
   data () {
     return {
       content: this.value || null
@@ -81,13 +80,13 @@ export default {
     }
   },
   created () {
-  },
-  mounted () {
     this.setFieldValue()
     this.setPlaceholder()
     this.setDisabled()
     this.setRequired()
     this.setMaxlength()
+  },
+  mounted () {
     this.setLabelFor()
   }
 }
