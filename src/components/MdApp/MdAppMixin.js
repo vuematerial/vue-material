@@ -37,7 +37,8 @@ export default {
       toolbar: {
         element: null,
         transformY: 0,
-        hasElevation: true
+        hasElevation: true,
+        revealActive: false
       },
       drawer: {
         active: false,
@@ -95,11 +96,26 @@ export default {
       this.MdApp.toolbar.hasElevation = $event.target.scrollTop >= threshold
     },
     handleRevealMode ($event) {
-      /* const height = this.MdApp.toolbar.element.offsetHeight
-      const threshold = height + 10 */
+      const toolbarHeight = this.MdApp.toolbar.element.offsetHeight
+      const safeAmount = 10
+      const threshold = toolbarHeight + safeAmount
       const scrollTop = $event.target.scrollTop
 
-      this.MdApp.toolbar.transformY = scrollTop
+      window.clearTimeout(this.revealTimer)
+
+      this.revealTimer = window.setTimeout(() => {
+        this.revealLastPos = scrollTop
+      }, 100)
+
+      if (this.revealLastPos > scrollTop + safeAmount) {
+        this.MdApp.toolbar.revealActive = true
+        this.MdApp.toolbar.transformY = scrollTop - threshold
+      } else if (scrollTop < threshold) {
+        this.MdApp.toolbar.revealActive = false
+        this.MdApp.toolbar.transformY = 0
+      } else {
+        this.MdApp.toolbar.transformY = scrollTop - threshold
+      }
     },
     handleModeScroll ($event) {
       if (this.mdMode === 'reveal') {

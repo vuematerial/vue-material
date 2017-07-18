@@ -11,12 +11,13 @@
     computed: {
       toolbarClasses () {
         return {
-          'md-no-elevation': !this.MdApp.toolbar.hasElevation
+          'md-no-elevation': !this.MdApp.toolbar.hasElevation,
+          'md-reveal-active': this.MdApp.toolbar.revealActive
         }
       },
       toolbarStyles () {
         return {
-          transform: `translate3D(0, ${this.MdApp.toolbar.transformY}px, 0)`
+          'margin-top': `${this.MdApp.toolbar.transformY}px`
         }
       }
     },
@@ -27,7 +28,16 @@
 </script>
 
 <style lang="scss" scoped>
+  @import "~components/MdAnimation/variables";
+
   .md-no-elevation {
     box-shadow: none !important;
+  }
+
+  .md-reveal .md-reveal-active {
+    transform: translate3d(0, calc(100% + 10px), 0);
+    transition: .3s $md-transition-stand-timing;
+    transition-property: box-shadow, transform;
+    will-change: box-shadow, transform;
   }
 </style>
