@@ -17,7 +17,7 @@
       },
       toolbarStyles () {
         return {
-          'margin-top': `${this.MdApp.toolbar.transformY}px`
+          'margin-top': `${this.MdApp.toolbar.marginTop}px`
         }
       }
     },
