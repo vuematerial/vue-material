@@ -29,7 +29,7 @@
     </div>
 
     <div class="page-container-section">
-      <h2>Icons and Clear button</h2>
+      <h2>Icons</h2>
 
       <code-example title="Outside and inline icons" :component="examples['icons']" />
     </div>

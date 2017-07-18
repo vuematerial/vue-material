@@ -1,7 +1,7 @@
 <template>
   <div>
     <md-field>
-      <label>Required Field</label>
+      <label>Regular Field</label>
       <md-input maxlength="30"></md-input>
     </md-field>
 

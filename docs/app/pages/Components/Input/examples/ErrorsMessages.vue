@@ -14,6 +14,7 @@
     <md-field :class="messageClass">
       <label>Textarea</label>
       <md-textarea required></md-textarea>
+      <span class="md-helper-text">Helper text</span>
       <span class="md-error">There is an error</span>
     </md-field>
 
