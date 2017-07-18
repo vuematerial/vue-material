@@ -31,7 +31,7 @@ export default {
   },
   data: () => ({
     revealTimer: null,
-    revealLastPos: false,
+    revealLastPos: 0,
     MdApp: {
       options: {
         mode: null,
@@ -116,15 +116,13 @@ export default {
         this.revealLastPos = scrollTop
       }, 100)
 
-      if (this.revealLastPos > scrollTop + safeAmount) {
-        this.MdApp.toolbar.revealActive = true
-        this.MdApp.toolbar.transformY = scrollTop - threshold
-      } else if (scrollTop < threshold) {
-        this.MdApp.toolbar.revealActive = false
-        this.MdApp.toolbar.transformY = 0
+      if (scrollTop > threshold) {
+        this.MdApp.toolbar.revealActive = this.revealLastPos > scrollTop + safeAmount
       } else {
-        this.MdApp.toolbar.transformY = scrollTop - threshold
+        this.MdApp.toolbar.revealActive = true
       }
+
+      this.MdApp.toolbar.transformY = scrollTop - threshold
     },
     handleModeScroll ($event) {
       if (this.mdMode === 'reveal') {

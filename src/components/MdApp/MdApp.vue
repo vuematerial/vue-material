@@ -88,7 +88,6 @@
       .md-app-toolbar {
         position: fixed;
         top: 0;
-        transition: none;
       }
     }
   }
