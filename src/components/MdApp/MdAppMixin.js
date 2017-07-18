@@ -95,29 +95,31 @@ export default {
     setToolbarElevation () {
       this.MdApp.toolbar.hasElevation = !this.mdWaterfall
     },
-    getToolbarConstrants () {
+    getToolbarConstrants ($event) {
       const toolbarHeight = this.MdApp.toolbar.element.offsetHeight
       const safeAmount = 10
       const threshold = toolbarHeight + safeAmount
+      const scrollTop = $event.target.scrollTop
 
       return {
         toolbarHeight,
         safeAmount,
-        threshold
+        threshold,
+        scrollTop
       }
     },
     handleWaterfallScroll ($event) {
-      let threshold = 4
+      let { threshold, scrollTop } = this.getToolbarConstrants($event)
+      let elevationMark = 4
 
       if (this.mdMode === 'reveal') {
-        threshold = this.MdApp.toolbar.element.offsetHeight + 10
+        elevationMark = threshold
       }
 
-      this.MdApp.toolbar.hasElevation = $event.target.scrollTop >= threshold
+      this.MdApp.toolbar.hasElevation = scrollTop >= elevationMark
     },
     handleRevealMode ($event) {
-      const { safeAmount, threshold } = this.getToolbarConstrants()
-      const scrollTop = $event.target.scrollTop
+      const { safeAmount, threshold, scrollTop } = this.getToolbarConstrants($event)
 
       window.clearTimeout(this.revealTimer)
 
@@ -159,8 +161,10 @@ export default {
     this.setToolbarElevation()
   },
   mounted () {
-    const { threshold } = this.getToolbarConstrants()
-
-    this.MdApp.toolbar.marginTop = -threshold
+    this.handleModeScroll({
+      target: {
+        scrollTop: 0
+      }
+    })
   }
 }
