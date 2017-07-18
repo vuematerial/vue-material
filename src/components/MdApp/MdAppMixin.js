@@ -23,7 +23,11 @@ export default {
       }
     },
     mdWaterfall: Boolean,
-    mdFlexible: Boolean
+    mdFlexible: Boolean,
+    mdScrollbar: {
+      type: Boolean,
+      default: true
+    }
   },
   data: () => ({
     revealTimer: null,
@@ -58,6 +62,11 @@ export default {
         return {
           'padding-left': this.MdApp.drawerWidth
         }
+      }
+    },
+    scrollerClasses () {
+      if (this.mdScrollbar) {
+        return 'md-scrollbar'
       }
     },
     appClasses () {

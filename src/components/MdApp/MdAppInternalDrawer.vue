@@ -2,9 +2,9 @@
   <div class="md-app md-app-internal-drawer md-layout-column" :class="appClasses">
     <slot name="md-app-toolbar"></slot>
 
-    <main class="md-app-container md-flex md-layout-row" :style="containerStyles">
+    <main class="md-app-container md-flex md-layout-row" :style="containerStyles" :class="[$mdActiveTheme, scrollerClasses]">
       <slot name="md-app-drawer"></slot>
-      <div class="md-app-scroller md-layout-column md-flex">
+      <div class="md-app-scroller md-layout-column md-flex" :class="[$mdActiveTheme, scrollerClasses]">
         <slot name="md-app-content"></slot>
       </div>
     </main>
@@ -12,12 +12,13 @@
 </template>
 
 <script>
+  import MdComponent from 'core/MdComponent'
   import MdAppMixin from './MdAppMixin'
 
-  export default {
+  export default new MdComponent({
     name: 'MdAppInternalDrawer',
     mixins: [MdAppMixin]
-  }
+  })
 </script>
 
 <style lang="scss">
