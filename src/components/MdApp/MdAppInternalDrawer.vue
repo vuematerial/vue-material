@@ -1,10 +1,10 @@
 <template>
-  <div class="md-app md-app-side-drawer md-layout-column" :class="appClasses">
+  <div class="md-app md-app-internal-drawer md-layout-column" :class="appClasses">
     <slot name="md-app-toolbar"></slot>
 
     <main class="md-app-container md-flex md-layout-row" :style="containerStyles">
       <slot name="md-app-drawer"></slot>
-      <div class="md-app-scroller md-layout-column md-flex" @scroll.passive="handleScroll">
+      <div class="md-app-scroller md-layout-column md-flex">
         <slot name="md-app-content"></slot>
       </div>
     </main>
@@ -25,5 +25,9 @@
 
   .md-app-internal-drawer {
     transition: .3s $md-transition-default-timing;
+
+    .md-app-scroller {
+      overflow: auto;
+    }
   }
 </style>
