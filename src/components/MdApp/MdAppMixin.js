@@ -1,7 +1,8 @@
 const mdAppModes = [
   'fixed',
   'fixed-last',
-  'reveal'
+  'reveal',
+  'overlap'
 ]
 
 const customValidator = (name, source, value) => {
@@ -48,7 +49,8 @@ export default {
         hasElevation: true,
         revealActive: false,
         fixedLastActive: false,
-        fixedLastHeigth: false
+        fixedLastHeight: false,
+        overlapOff: false
       },
       drawer: {
         active: false,
@@ -70,7 +72,7 @@ export default {
         styles['margin-left'] = this.MdApp.drawer.width
       }
 
-      if (this.mdMode === 'reveal' || this.mdMode === 'fixed-last' || this.mdFlexible) {
+      if ((this.mdMode && this.mdMode !== 'fixed') || this.mdFlexible) {
         styles['margin-top'] = this.MdApp.toolbar.initialHeight + 'px'
       }
 
@@ -87,7 +89,8 @@ export default {
         'md-flexible': this.mdFlexible,
         'md-fixed': this.mdMode === 'fixed',
         'md-fixed-last': this.mdMode === 'fixed-last',
-        'md-reveal': this.mdMode === 'reveal'
+        'md-reveal': this.mdMode === 'reveal',
+        'md-overlap': this.mdMode === 'overlap'
       }
     }
   },
@@ -106,6 +109,13 @@ export default {
   methods: {
     setToolbarElevation () {
       this.MdApp.toolbar.hasElevation = !this.mdWaterfall
+    },
+    setToolbarTimer (scrollTop) {
+      window.clearTimeout(this.revealTimer)
+
+      this.revealTimer = window.setTimeout(() => {
+        this.revealLastPos = scrollTop
+      }, 100)
     },
     setToolbarMarginAndHeight (margin, height) {
       this.MdApp.toolbar.top = margin
@@ -175,12 +185,7 @@ export default {
     handleRevealMode ($event) {
       const { toolbarHeight, safeAmount, threshold, scrollTop } = this.getToolbarConstrants($event)
 
-      window.clearTimeout(this.revealTimer)
-
-      this.revealTimer = window.setTimeout(() => {
-        this.revealLastPos = scrollTop
-      }, 100)
-
+      this.setToolbarTimer(scrollTop)
       this.setToolbarMarginAndHeight(scrollTop - threshold, toolbarHeight)
 
       if (scrollTop >= threshold) {
@@ -195,14 +200,9 @@ export default {
       const firstRow = toolbar.querySelector('.md-toolbar-row:first-child')
       const firstRowHeight = firstRow.offsetHeight
 
-      window.clearTimeout(this.revealTimer)
-
-      this.revealTimer = window.setTimeout(() => {
-        this.revealLastPos = scrollTop
-      }, 100)
-
+      this.setToolbarTimer(scrollTop)
       this.setToolbarMarginAndHeight(scrollTop - firstRowHeight, toolbarHeight)
-      this.MdApp.toolbar.fixedLastHeigth = firstRowHeight
+      this.MdApp.toolbar.fixedLastHeight = firstRowHeight
 
       if (scrollTop >= firstRowHeight) {
         this.MdApp.toolbar.fixedLastActive = this.revealLastPos > scrollTop + safeAmount
@@ -210,11 +210,32 @@ export default {
         this.MdApp.toolbar.fixedLastActive = true
       }
     },
+    handleOverlapMode ($event) {
+      const { toolbarHeight, scrollTop, initialHeight } = this.getToolbarConstrants($event)
+      const toolbar = this.MdApp.toolbar.element
+      const firstRow = toolbar.querySelector('.md-toolbar-row:first-child')
+      const firstRowHeight = firstRow.offsetHeight
+      const newHeight = initialHeight - scrollTop - (scrollTop * 100 / (initialHeight - firstRowHeight - (firstRowHeight / 1.5)))
+
+      if (firstRowHeight) {
+        if (scrollTop < initialHeight - firstRowHeight && newHeight >= firstRowHeight) {
+          this.MdApp.toolbar.overlapOff = false
+          toolbar.style.height = newHeight + 'px'
+        } else {
+          this.MdApp.toolbar.overlapOff = true
+          toolbar.style.height = firstRowHeight + 'px'
+        }
+      }
+
+      this.setToolbarMarginAndHeight(scrollTop, toolbarHeight)
+    },
     handleModeScroll ($event) {
       if (this.mdMode === 'reveal') {
         this.handleRevealMode($event)
       } else if (this.mdMode === 'fixed-last') {
         this.handleFixedLastMode($event)
+      } else if (this.mdMode === 'overlap') {
+        this.handleOverlapMode($event)
       }
     },
     handleScroll ($event) {
@@ -242,22 +263,24 @@ export default {
     this.setToolbarElevation()
   },
   mounted () {
+    const fakeEvent = {
+      target: {
+        scrollTop: 0
+      }
+    }
+
     if (this.mdMode === 'reveal' || this.mdFlexible) {
       this.MdApp.toolbar.revealActive = true
-      this.handleRevealMode({
-        target: {
-          scrollTop: 0
-        }
-      })
+      this.handleRevealMode(fakeEvent)
     }
 
     if (this.mdMode === 'fixed-last') {
       this.MdApp.toolbar.fixedLastActive = true
-      this.handleFixedLastMode({
-        target: {
-          scrollTop: 0
-        }
-      })
+      this.handleFixedLastMode(fakeEvent)
+    }
+
+    if (this.mdMode === 'overlap') {
+      this.handleOverlapMode(fakeEvent)
     }
   }
 }

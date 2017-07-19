@@ -80,6 +80,7 @@
 
     &.md-reveal,
     &.md-fixed-last,
+    &.md-overlap,
     &.md-flexible {
       transform: translate3d(0, 0, 0);
 
@@ -89,11 +90,14 @@
       }
     }
 
-    &.md-flexible {
+    &.md-flexible,
+    &.md-overlap {
       .md-app-toolbar {
         min-height: 0;
       }
+    }
 
+    &.md-flexible {
       .md-toolbar-row {
         &:first-child {
           z-index: 2;
@@ -108,6 +112,18 @@
 
       .md-display-1 {
         position: fixed;
+      }
+    }
+
+    &.md-overlap {
+      .md-app-toolbar {
+        z-index: 1;
+      }
+
+      .md-app-content {
+        margin-top: -64px;
+        position: relative;
+        z-index: 2;
       }
     }
   }
