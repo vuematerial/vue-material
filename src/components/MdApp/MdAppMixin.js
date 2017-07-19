@@ -46,7 +46,9 @@ export default {
         top: 0,
         titleSize: 20,
         hasElevation: true,
-        revealActive: false
+        revealActive: false,
+        fixedLastActive: false,
+        fixedLastHeigth: false
       },
       drawer: {
         active: false,
@@ -188,28 +190,25 @@ export default {
       }
     },
     handleFixedLastMode ($event) {
-      let { scrollTop, toolbarHeight } = this.getToolbarConstrants($event)
+      let { scrollTop, toolbarHeight, safeAmount } = this.getToolbarConstrants($event)
       const toolbar = this.MdApp.toolbar.element
       const firstRow = toolbar.querySelector('.md-toolbar-row:first-child')
       const firstRowHeight = firstRow.offsetHeight
 
-      if (scrollTop > firstRowHeight) {
-        this.setToolbarMarginAndHeight(scrollTop - firstRowHeight, toolbarHeight)
+      window.clearTimeout(this.revealTimer)
+
+      this.revealTimer = window.setTimeout(() => {
+        this.revealLastPos = scrollTop
+      }, 100)
+
+      this.setToolbarMarginAndHeight(scrollTop - firstRowHeight, toolbarHeight)
+      this.MdApp.toolbar.fixedLastHeigth = firstRowHeight
+
+      if (scrollTop >= firstRowHeight) {
+        this.MdApp.toolbar.fixedLastActive = this.revealLastPos > scrollTop + safeAmount
       } else {
-        this.setToolbarMarginAndHeight(0, toolbarHeight)
+        this.MdApp.toolbar.fixedLastActive = true
       }
-
-      /* if (firstRowHeight) {
-        if (scrollTop < initialHeight - firstRowHeight) {
-          toolbar.style.height = scrollAmount + 'px'
-        } else {
-          toolbar.style.height = firstRowHeight + 'px'
-        }
-      }
-
-      let { threshold, toolbarHeight } = this.getToolbarConstrants($event)
-
-      this.setToolbarMarginAndHeight(scrollTop - threshold, toolbarHeight) */
     },
     handleModeScroll ($event) {
       if (this.mdMode === 'reveal') {
@@ -253,6 +252,7 @@ export default {
     }
 
     if (this.mdMode === 'fixed-last') {
+      this.MdApp.toolbar.fixedLastActive = true
       this.handleFixedLastMode({
         target: {
           scrollTop: 0

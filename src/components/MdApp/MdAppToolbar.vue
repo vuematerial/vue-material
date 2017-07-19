@@ -12,13 +12,20 @@
       toolbarClasses () {
         return {
           'md-no-elevation': !this.MdApp.toolbar.hasElevation,
-          'md-reveal-active': this.MdApp.toolbar.revealActive
+          'md-reveal-active': this.MdApp.toolbar.revealActive,
+          'md-fixed-last-active': this.MdApp.toolbar.fixedLastActive
         }
       },
       toolbarStyles () {
-        return {
+        let styles = {
           'top': `${this.MdApp.toolbar.top}px`
         }
+
+        if (this.MdApp.toolbar.fixedLastActive) {
+          styles['transform'] = `translate3D(0, ${this.MdApp.toolbar.fixedLastHeigth}px, 0)`
+        }
+
+        return styles
       }
     },
     mounted () {
@@ -50,5 +57,11 @@
       transition-property: box-shadow, transform;
       will-change: height, box-shadow, transform;
     }
+  }
+
+  .md-fixed-last-active {
+    transition: .3s $md-transition-stand-timing;
+    transition-property: box-shadow, transform;
+    will-change: height, box-shadow, transform;
   }
 </style>
