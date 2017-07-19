@@ -15,7 +15,8 @@
 
 @mixin md-toolbar-title($primary, $secondary) {
   .md-title,
-  .md-display-1 {
+  .md-display-1,
+  .md-display-2 {
     @include md-theme-property(color, $primary, $secondary);
   }
 }

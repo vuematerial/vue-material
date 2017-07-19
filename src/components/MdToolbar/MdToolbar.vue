@@ -118,6 +118,8 @@
       }
     }
 
+    .md-display-2,
+    .md-display-1,
     .md-title {
       margin: 0;
       margin-left: 8px;

@@ -30,7 +30,7 @@
       }
     },
     mounted () {
-      const title = this.$el.querySelector('.md-title, .md-display-1')
+      const title = this.$el.querySelector('.md-title, .md-display-1, .md-display-2')
 
       this.MdApp.toolbar.element = this.$el
       this.MdApp.toolbar.titleElement = title
