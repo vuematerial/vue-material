@@ -128,6 +128,10 @@
       white-space: nowrap;
       vertical-align: top;
     }
+
+    .md-display-1 {
+      padding: 12px 0;
+    }
   }
 
   .md-toolbar-row {

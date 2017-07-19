@@ -78,16 +78,35 @@
       }
     }
 
-    &.md-reveal {
+    &.md-reveal,
+    &.md-flexible {
       transform: translate3d(0, 0, 0);
-
-      .md-app-container {
-        padding-top: 64px;
-      }
 
       .md-app-toolbar {
         position: fixed;
         top: 0;
+      }
+    }
+
+    &.md-flexible {
+      .md-app-toolbar {
+        min-height: 0;
+      }
+
+      .md-toolbar-row {
+        &:first-child {
+          z-index: 2;
+        }
+
+        &:last-child {
+          position: fixed;
+          bottom: 0;
+          z-index: 1;
+        }
+      }
+
+      .md-display-1 {
+        position: fixed;
       }
     }
   }

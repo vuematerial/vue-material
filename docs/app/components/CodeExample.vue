@@ -88,6 +88,7 @@
 
   .md-title {
     flex: 1;
+    color: #fff !important;
   }
 
   .md-button {
