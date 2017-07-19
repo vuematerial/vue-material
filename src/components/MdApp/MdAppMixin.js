@@ -46,7 +46,7 @@ export default {
         top: 0,
         titleSize: 20,
         hasElevation: true,
-        revealActive: true
+        revealActive: false
       },
       drawer: {
         active: false,
@@ -68,7 +68,7 @@ export default {
         styles['margin-left'] = this.MdApp.drawer.width
       }
 
-      if (this.mdMode === 'reveal' || this.mdFlexible) {
+      if (this.mdMode === 'reveal' || this.mdMode === 'fixed-last' || this.mdFlexible) {
         styles['margin-top'] = this.MdApp.toolbar.initialHeight + 'px'
       }
 
@@ -187,9 +187,35 @@ export default {
         this.MdApp.toolbar.revealActive = true
       }
     },
+    handleFixedLastMode ($event) {
+      let { scrollTop, toolbarHeight } = this.getToolbarConstrants($event)
+      const toolbar = this.MdApp.toolbar.element
+      const firstRow = toolbar.querySelector('.md-toolbar-row:first-child')
+      const firstRowHeight = firstRow.offsetHeight
+
+      if (scrollTop > firstRowHeight) {
+        this.setToolbarMarginAndHeight(scrollTop - firstRowHeight, toolbarHeight)
+      } else {
+        this.setToolbarMarginAndHeight(0, toolbarHeight)
+      }
+
+      /* if (firstRowHeight) {
+        if (scrollTop < initialHeight - firstRowHeight) {
+          toolbar.style.height = scrollAmount + 'px'
+        } else {
+          toolbar.style.height = firstRowHeight + 'px'
+        }
+      }
+
+      let { threshold, toolbarHeight } = this.getToolbarConstrants($event)
+
+      this.setToolbarMarginAndHeight(scrollTop - threshold, toolbarHeight) */
+    },
     handleModeScroll ($event) {
       if (this.mdMode === 'reveal') {
         this.handleRevealMode($event)
+      } else if (this.mdMode === 'fixed-last') {
+        this.handleFixedLastMode($event)
       }
     },
     handleScroll ($event) {
@@ -218,7 +244,16 @@ export default {
   },
   mounted () {
     if (this.mdMode === 'reveal' || this.mdFlexible) {
+      this.MdApp.toolbar.revealActive = true
       this.handleRevealMode({
+        target: {
+          scrollTop: 0
+        }
+      })
+    }
+
+    if (this.mdMode === 'fixed-last') {
+      this.handleFixedLastMode({
         target: {
           scrollTop: 0
         }

@@ -42,6 +42,7 @@
   }
 
   .md-reveal,
+  .md-fixed-last,
   .md-flexible {
     .md-reveal-active {
       transform: translate3d(0, calc(100% + 10px), 0);

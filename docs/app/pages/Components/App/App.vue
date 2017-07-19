@@ -2,6 +2,7 @@
 <example src="./examples/Waterfall.vue" />
 <example src="./examples/Reveal.vue" />
 <example src="./examples/Flexible.vue" />
+<example src="./examples/LastRowFixed.vue" />
 
 <template>
   <page-container centered :title="$t('pages.app.title')">
@@ -16,6 +17,7 @@
       <code-example title="Fixed + Waterfall" :component="examples['waterfall']" />
       <code-example title="Reveal" :component="examples['reveal']" />
       <code-example title="Flexible" :component="examples['flexible']" />
+      <code-example title="Last Row Fixed" :component="examples['last-row-fixed']" />
 
       <api-item title="API - md-app">
         <p>This component do not have any extra option.</p>

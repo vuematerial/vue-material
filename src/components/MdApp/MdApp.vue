@@ -79,6 +79,7 @@
     }
 
     &.md-reveal,
+    &.md-fixed-last,
     &.md-flexible {
       transform: translate3d(0, 0, 0);
 
