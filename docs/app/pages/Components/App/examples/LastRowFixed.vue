@@ -1,7 +1,7 @@
 <template>
   <div class="page-container">
     <md-app md-waterfall md-mode="fixed-last">
-      <md-app-toolbar class="md-large md-primary">
+      <md-app-toolbar class="md-large md-dense md-primary">
         <div class="md-toolbar-row">
           <div class="md-toolbar-section-start">
             <md-button class="md-icon-button" @click="menuVisible = !menuVisible">
@@ -77,6 +77,10 @@
   .md-app {
     max-height: 400px;
     border: 1px solid rgba(#000, .12);
+  }
+
+  .md-toolbar-row:last-child .md-button {
+    margin: 4px 0;
   }
 
    // Demo purposes only
