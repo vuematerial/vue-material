@@ -1,11 +1,11 @@
 <template>
   <div class="page-container">
     <md-app>
-      <md-toolbar class="md-primary">
+      <md-app-toolbar class="md-primary">
         <span class="md-title">My Title</span>
-      </md-toolbar>
+      </md-app-toolbar>
 
-      <md-drawer md-permanent="clipped">
+      <md-app-drawer md-permanent="clipped">
         <md-list>
           <md-list-item>
             <md-icon>move_to_inbox</md-icon>
@@ -27,11 +27,11 @@
             <span class="md-list-item-text">Spam</span>
           </md-list-item>
         </md-list>
-      </md-drawer>
+      </md-app-drawer>
 
-      <md-content>
+      <md-app-content>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quibusdam, non molestias et! Earum magnam, similique, quo recusandae placeat dicta asperiores modi sint ea repudiandae maxime? Quae non explicabo, neque.
-      </md-content>
+      </md-app-content>
     </md-app>
   </div>
 </template>

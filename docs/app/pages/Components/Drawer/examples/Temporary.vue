@@ -1,7 +1,7 @@
 <template>
   <div class="page-container md-layout-column">
     <md-app>
-      <md-toolbar class="md-primary">
+      <md-app-toolbar class="md-primary">
         <md-button class="md-icon-button" @click="showNavigation = true">
           <md-icon>menu</md-icon>
         </md-button>
@@ -10,9 +10,9 @@
         <div class="md-toolbar-section-end">
           <md-button @click="showSidepanel = true">Favorites</md-button>
         </div>
-      </md-toolbar>
+      </md-app-toolbar>
 
-      <md-drawer :md-visible.sync="showNavigation">
+      <md-app-drawer :md-visible.sync="showNavigation">
         <md-toolbar class="md-transparent" md-elevation="0">
           <span class="md-title">My App name</span>
         </md-toolbar>
@@ -38,7 +38,7 @@
             <span class="md-list-item-text">Spam</span>
           </md-list-item>
         </md-list>
-      </md-drawer>
+      </md-app-drawer>
 
       <md-drawer class="md-right" :md-visible.sync="showSidepanel">
         <md-toolbar class="md-transparent" md-elevation="0">
@@ -72,9 +72,9 @@
         </md-list>
       </md-drawer>
 
-      <md-content>
+      <md-app-content>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quibusdam, non molestias et! Earum magnam, similique, quo recusandae placeat dicta asperiores modi sint ea repudiandae maxime? Quae non explicabo, neque.
-      </md-content>
+      </md-app-content>
     </md-app>
   </div>
 </template>
