@@ -2,7 +2,8 @@ const mdAppModes = [
   'fixed',
   'fixed-last',
   'reveal',
-  'overlap'
+  'overlap',
+  'flexible'
 ]
 
 const customValidator = (name, source, value) => {
@@ -24,7 +25,6 @@ export default {
       }
     },
     mdWaterfall: Boolean,
-    mdFlexible: Boolean,
     mdScrollbar: {
       type: Boolean,
       default: true
@@ -73,7 +73,7 @@ export default {
       }
     },
     containerStyles () {
-      if ((this.mdMode && this.mdMode !== 'fixed') || this.mdFlexible) {
+      if (this.mdMode && (this.mdMode !== 'fixed' || this.mdMode !== 'flexible')) {
         return {
           'margin-top': this.MdApp.toolbar.initialHeight + 'px'
         }
@@ -87,7 +87,7 @@ export default {
     appClasses () {
       return {
         'md-waterfall': this.mdWaterfall,
-        'md-flexible': this.mdFlexible,
+        'md-flexible': this.mdMode === 'flexible',
         'md-fixed': this.mdMode === 'fixed',
         'md-fixed-last': this.mdMode === 'fixed-last',
         'md-reveal': this.mdMode === 'reveal',
@@ -103,9 +103,6 @@ export default {
     mdWaterfall (waterfall) {
       this.MdApp.options.waterfall = waterfall
       this.setToolbarElevation()
-    },
-    mdFlexible (flexible) {
-      this.MdApp.options.flexible = flexible
     }
   },
   methods: {
@@ -151,7 +148,7 @@ export default {
 
       this.MdApp.toolbar.hasElevation = scrollTop >= elevationMark
     },
-    handleFlexibleScroll ($event) {
+    handleFlexibleMode ($event) {
       let { scrollTop, initialHeight } = this.getToolbarConstrants($event)
       const toolbar = this.MdApp.toolbar.element
       const firstRow = toolbar.querySelector('.md-toolbar-row:first-child')
@@ -239,6 +236,8 @@ export default {
         this.handleFixedLastMode($event)
       } else if (this.mdMode === 'overlap') {
         this.handleOverlapMode($event)
+      } else if (this.mdMode === 'flexible') {
+        this.handleFlexibleMode($event)
       }
     },
     handleScroll ($event) {
@@ -246,10 +245,6 @@ export default {
         window.requestAnimationFrame(() => {
           if (this.mdWaterfall) {
             this.handleWaterfallScroll($event)
-          }
-
-          if (this.mdFlexible) {
-            this.handleFlexibleScroll($event)
           }
 
           if (this.mdMode) {
@@ -262,7 +257,6 @@ export default {
   created () {
     this.MdApp.options.mode = this.mdMode
     this.MdApp.options.waterfall = this.mdWaterfall
-    this.MdApp.options.flexible = this.mdFlexible
     this.setToolbarElevation()
   },
   mounted () {
@@ -272,9 +266,14 @@ export default {
       }
     }
 
-    if (this.mdMode === 'reveal' || this.mdFlexible) {
+    if (this.mdMode === 'reveal') {
       this.MdApp.toolbar.revealActive = true
       this.handleRevealMode(fakeEvent)
+    }
+
+    if (this.mdMode === 'flexible') {
+      this.MdApp.toolbar.revealActive = true
+      this.handleFlexibleMode(fakeEvent)
     }
 
     if (this.mdMode === 'fixed-last') {

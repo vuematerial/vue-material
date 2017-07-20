@@ -1,6 +1,6 @@
 <template>
   <div class="page-container">
-    <md-app md-waterfall md-flexible>
+    <md-app md-waterfall md-mode="flexible">
       <md-app-toolbar class="md-large md-primary">
         <div class="md-toolbar-row">
           <div class="md-toolbar-section-start">
