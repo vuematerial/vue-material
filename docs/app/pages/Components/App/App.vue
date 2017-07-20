@@ -61,8 +61,6 @@
         <p>The following properties can be applied:</p>
 
         <api-table :headings="api.props.headings" :props="api.props.props" slot="props" />
-        <api-table :headings="api.classes.headings" :props="api.classes.props" slot="classes" />
-        <api-table :headings="api.events.headings" :props="api.events.props" slot="events" />
       </api-item>
     </div>
 
@@ -144,25 +142,6 @@
               type: 'Boolean',
               description: 'Enable the md-scrollbar class to the scrollable content. Read more about the Scrollbar documentation.',
               defaults: 'true'
-            }
-          ]
-        },
-        events: {
-          headings: ['Name', 'Description', 'Value'],
-          props: [
-            {
-              name: 'click',
-              description: 'Triggered after a mouse click',
-              value: '$event'
-            }
-          ]
-        },
-        classes: {
-          headings: ['Name', 'Description'],
-          props: [
-            {
-              name: 'md-raised',
-              description: 'Create raised buttons with elevation'
             }
           ]
         }
