@@ -2,9 +2,9 @@
   <div class="md-app md-app-side-drawer md-layout-row" :class="appClasses">
     <slot name="md-app-drawer"></slot>
 
-    <main class="md-app-container md-flex md-layout-column" :class="[$mdActiveTheme, scrollerClasses]" :style="containerStyles" @scroll.passive="handleScroll">
+    <main class="md-app-container md-flex md-layout-column" :class="[$mdActiveTheme, scrollerClasses]" :style="contentStyles" @scroll.passive="handleScroll">
       <slot name="md-app-toolbar"></slot>
-      <div class="md-app-scroller md-layout-column md-flex" :class="[$mdActiveTheme, scrollerClasses]" @scroll.passive="handleScroll">
+      <div class="md-app-scroller md-layout-column md-flex" :class="[$mdActiveTheme, scrollerClasses]" :style="containerStyles" @scroll.passive="handleScroll">
         <slot name="md-app-content"></slot>
       </div>
     </main>

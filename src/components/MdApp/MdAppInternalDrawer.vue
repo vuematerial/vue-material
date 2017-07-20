@@ -2,7 +2,7 @@
   <div class="md-app md-app-internal-drawer md-layout-column" :class="appClasses">
     <slot name="md-app-toolbar"></slot>
 
-    <main class="md-app-container md-flex md-layout-row" :style="containerStyles" :class="[$mdActiveTheme, scrollerClasses]">
+    <main class="md-app-container md-flex md-layout-row" :style="[containerStyles, contentStyles]" :class="[$mdActiveTheme, scrollerClasses]">
       <slot name="md-app-drawer"></slot>
       <div class="md-app-scroller md-layout-column md-flex" :class="[$mdActiveTheme, scrollerClasses]">
         <slot name="md-app-content"></slot>

@@ -65,18 +65,19 @@ export default {
     }
   },
   computed: {
-    containerStyles () {
-      let styles = {}
-
+    contentStyles () {
       if (this.MdApp.drawer.active && this.MdApp.drawer.mode === 'persistent') {
-        styles['padding-left'] = this.MdApp.drawer.width
+        return {
+          'padding-left': this.MdApp.drawer.width
+        }
       }
-
+    },
+    containerStyles () {
       if ((this.mdMode && this.mdMode !== 'fixed') || this.mdFlexible) {
-        styles['margin-top'] = this.MdApp.toolbar.initialHeight + 'px'
+        return {
+          'margin-top': this.MdApp.toolbar.initialHeight + 'px'
+        }
       }
-
-      return styles
     },
     scrollerClasses () {
       if (this.mdScrollbar) {
@@ -90,7 +91,8 @@ export default {
         'md-fixed': this.mdMode === 'fixed',
         'md-fixed-last': this.mdMode === 'fixed-last',
         'md-reveal': this.mdMode === 'reveal',
-        'md-overlap': this.mdMode === 'overlap'
+        'md-overlap': this.mdMode === 'overlap',
+        'md-drawer-active': this.MdApp.drawer.active
       }
     }
   },
@@ -160,10 +162,8 @@ export default {
       if (firstRowHeight) {
         if (shouldKeepFlexible) {
           toolbar.style.height = scrollAmount + 'px'
-          this.$emit('md-flexible-done')
         } else {
           toolbar.style.height = firstRowHeight + 'px'
-          this.$emit('md-flexible-done')
         }
       }
 
