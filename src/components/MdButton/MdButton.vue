@@ -279,5 +279,31 @@
       width: $md-button-fab-size-mini;
       height: $md-button-fab-size-mini;
     }
+
+    &.md-fab-top-right,
+    &.md-fab-top-left {
+      position: absolute;
+      top: 24px;
+    }
+
+    &.md-fab-top-right,
+    &.md-fab-top-left {
+      position: absolute;
+      bottom: 24px;
+    }
+
+    &.md-fab-top-right,
+    &.md-fab-bottom-right {
+      right: 24px;
+    }
+
+    &.md-fab-top-left,
+    &.md-fab-bottom-left {
+      left: 24px;
+    }
+
+    &.md-fixed {
+      position: fixed;
+    }
   }
 </style>

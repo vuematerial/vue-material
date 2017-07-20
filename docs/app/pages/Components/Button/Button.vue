@@ -41,6 +41,7 @@
     <div class="page-container-section">
       <h2>Floating Action Buttons</h2>
       <p>A floating action button represents the primary action in an application and is used for a promoted action. FAB buttons can have it regular size or mini, with an accent color by default. This type of buttons can only have icons, so it should be used along with <code>&lt;md-icon&gt;</code>.</p>
+      <note-block tip>Use only one FAB per page and only if the purpose of the button is to fire the main action of the screen. Otherwise use <code>md-icon-button</code>.</note-block>
 
       <code-example title="FAB" :component="examples['floating-buttons']" />
 
@@ -159,6 +160,26 @@
               {
                 name: 'md-dense',
                 description: 'An alias for "md-mini"'
+              },
+              {
+                name: 'md-fab-top-right',
+                description: 'Position the FAB on the top right of the nearest relative parent'
+              },
+              {
+                name: 'md-fab-top-left',
+                description: 'Position the FAB on the top left of the nearest relative parent'
+              },
+              {
+                name: 'md-fab-bottom-right',
+                description: 'Position the FAB on the bottom right of the nearest relative parent'
+              },
+              {
+                name: 'md-fab-bottom-left',
+                description: 'Position the FAB on the bottom left of the nearest relative parent'
+              },
+              {
+                name: 'md-fixed',
+                description: 'Apply position: fixed to FAB. Better used with the 4 position coordinates above'
               }
             ]
           }

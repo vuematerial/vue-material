@@ -108,7 +108,7 @@
             {
               name: 'md-mode',
               type: 'String',
-              description: 'Set the toolbar mode. See above the detailed description of each mode.',
+              description: 'Set the toolbar mode. See below the detailed description of each mode.',
               defaults: 'null'
             },
             {
