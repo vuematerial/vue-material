@@ -11,13 +11,14 @@
       <p>These following patterns applies the elevations at which content should scroll, how to size flexible space, and when to anchor specific elements.</p>
       <p>When building applications there is some repeated behaviours regarding the structure of the app. Responsive drawers, flexible toolbars, scrolling... Either scenario could repeat across all complex applications. This documentation website, for example, needs some of them, and maybe you'll need them too. To solve those problems the <code>md-app</code> was created.</p>
       <p>It has all behaviour to build complex application shells, that will be simple, responsive and integrate seamlessly with the drawers, toolbars and content.</p>
-      <p>The <code>md-app</code> component comes with support with <code>md-app-toolbar</code>, <code>md-app-drawer</code> and <code>md-app-content</code>, witch is the alias for <code>md-toolbar</code>, <code>md-drawer</code> and <code>md-content</code> respectively. Look at the examples:</p>
+      <p>The <code>md-app</code> component supports <code>md-app-toolbar</code>, <code>md-app-drawer</code> and <code>md-app-content</code>, witch is alias for <code>md-toolbar</code>, <code>md-drawer</code> and <code>md-content</code> respectively. Look at the examples:</p>
     </div>
 
     <div class="page-container-section">
       <h2>Normal Toolbars</h2>
 
       <p>When you need a toolbar, a responsive drawer and a content to be displayed following the Material Guidelines. This is the default behaviour.</p>
+      <note-block tip>The order of md-app children is irrelevant. The md-app component will take care of this based on the props that you pass.</note-block>
       <code-example title="Default" :component="examples['normal']" />
     </div>
 
@@ -58,6 +59,15 @@
 
     <div class="page-container-section">
       <api-item title="API - md-app">
+        <p>In all examples we have 3 distinct areas: Toolbar, Drawer and Content. You should create them using the following tags:</p>
+        <ul>
+          <li><code>md-app-toolbar</code>: Create the toolbar accepting any options from the md-toolbar</li>
+          <li><code>md-app-drawer</code>: Place the drawer panel, that also accepts any options from the md-drawer. You can a left or right drawers. Or both.</li>
+          <li><code>md-app-content</code>: Here you will add any content for your page.</li>
+        </ul>
+
+        <note-block alert>Any other tag passed as a direct child of the md-app tag will be ignored. The component will only look for those three tags and choose the right placement for them.</note-block>
+
         <p>The following properties can be applied:</p>
 
         <api-table :headings="api.props.headings" :props="api.props.props" slot="props" />

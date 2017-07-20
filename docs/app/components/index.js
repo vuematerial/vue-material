@@ -10,6 +10,7 @@ import GridLayout from './GridLayout'
 import GridLayoutItem from './GridLayoutItem'
 import ApiItem from './ApiItem'
 import ApiTable from './ApiTable'
+import NoteBlock from './NoteBlock'
 import DocsLoader from './DocsLoader'
 
 Vue.component(PageContainer.name, PageContainer)
@@ -22,4 +23,5 @@ Vue.component(GridLayout.name, GridLayout)
 Vue.component(GridLayoutItem.name, GridLayoutItem)
 Vue.component(ApiItem.name, ApiItem)
 Vue.component(ApiTable.name, ApiTable)
+Vue.component(NoteBlock.name, NoteBlock)
 Vue.component(DocsLoader.name, DocsLoader)

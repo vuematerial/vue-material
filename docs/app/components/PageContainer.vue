@@ -41,12 +41,15 @@
       margin-top: 32px;
     }
 
-    p > code {
-      padding: 0 4px;
-      display: inline-block;
-      color: md-get-palette-color(red, A200);
-      background: darken(md-get-palette-color(red, 50), 1%);
-      border-radius: 2px;
+    p,
+    li {
+      > code {
+        padding: 0 4px;
+        display: inline-block;
+        color: md-get-palette-color(red, A200);
+        background: darken(md-get-palette-color(red, 50), 1%);
+        border-radius: 2px;
+      }
     }
   }
 </style>
