@@ -15,16 +15,20 @@
       }
     }),
     computed: {
+      visible () {
+        return this.drawerElement.mdVisible
+      },
+      mode () {
+        return this.drawerElement.mode
+      }
+    },
+    watch: {
       visible (visible) {
         this.MdApp.drawer.width = this.getDrawerWidth()
         this.MdApp.drawer.active = visible
-
-        return this.drawerElement.mdVisible
       },
       mode (mode) {
         this.MdApp.drawer.mode = mode
-
-        return this.drawerElement.mode
       }
     },
     methods: {

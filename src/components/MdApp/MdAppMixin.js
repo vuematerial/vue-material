@@ -69,7 +69,7 @@ export default {
       let styles = {}
 
       if (this.MdApp.drawer.active && this.MdApp.drawer.mode === 'persistent') {
-        styles['margin-left'] = this.MdApp.drawer.width
+        styles['padding-left'] = this.MdApp.drawer.width
       }
 
       if ((this.mdMode && this.mdMode !== 'fixed') || this.mdFlexible) {
@@ -155,12 +155,15 @@ export default {
       const firstRow = toolbar.querySelector('.md-toolbar-row:first-child')
       const firstRowHeight = firstRow.offsetHeight
       const scrollAmount = initialHeight - scrollTop
+      const shouldKeepFlexible = scrollTop < initialHeight - firstRowHeight
 
       if (firstRowHeight) {
-        if (scrollTop < initialHeight - firstRowHeight) {
+        if (shouldKeepFlexible) {
           toolbar.style.height = scrollAmount + 'px'
+          this.$emit('md-flexible-done')
         } else {
           toolbar.style.height = firstRowHeight + 'px'
+          this.$emit('md-flexible-done')
         }
       }
 
@@ -169,7 +172,7 @@ export default {
         const targetSize = 20
         const initialSize = this.MdApp.toolbar.titleSize
 
-        if (scrollTop < initialHeight - firstRowHeight) {
+        if (shouldKeepFlexible) {
           const newSize = Math.max(0, 1 - (scrollTop - initialSize) / (scrollAmount + initialSize + 0.000001)) * (initialSize - targetSize) + targetSize
 
           titleElement.style.fontSize = newSize + 'px'
