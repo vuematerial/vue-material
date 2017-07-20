@@ -11,14 +11,14 @@
       <p>These following patterns applies the elevations at which content should scroll, how to size flexible space, and when to anchor specific elements.</p>
       <p>When building applications there is some repeated behaviours regarding the structure of the app. Responsive drawers, flexible toolbars, scrolling... Either scenario could repeat across all complex applications. This documentation website, for example, needs some of them, and maybe you'll need them too. To solve those problems the <code>md-app</code> was created.</p>
       <p>It has all behaviour to build complex application shells, that will be simple, responsive and integrate seamlessly with the drawers, toolbars and content.</p>
-      <p>The <code>md-app</code> component supports <code>md-app-toolbar</code>, <code>md-app-drawer</code> and <code>md-app-content</code>, witch is alias for <code>md-toolbar</code>, <code>md-drawer</code> and <code>md-content</code> respectively. Look at the examples:</p>
+      <p>The <code>md-app</code> component supports <code>md-app-toolbar</code>, <code>md-app-drawer</code> and <code>md-app-content</code>, which is aliases for <code>md-toolbar</code>, <code>md-drawer</code> and <code>md-content</code> respectively. Look at the examples:</p>
     </div>
 
     <div class="page-container-section">
       <h2>Normal Toolbars</h2>
 
       <p>When you need a toolbar, a responsive drawer and a content to be displayed following the Material Guidelines. This is the default behaviour.</p>
-      <note-block tip>The order of md-app children is irrelevant. The md-app component will take care of this based on the props that you pass.</note-block>
+      <note-block tip>The order of <code>md-app</code> children is irrelevant. The component will take care of this based on the props that you pass.</note-block>
       <code-example title="Default" :component="examples['normal']" />
     </div>
 

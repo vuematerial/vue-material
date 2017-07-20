@@ -18,7 +18,7 @@
   @import "~vue-material/components/MdAnimation/variables";
   @import "~vue-material/theme/factory";
 
-  $note-background: md-get-palette-color(bluegrey, 50);
+  $note-background: md-get-palette-color(grey, 200);
   $note-border: md-get-palette-color(orange, A200);
   $alert-border: md-get-palette-color(red, A200);
   $tip-border: md-get-palette-color(green, 300);
