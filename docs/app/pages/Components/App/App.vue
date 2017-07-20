@@ -66,19 +66,19 @@
 
     <div class="page-container-section">
       <api-item title="API - md-app-toolbar">
-        <p>As this is only an alias, refer to the <router-link to="/components/toolbar">md-toolbar page</router-link> to see all the available options.</p>
+        <p>It supports all options of <code>md-toolbar</code> Please refer to the <router-link to="/components/toolbar">Toolbar page</router-link> to see the API.</p>
       </api-item>
     </div>
 
     <div class="page-container-section">
       <api-item title="API - md-app-drawer">
-        <p>As this is only an alias, refer to the <router-link to="/components/drawer">md-drawer page</router-link> to see all the available options.</p>
+        <p>It supports all options of <code>md-drawer</code> Please refer to the <router-link to="/components/drawer">Drawer page</router-link> to see the API.</p>
       </api-item>
     </div>
 
     <div class="page-container-section">
       <api-item title="API - md-app-content">
-        <p>As this is only an alias, refer to the <router-link to="/components/content">md-content page</router-link> to see all the available options.</p>
+        <p>It supports all options of <code>md-content</code> Please refer to the <router-link to="/components/content">Content page</router-link> to see the API.</p>
       </api-item>
     </div>
   </page-container>
@@ -102,30 +102,35 @@
               defaults: 'null'
             },
             {
+              offset: true,
               name: 'md-mode="fixed"',
               type: 'String',
               description: 'Make the toolbar fixed without any scrolling effect',
               defaults: 'null'
             },
             {
+              offset: true,
               name: 'md-mode="fixed-last"',
               type: 'String',
               description: 'Keep the second row of the toolbar fixed and always visible. This NEEDS two md-toolbar-row inside the Toolbar.',
               defaults: 'null'
             },
             {
+              offset: true,
               name: 'md-mode="reveal"',
               type: 'String',
               description: 'Hide the toolbar temporarily and show it after the scroll. This is a good approach for mobile.',
               defaults: 'null'
             },
             {
+              offset: true,
               name: 'md-mode="flexible"',
               type: 'String',
               description: 'Make the height and the title size flexible to give the content a higher priority',
               defaults: 'null'
             },
             {
+              offset: true,
               name: 'md-mode="overlap"',
               type: 'String',
               description: 'Enable the overlapping content',

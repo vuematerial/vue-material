@@ -5,8 +5,8 @@
         <th v-for="heading in headings">{{ heading }}</th>
       </tr>
 
-      <tr v-for="{ name, type, description, defaults, value, example } in props">
-        <td>
+      <tr v-for="{ offset, name, type, description, defaults, value, example } in props">
+        <td :class="{ offset }">
           <span class="prop-name">{{ name }}</span>
           <small class="prop-type" v-if="type">{{ type }}</small>
         </td>
@@ -77,6 +77,10 @@
     &:nth-child(2) ~ &:last-child {
       width: 17%;
     }
+  }
+
+  td.offset {
+    padding-left: 32px;
   }
 
   .prop-name,
