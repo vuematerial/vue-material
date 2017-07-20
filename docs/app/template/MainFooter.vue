@@ -1,5 +1,5 @@
 <template>
-  <footer class="main-footer" v-if="!isSplash">
+  <footer class="main-footer">
     <div class="main-footer-section">
       <router-link to="/about">About Vue Material</router-link>
       <a href="https://github.com/vuematerial/vue-material-experiments/blob/master/LICENSE" target="_blank">License</a>

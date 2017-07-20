@@ -23,6 +23,7 @@ export const config = {
     core: resolvePath('src/core'),
     components: resolvePath('src/components'),
     store: resolvePath('docs/app/store'),
+    template: resolvePath('docs/app/template'),
     'docs-mixins': resolvePath('docs/app/mixins')
   }
 }

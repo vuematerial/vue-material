@@ -58,27 +58,18 @@
   @import "~vue-material/components/MdAnimation/variables";
   @import "~vue-material/components/MdLayout/mixins";
 
-  .home-page >>> .main-header {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-  }
-
-  .home-page >>> .main-content {
+  .home-page  {
     width: 100%;
-    height: 100vh;
-    padding: 40px;
+    height: calc(100vh - 64px);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    font-size: 15px;
+    align-items: center;
     letter-spacing: normal;
     line-height: 1.7em;
   }
 
   .home-header {
-    margin-top: 40px;
     text-align: center;
   }
 
@@ -124,7 +115,7 @@
 
   .home-features {
     margin-top: 120px;
-    margin-bottom: 40px;
+    flex: none;
 
     @include md-layout-xsmall {
       margin-top: 60px;

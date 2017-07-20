@@ -1,14 +1,14 @@
 <template>
   <div class="container" :class="containerClass">
-    <main-header />
+    <main-header></main-header>
 
     <div class="container-wrapper md-layout-row" :class="containerClass">
-      <main-nav :is-splash="isSplash" />
+      <main-nav :is-splash="isSplash"></main-nav>
 
-      <router-view />
+      <router-view></router-view>
     </div>
 
-    <main-footer />
+    <main-footer></main-footer>
   </div>
 </template>
 

@@ -47,7 +47,8 @@
     }
 
     .router-link-exact-active {
-      color: md-get-palette-color(pink, 700);
+      color: md-get-palette-color(blue, A200);
+      font-weight: 500;
     }
   }
 

@@ -41,9 +41,10 @@
       margin-top: 32px;
     }
 
-    p,
-    li {
-      > code {
+    p >,
+    li >,
+    .note-block {
+      code {
         padding: 0 4px;
         display: inline-block;
         color: md-get-palette-color(red, A200);
