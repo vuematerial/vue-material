@@ -110,7 +110,7 @@ function injectStyle(style, spec, name, styleId) {
 export default function install(Vue) {
   Vue.material = new Vue({
     data: {
-      currentTheme: 'default',
+      currentTheme: null,
       inkRipple: true,
       prefix: 'md-theme-',
       styles: [],
@@ -170,13 +170,17 @@ export default function install(Vue) {
         if (changeHtmlMetaColor) {
           changeHtmlMetaColor(
             registeredPrimaryColor[name],
-            prefix + this.currentTheme,
-            prefix + name
+            prefix + name,
+            prefix + this.currentTheme
           );
         }
 
         this.currentTheme = name;
       }
+    },
+    created() {
+      // set the default theme by default
+      this.setCurrentTheme('default');
     }
   });
 
