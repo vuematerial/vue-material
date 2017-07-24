@@ -33,6 +33,27 @@
               </md-table-row>
             </md-table-body>
           </md-table>
+          <md-table slot="events">
+            <md-table-header>
+              <md-table-row>
+                <md-table-head>Name</md-table-head>
+                <md-table-head>Value</md-table-head>
+                <md-table-head>Description</md-table-head>
+              </md-table-row>
+            </md-table-header>
+            <md-table-body>
+              <md-table-row>
+                <md-table-cell>change</md-table-cell>
+                <md-table-cell>Receive the step as <code>Number</code></md-table-cell>
+                <md-table-cell>Triggered when the step number changes it's value and onload.</md-table-cell>
+              </md-table-row>
+              <md-table-row>
+                <md-table-cell>completed</md-table-cell>
+                <md-table-cell>None</md-table-cell>
+                <md-table-cell>Triggered when clicking on the finish button at the last step.</md-table-cell>
+              </md-table-row>
+            </md-table-body>
+          </md-table>
         </api-table>
         
         <api-table name="md-step">
@@ -51,7 +72,7 @@
                 <md-table-cell>The text to be displayed in the back button. Default: 'BACK'.</md-table-cell>
               </md-table-row>
               <md-table-row>
-                <md-table-cell>md-back-continue</md-table-cell>
+                <md-table-cell>md-button-continue</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
                 <md-table-cell>The text to be displayed in the coninue button. Default: 'CONTINUE' or 'FINISH' (if is the last step)</md-table-cell>
               </md-table-row>
