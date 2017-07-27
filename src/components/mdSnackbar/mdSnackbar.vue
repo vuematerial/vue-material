@@ -115,7 +115,6 @@
             this.removeElement();
           };
 
-          this.$refs.container.removeEventListener(transitionEndEventName, removeElement);
           manager.current = null;
           this.$emit('close');
           this.$refs.container.removeEventListener(transitionEndEventName, removeElement);
