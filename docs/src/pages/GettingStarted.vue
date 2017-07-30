@@ -70,11 +70,11 @@
             var Vue = require('vue')
             var VueMaterial = require('vue-material')
 
-            Vue.use(VueMaterial.mdCore) //Required to boot vue material
-            Vue.use(VueMaterial.mdButton)
-            Vue.use(VueMaterial.mdIcon)
-            Vue.use(VueMaterial.mdSidenav)
-            Vue.use(VueMaterial.mdToolbar)
+            Vue.use(VueMaterial.MdCore) //Required to boot vue material
+            Vue.use(VueMaterial.MdButton)
+            Vue.use(VueMaterial.MdIcon)
+            Vue.use(VueMaterial.MdSidenav)
+            Vue.use(VueMaterial.MdToolbar)
           </code-block>
 
           <p><strong>Note:</strong> If you are using Webpack you can still import the css files inside your modules. And you can also write everything using ES6 with Babel or Bublé.</p>
