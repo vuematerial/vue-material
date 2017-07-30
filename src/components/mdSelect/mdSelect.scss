@@ -50,6 +50,13 @@ $select-height: 32px;
 
   &.md-disabled {
     @include disable-item;
+    
+    label,
+    span,
+    input,
+    textarea {
+      color: rgba(#000, .38);
+    }
   }
 
   select {
