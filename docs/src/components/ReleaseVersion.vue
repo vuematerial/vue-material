@@ -48,9 +48,12 @@
         const location = window.location;
         const latestUrl = location.origin + '/' + location.hash;
         const releaseUrl = location.origin + '/releases/v' + this.currentDocs + '/' + location.hash;
+  
+        if (process.NODE_ENV === 'development') {
+          return;
+        }
 
-        // window.location.href = latestUrl;
-        if (this.currentDocs === this.latest && location.href !== latestUrl) {
+        if (this.currentDocs === this.latest) {
           window.location.href = latestUrl;
         } else {
           window.location.href = releaseUrl;
