@@ -310,8 +310,8 @@
               <md-input-container>
                 <label for="users">Simple multiselect</label>
                 <md-select name="option" id="option" multiple v-model="items">
-                  <md-option v-for="option in options"
-                    :key="option"
+                  <md-option v-for="(option, index) in options"
+                    :key="index"
                     :value="option">
                     {{ option.name }}
                   </md-option>
@@ -357,8 +357,8 @@
               &lt;md-input-container&gt;
                 &lt;label for=&quot;users=&quot;&gt;Simple multiselect&lt;/label&gt;
                 &lt;md-select name=&quot;option=&quot; id=&quot;option=&quot; multiple v-model=&quot;items=&quot;&gt;
-                  &lt;md-option v-for=&quot;option in options=&quot;
-                    :key=&quot;option=&quot;
+                  &lt;md-option v-for=&quot;(option, index) in options=&quot;
+                    :key=&quot;index=&quot;
                     :value=&quot;option=&quot;&gt;
                     { { option.name } }
                   &lt;/md-option&gt;
