@@ -30,7 +30,7 @@
       id: String,
       required: Boolean,
       multiple: Boolean,
-      value: [String, Number, Array],
+      value: [String, Boolean, Number, Array],
       disabled: Boolean,
       placeholder: String,
       mdMenuClass: String,
