@@ -33,11 +33,13 @@
     data() {
       return {
         snackbarId: this.id || 'snackbar-' + uniqueId(),
+        removedSnackBarElementEventName: 'removedSnackBarElement',
         active: false,
         rootElement: {},
         snackbarElement: {},
         directionClass: null,
-        closeTimeout: null
+        closeTimeout: null,
+        removedSnackBarElementEvent: null
       };
     },
     computed: {
@@ -69,7 +71,8 @@
     },
     methods: {
       removeElement() {
-        if (document.body.contains(this.snackbarElement)) {
+        // if we have the element and we don't want it active anymore, remove it
+        if (document.body.contains(this.snackbarElement) && !this.active) {
           const activeRipple = this.snackbarElement.querySelector('.md-ripple.md-active');
 
           if (activeRipple) {
@@ -78,12 +81,21 @@
 
           document.body.removeChild(this.snackbarElement);
         }
+        this.$refs.container.dispatchEvent(this.removedSnackBarElementEvent);
       },
       open() {
         if (manager.current) {
+          // we need to wait for the old element to finishing closing before we can open a new one
+          this.$refs.container.removeEventListener(this.removedSnackBarElementEventName, this.showElementAndStartTimer);
+          this.$refs.container.addEventListener(this.removedSnackBarElementEventName, this.showElementAndStartTimer);
           manager.current.close();
+          return;
         }
 
+        this.showElementAndStartTimer();
+      },
+      showElementAndStartTimer() {
+        this.$refs.container.removeEventListener(this.removedSnackBarElementEventName, this.showElementAndStartTimer);
         manager.current = this;
         document.body.appendChild(this.snackbarElement);
         window.getComputedStyle(this.$refs.container).backgroundColor;
@@ -93,6 +105,10 @@
         this.timeoutStartedAt = Date.now();
       },
       close() {
+        //we set the flag to false here, because we need to inform the removeElement method that we really
+        // want to remove the element - we're in closing action
+        this.active = false;
+
         if (this.$refs.container) {
           const removeElement = () => {
             this.$refs.container.removeEventListener(transitionEndEventName, removeElement);
@@ -100,7 +116,6 @@
           };
 
           manager.current = null;
-          this.active = false;
           this.$emit('close');
           this.$refs.container.removeEventListener(transitionEndEventName, removeElement);
           this.$refs.container.addEventListener(transitionEndEventName, removeElement);
@@ -125,6 +140,7 @@
         this.timeoutStartedAt = 0;
         this.pendingDuration = this.mdDuration;
       });
+      this.removedSnackBarElementEvent = new Event(this.removedSnackBarElementEventName);
     },
     beforeDestroy() {
       window.clearTimeout(this.closeTimeout);
