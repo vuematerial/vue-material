@@ -47,6 +47,10 @@
       changeDocs() {
         const location = window.location;
 
+        if (process.NODE_ENV === 'development') {
+          return;
+        }
+
         if (this.currentDocs === this.latest) {
           window.location.href = location.origin + '/' + location.hash;
         } else {
