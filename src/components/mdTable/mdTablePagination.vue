@@ -113,6 +113,7 @@
     },
     mounted() {
       this.$nextTick(() => {
+        this.totalItems = isNaN(this.mdTotal) ? Number.MAX_SAFE_INTEGER : parseInt(this.mdTotal, 10);
         if (this.mdPageOptions) {
           this.currentSize = this.mdPageOptions.includes(this.currentSize) ? this.currentSize : this.mdPageOptions[0];
         } else {

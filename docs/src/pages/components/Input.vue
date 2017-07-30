@@ -114,6 +114,29 @@
               </md-table-row>
             </md-table-body>
           </md-table>
+
+          <md-table slot="events">
+            <md-table-header>
+              <md-table-row>
+                <md-table-head>Name</md-table-head>
+                <md-table-head>Value</md-table-head>
+                <md-table-head>Description</md-table-head>
+              </md-table-row>
+            </md-table-header>
+
+            <md-table-body>
+              <md-table-row>
+                <md-table-cell>focus</md-table-cell>
+                <md-table-cell>Emits the <code>Event</code> object</md-table-cell>
+                <md-table-cell>Triggered when the user focuses the input</md-table-cell>
+              </md-table-row>
+              <md-table-row>
+                <md-table-cell>blur</md-table-cell>
+                <md-table-cell>Emits the <code>Event</code> object</md-table-cell>
+                <md-table-cell>Triggered when the user loses focus of the input</md-table-cell>
+              </md-table-row>
+            </md-table-body>
+          </md-table>
         </api-table>
 
         <api-table name="md-autocomplete">
@@ -301,7 +324,7 @@
                 <label>Initial value</label>
                 <md-input v-model="initialValue"></md-input>
               </md-input-container>
-              
+
               <md-input-container>
                 <label>Initial value (read only)</label>
                 <md-input v-model="initialValue" readonly></md-input>
@@ -481,7 +504,7 @@
                     &lt;md-tooltip&gt;Be careful. You&#039;re almost broken!&lt;/md-tooltip&gt;
                   &lt;/md-icon&gt;
                   &lt;label&gt;Money&lt;/label&gt;
-                  &lt;md-input type=&quot;text&quot;&gt;&lt;/md-input&gt;
+                  &lt;md-input type=&quot;number&quot;&gt;&lt;/md-input&gt;
                   &lt;md-icon&gt;attach_money&lt;/md-icon&gt;
                 &lt;/md-input-container&gt;
 

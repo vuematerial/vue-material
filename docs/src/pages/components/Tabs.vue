@@ -221,7 +221,7 @@
                   &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.&lt;/p&gt;
                 &lt;/md-tab&gt;
 
-                &lt;md-tab id=&quot;pictures&quot; md-label=&quot;Pictures&quot; md-tooltip=&quot;&gt;
+                &lt;md-tab id=&quot;pictures&quot; md-label=&quot;Pictures&quot;&gt;
                   &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.&lt;/p&gt;
                 &lt;/md-tab&gt;
 

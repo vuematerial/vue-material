@@ -532,6 +532,8 @@
                 :md-title=&quot;prompt.title&quot;
                 :md-ok-text=&quot;prompt.ok&quot;
                 :md-cancel-text=&quot;prompt.cancel&quot;
+                :md-input-maxlength=&quot;prompt.maxlength&quot;
+                :md-input-placeholder=&quot;prompt.placeholder&quot;
                 @open=&quot;onOpen&quot;
                 @close=&quot;onClose&quot;
                 v-model=&quot;prompt.value&quot;
