@@ -22,8 +22,8 @@
 
       <md-menu-content>
         <md-menu-item v-if="items.length"
-          v-for="item in items"
-          :key="item"
+          v-for="(item, index) in items"
+          :key="index"
           @keyup.enter="hit(item)"
           @click="hit(item)">
           {{ item[printAttribute] }}
