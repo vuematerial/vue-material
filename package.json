@@ -40,8 +40,7 @@
     "release": "bash build/release.sh"
   },
   "dependencies": {
-    "vue": "^2.4.2",
-    "vue-template-compiler": "^2.4.2"
+    "vue": "^2.4.2"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.4",
@@ -89,6 +88,7 @@
     "vue-hot-reload-api": "^2.1.0",
     "vue-html-loader": "^1.2.4",
     "vue-loader": "^12.2.1",
+    "vue-template-compiler": "^2.4.2",
     "vue-router": "^2.5.3",
     "vue-style-loader": "^3.0.1",
     "webpack": "^2.2.1",
