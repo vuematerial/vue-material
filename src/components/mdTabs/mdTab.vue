@@ -15,6 +15,7 @@
       mdLabel: [String, Number],
       mdIcon: String,
       mdIconset: String,
+      mdIconSrc: String,
       mdActive: Boolean,
       mdDisabled: Boolean,
       mdOptions: {
@@ -51,6 +52,9 @@
       mdIconset() {
         this.updateTabData();
       },
+      mdIconSrc() {
+        this.updateTabData();
+      },
       mdOptions: {
         deep: true,
         handler() {
@@ -85,6 +89,7 @@
           label: this.mdLabel,
           icon: this.mdIcon,
           iconset: this.mdIconset,
+          iconSrc: this.mdIconSrc,
           options: this.mdOptions,
           active: this.mdActive,
           disabled: this.mdDisabled,

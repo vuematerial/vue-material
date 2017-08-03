@@ -17,6 +17,7 @@
             <div class="md-tab-header-container">
               <md-icon v-if="header.icon">{{ header.icon }}</md-icon>
               <md-icon v-else-if="header.iconset" :md-iconset="header.iconset">{{ header.icon }}</md-icon>
+              <md-icon v-else-if="header.iconSrc" :md-src="header.iconSrc"></md-icon>
 
               <span v-if="header.label">{{ header.label }}</span>
 
@@ -257,7 +258,7 @@
         this.hasNavigationScroll = scrollWidth > clientWidth;
       },
       setActiveTab(tabData) {
-        this.hasIcons = !!tabData.icon || !!tabData.iconset;
+        this.hasIcons = !!tabData.icon || !!tabData.iconset || !!tabData.iconSrc;
         this.hasLabel = !!tabData.label;
         this.activeTab = tabData.id;
         this.activeTabNumber = this.getTabIndex(this.activeTab);
