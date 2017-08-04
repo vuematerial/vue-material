@@ -28,6 +28,9 @@ export default {
     app: {
       title: 'App'
     },
+    card: {
+      title: 'Card'
+    },
     checkbox: {
       title: 'Checkbox'
     },

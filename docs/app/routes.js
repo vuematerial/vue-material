@@ -50,6 +50,11 @@ export const routes = [
     component: () => import('./pages/Components/Drawer/Drawer.vue')
   },
   {
+    path: '/components/card',
+    name: 'components/card',
+    component: () => import('./pages/Components/Card/Card.vue')
+  },
+  {
     path: '/components/form',
     name: 'form',
     redirect: '/components/input'

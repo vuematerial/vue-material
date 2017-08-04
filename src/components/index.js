@@ -1,5 +1,6 @@
 import MdApp from './MdApp'
 import MdButton from './MdButton'
+import MdCard from './MdCard'
 import MdCheckbox from './MdCheckbox'
 import MdContent from './MdContent'
 import MdDivider from './MdDivider'
@@ -19,6 +20,7 @@ import MdToolbar from './MdToolbar'
 export default {
   MdApp,
   MdButton,
+  MdCard,
   MdCheckbox,
   MdContent,
   MdDivider,
