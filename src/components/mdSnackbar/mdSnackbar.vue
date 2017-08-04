@@ -95,6 +95,9 @@
         this.showElementAndStartTimer();
       },
       showElementAndStartTimer() {
+        if (document.body.contains(this.snackbarElement)) {
+          return;
+        }
         document.removeEventListener(this.removedSnackBarElementEventName, this.showElementAndStartTimer);
         manager.current = this;
         document.body.appendChild(this.snackbarElement);
@@ -107,11 +110,11 @@
         this.timeoutStartedAt = Date.now();
       },
       close() {
-        //we set the flag to false here, because we need to inform the removeElement method that we really
-        // want to remove the element - we're in closing action
-        this.active = false;
-
         if (this.$refs.container) {
+          //we set the flag to false here, because we need to inform the removeElement method that we really
+          // want to remove the element - we're in closing action
+          this.active = false;
+
           const removeElement = () => {
             document.removeEventListener(transitionEndEventName, removeElement);
             this.removeElement();
@@ -138,9 +141,7 @@
     mounted() {
       this.$nextTick(() => {
         this.snackbarElement = this.$el;
-        if (this.snackbarElement.parentNode !== null) {
-          this.snackbarElement.parentNode.removeChild(this.snackbarElement);
-        }
+        this.snackbarElement.parentNode.removeChild(this.snackbarElement);
         this.timeoutStartedAt = 0;
         this.pendingDuration = this.mdDuration;
       });
@@ -148,6 +149,7 @@
     },
     beforeDestroy() {
       window.clearTimeout(this.closeTimeout);
+      this.active = false;
       this.removeElement();
     }
   };
