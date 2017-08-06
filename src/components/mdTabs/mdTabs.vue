@@ -15,13 +15,15 @@
             <md-ink-ripple :md-disabled="header.disabled"></md-ink-ripple>
 
             <div class="md-tab-header-container">
-              <md-icon v-if="header.icon">{{ header.icon }}</md-icon>
-              <md-icon v-else-if="header.iconset" :md-iconset="header.iconset">{{ header.icon }}</md-icon>
-              <md-icon v-else-if="header.iconSrc" :md-src="header.iconSrc"></md-icon>
+              <slot name="header-item" :header="header">
+                <md-icon v-if="header.icon">{{ header.icon }}</md-icon>
+                <md-icon v-else-if="header.iconset" :md-iconset="header.iconset">{{ header.icon }}</md-icon>
+                <md-icon v-else-if="header.iconSrc" :md-src="header.iconSrc"></md-icon>
 
-              <span v-if="header.label">{{ header.label }}</span>
+                <span v-if="header.label">{{ header.label }}</span>
 
-              <md-tooltip v-if="header.tooltip" :md-direction="header.tooltipDirection" :md-delay="header.tooltipDelay">{{ header.tooltip }}</md-tooltip>
+                <md-tooltip v-if="header.tooltip" :md-direction="header.tooltipDirection" :md-delay="header.tooltipDelay">{{ header.tooltip }}</md-tooltip>
+              </slot>
             </div>
           </button>
 
