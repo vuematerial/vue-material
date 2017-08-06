@@ -1,6 +1,6 @@
 <template>
   <div class="md-radio" :class="[themeClass, classes]">
-    <div class="md-radio-container" @click.self="toggleCheck">
+    <div class="md-radio-container" @click.stop.self="toggleCheck">
       <input type="radio" :name="name" :id="id" :disabled="disabled" :value="value">
       <md-ink-ripple :md-disabled="disabled" />
     </div>
