@@ -21,10 +21,10 @@
                 <md-icon v-else-if="header.iconSrc" :md-src="header.iconSrc"></md-icon>
 
                 <span v-if="header.label">{{ header.label }}</span>
-
-                <md-tooltip v-if="header.tooltip" :md-direction="header.tooltipDirection" :md-delay="header.tooltipDelay">{{ header.tooltip }}</md-tooltip>
               </slot>
             </div>
+
+           <md-tooltip v-if="header.tooltip" :md-direction="header.tooltipDirection" :md-delay="header.tooltipDelay">{{ header.tooltip }}</md-tooltip>
           </button>
 
           <span class="md-tab-indicator" :class="indicatorClasses" ref="indicator"></span>
