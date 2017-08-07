@@ -2,11 +2,11 @@
   <div class="md-autocomplete"
     @focus="onFocus"
     @blur="onBlur">
-    <md-menu :md-offset-x="8"
-      md-offset-y="45"
+    <md-menu
+      md-align-trigger
+      md-auto-width
       ref="menu"
       class="md-autocomplete-menu">
-      <span md-menu-trigger></span>
       <input class="md-input"
         ref="input"
         type="text"
@@ -18,7 +18,8 @@
         :name="name"
         @focus="onFocus"
         @blur="onBlur"
-        @input="debounceUpdate"/>
+        @input="debounceUpdate"
+        md-menu-trigger/>
 
       <md-menu-content>
         <md-menu-item v-if="items.length"

@@ -38,6 +38,10 @@
       mdCloseOnSelect: {
         type: Boolean,
         default: true
+      },
+      mdAutoWidth: {
+        type: Boolean,
+        default: false
       }
     },
     data: () => ({
@@ -114,12 +118,17 @@
         return { top, left };
       },
       calculateMenuContentPos() {
-        let position;
+        let position, width;
 
         if (!this.mdDirection) {
           position = this.getPosition('bottom', 'right');
         } else {
           position = this.getPosition.apply(this, this.mdDirection.trim().split(' '));
+        }
+
+        if (this.mdAutoWidth) {
+          width = this.menuTrigger.getBoundingClientRect().width;
+          this.menuContent.style.width = parseInt(width, 10) + 'px';
         }
 
         position = getInViewPosition(this.menuContent, position);
