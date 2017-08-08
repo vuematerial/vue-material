@@ -55,17 +55,14 @@
       };
     },
     watch: {
-      mdTotal(val) {
-        const sub = this.currentPage * this.currentSize;
-
-        this.subTotal = sub > val ? val : sub;
-        this.totalItems = isNaN(val) ? Number.MAX_SAFE_INTEGER : parseInt(val, 10);
+      mdTotal() {
+        this.mdTotalHandler();
       },
-      mdSize(val) {
-        this.currentSize = parseInt(val, 10);
+      mdSize() {
+        this.mdSizeHandler();
       },
-      mdPage(val) {
-        this.currentPage = parseInt(val, 10);
+      mdPage() {
+        this.mdPageHandler();
       }
     },
     computed: {
@@ -82,6 +79,18 @@
       }
     },
     methods: {
+      mdTotalHandler() {
+        const sub = this.currentPage * this.currentSize;
+
+        this.subTotal = sub > this.mdTotal ? this.mdTotal : sub;
+        this.totalItems = isNaN(this.mdTotal) ? Number.MAX_SAFE_INTEGER : parseInt(this.mdTotal, 10);
+      },
+      mdSizeHandler() {
+        this.currentSize = parseInt(this.mdSize, 10);
+      },
+      mdPageHandler() {
+        this.currentPage = parseInt(this.mdPage, 10);
+      },
       emitPaginationEvent() {
         if (this.canFireEvents) {
           this.$emit('pagination', {
@@ -110,6 +119,11 @@
           this.emitPaginationEvent();
         }
       }
+    },
+    created() {
+      this.mdTotalHandler();
+      this.mdSizeHandler();
+      this.mdPageHandler();
     },
     mounted() {
       this.$nextTick(() => {
