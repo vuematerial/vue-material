@@ -2,7 +2,7 @@ import MdReactive from 'core/MdReactive'
 import MdTheme from 'core/MdTheme'
 
 const material = new MdReactive({
-  inkRipple: true,
+  ripple: true,
   theming: {},
   locale: {
     startYear: 1900,

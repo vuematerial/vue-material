@@ -43,7 +43,7 @@
   .md-card-expand-content {
     overflow: hidden;
     transform: translate3D(0, 0, 0);
-    transition: .4s $md-transition-stand-timing;
+    transition: .4s $md-transition-default-timing;
     transition-property: opacity, margin-top;
     will-change: opacity, margin-top;
   }

@@ -16,7 +16,7 @@
     font-size: 14px;
     line-height: 22px;
 
-    &:last-child {
+    &:last-of-type {
       padding-bottom: 24px;
     }
   }
