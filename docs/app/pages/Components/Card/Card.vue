@@ -1,5 +1,9 @@
 <example src="./examples/RegularCards.vue" />
-<example src="./examples/CardsWithHover.vue" />
+<example src="./examples/ThemeColors.vue" />
+<example src="./examples/Media.vue" />
+<example src="./examples/MediaCover.vue" />
+<example src="./examples/Layouts.vue" />
+<example src="./examples/Expansion.vue" />
 
 <template>
   <page-container centered :title="$t('pages.card.title')">
@@ -11,7 +15,11 @@
       <h2>Card</h2>
 
       <code-example title="Regular Cards" :component="examples['regular-cards']" />
-      <code-example title="Cards with hover" :component="examples['cards-with-hover']" />
+      <code-example title="Theme Colors" :component="examples['theme-colors']" />
+      <code-example title="Media cover" :component="examples['media']" />
+      <code-example title="Card background with Aspect Ratio" :component="examples['media-cover']" />
+      <code-example title="Different layouts" :component="examples['layouts']" />
+      <code-example title="Expansion Control" :component="examples['expansion']" />
 
       <api-item title="API - md-card">
         <p>This component do not have any extra option.</p>

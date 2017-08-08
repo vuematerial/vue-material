@@ -94,6 +94,7 @@
   @import "~components/MdAnimation/variables";
   @import "~components/MdLayout/mixins";
   @import "~components/MdElevation/mixins";
+  @import "~components/MdCard/base";
 
   @mixin md-drawer-temporary () {
     position: absolute;
@@ -181,11 +182,9 @@
 
     &.md-permanent-card {
       @include md-layout-small-and-up {
-        @include md-elevation(2);
+        @include md-card;
         margin: 8px;
-        overflow: hidden;
         z-index: 1;
-        border-radius: 2px;
       }
 
       @include md-layout-medium-and-up {

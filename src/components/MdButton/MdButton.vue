@@ -97,6 +97,7 @@
     outline: none;
     background: transparent;
     border: 0;
+    border-radius: 0;
     transition: $md-transition-default;
     transition-property: box-shadow, color, background-color;
     will-change: box-shadow, color, background-color;

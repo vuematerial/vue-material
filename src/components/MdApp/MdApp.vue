@@ -129,7 +129,7 @@
   }
 
   .md-app-drawer {
-    &.md-permanent-card + .md-content {
+    &.md-permanent-card + .md-app-scroller .md-content {
       @include md-layout-small-and-up {
         padding-left: 0;
         border-left: none;

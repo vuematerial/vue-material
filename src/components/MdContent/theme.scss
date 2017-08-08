@@ -1,7 +1,7 @@
 .md-content {
   @include md-theme-component() {
-    @include md-theme-property(background-color, background);
-    @include md-theme-property(color, text-primary, background);
+    @include md-theme-property(background-color, background-variant);
+    @include md-theme-property(color, text-primary, background-variant);
 
     &.md-primary {
       @include md-theme-property(background-color, primary);
