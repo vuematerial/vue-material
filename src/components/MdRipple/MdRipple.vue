@@ -7,7 +7,7 @@
     @mousedown.passive.stop="startRipple">
     <slot />
 
-    <transition name="md-ripple" appear @after-enter="clearWave" v-if="!mdDisabled">
+    <transition name="md-ripple" @after-enter="clearWave" v-if="!isDisabled">
       <span class="md-ripple-wave" :class="waveClasses" :style="waveStyles" v-if="animating" ref="rippleWave" />
     </transition>
   </div>
@@ -30,9 +30,12 @@
       touchTimeout: null
     }),
     computed: {
+      isDisabled () {
+        return !this.$material.ripple || this.mdDisabled
+      },
       rippleClasses () {
         return {
-          'md-disabled': this.mdDisabled
+          'md-disabled': this.isDisabled
         }
       },
       waveClasses () {
@@ -61,9 +64,9 @@
         }, 100)
       },
       async startRipple ($event) {
-        const { eventType, mdDisabled, mdCentered } = this
+        const { eventType, isDisabled, mdCentered } = this
 
-        if (!mdDisabled && (!eventType || eventType === $event.type)) {
+        if (!isDisabled && (!eventType || eventType === $event.type)) {
           let rippleSize = this.getSize()
           let ripplePosition = null
 
