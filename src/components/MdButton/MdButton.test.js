@@ -1,6 +1,6 @@
 import VueRouter from 'vue-router'
+import Vue from 'vue'
 import mountTemplate from 'test/utils/mountTemplate'
-import { use } from 'avoriaz'
 import MdButton from './MdButton.vue'
 import MdRipple from 'components/MdRipple/MdRipple.vue'
 
@@ -45,7 +45,7 @@ test('should render tag <a> when a href is given', async () => {
 })
 
 test('should render tag <a> when using "to" prop from vue-router', async () => {
-  use(VueRouter)
+  Vue.use(VueRouter)
 
   const router = new VueRouter({
     mode: 'history',
