@@ -1,4 +1,4 @@
-const margin = 8;
+const margin = 0;
 
 const isAboveOfViewport = (element, position) => {
   return position.top <= margin - parseInt(getComputedStyle(element).marginTop, 10);
@@ -29,6 +29,7 @@ const getInViewPosition = (element, position) => {
 
   if (isOnTheRightOfViewport(element, position)) {
     position.left = window.innerWidth - margin - element.offsetWidth - parseInt(computedStyle.marginLeft, 10);
+    console.log("inview:", window.innerWidth, margin, element.offsetWidth, parseInt(computedStyle.marginLeft, 10));
   }
 
   if (isBelowOfViewport(element, position)) {

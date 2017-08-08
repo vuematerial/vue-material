@@ -42,6 +42,10 @@
       mdAutoWidth: {
         type: Boolean,
         default: false
+      },
+      mdFixed: {
+        type: Boolean,
+        default: false
       }
     },
     data: () => ({
@@ -120,6 +124,8 @@
       calculateMenuContentPos() {
         let position, width;
 
+        let margin = 8;
+
         if (!this.mdDirection) {
           position = this.getPosition('bottom', 'right');
         } else {
@@ -131,7 +137,12 @@
           this.menuContent.style.width = parseInt(width, 10) + 'px';
         }
 
-        position = getInViewPosition(this.menuContent, position);
+        if (!this.mdFixed) {
+          position = getInViewPosition(this.menuContent, position);
+        } else {
+          this.menuContent.style.maxHeight =
+              window.innerHeight - this.menuTrigger.getBoundingClientRect().bottom - margin + "px";
+        }
 
         this.menuContent.style.top = position.top + window.pageYOffset + 'px';
         this.menuContent.style.left = position.left + window.pageXOffset + 'px';

@@ -5,6 +5,7 @@
     <md-menu
       md-align-trigger
       md-auto-width
+      md-fixed
       ref="menu"
       class="md-autocomplete-menu">
       <input class="md-input"
