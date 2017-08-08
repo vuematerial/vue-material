@@ -79,14 +79,16 @@ $input-size: 32px;
   }
 
   .md-error,
-  .md-count {
+  .md-count,
+  .md-hint {
     height: 20px;
     position: absolute;
     bottom: -22px;
     font-size: 12px;
   }
 
-  .md-error {
+  .md-error,
+  .md-hint {
     display: block !important;
     left: 0;
     opacity: 0;
@@ -154,6 +156,17 @@ $input-size: 32px;
     }
   }
 
+  &.md-input-focused {
+    .md-hint {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+    &.md-input-invalid .md-hint{
+      opacity: 0;
+      transform: translate3d(0, -8px, 0);
+    }
+  }
+  
   &.md-input-focused,
   &.md-has-value {
     label {
