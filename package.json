@@ -126,6 +126,7 @@
     "moduleNameMapper": {
       "^vue$": "<rootDir>/node_modules/vue/dist/vue.common.js",
       "^test(.*)$": "<rootDir>/test$1",
+      "^src(.*)$": "<rootDir>/src$1",
       "^theme(.*)$": "<rootDir>/src/theme$1",
       "^base(.*)$": "<rootDir>/src/base$1",
       "^core(.*)$": "<rootDir>/src/core$1",
@@ -140,6 +141,7 @@
       ".*\\.(vue)$": "jest-vue-preprocessor"
     },
     "mapCoverage": true,
+    "setupTestFrameworkScriptFile": "<rootDir>/test/setup.js",
     "collectCoverageFrom": [
       "src/**/*.{js,vue}",
       "!src/**/index.js",
