@@ -53,11 +53,16 @@
       },
       removeRow(row) {
         const index = this.data.indexOf(row);
-        const selectedIndex = this.selectedRows.indexOf(row);
 
         if (index !== -1) {
           this.data.splice(index, 1);
         }
+
+        this.removeSelectedRow(row);
+      },
+      removeSelectedRow(row) {
+        const selectedIndex = this.selectedRows.indexOf(row);
+
         if (selectedIndex !== -1) {
           this.selectedRows.splice(selectedIndex, 1);
         }
@@ -65,9 +70,9 @@
       setRowSelection(isSelected, row) {
         if (isSelected) {
           this.selectedRows.push(row);
-          return;
+        } else {
+          this.removeSelectedRow(row);
         }
-        this.removeRow(row);
       },
       setMultipleRowSelection(isSelected) {
         this.selectedRows = isSelected ?

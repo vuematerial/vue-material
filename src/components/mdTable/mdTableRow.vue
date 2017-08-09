@@ -63,9 +63,15 @@
       setRowSelection(value, row) {
         this.parentTable.setRowSelection(value, row);
       },
+      setHeadRowSelection() {
+        if (this.hasSelection) {
+          this.parentTable.$children[0].checkbox = this.parentTable.numberOfSelected > 0
+            && this.parentTable.numberOfSelected === this.parentTable.numberOfRows;
+        }
+      },
       handleSingleSelection(value) {
         this.parentTable.setRowSelection(value, this.mdItem);
-        this.parentTable.$children[0].checkbox = this.parentTable.numberOfSelected === this.parentTable.numberOfRows;
+        this.setHeadRowSelection();
       },
       handleMultipleSelection(value) {
         if (this.parentTable.numberOfRows > 25) {
@@ -77,6 +83,7 @@
         });
 
         this.parentTable.setMultipleRowSelection(value);
+        this.setHeadRowSelection();
 
         window.setTimeout(() =>
           this.parentTable.$el.classList.remove(transitionClass),
@@ -122,6 +129,7 @@
     },
     destroyed() {
       this.parentTable.removeRow(this.mdItem);
+      this.setHeadRowSelection();
     },
     mounted() {
       this.startTableRow();
