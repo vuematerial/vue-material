@@ -29,7 +29,6 @@ const getInViewPosition = (element, position) => {
 
   if (isOnTheRightOfViewport(element, position)) {
     position.left = window.innerWidth - margin - element.offsetWidth - parseInt(computedStyle.marginLeft, 10);
-    console.log("inview:", window.innerWidth, margin, element.offsetWidth, parseInt(computedStyle.marginLeft, 10));
   }
 
   if (isBelowOfViewport(element, position)) {

@@ -6,6 +6,7 @@
       md-align-trigger
       md-auto-width
       md-fixed
+      md-no-focus
       ref="menu"
       class="md-autocomplete-menu">
       <input class="md-input"
@@ -20,9 +21,12 @@
         @focus="onFocus"
         @blur="onBlur"
         @input="debounceUpdate"
+        @keydown.up.prevent="contentHighlightItem('up')"
+        @keydown.down.prevent="contentHighlightItem('down')"
+        @keydown.enter.prevent="contentFireClick()"
         md-menu-trigger/>
 
-      <md-menu-content>
+      <md-menu-content class="md-autocomplete-content">
         <md-menu-item v-if="items.length"
           v-for="(item, index) in items"
           :key="index"
@@ -107,8 +111,6 @@
               data;
 
             this.loading = false;
-
-            this.toggleMenu();
           });
       },
       onFocus() {
@@ -126,7 +128,10 @@
         if (this.filterList) {
           this.items = this.filterList(Object.assign([], this.list), this.query);
         }
-        this.toggleMenu();
+        
+        if (this.items.length !== 0) {
+          this.openMenu();
+        }
       },
       reset() {
         this.items = [];
@@ -174,13 +179,48 @@
       toggleMenu() {
         if (this.items.length) {
           this.$refs.menu.toggle();
+          this.menuContent = document.body.querySelector('.md-autocomplete-content');
         }
+      },
+      openMenu() {
+        if (this.items.length > 0) {
+          this.$refs.menu.open();           
+        }
+      },
+      closeMenu() {
+        this.$refs.menu.close();
       },
       updateValues(value) {
         const newValue = value || this.$refs.input.value || this.value;
 
         this.setParentValue(newValue);
         this.parentContainer.inputLength = newValue ? newValue.length : 0;
+      },
+      contentHighlightItem(direction) {
+        this.menuContent = document.body.querySelector('.md-autocomplete-content');
+
+        if (this.menuContent === null) {
+            return false;
+        }
+
+        this.menuContent.__vue__.highlightItem(direction);
+      },
+      contentFireClick() {
+        this.menuContent = document.body.querySelector('.md-autocomplete-content');
+
+        if (this.menuContent === null ||
+            this.menuContent.__vue__.highlighted === false ||
+            this.menuContent.__vue__.highlighted < 1) {
+
+            this.closeMenu();
+
+            return false;
+        }
+
+        this.hit(this.list[this.menuContent.__vue__.highlighted]);
+        this.closeMenu();
+
+        return true;
       }
     },
     beforeDestroy() {
@@ -191,6 +231,7 @@
     mounted() {
       this.$nextTick(() => {
         this.parentContainer = getClosestVueParent(this.$parent, 'md-input-container');
+        this.menuContent = document.body.querySelector('.md-autocomplete-content');         
 
         if (!this.listIsEmpty) {
           this.items = Object.assign([], this.list);

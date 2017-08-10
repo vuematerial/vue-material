@@ -46,6 +46,10 @@
       mdFixed: {
         type: Boolean,
         default: false
+      },
+      mdNoFocus: {
+        type: Boolean,
+        default: false
       }
     },
     data: () => ({
@@ -70,7 +74,7 @@
       validateMenu() {
         if (!this.menuContent) {
           this.$destroy();
-
+            
           throw new Error('You must have a md-menu-content inside your menu.');
         }
 
@@ -163,7 +167,11 @@
 
         getComputedStyle(this.menuContent).top;
         this.menuContent.classList.add('md-active');
-        this.menuContent.focus();
+
+        if (!this.mdNoFocus) {
+          this.menuContent.focus();
+        }
+
         this.active = true;
         this.$emit('open');
       },
@@ -173,7 +181,11 @@
             let activeRipple = this.menuContent.querySelector('.md-ripple.md-active');
 
             this.menuContent.removeEventListener(transitionEndEventName, close);
-            this.menuTrigger.focus();
+
+            if (!this.mdNoFocus) {
+              this.menuTrigger.focus();
+            }
+
             this.active = false;
 
             if (activeRipple) {
@@ -209,7 +221,7 @@
         this.addNewDirectionMenuContentClass(this.mdDirection);
         this.$el.removeChild(this.$refs.backdrop.$el);
         this.menuContent.parentNode.removeChild(this.menuContent);
-        this.menuTrigger.addEventListener('click', this.toggle);
+        //this.menuTrigger.addEventListener('click', this.toggle);
       });
     },
     beforeDestroy() {
@@ -218,7 +230,7 @@
         document.body.removeChild(this.backdropElement);
       }
 
-      this.menuTrigger.removeEventListener('click', this.toggle);
+      //this.menuTrigger.removeEventListener('click', this.toggle);
       window.removeEventListener('resize', this.recalculateOnResize);
     }
   };
