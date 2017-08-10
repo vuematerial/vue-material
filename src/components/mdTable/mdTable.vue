@@ -53,11 +53,16 @@
       },
       removeRow(row) {
         const index = this.data.indexOf(row);
-        const selectedIndex = this.selectedRows.indexOf(row);
 
         if (index !== -1) {
           this.data.splice(index, 1);
         }
+
+        this.removeSelectedRow(row);
+      },
+      removeSelectedRow(row) {
+        const selectedIndex = this.selectedRows.indexOf(row);
+
         if (selectedIndex !== -1) {
           this.selectedRows.splice(selectedIndex, 1);
         }
@@ -67,7 +72,7 @@
           this.selectedRows.push(row);
           return;
         }
-        this.removeRow(row);
+        this.removeSelectedRow(row);
       },
       setMultipleRowSelection(isSelected) {
         this.selectedRows = isSelected ?
