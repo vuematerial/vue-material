@@ -70,9 +70,9 @@
       setRowSelection(isSelected, row) {
         if (isSelected) {
           this.selectedRows.push(row);
-        } else {
-          this.removeSelectedRow(row);
+          return;
         }
+        this.removeSelectedRow(row);
       },
       setMultipleRowSelection(isSelected) {
         this.selectedRows = isSelected ?
