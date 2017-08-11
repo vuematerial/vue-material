@@ -30,6 +30,8 @@
         this.$parent.close();
       },
       highlightItem(direction) {
+        this.itemsAmount = this.$children[0].$children.length
+
         this.oldHighlight = this.highlighted;
 
         if (direction === 'up') {

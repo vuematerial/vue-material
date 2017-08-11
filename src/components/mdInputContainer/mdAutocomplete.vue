@@ -7,6 +7,8 @@
       md-auto-width
       md-fixed
       md-no-focus
+      md-manual-toggle
+      :md-max-height="maxHeight"
       ref="menu"
       class="md-autocomplete-menu">
       <input class="md-input"
@@ -97,6 +99,10 @@
         this.selected = item;
         this.onInput();
         this.$emit('selected', this.selected, this.$refs.input.value);
+
+        if (this.callback) {
+          this.callback(item);
+        }
       },
       makeFetchRequest(queryObject) {
         return this.fetch(queryObject)
@@ -117,7 +123,12 @@
         if (this.parentContainer) {
           this.parentContainer.isFocused = true;
         }
+        
         this.$refs.input.focus();
+
+        if (this.openOnFocus) {
+          this.openMenu();
+        }
       },
       onInput() {
         this.updateValues();
@@ -128,8 +139,17 @@
         if (this.filterList) {
           this.items = this.filterList(Object.assign([], this.list), this.query);
         }
-        
+
         if (this.items.length !== 0) {
+          if (this.menuContent === undefined || this.menuContent === null) {
+            this.menuContent = document.body.querySelector('.md-autocomplete-content');
+          }
+
+          if (this.menuContent !== null) {
+            if (this.menuContent.__vue__.highlighted > this.items.length) {
+              this.menuContent.highlighted;
+            }
+          }
           this.openMenu();
         }
       },
@@ -179,7 +199,6 @@
       toggleMenu() {
         if (this.items.length) {
           this.$refs.menu.toggle();
-          this.menuContent = document.body.querySelector('.md-autocomplete-content');
         }
       },
       openMenu() {
@@ -204,6 +223,8 @@
         }
 
         this.menuContent.__vue__.highlightItem(direction);
+
+        return true;
       },
       contentFireClick() {
         this.menuContent = document.body.querySelector('.md-autocomplete-content');
@@ -217,7 +238,7 @@
             return false;
         }
 
-        this.hit(this.list[this.menuContent.__vue__.highlighted]);
+        this.hit(this.list[this.menuContent.__vue__.highlighted - 1]);
         this.closeMenu();
 
         return true;

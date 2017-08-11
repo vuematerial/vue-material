@@ -29,6 +29,15 @@ export default {
       type: String,
       default: 'q'
     },
+    callback: Function,
+    openOnFocus: {
+      type: Boolean,
+      default: false
+    },
+    maxHeight: {
+      type: Number,
+      default: 0
+    }
     required: Boolean
   },
   methods: {

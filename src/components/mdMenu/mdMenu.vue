@@ -50,6 +50,14 @@
       mdNoFocus: {
         type: Boolean,
         default: false
+      },
+      mdManualToggle: {
+        type: Boolean,
+        default: false
+      },
+      mdMaxHeight: {
+        type: Number,
+        default: 0
       }
     },
     data: () => ({
@@ -144,8 +152,15 @@
         if (!this.mdFixed) {
           position = getInViewPosition(this.menuContent, position);
         } else {
-          this.menuContent.style.maxHeight =
-              window.innerHeight - this.menuTrigger.getBoundingClientRect().bottom - margin + "px";
+          if (this.maxHeight === 0) {
+            this.menuContent.style.maxHeight =
+                window.innerHeight - this.menuTrigger.getBoundingClientRect().bottom - margin + "px";
+          } else {
+            let listElemHeight = this.menuContent.$children[0].$children[0].$el.clientHeight;
+            console.log(listElemHeight);
+
+            this.menuContent.style.maxHeight = ((margin * 2) + (listElemHeight * this.maxHeight)) + "px";
+          }
         }
 
         this.menuContent.style.top = position.top + window.pageYOffset + 'px';
@@ -221,7 +236,10 @@
         this.addNewDirectionMenuContentClass(this.mdDirection);
         this.$el.removeChild(this.$refs.backdrop.$el);
         this.menuContent.parentNode.removeChild(this.menuContent);
-        //this.menuTrigger.addEventListener('click', this.toggle);
+
+        if (!this.mdManualToggle) {
+          this.menuTrigger.addEventListener('click', this.toggle);
+        }
       });
     },
     beforeDestroy() {
@@ -230,7 +248,10 @@
         document.body.removeChild(this.backdropElement);
       }
 
-      //this.menuTrigger.removeEventListener('click', this.toggle);
+      if (!this.mdManualToggle) {
+        this.menuTrigger.removeEventListener('click', this.toggle);
+      }
+      
       window.removeEventListener('resize', this.recalculateOnResize);
     }
   };
