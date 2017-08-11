@@ -227,6 +227,12 @@
                 <md-table-cell><code>Number</code></md-table-cell>
                 <md-table-cell>Sets the maxlength and enable the text counter.</md-table-cell>
               </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>max-res</md-table-cell>
+                <md-table-cell><code>Number</code></md-table-cell>
+                <md-table-cell>Sets the maximum number of results to show</md-table-cell>
+              </md-table-row>
             </md-table-body>
           </md-table>
 
