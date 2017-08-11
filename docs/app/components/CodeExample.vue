@@ -9,7 +9,7 @@
     </md-toolbar>
 
     <transition name="block">
-      <code-block :label="label" :lang="lang" v-if="!component.name || $slots.default || codeActive">
+      <code-block :label="label" :lang="lang" v-if="!component.name || $slots.default || showCode">
         <slot>{{ component.source }}</slot>
       </code-block>
 
@@ -18,7 +18,7 @@
           <component :is="component.name"></component>
         </div>
 
-        <md-button class="button-theme md-icon-button md-dense md-raised md-primary" @click="toggleDarkTheme" v-if="component.name">
+        <md-button class="button-theme md-icon-button md-dense md-raised md-primary" @click="toggleTheme" v-if="component.name">
           <md-icon>invert_colors</md-icon>
         </md-button>
       </md-content>
@@ -42,7 +42,7 @@
       lang: String
     },
     data: () => ({
-      codeActive: false,
+      showCode: false,
       darkTheme: false
     }),
     computed: {
@@ -56,9 +56,9 @@
     },
     methods: {
       toggleCode () {
-        this.codeActive = !this.codeActive
+        this.showCode = !this.showCode
       },
-      toggleDarkTheme () {
+      toggleTheme () {
         this.darkTheme = !this.darkTheme
       }
     }
