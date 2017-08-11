@@ -29,7 +29,11 @@ export default {
       type: String,
       default: 'q'
     },
-    required: Boolean
+    required: Boolean,
+    maxRes: {
+      type: Number,
+      default: 0
+    }
   },
   methods: {
     onFocus() {

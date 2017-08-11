@@ -5,7 +5,7 @@
     <md-menu :md-offset-x="8"
       md-offset-y="45"
       ref="menu"
-      class="md-autocomplete-menu">
+      class="md-autocomplete-menu" md-align-trigger>
       <span md-menu-trigger></span>
       <input class="md-input"
         ref="input"
@@ -22,7 +22,7 @@
 
       <md-menu-content>
         <md-menu-item v-if="items.length"
-          v-for="(item, index) in items"
+          v-for="(item, index) in filterItemsByResLength"
           :key="index"
           @keyup.enter="hit(item)"
           @click="hit(item)">
@@ -48,12 +48,22 @@
         selected: null,
         timeout: 0,
         parentContainer: null,
-        searchButton: null
+        searchButton: null,
+        focusedInOpenMenu: false
       };
     },
     computed: {
       listIsEmpty() {
         return this.list.length === 0;
+      },
+      itemsEmpty() {
+        return this.items.length === 0;
+      },
+      filterItemsByResLength() {
+        if (this.maxRes === 0) {
+          return this.items;
+        }
+        return this.items.slice(0, this.maxRes);
       }
     },
     watch: {
@@ -98,22 +108,35 @@
             let data = response || response.data || response.body;
 
             data = this.prepareResponseData ?
-              this.prepareResponseData(data) :
-              data;
+            this.prepareResponseData(data) :
+            data;
             this.items = this.limit ?
-              data.slice(0, this.limit) :
-              data;
+            data.slice(0, this.limit) :
+            data;
 
             this.loading = false;
 
-            this.toggleMenu();
+            if (this.itemsEmpty) {
+              this.closeMenu();
+              return;
+            }
+            this.openMenu();
+  
           });
       },
       onFocus() {
         if (this.parentContainer) {
           this.parentContainer.isFocused = true;
         }
-        this.$refs.input.focus();
+
+        if (this.query.length >= this.minChars) {
+          if (this.focusedInOpenMenu) {
+            this.focusedInOpenMenu = false;
+            return;
+          }
+          this.openMenu();
+        }
+
       },
       onInput() {
         this.updateValues();
@@ -121,10 +144,14 @@
         this.$emit('input', this.$refs.input.value);
       },
       renderFilteredList() {
-        if (this.filterList) {
+        if (this.filterList && this.query.length >= this.minChars) {
           this.items = this.filterList(Object.assign([], this.list), this.query);
+          this.openMenu();
         }
-        this.toggleMenu();
+
+        if (this.query.length < this.minChars || this.itemsEmpty) {
+          this.closeMenu();
+        }
       },
       reset() {
         this.items = [];
@@ -173,6 +200,17 @@
         if (this.items.length) {
           this.$refs.menu.toggle();
         }
+      },
+      openMenu() {
+        if (this.items.length) {
+          this.$refs.menu.open();
+          this.focusedInOpenMenu = true;
+          this.$refs.input.focus();
+        }
+      },
+      closeMenu() {
+        this.$refs.menu.close();
+        this.focusedInOpenMenu = false;
       },
       updateValues(value) {
         const newValue = value || this.$refs.input.value || this.value;
