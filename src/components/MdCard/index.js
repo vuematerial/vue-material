@@ -1,3 +1,4 @@
+import init from 'vue-material/material'
 import MdCard from './MdCard'
 import MdCardArea from './MdCardArea'
 import MdCardHeader from './MdCardHeader'
@@ -12,6 +13,7 @@ import MdCardExpandContent from './MdCardExpandContent'
 import MdCardActions from './MdCardActions'
 
 export default Vue => {
+  init(Vue)
   Vue.component(MdCard.name, MdCard)
   Vue.component(MdCardArea.name, MdCardArea)
   Vue.component(MdCardHeader.name, MdCardHeader)
