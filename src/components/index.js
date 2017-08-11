@@ -17,7 +17,7 @@ import MdSubheader from './MdSubheader'
 import MdSwitch from './MdSwitch'
 import MdToolbar from './MdToolbar'
 
-export default {
+export {
   MdApp,
   MdButton,
   MdCard,

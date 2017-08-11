@@ -1,7 +1,8 @@
 /* Third Party */
+import 'regenerator-runtime/runtime'
 import Vue from 'vue'
 import { sync } from 'vuex-router-sync'
-import VueMaterial from 'vue-material'
+import * as VueMaterial from 'vue-material/components'
 
 /* App */
 import App from './App'
@@ -10,7 +11,9 @@ import { i18n } from './config'
 import store from './store'
 import './components'
 
-Vue.use(VueMaterial)
+for (let c in VueMaterial) {
+  Vue.use(VueMaterial[c])
+}
 Vue.config.productionTip = false
 
 sync(store, router)

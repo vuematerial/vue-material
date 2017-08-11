@@ -1,6 +1,6 @@
 import 'regenerator-runtime/runtime'
 import setup from './material'
-import MdComponents from './components'
+import * as MdComponents from './components'
 import './base/index.scss'
 
 let VueMaterial = Vue => {
