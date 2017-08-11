@@ -377,7 +377,7 @@
 
                 &lt;md-input-container&gt;
                   &lt;label&gt;Autocomplete (with fetch)&lt;/label&gt;
-                  &lt;md-input v-model=&quot;autocompleteValue&quot; :fetch=&quot;fetchFunction&quot;&gt;&lt;/md-input&gt;
+                  &lt;md-autocomplete v-model=&quot;autocompleteValue&quot; :fetch=&quot;fetchFunction&quot;&gt;&lt;/md-autocomplete&gt;
                 &lt;/md-input-container&gt;
 
                 &lt;md-input-container&gt;
