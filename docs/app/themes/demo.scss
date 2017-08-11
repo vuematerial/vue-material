@@ -2,7 +2,7 @@
 
 $demo-base: (
   primary: md-get-palette-color(blue, A200),
-  accent: md-get-palette-color(red, A200),
+  accent: md-get-palette-color(red, A200)
 );
 $demo-base-light: map-merge($demo-base, (
   theme: light
