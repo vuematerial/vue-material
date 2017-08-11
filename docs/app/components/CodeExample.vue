@@ -5,7 +5,7 @@
       <md-button class="md-icon-button md-dense" @click="toggleCode" v-if="component.name">
         <md-icon>code</md-icon>
       </md-button>
-      <jsfiddle-edit :component="component" v-if="component.name" />
+      <jsfiddle-edit :component="component" v-if="component.name"></jsfiddle-edit>
     </md-toolbar>
 
     <transition name="block">
@@ -15,7 +15,7 @@
 
       <md-content class="demo" :md-theme="theme" v-else>
         <div class="demo-content">
-          <component :is="component.name" />
+          <component :is="component.name"></component>
         </div>
 
         <md-button class="button-theme md-icon-button md-dense md-raised md-primary" @click="toggleDarkTheme" v-if="component.name">
