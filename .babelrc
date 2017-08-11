@@ -1,22 +1,23 @@
 {
   "presets": [
     "es2015",
-    "stage-2",
+    "stage-3",
     [
       "env",
       {
-        "modules": false
+        "modules": false,
+        "useBuiltIns": false
       }
     ]
   ],
   "plugins": [
-    "transform-runtime"
+    "syntax-dynamic-import"
   ],
   "env": {
     "test": {
       "presets": [
         "es2015",
-        "stage-2"
+        "stage-3"
       ],
       "plugins": [
         "transform-runtime"

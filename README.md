@@ -92,14 +92,7 @@ Please make sure to read the [Contributing Guide](https://github.com/vuematerial
 
 ## Browser Support
 
-Vue Material supports the latest version of all Browsers. This means:
-
-* Google Chrome
-* Firefox
-* Safari 9+
-* Opera
-* Edge
-* IE 11
+Vue Material supports all [modern browsers](http://browserl.ist/?q=%3E%3D+1%25).
 
 <small>May work in other browsers but it's untested.</small>
 

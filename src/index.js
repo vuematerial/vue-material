@@ -1,3 +1,4 @@
+import 'regenerator-runtime/runtime'
 import setup from './material'
 import MdComponents from './components'
 import './base/index.scss'

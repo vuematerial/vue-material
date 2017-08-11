@@ -63,7 +63,7 @@ webpack(entries, (error, stats) => {
     children: false,
     chunks: false,
     chunkModules: false
-  }) + '\n')
+  }) + '\n\n')
 
   spinner.stop()
 })
