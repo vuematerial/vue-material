@@ -152,14 +152,13 @@
         if (!this.mdFixed) {
           position = getInViewPosition(this.menuContent, position);
         } else {
-          if (this.maxHeight === 0) {
+          if (this.mdMaxHeight === 0) {
             this.menuContent.style.maxHeight =
                 window.innerHeight - this.menuTrigger.getBoundingClientRect().bottom - margin + "px";
           } else {
-            let listElemHeight = this.menuContent.$children[0].$children[0].$el.clientHeight;
-            console.log(listElemHeight);
+            let listElemHeight = this.menuContent.children[0].children[0].clientHeight;
 
-            this.menuContent.style.maxHeight = ((margin * 2) + (listElemHeight * this.maxHeight)) + "px";
+            this.menuContent.style.maxHeight = ((margin * 2) + (listElemHeight * this.mdMaxHeight)) + "px";
           }
         }
 

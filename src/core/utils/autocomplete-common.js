@@ -37,7 +37,7 @@ export default {
     maxHeight: {
       type: Number,
       default: 0
-    }
+    },
     required: Boolean
   },
   methods: {
