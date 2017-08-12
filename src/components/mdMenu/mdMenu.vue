@@ -134,7 +134,8 @@
         return { top, left };
       },
       calculateMenuContentPos() {
-        let position, width;
+        let position;
+        let width;
 
         let margin = 8;
 
