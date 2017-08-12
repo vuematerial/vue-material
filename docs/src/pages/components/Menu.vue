@@ -54,6 +54,36 @@
                 <md-table-cell><code>Boolean</code></md-table-cell>
                 <md-table-cell>Close menu content upon mouse click on its menu items. <br>Default: <code>true</code></md-table-cell>
               </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>md-auto-width</md-table-cell>
+                <md-table-cell><code>Boolean</code></md-table-cell>
+                <md-table-cell>Automatically changes width to the trigger element's width. <br>Default: <code>false</code></md-table-cell>
+              </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>md-fixed</md-table-cell>
+                <md-table-cell><code>Boolean</code></md-table-cell>
+                <md-table-cell>Prevents menu from moving up when window is resized, instead this changes the element's height. <br>Default: <code>false</code></md-table-cell>
+              </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>md-no-focus</md-table-cell>
+                <md-table-cell><code>Boolean</code></md-table-cell>
+                <md-table-cell>Prevents menu from automatically focusing when opened. <br>Default: <code>false</code></md-table-cell>
+              </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>md-manual-toggle</md-table-cell>
+                <md-table-cell><code>Boolean</code></md-table-cell>
+                <md-table-cell>Does not allow the menu to open when focused, useful if you are opening the menu programatically. <br>Default: <code>false</code></md-table-cell>
+              </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>md-max-height</md-table-cell>
+                <md-table-cell><code>Number</code></md-table-cell>
+                <md-table-cell>Sets the maximum height of the menu in terms of the number of menu items. If <code>0</code>, only window height is dependant on the menu's size. <br>Default: <code>0</code></md-table-cell>
+              </md-table-row>
             </md-table-body>
           </md-table>
 
@@ -131,8 +161,20 @@
                 <md-table-row>
                   <md-table-cell>disabled</md-table-cell>
                   <md-table-cell><code>Boolean</code></md-table-cell>
-                  <md-table-cell>Disable the button and prevent its actions. Default <code>false</code></md-table-cell>
+                  <md-table-cell>Disable the button and prevent its actions. <br>Default: <code>false</code></md-table-cell>
                 </md-table-row>
+
+                <md-table-row>
+                  <md-table-cell>list-index</md-table-cell>
+                  <md-table-cell><code>Number</code></md-table-cell>
+                  <md-table-cell>Allows for setting the item index manually, useful for menus with dynamic content. If <code>-1</code>, index is automatically set. <br>Default: <code>-1</code></md-table-cell>
+                </md-table-row>
+
+                <md-table-row>
+                  <md-table-cell>manual-highlight</md-table-cell>
+                  <md-table-cell><code>Boolean</code></md-table-cell>
+                  <md-table-cell>Disables automatic highlighting, you will have to set the <code>highlighted</code> attribute for each list item. <br>Default: <code>false</code></md-table-cell>
+                </md-table-row>                
               </md-table-body>
             </md-table>
           </div>

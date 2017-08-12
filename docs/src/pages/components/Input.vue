@@ -20,19 +20,19 @@
               <md-table-row>
                 <md-table-cell>md-inline</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Create inline field with a label or placeholder. Default <code>false</code></md-table-cell>
+                <md-table-cell>Create inline field with a label or placeholder. <br>Default: <code>false</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-has-password</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Show a button to toggle the password visibility. Default <code>false</code></md-table-cell>
+                <md-table-cell>Show a button to toggle the password visibility. <br>Default: <code>false</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-clearable</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Show a button to clear the input. Default <code>false</code></md-table-cell>
+                <md-table-cell>Show a button to clear the input. <br>Default: <code>false</code></md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>
@@ -74,25 +74,25 @@
               <md-table-row>
                 <md-table-cell>type</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
-                <md-table-cell>Sets the type. Default <code>text</code></md-table-cell>
+                <md-table-cell>Sets the type. <br>Default: <code>text</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>debounce</md-table-cell>
                 <md-table-cell><code>Number</code></md-table-cell>
-                <md-table-cell>Debounce the <code>change</code> and <code>input</code> events emission. Default <code>300</code>ms</md-table-cell>
+                <md-table-cell>Debounce the <code>change</code> and <code>input</code> events emission. <br>Default: <code>300</code>ms</md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>disabled</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Disable the input and prevent its actions. Default <code>false</code></md-table-cell>
+                <md-table-cell>Disable the input and prevent its actions. <br>Default: <code>false</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>required</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Apply the required rule to style the label with an "*". Default <code>false</code></md-table-cell>
+                <md-table-cell>Apply the required rule to style the label with an "*". <br>Default: <code>false</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
@@ -159,7 +159,7 @@
               <md-table-row>
                 <md-table-cell>debounce</md-table-cell>
                 <md-table-cell><code>Number</code></md-table-cell>
-                <md-table-cell>Sets the debounce time. Default <code>1000</code> milliseconds</md-table-cell>
+                <md-table-cell>Sets the debounce time. <br>Default: <code>1000</code> milliseconds</md-table-cell>
               </md-table-row>
 
               <md-table-row>
@@ -171,7 +171,7 @@
               <md-table-row>
                 <md-table-cell>list</md-table-cell>
                 <md-table-cell><code>Array</code></md-table-cell>
-                <md-table-cell>Sets an array of possible values. Default <code>[]</code>. MdAutocomplete will only search in this list if it's set. Chosing <code>list</code> prop <strong>disables</strong> the use of <code>fetch</code> prop.</md-table-cell>
+                <md-table-cell>Sets an array of possible values. <br>Default: <code>[]</code>. MdAutocomplete will only search in this list if it's set. Chosing <code>list</code> prop <strong>disables</strong> the use of <code>fetch</code> prop.</md-table-cell>
               </md-table-row>
 
               <md-table-row>
@@ -183,7 +183,7 @@
               <md-table-row>
                 <md-table-cell>min-chars</md-table-cell>
                 <md-table-cell><code>Number</code></md-table-cell>
-                <md-table-cell>Sets the minimum number of characters before making opening the autocomplete options or making a request. Default <code>3</code></md-table-cell>
+                <md-table-cell>Sets the minimum number of characters before making opening the autocomplete options or making a request. <br>Default: <code>3</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
@@ -195,25 +195,25 @@
               <md-table-row>
                 <md-table-cell>print-attribute</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
-                <md-table-cell>This prop will be used to print values on the autocomplete list. It shall match an object key expected on the <code>fetch</code> result list. Default <code>name</code></md-table-cell>
+                <md-table-cell>This prop will be used to print values on the autocomplete list. It shall match an object key expected on the <code>fetch</code> result list. <br>Default: <code>name</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>query-param</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
-                <md-table-cell>Sets the query parameter. Example: http//api.com/<strong>q</strong>?=SOMETHING. Default <code>q</code></md-table-cell>
+                <md-table-cell>Sets the query parameter. Example: http//api.com/<strong>q</strong>?=SOMETHING. <br>Default: <code>q</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>disabled</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Disable the input and prevent his actions. Default <code>false</code></md-table-cell>
+                <md-table-cell>Disable the input and prevent his actions. <br>Default: <code>false</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>required</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Apply the required rule to style the label with an "*". Default <code>false</code></md-table-cell>
+                <md-table-cell>Apply the required rule to style the label with an "*". <br>Default: <code>false</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
@@ -226,6 +226,24 @@
                 <md-table-cell>maxlength</md-table-cell>
                 <md-table-cell><code>Number</code></md-table-cell>
                 <md-table-cell>Sets the maxlength and enable the text counter.</md-table-cell>
+              </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>callback</md-table-cell>
+                <md-table-cell><code>Function</code></md-table-cell>
+                <md-table-cell>Calls this function after the item has been selected. The function takes the item as a parameter.</md-table-cell>
+              </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>open-on-focus</md-table-cell>
+                <md-table-cell><code>Boolean</code></md-table-cell>
+                <md-table-cell>If <code>true</code>, the selection menu will appear when input is focused (clicked on). <br>Default: <code>false</code></md-table-cell>
+              </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>max-height</md-table-cell>
+                <md-table-cell><code>Number</code></md-table-cell>
+                <md-table-cell>Sets the maximum height of the selection menu in terms of the number of items which can be displayed at once. If set to <code>0</code>, the maximum height will be dependant on window height. <br>Default: <code>0</code></md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>
@@ -279,19 +297,19 @@
               <md-table-row>
                 <md-table-cell>debounce</md-table-cell>
                 <md-table-cell><code>Number</code></md-table-cell>
-                <md-table-cell>Debounce the <code>change</code> and <code>input</code> events emission. Default <code>300</code>ms</md-table-cell>
+                <md-table-cell>Debounce the <code>change</code> and <code>input</code> events emission. <br>Default: <code>300</code>ms</md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>disabled</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Disable the textarea and prevent its actions. Default <code>false</code></md-table-cell>
+                <md-table-cell>Disable the textarea and prevent its actions. <br>Default: <code>false</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>required</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Apply the required rule to style the label with an "*". Default <code>false</code></md-table-cell>
+                <md-table-cell>Apply the required rule to style the label with an "*". <br>Default: <code>false</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
