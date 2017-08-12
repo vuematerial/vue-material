@@ -21,7 +21,8 @@
       return {
         oldHighlight: false,
         highlighted: false,
-        itemsAmount: 0
+        itemsAmount: 0,
+        itemListCount: 0
       };
     },
     methods: {
@@ -31,6 +32,9 @@
       },
       highlightItem(direction) {
         this.itemsAmount = this.$children[0].$children.length
+
+        if (this.itemsAmount < this.highlighted - 1)
+          this.highlighted = 1;
 
         this.oldHighlight = this.highlighted;
 
@@ -49,6 +53,16 @@
             this.highlighted++;
           }
         }
+
+        this.$children[0].$children[this.highlighted - 1].$el.scrollIntoView({
+          block: "end", behavior: "smooth"
+        });
+
+        for(var i = 0; i < this.itemsAmount; i++) {
+          this.$children[0].$children[i].highlighted = false;
+        }
+
+        this.$children[0].$children[this.highlighted - 1].highlighted = true;
       },
       fireClick() {
         if (this.highlighted > 0) {

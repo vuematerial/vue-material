@@ -32,7 +32,8 @@
         <md-menu-item v-if="items.length"
           v-for="(item, index) in items"
           :key="index"
-          @keyup.enter="hit(item)"
+          :listIndex="index"
+          manual-highlight
           @click="hit(item)">
           {{ item[printAttribute] }}
         </md-menu-item>
@@ -238,7 +239,10 @@
             return false;
         }
 
-        this.hit(this.list[this.menuContent.__vue__.highlighted - 1]);
+        let index = this.menuContent.__vue__.$children[0].$children[
+          this.menuContent.__vue__.highlighted - 1].index;
+
+        this.hit(this.items[index - 1]);
         this.closeMenu();
 
         return true;
