@@ -29,7 +29,6 @@ export default {
       type: String,
       default: 'q'
     },
-    callback: Function,
     openOnFocus: {
       type: Boolean,
       default: false

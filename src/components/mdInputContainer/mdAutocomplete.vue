@@ -100,10 +100,6 @@
         this.selected = item;
         this.onInput();
         this.$emit('selected', this.selected, this.$refs.input.value);
-
-        if (this.callback) {
-          this.callback(item);
-        }
       },
       makeFetchRequest(queryObject) {
         return this.fetch(queryObject)
