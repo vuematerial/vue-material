@@ -207,8 +207,14 @@
               activeRipple.classList.remove('md-active');
             }
 
-            document.body.removeChild(this.menuContent);
-            document.body.removeChild(this.backdropElement);
+            if (document.body.contains(this.menuContent)) {
+              document.body.removeChild(this.menuContent);
+            }
+
+            if (document.body.contains(this.backdropElement)) {
+              document.body.removeChild(this.backdropElement);
+            }
+
             window.removeEventListener('resize', this.recalculateOnResize);
           }
         };

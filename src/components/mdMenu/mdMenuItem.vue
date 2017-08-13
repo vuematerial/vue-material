@@ -70,13 +70,20 @@
     },
     methods: {
       close($event) {
-        if (!this.disabled) {
-          if (this.parentMenu.mdCloseOnSelect) {
-            this.parentContent.close();
-          }
+        if (!this.parentMenu.mdManualToggle) {
+          if (!this.disabled) {
+            if (this.parentMenu.mdCloseOnSelect) {
+              this.parentContent.close();
+            }
 
-          this.$emit('click', $event);
-          this.$emit('selected', $event);
+            this.$emit('click', $event);
+            this.$emit('selected', $event);
+          }
+        } else {
+          if (!this.disabled) {
+            this.$emit('click', $event);
+            this.$emit('selected', $event);
+          }
         }
       }
     },

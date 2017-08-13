@@ -9,6 +9,7 @@
       md-no-focus
       md-manual-toggle
       :md-max-height="maxHeight"
+      :md-close-on-select="false"
       ref="menu"
       class="md-autocomplete-menu">
       <input class="md-input"
@@ -34,7 +35,7 @@
           :key="index"
           :listIndex="index"
           manual-highlight
-          @click="hit(item)">
+          @click="setItemSelected(item)">
           {{ item[printAttribute] }}
         </md-menu-item>
       </md-menu-content>
@@ -82,8 +83,6 @@
     methods: {
       debounceUpdate() {
         if (this.isItemSelected) {
-          this.isItemSelected = false;
-
           if (this.timeout) {
             window.clearTimeout(this.timeout);
           }
@@ -130,12 +129,14 @@
 
             this.loading = false;
 
-            if (this.items.length > 0) {
+            if (this.items.length > 0 && !this.isItemSelected) {
               this.openMenu();
             }
           });
       },
       onFocus() {
+        this.isItemSelected = false;
+
         if (this.parentContainer) {
           this.parentContainer.isFocused = true;
         }
@@ -245,6 +246,14 @@
           this.menuContent.__vue__.highlighted - 1].index;
 
         this.hit(this.items[index - 1]);
+        this.closeMenu();
+
+        return true;
+      },
+      setItemSelected(item) {
+        this.isItemSelected = true;
+        this.hit(item);
+
         this.closeMenu();
 
         return true;
