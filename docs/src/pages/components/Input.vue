@@ -229,12 +229,6 @@
               </md-table-row>
 
               <md-table-row>
-                <md-table-cell>callback</md-table-cell>
-                <md-table-cell><code>Function</code></md-table-cell>
-                <md-table-cell>Calls this function after the item has been selected. The function takes the item as a parameter.</md-table-cell>
-              </md-table-row>
-
-              <md-table-row>
                 <md-table-cell>open-on-focus</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
                 <md-table-cell>If <code>true</code>, the selection menu will appear when input is focused (clicked on). <br>Default: <code>false</code></md-table-cell>

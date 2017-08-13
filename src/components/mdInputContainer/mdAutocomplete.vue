@@ -100,6 +100,8 @@
         this.selected = item;
         this.onInput();
         this.$emit('selected', this.selected, this.$refs.input.value);
+
+        this.closeMenu();
       },
       makeFetchRequest(queryObject) {
         return this.fetch(queryObject)
@@ -114,6 +116,10 @@
               data;
 
             this.loading = false;
+
+            if (this.items.length > 0) {
+              this.openMenu();
+            }
           });
       },
       onFocus() {
@@ -122,10 +128,6 @@
         }
         
         this.$refs.input.focus();
-
-        if (this.openOnFocus) {
-          this.openMenu();
-        }
       },
       onInput() {
         this.updateValues();
@@ -138,15 +140,6 @@
         }
 
         if (this.items.length !== 0) {
-          if (this.menuContent === undefined || this.menuContent === null) {
-            this.menuContent = document.body.querySelector('.md-autocomplete-content');
-          }
-
-          if (this.menuContent !== null) {
-            if (this.menuContent.__vue__.highlighted > this.items.length) {
-              this.menuContent.highlighted;
-            }
-          }
           this.openMenu();
         }
       },
@@ -199,12 +192,17 @@
         }
       },
       openMenu() {
+        console.log(this.items);
         if (this.items.length > 0) {
           this.$refs.menu.open();           
         }
       },
       closeMenu() {
         this.$refs.menu.close();
+
+        console.log(this.$refs);
+
+        this.$refs.menu.$el.blur();
       },
       updateValues(value) {
         const newValue = value || this.$refs.input.value || this.value;
