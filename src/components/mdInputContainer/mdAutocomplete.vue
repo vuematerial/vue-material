@@ -55,6 +55,7 @@
         loading: false,
         query: '',
         selected: null,
+        isItemSelected: false, 
         timeout: 0,
         parentContainer: null,
         searchButton: null
@@ -80,6 +81,16 @@
     },
     methods: {
       debounceUpdate() {
+        if (this.isItemSelected) {
+          this.isItemSelected = false;
+
+          if (this.timeout) {
+            window.clearTimeout(this.timeout);
+          }
+
+          return;
+        }
+
         this.onInput();
 
         if (this.timeout) {
@@ -95,6 +106,8 @@
         }, this.debounce);
       },
       hit(item) {
+        this.isItemSelected = true;
+
         this.query = item[this.printAttribute];
         this.$refs.input.value = item[this.printAttribute];
         this.selected = item;
@@ -192,17 +205,12 @@
         }
       },
       openMenu() {
-        console.log(this.items);
         if (this.items.length > 0) {
           this.$refs.menu.open();           
         }
       },
       closeMenu() {
         this.$refs.menu.close();
-
-        console.log(this.$refs);
-
-        this.$refs.menu.$el.blur();
       },
       updateValues(value) {
         const newValue = value || this.$refs.input.value || this.value;
