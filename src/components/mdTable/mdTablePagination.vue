@@ -56,9 +56,6 @@
     },
     watch: {
       mdTotal(val) {
-        const sub = this.currentPage * this.currentSize;
-
-        this.subTotal = sub > val ? val : sub;
         this.totalItems = isNaN(val) ? Number.MAX_SAFE_INTEGER : parseInt(val, 10);
       },
       mdSize(val) {

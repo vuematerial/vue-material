@@ -11,7 +11,8 @@
       :md-max-height="maxHeight"
       :md-close-on-select="false"
       ref="menu"
-      class="md-autocomplete-menu">
+      class="md-autocomplete-menu" md-align-trigger>
+
       <input class="md-input"
         ref="input"
         type="text"
@@ -31,7 +32,7 @@
 
       <md-menu-content class="md-autocomplete-content">
         <md-menu-item v-if="items.length"
-          v-for="(item, index) in items"
+          v-for="(item, index) in filterItemsByResLength"
           :key="index"
           :listIndex="index"
           manual-highlight
@@ -59,12 +60,22 @@
         isItemSelected: 0,
         timeout: 0,
         parentContainer: null,
-        searchButton: null
+        searchButton: null,
+        focusedInOpenMenu: false
       };
     },
     computed: {
       listIsEmpty() {
         return this.list.length === 0;
+      },
+      itemsEmpty() {
+        return this.items.length === 0;
+      },
+      filterItemsByResLength() {
+        if (this.maxRes === 0) {
+          return this.items;
+        }
+        return this.items.slice(0, this.maxRes);
       }
     },
     watch: {
@@ -111,16 +122,18 @@
             let data = response || response.data || response.body;
 
             data = this.prepareResponseData ?
-              this.prepareResponseData(data) :
-              data;
+            this.prepareResponseData(data) :
+            data;
             this.items = this.limit ?
-              data.slice(0, this.limit) :
-              data;
+            data.slice(0, this.limit) :
+            data;
 
             this.loading = false;
 
-            if (this.items.length > 0 && !this.isItemSelected) {
+            if (!this.itemsEmpty && !this.isItemSelected) {
               this.openMenu();
+            } else {
+              this.closeMenu();
             }
           });
       },
@@ -130,8 +143,16 @@
         if (this.parentContainer) {
           this.parentContainer.isFocused = true;
         }
-        
+
         this.$refs.input.focus();
+
+        if (this.query.length >= this.minChars) {
+          if (this.focusedInOpenMenu) {
+            this.focusedInOpenMenu = false;
+            return;
+          }
+          this.openMenu();
+        }
       },
       onInput() {
         this.updateValues();
@@ -139,11 +160,15 @@
         this.$emit('input', this.$refs.input.value);
       },
       renderFilteredList() {
-        if (this.filterList) {
+        if (this.filterList && this.query.length >= this.minChars) {
           this.items = this.filterList(Object.assign([], this.list), this.query);
         }
 
-        if (this.items.length !== 0 && this.isItemSelected === 0) {
+        if (this.query.length < this.minChars || this.itemsEmpty) {
+          this.closeMenu();
+        }
+
+        if (!this.itemsEmpty && this.isItemSelected === 0) {
           this.openMenu();
         } else {
           if (this.isItemSelected === 1) {
@@ -200,12 +225,15 @@
         }
       },
       openMenu() {
-        if (this.items.length > 0) {
-          this.$refs.menu.open();           
+        if (this.items.length && !this.itemsEmpty) {
+          this.$refs.menu.open();
+          this.focusedInOpenMenu = true;
+          this.$refs.input.focus();
         }
       },
       closeMenu() {
         this.$refs.menu.close();
+        this.focusedInOpenMenu = false;
       },
       updateValues(value) {
         const newValue = value || this.$refs.input.value || this.value;

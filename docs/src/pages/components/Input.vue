@@ -233,6 +233,12 @@
                 <md-table-cell><code>Number</code></md-table-cell>
                 <md-table-cell>Sets the maximum height of the selection menu in terms of the number of items which can be displayed at once. If set to <code>0</code>, the maximum height will be dependant on window height. <br>Default: <code>0</code></md-table-cell>
               </md-table-row>
+              
+              <md-table-row>
+                <md-table-cell>max-res</md-table-cell>
+                <md-table-cell><code>Number</code></md-table-cell>
+                <md-table-cell>Sets the maximum number of results to show. If <code>0</code>, results are not limited. <br>Default: <code>0</code></md-table-cell>
+              </md-table-row>
             </md-table-body>
           </md-table>
 
@@ -383,7 +389,7 @@
 
                 &lt;md-input-container&gt;
                   &lt;label&gt;Autocomplete (with fetch)&lt;/label&gt;
-                  &lt;md-input v-model=&quot;autocompleteValue&quot; :fetch=&quot;fetchFunction&quot;&gt;&lt;/md-input&gt;
+                  &lt;md-autocomplete v-model=&quot;autocompleteValue&quot; :fetch=&quot;fetchFunction&quot;&gt;&lt;/md-autocomplete&gt;
                 &lt;/md-input-container&gt;
 
                 &lt;md-input-container&gt;
