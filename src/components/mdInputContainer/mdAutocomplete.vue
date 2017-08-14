@@ -60,8 +60,7 @@
         isItemSelected: 0,
         timeout: 0,
         parentContainer: null,
-        searchButton: null,
-        focusedInOpenMenu: false
+        searchButton: null
       };
     },
     computed: {
@@ -147,10 +146,10 @@
         this.$refs.input.focus();
 
         if (this.query.length >= this.minChars) {
-          if (this.focusedInOpenMenu) {
-            this.focusedInOpenMenu = false;
-            return;
+          if (this.minChars === 0) {
+            this.renderFilteredList();
           }
+
           this.openMenu();
         }
       },
@@ -227,13 +226,11 @@
       openMenu() {
         if (this.items.length && !this.itemsEmpty) {
           this.$refs.menu.open();
-          this.focusedInOpenMenu = true;
           this.$refs.input.focus();
         }
       },
       closeMenu() {
         this.$refs.menu.close();
-        this.focusedInOpenMenu = false;
       },
       updateValues(value) {
         const newValue = value || this.$refs.input.value || this.value;
@@ -296,8 +293,6 @@
         if (!this.listIsEmpty) {
           this.items = Object.assign([], this.list);
         }
-
-        this.query = this.value;
 
         this.verifyProps();
         this.setSearchButton();

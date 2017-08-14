@@ -157,9 +157,11 @@
             this.menuContent.style.maxHeight =
                 window.innerHeight - this.menuTrigger.getBoundingClientRect().bottom - margin + "px";
           } else {
-            let listElemHeight = this.menuContent.children[0].children[0].clientHeight;
+            if (this.menuContent.children[0].children.length > 0) {
+              let listElemHeight = this.menuContent.children[0].children[0].clientHeight;
 
-            this.menuContent.style.maxHeight = ((margin * 2) + (listElemHeight * this.mdMaxHeight)) + "px";
+              this.menuContent.style.maxHeight = ((margin * 2) + (listElemHeight * this.mdMaxHeight)) + "px";
+            }
           }
         }
 
