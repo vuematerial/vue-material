@@ -56,7 +56,7 @@
         loading: false,
         query: '',
         selected: null,
-        isItemSelected: false, 
+        isItemSelected: 0,
         timeout: 0,
         parentContainer: null,
         searchButton: null
@@ -82,14 +82,6 @@
     },
     methods: {
       debounceUpdate() {
-        if (this.isItemSelected) {
-          if (this.timeout) {
-            window.clearTimeout(this.timeout);
-          }
-
-          return;
-        }
-
         this.onInput();
 
         if (this.timeout) {
@@ -105,8 +97,6 @@
         }, this.debounce);
       },
       hit(item) {
-        this.isItemSelected = true;
-
         this.query = item[this.printAttribute];
         this.$refs.input.value = item[this.printAttribute];
         this.selected = item;
@@ -135,7 +125,7 @@
           });
       },
       onFocus() {
-        this.isItemSelected = false;
+        this.isItemSelected = 0;
 
         if (this.parentContainer) {
           this.parentContainer.isFocused = true;
@@ -153,8 +143,12 @@
           this.items = this.filterList(Object.assign([], this.list), this.query);
         }
 
-        if (this.items.length !== 0) {
+        if (this.items.length !== 0 && this.isItemSelected === 0) {
           this.openMenu();
+        } else {
+          if (this.isItemSelected === 1) {
+            this.isItemSelected = 0;
+          }
         }
       },
       reset() {
@@ -245,13 +239,15 @@
         let index = this.menuContent.__vue__.$children[0].$children[
           this.menuContent.__vue__.highlighted - 1].index;
 
+        this.isItemSelected = 1;
+
         this.hit(this.items[index - 1]);
         this.closeMenu();
 
         return true;
       },
       setItemSelected(item) {
-        this.isItemSelected = true;
+        this.isItemSelected = 2;
         this.hit(item);
 
         this.closeMenu();
