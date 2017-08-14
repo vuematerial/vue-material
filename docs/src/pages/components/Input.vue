@@ -758,11 +758,11 @@
                   colorFilter: function(list, query) {
                     var arr = [];
             
-                    for(var i = 0; i < list.length; i++) {
+                    for(var i = 0; i &lt; list.length; i++) {
                       if(list[i].name.indexOf(query) !== -1)
                         arr.push(list[i]);
             
-                      if(arr.length > 5)
+                      if(arr.length &gt; 5)
                         break;
                     }
             
