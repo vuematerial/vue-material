@@ -659,13 +659,134 @@
             </code-block>
           </div>
         </example-box>
+
+        <example-box card-title="Autocomplete Example">
+          <div slot="demo">
+            <form novalidate @submit.stop.prevent="submit">
+              <md-input-container md-theme="green">
+                <label>Choose a Colour</label>
+                <md-autocomplete v-model="colorValue" 
+                                 :list="colorData"
+                                 print-attribute="name"
+                                 :filter-list="colorFilter"
+                                 :min-chars="0"
+                                 :max-height="6"
+                                 @selected="colorCallback"
+                                 :debounce="500">
+                </md-autocomplete>
+              </md-input-container>
+
+              <div class="color-box" :style="{ backgroundColor: selectedColor }"></div>
+            </form>
+          </div>
+
+          <div slot="code">
+            <code-block lang="xml">
+              &lt;form novalidate @submit.stop.prevent=&quot;submit&quot;&gt;
+                &lt;md-input-container md-theme=&quot;green&quot;&gt;
+                  &lt;label&gt;Choose a Colour&lt;/label&gt;
+                  &lt;md-autocomplete v-model=&quot;colorValue&quot; 
+                                      :list=&quot;colorData&quot;
+                                      print-attribute=&quot;name&quot;
+                                      :filter-list=&quot;colorFilter&quot;
+                                      :min-chars=&quot;0&quot;
+                                      :max-height=&quot;6&quot;
+                                      @selected=&quot;colorCallback&quot;
+                                      :debounce=&quot;500&quot;&gt;
+                  &lt;/md-autocomplete&gt;
+                &lt;/md-input-container&gt;
+              
+                &lt;div class=&quot;color-box&quot; :style=&quot;{ backgroundColor: selectedColor }&quot;&gt;&lt;/div&gt;
+              &lt;/form&gt;
+            </code-block>
+
+            <code-block lang="javascript">
+              export default {
+                data() {
+                  return {
+                    colorValue: '',
+                    colorData: [
+                      {name: "aqua", color: "#00ffff"},
+                      {name: "aquamarine", color: "#7fffd4"},
+                      {name: "azure", color: "#f0ffff"},
+                      {name: "beige", color: "#f5f5dc"},
+                      {name: "black", color: "#000000"},
+                      {name: "blue", color: "#0000ff"},
+                      {name: "brown", color: "#a52a2a"},
+                      {name: "crimson", color: "#dc143c"},
+                      {name: "cyan", color: "#00ffff"},
+                      {name: "deeppink", color: "#ff1493"},
+                      {name: "dimgray", color: "#696969"},
+                      {name: "fuchsia", color: "#ff00ff"},
+                      {name: "gold", color: "#ffd700"},
+                      {name: "gray", color: "#808080"},
+                      {name: "green", color: "#008000"},
+                      {name: "greenyellow", color: "#adff2f"},
+                      {name: "grey", color: "#808080"},
+                      {name: "hotpink", color: "#ff69b4"},
+                      {name: "indigo", color: "#4b0082"},
+                      {name: "ivory", color: "#fffff0"},
+                      {name: "khaki", color: "#f0e68c"},
+                      {name: "lavender", color: "#e6e6fa"},
+                      {name: "lime", color: "#00ff00"},
+                      {name: "magenta", color: "#ff00ff"},
+                      {name: "maroon", color: "#800000"},
+                      {name: "navy", color: "#000080"},
+                      {name: "olive", color: "#808000"},
+                      {name: "orange", color: "#ffa500"},
+                      {name: "orangered", color: "#ff4500"},
+                      {name: "palegoldenrod", color: "#eee8aa"},
+                      {name: "palegreen", color: "#98fb98"},         
+                      {name: "pink", color: "#ffc0cb"},
+                      {name: "purple", color: "#800080"},
+                      {name: "red", color: "#ff0000"},
+                      {name: "royalblue", color: "#4169e1"},
+                      {name: "seagreen", color: "#2e8b57"},
+                      {name: "silver", color: "#c0c0c0"},
+                      {name: "skyblue", color: "#87ceeb"},
+                      {name: "slateblue", color: "#6a5acd"},
+                      {name: "slategrey", color: "#708090"},
+                      {name: "teal", color: "#008080"},
+                      {name: "turquoise", color: "#40e0d0"},
+                      {name: "violet", color: "#ee82ee"},
+                      {name: "white", color: "#ffffff"},         
+                      {name: "yellow", color: "#ffff00"},
+                    ]
+                  };
+                },
+                methods: {
+                  colorFilter: function(list, query) {
+                    var arr = [];
+            
+                    for(var i = 0; i < list.length; i++) {
+                      if(list[i].name.indexOf(query) !== -1)
+                        arr.push(list[i]);
+            
+                      if(arr.length > 5)
+                        break;
+                    }
+            
+                    return arr;
+                  },
+            
+                  colorCallback: function(item) {
+                    this.selectedColor = item.color;
+                  }
+                }
+              }; 
+            </code-block>
+          </div>
+        </example-box>
       </div>
     </docs-component>
   </page-content>
 </template>
 
 <style lang="scss" scoped>
-
+  .color-box {
+    width: 200px;
+    height: 200px;
+  }
 </style>
 
 <script>
@@ -673,15 +794,81 @@
     data() {
       return {
         autocompleteValue: '',
+        colorValue: '',
         initialValue: 'My initial value',
         listAutocomplete: [
           {name: 'oi'},
           {name: 'hello'},
           {name: 'salut'}
+        ],
+        colorData: [
+          {name: "aqua", color: "#00ffff"},
+          {name: "aquamarine", color: "#7fffd4"},
+          {name: "azure", color: "#f0ffff"},
+          {name: "beige", color: "#f5f5dc"},
+          {name: "black", color: "#000000"},
+          {name: "blue", color: "#0000ff"},
+          {name: "brown", color: "#a52a2a"},
+          {name: "crimson", color: "#dc143c"},
+          {name: "cyan", color: "#00ffff"},
+          {name: "deeppink", color: "#ff1493"},
+          {name: "dimgray", color: "#696969"},
+          {name: "fuchsia", color: "#ff00ff"},
+          {name: "gold", color: "#ffd700"},
+          {name: "gray", color: "#808080"},
+          {name: "green", color: "#008000"},
+          {name: "greenyellow", color: "#adff2f"},
+          {name: "grey", color: "#808080"},
+          {name: "hotpink", color: "#ff69b4"},
+          {name: "indigo", color: "#4b0082"},
+          {name: "ivory", color: "#fffff0"},
+          {name: "khaki", color: "#f0e68c"},
+          {name: "lavender", color: "#e6e6fa"},
+          {name: "lime", color: "#00ff00"},
+          {name: "magenta", color: "#ff00ff"},
+          {name: "maroon", color: "#800000"},
+          {name: "navy", color: "#000080"},
+          {name: "olive", color: "#808000"},
+          {name: "orange", color: "#ffa500"},
+          {name: "orangered", color: "#ff4500"},
+          {name: "palegoldenrod", color: "#eee8aa"},
+          {name: "palegreen", color: "#98fb98"},         
+          {name: "pink", color: "#ffc0cb"},
+          {name: "purple", color: "#800080"},
+          {name: "red", color: "#ff0000"},
+          {name: "royalblue", color: "#4169e1"},
+          {name: "seagreen", color: "#2e8b57"},
+          {name: "silver", color: "#c0c0c0"},
+          {name: "skyblue", color: "#87ceeb"},
+          {name: "slateblue", color: "#6a5acd"},
+          {name: "slategrey", color: "#708090"},
+          {name: "teal", color: "#008080"},
+          {name: "turquoise", color: "#40e0d0"},
+          {name: "violet", color: "#ee82ee"},
+          {name: "white", color: "#ffffff"},         
+          {name: "yellow", color: "#ffff00"},
         ]
       };
     },
     methods: {
+      colorFilter: function(list, query) {
+        var arr = [];
+
+        for(var i = 0; i < list.length; i++) {
+          if(list[i].name.indexOf(query) !== -1)
+            arr.push(list[i]);
+
+          if(arr.length > 5)
+            break;
+        }
+
+        return arr;
+      },
+
+      colorCallback: function(item) {
+        this.selectedColor = item.color;
+      },
+
       fetchAutocomplete(param) {
         const myInit = {
           method: 'GET',
@@ -689,6 +876,7 @@
           mode: 'cors',
           cache: 'default'
         };
+
         const url = 'https://typeahead-js-twitter-api-proxy.herokuapp.com/demo/search';
         const queryParam = Object.keys(param)[0];
         const queryValue = param[queryParam];
