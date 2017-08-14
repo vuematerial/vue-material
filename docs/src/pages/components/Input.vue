@@ -229,12 +229,6 @@
               </md-table-row>
 
               <md-table-row>
-                <md-table-cell>open-on-focus</md-table-cell>
-                <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>If <code>true</code>, the selection menu will appear when input is focused (clicked on). <br>Default: <code>false</code></md-table-cell>
-              </md-table-row>
-
-              <md-table-row>
                 <md-table-cell>max-height</md-table-cell>
                 <md-table-cell><code>Number</code></md-table-cell>
                 <md-table-cell>Sets the maximum height of the selection menu in terms of the number of items which can be displayed at once. If set to <code>0</code>, the maximum height will be dependant on window height. <br>Default: <code>0</code></md-table-cell>
