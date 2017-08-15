@@ -82,7 +82,7 @@
       validateMenu() {
         if (!this.menuContent) {
           this.$destroy();
-            
+
           throw new Error('You must have a md-menu-content inside your menu.');
         }
 
@@ -138,6 +138,8 @@
         let width;
 
         let margin = 8;
+
+        if (this._destroyed) return;
 
         if (!this.mdDirection) {
           position = this.getPosition('bottom', 'right');
@@ -259,8 +261,10 @@
       if (!this.mdManualToggle) {
         this.menuTrigger.removeEventListener('click', this.toggle);
       }
-      
+
       window.removeEventListener('resize', this.recalculateOnResize);
+
+      this._destroyed = true;
     }
   };
 </script>
