@@ -2,11 +2,17 @@
   <div class="md-autocomplete"
     @focus="onFocus"
     @blur="onBlur">
-    <md-menu :md-offset-x="8"
-      md-offset-y="45"
+    <md-menu
+      md-align-trigger
+      md-auto-width
+      md-fixed
+      md-no-focus
+      md-manual-toggle
+      :md-max-height="maxHeight"
+      :md-close-on-select="false"
       ref="menu"
       class="md-autocomplete-menu" md-align-trigger>
-      <span md-menu-trigger></span>
+
       <input class="md-input"
         ref="input"
         type="text"
@@ -18,14 +24,20 @@
         :name="name"
         @focus="onFocus"
         @blur="onBlur"
-        @input="debounceUpdate"/>
+        @input="debounceUpdate"
+        @keydown.up.prevent="contentHighlightItem('up')"
+        @keydown.down.prevent="contentHighlightItem('down')"
+        @keydown.enter.prevent="contentFireClick()"
+        @keydown.tab="closeMenu()"
+        md-menu-trigger/>
 
-      <md-menu-content>
+      <md-menu-content class="md-autocomplete-content">
         <md-menu-item v-if="items.length"
           v-for="(item, index) in filterItemsByResLength"
           :key="index"
-          @keyup.enter="hit(item)"
-          @click="hit(item)">
+          :listIndex="index"
+          manual-highlight
+          @click="setItemSelected(item)">
           {{ item[printAttribute] }}
         </md-menu-item>
       </md-menu-content>
@@ -46,10 +58,10 @@
         loading: false,
         query: '',
         selected: null,
+        isItemSelected: 0,
         timeout: 0,
         parentContainer: null,
-        searchButton: null,
-        focusedInOpenMenu: false
+        searchButton: null
       };
     },
     computed: {
@@ -101,6 +113,8 @@
         this.selected = item;
         this.onInput();
         this.$emit('selected', this.selected, this.$refs.input.value);
+
+        this.closeMenu();
       },
       makeFetchRequest(queryObject) {
         return this.fetch(queryObject)
@@ -116,27 +130,29 @@
 
             this.loading = false;
 
-            if (this.itemsEmpty) {
+            if (!this.itemsEmpty && !this.isItemSelected) {
+              this.openMenu();
+            } else {
               this.closeMenu();
-              return;
             }
-            this.openMenu();
-  
           });
       },
       onFocus() {
+        this.isItemSelected = 0;
+
         if (this.parentContainer) {
           this.parentContainer.isFocused = true;
         }
 
+        this.$refs.input.focus();
+
         if (this.query.length >= this.minChars) {
-          if (this.focusedInOpenMenu) {
-            this.focusedInOpenMenu = false;
-            return;
+          if (this.minChars === 0) {
+            this.renderFilteredList();
           }
+
           this.openMenu();
         }
-
       },
       onInput() {
         this.updateValues();
@@ -146,11 +162,18 @@
       renderFilteredList() {
         if (this.filterList && this.query.length >= this.minChars) {
           this.items = this.filterList(Object.assign([], this.list), this.query);
-          this.openMenu();
         }
 
         if (this.query.length < this.minChars || this.itemsEmpty) {
           this.closeMenu();
+        }
+
+        if (!this.itemsEmpty && this.isItemSelected === 0) {
+          this.openMenu();
+        } else {
+          if (this.isItemSelected === 1) {
+            this.isItemSelected = 0;
+          }
         }
       },
       reset() {
@@ -202,21 +225,60 @@
         }
       },
       openMenu() {
-        if (this.items.length) {
+        if (this.items.length && !this.itemsEmpty) {
           this.$refs.menu.open();
-          this.focusedInOpenMenu = true;
           this.$refs.input.focus();
         }
       },
       closeMenu() {
         this.$refs.menu.close();
-        this.focusedInOpenMenu = false;
       },
       updateValues(value) {
         const newValue = value || this.$refs.input.value || this.value;
 
         this.setParentValue(newValue);
         this.parentContainer.inputLength = newValue ? newValue.length : 0;
+      },
+      contentHighlightItem(direction) {
+        this.menuContent = document.body.querySelector('.md-autocomplete-content');
+
+        if (this.menuContent === null) {
+            return false;
+        }
+
+        this.menuContent.__vue__.highlightItem(direction);
+
+        return true;
+      },
+      contentFireClick() {
+        this.menuContent = document.body.querySelector('.md-autocomplete-content');
+
+        if (this.menuContent === null ||
+            this.menuContent.__vue__.highlighted === false ||
+            this.menuContent.__vue__.highlighted < 1) {
+
+            this.closeMenu();
+
+            return false;
+        }
+
+        let index = this.menuContent.__vue__.$children[0].$children[
+          this.menuContent.__vue__.highlighted - 1].index;
+
+        this.isItemSelected = 1;
+
+        this.hit(this.items[index - 1]);
+        this.closeMenu();
+
+        return true;
+      },
+      setItemSelected(item) {
+        this.isItemSelected = 2;
+        this.hit(item);
+
+        this.closeMenu();
+
+        return true;
       }
     },
     beforeDestroy() {
@@ -227,12 +289,11 @@
     mounted() {
       this.$nextTick(() => {
         this.parentContainer = getClosestVueParent(this.$parent, 'md-input-container');
+        this.menuContent = document.body.querySelector('.md-autocomplete-content');         
 
         if (!this.listIsEmpty) {
           this.items = Object.assign([], this.list);
         }
-
-        this.query = this.value;
 
         this.verifyProps();
         this.setSearchButton();

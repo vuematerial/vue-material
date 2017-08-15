@@ -1,4 +1,4 @@
-const margin = 8;
+const margin = 0;
 
 const isAboveOfViewport = (element, position) => {
   return position.top <= margin - parseInt(getComputedStyle(element).marginTop, 10);

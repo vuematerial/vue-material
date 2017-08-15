@@ -133,6 +133,18 @@
               </md-table-row>
 
               <md-table-row>
+                <md-table-cell>md-iconset</md-table-cell>
+                <md-table-cell><code>String</code></md-table-cell>
+                <md-table-cell>Allows use of icons from another iconset. <br>Example: <code>md-iconset="fa fa-pencil"</code> for font awesome. </md-table-cell>
+              </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>md-icon-src</md-table-cell>
+                <md-table-cell><code>String</code></md-table-cell>
+                <md-table-cell>Path to a custom PNG/SVG image.</md-table-cell>
+              </md-table-row>
+
+              <md-table-row>
                 <md-table-cell>md-active</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
                 <md-table-cell>Activate the tab. Default <code>false</code></md-table-cell>

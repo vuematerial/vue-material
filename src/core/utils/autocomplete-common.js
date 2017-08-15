@@ -29,7 +29,14 @@ export default {
       type: String,
       default: 'q'
     },
+
+    maxHeight: {
+      type: Number,
+      default: 0
+    },
+    
     required: Boolean,
+    
     maxRes: {
       type: Number,
       default: 0
