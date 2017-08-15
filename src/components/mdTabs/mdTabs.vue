@@ -221,6 +221,8 @@
       },
       calculatePosition() {
         window.requestAnimationFrame(() => {
+          if (this._destroyed) return;
+          
           this.calculateIndicatorPos();
           this.calculateTabsWidthAndPosition();
           this.calculateContentHeight();
@@ -250,6 +252,8 @@
       },
       handleNavigationScroll() {
         window.requestAnimationFrame(() => {
+          if (this._destroyed) return;
+
           this.calculateIndicatorPos();
           this.calculateScrollPos();
         });
@@ -299,6 +303,8 @@
       }
 
       window.removeEventListener('resize', this.calculateOnResize);
+
+      this._destroyed = true;
     }
   };
 </script>

@@ -60,6 +60,8 @@
       },
       calculatePadding() {
         window.requestAnimationFrame(() => {
+          if (this._destroyed) return;
+
           this.height = -this.$refs.expand.scrollHeight + 'px';
 
           window.setTimeout(() => {
@@ -103,6 +105,8 @@
       }
 
       window.removeEventListener('resize', this.recalculateAfterChange);
+
+      this._destroyed = true;
     }
   };
 </script>
