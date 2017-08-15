@@ -2,7 +2,7 @@
   <page-content page-title="Components - File">
     <docs-component>
       <div slot="description">
-        <p>The file picker aim to select files like images, videos and other formats. They can have multiselection and use the devide file system to pick the file.</p>
+        <p>The file picker aim to select files like images, videos and other formats. They can have multiselection and use the device file system to pick the file.</p>
       </div>
 
       <div slot="api">
