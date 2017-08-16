@@ -146,7 +146,7 @@
 
         this.$set(this.tabList, tabData.id, tabData);
 
-        if (!hasActive) {
+        if (!hasActive && !tabData.disabled) {
           this.tabList[tabData.id].active = true;
         }
       },
