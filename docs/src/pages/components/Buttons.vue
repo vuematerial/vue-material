@@ -26,7 +26,7 @@
               <md-table-row>
                 <md-table-cell>disabled</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Disable the button and prevent its actions. Default <code>false</code></md-table-cell>
+                <md-table-cell>Disable the button and prevent its actions. <br>Default: <code>false</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
@@ -38,7 +38,7 @@
               <md-table-row>
                 <md-table-cell>href</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
-                <md-table-cell>Create a anchor on the button - In this case the generated tag will be <code>&lt;a&gt;</code>.</md-table-cell>
+                <md-table-cell>Create an anchor on the button - In this case the generated tag will be <code>&lt;a&gt;</code>.</md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>
@@ -69,7 +69,7 @@
 
               <md-table-row>
                 <md-table-cell>md-fab</md-table-cell>
-                <md-table-cell>Create an Floating Action Button</md-table-cell>
+                <md-table-cell>Create a Floating Action Button</md-table-cell>
               </md-table-row>
 
               <md-table-row>

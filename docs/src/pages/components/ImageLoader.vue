@@ -20,7 +20,7 @@
               <md-table-row>
                 <md-table-cell>md-src</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
-                <md-table-cell>The image source. Accepts any image file extension.</md-table-cell>
+                <md-table-cell>The image source. <br>Accepts: any image file extension.</md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>

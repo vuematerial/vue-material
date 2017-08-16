@@ -3,7 +3,7 @@
     <docs-component>
       <div slot="description">
         <p>Lists are best suited to presenting a homogeneous data type or sets of data types, such as images and text. They are optimized for reading comprehension while differentiating either between similar data types, or qualities within a single data type.</p>
-        <p>The <code>md-list</code> component have some auxiliary classes to align content and display actions. All of them can be any HTML tag:</p>
+        <p>The <code>md-list</code> component has some auxiliary classes to align content and display actions. All of them can be any HTML tag:</p>
         <ul>
           <li><code>.md-list-action</code>: Used to display a action on the right side of a list item. Commonly used to display a button with a single action.</li>
           <li><code>.md-list-text-container</code>: Used to align text horizontally with icons and actions. Used in double and triple lines.</li>
@@ -68,13 +68,13 @@
               <md-table-row>
                 <md-table-cell>disabled</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Disable the item and prevent its actions. Default <code>false</code></md-table-cell>
+                <md-table-cell>Disable the item and prevent its actions. <br>Default: <code>false</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-expand-multiple</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Allow multiple items be expanded in same time in md-list. Default <code>false</code></md-table-cell>
+                <md-table-cell>Allow multiple items be expanded in same time in md-list. <br>Default: <code>false</code></md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>

@@ -49,7 +49,7 @@
               <md-table-row>
                 <md-table-cell>disabled</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Disable the radio and prevent its actions. Default <code>false</code></md-table-cell>
+                <md-table-cell>Disable the radio and prevent its actions. <br>Default: <code>false</code></md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>

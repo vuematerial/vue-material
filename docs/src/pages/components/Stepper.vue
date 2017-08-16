@@ -19,17 +19,17 @@
               <md-table-row>
                 <md-table-cell>md-alternate-labels</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>On the horizontal display it will place the labels underneigh the step icon. Default: false</md-table-cell>
+                <md-table-cell>On the horizontal display it will place the labels underneath the step icon. Default: <code>false</code></md-table-cell>
               </md-table-row>
               <md-table-row>
                 <md-table-cell>md-elevation</md-table-cell>
                 <md-table-cell><code>Number</code></md-table-cell>
-                <md-table-cell>Sets the elevation of the container for each content and the horizontal header. Default: 1</md-table-cell>
+                <md-table-cell>Set the elevation of the container for each content and the horizontal header. Default: <code>1</code></md-table-cell>
               </md-table-row>
               <md-table-row>
                 <md-table-cell>md-vertical</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Will place the steps in a vertical position. Default: false</md-table-cell>
+                <md-table-cell>Will place the steps in a vertical position. Default: <code>false</code></md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>
@@ -45,7 +45,7 @@
               <md-table-row>
                 <md-table-cell>change</md-table-cell>
                 <md-table-cell>Receive the step as <code>Number</code></md-table-cell>
-                <md-table-cell>Triggered when the step number changes it's value and onload.</md-table-cell>
+                <md-table-cell>Triggered when the step number changes its value and onload.</md-table-cell>
               </md-table-row>
               <md-table-row>
                 <md-table-cell>completed</md-table-cell>
@@ -69,27 +69,27 @@
               <md-table-row>
                 <md-table-cell>md-button-back</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
-                <md-table-cell>The text to be displayed in the back button. Default: 'BACK'.</md-table-cell>
+                <md-table-cell>The text to be displayed in the back button. Default: <code>BACK</code>.</md-table-cell>
               </md-table-row>
               <md-table-row>
                 <md-table-cell>md-button-continue</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
-                <md-table-cell>The text to be displayed in the coninue button. Default: 'CONTINUE' or 'FINISH' (if is the last step)</md-table-cell>
+                <md-table-cell>The text to be displayed in the coninue button. Default: <code>CONTINUE</code> (or <code>FINISH</code> if it is the last step)</md-table-cell>
               </md-table-row>
               <md-table-row>
                 <md-table-cell>md-continue</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Ability to define if the step is completed and allowed to continue. Default: true</md-table-cell>
+                <md-table-cell>Ability to define if the step is completed and allowed to continue. Default: <code>true</code></md-table-cell>
               </md-table-row>
               <md-table-row>
                 <md-table-cell>md-disabled</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Ability to disable the step. Default: false</md-table-cell>
+                <md-table-cell>Ability to disable the step. Default: <code>false</code></md-table-cell>
               </md-table-row>
               <md-table-row>
                 <md-table-cell>md-editable</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>If the step is allowed to go 'back' after it has been completed. Default: false</md-table-cell>
+                <md-table-cell>If the step is allowed to go 'back' after it has been completed. Default: <code>false</code></md-table-cell>
               </md-table-row>
               <md-table-row>
                 <md-table-cell>md-icon</md-table-cell>
@@ -99,12 +99,12 @@
               <md-table-row>
                 <md-table-cell>md-label</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
-                <md-table-cell>The label of step header. Default: undefined</md-table-cell>
+                <md-table-cell>The label of step header. Default: <code>undefined</code></md-table-cell>
               </md-table-row>
               <md-table-row>
                 <md-table-cell>md-message</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
-                <md-table-cell>The sub message to be used underneigh the step header label. Default: undefined</md-table-cell>
+                <md-table-cell>The sub message to be used underneigh the step header label. Default: <code>undefined</code></md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>

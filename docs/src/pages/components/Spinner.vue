@@ -25,25 +25,25 @@
               <md-table-row>
                 <md-table-cell>md-size</md-table-cell>
                 <md-table-cell><code>Number</code></md-table-cell>
-                <md-table-cell>The spinner size. Default <code>50</code></md-table-cell>
+                <md-table-cell>The spinner size. <br>Default: <code>50</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-stroke</md-table-cell>
                 <md-table-cell><code>Number</code></md-table-cell>
-                <md-table-cell>The line width. Default <code>3.5</code></md-table-cell>
+                <md-table-cell>The line width. <br>Default: <code>3.5</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-indeterminate</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Enable the indeterminate state. Default <code>false</code></md-table-cell>
+                <md-table-cell>Enable the indeterminate state. <br>Default: <code>false</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-progress</md-table-cell>
                 <md-table-cell><code>Number</code></md-table-cell>
-                <md-table-cell>Define the current progress of the spinner. Default <code>0</code></md-table-cell>
+                <md-table-cell>Define the current progress of the spinner. <br>Default: <code>0</code></md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>

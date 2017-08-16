@@ -26,7 +26,7 @@
               <md-table-row>
                 <md-table-cell>md-single</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Enable single selection. Default <code>false</code></md-table-cell>
+                <md-table-cell>Enable single selection. <br>Default: <code>false</code></md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>

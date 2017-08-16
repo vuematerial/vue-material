@@ -28,7 +28,7 @@
               <md-table-row>
                 <md-table-cell>md-disabled</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Disable the ripple effect on the parent element. Default <code>false</code></md-table-cell>
+                <md-table-cell>Disable the ripple effect on the parent element. <br>Default: <code>false</code></md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>

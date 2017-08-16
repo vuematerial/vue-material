@@ -4,9 +4,9 @@
       <div slot="description">
         <p>Dialogs inform users about a specific task and may contain critical information, require decisions, or involve multiple tasks.</p>
         <p>The dialog component works with any plain html content. You can have tabs, all form components and more.</p>
-        <p>Alternativelly you can use three presets to build Alerts, Confirms and Prompt dialogs.</p>
+        <p>Alternatively you can use three presets to build Alert, Confirm and Prompt dialogs.</p>
         <p>The preset component is created on top of <code>&lt;md-dialog&gt;</code>. You should provide the content or the HTML content at least.</p>
-        <p>All the pressets can use the same options and events from the <code>&lt;md-dialog&gt;</code> component.</p>
+        <p>All the presets can use the same options and events from the <code>&lt;md-dialog&gt;</code> component.</p>
       </div>
 
       <div slot="api">
@@ -24,19 +24,19 @@
               <md-table-row>
                 <md-table-cell>md-click-outside-to-close</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Enable or disable click outside to close. Default: <code>true</code></md-table-cell>
+                <md-table-cell>Enable or disable click outside to close. <br>Default: <code>true</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-esc-to-close</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Enable or disable close on esc key. Default: <code>true</code></md-table-cell>
+                <md-table-cell>Enable or disable close on esc key. <br>Default: <code>true</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-backdrop</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Create an opaque backdrop behind the dialog. Default: <code>true</code></md-table-cell>
+                <md-table-cell>Create an opaque backdrop behind the dialog. <br>Default: <code>true</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
@@ -66,7 +66,7 @@
               <md-table-row>
                 <md-table-cell>open</md-table-cell>
                 <md-table-cell>Receive the state of the dialog: <code>ok</code>| <code>cancel</code> <br>Works only for Confirm and Prompt</md-table-cell>
-                <md-table-cell>Triggered when the dialog open.</md-table-cell>
+                <md-table-cell>Triggered when the dialog opens.</md-table-cell>
               </md-table-row>
 
               <md-table-row>
@@ -110,7 +110,7 @@
         </api-table>
 
         <api-table name="md-dialog-actions">
-          <p>Hold the actions of a dialog and align them on the right. Here you can add <code>&lt;md-button&gt;</code> with or without icons.</p>
+          <p>Holds the actions of a dialog, aligned to the right. Here you can add <code>&lt;md-button&gt;</code> with or without icons.</p>
           <p>No options available</p>
         </api-table>
 
@@ -129,25 +129,25 @@
                 <md-table-row>
                   <md-table-cell>md-title</md-table-cell>
                   <md-table-cell><code>String</code></md-table-cell>
-                  <md-table-cell>Sets the alert title. Optional.</md-table-cell>
+                  <md-table-cell>Set the alert title. Optional.</md-table-cell>
                 </md-table-row>
 
                 <md-table-row>
                   <md-table-cell>md-content</md-table-cell>
                   <md-table-cell><code>String</code></md-table-cell>
-                  <md-table-cell>Sets the alert content.</md-table-cell>
+                  <md-table-cell>Set the alert content.</md-table-cell>
                 </md-table-row>
 
                 <md-table-row>
                   <md-table-cell>md-content-html</md-table-cell>
                   <md-table-cell><code>String</code></md-table-cell>
-                  <md-table-cell>Sets the alert content with a custom html.</md-table-cell>
+                  <md-table-cell>Set the alert content with custom html.</md-table-cell>
                 </md-table-row>
 
                 <md-table-row>
                   <md-table-cell>md-ok-text</md-table-cell>
                   <md-table-cell><code>String</code></md-table-cell>
-                  <md-table-cell>Sets the alert "Okay" button text.</md-table-cell>
+                  <md-table-cell>Set the alert "Okay" button text.</md-table-cell>
                 </md-table-row>
               </md-table-body>
             </md-table>
@@ -169,31 +169,31 @@
                 <md-table-row>
                   <md-table-cell>md-title</md-table-cell>
                   <md-table-cell><code>String</code></md-table-cell>
-                  <md-table-cell>Sets the confirm title. Optional.</md-table-cell>
+                  <md-table-cell>Set the confirm title. Optional.</md-table-cell>
                 </md-table-row>
 
                 <md-table-row>
                   <md-table-cell>md-content</md-table-cell>
                   <md-table-cell><code>String</code></md-table-cell>
-                  <md-table-cell>Sets the confirm content.</md-table-cell>
+                  <md-table-cell>Set the confirm content.</md-table-cell>
                 </md-table-row>
 
                 <md-table-row>
                   <md-table-cell>md-content-html</md-table-cell>
                   <md-table-cell><code>String</code></md-table-cell>
-                  <md-table-cell>Sets the confirm content with a custom html.</md-table-cell>
+                  <md-table-cell>Set the confirm content with custom html.</md-table-cell>
                 </md-table-row>
 
                 <md-table-row>
                   <md-table-cell>md-ok-text</md-table-cell>
                   <md-table-cell><code>String</code></md-table-cell>
-                  <md-table-cell>Sets the confirm "Okay" button text.</md-table-cell>
+                  <md-table-cell>Set the confirm "Okay" button text.</md-table-cell>
                 </md-table-row>
 
                 <md-table-row>
                   <md-table-cell>md-cancel-text</md-table-cell>
                   <md-table-cell><code>String</code></md-table-cell>
-                  <md-table-cell>Sets the confirm "Cancel" button text.</md-table-cell>
+                  <md-table-cell>Set the confirm "Cancel" button text.</md-table-cell>
                 </md-table-row>
               </md-table-body>
             </md-table>
@@ -215,37 +215,37 @@
                 <md-table-row>
                   <md-table-cell>md-title</md-table-cell>
                   <md-table-cell><code>String</code></md-table-cell>
-                  <md-table-cell>Sets the prompt title. Optional.</md-table-cell>
+                  <md-table-cell>Set the prompt title. Optional.</md-table-cell>
                 </md-table-row>
 
                 <md-table-row>
                   <md-table-cell>md-content</md-table-cell>
                   <md-table-cell><code>String</code></md-table-cell>
-                  <md-table-cell>Sets the prompt content.</md-table-cell>
+                  <md-table-cell>Set the prompt content.</md-table-cell>
                 </md-table-row>
 
                 <md-table-row>
                   <md-table-cell>md-content-html</md-table-cell>
                   <md-table-cell><code>String</code></md-table-cell>
-                  <md-table-cell>Sets the prompt content with a custom html.</md-table-cell>
+                  <md-table-cell>Set the prompt content with custom html.</md-table-cell>
                 </md-table-row>
 
                 <md-table-row>
                   <md-table-cell>md-ok-text</md-table-cell>
                   <md-table-cell><code>String</code></md-table-cell>
-                  <md-table-cell>Sets the prompt "Okay" button text.</md-table-cell>
+                  <md-table-cell>Set the prompt "Okay" button text.</md-table-cell>
                 </md-table-row>
 
                 <md-table-row>
                   <md-table-cell>md-cancel-text</md-table-cell>
                   <md-table-cell><code>String</code></md-table-cell>
-                  <md-table-cell>Sets the prompt "Cancel" button text.</md-table-cell>
+                  <md-table-cell>Set the prompt "Cancel" button text.</md-table-cell>
                 </md-table-row>
 
                 <md-table-row>
                   <md-table-cell>v-model</md-table-cell>
                   <md-table-cell><code>String</code></md-table-cell>
-                  <md-table-cell>A required model object to be bind when the value is confirmed.</md-table-cell>
+                  <md-table-cell>A required model object to bind to when the value is confirmed.</md-table-cell>
                 </md-table-row>
 
                 <md-table-row>
