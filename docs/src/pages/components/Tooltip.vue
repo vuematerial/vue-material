@@ -20,13 +20,13 @@
               <md-table-row>
                 <md-table-cell>md-direction</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
-                <md-table-cell>Sets the direction position of the parent element. <br>Default: <code>bottom</code> <br>Accepts: <code>top</code>|<code>right</code>|<code>bottom</code>|<code>left</code></md-table-cell>
+                <md-table-cell>Set the direction position of the parent element. <br>Accepts: <code>top</code>|<code>right</code>|<code>bottom</code>|<code>left</code> <br>Default: <code>bottom</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-delay</md-table-cell>
                 <md-table-cell><code>Number</code></md-table-cell>
-                <md-table-cell>Sets the delay to show the tooltip in ms. <br>Default: <code>0</code></md-table-cell>
+                <md-table-cell>Set the delay to show the tooltip in ms. <br>Default: <code>0</code></md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>

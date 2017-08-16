@@ -20,7 +20,7 @@
               <md-table-row>
                 <md-table-cell>md-inline</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Create inline field with a label or placeholder. <br>Default: <code>false</code></md-table-cell>
+                <md-table-cell>Create an inline field with a label or placeholder. <br>Default: <code>false</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
@@ -74,7 +74,7 @@
               <md-table-row>
                 <md-table-cell>type</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
-                <md-table-cell>Sets the type. <br>Default: <code>text</code></md-table-cell>
+                <md-table-cell>Set the type. <br>Default: <code>text</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
@@ -98,19 +98,19 @@
               <md-table-row>
                 <md-table-cell>placeholder</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
-                <md-table-cell>Sets the placeholder.</md-table-cell>
+                <md-table-cell>Set the placeholder.</md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>maxlength</md-table-cell>
                 <md-table-cell><code>Number</code></md-table-cell>
-                <md-table-cell>Sets the maxlength and enable the text counter.</md-table-cell>
+                <md-table-cell>Set the maxlength and enable the text counter.</md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>readonly</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Sets the component to read only mode.</md-table-cell>
+                <md-table-cell>Set the component to read only mode.</md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>
@@ -159,31 +159,31 @@
               <md-table-row>
                 <md-table-cell>debounce</md-table-cell>
                 <md-table-cell><code>Number</code></md-table-cell>
-                <md-table-cell>Sets the debounce time. <br>Default: <code>1000</code> milliseconds</md-table-cell>
+                <md-table-cell>Set the debounce time. <br>Default: <code>1000</code> milliseconds</md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>fetch</md-table-cell>
                 <md-table-cell><code>Function</code></md-table-cell>
-                <md-table-cell>Sets the fetch function mdAutocomplete will call after the debounce is reached. Chosing <code>fetch</code> prop <strong>disables</strong> the use of either <code>list</code> and <code>filterList</code> props.</md-table-cell>
+                <md-table-cell>Set the fetch function mdAutocomplete will call after the debounce is reached. Choosing <code>fetch</code> prop <strong>disables</strong> the use of either <code>list</code> and <code>filterList</code> props.</md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>list</md-table-cell>
                 <md-table-cell><code>Array</code></md-table-cell>
-                <md-table-cell>Sets an array of possible values. <br>Default: <code>[]</code>. MdAutocomplete will only search in this list if it's set. Chosing <code>list</code> prop <strong>disables</strong> the use of <code>fetch</code> prop.</md-table-cell>
+                <md-table-cell>Set an array of possible values. <br>Default: <code>[]</code>. MdAutocomplete will only search in this list if it's set. Chosing <code>list</code> prop <strong>disables</strong> the use of <code>fetch</code> prop.</md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>filter-list</md-table-cell>
                 <md-table-cell><code>Function</code></md-table-cell>
-                <md-table-cell>Sets a filter function which will be used to filter the <code>list</code> props. Chosing <code>filterList</code> prop <strong>requires</strong> the use of <code>list</code> props and <strong>disables</strong> the use of <code>fetch</code> prop.</md-table-cell>
+                <md-table-cell>Set a filter function which will be used to filter the <code>list</code> props. Choosing <code>filterList</code> prop <strong>requires</strong> the use of <code>list</code> props and <strong>disables</strong> the use of <code>fetch</code> prop.</md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>min-chars</md-table-cell>
                 <md-table-cell><code>Number</code></md-table-cell>
-                <md-table-cell>Sets the minimum number of characters before making opening the autocomplete options or making a request. <br>Default: <code>3</code></md-table-cell>
+                <md-table-cell>Set the minimum number of characters before making opening the autocomplete options or making a request. <br>Default: <code>3</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
@@ -201,7 +201,7 @@
               <md-table-row>
                 <md-table-cell>query-param</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
-                <md-table-cell>Sets the query parameter. Example: http//api.com/<strong>q</strong>?=SOMETHING. <br>Default: <code>q</code></md-table-cell>
+                <md-table-cell>Set the query parameter. Example: http//api.com/<strong>q</strong>?=SOMETHING. <br>Default: <code>q</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
@@ -219,13 +219,13 @@
               <md-table-row>
                 <md-table-cell>placeholder</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
-                <md-table-cell>Sets the placeholder.</md-table-cell>
+                <md-table-cell>Set the placeholder.</md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>maxlength</md-table-cell>
                 <md-table-cell><code>Number</code></md-table-cell>
-                <md-table-cell>Sets the maxlength and enable the text counter.</md-table-cell>
+                <md-table-cell>Set the maxlength and enable the text counter.</md-table-cell>
               </md-table-row>
 
               <md-table-row>
@@ -237,7 +237,7 @@
               <md-table-row>
                 <md-table-cell>max-res</md-table-cell>
                 <md-table-cell><code>Number</code></md-table-cell>
-                <md-table-cell>Sets the maximum number of results to show. If <code>0</code>, results are not limited. <br>Default: <code>0</code></md-table-cell>
+                <md-table-cell>Set the maximum number of results to show. If <code>0</code>, results are not limited. <br>Default: <code>0</code></md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>
@@ -309,19 +309,19 @@
               <md-table-row>
                 <md-table-cell>placeholder</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
-                <md-table-cell>Sets the placeholder.</md-table-cell>
+                <md-table-cell>Set the placeholder.</md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>maxlength</md-table-cell>
                 <md-table-cell><code>Number</code></md-table-cell>
-                <md-table-cell>Sets the maxlength and enable the text counter.</md-table-cell>
+                <md-table-cell>Set the maxlength and enable the text counter.</md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>readonly</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Sets the component to read only mode.</md-table-cell>
+                <md-table-cell>Set the component to read only mode.</md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>

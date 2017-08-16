@@ -28,37 +28,37 @@
               <md-table-row>
                 <md-table-cell>md-auto</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Enable auto-slider. Default <code>false</code>.</md-table-cell>
+                <md-table-cell>Enable auto-slider. <br>Default: <code>false</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-infinite</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Enable infinite loop. Default <code>false</code>.</md-table-cell>
+                <md-table-cell>Enable infinite loop. <br>Default: <code>false</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-duration</md-table-cell>
                 <md-table-cell><code>Number</code></md-table-cell>
-                <md-table-cell>Set duration for <code>md-auto</code> in milliseconds. Default <code>5000</code>.</md-table-cell>
+                <md-table-cell>Set duration for <code>md-auto</code> in milliseconds. <br>Default: <code>5000</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-controls</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Enable prev/next controls. Default <code>false</code>.</md-table-cell>
+                <md-table-cell>Enable prev/next controls. <br>Default: <code>false</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-swipeable</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Enable the swipe functionality. Default <code>false</code>.</md-table-cell>
+                <md-table-cell>Enable the swipe functionality. <br>Default: <code>false</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-swipe-distance</md-table-cell>
                 <md-table-cell><code>Number</code></md-table-cell>
-                <md-table-cell>Set the swipe distance needed to open/close the sidenav. Default <code>100</code>.</md-table-cell>
+                <md-table-cell>Set the swipe distance needed to open/close the sidenav. <br>Default: <code>100</code></md-table-cell>
               </md-table-row>
             </md-table-body>
 

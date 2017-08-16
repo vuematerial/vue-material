@@ -26,7 +26,7 @@
               <md-table-row>
                 <md-table-cell>md-sort-type</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
-                <md-table-cell>The order to apply on the sort: <br>Values: <code>asc</code> | <code>desc</code></md-table-cell>
+                <md-table-cell>The order to apply on the sort: <br>Accepts: <code>asc</code> | <code>desc</code></md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>
@@ -43,7 +43,7 @@
             <md-table-body>
               <md-table-row>
                 <md-table-cell>sort</md-table-cell>
-                <md-table-cell>Receive the sort object. Example: <br><code>{ name: 'calories', type: 'asc' }</code></md-table-cell>
+                <md-table-cell>Receive the sort object. <br>Example: <code>{ name: 'calories', type: 'asc' }</code></md-table-cell>
                 <md-table-cell>Triggered when a column is sorted.</md-table-cell>
               </md-table-row>
 
@@ -86,13 +86,13 @@
               <md-table-row>
                 <md-table-cell>md-selection</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Enable selection inside a particular row. Only works inside <code>md-table-body</code>. Default <code>false</code></md-table-cell>
+                <md-table-cell>Enable selection inside a particular row. Only works inside <code>md-table-body</code>. <br>Default: <code>false</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-auto-select</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Click in any area of the row to select it. Only works inside <code>md-table-body</code>. Default <code>false</code></md-table-cell>
+                <md-table-cell>Click in any area of the row to select it. Only works inside <code>md-table-body</code>. <br>Default:: <code>false</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
@@ -119,7 +119,7 @@
               <md-table-row>
                 <md-table-cell>md-numeric</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Align the header content to the right. Default <code>false</code></md-table-cell>
+                <md-table-cell>Align the header content to the right. <br>Default: <code>false</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
@@ -152,7 +152,7 @@
               <md-table-row>
                 <md-table-cell>md-numeric</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Align the cell content to the right. Default <code>false</code></md-table-cell>
+                <md-table-cell>Align the cell content to the right. <br>Default: <code>false</code></md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>
@@ -173,37 +173,37 @@
               <md-table-row>
                 <md-table-cell>md-size</md-table-cell>
                 <md-table-cell><code>Number</code></md-table-cell>
-                <md-table-cell>Set the amount of rows displayed. Required. Default <code>10</code></md-table-cell>
+                <md-table-cell>Set the amount of rows displayed. Required. <br>Default: <code>10</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-page-options</md-table-cell>
                 <md-table-cell><code>Array | Boolean</code></md-table-cell>
-                <md-table-cell>Set the values inside the page amout selector. Default <code>[10, 25, 50, 100]</code> <br>When false this flag will hide the page selector.</md-table-cell>
+                <md-table-cell>Set the values inside the page amout selector. <br>Default: <code>[10, 25, 50, 100]</code> <br>When false this flag will hide the page selector.</md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-page</md-table-cell>
                 <md-table-cell><code>Number</code></md-table-cell>
-                <md-table-cell>Current page of the table pagination. Required. Default <code>1</code></md-table-cell>
+                <md-table-cell>Current page of the table pagination. Required. <br>Default: <code>1</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-total</md-table-cell>
                 <md-table-cell><code>Number</code></md-table-cell>
-                <md-table-cell>Total of items in the collection. This will be used to calculate the amount of pages left. Default <code>Many</code></md-table-cell>
+                <md-table-cell>Total of items in the collection. This will be used to calculate the amount of pages left. <br>Default: <code>Many</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-label</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
-                <md-table-cell>Text to be shown on the left of the page selector. Default <code>Rows per page</code></md-table-cell>
+                <md-table-cell>Text to be shown on the left of the page selector. <br>Default: <code>Rows per page</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-separator</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
-                <md-table-cell>Text to be shown on the left of the page selector. Default <code>of</code></md-table-cell>
+                <md-table-cell>Text to be shown on the left of the page selector. <br>Default: <code>of</code></md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>

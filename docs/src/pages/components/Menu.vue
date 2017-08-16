@@ -22,13 +22,13 @@
               <md-table-row>
                 <md-table-cell>md-size</md-table-cell>
                 <md-table-cell><code>Number</code></md-table-cell>
-                <md-table-cell>Sets the size of the menu content. From 0 to 7. <br>Default: <code>0</code></md-table-cell>
+                <md-table-cell>Set the size of the menu content. From 0 to 7. <br>Default: <code>0</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-direction</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
-                <md-table-cell>Sets the direction of the menu content. <br> Possibilities: <code>bottom right</code> | <code>bottom left</code> | <code>top right</code> | <code>top right</code><br>Default: <code>bottom right</code></md-table-cell>
+                <md-table-cell>Set the direction of the menu content. <br> Possibilities: <code>bottom right</code> | <code>bottom left</code> | <code>top right</code> | <code>top right</code><br>Default: <code>bottom right</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>

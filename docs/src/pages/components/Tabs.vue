@@ -26,37 +26,37 @@
               <md-table-row>
                 <md-table-cell>md-fixed</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Make the tabs navigation fixed and elastic filling the whole space. Default <code>false</code></md-table-cell>
+                <md-table-cell>Make the tabs navigation fixed and elastic filling the whole space. <br>Default: <code>false</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-centered</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Align the tabs navigation to the center. Default <code>false</code></md-table-cell>
+                <md-table-cell>Align the tabs navigation to the center. <br>Default: <code>false</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-right</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Align the tabs navigation to the right. Default <code>false</code></md-table-cell>
+                <md-table-cell>Align the tabs navigation to the right. <br>Default: <code>false</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-dynamic-height</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Make the tab content to be resized based on the contents. Default <code>true</code></md-table-cell>
+                <md-table-cell>Make the tab content to be resized based on the contents. <br>Default: <code>true</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-elevation</md-table-cell>
                 <md-table-cell><code>Number</code></md-table-cell>
-                <md-table-cell>Add a shadow on the navigation with an whiteframe. Default <code>0</code></md-table-cell>
+                <md-table-cell>Add a shadow on the navigation with an whiteframe. <br>Default: <code>0</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-navigation</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Display the navigation arrows for horizontal scroll. Default <code>true</code></md-table-cell>
+                <md-table-cell>Display the navigation arrows for horizontal scroll. <br>Default: <code>true</code></md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>
@@ -147,13 +147,13 @@
               <md-table-row>
                 <md-table-cell>md-active</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Activate the tab. Default <code>false</code></md-table-cell>
+                <md-table-cell>Activate the tab. <br>Default: <code>false</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-disabled</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Disable the tab and prevent its actions. Default <code>false</code></md-table-cell>
+                <md-table-cell>Disable the tab and prevent its actions. <br>Default: <code>false</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
@@ -165,13 +165,13 @@
               <md-table-row>
                 <md-table-cell>md-tooltip-delay</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
-                <md-table-cell>Delay of the tab header tooltip. Default: <code>0</code></md-table-cell>
+                <md-table-cell>Delay of the tab header tooltip. <br>Default: <code>0</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-tooltip-direction</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
-                <md-table-cell>Direction of the tab header tooltip. Default: <code>bottom</code></md-table-cell>
+                <md-table-cell>Direction of the tab header tooltip. <br>Default: <code>bottom</code></md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>

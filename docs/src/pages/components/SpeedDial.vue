@@ -53,19 +53,19 @@
               <md-table-row>
                 <md-table-cell>md-open</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
-                <md-table-cell>The type of event that will trigger the Speed Dial. Accepts: <code>click</code>|<code>hover</code>. Default: <code>click</code> <br><small>* This attribute is not reactive.</small></md-table-cell>
+                <md-table-cell>The type of event that will trigger the Speed Dial. <br>Accepts: <code>click</code>|<code>hover</code> <br>Default: <code>click</code> <br><small>* This attribute is not reactive.</small></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-mode</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
-                <md-table-cell>The type of effect that will be applied. Accepts: <code>fling</code>|<code>scale</code>. Default: <code>fling</code></md-table-cell>
+                <md-table-cell>The type of effect that will be applied. <br>Accepts: <code>fling</code>|<code>scale</code> <br>Default: <code>fling</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-direction</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
-                <md-table-cell>The direction that the Speed Dial will dispose the buttons. Accepts: <code>top</code>|<code>right</code>|<code>bottom</code>|<code>left</code>. Default: <code>top</code></md-table-cell>
+                <md-table-cell>The direction that the Speed Dial will display the buttons. <br>Accepts: <code>top</code>|<code>right</code>|<code>bottom</code>|<code>left</code>. <br>Default: <code>top</code></md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>

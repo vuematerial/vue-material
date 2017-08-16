@@ -2,7 +2,7 @@
   <page-content page-title="Components - Switch">
     <docs-component>
       <div slot="description">
-        <p>On/off switches toggle the state of a single settings option. The option that the switch controls, as well as the state it’s in, should be made clear from the corresponding inline label.</p>
+        <p>On/off switches toggle the state of a single setting. The setting that the switch controls, as well as the state it’s in, should be made clear from the corresponding inline label.</p>
         <p>The following classes can be applied to change the color palette:</p>
         <ul class="md-body-2">
           <li><code>md-primary</code></li>
@@ -31,7 +31,7 @@
               <md-table-row>
                 <md-table-cell>type</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
-                <md-table-cell>Sets the type. Default <code>button</code></md-table-cell>
+                <md-table-cell>Set the type. <br>Default: <code>button</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
@@ -49,7 +49,7 @@
               <md-table-row>
                 <md-table-cell>disabled</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Disable the switch and prevent its actions. Default <code>false</code></md-table-cell>
+                <md-table-cell>Disable the switch and prevent its actions. <br>Default: <code>false</code></md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>

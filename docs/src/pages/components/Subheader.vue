@@ -24,7 +24,7 @@
             <md-table-body>
               <md-table-row>
                 <md-table-cell>md-inset</md-table-cell>
-                <md-table-cell>Add a padding to the left of the subheader to follow inset lists</md-table-cell>
+                <md-table-cell>Add padding to the left of the subheader to follow inset lists</md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>

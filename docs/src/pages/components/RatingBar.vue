@@ -32,43 +32,43 @@
               <md-table-row>
                 <md-table-cell>md-max-rating</md-table-cell>
                 <md-table-cell><code>Number</code></md-table-cell>
-                <md-table-cell>Max rating allowed. Default <code>5</code>.</md-table-cell>
+                <md-table-cell>Max rating allowed. <br>Default: <code>5</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-full-icon</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
-                <md-table-cell>The icon used to represent full star. Can be a material icon from google font or src of the image file (svg or png). Default <code>star</code>.</md-table-cell>
+                <md-table-cell>The icon used to represent a full star. Can be a material icon from google font or src of the image file (svg or png). <br>Default: <code>star</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-empty-icon</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
-                <md-table-cell>The icon used to represent empty star. Can be a material icon from google font or src of the image file (svg or png). Default <code>star</code>.</md-table-cell>
+                <md-table-cell>The icon used to represent an empty star. Can be a material icon from google font or src of the image file (svg or png). <br>Default: <code>star</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-full-iconset</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
-                <md-table-cell>The font icon set used on full star. Example: <code>md-iconset="fa fa-heart"</code> for font awesome.</md-table-cell>
+                <md-table-cell>The font icon set used on a full star. <br>Example: <code>md-iconset="fa fa-heart"</code> for font awesome.</md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-empty-iconset</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
-                <md-table-cell>The font icon set used on empty star. Example: <code>md-iconset="fa fa-heart-o"</code> for font awesome.</md-table-cell>
+                <md-table-cell>The font icon set used on an empty star. <br>Example: <code>md-iconset="fa fa-heart-o"</code> for font awesome.</md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-icon-size</md-table-cell>
                 <md-table-cell><code>Number</code></md-table-cell>
-                <md-table-cell>Change the icon size. From 1 to 5, it corresponds the 1x to 5x of the md-size-{type} class in md-icon, where in 1x, the icon has <code>24px</code>. Default <code>1</code>.</md-table-cell>
+                <md-table-cell>Change the icon size. From 1 to 5, it corresponds the 1x to 5x of the md-size-{type} class in md-icon, where in 1x, the icon has <code>24px</code>. <br>Default: <code>1</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>disabled</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Disable the rating and prevent his actions. Default <code>false</code></md-table-cell>
+                <md-table-cell>Disable the rating and prevent its actions. <br>Default: <code>false</code></md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>
@@ -86,12 +86,12 @@
               <md-table-row>
                 <md-table-cell>change</md-table-cell>
                 <md-table-cell>Receive the new rating</md-table-cell>
-                <md-table-cell>Triggered when the rating changes his value by user interaction.</md-table-cell>
+                <md-table-cell>Triggered when the rating changes its value by user interaction.</md-table-cell>
               </md-table-row>
               <md-table-row>
                 <md-table-cell>hover</md-table-cell>
                 <md-table-cell>Receive the pointer rating</md-table-cell>
-                <md-table-cell>Triggered when the user points over a new rating.</md-table-cell>
+                <md-table-cell>Triggered when the user hovers over a new rating.</md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>
