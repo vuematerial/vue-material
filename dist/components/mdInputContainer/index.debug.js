@@ -1917,11 +1917,20 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "md-count"
   }, [_vm._v(_vm._s(_vm.inputLength) + " / " + _vm._s(_vm.counterLength))]) : _vm._e(), _vm._v(" "), (_vm.mdHasPassword) ? _c('md-button', {
     staticClass: "md-icon-button md-toggle-password",
+    attrs: {
+      "tabindex": "-1"
+    },
     on: {
-      "click": _vm.togglePasswordType
+      "click": function($event) {
+        $event.preventDefault();
+        _vm.togglePasswordType($event)
+      }
     }
   }, [_c('md-icon', [_vm._v(_vm._s(_vm.showPassword ? 'visibility_off' : 'visibility'))])], 1) : _vm._e(), _vm._v(" "), (_vm.mdClearable && _vm.hasValue) ? _c('md-button', {
     staticClass: "md-icon-button md-clear-input",
+    attrs: {
+      "tabindex": "-1"
+    },
     on: {
       "click": _vm.clearInput
     }
@@ -2034,7 +2043,7 @@ exports.default = {
     value: [String, Number],
     debounce: {
       type: Number,
-      default: 3E2
+      default: 1E2
     },
     disabled: Boolean,
     required: Boolean,

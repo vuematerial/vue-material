@@ -1000,7 +1000,12 @@ exports.default = {
       type: [Number, String],
       default: 10
     },
-    mdPageOptions: [Array, Boolean],
+    mdPageOptions: {
+      type: [Array, Boolean],
+      default: function _default() {
+        return [10, 25, 50, 100];
+      }
+    },
     mdPage: {
       type: [Number, String],
       default: 1
@@ -1087,8 +1092,11 @@ exports.default = {
     var _this = this;
 
     this.$nextTick((function () {
-      _this.mdPageOptions = _this.mdPageOptions || [10, 25, 50, 100];
-      _this.currentSize = _this.mdPageOptions.includes(_this.currentSize) ? _this.currentSize : _this.mdPageOptions[0];
+      if (_this.mdPageOptions) {
+        _this.currentSize = _this.mdPageOptions.includes(_this.currentSize) ? _this.currentSize : _this.mdPageOptions[0];
+      } else {
+        _this.currentSize = 0;
+      }
       _this.canFireEvents = true;
     }));
   }
@@ -1903,7 +1911,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "md-table-pagination"
   }, [_c('span', {
     staticClass: "md-table-pagination-label"
-  }, [_vm._v(_vm._s(_vm.mdLabel) + ":")]), _vm._v(" "), (_vm.mdPageOptions) ? _c('md-select', {
+  }, [_vm._v(_vm._s(_vm.mdLabel) + ":")]), _vm._v(" "), (_vm.mdPageOptions !== false) ? _c('md-select', {
     attrs: {
       "md-menu-class": "md-pagination-select"
     },
