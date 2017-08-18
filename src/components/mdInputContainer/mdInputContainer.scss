@@ -254,7 +254,6 @@ $input-size: 32px;
 
   &.md-input-required {
     label:after {
-      position: absolute;
       top: 2px;
       right: 0;
       transform: translateX(calc(100% + 2px));
