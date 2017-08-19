@@ -182,7 +182,7 @@
           <div class="stepper-demo" slot="demo">
             <md-stepper>
               <md-step :md-editable="true" md-label="Email" :md-error="!mailValid" :md-continue="mailValid" :md-message="invalidMessage" md-tooltip="Step 1">
-                <p>Please enter your emailadress</p>
+                <p>Please enter your emailaddress</p>
                 <md-input-container :class="{'md-input-invalid': !mailValid}">
                   <md-input type="email" v-model="mail" required/>
                   <label>Email</label>
@@ -201,7 +201,7 @@
             <code-block lang="xml">
               &lt;md-stepper&gt;
                   &lt;md-step :md-editable=&quot;true&quot; md-label=&quot;Email&quot; :md-error=&quot;!mailValid&quot; :md-continue=&quot;mailValid&quot; :md-message=&quot;invalidMessage&quot;&gt;
-                      &lt;p&gt;Please enter your emailadress&lt;/p&gt;
+                      &lt;p&gt;Please enter your emailaddress&lt;/p&gt;
                       &lt;md-input-container :class=&quot;{'md-input-invalid': !mailValid}&quot;&gt;
                           &lt;md-input type=&quot;email&quot; v-model=&quot;mail&quot; required/&gt;
                           &lt;label&gt;Email&lt;/label&gt;
