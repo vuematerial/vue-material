@@ -15,13 +15,16 @@
             <md-ink-ripple :md-disabled="header.disabled"></md-ink-ripple>
 
             <div class="md-tab-header-container">
-              <md-icon v-if="header.icon">{{ header.icon }}</md-icon>
-              <md-icon v-else-if="header.iconset" :md-iconset="header.iconset">{{ header.icon }}</md-icon>
+              <slot name="header-item" :header="header">
+                <md-icon v-if="header.icon">{{ header.icon }}</md-icon>
+                <md-icon v-else-if="header.iconset" :md-iconset="header.iconset">{{ header.icon }}</md-icon>
+                <md-icon v-else-if="header.iconSrc" :md-src="header.iconSrc"></md-icon>
 
-              <span v-if="header.label">{{ header.label }}</span>
-
-              <md-tooltip v-if="header.tooltip" :md-direction="header.tooltipDirection" :md-delay="header.tooltipDelay">{{ header.tooltip }}</md-tooltip>
+                <span v-if="header.label">{{ header.label }}</span>
+              </slot>
             </div>
+
+           <md-tooltip v-if="header.tooltip" :md-direction="header.tooltipDirection" :md-delay="header.tooltipDelay">{{ header.tooltip }}</md-tooltip>
           </button>
 
           <span class="md-tab-indicator" :class="indicatorClasses" ref="indicator"></span>
@@ -143,7 +146,7 @@
 
         this.$set(this.tabList, tabData.id, tabData);
 
-        if (!hasActive) {
+        if (!hasActive && !tabData.disabled) {
           this.tabList[tabData.id].active = true;
         }
       },
@@ -218,6 +221,8 @@
       },
       calculatePosition() {
         window.requestAnimationFrame(() => {
+          if (this._destroyed) return;
+          
           this.calculateIndicatorPos();
           this.calculateTabsWidthAndPosition();
           this.calculateContentHeight();
@@ -247,6 +252,8 @@
       },
       handleNavigationScroll() {
         window.requestAnimationFrame(() => {
+          if (this._destroyed) return;
+
           this.calculateIndicatorPos();
           this.calculateScrollPos();
         });
@@ -257,7 +264,7 @@
         this.hasNavigationScroll = scrollWidth > clientWidth;
       },
       setActiveTab(tabData) {
-        this.hasIcons = !!tabData.icon || !!tabData.iconset;
+        this.hasIcons = !!tabData.icon || !!tabData.iconset || !!tabData.iconSrc;
         this.hasLabel = !!tabData.label;
         this.activeTab = tabData.id;
         this.activeTabNumber = this.getTabIndex(this.activeTab);
@@ -296,6 +303,8 @@
       }
 
       window.removeEventListener('resize', this.calculateOnResize);
+
+      this._destroyed = true;
     }
   };
 </script>

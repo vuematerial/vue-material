@@ -1,17 +1,48 @@
 <template>
-  <div class="md-select" :class="[themeClass, classes]">
-    <md-menu :md-close-on-select="!multiple" @opened="$emit('open')" @closed="$emit('close')" v-bind="mdMenuOptions">
+  <div
+    class="md-select"
+    :class="[themeClass, classes]">
+    <md-menu
+      :md-close-on-select="!multiple"
+      @opened="$emit('open')"
+      @closed="$emit('close')"
+      v-bind="mdMenuOptions">
       <slot name="icon"></slot>
-      <span class="md-select-value" md-menu-trigger ref="value" :style="valueStyle">{{ selectedText || placeholder }}</span>
+      <span
+        class="md-select-value"
+        md-menu-trigger
+        ref="value"
+        :style="valueStyle">
+        {{ selectedText || placeholder }}
+      </span>
 
-      <md-menu-content class="md-select-content" :class="[themeClass, contentClasses]">
+      <md-menu-content
+        class="md-select-content"
+        :class="[themeClass, contentClasses]">
         <slot></slot>
       </md-menu-content>
     </md-menu>
 
-    <select :name="name" :id="id" :required="required" :disabled="disabled" tabindex="-1">
-      <option selected="true" :value="selectedValue" v-if="!multiple">{{ selectedText }}</option>
-      <option selected="true" v-for="option in multipleOptions" v-if="option.value" :value="option.value">{{ option.text }}</option>
+    <select
+      :name="name"
+      :id="id"
+      :required="required"
+      :disabled="disabled"
+      tabindex="-1">
+      <option
+        selected="true"
+        :value="selectedValue"
+        v-if="!multiple">
+        {{ selectedText }}
+      </option>
+      <option
+        v-if="option.value"
+        v-for="(option, index) in multipleOptions"
+        :key="index"
+        selected="true"
+        :value="option.value">
+        {{ option.text }}
+      </option>
     </select>
   </div>
 </template>
@@ -30,7 +61,7 @@
       id: String,
       required: Boolean,
       multiple: Boolean,
-      value: [String, Number, Array],
+      value: [String, Boolean, Number, Array],
       disabled: Boolean,
       placeholder: String,
       mdMenuClass: String,
@@ -89,31 +120,10 @@
       }
     },
     methods: {
-      onOpen() {
-        if (this.lastSelected) {
-          this.lastSelected.scrollIntoViewIfNeeded(true);
-        }
-
-        this.$emit('opened');
-      },
-      setParentDisabled() {
-        this.parentContainer.isDisabled = this.disabled;
-      },
-      setParentRequired() {
-        this.parentContainer.isRequired = this.required;
-      },
-      setParentPlaceholder() {
-        this.parentContainer.hasPlaceholder = !!this.placeholder;
-      },
-      selectOptions(modelValue) {
-        const optionsArray = Object.keys(this.options).map((el) => this.options[el]);
-
-        if (optionsArray && optionsArray.length) {
-          optionsArray.filter((el) => modelValue.indexOf(el.value) !== -1)
-            .forEach((el) => {
-              el.check = true;
-            });
-        }
+      changeValue(value) {
+        this.$emit('input', value);
+        this.$emit('change', value);
+        this.$emit('selected', value);
       },
       getSingleValue(value) {
         let output = {};
@@ -124,7 +134,7 @@
           if (options.value === value) {
             output.value = value;
             output.text = options.$refs.item.textContent,
-            output.el = options.$refs.item;
+              output.el = options.$refs.item;
           }
         });
 
@@ -158,6 +168,48 @@
 
         return {};
       },
+      onOpen() {
+        if (this.lastSelected) {
+          this.lastSelected.scrollIntoViewIfNeeded(true);
+        }
+
+        this.$emit('opened');
+      },
+      removeChild(index) {
+        this.optionsAmount--;
+        const selection = Object.assign({}, this.options[index]);
+  
+        delete this.options[index];
+        delete this.multipleOptions[index];
+
+        if (this.multiple) {
+          const element = this.selectedValue.find((el) => el.name === selection.$refs.item.textContent.trim());
+          const selectionIndex = this.selectedValue.indexOf(element);
+
+          if (selectionIndex !== -1) {
+            this.selectedValue.splice(selectionIndex, 1);
+          }
+        }
+      },
+      setParentDisabled() {
+        this.parentContainer.isDisabled = this.disabled;
+      },
+      setParentRequired() {
+        this.parentContainer.isRequired = this.required;
+      },
+      setParentPlaceholder() {
+        this.parentContainer.hasPlaceholder = !!this.placeholder;
+      },
+      selectOptions(modelValue) {
+        const optionsArray = Object.keys(this.options).map((el) => this.options[el]);
+
+        if (optionsArray && optionsArray.length) {
+          optionsArray.filter((el) => modelValue.indexOf(el.value) !== -1)
+            .forEach((el) => {
+              el.check = true;
+            });
+        }
+      },
       setTextAndValue(modelValue) {
         const output = this.multiple ?
           this.getMultipleValue(modelValue) :
@@ -170,11 +222,6 @@
         if (this.parentContainer) {
           this.parentContainer.setValue(this.selectedText);
         }
-      },
-      changeValue(value) {
-        this.$emit('input', value);
-        this.$emit('change', value);
-        this.$emit('selected', value);
       },
       selectMultiple(index, value, text) {
         let values = [];

@@ -2,7 +2,7 @@
   <page-content page-title="Components - File">
     <docs-component>
       <div slot="description">
-        <p>The file picker aim to select files like images, videos and other formats. They can have multiselection and use the devide file system to pick the file.</p>
+        <p>The file picker aims to select files like images, videos and other formats. They can have multiple files and use the device file system to pick the file.</p>
       </div>
 
       <div slot="api">
@@ -26,25 +26,25 @@
               <md-table-row>
                 <md-table-cell>id</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
-                <md-table-cell>Sets the input id.</md-table-cell>
+                <md-table-cell>Set the input id.</md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>name</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
-                <md-table-cell>Sets the input name.</md-table-cell>
+                <md-table-cell>Set the input name.</md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>disabled</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Disable the input and prevent its actions. Default <code>false</code></md-table-cell>
+                <md-table-cell>Disable the input and prevent its actions. <br>Default <code>false</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>required</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Apply the required rule to style the label with an "*". Default <code>false</code></md-table-cell>
+                <md-table-cell>Apply the required rule to style the label with an "*". <br>Default <code>false</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>

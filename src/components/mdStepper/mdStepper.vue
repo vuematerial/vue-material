@@ -195,6 +195,8 @@
       },
       calculatePosition() {
         window.requestAnimationFrame(() => {
+          if (this._destroyed) return;
+          
           this.calculateStepsWidthAndPosition();
           this.calculateContentHeight();
         });
@@ -233,6 +235,8 @@
       }
 
       window.removeEventListener('resize', this.calculateOnResize);
+
+      this._destroyed = true;
     }
   };
 </script>

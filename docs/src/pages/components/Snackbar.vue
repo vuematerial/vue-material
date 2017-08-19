@@ -20,13 +20,13 @@
               <md-table-row>
                 <md-table-cell>md-position</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
-                <md-table-cell>Specify which vertical and horizontal position the snackbar will take. Accepts <code>top left</code>|<code>top center</code>|<code>right center</code>|<code>bottom left</code>|<code>bottom center</code>|<code>bottom right</code>. Default: <code>bottom center</code></md-table-cell>
+                <md-table-cell>Specify which vertical and horizontal position the snackbar will take. <br>Accepts: <code>top left</code>|<code>top center</code>|<code>right center</code>|<code>bottom left</code>|<code>bottom center</code>|<code>bottom right</code> <br>Default: <code>bottom center</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-duration</md-table-cell>
                 <md-table-cell><code>Number</code></md-table-cell>
-                <md-table-cell>The duration visibility in miliseconds. Default: <code>4000</code></md-table-cell>
+                <md-table-cell>The duration visibility in miliseconds. <br>Default: <code>4000</code></md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>

@@ -29,7 +29,18 @@ export default {
       type: String,
       default: 'q'
     },
-    required: Boolean
+
+    maxHeight: {
+      type: Number,
+      default: 0
+    },
+    
+    required: Boolean,
+    
+    maxRes: {
+      type: Number,
+      default: 0
+    }
   },
   methods: {
     onFocus() {
