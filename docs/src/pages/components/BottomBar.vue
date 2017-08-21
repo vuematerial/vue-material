@@ -26,7 +26,7 @@
               <md-table-row>
                 <md-table-cell>md-shift</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Enable the shifting variant. Default <code>false</code></md-table-cell>
+                <md-table-cell>Enable the shifting variant. <br>Default: <code>false</code></md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>
@@ -88,19 +88,19 @@
               <md-table-row>
                 <md-table-cell>md-active</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Set initial selection. Default <code>false</code></md-table-cell>
+                <md-table-cell>Set initial selection. <br>Default: <code>false</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>href</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
-                <md-table-cell>Create a anchor on the item - In this case the generated tag will be <code>&lt;a&gt;</code>.</md-table-cell>
+                <md-table-cell>Create an anchor on the item - In this case the generated tag will be <code>&lt;a&gt;</code>.</md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>disabled</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Disable the item and prevent its actions. Default <code>false</code></md-table-cell>
+                <md-table-cell>Disable the item and prevent its actions. <br>Default: <code>false</code></md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>

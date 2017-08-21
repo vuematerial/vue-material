@@ -25,13 +25,13 @@
               <md-table-row>
                 <md-table-cell>md-indeterminate</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Enable the indeterminate state. Default <code>false</code></md-table-cell>
+                <md-table-cell>Enable the indeterminate state. <br>Default: <code>false</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-progress</md-table-cell>
                 <md-table-cell><code>Number</code></md-table-cell>
-                <md-table-cell>Define the current progress of the progress. Default <code>0</code></md-table-cell>
+                <md-table-cell>Define the current progress of the progress. <br>Default: <code>0</code></md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>

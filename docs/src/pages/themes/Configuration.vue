@@ -4,8 +4,8 @@
       <section>
         <h2 class="md-headline">Theme Engine</h2>
 
-        <p>When you create a theme the Vue Material will generate all of the styles ondemand so you don't need to create any css file to create them. Everything is generated when the API is called and this is great because you can create a theme anytime you want. After that you can use the declarative directive to apply the theme inside an element.</p>
-        <p>Most of the components of Vue Material can change it's colors. Every theme has Primary, Accent, Warn and Background colors. Some components also have a Transparent variation to make your layouts cleaner and easy to place on top of another element. E.g. Tabs inside toolbars.</p>
+        <p>When you create a theme Vue Material will generate all of the styles on-demand so you don't need to create any css files. Everything is generated when the API is called and this is great because you can create a theme anytime you want. After that you can use the declarative directive to apply the theme inside an element.</p>
+        <p>Most of the components of Vue Material can change its colors. Every theme has Primary, Accent, Warn and Background colors. Some components also have a Transparent variation to make your layouts cleaner and easy to place on top of another element. E.g. Tabs inside toolbars.</p>
         <p>Vue Material use classes to apply those color intentions: <code>md-primary</code>, <code>md-accent</code>, <code>md-warn</code> and <code>md-transparent</code>. The background color is applied automaticaly.</p>
       </section>
 

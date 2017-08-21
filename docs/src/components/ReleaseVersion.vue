@@ -46,11 +46,17 @@
     methods: {
       changeDocs() {
         const location = window.location;
+        const latestUrl = location.origin + '/' + location.hash;
+        const releaseUrl = location.origin + '/releases/v' + this.currentDocs + '/' + location.hash;
+  
+        if (process.NODE_ENV === 'development') {
+          return;
+        }
 
         if (this.currentDocs === this.latest) {
-          window.location.href = location.origin + '/' + location.hash;
+          window.location.href = latestUrl;
         } else {
-          window.location.href = location.origin + '/releases/v' + this.currentDocs + '/' + location.hash;
+          window.location.href = releaseUrl;
         }
       },
       getVersions(callback) {

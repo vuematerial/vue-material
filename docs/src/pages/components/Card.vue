@@ -28,7 +28,7 @@
               <md-table-row>
                 <md-table-cell>md-with-hover</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Enable full hover elevation in card. Default <code>false</code></md-table-cell>
+                <md-table-cell>Enable full hover elevation in card. <br>Default: <code>false</code></md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>
@@ -40,23 +40,23 @@
         </api-table>
 
         <api-table name="md-card-header-text">
-          <p>Used inside a card header to group the title and the subhead. Useful to align with an action (like a overflow button) or a media inside headers, like on the "Media" example.</p>
+          <p>Used inside a card header to group the title and the subhead. Useful to align with an action (like a overflow button) or media inside headers, like on the "Media" example.</p>
           <p>No options available</p>
         </api-table>
 
         <api-table name="md-card-content">
-          <p>Display the content of the card. Most used with plain text or with simple HTML content, like bold and italic tags.</p>
+          <p>Display the content of the card. Most used with plain text or simple HTML content, like bold and italic tags.</p>
           <p>No options available</p>
         </api-table>
 
         <api-table name="md-card-actions">
-          <p>Hold the actions of a card align them on the right. Here you can add <code>&lt;md-button&gt;</code> with or without icons.</p>
+          <p>Holds the actions of a card, aligned to the right. Here you can add <code>&lt;md-button&gt;</code> with or without icons.</p>
           <p>No options available</p>
         </api-table>
 
         <api-table name="md-card-area">
           <div slot="properties">
-            <p>A card area create a division inside the card. This will apply a border on the bottom (only works if the card area is not the last element).</p>
+            <p>A card area creates a division inside the card. This will apply a border on the bottom (only works if the card area is not the last element).</p>
             <p>You can see an example of use on the "Complete example".</p>
 
             <md-table>
@@ -72,7 +72,7 @@
                 <md-table-row>
                   <md-table-cell>md-inset</md-table-cell>
                   <md-table-cell><code>Boolean</code></md-table-cell>
-                  <md-table-cell>Apply a inset border. Default <code>false</code></md-table-cell>
+                  <md-table-cell>Apply a inset border. <br>Default: <code>false</code></md-table-cell>
                 </md-table-row>
               </md-table-body>
             </md-table>
@@ -81,7 +81,7 @@
 
         <api-table name="md-card-media">
           <div slot="properties">
-            <p>The card media display images (and other types of media) inside cards. Can be used inside and outsite a card header.</p>
+            <p>The card media displays images (and other types of media) inside cards. Can be used inside and outsite a card header.</p>
 
             <md-table>
               <md-table-header>
@@ -102,13 +102,13 @@
                 <md-table-row>
                   <md-table-cell>md-medium</md-table-cell>
                   <md-table-cell><code>Boolean</code></md-table-cell>
-                  <md-table-cell>Applies medium size to the media. Works only inside md-card-header. Default <code>false</code></md-table-cell>
+                  <md-table-cell>Applies medium size to the media. Works only inside md-card-header. <br>Default: <code>false</code></md-table-cell>
                 </md-table-row>
 
                 <md-table-row>
                   <md-table-cell>md-big</md-table-cell>
                   <md-table-cell><code>Boolean</code></md-table-cell>
-                  <md-table-cell>Applies big size to the media. Works only inside md-card-header. Default <code>false</code></md-table-cell>
+                  <md-table-cell>Applies big size to the media. Works only inside md-card-header. <br>Default: <code>false</code></md-table-cell>
                 </md-table-row>
               </md-table-body>
             </md-table>
@@ -138,13 +138,13 @@
                 <md-table-row>
                   <md-table-cell>md-text-scrim</md-table-cell>
                   <md-table-cell><code>Boolean</code></md-table-cell>
-                  <md-table-cell>Apply a gradient background based on the image. This option increase the legibility of the text applying background colors by extracting the amount of lightness on the image. If the image is dark so the background of the text will be lighter. If it's not dark then the background will be darker. This will be calculated automatically. Default <code>false</code></md-table-cell>
+                  <md-table-cell>Apply a gradient background based on the image. This option increases the legibility of the text, applying background colors by extracting the amount of lightness on the image. If the image is dark the background of the text will be lighter. If it's not dark then the background will be darker. This will be calculated automatically. <br>Default: <code>false</code></md-table-cell>
                 </md-table-row>
 
                 <md-table-row>
                   <md-table-cell>md-solid</md-table-cell>
                   <md-table-cell><code>Boolean</code></md-table-cell>
-                  <md-table-cell>Applies a solid background with the same calculation logic of the md-text-scrim. Default <code>false</code></md-table-cell>
+                  <md-table-cell>Applies a solid background with the same calculation logic of the md-text-scrim. <br>Default: <code>false</code></md-table-cell>
                 </md-table-row>
               </md-table-body>
             </md-table>
@@ -152,7 +152,7 @@
         </api-table>
 
         <api-table name="md-card-expand">
-          <p>Create a expansible content area inside cards. Useful to "show more" content or load them on demand.</p>
+          <p>Create an expansible content area inside cards. Useful to "show more" content or load them on demand.</p>
           <p>You will need a <code>&lt;md-card-actions&gt;</code> with an element with a <code>md-expand-trigger</code> attribute and a <code>&lt;md-card-content&gt;</code> with the content that you want to show. The trigger will automatically toggle the content on click.</p>
           <p>A simple HTML markup can be like that:</p>
           <code-block lang="xml">

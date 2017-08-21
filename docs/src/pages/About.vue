@@ -42,7 +42,7 @@
 
       <section>
         <h2 class="md-headline">Internal Dependencies</h2>
-        You don't need to include any other library to work with vue-material. The focus of this project is to have a standalone build with no external dependence, but aiming to deliver the best experience without break the compatibility with the Vue.js core.
+        You don't need to include any other library to work with vue-material. The focus of this project is to have a standalone build with no external dependencies, but aiming to deliver the best experience without breaking compatibility with the Vue.js core.
         <ul>
           <li>
             <a href="http://vuejs.org" rel="noopener" target="_blank">Vue</a>

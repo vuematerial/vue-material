@@ -1,5 +1,5 @@
 .THEME_NAME {
-  &.md-menu-content .md-list {
+  .md-menu-content &.md-list {
     background-color: #{'BACKGROUND-COLOR'};
     color: #{'BACKGROUND-CONTRAST'};
 

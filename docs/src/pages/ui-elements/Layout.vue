@@ -5,7 +5,7 @@
         <p>Responsive layouts in material design adapt to any possible screen size. This UI guidance includes a flexible grid that ensures consistency across layouts, breakpoint details about how content reflows on different screens, and a description of how an app can scale from small to extra-large screens.</p>
         <p>By default you can create gutter-free layouts, make the grid system calculate the best margin size for each screen or set it by yourself with the <code>md-gutter</code> property. If you want the automatic calculation the engine will set <code>16px</code> for small screens and then apply <code>24px</code> for medium to large.</p>
         <p>You can create columns size by size or rows to make your layout fluid. You can combine columns with rows or even use nested columns.</p>
-        <p>The grid system makes use of flexbox to be flexible enough and give the best experience with a great and easy API. You can create responsive layouts with few lines of code with a declarative engine. The system work with some breakpoints:</p>
+        <p>The grid system makes use of flexbox to be flexible enough and give the best experience with a great and easy API. You can create responsive layouts with few lines of code with a declarative engine. The system uses the following breakpoints:</p>
         <md-table slot="properties" class="properties">
           <md-table-header>
             <md-table-row>
@@ -19,25 +19,25 @@
             <md-table-row>
               <md-table-cell><code>xsmall</code></md-table-cell>
               <md-table-cell>600px</md-table-cell>
-              <md-table-cell>For screens who have the maximum of 600px wide. For small, medium and large handsets in portrait. Also applies to small handsets in portrait.</md-table-cell>
+              <md-table-cell>For screens who have the maximum width of 600px. For small, medium and large handsets in portrait. Also applies to small handsets in portrait.</md-table-cell>
             </md-table-row>
 
             <md-table-row>
               <md-table-cell><code>small</code></md-table-cell>
               <md-table-cell>960px</md-table-cell>
-              <md-table-cell>For screens who have between of 600px and 960px wide. For medium and large handsets in landscape, small and large tablets in portrait mode and some desktop monitors.</md-table-cell>
+              <md-table-cell>For screens who have a width between 600px and 960px. For medium and large handsets in landscape, small and large tablets in portrait mode and some desktop monitors.</md-table-cell>
             </md-table-row>
 
             <md-table-row>
               <md-table-cell><code>medium</code></md-table-cell>
               <md-table-cell>1280px</md-table-cell>
-              <md-table-cell>For screens who have between of 960px and 1280px wide. For small and large tablets in landscape and desktop monitors.</md-table-cell>
+              <md-table-cell>For screens who have a width between 960px and 1280px. For small and large tablets in landscape and desktop monitors.</md-table-cell>
             </md-table-row>
 
             <md-table-row>
               <md-table-cell><code>large</code></md-table-cell>
               <md-table-cell>1920px</md-table-cell>
-              <md-table-cell>For screens who have between of 1280px and 1920px wide. For large desktop monitors.</md-table-cell>
+              <md-table-cell>For screens who have a width between 1280px and 1920px. For large desktop monitors.</md-table-cell>
             </md-table-row>
 
             <md-table-row>
@@ -64,13 +64,13 @@
               <md-table-row>
                 <md-table-cell>md-tag</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
-                <md-table-cell>The output tag. Default <code>div</code></md-table-cell>
+                <md-table-cell>The output tag. <br>Default: <code>div</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-gutter</md-table-cell>
                 <md-table-cell><code>Boolean|Number</code></md-table-cell>
-                <md-table-cell>Apply a gutter space to direct childs of the element that have this property. If <code>true</code> the gutter will be calculated automatically by the current screen size. If number the size will be fixed. Accepts <code>8</code>|<code>16</code>|<code>24</code>|<code>40</code>. Default <code>false</code></md-table-cell>
+                <md-table-cell>Apply a gutter space to direct childs of the element that have this property. If <code>true</code> the gutter will be calculated automatically by the current screen size. If number the size will be fixed. <br>Accepts: <code>8</code>|<code>16</code>|<code>24</code>|<code>40</code> <br>Default: <code>false</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
@@ -82,7 +82,7 @@
               <md-table-row>
                 <md-table-cell>md-row-{type}</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Create a row container on screen sizes less than or equal to given breakpoint. Example: <code>md-row-large</code></md-table-cell>
+                <md-table-cell>Create a row container on screen sizes less than or equal to given breakpoint. <br>Example: <code>md-row-large</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
@@ -94,67 +94,67 @@
               <md-table-row>
                 <md-table-cell>md-column-{type}</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Create a column container on screen sizes less than or equal to given breakpoint. Example: <code>md-column-small</code></md-table-cell>
+                <md-table-cell>Create a column container on screen sizes less than or equal to given breakpoint. <br>Example: <code>md-column-small</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-hide-{type}</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Hide a layout container/child on screen sizes less than or equal to given breakpoint. Example: <code>md-hide-medium</code></md-table-cell>
+                <md-table-cell>Hide a layout container/child on screen sizes less than or equal to given breakpoint. <br>Example: <code>md-hide-medium</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-hide-{type}-and-up</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Hide a layout container/child on screen sizes greater than or equal to given breakpoint. Example: <code>md-hide-medium-and-up</code></md-table-cell>
+                <md-table-cell>Hide a layout container/child on screen sizes greater than or equal to given breakpoint. <br>Example: <code>md-hide-medium-and-up</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-flex</md-table-cell>
                 <md-table-cell><code>Boolean|Number</code></md-table-cell>
-                <md-table-cell>Create a flexible child. If <code>true</code> the child element will grow to fill the empty space available on the parent element. If <code>Number</code> the size of the child will be sized according to the giver size. Accepts values multiple of 5. Also accepts the values 33 and 66. Default: <code>true</code></md-table-cell>
+                <md-table-cell>Create a flexible child. If <code>true</code> the child element will grow to fill the empty space available on the parent element. If <code>Number</code> the size of the child will be sized according to the giver size. <br>Accepts: values multiple of 5. Also accepts the values 33 and 66 <br>Default: <code>true</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-flex-{type}</md-table-cell>
                 <md-table-cell><code>Boolean|Number</code></md-table-cell>
-                <md-table-cell>Create a flexible child on screen sizes less than or equal to given breakpoint. Example: <code>md-flex-small="33"</code></md-table-cell>
+                <md-table-cell>Create a flexible child on screen sizes less than or equal to given breakpoint. <br>Example: <code>md-flex-small="33"</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-flex-offset</md-table-cell>
                 <md-table-cell><code>Number</code></md-table-cell>
-                <md-table-cell>Create a empty space before the actual child. Accepts the same value of <code>md-flex</code> Example: <code>md-flex-offset="50"</code></md-table-cell>
+                <md-table-cell>Create a empty space before the actual child. <br>Accepts: the same value of <code>md-flex</code> <br>Example: <code>md-flex-offset="50"</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-flex-offset-{type}</md-table-cell>
                 <md-table-cell><code>Number</code></md-table-cell>
-                <md-table-cell>Create a empty space before the actual child  on screen sizes less than or equal to given breakpoint. Example: <code>md-flex-offset-small="20"</code></md-table-cell>
+                <md-table-cell>Create a empty space before the actual child on screen sizes less than or equal to given breakpoint. <br>Example: <code>md-flex-offset-small="20"</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-align</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
-                <md-table-cell>Apply an alignment to the container. Accepts <code>start</code>|<code>center</code>|<code>end</code> Example: <code>md-align="end"</code></md-table-cell>
+                <md-table-cell>Apply an alignment to the container. <br>Accepts: <code>start</code>|<code>center</code>|<code>end</code> <br>Example: <code>md-align="end"</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-align-{type}</md-table-cell>
                 <md-table-cell><code>Number</code></md-table-cell>
-                <md-table-cell>Apply an alignment to the container on screen sizes less than or equal to given breakpoint. Example: <code>md-align-xlarge="center"</code></md-table-cell>
+                <md-table-cell>Apply an alignment to the container on screen sizes less than or equal to given breakpoint. <br>Example: <code>md-align-xlarge="center"</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-vertical-align</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
-                <md-table-cell>Apply an vertical alignment to the container. Accepts <code>start</code>|<code>center</code>|<code>end</code>|<code>stretch</code> Example: <code>md-vertical-align="end"</code></md-table-cell>
+                <md-table-cell>Apply an vertical alignment to the container. <br>Accepts: <code>start</code>|<code>center</code>|<code>end</code>|<code>stretch</code> <br>Example: <code>md-vertical-align="end"</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-vertical-align-{type}</md-table-cell>
                 <md-table-cell><code>Number</code></md-table-cell>
-                <md-table-cell>Apply an vertical alignment to the container on screen sizes less than or equal to given breakpoint. Example: <code>md-vertical-align-xlarge="center"</code></md-table-cell>
+                <md-table-cell>Apply an vertical alignment to the container on screen sizes less than or equal to given breakpoint. <br>Example: <code>md-vertical-align-xlarge="center"</code></md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>
