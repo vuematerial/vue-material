@@ -38,5 +38,10 @@ $button-radius: 2px;
     .md-ink-ripple {
       border-radius: $button-radius;
     }
+
+  }
+
+  &.md-raised button:not([disabled]) {
+    box-shadow: $material-shadow-2dp;
   }
 }
