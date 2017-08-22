@@ -8,8 +8,8 @@
       <md-button v-for="slot in slots" :key="slot" :class="{ 'md-primary': currentSlot === slot }" @click="currentSlot = slot">{{ slot | capitalize }}</md-button>
     </div>
 
-    <div class="api-item-content">
-      <slot v-for="slot in slots" :name="slot" v-if="currentSlot === slot" />
+    <div class="api-item-content" v-for="slot in slots" :key="slot" v-if="currentSlot === slot">
+      <slot :name="slot" />
     </div>
   </div>
 </template>
@@ -29,26 +29,26 @@
 </style>
 
 <script>
-  export default {
-    name: 'ApiItem',
-    props: {
-      title: String
-    },
-    filters: {
-      capitalize (input) {
-        return input.replace(/(?:^|\s)\S/g, transformed => transformed.toUpperCase())
-      }
-    },
-    data: () => ({
-      currentSlot: null
-    }),
-    computed: {
-      slots () {
-        return Object.keys(this.$slots).filter(slot => slot !== 'default')
-      }
-    },
-    created () {
-      this.currentSlot = this.slots[0]
+export default {
+  name: 'ApiItem',
+  props: {
+    title: String
+  },
+  filters: {
+    capitalize (input) {
+      return input.replace(/(?:^|\s)\S/g, transformed => transformed.toUpperCase())
     }
+  },
+  data: () => ({
+    currentSlot: null
+  }),
+  computed: {
+    slots () {
+      return Object.keys(this.$slots).filter(slot => slot !== 'default')
+    }
+  },
+  created () {
+    this.currentSlot = this.slots[0]
   }
+}
 </script>

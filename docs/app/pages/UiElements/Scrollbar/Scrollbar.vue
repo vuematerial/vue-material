@@ -16,11 +16,10 @@
 </template>
 
 <script>
-  import examples from 'docs-mixins/docsExample'
+import examples from 'docs-mixins/docsExample'
 
-  export default {
-    name: 'Scrollbar',
-    mixins: [examples]
-  }
+export default {
+  name: 'Scrollbar',
+  mixins: [examples]
+}
 </script>
-

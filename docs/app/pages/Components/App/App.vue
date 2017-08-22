@@ -95,72 +95,72 @@
 </template>
 
 <script>
-  import examples from 'docs-mixins/docsExample'
+import examples from 'docs-mixins/docsExample'
 
-  export default {
-    name: 'App',
-    mixins: [examples],
-    data: () => ({
-      api: {
-        props: {
-          headings: ['Name', 'Description', 'Default'],
-          props: [
-            {
-              name: 'md-mode',
-              type: 'String',
-              description: 'Set the toolbar mode. See below the detailed description of each mode.',
-              defaults: 'null'
-            },
-            {
-              offset: true,
-              name: 'md-mode="fixed"',
-              type: 'String',
-              description: 'Make the toolbar fixed without any scrolling effect',
-              defaults: 'null'
-            },
-            {
-              offset: true,
-              name: 'md-mode="fixed-last"',
-              type: 'String',
-              description: 'Keep the second row of the toolbar fixed and always visible. This NEEDS two md-toolbar-row inside the Toolbar.',
-              defaults: 'null'
-            },
-            {
-              offset: true,
-              name: 'md-mode="reveal"',
-              type: 'String',
-              description: 'Hide the toolbar temporarily and show it after the scroll. This is a good approach for mobile.',
-              defaults: 'null'
-            },
-            {
-              offset: true,
-              name: 'md-mode="flexible"',
-              type: 'String',
-              description: 'Make the height and the title size flexible to give the content a higher priority',
-              defaults: 'null'
-            },
-            {
-              offset: true,
-              name: 'md-mode="overlap"',
-              type: 'String',
-              description: 'Enable the overlapping content',
-              defaults: 'null'
-            },
-            {
-              name: 'md-waterfall',
-              type: 'Boolean',
-              description: 'Enable the waterfall effect, that can be combined with any md-mode',
-              defaults: 'false'
-            },
-            {
-              name: 'md-scrollbar',
-              type: 'Boolean',
-              description: 'Enable the md-scrollbar class to the scrollable content. Read more about the Scrollbar documentation.',
-              defaults: 'true'
-            }
-          ]
-        }
+export default {
+  name: 'App',
+  mixins: [examples],
+  data: () => ({
+    api: {
+      props: {
+        headings: ['Name', 'Description', 'Default'],
+        props: [
+          {
+            name: 'md-mode',
+            type: 'String',
+            description: 'Set the toolbar mode. See below the detailed description of each mode.',
+            defaults: 'null'
+          },
+          {
+            offset: true,
+            name: 'md-mode="fixed"',
+            type: 'String',
+            description: 'Make the toolbar fixed without any scrolling effect',
+            defaults: 'null'
+          },
+          {
+            offset: true,
+            name: 'md-mode="fixed-last"',
+            type: 'String',
+            description: 'Keep the second row of the toolbar fixed and always visible. This NEEDS two md-toolbar-row inside the Toolbar.',
+            defaults: 'null'
+          },
+          {
+            offset: true,
+            name: 'md-mode="reveal"',
+            type: 'String',
+            description: 'Hide the toolbar temporarily and show it after the scroll. This is a good approach for mobile.',
+            defaults: 'null'
+          },
+          {
+            offset: true,
+            name: 'md-mode="flexible"',
+            type: 'String',
+            description: 'Make the height and the title size flexible to give the content a higher priority',
+            defaults: 'null'
+          },
+          {
+            offset: true,
+            name: 'md-mode="overlap"',
+            type: 'String',
+            description: 'Enable the overlapping content',
+            defaults: 'null'
+          },
+          {
+            name: 'md-waterfall',
+            type: 'Boolean',
+            description: 'Enable the waterfall effect, that can be combined with any md-mode',
+            defaults: 'false'
+          },
+          {
+            name: 'md-scrollbar',
+            type: 'Boolean',
+            description: 'Enable the md-scrollbar class to the scrollable content. Read more about the Scrollbar documentation.',
+            defaults: 'true'
+          }
+        ]
       }
-    })
-  }
+    }
+  })
+}
 </script>

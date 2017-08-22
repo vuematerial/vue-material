@@ -69,12 +69,12 @@
 </style>
 
 <script>
-  import HomeIcon from './HomeIcon'
+import HomeIcon from './HomeIcon'
 
-  export default {
-    name: 'HomeIconCircle',
-    components: {
-      HomeIcon
-    }
+export default {
+  name: 'HomeIconCircle',
+  components: {
+    HomeIcon
   }
+}
 </script>

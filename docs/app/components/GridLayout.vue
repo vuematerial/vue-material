@@ -18,7 +18,7 @@
 </style>
 
 <script>
-  export default {
-    name: 'GridLayout'
-  }
+export default {
+  name: 'GridLayout'
+}
 </script>

@@ -19,7 +19,7 @@
 </template>
 
 <script>
-  export default {
-    name: 'SvgAssets'
-  }
+export default {
+  name: 'SvgAssets'
+}
 </script>

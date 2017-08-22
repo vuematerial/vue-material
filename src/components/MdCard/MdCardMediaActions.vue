@@ -5,9 +5,9 @@
 </template>
 
 <script>
-  export default {
-    name: 'MdCardMediaActions'
-  }
+export default {
+  name: 'MdCardMediaActions'
+}
 </script>
 
 <style lang="scss">

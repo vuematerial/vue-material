@@ -5,13 +5,13 @@
 </template>
 
 <script>
-  export default {
-    name: 'NoteBlock',
-    props: {
-      alert: Boolean,
-      tip: Boolean
-    }
+export default {
+  name: 'NoteBlock',
+  props: {
+    alert: Boolean,
+    tip: Boolean
   }
+}
 </script>
 
 <style lang="scss" scoped>

@@ -40,18 +40,18 @@
 </template>
 
 <script>
-  import HomeIconSquare from './HomeIconSquare'
-  import HomeIconCircle from './HomeIconCircle'
-  import HomeIconDevices from './HomeIconDevices'
+import HomeIconSquare from './HomeIconSquare'
+import HomeIconCircle from './HomeIconCircle'
+import HomeIconDevices from './HomeIconDevices'
 
-  export default {
-    name: 'Home',
-    components: {
-      HomeIconSquare,
-      HomeIconCircle,
-      HomeIconDevices
-    }
+export default {
+  name: 'Home',
+  components: {
+    HomeIconSquare,
+    HomeIconCircle,
+    HomeIconDevices
   }
+}
 </script>
 
 <style lang="scss" scoped>

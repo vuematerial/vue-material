@@ -15,7 +15,7 @@
 </style>
 
 <script>
-  export default {
-    name: 'Divider'
-  }
+export default {
+  name: 'Divider'
+}
 </script>

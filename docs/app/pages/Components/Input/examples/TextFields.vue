@@ -49,10 +49,10 @@
 </template>
 
 <script>
-  export default {
-    name: 'TextFields',
-    data: () => ({
-      initial: 'Initial Value'
-    })
-  }
+export default {
+  name: 'TextFields',
+  data: () => ({
+    initial: 'Initial Value'
+  })
+}
 </script>

@@ -1,73 +1,73 @@
 <script>
-  import MdComponent from 'core/MdComponent'
-  import MdFocused from 'core/mixins/MdFocused/MdFocused'
-  import MdRipple from 'core/mixins/MdRipple/MdRipple'
-  import MdRouterLinkProps from 'core/MdRouterLinkProps'
-  import MdButtonContent from './MdButtonContent'
+import MdComponent from 'core/MdComponent'
+import MdFocused from 'core/mixins/MdFocused/MdFocused'
+import MdRipple from 'core/mixins/MdRipple/MdRipple'
+import MdRouterLinkProps from 'core/MdRouterLinkProps'
+import MdButtonContent from './MdButtonContent'
 
-  export default new MdComponent({
-    name: 'MdButton',
-    components: {
-      MdButtonContent
+export default new MdComponent({
+  name: 'MdButton',
+  components: {
+    MdButtonContent
+  },
+  mixins: [
+    MdRipple,
+    MdFocused
+  ],
+  props: {
+    href: String,
+    type: {
+      type: String,
+      default: 'button'
     },
-    mixins: [
-      MdRipple,
-      MdFocused
-    ],
-    props: {
-      href: String,
-      type: {
-        type: String,
-        default: 'button'
+    disabled: Boolean,
+    to: null
+  },
+  render (createElement) {
+    const buttonContent = createElement('md-button-content', {
+      attrs: {
+        mdRipple: this.mdRipple,
+        disabled: this.disabled
+      }
+    }, this.$slots.default)
+    let buttonAttrs = {
+      staticClass: 'md-button',
+      class: [
+        this.$mdActiveTheme,
+        {
+          'md-ripple-off': !this.mdRipple,
+          'md-focused': this.mdHasFocus
+        }
+      ],
+      attrs: {
+        href: this.href,
+        disabled: this.disabled,
+        type: !this.href && (this.type || 'button')
       },
-      disabled: Boolean,
-      to: null
-    },
-    render (createElement) {
-      const buttonContent = createElement('md-button-content', {
-        attrs: {
-          mdRipple: this.mdRipple,
-          disabled: this.disabled
-        }
-      }, this.$slots.default)
-      let buttonAttrs = {
-        staticClass: 'md-button',
-        class: [
-          this.$mdActiveTheme,
-          {
-            'md-ripple-off': !this.mdRipple,
-            'md-focused': this.mdHasFocus
-          }
-        ],
-        attrs: {
-          href: this.href,
-          disabled: this.disabled,
-          type: !this.href && (this.type || 'button')
-        },
-        on: {
-          click: ($event) => {
-            this.$emit('click', $event)
-          }
+      on: {
+        click: ($event) => {
+          this.$emit('click', $event)
         }
       }
-      let tag = 'button'
-
-      if (this.href) {
-        tag = 'a'
-      } else if (this.$router && this.to) {
-        this.$options.props = MdRouterLinkProps(this, this.$options.props)
-
-        tag = 'router-link'
-        buttonAttrs.props = this.$props
-        delete buttonAttrs.props.type
-        delete buttonAttrs.attrs.type
-        delete buttonAttrs.props.href
-        delete buttonAttrs.attrs.href
-      }
-
-      return createElement(tag, buttonAttrs, [buttonContent])
     }
-  })
+    let tag = 'button'
+
+    if (this.href) {
+      tag = 'a'
+    } else if (this.$router && this.to) {
+      this.$options.props = MdRouterLinkProps(this, this.$options.props)
+
+      tag = 'router-link'
+      buttonAttrs.props = this.$props
+      delete buttonAttrs.props.type
+      delete buttonAttrs.attrs.type
+      delete buttonAttrs.props.href
+      delete buttonAttrs.attrs.href
+    }
+
+    return createElement(tag, buttonAttrs, [buttonContent])
+  }
+})
 </script>
 
 <style lang="scss">

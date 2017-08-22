@@ -27,42 +27,42 @@
 </template>
 
 <script>
-  export default {
-    name: 'CodeExample',
-    props: {
-      component: {
-        type: Object,
-        default: () => ({})
-      },
-      title: String,
-      label: {
-        type: String,
-        default: 'Vue'
-      },
-      lang: String
+export default {
+  name: 'CodeExample',
+  props: {
+    component: {
+      type: Object,
+      default: () => ({})
     },
-    data: () => ({
-      showCode: false,
-      darkTheme: false
-    }),
-    computed: {
-      theme () {
-        if (this.darkTheme) {
-          return 'demo-dark'
-        }
+    title: String,
+    label: {
+      type: String,
+      default: 'Vue'
+    },
+    lang: String
+  },
+  data: () => ({
+    showCode: false,
+    darkTheme: false
+  }),
+  computed: {
+    theme () {
+      if (this.darkTheme) {
+        return 'demo-dark'
+      }
 
-        return 'demo-light'
-      }
+      return 'demo-light'
+    }
+  },
+  methods: {
+    toggleCode () {
+      this.showCode = !this.showCode
     },
-    methods: {
-      toggleCode () {
-        this.showCode = !this.showCode
-      },
-      toggleTheme () {
-        this.darkTheme = !this.darkTheme
-      }
+    toggleTheme () {
+      this.darkTheme = !this.darkTheme
     }
   }
+}
 </script>
 
 <style lang="scss" scoped>

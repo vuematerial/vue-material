@@ -53,7 +53,7 @@
 </style>
 
 <script>
-  export default {
-    name: 'PermanentFull'
-  }
+export default {
+  name: 'PermanentFull'
+}
 </script>

@@ -22,46 +22,46 @@
 </template>
 
 <script>
-  import { mapState, mapMutations } from 'vuex'
-  import * as types from 'store/mutation-types'
+import { mapState, mapMutations } from 'vuex'
+import * as types from 'store/mutation-types'
 
-  export default {
-    name: 'MainHeader',
-    computed: {
-      ...mapState({
-        stateTitle: 'pageTitle',
-        isSplash: 'splashPage'
-      }),
-      pageTitle () {
-        const { stateTitle } = this
+export default {
+  name: 'MainHeader',
+  computed: {
+    ...mapState({
+      stateTitle: 'pageTitle',
+      isSplash: 'splashPage'
+    }),
+    pageTitle () {
+      const { stateTitle } = this
 
-        return stateTitle && stateTitle
-      },
-      isHome () {
-        return this.$route.path === '/'
-      },
-      mainHeaderClasses () {
-        const { isSplash } = this
+      return stateTitle && stateTitle
+    },
+    isHome () {
+      return this.$route.path === '/'
+    },
+    mainHeaderClasses () {
+      const { isSplash } = this
 
-        return {
-          'md-transparent': isSplash,
-          'md-elevation-2': !isSplash
-        }
-      },
-      mainHeaderElevation () {
-        if (this.isSplash) {
-          return 0
-        }
-
-        return 2
+      return {
+        'md-transparent': isSplash,
+        'md-elevation-2': !isSplash
       }
     },
-    methods: {
-      ...mapMutations({
-        showMenu: types.SHOW_MENU
-      })
+    mainHeaderElevation () {
+      if (this.isSplash) {
+        return 0
+      }
+
+      return 2
     }
+  },
+  methods: {
+    ...mapMutations({
+      showMenu: types.SHOW_MENU
+    })
   }
+}
 </script>
 
 <style lang="scss" scoped>

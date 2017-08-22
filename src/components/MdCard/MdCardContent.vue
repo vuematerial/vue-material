@@ -5,9 +5,9 @@
 </template>
 
 <script>
-  export default {
-    name: 'MdCardContent'
-  }
+export default {
+  name: 'MdCardContent'
+}
 </script>
 
 <style lang="scss">

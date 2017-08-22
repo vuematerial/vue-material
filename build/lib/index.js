@@ -1,14 +1,3 @@
-/* import { existsSync, mkdirSync } from 'fs'
-import entries from './entries'
-import build from './bundle'
-import { pack } from '../config'
-
-if (!existsSync('dist')) {
-  mkdirSync('dist')
-}
-
-build(entries) */
-
 import webpack from 'webpack'
 import ora from 'ora'
 import webpackConfig from './webpack'

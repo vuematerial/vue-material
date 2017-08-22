@@ -99,11 +99,11 @@
 </style>
 
 <script>
-  export default {
-    name: 'Sidenav',
-    data: () => ({
-      showNavigation: false,
-      showSidepanel: false
-    })
-  }
+export default {
+  name: 'Sidenav',
+  data: () => ({
+    showNavigation: false,
+    showSidepanel: false
+  })
+}
 </script>

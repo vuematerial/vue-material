@@ -48,7 +48,7 @@
 </style>
 
 <script>
-  export default {
-    name: 'RegularCards'
-  }
+export default {
+  name: 'RegularCards'
+}
 </script>

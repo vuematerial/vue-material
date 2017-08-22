@@ -193,79 +193,79 @@
 </style>
 
 <script>
-  import highlight from 'highlight.js/lib/highlight.js'
-  import highlightSCSS from 'highlight.js/lib/languages/scss'
-  import highlightXML from 'highlight.js/lib/languages/xml'
-  import highlightJavascript from 'highlight.js/lib/languages/javascript'
-  import highlightShell from 'highlight.js/lib/languages/shell'
-  import Clipboard from 'clipboard'
+import highlight from 'highlight.js/lib/highlight.js'
+import highlightSCSS from 'highlight.js/lib/languages/scss'
+import highlightXML from 'highlight.js/lib/languages/xml'
+import highlightJavascript from 'highlight.js/lib/languages/javascript'
+import highlightShell from 'highlight.js/lib/languages/shell'
+import Clipboard from 'clipboard'
 
-  highlight.registerLanguage('scss', highlightSCSS)
-  highlight.registerLanguage('xml', highlightXML)
-  highlight.registerLanguage('javascript', highlightJavascript)
-  highlight.registerLanguage('shell', highlightShell)
+highlight.registerLanguage('scss', highlightSCSS)
+highlight.registerLanguage('xml', highlightXML)
+highlight.registerLanguage('javascript', highlightJavascript)
+highlight.registerLanguage('shell', highlightShell)
 
-  export default {
-    name: 'CodeBlock',
-    props: {
-      lang: String,
-      label: String,
-      height: {
-        type: [Number, String],
-        default: '450px'
-      }
-    },
-    data: () => ({
-      showMessage: false
-    }),
-    methods: {
-      enableCopy () {
-        if (this.$refs.copy) {
-          const clipboard = new Clipboard(this.$refs.copy.$el, {
-            target: () => this.$refs.block
-          })
-          let timer = null
-
-          clipboard.on('success', (event) => {
-            event.clearSelection()
-            this.showMessage = true
-
-            window.clearTimeout(timer)
-            timer = window.setTimeout(() => {
-              this.showMessage = false
-            }, 2000)
-          })
-        }
-      },
-      reindentSource () {
-        const block = this.$refs.block
-        let lines = block.textContent.split('\n')
-        let matches
-
-        if (lines[0] === '') {
-          lines.shift()
-        }
-
-        let indentation = (matches = (/^[\s\t]+/).exec(lines[0])) !== null ? matches[0] : null
-
-        if (indentation) {
-          lines = lines.map(line => {
-            line = line.replace(indentation, '')
-
-            return line.replace(/\t/g, '  ')
-          })
-
-          block.textContent = lines.join('\n').trim()
-        }
-      }
-    },
-    async mounted () {
-      await this.$nextTick()
-
-      this.reindentSource()
-      this.enableCopy()
-
-      highlight.highlightBlock(this.$refs.block)
+export default {
+  name: 'CodeBlock',
+  props: {
+    lang: String,
+    label: String,
+    height: {
+      type: [Number, String],
+      default: '450px'
     }
+  },
+  data: () => ({
+    showMessage: false
+  }),
+  methods: {
+    enableCopy () {
+      if (this.$refs.copy) {
+        const clipboard = new Clipboard(this.$refs.copy.$el, {
+          target: () => this.$refs.block
+        })
+        let timer = null
+
+        clipboard.on('success', (event) => {
+          event.clearSelection()
+          this.showMessage = true
+
+          window.clearTimeout(timer)
+          timer = window.setTimeout(() => {
+            this.showMessage = false
+          }, 2000)
+        })
+      }
+    },
+    reindentSource () {
+      const block = this.$refs.block
+      let lines = block.textContent.split('\n')
+      let matches
+
+      if (lines[0] === '') {
+        lines.shift()
+      }
+
+      let indentation = (matches = (/^[\s\t]+/).exec(lines[0])) !== null ? matches[0] : null
+
+      if (indentation) {
+        lines = lines.map(line => {
+          line = line.replace(indentation, '')
+
+          return line.replace(/\t/g, '  ')
+        })
+
+        block.textContent = lines.join('\n').trim()
+      }
+    }
+  },
+  async mounted () {
+    await this.$nextTick()
+
+    this.reindentSource()
+    this.enableCopy()
+
+    highlight.highlightBlock(this.$refs.block)
   }
+}
 </script>

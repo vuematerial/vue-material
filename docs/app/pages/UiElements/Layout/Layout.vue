@@ -14,44 +14,44 @@
 </template>
 
 <script>
-  import examples from 'docs-mixins/docsExample'
+import examples from 'docs-mixins/docsExample'
 
-  export default {
-    name: 'Content',
-    mixins: [examples],
-    data: () => ({
-      breakpoints: {
-        props: {
-          headings: ['Name', 'Size', 'Description'],
-          props: [
-            {
-              name: 'xsmall',
-              description: 'For screens who have the maximum of 600px wide. For small, medium and large handsets in portrait. Also applies to small tablets in portrait.',
-              value: '<600px'
-            },
-            {
-              name: 'small',
-              description: 'For screens who have between of 600px and 960px wide. For medium and large handsets in landscape, small and large tablets in portrait mode and some desktop monitors.',
-              value: '960px'
-            },
-            {
-              name: 'medium',
-              description: 'For screens who have between of 960px and 1280px wide. For small and large tablets in landscape and desktop monitors.',
-              value: '1280px'
-            },
-            {
-              name: 'large',
-              description: 'For screens who have between of 1280px and 1920px wide. For large desktop monitors.',
-              value: '1920px'
-            },
-            {
-              name: 'xlarge',
-              description: 'For screens bigger than 1920px wide. For huge desktop monitors or side-by-side screens.',
-              value: '>1920px'
-            }
-          ]
-        }
+export default {
+  name: 'Content',
+  mixins: [examples],
+  data: () => ({
+    breakpoints: {
+      props: {
+        headings: ['Name', 'Size', 'Description'],
+        props: [
+          {
+            name: 'xsmall',
+            description: 'For screens who have the maximum of 600px wide. For small, medium and large handsets in portrait. Also applies to small tablets in portrait.',
+            value: '<600px'
+          },
+          {
+            name: 'small',
+            description: 'For screens who have between of 600px and 960px wide. For medium and large handsets in landscape, small and large tablets in portrait mode and some desktop monitors.',
+            value: '960px'
+          },
+          {
+            name: 'medium',
+            description: 'For screens who have between of 960px and 1280px wide. For small and large tablets in landscape and desktop monitors.',
+            value: '1280px'
+          },
+          {
+            name: 'large',
+            description: 'For screens who have between of 1280px and 1920px wide. For large desktop monitors.',
+            value: '1920px'
+          },
+          {
+            name: 'xlarge',
+            description: 'For screens bigger than 1920px wide. For huge desktop monitors or side-by-side screens.',
+            value: '>1920px'
+          }
+        ]
       }
-    })
-  }
+    }
+  })
+}
 </script>

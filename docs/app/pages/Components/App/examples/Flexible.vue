@@ -86,10 +86,10 @@
 </style>
 
 <script>
-  export default {
-    name: 'Flexible',
-    data: () => ({
-      menuVisible: false
-    })
-  }
+export default {
+  name: 'Flexible',
+  data: () => ({
+    menuVisible: false
+  })
+}
 </script>

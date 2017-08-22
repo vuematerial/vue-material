@@ -29,7 +29,7 @@
 </style>
 
 <script>
-  export default {
-    name: 'RegularToolbar'
-  }
+export default {
+  name: 'RegularToolbar'
+}
 </script>

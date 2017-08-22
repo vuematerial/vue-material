@@ -56,23 +56,23 @@
 </style>
 
 <script>
-  import * as types from 'store/mutation-types'
-  import { mapActions } from 'vuex'
+import * as types from 'store/mutation-types'
+import { mapActions } from 'vuex'
 
-  export default {
-    name: 'PageContainer',
-    props: {
-      title: String,
-      centered: Boolean
-    },
-    methods: {
-      ...mapActions({
-        setPageTitle: types.SET_PAGE_TITLE
-      })
-    },
-    created () {
-      this.$material.theming.theme = 'default'
-      this.setPageTitle(this.title)
-    }
+export default {
+  name: 'PageContainer',
+  props: {
+    title: String,
+    centered: Boolean
+  },
+  methods: {
+    ...mapActions({
+      setPageTitle: types.SET_PAGE_TITLE
+    })
+  },
+  created () {
+    this.$material.theming.theme = 'default'
+    this.setPageTitle(this.title)
   }
+}
 </script>

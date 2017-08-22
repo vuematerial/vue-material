@@ -5,10 +5,10 @@
 </template>
 
 <script>
-  export default {
-    name: 'DocsLoader',
-    props: {
-      name: String
-    }
+export default {
+  name: 'DocsLoader',
+  props: {
+    name: String
   }
+}
 </script>

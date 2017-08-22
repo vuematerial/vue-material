@@ -19,13 +19,13 @@
 </template>
 
 <script>
-  import examples from 'docs-mixins/docsExample'
+import examples from 'docs-mixins/docsExample'
 
-  export default {
-    name: 'Content',
-    mixins: [examples],
-    data: () => ({
+export default {
+  name: 'Content',
+  mixins: [examples],
+  data: () => ({
 
-    })
-  }
+  })
+}
 </script>

@@ -19,7 +19,7 @@
 </template>
 
 <script>
-  export default {
-    name: 'MaterialIcons'
-  }
+export default {
+  name: 'MaterialIcons'
+}
 </script>

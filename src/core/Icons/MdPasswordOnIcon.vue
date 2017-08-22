@@ -8,7 +8,7 @@
 </template>
 
 <script>
-  export default {
-    name: 'MdPasswordOnIcon'
-  }
+export default {
+  name: 'MdPasswordOnIcon'
+}
 </script>

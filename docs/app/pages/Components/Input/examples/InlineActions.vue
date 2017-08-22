@@ -24,11 +24,11 @@
 </style>
 
 <script>
-  export default {
-    name: 'Icons',
-    data: () => ({
-      initial: 'Initial Value',
-      password: 'mysecurepassword'
-    })
-  }
+export default {
+  name: 'Icons',
+  data: () => ({
+    initial: 'Initial Value',
+    password: 'mysecurepassword'
+  })
+}
 </script>

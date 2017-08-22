@@ -20,32 +20,32 @@
 </template>
 
 <script>
-  import { mapState, mapMutations } from 'vuex'
-  import * as types from 'store/mutation-types'
-  import MainNavContent from './MainNavContent'
+import { mapState, mapMutations } from 'vuex'
+import * as types from 'store/mutation-types'
+import MainNavContent from './MainNavContent'
 
-  export default {
-    name: 'MainNav',
-    components: {
-      MainNavContent
-    },
-    computed: {
-      ...mapState({
-        isSplash: 'splashPage',
-        menuVisible: 'menuVisible'
-      })
-    },
-    methods: {
-      ...mapMutations({
-        hideMenu: types.HIDE_MENU
-      })
-    },
-    created () {
-      this.$router.afterEach((to, from, next) => {
-        this.hideMenu()
-      })
-    }
+export default {
+  name: 'MainNav',
+  components: {
+    MainNavContent
+  },
+  computed: {
+    ...mapState({
+      isSplash: 'splashPage',
+      menuVisible: 'menuVisible'
+    })
+  },
+  methods: {
+    ...mapMutations({
+      hideMenu: types.HIDE_MENU
+    })
+  },
+  created () {
+    this.$router.afterEach((to, from, next) => {
+      this.hideMenu()
+    })
   }
+}
 </script>
 
 <style lang="scss" scoped>

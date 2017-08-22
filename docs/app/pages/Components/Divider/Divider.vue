@@ -22,21 +22,21 @@
 </template>
 
 <script>
-  import examples from 'docs-mixins/docsExample'
+import examples from 'docs-mixins/docsExample'
 
-  export default {
-    name: 'Divider',
-    mixins: [examples],
-    data: () => ({
-      classes: {
-        headings: ['Name', 'Description'],
-        props: [
-          {
-            name: 'md-inset',
-            description: 'Create a inset divider, which is commonly used to separate related content.'
-          }
-        ]
-      }
-    })
-  }
+export default {
+  name: 'Divider',
+  mixins: [examples],
+  data: () => ({
+    classes: {
+      headings: ['Name', 'Description'],
+      props: [
+        {
+          name: 'md-inset',
+          description: 'Create a inset divider, which is commonly used to separate related content.'
+        }
+      ]
+    }
+  })
+}
 </script>

@@ -46,7 +46,7 @@
 </style>
 
 <script>
-  export default {
-    name: 'ContentAction'
-  }
+export default {
+  name: 'ContentAction'
+}
 </script>

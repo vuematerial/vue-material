@@ -5,26 +5,26 @@
 </template>
 
 <script>
-  const cardActionsAlignments = ['left', 'right', 'space-between']
+const cardActionsAlignments = ['left', 'right', 'space-between']
 
-  export default {
-    name: 'MdCardActions',
-    props: {
-      mdAlignment: {
-        type: String,
-        default: 'right',
-        validator (value) {
-          if (cardActionsAlignments.includes(value)) {
-            return true
-          }
-
-          console.error(`The md-alignment prop is invalid. Given value: ${value}. Available options: ${cardActionsAlignments.join(', ')}.`)
-
-          return false
+export default {
+  name: 'MdCardActions',
+  props: {
+    mdAlignment: {
+      type: String,
+      default: 'right',
+      validator (value) {
+        if (cardActionsAlignments.includes(value)) {
+          return true
         }
+
+        console.error(`The md-alignment prop is invalid. Given value: ${value}. Available options: ${cardActionsAlignments.join(', ')}.`)
+
+        return false
       }
     }
   }
+}
 </script>
 
 <style lang="scss">

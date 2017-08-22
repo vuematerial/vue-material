@@ -49,7 +49,7 @@
 </style>
 
 <script>
-  export default {
-    name: 'PermanentClipped'
-  }
+export default {
+  name: 'PermanentClipped'
+}
 </script>

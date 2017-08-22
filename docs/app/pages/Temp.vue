@@ -70,22 +70,22 @@
 </style>
 
 <script>
-  import MdPopover from 'vue-material/core/MdPopover'
+import MdPopover from 'vue-material/core/MdPopover'
 
-  let positionManager = null
+let positionManager = null
 
-  export default {
-    name: 'Temp',
-    methods: {
-      create () {
-        positionManager.createElement()
-      },
-      remove () {
-        positionManager.removeElement()
-      }
+export default {
+  name: 'Temp',
+  methods: {
+    create () {
+      positionManager.createElement()
     },
-    mounted () {
-      positionManager = new MdPopover('.trigger', '.md-menu')
+    remove () {
+      positionManager.removeElement()
     }
+  },
+  mounted () {
+    positionManager = new MdPopover('.trigger', '.md-menu')
   }
+}
 </script>

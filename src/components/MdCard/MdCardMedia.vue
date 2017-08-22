@@ -5,51 +5,51 @@
 </template>
 
 <script>
-  export default {
-    name: 'MdCardMedia',
-    props: {
-      mdRatio: String,
-      mdMedium: Boolean,
-      mdBig: Boolean
-    },
-    computed: {
-      mediaClasses () {
-        let classes = {}
+export default {
+  name: 'MdCardMedia',
+  props: {
+    mdRatio: String,
+    mdMedium: Boolean,
+    mdBig: Boolean
+  },
+  computed: {
+    mediaClasses () {
+      let classes = {}
 
-        if (this.mdRatio) {
-          const ratio = this.getAspectRatio()
+      if (this.mdRatio) {
+        const ratio = this.getAspectRatio()
 
-          if (ratio) {
-            const [horiz, vert] = ratio
+        if (ratio) {
+          const [horiz, vert] = ratio
 
-            classes[`md-ratio-${horiz}-${vert}`] = true
-          }
+          classes[`md-ratio-${horiz}-${vert}`] = true
         }
-
-        if (this.mdMedium || this.mdBig) {
-          classes = {
-            'md-medium': this.mdMedium,
-            'md-big': this.mdBig
-          }
-        }
-
-        return classes
       }
-    },
-    methods: {
-      getAspectRatio () {
-        let ratio = []
 
-        if (this.mdRatio.indexOf(':') !== -1) {
-          ratio = this.mdRatio.split(':')
-        } else if (this.mdRatio.indexOf('/') !== -1) {
-          ratio = this.mdRatio.split('/')
+      if (this.mdMedium || this.mdBig) {
+        classes = {
+          'md-medium': this.mdMedium,
+          'md-big': this.mdBig
         }
-
-        return ratio.length === 2 ? ratio : null
       }
+
+      return classes
+    }
+  },
+  methods: {
+    getAspectRatio () {
+      let ratio = []
+
+      if (this.mdRatio.indexOf(':') !== -1) {
+        ratio = this.mdRatio.split(':')
+      } else if (this.mdRatio.indexOf('/') !== -1) {
+        ratio = this.mdRatio.split('/')
+      }
+
+      return ratio.length === 2 ? ratio : null
     }
   }
+}
 </script>
 
 <style lang="scss">

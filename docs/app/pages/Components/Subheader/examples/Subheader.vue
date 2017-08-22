@@ -12,7 +12,7 @@
 </style>
 
 <script>
-  export default {
-    name: 'Subheader'
-  }
+export default {
+  name: 'Subheader'
+}
 </script>

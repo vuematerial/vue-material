@@ -90,12 +90,12 @@
 </style>
 
 <script>
-  import HomeIcon from './HomeIcon'
+import HomeIcon from './HomeIcon'
 
-  export default {
-    name: 'HomeIcondevices',
-    components: {
-      HomeIcon
-    }
+export default {
+  name: 'HomeIcondevices',
+  components: {
+    HomeIcon
   }
+}
 </script>

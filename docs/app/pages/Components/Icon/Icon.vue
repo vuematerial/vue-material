@@ -45,48 +45,48 @@
 </template>
 
 <script>
-  import examples from 'docs-mixins/docsExample'
+import examples from 'docs-mixins/docsExample'
 
-  export default {
-    name: 'Icon',
-    mixins: [examples],
-    data: () => ({
-      api: {
-        material: {
-          classes: {
-            headings: ['Name', 'Description', 'Example'],
-            props: [
-              {
-                name: 'md-size-[dimension]',
-                description: 'Increase the size of the icon. It accepts 2x, 3x, 4x or 5x',
-                example: 'md-size-3x'
-              }
-            ]
-          },
-          events: {
-            headings: ['Name', 'Description', 'Value'],
-            props: [
-              {
-                name: 'md-loaded',
-                description: 'Triggered right after fetch of the SVG icon',
-                example: 'null'
-              }
-            ]
-          }
+export default {
+  name: 'Icon',
+  mixins: [examples],
+  data: () => ({
+    api: {
+      material: {
+        classes: {
+          headings: ['Name', 'Description', 'Example'],
+          props: [
+            {
+              name: 'md-size-[dimension]',
+              description: 'Increase the size of the icon. It accepts 2x, 3x, 4x or 5x',
+              example: 'md-size-3x'
+            }
+          ]
         },
-        svg: {
-          props: {
-            headings: ['Name', 'Description', 'Default'],
-            props: [
-              {
-                name: 'md-src',
-                description: 'The source of the svg icon. Note that for icons on external domais, cors may affect it\'s functionality.',
-                defaults: 'null'
-              }
-            ]
-          }
+        events: {
+          headings: ['Name', 'Description', 'Value'],
+          props: [
+            {
+              name: 'md-loaded',
+              description: 'Triggered right after fetch of the SVG icon',
+              example: 'null'
+            }
+          ]
+        }
+      },
+      svg: {
+        props: {
+          headings: ['Name', 'Description', 'Default'],
+          props: [
+            {
+              name: 'md-src',
+              description: 'The source of the svg icon. Note that for icons on external domais, cors may affect it\'s functionality.',
+              defaults: 'null'
+            }
+          ]
         }
       }
-    })
-  }
+    }
+  })
+}
 </script>

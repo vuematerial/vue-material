@@ -15,10 +15,10 @@
 </template>
 
 <script>
-  import examples from 'docs-mixins/docsExample'
+import examples from 'docs-mixins/docsExample'
 
-  export default {
-    name: 'Switch',
-    mixins: [examples]
-  }
+export default {
+  name: 'Switch',
+  mixins: [examples]
+}
 </script>

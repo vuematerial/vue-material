@@ -19,7 +19,7 @@ Vue.config.productionTip = false
 sync(store, router)
 
 const app = new Vue({
-  name: 'root',
+  name: 'Root',
   router,
   store,
   i18n,

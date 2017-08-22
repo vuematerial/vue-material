@@ -1,12 +1,16 @@
 {
   "root": true,
-  "parser": "babel-eslint",
+  "parserOptions": {
+    "parser": "babel-eslint",
+    "ecmaVersion": 2017,
+    "sourceType": "module"
+  },
   "plugins": [
-    "html",
     "jest"
   ],
   "extends": [
-    "standard"
+    "standard",
+    "plugin:vue/recommended"
   ],
   "env": {
     "jest/globals": true
@@ -18,8 +22,14 @@
       "error",
       4
     ],
-    "max-statements": ["error", 30],
-    "max-params": ["error", 4],
+    "max-statements": [
+      "error",
+      30
+    ],
+    "max-params": [
+      "error",
+      4
+    ],
     "max-nested-callbacks": [
       "error",
       3
@@ -29,6 +39,18 @@
       {
         "max": 5
       }
+    ],
+    "vue/v-bind-style": [
+      "error",
+      "shorthand"
+    ],
+    "vue/v-on-style": [
+      "error",
+      "shorthand"
+    ],
+    "vue/name-property-casing": [
+      "error",
+      "PascalCase"
     ]
   }
 }

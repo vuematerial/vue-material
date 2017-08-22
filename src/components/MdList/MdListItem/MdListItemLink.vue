@@ -7,16 +7,16 @@
 </template>
 
 <script>
-  import MdListItemMixin from './MdListItemMixin'
+import MdListItemMixin from './MdListItemMixin'
 
-  export default {
-    name: 'MdListItemLink',
-    mixins: [MdListItemMixin],
-    props: {
-      href: String,
-      target: String
-    }
+export default {
+  name: 'MdListItemLink',
+  mixins: [MdListItemMixin],
+  props: {
+    href: String,
+    target: String
   }
+}
 </script>
 
 <style lang="scss">

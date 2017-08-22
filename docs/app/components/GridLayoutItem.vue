@@ -35,17 +35,17 @@
 </style>
 
 <script>
-  import IconButton from './icons/IconButton'
+import IconButton from './icons/IconButton'
 
-  export default {
-    name: 'GridLayoutItem',
-    components: {
-      IconButton
-    },
-    props: {
-      href: String,
-      title: String,
-      icon: String
-    }
+export default {
+  name: 'GridLayoutItem',
+  components: {
+    IconButton
+  },
+  props: {
+    href: String,
+    title: String,
+    icon: String
   }
+}
 </script>

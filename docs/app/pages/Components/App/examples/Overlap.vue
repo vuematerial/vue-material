@@ -75,10 +75,10 @@
 </style>
 
 <script>
-  export default {
-    name: 'Overlap',
-    data: () => ({
-      menuVisible: false
-    })
-  }
+export default {
+  name: 'Overlap',
+  data: () => ({
+    menuVisible: false
+  })
+}
 </script>

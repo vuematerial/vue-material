@@ -5,17 +5,17 @@
 </template>
 
 <script>
-  import MdRipple from 'components/MdRipple/MdRipple.vue'
+import MdRipple from 'components/MdRipple/MdRipple.vue'
 
-  export default {
-    name: 'MdListItemContent',
-    components: {
-      MdRipple
-    },
-    props: {
-      mdDisabled: Boolean
-    }
+export default {
+  name: 'MdListItemContent',
+  components: {
+    MdRipple
+  },
+  props: {
+    mdDisabled: Boolean
   }
+}
 </script>
 
 <style lang="scss">

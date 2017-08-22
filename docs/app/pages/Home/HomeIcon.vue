@@ -29,7 +29,7 @@
 </style>
 
 <script>
-  export default {
-    name: 'HomeIcon'
-  }
+export default {
+  name: 'HomeIcon'
+}
 </script>

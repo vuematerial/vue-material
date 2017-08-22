@@ -43,10 +43,10 @@
 </template>
 
 <script>
-  import examples from 'docs-mixins/docsExample'
+import examples from 'docs-mixins/docsExample'
 
-  export default {
-    name: 'Input',
-    mixins: [examples]
-  }
+export default {
+  name: 'Input',
+  mixins: [examples]
+}
 </script>

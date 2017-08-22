@@ -23,17 +23,17 @@
 </template>
 
 <script>
-  export default {
-    name: 'ErrorsMessages',
-    data: () => ({
-      hasMessages: false
-    }),
-    computed: {
-      messageClass () {
-        return {
-          'md-invalid': this.hasMessages
-        }
+export default {
+  name: 'ErrorsMessages',
+  data: () => ({
+    hasMessages: false
+  }),
+  computed: {
+    messageClass () {
+      return {
+        'md-invalid': this.hasMessages
       }
     }
   }
+}
 </script>

@@ -3,80 +3,80 @@
 </template>
 
 <script>
-  let mdSVGStore = {}
+let mdSVGStore = {}
 
-  export default {
-    name: 'MdSVGLoader',
-    props: {
-      mdSrc: {
-        type: String,
-        required: true
-      }
-    },
-    data: () => ({
-      html: null,
-      error: null
-    }),
-    watch: {
-      mdSrc () {
-        this.html = null
-        this.loadSVG()
-      }
-    },
-    methods: {
-      isSVG (mimetype) {
-        return mimetype.indexOf('svg') >= 0
-      },
-      async setHtml (value) {
-        this.html = await mdSVGStore[this.mdSrc]
-
-        await this.$nextTick()
-
-        this.$emit('md-loaded')
-      },
-      unexpectedError (reject) {
-        this.error = `Something bad happened trying to fetch ${this.mdSrc}.`
-        reject(this.error)
-      },
-      loadSVG () {
-        if (!mdSVGStore.hasOwnProperty(this.mdSrc)) {
-          mdSVGStore[this.mdSrc] = new Promise((resolve, reject) => {
-            const request = new window.XMLHttpRequest()
-
-            request.open('GET', this.mdSrc, true)
-
-            request.onload = () => {
-              const mimetype = request.getResponseHeader('content-type')
-
-              if (request.status === 200) {
-                if (this.isSVG(mimetype)) {
-                  resolve(request.response)
-                  this.setHtml()
-                } else {
-                  this.error = `The file ${this.mdSrc} is not a valid SVG.`
-                  reject(this.error)
-                }
-              } else if (request.status >= 400 && request.status < 500) {
-                this.error = `The file ${this.mdSrc} do not exists.`
-                reject(this.error)
-              } else {
-                this.unexpectedError(reject)
-              }
-            }
-
-            request.onerror = () => this.unexpectedError(reject)
-            request.onabort = () => this.unexpectedError(reject)
-            request.send()
-          })
-        } else {
-          this.setHtml()
-        }
-      }
-    },
-    mounted () {
+export default {
+  name: 'MdSVGLoader',
+  props: {
+    mdSrc: {
+      type: String,
+      required: true
+    }
+  },
+  data: () => ({
+    html: null,
+    error: null
+  }),
+  watch: {
+    mdSrc () {
+      this.html = null
       this.loadSVG()
     }
+  },
+  methods: {
+    isSVG (mimetype) {
+      return mimetype.indexOf('svg') >= 0
+    },
+    async setHtml (value) {
+      this.html = await mdSVGStore[this.mdSrc]
+
+      await this.$nextTick()
+
+      this.$emit('md-loaded')
+    },
+    unexpectedError (reject) {
+      this.error = `Something bad happened trying to fetch ${this.mdSrc}.`
+      reject(this.error)
+    },
+    loadSVG () {
+      if (!mdSVGStore.hasOwnProperty(this.mdSrc)) {
+        mdSVGStore[this.mdSrc] = new Promise((resolve, reject) => {
+          const request = new window.XMLHttpRequest()
+
+          request.open('GET', this.mdSrc, true)
+
+          request.onload = () => {
+            const mimetype = request.getResponseHeader('content-type')
+
+            if (request.status === 200) {
+              if (this.isSVG(mimetype)) {
+                resolve(request.response)
+                this.setHtml()
+              } else {
+                this.error = `The file ${this.mdSrc} is not a valid SVG.`
+                reject(this.error)
+              }
+            } else if (request.status >= 400 && request.status < 500) {
+              this.error = `The file ${this.mdSrc} do not exists.`
+              reject(this.error)
+            } else {
+              this.unexpectedError(reject)
+            }
+          }
+
+          request.onerror = () => this.unexpectedError(reject)
+          request.onabort = () => this.unexpectedError(reject)
+          request.send()
+        })
+      } else {
+        this.setHtml()
+      }
+    }
+  },
+  mounted () {
+    this.loadSVG()
   }
+}
 </script>
 
 <style lang="scss">

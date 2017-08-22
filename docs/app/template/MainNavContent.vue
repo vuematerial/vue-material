@@ -60,7 +60,7 @@
 </style>
 
 <script>
-  export default {
-    name: 'MainNavContent'
-  }
+export default {
+  name: 'MainNavContent'
+}
 </script>

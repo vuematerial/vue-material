@@ -35,7 +35,7 @@
 </style>
 
 <script>
-  export default {
-    name: 'FloatingButtons'
-  }
+export default {
+  name: 'FloatingButtons'
+}
 </script>

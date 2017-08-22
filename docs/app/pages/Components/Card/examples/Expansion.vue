@@ -48,7 +48,7 @@
 </style>
 
 <script>
-  export default {
-    name: 'Expansion'
-  }
+export default {
+  name: 'Expansion'
+}
 </script>

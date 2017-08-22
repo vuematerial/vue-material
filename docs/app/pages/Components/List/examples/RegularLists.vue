@@ -63,9 +63,9 @@
 </template>
 
 <script>
-  export default {
-    name: 'RegularLists'
-  }
+export default {
+  name: 'RegularLists'
+}
 </script>
 
 <style lang="scss" scoped>
@@ -74,4 +74,3 @@
     border: 1px solid rgba(#000, .12);
   }
 </style>
-

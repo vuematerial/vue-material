@@ -34,7 +34,7 @@
 </style>
 
 <script>
-  export default {
-    name: 'Icons'
-  }
+export default {
+  name: 'Icons'
+}
 </script>

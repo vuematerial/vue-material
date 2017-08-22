@@ -17,7 +17,7 @@
 </style>
 
 <script>
-  export default {
-    name: 'PaperContent'
-  }
+export default {
+  name: 'PaperContent'
+}
 </script>

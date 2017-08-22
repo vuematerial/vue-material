@@ -14,9 +14,9 @@
 </template>
 
 <script>
-  export default {
-    name: 'TextSelection'
-  }
+export default {
+  name: 'TextSelection'
+}
 </script>
 
 <style lang="scss">

@@ -21,7 +21,7 @@
 </template>
 
 <script>
-  export default {
-    name: 'FontAwesome'
-  }
+export default {
+  name: 'FontAwesome'
+}
 </script>

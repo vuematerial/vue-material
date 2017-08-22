@@ -58,7 +58,7 @@
 </style>
 
 <script>
-  export default {
-    name: 'IconButtons'
-  }
+export default {
+  name: 'IconButtons'
+}
 </script>

@@ -80,35 +80,35 @@
 </style>
 
 <script>
-  import MdSvgLoader from 'vue-material/core/MdSvgLoader/MdSvgLoader'
+import MdSvgLoader from 'vue-material/core/MdSvgLoader/MdSvgLoader'
 
-  export default {
-    name: 'LogoVueMaterial',
-    components: {
-      MdSvgLoader
-    },
-    props: {
-      animated: Boolean,
-      blending: {
-        type: Boolean,
-        default: true
-      }
-    },
-    methods: {
-      svgLoaded () {
-        if (this.animated) {
-          const firstSquare = this.$el.querySelector('.first-square')
-          const lastSquare = this.$el.querySelector('.last-square')
+export default {
+  name: 'LogoVueMaterial',
+  components: {
+    MdSvgLoader
+  },
+  props: {
+    animated: Boolean,
+    blending: {
+      type: Boolean,
+      default: true
+    }
+  },
+  methods: {
+    svgLoaded () {
+      if (this.animated) {
+        const firstSquare = this.$el.querySelector('.first-square')
+        const lastSquare = this.$el.querySelector('.last-square')
 
-          firstSquare.setAttribute('transform', 'translate(48 0)')
-          lastSquare.setAttribute('transform', 'translate(-48 0)')
+        firstSquare.setAttribute('transform', 'translate(48 0)')
+        lastSquare.setAttribute('transform', 'translate(-48 0)')
 
-          window.setTimeout(() => {
-            firstSquare.setAttribute('transform', 'translate(0 0)')
-            lastSquare.setAttribute('transform', 'translate(0 0)')
-          }, 10)
-        }
+        window.setTimeout(() => {
+          firstSquare.setAttribute('transform', 'translate(0 0)')
+          lastSquare.setAttribute('transform', 'translate(0 0)')
+        }, 10)
       }
     }
   }
+}
 </script>

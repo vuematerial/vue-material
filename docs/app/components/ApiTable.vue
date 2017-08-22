@@ -2,10 +2,10 @@
   <div class="api-table">
     <table>
       <tr>
-        <th v-for="heading in headings">{{ heading }}</th>
+        <th v-for="heading in headings" :key="heading">{{ heading }}</th>
       </tr>
 
-      <tr v-for="{ offset, name, type, description, defaults, value, example } in props">
+      <tr v-for="{ offset, name, type, description, defaults, value, example } in props" :key="name">
         <td :class="{ offset }">
           <span class="prop-name">{{ name }}</span>
           <small class="prop-type" v-if="type">{{ type }}</small>
@@ -21,13 +21,13 @@
 </template>
 
 <script>
-  export default {
-    name: 'ApiTable',
-    props: {
-      props: Array,
-      headings: Array
-    }
+export default {
+  name: 'ApiTable',
+  props: {
+    props: Array,
+    headings: Array
   }
+}
 </script>
 
 <style lang="scss" scoped>

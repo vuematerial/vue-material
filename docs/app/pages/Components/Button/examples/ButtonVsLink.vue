@@ -25,12 +25,12 @@
 </style>
 
 <script>
-  export default {
-    name: 'ButtonVsLink',
-    computed: {
-      pageUrl () {
-        return window.location.href
-      }
+export default {
+  name: 'ButtonVsLink',
+  computed: {
+    pageUrl () {
+      return window.location.href
     }
   }
+}
 </script>

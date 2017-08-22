@@ -63,15 +63,15 @@
 </style>
 
 <script>
-  export default {
-    name: 'Persistent',
-    data: () => ({
-      menuVisible: false
-    }),
-    methods: {
-      toggleMenu () {
-        this.menuVisible = !this.menuVisible
-      }
+export default {
+  name: 'Persistent',
+  data: () => ({
+    menuVisible: false
+  }),
+  methods: {
+    toggleMenu () {
+      this.menuVisible = !this.menuVisible
     }
   }
+}
 </script>

@@ -61,7 +61,7 @@
 </style>
 
 <script>
-  export default {
-    name: 'Normal'
-  }
+export default {
+  name: 'Normal'
+}
 </script>

@@ -31,7 +31,7 @@
 </style>
 
 <script>
-  export default {
-    name: 'ToolbarSizes'
-  }
+export default {
+  name: 'ToolbarSizes'
+}
 </script>

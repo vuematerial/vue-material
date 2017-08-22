@@ -49,7 +49,7 @@
 </style>
 
 <script>
-  export default {
-    name: 'PermanentCard'
-  }
+export default {
+  name: 'PermanentCard'
+}
 </script>

@@ -18,7 +18,7 @@
 </style>
 
 <script>
-  export default {
-    name: 'Components'
-  }
+export default {
+  name: 'Components'
+}
 </script>

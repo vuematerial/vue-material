@@ -23,7 +23,7 @@
 </template>
 
 <script>
-  export default {
-    name: 'Counters'
-  }
+export default {
+  name: 'Counters'
+}
 </script>

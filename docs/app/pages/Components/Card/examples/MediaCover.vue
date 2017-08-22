@@ -77,7 +77,7 @@
 </style>
 
 <script>
-  export default {
-    name: 'MediaCover'
-  }
+export default {
+  name: 'MediaCover'
+}
 </script>

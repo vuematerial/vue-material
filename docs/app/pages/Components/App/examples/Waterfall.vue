@@ -61,7 +61,7 @@
 </style>
 
 <script>
-  export default {
-    name: 'Waterfall'
-  }
+export default {
+  name: 'Waterfall'
+}
 </script>

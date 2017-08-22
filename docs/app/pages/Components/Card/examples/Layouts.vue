@@ -205,7 +205,7 @@
 </style>
 
 <script>
-  export default {
-    name: 'Layouts'
-  }
+export default {
+  name: 'Layouts'
+}
 </script>

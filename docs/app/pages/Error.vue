@@ -9,7 +9,7 @@
 </style>
 
 <script>
-  export default {
-    name: 'Error'
-  }
+export default {
+  name: 'Error'
+}
 </script>

@@ -69,122 +69,122 @@
 </template>
 
 <script>
-  import examples from 'docs-mixins/docsExample'
+import examples from 'docs-mixins/docsExample'
 
-  export default {
-    name: 'Button',
-    mixins: [examples],
-    data: () => ({
-      api: {
-        regular: {
-          props: {
-            headings: ['Name', 'Description', 'Default'],
-            props: [
-              {
-                name: 'href',
-                type: 'String',
-                description: 'Create a anchor on the button. In this case the generated tag will be <a>.',
-                defaults: 'null'
-              },
-              {
-                name: 'type',
-                type: 'String',
-                description: 'Apply a type to button - Don\'t affect links.',
-                defaults: 'button'
-              },
-              {
-                name: 'disabled',
-                type: 'Boolean',
-                description: 'Disable the button and prevent his actions.',
-                defaults: 'false'
-              },
-              {
-                name: 'md-ripple',
-                type: 'Boolean',
-                description: 'Enable/Disable the ripple effect.',
-                defaults: 'true'
-              }
-            ]
-          },
-          events: {
-            headings: ['Name', 'Description', 'Value'],
-            props: [
-              {
-                name: 'click',
-                description: 'Triggered after a mouse click',
-                value: '$event'
-              }
-            ]
-          },
-          classes: {
-            headings: ['Name', 'Description'],
-            props: [
-              {
-                name: 'md-raised',
-                description: 'Create raised buttons with elevation'
-              },
-              {
-                name: 'md-dense',
-                description: 'A slight small variant of buttons. Useful to create a compact UI.'
-              }
-            ]
-          }
+export default {
+  name: 'Button',
+  mixins: [examples],
+  data: () => ({
+    api: {
+      regular: {
+        props: {
+          headings: ['Name', 'Description', 'Default'],
+          props: [
+            {
+              name: 'href',
+              type: 'String',
+              description: 'Create a anchor on the button. In this case the generated tag will be <a>.',
+              defaults: 'null'
+            },
+            {
+              name: 'type',
+              type: 'String',
+              description: 'Apply a type to button - Don\'t affect links.',
+              defaults: 'button'
+            },
+            {
+              name: 'disabled',
+              type: 'Boolean',
+              description: 'Disable the button and prevent his actions.',
+              defaults: 'false'
+            },
+            {
+              name: 'md-ripple',
+              type: 'Boolean',
+              description: 'Enable/Disable the ripple effect.',
+              defaults: 'true'
+            }
+          ]
         },
-        icons: {
-          classes: {
-            headings: ['Name', 'Description'],
-            props: [
-              {
-                name: 'md-icon-button',
-                description: 'Enable the rounded-shape icon button'
-              }
-            ]
-          }
+        events: {
+          headings: ['Name', 'Description', 'Value'],
+          props: [
+            {
+              name: 'click',
+              description: 'Triggered after a mouse click',
+              value: '$event'
+            }
+          ]
         },
-        fab: {
-          classes: {
-            headings: ['Name', 'Description'],
-            props: [
-              {
-                name: 'md-fab',
-                description: 'Turn a button into a FAB'
-              },
-              {
-                name: 'md-plain',
-                description: 'Make the button white'
-              },
-              {
-                name: 'md-mini',
-                description: 'Create a smaller FAB'
-              },
-              {
-                name: 'md-dense',
-                description: 'An alias for "md-mini"'
-              },
-              {
-                name: 'md-fab-top-right',
-                description: 'Position the FAB on the top right of the nearest relative parent'
-              },
-              {
-                name: 'md-fab-top-left',
-                description: 'Position the FAB on the top left of the nearest relative parent'
-              },
-              {
-                name: 'md-fab-bottom-right',
-                description: 'Position the FAB on the bottom right of the nearest relative parent'
-              },
-              {
-                name: 'md-fab-bottom-left',
-                description: 'Position the FAB on the bottom left of the nearest relative parent'
-              },
-              {
-                name: 'md-fixed',
-                description: 'Apply position: fixed to FAB. Better used with the 4 position coordinates above'
-              }
-            ]
-          }
+        classes: {
+          headings: ['Name', 'Description'],
+          props: [
+            {
+              name: 'md-raised',
+              description: 'Create raised buttons with elevation'
+            },
+            {
+              name: 'md-dense',
+              description: 'A slight small variant of buttons. Useful to create a compact UI.'
+            }
+          ]
+        }
+      },
+      icons: {
+        classes: {
+          headings: ['Name', 'Description'],
+          props: [
+            {
+              name: 'md-icon-button',
+              description: 'Enable the rounded-shape icon button'
+            }
+          ]
+        }
+      },
+      fab: {
+        classes: {
+          headings: ['Name', 'Description'],
+          props: [
+            {
+              name: 'md-fab',
+              description: 'Turn a button into a FAB'
+            },
+            {
+              name: 'md-plain',
+              description: 'Make the button white'
+            },
+            {
+              name: 'md-mini',
+              description: 'Create a smaller FAB'
+            },
+            {
+              name: 'md-dense',
+              description: 'An alias for "md-mini"'
+            },
+            {
+              name: 'md-fab-top-right',
+              description: 'Position the FAB on the top right of the nearest relative parent'
+            },
+            {
+              name: 'md-fab-top-left',
+              description: 'Position the FAB on the top left of the nearest relative parent'
+            },
+            {
+              name: 'md-fab-bottom-right',
+              description: 'Position the FAB on the bottom right of the nearest relative parent'
+            },
+            {
+              name: 'md-fab-bottom-left',
+              description: 'Position the FAB on the bottom left of the nearest relative parent'
+            },
+            {
+              name: 'md-fixed',
+              description: 'Apply position: fixed to FAB. Better used with the 4 position coordinates above'
+            }
+          ]
         }
       }
-    })
-  }
+    }
+  })
+}
 </script>

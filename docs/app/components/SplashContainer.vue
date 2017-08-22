@@ -13,32 +13,32 @@
 </style>
 
 <script>
-  import * as types from 'store/mutation-types'
-  import { mapActions, mapMutations, mapState } from 'vuex'
+import * as types from 'store/mutation-types'
+import { mapActions, mapMutations, mapState } from 'vuex'
 
-  export default {
-    name: 'SplashContainer',
-    props: {
-      title: String
-    },
-    computed: {
-      ...mapState(['splashPage'])
-    },
-    methods: {
-      ...mapActions({
-        setPageTitle: types.SET_PAGE_TITLE
-      }),
-      ...mapMutations({
-        setSplashMode: types.SET_SPLASH_MODE
-      })
-    },
-    mounted () {
-      this.$material.theming.theme = 'dark'
-      this.setPageTitle(this.title)
-      this.setSplashMode(true)
-    },
-    beforeDestroy () {
-      this.setSplashMode(false)
-    }
+export default {
+  name: 'SplashContainer',
+  props: {
+    title: String
+  },
+  computed: {
+    ...mapState(['splashPage'])
+  },
+  methods: {
+    ...mapActions({
+      setPageTitle: types.SET_PAGE_TITLE
+    }),
+    ...mapMutations({
+      setSplashMode: types.SET_SPLASH_MODE
+    })
+  },
+  mounted () {
+    this.$material.theming.theme = 'dark'
+    this.setPageTitle(this.title)
+    this.setSplashMode(true)
+  },
+  beforeDestroy () {
+    this.setSplashMode(false)
   }
+}
 </script>

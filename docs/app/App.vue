@@ -13,29 +13,29 @@
 </template>
 
 <script>
-  import { mapState } from 'vuex'
-  import MainHeader from './template/MainHeader'
-  import MainNav from './template/MainNav'
-  import MainFooter from './template/MainFooter'
+import { mapState } from 'vuex'
+import MainHeader from './template/MainHeader'
+import MainNav from './template/MainNav'
+import MainFooter from './template/MainFooter'
 
-  export default {
-    name: 'App',
-    components: {
-      MainHeader,
-      MainNav,
-      MainFooter
-    },
-    computed: {
-      ...mapState({
-        isSplash: 'splashPage'
-      }),
-      containerClass () {
-        return {
-          splash: this.isSplash
-        }
+export default {
+  name: 'App',
+  components: {
+    MainHeader,
+    MainNav,
+    MainFooter
+  },
+  computed: {
+    ...mapState({
+      isSplash: 'splashPage'
+    }),
+    containerClass () {
+      return {
+        splash: this.isSplash
       }
     }
   }
+}
 </script>
 
 <style lang="scss">

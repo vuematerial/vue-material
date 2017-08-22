@@ -14,15 +14,15 @@
 </template>
 
 <script>
-  export default {
-    name: 'Components',
-    data: () => ({
-      components: [
-        {
-          name: 'button',
-          key: 'button'
-        }
-      ]
-    })
-  }
+export default {
+  name: 'Components',
+  data: () => ({
+    components: [
+      {
+        name: 'button',
+        key: 'button'
+      }
+    ]
+  })
+}
 </script>

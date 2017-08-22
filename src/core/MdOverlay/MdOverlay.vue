@@ -5,83 +5,83 @@
 </template>
 
 <script>
-  export default {
-    name: 'MdOverlay',
-    props: {
-      mdVisible: Boolean,
-      mdBodyAttach: Boolean
-    },
-    data: () => ({
-      noop: null,
-      overlayElement: null,
-      isVisible: false,
-      isActive: false
-    }),
-    computed: {
-      overlayClasses () {
-        return {
-          'md-active': this.isActive,
-          'md-fixed': this.mdBodyAttach
-        }
-      }
-    },
-    watch: {
-      mdVisible (visible) {
-        this.controlVisibility(visible)
-      }
-    },
-    methods: {
-      controlVisibility (visible) {
-        window.requestAnimationFrame(() => {
-          if (visible) {
-            this.attachToBody()
-          }
-
-          this.isVisible = visible
-        })
-      },
-      async setActive () {
-        await this.$nextTick()
-        this.isActive = true
-      },
-      removeNode (content) {
-        const { parentNode } = content
-
-        if (parentNode.contains(content)) {
-          parentNode.removeChild(content)
-        }
-      },
-      detachFromBody () {
-        const { body } = document
-        const { overlayElement } = this
-        let container = this.mdBodyAttach ? body : this.parentElement
-
-        if (container.contains(overlayElement)) {
-          container.removeChild(overlayElement)
-        }
-
-        this.isActive = false
-      },
-      attachToBody () {
-        const { body } = document
-        const { overlayElement } = this
-        let container = this.mdBodyAttach ? body : this.parentElement
-
-        if (!container.contains(overlayElement)) {
-          container.appendChild(overlayElement)
-        }
-      }
-    },
-    mounted () {
-      this.overlayElement = this.$el
-      this.parentElement = this.$el.parentNode.parentNode
-      this.removeNode(this.$el)
-
-      if (this.mdVisible) {
-        this.controlVisibility(this.mdVisible)
+export default {
+  name: 'MdOverlay',
+  props: {
+    mdVisible: Boolean,
+    mdBodyAttach: Boolean
+  },
+  data: () => ({
+    noop: null,
+    overlayElement: null,
+    isVisible: false,
+    isActive: false
+  }),
+  computed: {
+    overlayClasses () {
+      return {
+        'md-active': this.isActive,
+        'md-fixed': this.mdBodyAttach
       }
     }
+  },
+  watch: {
+    mdVisible (visible) {
+      this.controlVisibility(visible)
+    }
+  },
+  methods: {
+    controlVisibility (visible) {
+      window.requestAnimationFrame(() => {
+        if (visible) {
+          this.attachToBody()
+        }
+
+        this.isVisible = visible
+      })
+    },
+    async setActive () {
+      await this.$nextTick()
+      this.isActive = true
+    },
+    removeNode (content) {
+      const { parentNode } = content
+
+      if (parentNode.contains(content)) {
+        parentNode.removeChild(content)
+      }
+    },
+    detachFromBody () {
+      const { body } = document
+      const { overlayElement } = this
+      let container = this.mdBodyAttach ? body : this.parentElement
+
+      if (container.contains(overlayElement)) {
+        container.removeChild(overlayElement)
+      }
+
+      this.isActive = false
+    },
+    attachToBody () {
+      const { body } = document
+      const { overlayElement } = this
+      let container = this.mdBodyAttach ? body : this.parentElement
+
+      if (!container.contains(overlayElement)) {
+        container.appendChild(overlayElement)
+      }
+    }
+  },
+  mounted () {
+    this.overlayElement = this.$el
+    this.parentElement = this.$el.parentNode.parentNode
+    this.removeNode(this.$el)
+
+    if (this.mdVisible) {
+      this.controlVisibility(this.mdVisible)
+    }
   }
+}
 </script>
 
 <style lang="scss">

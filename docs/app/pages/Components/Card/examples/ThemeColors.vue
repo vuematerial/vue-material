@@ -91,9 +91,9 @@
 </template>
 
 <script>
-  export default {
-    name: 'ThemeColors'
-  }
+export default {
+  name: 'ThemeColors'
+}
 </script>
 
 <style lang="scss" scoped>

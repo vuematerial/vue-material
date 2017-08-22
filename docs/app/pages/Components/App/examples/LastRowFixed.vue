@@ -91,10 +91,10 @@
 </style>
 
 <script>
-  export default {
-    name: 'LastRowFixed',
-    data: () => ({
-      menuVisible: false
-    })
-  }
+export default {
+  name: 'LastRowFixed',
+  data: () => ({
+    menuVisible: false
+  })
+}
 </script>

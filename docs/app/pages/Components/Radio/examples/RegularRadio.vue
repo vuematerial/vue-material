@@ -10,12 +10,12 @@
 </template>
 
 <script>
-  export default {
-    name: 'RegularRadio',
-    data: () => ({
-      radio: false
-    })
-  }
+export default {
+  name: 'RegularRadio',
+  data: () => ({
+    radio: false
+  })
+}
 </script>
 
 <style lang="scss" scoped>
@@ -23,4 +23,3 @@
     display: block;
   }
 </style>
-

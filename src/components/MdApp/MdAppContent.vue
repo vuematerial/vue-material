@@ -5,8 +5,8 @@
 </template>
 
 <script>
-  export default {
-    name: 'MdAppContent',
-    inject: ['MdApp']
-  }
+export default {
+  name: 'MdAppContent',
+  inject: ['MdApp']
+}
 </script>

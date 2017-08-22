@@ -26,15 +26,15 @@
 </template>
 
 <script>
-  export default {
-    name: 'RegularSwitch',
-    data: () => ({
-      array: [],
-      boolean: false,
-      string: null,
-      novalue: null
-    })
-  }
+export default {
+  name: 'RegularSwitch',
+  data: () => ({
+    array: [],
+    boolean: false,
+    string: null,
+    novalue: null
+  })
+}
 </script>
 
 <style lang="scss" scoped>
@@ -51,4 +51,3 @@
     }
   }
 </style>
-
