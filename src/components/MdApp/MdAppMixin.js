@@ -73,7 +73,7 @@ export default {
       }
     },
     containerStyles () {
-      if (this.mdMode && (this.mdMode !== 'fixed' || this.mdMode !== 'flexible')) {
+      if (this.mdMode && this.mdMode !== 'fixed') {
         return {
           'margin-top': this.MdApp.toolbar.initialHeight + 'px'
         }

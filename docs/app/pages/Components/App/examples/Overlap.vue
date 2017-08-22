@@ -59,14 +59,6 @@
     border: 1px solid rgba(#000, .12);
   }
 
-  .md-content {
-    /* Simulating a Card */
-    margin-right: 16px;
-    margin-left: 16px;
-    border-radius: 2px;
-    box-shadow: 0 3px 1px -2px rgba(#000, .2), 0 2px 2px 0 rgba(#000, .14), 0 1px 5px 0 rgba(#000, .12);
-  }
-
    // Demo purposes only
   .md-drawer {
     width: 230px;
