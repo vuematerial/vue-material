@@ -6,7 +6,7 @@ import cssnano from 'cssnano'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 import OptimizeJsPlugin from 'optimize-js-plugin'
 import OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin'
-import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
+// import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import { config, resolvePath, pack } from '../config'
 import banner from './banner'
 
@@ -167,10 +167,10 @@ export default entry => {
         entryOnly: true
       }),
       new webpack.optimize.OccurrenceOrderPlugin(),
-      new webpack.IgnorePlugin(/^vue/),
+      new webpack.IgnorePlugin(/^vue/)/* ,
       new BundleAnalyzerPlugin({
         analyzerPort: entry.port
-      })
+      }) */
     ]
   }, webpackConfig)
 
