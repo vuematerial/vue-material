@@ -37,20 +37,25 @@ module.exports = function (source) {
 
   const code = `
     const Vue = require('vue');
+    const CodeLoading = require('docs/app/components/CodeLoading');
 
-    module.exports = function(c) {
-      Vue.default.component('${fileName}', resolve => {
-        require(['${filePath}'], resolve)
+    module.exports = function(component) {
+      const asyncComponent = resolve => ({
+        component: require(['${filePath}'], resolve),
+        loading: CodeLoading,
+        delay: 0
       })
 
-      c.options.examples = c.options.examples || {};
-      c.options.examples['${fileName}'] = {
+      Vue.default.component('${fileName}', asyncComponent)
+
+      component.options.examples = component.options.examples || {};
+      component.options.examples['${fileName}'] = {
         name: '${fileName}',
         source: ${JSON.stringify(source)},
         template: ${JSON.stringify(template)},
         script: ${JSON.stringify(script)},
         style: ${JSON.stringify(style)}
-      };
+      }
     }`
 
   this.callback(null, transpile(code))

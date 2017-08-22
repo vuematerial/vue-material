@@ -17,7 +17,8 @@ export default {
   output: {
     path: resolvePath(config.dist),
     publicPath: '/',
-    filename: '[name].js'
+    filename: '[name].js',
+    chunkFilename: '[name].js'
   },
   resolve: {
     extensions: config.resolve,

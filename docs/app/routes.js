@@ -7,52 +7,52 @@ export const routes = [
   {
     path: '/',
     name: 'home',
-    component: () => import('./pages/Home/Home.vue')
+    component: () => import(/* webpackChunkName: "home" */ './pages/Home/Home.vue')
   },
   {
     path: '/getting-started',
     name: 'getting-started',
-    component: () => import('./pages/GettingStarted.vue')
+    component: () => import(/* webpackChunkName: "gettingstarted" */ './pages/GettingStarted.vue')
   },
   {
     path: '/components',
     name: 'components',
-    component: () => import('./pages/Components.vue')
+    component: () => import(/* webpackChunkName: "components" */ './pages/Components.vue')
   },
   {
     path: '/components/button',
     name: 'components/button',
-    component: () => import('./pages/Components/Button/Button.vue')
+    component: () => import(/* webpackChunkName: "button" */ './pages/Components/Button/Button.vue')
   },
   {
     path: '/components/app',
     name: 'components/app',
-    component: () => import('./pages/Components/App/App.vue')
+    component: () => import(/* webpackChunkName: "app" */ './pages/Components/App/App.vue')
   },
   {
     path: '/components/checkbox',
     name: 'components/checkbox',
-    component: () => import('./pages/Components/Checkbox/Checkbox.vue')
+    component: () => import(/* webpackChunkName: "checkbox" */ './pages/Components/Checkbox/Checkbox.vue')
   },
   {
     path: '/components/content',
     name: 'components/content',
-    component: () => import('./pages/Components/Content/Content.vue')
+    component: () => import(/* webpackChunkName: "content" */ './pages/Components/Content/Content.vue')
   },
   {
     path: '/components/divider',
     name: 'components/divider',
-    component: () => import('./pages/Components/Divider/Divider.vue')
+    component: () => import(/* webpackChunkName: "divider" */ './pages/Components/Divider/Divider.vue')
   },
   {
     path: '/components/drawer',
     name: 'components/drawer',
-    component: () => import('./pages/Components/Drawer/Drawer.vue')
+    component: () => import(/* webpackChunkName: "drawer" */ './pages/Components/Drawer/Drawer.vue')
   },
   {
     path: '/components/card',
     name: 'components/card',
-    component: () => import('./pages/Components/Card/Card.vue')
+    component: () => import(/* webpackChunkName: "card" */ './pages/Components/Card/Card.vue')
   },
   {
     path: '/components/form',
@@ -62,72 +62,72 @@ export const routes = [
   {
     path: '/components/icon',
     name: 'components/icon',
-    component: () => import('./pages/Components/Icon/Icon.vue')
+    component: () => import(/* webpackChunkName: "icon" */ './pages/Components/Icon/Icon.vue')
   },
   {
     path: '/components/input',
     name: 'components/input',
-    component: () => import('./pages/Components/Input/Input.vue')
+    component: () => import(/* webpackChunkName: "input" */ './pages/Components/Input/Input.vue')
   },
   {
     path: '/components/list',
     name: 'components/list',
-    component: () => import('./pages/Components/List/List.vue')
+    component: () => import(/* webpackChunkName: "list" */ './pages/Components/List/List.vue')
   },
   {
     path: '/components/radio',
     name: 'components/radio',
-    component: () => import('./pages/Components/Radio/Radio.vue')
+    component: () => import(/* webpackChunkName: "radio" */ './pages/Components/Radio/Radio.vue')
   },
   {
     path: '/components/subheader',
     name: 'components/subheader',
-    component: () => import('./pages/Components/Subheader/Subheader.vue')
+    component: () => import(/* webpackChunkName: "subheader" */ './pages/Components/Subheader/Subheader.vue')
   },
   {
     path: '/components/switch',
     name: 'components/switch',
-    component: () => import('./pages/Components/Switch/Switch.vue')
+    component: () => import(/* webpackChunkName: "switch" */ './pages/Components/Switch/Switch.vue')
   },
   {
     path: '/components/toolbar',
     name: 'components/toolbar',
-    component: () => import('./pages/Components/Toolbar/Toolbar.vue')
+    component: () => import(/* webpackChunkName: "toolbar" */ './pages/Components/Toolbar/Toolbar.vue')
   },
   {
     path: '/ui-elements',
     name: 'ui-elements',
-    component: () => import('./pages/UiElements.vue')
+    component: () => import(/* webpackChunkName: "uielements" */ './pages/UiElements.vue')
   },
   {
     path: '/ui-elements/layout',
     name: 'ui-elements/layout',
-    component: () => import('./pages/UiElements/Layout/Layout.vue')
+    component: () => import(/* webpackChunkName: "layout" */ './pages/UiElements/Layout/Layout.vue')
   },
   {
     path: '/ui-elements/scrollbar',
     name: 'ui-elements/scrollbar',
-    component: () => import('./pages/UiElements/Scrollbar/Scrollbar.vue')
+    component: () => import(/* webpackChunkName: "scrollbar" */ './pages/UiElements/Scrollbar/Scrollbar.vue')
   },
   {
     path: '/ui-elements/text-selection',
     name: 'ui-elements/text-selection',
-    component: () => import('./pages/UiElements/TextSelection/TextSelection.vue')
+    component: () => import(/* webpackChunkName: "textselection" */ './pages/UiElements/TextSelection/TextSelection.vue')
   },
   {
     path: '/ui-elements/typography',
     name: 'ui-elements/typography',
-    component: () => import('./pages/UiElements/Typography/Typography.vue')
+    component: () => import(/* webpackChunkName: "typography" */ './pages/UiElements/Typography/Typography.vue')
   },
   {
     path: '/temp',
     name: 'temp',
-    component: () => import('./pages/Temp.vue')
+    component: () => import(/* webpackChunkName: "temp" */ './pages/Temp.vue')
   },
   {
     path: '*',
     name: 'error',
-    component: () => import('./pages/Error.vue')
+    component: () => import(/* webpackChunkName: "error" */ './pages/Error.vue')
   }
 ]
 
