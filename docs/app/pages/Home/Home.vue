@@ -60,7 +60,7 @@ export default {
 
   .home-page  {
     width: 100%;
-    height: calc(100vh - 64px);
+    min-height: calc(100vh - 64px);
     display: flex;
     flex-direction: column;
     justify-content: center;
