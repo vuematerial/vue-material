@@ -68,7 +68,7 @@ Vue.material.registerTheme('default', {
   }
 })
 
-const example = ${component.script}
+const example = ${this.component.script}
 
 new Vue({
   name: 'root',
