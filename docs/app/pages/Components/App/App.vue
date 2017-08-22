@@ -76,19 +76,19 @@
 
     <div class="page-container-section">
       <api-item title="API - md-app-toolbar">
-        <p>It supports all options of <code>md-toolbar</code> Please refer to the <router-link to="/components/toolbar">Toolbar page</router-link> to see the API.</p>
+        <p>It supports all options of <code>md-toolbar</code>. Please refer to the <router-link to="/components/toolbar">Toolbar page</router-link> to see the API.</p>
       </api-item>
     </div>
 
     <div class="page-container-section">
       <api-item title="API - md-app-drawer">
-        <p>It supports all options of <code>md-drawer</code> Please refer to the <router-link to="/components/drawer">Drawer page</router-link> to see the API.</p>
+        <p>It supports all options of <code>md-drawer</code>. Please refer to the <router-link to="/components/drawer">Drawer page</router-link> to see the API.</p>
       </api-item>
     </div>
 
     <div class="page-container-section">
       <api-item title="API - md-app-content">
-        <p>It supports all options of <code>md-content</code> Please refer to the <router-link to="/components/content">Content page</router-link> to see the API.</p>
+        <p>It supports all options of <code>md-content</code>. Please refer to the <router-link to="/components/content">Content page</router-link> to see the API.</p>
       </api-item>
     </div>
   </page-container>

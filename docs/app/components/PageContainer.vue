@@ -50,6 +50,7 @@
         color: md-get-palette-color(red, A200);
         background: darken(md-get-palette-color(red, 50), 1%);
         border-radius: 2px;
+        line-height: 1.45em;
       }
     }
   }
