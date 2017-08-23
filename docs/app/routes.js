@@ -12,7 +12,7 @@ export const routes = [
   {
     path: '/getting-started',
     name: 'getting-started',
-    component: () => import(/* webpackChunkName: "gettingstarted" */ './pages/GettingStarted.vue')
+    component: () => import(/* webpackChunkName: "getting-started" */ './pages/GettingStarted.vue')
   },
   {
     path: '/components',
@@ -97,7 +97,7 @@ export const routes = [
   {
     path: '/ui-elements',
     name: 'ui-elements',
-    component: () => import(/* webpackChunkName: "uielements" */ './pages/UiElements.vue')
+    component: () => import(/* webpackChunkName: "ui-elements" */ './pages/UiElements.vue')
   },
   {
     path: '/ui-elements/layout',
@@ -112,7 +112,7 @@ export const routes = [
   {
     path: '/ui-elements/text-selection',
     name: 'ui-elements/text-selection',
-    component: () => import(/* webpackChunkName: "textselection" */ './pages/UiElements/TextSelection/TextSelection.vue')
+    component: () => import(/* webpackChunkName: "text-selection" */ './pages/UiElements/TextSelection/TextSelection.vue')
   },
   {
     path: '/ui-elements/typography',
