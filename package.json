@@ -30,6 +30,7 @@
     "postinstall": "babel-node build/git-hooks/install.js",
     "changelog": "babel-node build/generate-changelog.js",
     "release": "sh build/release.sh",
+    "new-component": "babel-node build/new-component.js",
     "github-release": "github-release",
     "commit": "git-cz"
   },
