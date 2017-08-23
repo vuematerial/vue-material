@@ -92,6 +92,8 @@ new Vue({
     }
 
     .md-button {
+      margin-right: 0;
+
       .md-icon {
         color: #fff;
       }

@@ -108,7 +108,7 @@ export default new MdComponent({
     }
 
     .md-button {
-      &:last-of-type,
+      &:last-child,
       + .md-button {
         margin-right: 0;
       }
