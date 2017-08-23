@@ -1,4 +1,5 @@
 import MdApp from './MdApp'
+import MdSpeedDial from './MdSpeedDial'
 import MdButton from './MdButton'
 import MdCard from './MdCard'
 import MdCheckbox from './MdCheckbox'
@@ -18,6 +19,7 @@ import MdSwitch from './MdSwitch'
 import MdToolbar from './MdToolbar'
 
 export {
+  MdSpeedDial,
   MdApp,
   MdButton,
   MdCard,
