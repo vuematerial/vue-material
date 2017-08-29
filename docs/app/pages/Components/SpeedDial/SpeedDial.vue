@@ -1,6 +1,7 @@
 <example src="./examples/PositionDirection.vue" />
 <example src="./examples/AnimationTypes.vue" />
 <example src="./examples/EventTriggers.vue" />
+<example src="./examples/MorphingIcon.vue" />
 
 <template>
   <page-container centered :title="$t('pages.speedDial.title')">
@@ -14,6 +15,7 @@
       <code-example title="Positions and directions" :component="examples['position-direction']" />
       <code-example title="Animations types" :component="examples['animation-types']" />
       <code-example title="Event triggers" :component="examples['event-triggers']" />
+      <code-example title="Morphing Icons" :component="examples['morphing-icon']" />
 
       <api-item title="API - md-speed-dial">
         <p>This component do not have any extra option.</p>

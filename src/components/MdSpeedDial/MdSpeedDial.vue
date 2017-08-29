@@ -161,6 +161,16 @@ export default new MdComponent({
 
     &.md-active,
     &.md-with-hover:hover {
+      .md-morph-initial {
+        opacity: 0;
+        transform: translate3D(-50%, -50%, 0) rotate(90deg) scale(.7);
+      }
+
+      .md-morph-final {
+        opacity: 1;
+        transform: translate3D(-50%, -50%, 0) rotate(0deg) scale(1);
+      }
+
       .md-speed-dial-content .md-button {
         pointer-events: auto;
         opacity: 1;
@@ -186,6 +196,22 @@ export default new MdComponent({
       transition: opacity .3s $md-transition-default-timing,
                   transform 0s .3s $md-transition-default-timing;
       will-change: opacity, transform;
+    }
+
+    .md-morph-initial,
+    .md-morph-final {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate3D(-50%, -50%, 0);
+      transition: .3s $md-transition-stand-timing;
+      transition-property: opacity, transform;
+      will-change: opacity, transform;
+    }
+
+    .md-morph-final {
+      opacity: 0;
+      transform: translate3D(-50%, -50%, 0) scale(.7) rotate(-90deg);
     }
   }
 </style>
