@@ -1,12 +1,20 @@
 <template>
-  <md-button class="md-speed-dial-target md-fab">
+  <md-button class="md-speed-dial-target md-fab" @click="handleClick">
     <slot />
   </md-button>
 </template>
 
 <script>
 export default {
-  name: 'MdSpeedDialTarget'
+  name: 'MdSpeedDialTarget',
+  inject: ['MdSpeedDial'],
+  methods: {
+    handleClick () {
+      if (this.MdSpeedDial.event === 'click') {
+        this.MdSpeedDial.active = !this.MdSpeedDial.active
+      }
+    }
+  }
 }
 </script>
 
@@ -14,8 +22,7 @@ export default {
   @import "~components/MdAnimation/variables";
 
   .md-speed-dial-target {
-    order: 2;
-    margin-bottom: 0 !important;
+    z-index: 1;
     transition: .3s $md-transition-default-timing;
   }
 </style>

@@ -287,8 +287,8 @@ export default new MdComponent({
       top: 24px;
     }
 
-    &.md-fab-top-right,
-    &.md-fab-top-left {
+    &.md-fab-bottom-right,
+    &.md-fab-bottom-left {
       position: absolute;
       bottom: 24px;
     }
