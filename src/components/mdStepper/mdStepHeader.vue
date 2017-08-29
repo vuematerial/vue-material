@@ -1,7 +1,8 @@
 <template>
   <div class="md-step-header" :class="getHeaderClasses">
     <div class="md-step-icons">
-        <md-icon v-if="icon" class="md-step-icon">{{ icon }}</md-icon>
+        <md-icon v-if="icon && !step.error" class="md-step-icon">{{ icon }}</md-icon>
+        <md-icon v-if="icon && step.error" class="md-step-error">{{ icon }}</md-icon>
         <div v-if="!icon" class="md-step-number"><span>{{ stepNumber }}</span></div>
     </div>
     <div class="md-step-titles">
@@ -36,18 +37,22 @@
             'md-alternate-labels': this.mdAlternateLabels,
             'md-disabled': this.step.disabled,
             'md-has-sub-message': this.step.message,
-            'md-primary': this.isCompleted
+            'md-primary': this.isCompleted,
+            'md-warn': this.step.error
           };
         },
         icon() {
-          if (!this.step.disabled && this.step.editable && this.isCompleted) {
+          if (!this.step.disabled && this.step.editable && this.isCompleted && !this.step.error) {
             return 'mode_edit';
           }
 
-          if (!this.step.disabled && this.isCompleted) {
+          if (!this.step.disabled && this.isCompleted && !this.step.error) {
             return 'check';
           }
 
+          if (!this.step.disabled && this.step.error) {
+            return 'warning';
+          }
           return this.step.icon;
         },
         stepNumber() {

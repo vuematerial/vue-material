@@ -81,13 +81,13 @@
 
           document.body.removeChild(this.snackbarElement);
         }
-        this.$refs.container.dispatchEvent(this.removedSnackBarElementEvent);
+        document.dispatchEvent(this.removedSnackBarElementEvent);
       },
       open() {
         if (manager.current) {
           // we need to wait for the old element to finishing closing before we can open a new one
-          this.$refs.container.removeEventListener(this.removedSnackBarElementEventName, this.showElementAndStartTimer);
-          this.$refs.container.addEventListener(this.removedSnackBarElementEventName, this.showElementAndStartTimer);
+          document.removeEventListener(this.removedSnackBarElementEventName, this.showElementAndStartTimer);
+          document.addEventListener(this.removedSnackBarElementEventName, this.showElementAndStartTimer);
           manager.current.close();
           return;
         }
@@ -95,10 +95,15 @@
         this.showElementAndStartTimer();
       },
       showElementAndStartTimer() {
-        this.$refs.container.removeEventListener(this.removedSnackBarElementEventName, this.showElementAndStartTimer);
+        if (document.body.contains(this.snackbarElement)) {
+          return;
+        }
+        document.removeEventListener(this.removedSnackBarElementEventName, this.showElementAndStartTimer);
         manager.current = this;
         document.body.appendChild(this.snackbarElement);
-        window.getComputedStyle(this.$refs.container).backgroundColor;
+        if (this.$refs.container !== null && this.$refs.container !== undefined) {
+          window.getComputedStyle(this.$refs.container).backgroundColor;
+        }
         this.active = true;
         this.$emit('open');
         if (this.mdDuration !== Infinity) {
@@ -107,21 +112,21 @@
         this.timeoutStartedAt = Date.now();
       },
       close() {
-        //we set the flag to false here, because we need to inform the removeElement method that we really
-        // want to remove the element - we're in closing action
-        this.active = false;
-
         if (this.$refs.container) {
+          //we set the flag to false here, because we need to inform the removeElement method that we really
+          // want to remove the element - we're in closing action
+          this.active = false;
+
           const removeElement = () => {
-            this.$refs.container.removeEventListener(transitionEndEventName, removeElement);
+            document.removeEventListener(transitionEndEventName, removeElement);
             this.removeElement();
           };
 
           manager.current = null;
           this.$emit('close');
-          this.$refs.container.removeEventListener(transitionEndEventName, removeElement);
-          this.$refs.container.addEventListener(transitionEndEventName, removeElement);
-          this.clearCloseTimeout(this.closeTimeout);
+          document.removeEventListener(transitionEndEventName, removeElement);
+          document.addEventListener(transitionEndEventName, removeElement);
+          this.clearCloseTimeout();
           this.pendingDuration = this.mdDuration;
         }
       },
@@ -155,7 +160,8 @@
       this.removedSnackBarElementEvent = new Event(this.removedSnackBarElementEventName);
     },
     beforeDestroy() {
-      this.clearCloseTimeout(this.closeTimeout);
+      this.clearCloseTimeout();
+      this.active = false;
       this.removeElement();
     }
   };
