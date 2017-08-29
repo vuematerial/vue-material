@@ -2,7 +2,7 @@
   <div class="example">
     Hover as trigger:
     <md-speed-dial md-direction="bottom">
-      <md-speed-dial-target>
+      <md-speed-dial-target @click="customClick">
         <md-icon>add</md-icon>
       </md-speed-dial-target>
 
@@ -38,7 +38,12 @@
 
 <script>
 export default {
-  name: 'EventTriggers'
+  name: 'EventTriggers',
+  methods: {
+    customClick () {
+      window.alert('You can have a custom click inside the target!')
+    }
+  }
 }
 </script>
 

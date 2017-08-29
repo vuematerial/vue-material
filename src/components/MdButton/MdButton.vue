@@ -254,7 +254,6 @@ export default new MdComponent({
 
     width: $md-button-fab-size;
     height: $md-button-fab-size;
-    padding: 0;
     min-width: 0;
     overflow: hidden;
 
@@ -293,6 +292,21 @@ export default new MdComponent({
       bottom: 24px;
     }
 
+    &.md-fab-top-center,
+    &.md-fab-bottom-center {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    &.md-fab-top-center {
+      top: 24px;
+    }
+
+    &.md-fab-bottom-center {
+      top: 24px;
+    }
+
     &.md-fab-top-right,
     &.md-fab-bottom-right {
       right: 24px;
@@ -305,6 +319,10 @@ export default new MdComponent({
 
     &.md-fixed {
       position: fixed;
+    }
+
+    .md-ripple {
+      padding: 0;
     }
   }
 </style>

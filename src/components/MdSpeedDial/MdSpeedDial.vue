@@ -82,6 +82,21 @@ export default new MdComponent({
       bottom: 24px;
     }
 
+    &.md-top-center,
+    &.md-bottom-center {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    &.md-top-center {
+      top: 24px;
+    }
+
+    &.md-bottom-center {
+      bottom: 24px;
+    }
+
     &.md-top-right,
     &.md-bottom-right {
       right: 24px;

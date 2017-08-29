@@ -1,5 +1,5 @@
 <template>
-  <md-button class="md-speed-dial-target md-fab" @click="handleClick">
+  <md-button class="md-speed-dial-target md-fab" v-on="$listeners" v-bind="$attrs" @click="handleClick">
     <slot />
   </md-button>
 </template>
