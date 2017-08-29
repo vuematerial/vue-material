@@ -133,7 +133,7 @@
       pauseTimeout() {
         this.pendingDuration = this.pendingDuration - (Date.now() - this.timeoutStartedAt);
         this.timeoutStartedAt = 0;
-        this.clearCloseTimeout(this.closeTimeout);
+        this.clearCloseTimeout();
       },
       resumeTimeout() {
         this.timeoutStartedAt = Date.now();
