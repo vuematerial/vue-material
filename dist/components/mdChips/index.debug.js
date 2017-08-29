@@ -339,12 +339,17 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
 
 exports.default = {
   name: 'md-chips',
   props: {
     value: Array,
     disabled: Boolean,
+    debounce: {
+      type: Number,
+      default: 1E2
+    },
     mdInputId: String,
     mdInputName: String,
     mdInputPlaceholder: String,
@@ -644,7 +649,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "id": _vm.inputId,
       "name": _vm.mdInputName,
       "disabled": _vm.disabled,
-      "tabindex": "0"
+      "tabindex": "0",
+      "debounce": 0
     },
     nativeOn: {
       "keydown": [function($event) {
