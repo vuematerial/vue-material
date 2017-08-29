@@ -99,11 +99,11 @@
 
   .hljs {
     color: md-get-palette-color(grey, 200);
-    font-family: "Roboto Mono", "Liberation Mono", Monaco, monospace;
-    font-size: 16px;
+    font-family: "Roboto Mono", monospace;
+    font-size: 15px;
+    font-weight: 500;
     letter-spacing: normal;
-    line-height: 1.4em;
-    text-shadow: 0 0 1px rgba(md-get-palette-color(grey, 200), .1);
+    line-height: 1.5em;
   }
 
   .hljs-comment,

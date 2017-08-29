@@ -99,8 +99,8 @@ export default new MdComponent({
     border: 0;
     border-radius: 0;
     transition: $md-transition-default;
-    transition-property: box-shadow, color, background-color;
-    will-change: box-shadow, color, background-color;
+    transition-property: opacity, box-shadow, color, background-color;
+    will-change: opacity, box-shadow, color, background-color;
     font-family: inherit;
     text-transform: uppercase;
     text-decoration: none;

@@ -23,6 +23,5 @@ export default {
 
   .md-speed-dial-target {
     z-index: 1;
-    transition: .3s $md-transition-default-timing;
   }
 </style>
