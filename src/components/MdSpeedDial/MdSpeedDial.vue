@@ -6,16 +6,7 @@
 
 <script>
 import MdComponent from 'core/MdComponent'
-
-const customValidator = (name, source, value) => {
-  if (source.includes(value)) {
-    return true
-  }
-
-  console.error(`The ${name} prop is invalid. Given value: ${value}. Available options: ${source.join(', ')}.`)
-
-  return false
-}
+import MdPropValidator from 'core/MdPropValidator'
 
 export default new MdComponent({
   name: 'MdSpeedDial',
@@ -23,17 +14,17 @@ export default new MdComponent({
     mdEvent: {
       type: String,
       default: 'hover',
-      validator: (value) => customValidator('md-event', ['click', 'hover'], value)
+      ...MdPropValidator('md-event', ['click', 'hover'])
     },
     mdDirection: {
       type: String,
       default: 'top',
-      validator: (value) => customValidator('md-direction', ['top', 'bottom'], value)
+      ...MdPropValidator('md-direction', ['top', 'bottom'])
     },
     mdEffect: {
       type: String,
       default: 'fling',
-      validator: (value) => customValidator('md-effect', ['fling', 'scale', 'opacity'], value)
+      ...MdPropValidator('md-effect', ['fling', 'scale', 'opacity'])
     }
   },
   data () {

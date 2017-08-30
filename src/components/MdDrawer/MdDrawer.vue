@@ -9,6 +9,7 @@
 <script>
 import MdComponent from 'core/MdComponent'
 import MdOverlay from 'core/MdOverlay/MdOverlay'
+import MdPropValidator from 'core/MdPropValidator'
 
 const drawerPermanentTypes = [
   'full',
@@ -26,15 +27,7 @@ export default new MdComponent({
     mdRight: Boolean,
     mdPermanent: {
       type: String,
-      validator (value) {
-        if (drawerPermanentTypes.includes(value)) {
-          return true
-        }
-
-        console.error(`The md-permanent prop is invalid. Given value: ${value}. Available options: ${drawerPermanentTypes.join(', ')}.`)
-
-        return false
-      }
+      ...MdPropValidator('md-alignment', drawerPermanentTypes)
     },
     mdPersistent: Boolean,
     mdVisible: Boolean,
