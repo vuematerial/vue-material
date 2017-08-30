@@ -116,35 +116,35 @@ export default {
             name: 'md-mode="fixed"',
             type: 'String',
             description: 'Make the toolbar fixed without any scrolling effect',
-            defaults: 'null'
+            defaults: '-'
           },
           {
             offset: true,
             name: 'md-mode="fixed-last"',
             type: 'String',
             description: 'Keep the second row of the toolbar fixed and always visible. This NEEDS two md-toolbar-row inside the Toolbar.',
-            defaults: 'null'
+            defaults: '-'
           },
           {
             offset: true,
             name: 'md-mode="reveal"',
             type: 'String',
             description: 'Hide the toolbar temporarily and show it after the scroll. This is a good approach for mobile.',
-            defaults: 'null'
+            defaults: '-'
           },
           {
             offset: true,
             name: 'md-mode="flexible"',
             type: 'String',
             description: 'Make the height and the title size flexible to give the content a higher priority',
-            defaults: 'null'
+            defaults: '-'
           },
           {
             offset: true,
             name: 'md-mode="overlap"',
             type: 'String',
             description: 'Enable the overlapping content',
-            defaults: 'null'
+            defaults: '-'
           },
           {
             name: 'md-waterfall',

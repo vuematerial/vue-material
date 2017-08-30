@@ -166,12 +166,20 @@ export default {
               description: 'Position the FAB on the top right of the nearest relative parent'
             },
             {
+              name: 'md-fab-top-center',
+              description: 'Position the FAB on the top center of the nearest relative parent'
+            },
+            {
               name: 'md-fab-top-left',
               description: 'Position the FAB on the top left of the nearest relative parent'
             },
             {
               name: 'md-fab-bottom-right',
               description: 'Position the FAB on the bottom right of the nearest relative parent'
+            },
+            {
+              name: 'md-fab-bottom-center',
+              description: 'Position the FAB on the bottom center of the nearest relative parent'
             },
             {
               name: 'md-fab-bottom-left',
