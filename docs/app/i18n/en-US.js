@@ -61,6 +61,9 @@ export default {
     switch: {
       title: 'Switch'
     },
+    speedDial: {
+      title: 'Speed Dial'
+    },
     subheader: {
       title: 'Subheader'
     },

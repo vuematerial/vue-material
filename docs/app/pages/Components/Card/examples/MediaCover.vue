@@ -31,11 +31,6 @@
             <span class="md-title">Title goes here</span>
             <span class="md-subhead">4/3 image</span>
           </md-card-header>
-
-          <md-card-actions>
-            <md-button>Action</md-button>
-            <md-button>Action</md-button>
-          </md-card-actions>
         </md-card-area>
       </md-card-media-cover>
     </md-card>
