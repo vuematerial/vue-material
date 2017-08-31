@@ -99,8 +99,8 @@ export default new MdComponent({
     border: 0;
     border-radius: 0;
     transition: $md-transition-default;
-    transition-property: box-shadow, color, background-color;
-    will-change: box-shadow, color, background-color;
+    transition-property: opacity, box-shadow, color, background-color;
+    will-change: opacity, box-shadow, color, background-color;
     font-family: inherit;
     text-transform: uppercase;
     text-decoration: none;
@@ -254,7 +254,6 @@ export default new MdComponent({
 
     width: $md-button-fab-size;
     height: $md-button-fab-size;
-    padding: 0;
     min-width: 0;
     overflow: hidden;
 
@@ -287,10 +286,25 @@ export default new MdComponent({
       top: 24px;
     }
 
-    &.md-fab-top-right,
-    &.md-fab-top-left {
+    &.md-fab-bottom-right,
+    &.md-fab-bottom-left {
       position: absolute;
       bottom: 24px;
+    }
+
+    &.md-fab-top-center,
+    &.md-fab-bottom-center {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    &.md-fab-top-center {
+      top: 24px;
+    }
+
+    &.md-fab-bottom-center {
+      top: 24px;
     }
 
     &.md-fab-top-right,
@@ -305,6 +319,10 @@ export default new MdComponent({
 
     &.md-fixed {
       position: fixed;
+    }
+
+    .md-ripple {
+      padding: 0;
     }
   }
 </style>

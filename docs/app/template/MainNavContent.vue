@@ -22,6 +22,7 @@
 
       <router-link to="/components/icon">{{ $t('pages.icon.title') }}</router-link>
       <router-link to="/components/list">{{ $t('pages.list.title') }}</router-link>
+      <router-link to="/components/speed-dial">{{ $t('pages.speedDial.title') }}</router-link>
       <router-link to="/components/subheader">{{ $t('pages.subheader.title') }}</router-link>
       <router-link to="/components/toolbar">{{ $t('pages.toolbar.title') }}</router-link>
     </div>

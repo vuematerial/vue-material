@@ -5,7 +5,9 @@
 </template>
 
 <script>
-const cardActionsAlignments = ['left', 'right', 'space-between']
+import MdPropValidator from 'core/MdPropValidator'
+
+const alignments = ['left', 'right', 'space-between']
 
 export default {
   name: 'MdCardActions',
@@ -13,15 +15,7 @@ export default {
     mdAlignment: {
       type: String,
       default: 'right',
-      validator (value) {
-        if (cardActionsAlignments.includes(value)) {
-          return true
-        }
-
-        console.error(`The md-alignment prop is invalid. Given value: ${value}. Available options: ${cardActionsAlignments.join(', ')}.`)
-
-        return false
-      }
+      ...MdPropValidator('md-alignment', alignments)
     }
   }
 }

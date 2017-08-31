@@ -1,3 +1,5 @@
+import MdPropValidator from 'core/MdPropValidator'
+
 const mdAppModes = [
   'fixed',
   'fixed-last',
@@ -6,23 +8,11 @@ const mdAppModes = [
   'flexible'
 ]
 
-const customValidator = (name, source, value) => {
-  if (source.includes(value)) {
-    return true
-  }
-
-  console.error(`The ${name} prop is invalid. Given value: ${value}. Available options: ${source.join(', ')}.`)
-
-  return false
-}
-
 export default {
   props: {
     mdMode: {
       type: String,
-      validator (value) {
-        return customValidator('md-mode', mdAppModes, value)
-      }
+      ...MdPropValidator('md-mode', mdAppModes)
     },
     mdWaterfall: Boolean,
     mdScrollbar: {

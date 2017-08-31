@@ -5,6 +5,11 @@ Vue.use(VueRouter)
 
 export const routes = [
   {
+    path: '/components/speed-dial',
+    name: 'components/speed-dial',
+    component: () => import(/* webpackChunkName: "speed-dial" */ './pages/Components/SpeedDial/SpeedDial.vue')
+  },
+  {
     path: '/',
     name: 'home',
     component: () => import(/* webpackChunkName: "home" */ './pages/Home/Home.vue')

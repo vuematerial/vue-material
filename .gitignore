@@ -3,5 +3,6 @@ node_modules/
 coverage/
 .vscode/
 .nyc_output/
+.vscode/
 yarn-debug.log
 npm-debug.log
