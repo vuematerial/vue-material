@@ -28,6 +28,9 @@ export default {
     app: {
       title: 'App'
     },
+    avatar: {
+      title: 'Avatar'
+    },
     card: {
       title: 'Card'
     },

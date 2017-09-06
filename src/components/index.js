@@ -1,4 +1,5 @@
 import MdApp from './MdApp'
+import MdAvatar from './MdAvatar'
 import MdSpeedDial from './MdSpeedDial'
 import MdButton from './MdButton'
 import MdCard from './MdCard'
@@ -20,6 +21,7 @@ import MdToolbar from './MdToolbar'
 
 export {
   MdSpeedDial,
+  MdAvatar,
   MdApp,
   MdButton,
   MdCard,

@@ -139,6 +139,11 @@ const writeToEndOfFile = (contents, file) => {
 }
 
 const [name] = process.argv.slice(2)
+
+if (!name) {
+  exit('Please provide the file name. Example: npm new-component \'MdComponent\'')
+}
+
 const singleName = name.replace('Md', '')
 const camelCasedName = toCamelCase(singleName.replace('Md', ''))
 const rootDir = join(__dirname, '..')
@@ -148,10 +153,6 @@ const themePath = 'src/theme/all.scss'
 const docsPath = 'docs/app/pages/components/' + singleName
 const docsRoutePath = 'docs/app/routes.js'
 const navPath = 'docs/app/template/MainNavContent.vue'
-
-if (!name) {
-  exit('Please provide the file name. Example: npm new-component \'MdComponent\'')
-}
 
 if (!test('-e', componentsPath)) {
   mkdir('-p', componentsPath)
