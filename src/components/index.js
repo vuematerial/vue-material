@@ -1,9 +1,9 @@
 import MdApp from './MdApp'
 import MdAvatar from './MdAvatar'
-import MdSpeedDial from './MdSpeedDial'
 import MdButton from './MdButton'
 import MdCard from './MdCard'
 import MdCheckbox from './MdCheckbox'
+import MdChips from './MdChips'
 import MdContent from './MdContent'
 import MdDivider from './MdDivider'
 import MdDrawer from './MdDrawer'
@@ -15,17 +15,18 @@ import MdLayout from './MdLayout'
 import MdList from './MdList'
 import MdRadio from './MdRadio'
 import MdRipple from './MdRipple'
+import MdSpeedDial from './MdSpeedDial'
 import MdSubheader from './MdSubheader'
 import MdSwitch from './MdSwitch'
 import MdToolbar from './MdToolbar'
 
 export {
-  MdSpeedDial,
-  MdAvatar,
   MdApp,
+  MdAvatar,
   MdButton,
   MdCard,
   MdCheckbox,
+  MdChips,
   MdContent,
   MdDivider,
   MdDrawer,
@@ -37,6 +38,7 @@ export {
   MdList,
   MdRadio,
   MdRipple,
+  MdSpeedDial,
   MdSubheader,
   MdSwitch,
   MdToolbar

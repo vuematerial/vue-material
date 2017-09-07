@@ -2,7 +2,7 @@
   <div>
     <div class="separator">
       <md-avatar class="md-small">
-        <img src="assets/examples/avatar.jpg" alt="People">
+        <img src="assets/examples/avatar.png" alt="People">
       </md-avatar>
 
       <md-avatar class="md-avatar-icon md-small">
@@ -20,7 +20,7 @@
 
     <div class="separator">
       <md-avatar>
-        <img src="assets/examples/avatar.png" alt="Avatar">
+        <img src="assets/examples/avatar.jpg" alt="Avatar">
       </md-avatar>
 
       <md-avatar class="md-avatar-icon">

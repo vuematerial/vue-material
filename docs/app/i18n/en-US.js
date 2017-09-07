@@ -34,6 +34,9 @@ export default {
     card: {
       title: 'Card'
     },
+    chips: {
+      title: 'Chips'
+    },
     checkbox: {
       title: 'Checkbox'
     },

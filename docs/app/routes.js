@@ -5,6 +5,11 @@ Vue.use(VueRouter)
 
 export const routes = [
   {
+    path: '/components/chips',
+    name: 'components/chips',
+    component: () => import(/* webpackChunkName: "chips" */ './pages/Components/Chips/Chips.vue')
+  },
+  {
     path: '/components/avatar',
     name: 'components/avatar',
     component: () => import(/* webpackChunkName: "avatar" */ './pages/Components/Avatar/Avatar.vue')

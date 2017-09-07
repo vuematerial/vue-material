@@ -1,8 +1,9 @@
 <template>
   <input
-    v-bind="{ type, id, disabled, required, placeholder, readonly, maxlength }"
-    v-model="content"
     class="md-input"
+    v-model="content"
+    v-bind="{ type, id, disabled, required, placeholder, readonly, maxlength }"
+    v-on="$listeners"
     @focus="onFocus"
     @blur="onBlur"
     @input="onInput"

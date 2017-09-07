@@ -1,0 +1,129 @@
+<template>
+  <md-field class="md-chips" :class="[$mdActiveTheme, chipsClasses]">
+    <slot v-if="!mdStatic" />
+
+    <md-chip
+      v-for="(chip, key) in value"
+      :key="key"
+      :md-deletable="!mdStatic"
+      :md-clickable="!mdStatic"
+      @keydown.enter="$emit('md-click', chip, key)"
+      @click.native="$emit('md-click', chip, key)"
+      @md-delete.stop="removeChip(chip)">
+      <slot name="md-chip" :chip="chip" v-if="$scopedSlots['md-chip']">{{ chip }}</slot>
+      <template v-else>{{ chip }}</template>
+    </md-chip>
+
+    <md-input
+      ref="input"
+      v-model.trim="inputValue"
+      v-if="!mdStatic"
+      :type="mdInputType"
+      :id="id"
+      :placeholder="mdPlaceholder"
+      @keydown.enter="insertChip"
+      @keydown.8="handleBackRemove">
+    </md-input>
+  </md-field>
+</template>
+
+<script>
+import MdComponent from 'core/MdComponent'
+import MdUuid from 'core/MdUuid'
+import MdField from 'components/MdField/MdField'
+import MdInput from 'components/MdField/MdInput/MdInput'
+
+export default new MdComponent({
+  name: 'MdChips',
+  components: {
+    MdField,
+    MdInput
+  },
+  props: {
+    value: Array,
+    id: {
+      type: [String, Number],
+      default: () => 'md-chips-' + MdUuid()
+    },
+    mdInputType: {
+      type: [String, Number],
+      validator (type) {
+        if (type === 'file') {
+          console.error('The md-input-type prop cannot be \'file\'')
+
+          return false
+        }
+
+        return true
+      }
+    },
+    mdPlaceholder: [String, Number],
+    mdStatic: Boolean,
+    mdLimit: Number
+  },
+  data: () => ({
+    inputValue: null
+  }),
+  computed: {
+    chipsClasses () {
+      return {
+        'md-has-value': this.value && this.value.length
+      }
+    }
+  },
+  methods: {
+    modelRespectLimit () {
+      return !this.mdLimit || this.value.length < +this.mdLimit
+    },
+    insertChip ({ target }) {
+      if (!this.value.includes(this.inputValue) && this.modelRespectLimit()) {
+        this.value.push(this.inputValue)
+        this.$emit('input', this.value)
+        this.$emit('md-insert', this.inputValue)
+        this.inputValue = ''
+      }
+    },
+    removeChip (chip) {
+      const index = this.value.indexOf(chip)
+
+      this.value.splice(index, 1)
+      this.$emit('input', this.value)
+      this.$emit('md-delete', chip, index)
+      this.$refs.input.$el.focus()
+    },
+    handleBackRemove () {
+      if (!this.inputValue) {
+        this.removeChip(this.value[this.value.length - 1])
+      }
+    }
+  }
+})
+</script>
+
+<style lang="scss">
+  @import "~components/MdAnimation/variables";
+
+  .md-chips.md-field {
+    padding-top: 12px;
+    flex-wrap: wrap;
+    transition: .3s $md-transition-default-timing;
+
+    &.md-has-value {
+      label {
+        top: -6px;
+      }
+    }
+
+    .md-chip {
+      margin-bottom: 4px;
+
+      &:last-of-type {
+        margin-right: 8px;
+      }
+    }
+
+    .md-input {
+      min-width: 128px;
+    }
+  }
+</style>

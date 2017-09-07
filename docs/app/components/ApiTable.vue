@@ -13,7 +13,7 @@
 
         <td>{{ description }}</td>
         <td v-if="defaults || value || example">
-          <code>{{ defaults || value || example }}</code>
+          <code v-html="defaults || value || example"></code>
         </td>
       </tr>
     </table>
@@ -94,6 +94,10 @@ export default {
   }
 
   code {
-    color: md-get-palette-color(red, A200)
+    color: md-get-palette-color(red, A200);
+
+    >>> span {
+      color: md-get-palette-color(blue, A200);
+    }
   }
 </style>

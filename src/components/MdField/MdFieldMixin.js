@@ -18,6 +18,9 @@ export default {
     }
   },
   watch: {
+    value (val) {
+      this.content = val
+    },
     clear (clear) {
       if (clear) {
         this.clearField()
@@ -55,6 +58,7 @@ export default {
       }
     },
     setFieldValue () {
+      this.$emit('input', this.content)
       this.MdField.value = this.content
     },
     setPlaceholder () {
