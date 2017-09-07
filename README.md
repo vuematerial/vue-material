@@ -57,7 +57,6 @@ Or use individual components:
 
 ``` javascript
 import { MdButton, MdIcon, MdSidenav, MdToolbar } from 'vue-material/components'
-import 'vue-material/dist/vue-material.css'
 
 Vue.use(MdButton)
 Vue.use(MdIcon)
