@@ -79,11 +79,9 @@
             this.$emit('click', $event);
             this.$emit('selected', $event);
           }
-        } else {
-          if (!this.disabled) {
-            this.$emit('click', $event);
-            this.$emit('selected', $event);
-          }
+        } else if (!this.disabled) {
+          this.$emit('click', $event);
+          this.$emit('selected', $event);
         }
       }
     },

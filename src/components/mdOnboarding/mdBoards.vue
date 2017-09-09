@@ -216,7 +216,9 @@
       },
       calculatePosition() {
         window.requestAnimationFrame(() => {
-          if (this._destroyed) return;
+          if (this._destroyed) {
+            return;
+          }
 
           this.calculateIndicatorPos();
           this.calculateBoardsWidthAndPosition();

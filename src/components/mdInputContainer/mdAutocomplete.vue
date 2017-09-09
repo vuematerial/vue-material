@@ -170,10 +170,8 @@
 
         if (!this.itemsEmpty && this.isItemSelected === 0) {
           this.openMenu();
-        } else {
-          if (this.isItemSelected === 1) {
-            this.isItemSelected = 0;
-          }
+        } else if (this.isItemSelected === 1) {
+          this.isItemSelected = 0;
         }
       },
       reset() {
@@ -243,7 +241,7 @@
         this.menuContent = document.body.querySelector('.md-autocomplete-content');
 
         if (this.menuContent === null) {
-            return false;
+          return false;
         }
 
         this.menuContent.__vue__.highlightItem(direction);
@@ -257,9 +255,9 @@
             this.menuContent.__vue__.highlighted === false ||
             this.menuContent.__vue__.highlighted < 1) {
 
-            this.closeMenu();
+          this.closeMenu();
 
-            return false;
+          return false;
         }
 
         let index = this.menuContent.__vue__.$children[0].$children[
@@ -289,7 +287,7 @@
     mounted() {
       this.$nextTick(() => {
         this.parentContainer = getClosestVueParent(this.$parent, 'md-input-container');
-        this.menuContent = document.body.querySelector('.md-autocomplete-content');         
+        this.menuContent = document.body.querySelector('.md-autocomplete-content');
 
         if (!this.listIsEmpty) {
           this.items = Object.assign([], this.list);

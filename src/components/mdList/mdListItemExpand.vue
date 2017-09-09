@@ -60,7 +60,9 @@
       },
       calculatePadding() {
         window.requestAnimationFrame(() => {
-          if (this._destroyed) return;
+          if (this._destroyed) {
+            return;
+          }
 
           this.height = -this.$refs.expand.scrollHeight + 'px';
 
