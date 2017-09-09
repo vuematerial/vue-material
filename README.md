@@ -96,7 +96,7 @@ Vue.use(VueMaterial.MdToolbar)
 <a href="https://vuematerial.github.io/#/changelog" target="_blank">Changelog</a>
 
 ## Questions
-The issue list is exclusively for reports, bugs and feature requests. Use the [Gitter Channel]( https://gitter.im/vuematerial) instead.
+The issue list is exclusively for reports, bugs and feature requests. Use the [Slack](https://join.slack.com/t/vuematerial/shared_invite/MTgzMzU2NDQ5ODkwLTE0OTQ4MDI3MDAtNWYyZjhkNzEzMA) instead.
 
 ## Contributing
 
