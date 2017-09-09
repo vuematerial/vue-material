@@ -41,7 +41,7 @@ You will need [Node.js](http://nodejs.org) **version 6+**
 After cloning the repo, run:
 
 ``` bash
-$ npm install
+$ yarn install
 ```
 
 ### Commonly used NPM scripts
