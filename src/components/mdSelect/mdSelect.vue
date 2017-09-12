@@ -4,8 +4,8 @@
     :class="[themeClass, classes]">
     <md-menu
       :md-close-on-select="!multiple"
-      @opened="$emit('open')"
-      @closed="$emit('close')"
+      @open="onOpen"
+      @close="$emit('closed')"
       v-bind="mdMenuOptions">
       <slot name="icon"></slot>
       <span
