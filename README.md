@@ -19,17 +19,10 @@
     <img src="https://img.shields.io/cdnjs/v/vue-material.svg" alt="Version">
   </a>
 
-  <a href="https://cdnjs.com/libraries/vue-material">
-    <img src="https://img.shields.io/cdnjs/v/vue-material.svg" alt="Version">
-  </a>
-
   <a href="https://www.npmjs.com/package/vue-material">
     <img src="https://img.shields.io/npm/l/vue-material.svg" alt="License">
   </a>
 
-  <a href="https://gitter.im/vuematerial">
-    <img src="https://img.shields.io/gitter/room/vuematerial/home.svg" alt="Gitter Chat">
-  </a>
 </p>
 
 Vue Material is lightweight framework built exactly according to the <a href="http://material.google.com" target="_blank">Material Design</a> specs. 
@@ -96,7 +89,7 @@ Vue.use(VueMaterial.MdToolbar)
 <a href="https://vuematerial.github.io/#/changelog" target="_blank">Changelog</a>
 
 ## Questions
-The issue list is exclusively for reports, bugs and feature requests. Use the [Gitter Channel]( https://gitter.im/vuematerial) instead.
+The issue list is exclusively for reports, bugs and feature requests. Use the [Slack](https://join.slack.com/t/vuematerial/shared_invite/MTgzMzU2NDQ5ODkwLTE0OTQ4MDI3MDAtNWYyZjhkNzEzMA) instead.
 
 ## Contributing
 
