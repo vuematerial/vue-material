@@ -24,6 +24,19 @@
       }
     }
 
+    &.md-raised .md-toggle {
+      color: #{'BACKGROUND-CONTRAST-0.54'};
+      background-color: #{'BACKGROUND-CONTRAST-0.26'};
+
+      &:hover:not([disabled]) {
+        background-color: #{'BACKGROUND-CONTRAST-0.38'};
+      }
+
+      + .md-toggle:after {
+        background-color: #{'BACKGROUND-CONTRAST-0.12'};
+      }
+    }
+
     &.md-primary .md-toggle {
       color: #{'PRIMARY-CONTRAST'};
       background-color: #{'PRIMARY-COLOR'};

@@ -144,7 +144,7 @@
               </md-button>
             </md-button-toggle>
 
-            <md-button-toggle>
+            <md-button-toggle class="md-raised md-primary">
               <md-button class="md-toggle">Works</md-button>
               <md-button class="md-toggle">With</md-button>
               <md-button>Text</md-button>
@@ -244,7 +244,7 @@
                 &lt;/md-button&gt;
               &lt;/md-button-toggle&gt;
 
-              &lt;md-button-toggle&gt;
+              &lt;md-button-toggle class=&quot;md-raised md-primary&quot;&gt;
                 &lt;md-button class=&quot;md-toggle&quot;&gt;Works&lt;/md-button&gt;
                 &lt;md-button class=&quot;md-toggle&quot;&gt;With&lt;/md-button&gt;
                 &lt;md-button&gt;Text&lt;/md-button&gt;
