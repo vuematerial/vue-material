@@ -33,11 +33,13 @@
     data() {
       return {
         snackbarId: this.id || 'snackbar-' + uniqueId(),
+        removedSnackBarElementEventName: 'removedSnackBarElement',
         active: false,
         rootElement: {},
         snackbarElement: {},
         directionClass: null,
-        closeTimeout: null
+        closeTimeout: null,
+        removedSnackBarElementEvent: null
       };
     },
     computed: {
@@ -69,7 +71,8 @@
     },
     methods: {
       removeElement() {
-        if (document.body.contains(this.snackbarElement)) {
+        // if we have the element and we don't want it active anymore, remove it
+        if (document.body.contains(this.snackbarElement) && !this.active) {
           const activeRipple = this.snackbarElement.querySelector('.md-ripple.md-active');
 
           if (activeRipple) {
@@ -78,44 +81,73 @@
 
           document.body.removeChild(this.snackbarElement);
         }
+        document.dispatchEvent(this.removedSnackBarElementEvent);
       },
       open() {
         if (manager.current) {
+          // we need to wait for the old element to finishing closing before we can open a new one
+          document.removeEventListener(this.removedSnackBarElementEventName, this.showElementAndStartTimer);
+          document.addEventListener(this.removedSnackBarElementEventName, this.showElementAndStartTimer);
           manager.current.close();
+          return;
         }
 
+        this.showElementAndStartTimer();
+      },
+      showElementAndStartTimer() {
+        if (document.body.contains(this.snackbarElement)) {
+          return;
+        }
+        document.removeEventListener(this.removedSnackBarElementEventName, this.showElementAndStartTimer);
         manager.current = this;
         document.body.appendChild(this.snackbarElement);
-        window.getComputedStyle(this.$refs.container).backgroundColor;
+        if (this.$refs.container !== null && this.$refs.container !== undefined) {
+          window.getComputedStyle(this.$refs.container).backgroundColor;
+        }
         this.active = true;
         this.$emit('open');
-        this.closeTimeout = window.setTimeout(this.close, this.mdDuration);
+        if (this.mdDuration !== Infinity) {
+          this.setCloseTimeout(this.mdDuration);
+        }
         this.timeoutStartedAt = Date.now();
       },
       close() {
         if (this.$refs.container) {
+          //we set the flag to false here, because we need to inform the removeElement method that we really
+          // want to remove the element - we're in closing action
+          this.active = false;
+
           const removeElement = () => {
-            this.$refs.container.removeEventListener(transitionEndEventName, removeElement);
+            document.removeEventListener(transitionEndEventName, removeElement);
             this.removeElement();
           };
 
           manager.current = null;
-          this.active = false;
           this.$emit('close');
-          this.$refs.container.removeEventListener(transitionEndEventName, removeElement);
-          this.$refs.container.addEventListener(transitionEndEventName, removeElement);
-          window.clearTimeout(this.closeTimeout);
+          document.removeEventListener(transitionEndEventName, removeElement);
+          document.addEventListener(transitionEndEventName, removeElement);
+          this.clearCloseTimeout();
           this.pendingDuration = this.mdDuration;
         }
       },
       pauseTimeout() {
         this.pendingDuration = this.pendingDuration - (Date.now() - this.timeoutStartedAt);
         this.timeoutStartedAt = 0;
-        window.clearTimeout(this.closeTimeout);
+        this.clearCloseTimeout();
       },
       resumeTimeout() {
         this.timeoutStartedAt = Date.now();
-        this.closeTimeout = window.setTimeout(this.close, this.pendingDuration);
+        if (this.pendingDuration === Infinity) return;
+        this.setCloseTimeout(this.pendingDuration);
+      },
+      setCloseTimeout (delay) {
+        this.clearCloseTimeout();
+        this.closeTimeout = window.setTimeout(this.close, delay);
+      },
+      clearCloseTimeout() {
+        if (!this.closeTimeout) return;
+        window.clearTimeout(this.closeTimeout);
+        this.closeTimeout = null;
       }
     },
     mounted() {
@@ -125,9 +157,11 @@
         this.timeoutStartedAt = 0;
         this.pendingDuration = this.mdDuration;
       });
+      this.removedSnackBarElementEvent = new Event(this.removedSnackBarElementEventName);
     },
     beforeDestroy() {
-      window.clearTimeout(this.closeTimeout);
+      this.clearCloseTimeout();
+      this.active = false;
       this.removeElement();
     }
   };

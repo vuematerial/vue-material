@@ -20,19 +20,19 @@
               <md-table-row>
                 <md-table-cell>disabled</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Disable the chip and prevent its actions. Default: <code>false</code></md-table-cell>
+                <md-table-cell>Disable the chip and prevent its actions. <br>Default: <code>false</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-deletable</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Enable delete button. Default: <code>false</code></md-table-cell>
+                <md-table-cell>Enable delete button. <br>Default: <code>false</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-editable</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Enable click on the chip's content. Default: <code>false</code></md-table-cell>
+                <md-table-cell>Enable click on the chip's content. <br>Default: <code>false</code></md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>
@@ -81,7 +81,7 @@
               <md-table-row>
                 <md-table-cell>disabled</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Disable the chips and prevent its actions. Default: <code>false</code></md-table-cell>
+                <md-table-cell>Disable the chips and prevent its actions. <br>Default: <code>false</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
@@ -105,19 +105,19 @@
               <md-table-row>
                 <md-table-cell>md-input-type</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
-                <md-table-cell>The chips input type. Cannot be "file". Default: <code>text</code></md-table-cell>
+                <md-table-cell>The chips input type. Cannot be "file". <br>Default: <code>text</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-static</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Display read only chips. Default: <code>false</code></md-table-cell>
+                <md-table-cell>Display read only chips. <br>Default: <code>false</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-max</md-table-cell>
                 <md-table-cell><code>Number</code></md-table-cell>
-                <md-table-cell>The max number of chips to be added. This property works only for new chips. If the initial value in the v-model have more chips than the max value, all the chips will be rendered. Default: <code>Infinity</code></md-table-cell>
+                <md-table-cell>The max number of chips to be added. This property works only for new chips. If the initial value in the v-model have more chips than the max value, all the chips will be rendered. <br>Default: <code>Infinity</code></md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>
@@ -135,7 +135,7 @@
               <md-table-row>
                 <md-table-cell>change</md-table-cell>
                 <md-table-cell>The selcted chips Array</md-table-cell>
-                <md-table-cell>Triggered when the chips is created or deleted.</md-table-cell>
+                <md-table-cell>Triggered when chips are created or deleted.</md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>

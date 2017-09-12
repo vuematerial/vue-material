@@ -20,19 +20,19 @@
               <md-table-row>
                 <md-table-cell>md-swipeable</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Enable the swipe functionality. Default <code>false</code></md-table-cell>
+                <md-table-cell>Enable the swipe functionality. <br>Default: <code>false</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-swipe-threshold</md-table-cell>
                 <md-table-cell><code>Number</code></md-table-cell>
-                <md-table-cell>Set the initial threshold for the swipe when it's closed. Default <code>15</code></md-table-cell>
+                <md-table-cell>Set the initial threshold for the swipe when it's closed. <br>Default: <code>15</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-swipe-distance</md-table-cell>
                 <md-table-cell><code>Number</code></md-table-cell>
-                <md-table-cell>Set the swipe distance needed to open/close the sidenav. Default <code>100</code></md-table-cell>
+                <md-table-cell>Set the swipe distance needed to open/close the sidenav. <br>Default: <code>100</code></md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>

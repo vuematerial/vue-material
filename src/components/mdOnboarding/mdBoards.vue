@@ -216,6 +216,10 @@
       },
       calculatePosition() {
         window.requestAnimationFrame(() => {
+          if (this._destroyed) {
+            return;
+          }
+
           this.calculateIndicatorPos();
           this.calculateBoardsWidthAndPosition();
           this.calculateContentHeight();
@@ -357,6 +361,7 @@
         document.removeEventListener('touchend', this.handleTouchEnd);
       }
 
+      this._destroyed = true;
     }
   };
 </script>

@@ -20,13 +20,13 @@
               <md-table-row>
                 <md-table-cell>md-position</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
-                <md-table-cell>Specify which vertical and horizontal position the snackbar will take. Accepts <code>top left</code>|<code>top center</code>|<code>right center</code>|<code>bottom left</code>|<code>bottom center</code>|<code>bottom right</code>. Default: <code>bottom center</code></md-table-cell>
+                <md-table-cell>Specify which vertical and horizontal position the snackbar will take. <br>Accepts: <code>top left</code>|<code>top center</code>|<code>right center</code>|<code>bottom left</code>|<code>bottom center</code>|<code>bottom right</code> <br>Default: <code>bottom center</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>md-duration</md-table-cell>
                 <md-table-cell><code>Number</code></md-table-cell>
-                <md-table-cell>The duration visibility in miliseconds. Default: <code>4000</code></md-table-cell>
+                <md-table-cell>The duration visibility in miliseconds. <br>Assign <code>Infinity</code> to disable auto closing.<br>Default: <code>4000</code></md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>
@@ -98,14 +98,15 @@
               <div>
                 <div class="md-body-2">Delay</div>
 
+                <md-switch v-model="infinity">Infinity</md-switch>
                 <md-input-container>
-                  <md-input type="number" v-model="duration"></md-input>
+                  <md-input type="number" v-model="duration" :disabled="infinity"></md-input>
                 </md-input-container>
               </div>
 
               <md-button type="submit" class="md-primary md-raised">Open Snackbar</md-button>
 
-              <md-snackbar :md-position="vertical + ' ' + horizontal" ref="snackbar" :md-duration="duration">
+              <md-snackbar :md-position="vertical + ' ' + horizontal" ref="snackbar" :md-duration="infinity ? Infinity : duration">
                 <span>Connection timeout. Showing limited messages.</span>
                 <md-button class="md-accent" md-theme="light-blue" @click="$refs.snackbar.close()">Retry</md-button>
               </md-snackbar>
@@ -179,7 +180,8 @@
     data: () => ({
       vertical: 'bottom',
       horizontal: 'center',
-      duration: 4000
+      duration: 4000,
+      infinity: false
     }),
     methods: {
       open() {

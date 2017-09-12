@@ -51,12 +51,20 @@
       emitSelection() {
         this.$emit('select', this.selectedRows);
       },
-      removeRow(row, array = null) {
-        const list = array || this.data;
-        const index = list.indexOf(row);
+      removeRow(row) {
+        const index = this.data.indexOf(row);
 
         if (index !== -1) {
-          list.splice(index, 1);
+          this.data.splice(index, 1);
+        }
+
+        this.removeSelectedRow(row);
+      },
+      removeSelectedRow(row) {
+        const selectedIndex = this.selectedRows.indexOf(row);
+
+        if (selectedIndex !== -1) {
+          this.selectedRows.splice(selectedIndex, 1);
         }
       },
       setRowSelection(isSelected, row) {
@@ -64,7 +72,7 @@
           this.selectedRows.push(row);
           return;
         }
-        this.removeRow(row, this.selectedRows);
+        this.removeSelectedRow(row);
       },
       setMultipleRowSelection(isSelected) {
         this.selectedRows = isSelected ?

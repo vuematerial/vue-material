@@ -21,6 +21,7 @@ $tooltip-height: 20px;
   line-height: $tooltip-height;
   text-transform: none;
   white-space: nowrap;
+  letter-spacing: 0.1em;
 
   &.md-active {
     opacity: 1;

@@ -20,8 +20,8 @@
           </div>
 
           <div class="column">
-            <h2 class="md-headline">Full-featured</h2>
-            <p>You can generate and use themes dynamically, use components on demand, take advantage of UI Elements and Components with an ease-to-use API and more...</p>
+            <h2 class="md-headline">Fully-featured</h2>
+            <p>You can generate and use themes dynamically, use components on demand, take advantage of UI Elements and Components with an easy-to-use API and more…</p>
           </div>
 
           <div class="column">

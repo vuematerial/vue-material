@@ -5,7 +5,7 @@
       <md-ink-ripple :md-disabled="disabled" />
     </div>
 
-    <label :for="id || name" class="md-radio-label" v-if="$slots.default" @click="toggleCheck">
+    <label :for="id || name" class="md-radio-label" v-if="$slots.default" @click.prevent="toggleCheck">
       <slot></slot>
     </label>
   </div>

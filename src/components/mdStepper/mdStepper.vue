@@ -7,7 +7,7 @@
           :key="step.id"
           :step="step"
           :md-alternate-labels="mdAlternateLabels"
-          @click="setActiveStep(step)">
+          @click.native="setActiveStep(step)">
         </md-step-header>
       </md-step-header-container>
     </md-whiteframe>
@@ -195,6 +195,10 @@
       },
       calculatePosition() {
         window.requestAnimationFrame(() => {
+          if (this._destroyed) {
+            return;
+          }
+  
           this.calculateStepsWidthAndPosition();
           this.calculateContentHeight();
         });
@@ -233,6 +237,8 @@
       }
 
       window.removeEventListener('resize', this.calculateOnResize);
+
+      this._destroyed = true;
     }
   };
 </script>

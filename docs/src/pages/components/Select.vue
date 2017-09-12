@@ -38,19 +38,19 @@
               <md-table-row>
                 <md-table-cell>disabled</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Disable the input and prevent its actions. Default <code>false</code></md-table-cell>
+                <md-table-cell>Disable the input and prevent its actions. <br>Default: <code>false</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>required</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
-                <md-table-cell>Apply the required rule to style the label with an "*". Default <code>false</code></md-table-cell>
+                <md-table-cell>Apply the required rule to style the label with an "*". <br>Default: <code>false</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>placeholder</md-table-cell>
                 <md-table-cell><code>String</code></md-table-cell>
-                <md-table-cell>Sets the placeholder.</md-table-cell>
+                <md-table-cell>Set the placeholder.</md-table-cell>
               </md-table-row>
 
               <md-table-row>
@@ -80,13 +80,13 @@
               <md-table-row>
                 <md-table-cell>opened</md-table-cell>
                 <md-table-cell>none</md-table-cell>
-                <md-table-cell>Triggered the select is opened.</md-table-cell>
+                <md-table-cell>Triggered when the select is opened.</md-table-cell>
               </md-table-row>
 
               <md-table-row>
                 <md-table-cell>closed</md-table-cell>
                 <md-table-cell>none</md-table-cell>
-                <md-table-cell>Triggered the select is closed.</md-table-cell>
+                <md-table-cell>Triggered when the select is closed.</md-table-cell>
               </md-table-row>
             </md-table-body>
           </md-table>
@@ -115,7 +115,7 @@
                 <md-table-row>
                   <md-table-cell>disabled</md-table-cell>
                   <md-table-cell><code>Boolean</code></md-table-cell>
-                  <md-table-cell>Disable the button and prevent its actions. Default <code>false</code></md-table-cell>
+                  <md-table-cell>Disable the button and prevent its actions. <br>Default: <code>false</code></md-table-cell>
                 </md-table-row>
               </md-table-body>
             </md-table>
@@ -310,8 +310,8 @@
               <md-input-container>
                 <label for="users">Simple multiselect</label>
                 <md-select name="option" id="option" multiple v-model="items">
-                  <md-option v-for="option in options"
-                    :key="option"
+                  <md-option v-for="(option, index) in options"
+                    :key="index"
                     :value="option">
                     {{ option.name }}
                   </md-option>
@@ -357,8 +357,8 @@
               &lt;md-input-container&gt;
                 &lt;label for=&quot;users=&quot;&gt;Simple multiselect&lt;/label&gt;
                 &lt;md-select name=&quot;option=&quot; id=&quot;option=&quot; multiple v-model=&quot;items=&quot;&gt;
-                  &lt;md-option v-for=&quot;option in options=&quot;
-                    :key=&quot;option=&quot;
+                  &lt;md-option v-for=&quot;(option, index) in options=&quot;
+                    :key=&quot;index=&quot;
                     :value=&quot;option=&quot;&gt;
                     { { option.name } }
                   &lt;/md-option&gt;
