@@ -206,6 +206,7 @@
         if (optionsArray && optionsArray.length) {
           let selectedOptions = optionsArray.filter((el) => modelValue.includes(el.value));
           let unselectedOptions = optionsArray.filter((el) => !modelValue.includes(el.value));
+  
           selectedOptions
             .forEach((el) => {
               el.check = true;

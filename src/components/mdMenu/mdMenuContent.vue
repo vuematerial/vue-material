@@ -31,10 +31,11 @@
         this.$parent.close();
       },
       highlightItem(direction) {
-        this.itemsAmount = this.$children[0].$children.length
+        this.itemsAmount = this.$children[0].$children.length;
 
-        if (this.itemsAmount < this.highlighted - 1)
+        if (this.itemsAmount < this.highlighted - 1) {
           this.highlighted = 1;
+        }
 
         this.oldHighlight = this.highlighted;
 
@@ -55,10 +56,10 @@
         }
 
         this.$children[0].$children[this.highlighted - 1].$el.scrollIntoView({
-          block: "end", behavior: "smooth"
+          block: 'end', behavior: 'smooth'
         });
 
-        for(var i = 0; i < this.itemsAmount; i++) {
+        for (var i = 0; i < this.itemsAmount; i++) {
           this.$children[0].$children[i].highlighted = false;
         }
 

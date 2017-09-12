@@ -34,9 +34,9 @@ export default {
       type: Number,
       default: 0
     },
-    
+
     required: Boolean,
-    
+
     maxRes: {
       type: Number,
       default: 0
