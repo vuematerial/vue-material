@@ -26,6 +26,8 @@ Before submitting your contribution please read the guidelines.
 
 - Work in the `src` or `docs` folder and **DO NOT** add `dist` in the commits.
 
+- In your own fork of this repository, always work in the `develop` branch or in a branch created from `develop`. Then when you want to submit the PR, do it from your `develop` or `develop`-derived branch.
+
 - Make small commits as you work on the PR. They will be automatically squashed before merging.
 
 - Provide convincing reason to add a new feature. Ideally you should open a suggestion/request issue first and have it greenlighted before working on it.

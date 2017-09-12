@@ -1125,7 +1125,7 @@ exports.default = {
     value: [String, Number],
     debounce: {
       type: Number,
-      default: 3E2
+      default: 1E2
     },
     disabled: Boolean,
     required: Boolean,
@@ -3179,22 +3179,12 @@ exports.default = {
         props = _ref.props;
 
     var getItemComponent = function getItemComponent() {
-      var nativeOn = data.nativeOn;
+      var on = data.on;
       var interactionEvents = ['contextmenu', 'dblclick', 'dragend', 'mousedown', 'touchstart', 'click'];
       var childrenCount = children.length;
 
       if (props.href) {
         return _mdListItemLink2.default;
-      }
-
-      if (nativeOn) {
-        var counter = interactionEvents.length;
-
-        while (counter--) {
-          if (nativeOn[interactionEvents[counter]]) {
-            return _mdListItemButton2.default;
-          }
-        }
       }
 
       while (childrenCount--) {
@@ -3223,6 +3213,16 @@ exports.default = {
             children[childrenCount].data.staticClass = 'md-list-item-container md-button';
 
             return _mdListItemRouter2.default;
+          }
+        }
+      }
+
+      if (on) {
+        var counter = interactionEvents.length;
+
+        while (counter--) {
+          if (on[interactionEvents[counter]]) {
+            return _mdListItemButton2.default;
           }
         }
       }
@@ -4890,7 +4890,7 @@ exports.default = {
   mixins: [_mixin2.default],
   data: function data() {
     return {
-      checked: this.value
+      checked: this.value || false
     };
   },
 
@@ -5043,12 +5043,17 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
 
 exports.default = {
   name: 'md-chips',
   props: {
     value: Array,
     disabled: Boolean,
+    debounce: {
+      type: Number,
+      default: 1E2
+    },
     mdInputId: String,
     mdInputName: String,
     mdInputPlaceholder: String,
@@ -10307,7 +10312,12 @@ exports.default = {
       type: [Number, String],
       default: 10
     },
-    mdPageOptions: [Array, Boolean],
+    mdPageOptions: {
+      type: [Array, Boolean],
+      default: function _default() {
+        return [10, 25, 50, 100];
+      }
+    },
     mdPage: {
       type: [Number, String],
       default: 1
@@ -10394,8 +10404,11 @@ exports.default = {
     var _this = this;
 
     this.$nextTick((function () {
-      _this.mdPageOptions = _this.mdPageOptions || [10, 25, 50, 100];
-      _this.currentSize = _this.mdPageOptions.includes(_this.currentSize) ? _this.currentSize : _this.mdPageOptions[0];
+      if (_this.mdPageOptions) {
+        _this.currentSize = _this.mdPageOptions.includes(_this.currentSize) ? _this.currentSize : _this.mdPageOptions[0];
+      } else {
+        _this.currentSize = 0;
+      }
       _this.canFireEvents = true;
     }));
   }
@@ -16128,7 +16141,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "md-table-pagination"
   }, [_c('span', {
     staticClass: "md-table-pagination-label"
-  }, [_vm._v(_vm._s(_vm.mdLabel) + ":")]), _vm._v(" "), (_vm.mdPageOptions) ? _c('md-select', {
+  }, [_vm._v(_vm._s(_vm.mdLabel) + ":")]), _vm._v(" "), (_vm.mdPageOptions !== false) ? _c('md-select', {
     attrs: {
       "md-menu-class": "md-pagination-select"
     },
@@ -16674,11 +16687,20 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "md-count"
   }, [_vm._v(_vm._s(_vm.inputLength) + " / " + _vm._s(_vm.counterLength))]) : _vm._e(), _vm._v(" "), (_vm.mdHasPassword) ? _c('md-button', {
     staticClass: "md-icon-button md-toggle-password",
+    attrs: {
+      "tabindex": "-1"
+    },
     on: {
-      "click": _vm.togglePasswordType
+      "click": function($event) {
+        $event.preventDefault();
+        _vm.togglePasswordType($event)
+      }
     }
   }, [_c('md-icon', [_vm._v(_vm._s(_vm.showPassword ? 'visibility_off' : 'visibility'))])], 1) : _vm._e(), _vm._v(" "), (_vm.mdClearable && _vm.hasValue) ? _c('md-button', {
     staticClass: "md-icon-button md-clear-input",
+    attrs: {
+      "tabindex": "-1"
+    },
     on: {
       "click": _vm.clearInput
     }
@@ -17623,7 +17645,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "id": _vm.inputId,
       "name": _vm.mdInputName,
       "disabled": _vm.disabled,
-      "tabindex": "0"
+      "tabindex": "0",
+      "debounce": 0
     },
     nativeOn: {
       "keydown": [function($event) {
@@ -18272,7 +18295,10 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "for": _vm.id || _vm.name
     },
     on: {
-      "click": _vm.toggleCheck
+      "click": function($event) {
+        $event.preventDefault();
+        _vm.toggleCheck($event)
+      }
     }
   }, [_vm._t("default")], 2) : _vm._e()])
 },staticRenderFns: []}
