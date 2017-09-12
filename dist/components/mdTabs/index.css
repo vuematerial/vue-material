@@ -166,7 +166,7 @@
     left: 0;
     right: 0;
 }
-@media (min-width: 660px) {
+@media (min-width: 601px) {
   .md-tabs .md-tabs-navigation.md-has-navigation-scroll .md-tabs-navigation-container {
     margin-bottom: -15px;
   }

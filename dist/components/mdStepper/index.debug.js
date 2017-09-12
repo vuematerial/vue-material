@@ -493,7 +493,7 @@ module.exports = function(bitmap, value){
 
 // 19.1.2.14 / 15.2.3.14 Object.keys(O)
 var $keys       = __webpack_require__(31)
-  , enumBugKeys = __webpack_require__(21);
+  , enumBugKeys = __webpack_require__(22);
 
 module.exports = Object.keys || function keys(O){
   return $keys(O, enumBugKeys);
@@ -537,7 +537,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
-//
 
 exports.default = {
   name: 'md-step',
@@ -557,6 +556,7 @@ exports.default = {
       default: true
     },
     mdDisabled: Boolean,
+    mdError: Boolean,
     mdEditable: {
       type: Boolean,
       default: true
@@ -564,7 +564,7 @@ exports.default = {
     mdIcon: String,
     mdLabel: [String, Number],
     mdMessage: [String],
-    mdToolTip: String,
+    mdTooltip: String,
     mdTooltipDelay: {
       type: String,
       default: '0'
@@ -599,6 +599,9 @@ exports.default = {
     mdDisabled: function mdDisabled() {
       this.updateStepData();
     },
+    mdError: function mdError() {
+      this.updateStepData();
+    },
     mdIcon: function mdIcon() {
       this.updateStepData();
     },
@@ -608,7 +611,7 @@ exports.default = {
     mdMessage: function mdMessage() {
       this.updateStepData();
     },
-    mdToolTip: function mdToolTip() {
+    mdTooltip: function mdTooltip() {
       this.updateStepData();
     },
     mdTooltipDelay: function mdTooltipDelay() {
@@ -672,7 +675,8 @@ exports.default = {
         continue: this.mdContinue,
         editable: this.mdEditable,
         disabled: this.mdDisabled,
-        toolTip: this.mdToolTip,
+        error: this.mdError,
+        toolTip: this.mdTooltip,
         tooltipDelay: this.mdTooltipDelay,
         tooltipDirection: this.mdTooltipDirection,
         ref: this
@@ -757,18 +761,22 @@ exports.default = {
         'md-alternate-labels': this.mdAlternateLabels,
         'md-disabled': this.step.disabled,
         'md-has-sub-message': this.step.message,
-        'md-primary': this.isCompleted
+        'md-primary': this.isCompleted,
+        'md-warn': this.step.error
       };
     },
     icon: function icon() {
-      if (!this.step.disabled && this.step.editable && this.isCompleted) {
+      if (!this.step.disabled && this.step.editable && this.isCompleted && !this.step.error) {
         return 'mode_edit';
       }
 
-      if (!this.step.disabled && this.isCompleted) {
+      if (!this.step.disabled && this.isCompleted && !this.step.error) {
         return 'check';
       }
 
+      if (!this.step.disabled && this.step.error) {
+        return 'warning';
+      }
       return this.step.icon;
     },
     stepNumber: function stepNumber() {
@@ -791,6 +799,7 @@ exports.default = {
     }));
   }
 }; //
+//
 //
 //
 //
@@ -827,7 +836,7 @@ var _mixin = __webpack_require__(1);
 
 var _mixin2 = _interopRequireDefault(_mixin);
 
-var _throttle = __webpack_require__(50);
+var _throttle = __webpack_require__(51);
 
 var _throttle2 = _interopRequireDefault(_throttle);
 
@@ -1033,6 +1042,10 @@ exports.default = {
       var _this2 = this;
 
       window.requestAnimationFrame((function () {
+        if (_this2._destroyed) {
+          return;
+        }
+
         _this2.calculateStepsWidthAndPosition();
         _this2.calculateContentHeight();
       }));
@@ -1075,6 +1088,8 @@ exports.default = {
     }
 
     window.removeEventListener('resize', this.calculateOnResize);
+
+    this._destroyed = true;
   }
 };
 module.exports = exports['default'];
@@ -1084,7 +1099,7 @@ module.exports = exports['default'];
 /***/ 19:
 /***/ (function(module, exports, __webpack_require__) {
 
-var shared = __webpack_require__(22)('keys')
+var shared = __webpack_require__(23)('keys')
   , uid    = __webpack_require__(20);
 module.exports = function(key){
   return shared[key] || (shared[key] = uid(key));
@@ -1114,6 +1129,17 @@ module.exports = function(key){
 /***/ }),
 
 /***/ 21:
+/***/ (function(module, exports, __webpack_require__) {
+
+// 7.1.13 ToObject(argument)
+var defined = __webpack_require__(14);
+module.exports = function(it){
+  return Object(defined(it));
+};
+
+/***/ }),
+
+/***/ 22:
 /***/ (function(module, exports) {
 
 // IE 8- don't enum bug keys
@@ -1123,7 +1149,7 @@ module.exports = (
 
 /***/ }),
 
-/***/ 22:
+/***/ 23:
 /***/ (function(module, exports, __webpack_require__) {
 
 var global = __webpack_require__(2)
@@ -1131,17 +1157,6 @@ var global = __webpack_require__(2)
   , store  = global[SHARED] || (global[SHARED] = {});
 module.exports = function(key){
   return store[key] || (store[key] = {});
-};
-
-/***/ }),
-
-/***/ 23:
-/***/ (function(module, exports, __webpack_require__) {
-
-// 7.1.13 ToObject(argument)
-var defined = __webpack_require__(14);
-module.exports = function(it){
-  return Object(defined(it));
 };
 
 /***/ }),
@@ -1235,7 +1250,7 @@ module.exports = function(fn, that, length){
 /***/ 289:
 /***/ (function(module, exports) {
 
-module.exports = ".THEME_NAME.md-stepper .md-step-header .md-step-icon,\n.THEME_NAME.md-stepper .md-step-header .md-step-number {\n  color: BACKGROUND-CONTRAST;\n  background-color: #bdbdbd; }\n\n.THEME_NAME.md-stepper .md-step-header.md-primary .md-step-icon,\n.THEME_NAME.md-stepper .md-step-header.md-primary .md-step-number, .THEME_NAME.md-stepper .md-step-header.md-active .md-step-icon,\n.THEME_NAME.md-stepper .md-step-header.md-active .md-step-number {\n  color: PRIMARY-CONTRAST;\n  background-color: PRIMARY-COLOR; }\n\n.THEME_NAME.md-stepper .md-step-header.md-accent .md-step-icon,\n.THEME_NAME.md-stepper .md-step-header.md-accent .md-step-number {\n  color: ACCENT-CONTRAST;\n  background-color: ACCENT-COLOR; }\n\n.THEME_NAME.md-stepper .md-step-header.md-warn .md-step-icon,\n.THEME_NAME.md-stepper .md-step-header.md-warn .md-step-number {\n  color: WARN-CONTRAST;\n  background-color: WARN-COLOR; }\n\n.THEME_NAME.md-stepper .md-step-header.md-disabled {\n  color: #bdbdbd; }\n  .THEME_NAME.md-stepper .md-step-header.md-disabled .md-step-icon,\n  .THEME_NAME.md-stepper .md-step-header.md-disabled .md-step-number {\n    color: white;\n    background-color: #bdbdbd; }\n"
+module.exports = ".THEME_NAME.md-stepper .md-step-header .md-step-icon,\n.THEME_NAME.md-stepper .md-step-header .md-step-number {\n  color: BACKGROUND-CONTRAST;\n  background-color: #bdbdbd; }\n\n.THEME_NAME.md-stepper .md-step-header.md-primary .md-step-icon,\n.THEME_NAME.md-stepper .md-step-header.md-primary .md-step-number, .THEME_NAME.md-stepper .md-step-header.md-active .md-step-icon,\n.THEME_NAME.md-stepper .md-step-header.md-active .md-step-number {\n  color: PRIMARY-CONTRAST;\n  background-color: PRIMARY-COLOR; }\n\n.THEME_NAME.md-stepper .md-step-header.md-accent .md-step-icon,\n.THEME_NAME.md-stepper .md-step-header.md-accent .md-step-number {\n  color: ACCENT-CONTRAST;\n  background-color: ACCENT-COLOR; }\n\n.THEME_NAME.md-stepper .md-step-header.md-warn .md-step-icon,\n.THEME_NAME.md-stepper .md-step-header.md-warn .md-step-number {\n  color: WARN-CONTRAST;\n  background-color: WARN-COLOR; }\n\n.THEME_NAME.md-stepper .md-step-header.md-warn .md-step-error,\n.THEME_NAME.md-stepper .md-step-header.md-warn .md-step-titles {\n  color: WARN-COLOR; }\n\n.THEME_NAME.md-stepper .md-step-header.md-disabled {\n  color: #bdbdbd; }\n  .THEME_NAME.md-stepper .md-step-header.md-disabled .md-step-icon,\n  .THEME_NAME.md-stepper .md-step-header.md-disabled .md-step-number {\n    color: white;\n    background-color: #bdbdbd; }\n"
 
 /***/ }),
 
@@ -1491,7 +1506,7 @@ module.exports = exports["default"];
 /***/ 38:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(43), __esModule: true };
+module.exports = { "default": __webpack_require__(45), __esModule: true };
 
 /***/ }),
 
@@ -1530,7 +1545,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "step": step,
         "md-alternate-labels": _vm.mdAlternateLabels
       },
-      on: {
+      nativeOn: {
         "click": function($event) {
           _vm.setActiveStep(step)
         }
@@ -1575,8 +1590,10 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     class: _vm.getHeaderClasses
   }, [_c('div', {
     staticClass: "md-step-icons"
-  }, [(_vm.icon) ? _c('md-icon', {
+  }, [(_vm.icon && !_vm.step.error) ? _c('md-icon', {
     staticClass: "md-step-icon"
+  }, [_vm._v(_vm._s(_vm.icon))]) : _vm._e(), _vm._v(" "), (_vm.icon && _vm.step.error) ? _c('md-icon', {
+    staticClass: "md-step-error"
   }, [_vm._v(_vm._s(_vm.icon))]) : _vm._e(), _vm._v(" "), (!_vm.icon) ? _c('div', {
     staticClass: "md-step-number"
   }, [_c('span', [_vm._v(_vm._s(_vm.stepNumber))])]) : _vm._e()], 1), _vm._v(" "), _c('div', {
@@ -1613,11 +1630,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [(_vm.vertical) ? _c('md-step-header', {
     attrs: {
       "step": _vm.getStepData()
-    },
-    on: {
-      "click": function($event) {
-        _vm.setActiveStep()
-      }
     }
   }) : _vm._e(), _vm._v(" "), (!_vm.vertical || (_vm.vertical && _vm.isCurrentStep)) ? _c('div', {
     staticClass: "md-step-content"
@@ -1650,15 +1662,15 @@ if (false) {
 
 /***/ }),
 
-/***/ 43:
+/***/ 45:
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(48);
+__webpack_require__(49);
 module.exports = __webpack_require__(4).Object.keys;
 
 /***/ }),
 
-/***/ 46:
+/***/ 47:
 /***/ (function(module, exports, __webpack_require__) {
 
 // most Object methods by ES6 should accept primitives
@@ -1682,14 +1694,14 @@ module.exports = __webpack_require__(106);
 
 /***/ }),
 
-/***/ 48:
+/***/ 49:
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.14 Object.keys(O)
-var toObject = __webpack_require__(23)
+var toObject = __webpack_require__(21)
   , $keys    = __webpack_require__(18);
 
-__webpack_require__(46)('keys', (function(){
+__webpack_require__(47)('keys', (function(){
   return function keys(it){
     return $keys(toObject(it));
   };
@@ -1710,7 +1722,7 @@ module.exports = function(exec){
 
 /***/ }),
 
-/***/ 50:
+/***/ 51:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

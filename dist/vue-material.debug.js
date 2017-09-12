@@ -358,7 +358,7 @@ module.exports = __webpack_require__(3) ? function(object, key, value){
 /* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var store      = __webpack_require__(22)('wks')
+var store      = __webpack_require__(23)('wks')
   , uid        = __webpack_require__(20)
   , Symbol     = __webpack_require__(2).Symbol
   , USE_SYMBOL = typeof Symbol == 'function';
@@ -486,7 +486,7 @@ module.exports = function(bitmap, value){
 
 // 19.1.2.14 / 15.2.3.14 Object.keys(O)
 var $keys       = __webpack_require__(31)
-  , enumBugKeys = __webpack_require__(21);
+  , enumBugKeys = __webpack_require__(22);
 
 module.exports = Object.keys || function keys(O){
   return $keys(O, enumBugKeys);
@@ -496,7 +496,7 @@ module.exports = Object.keys || function keys(O){
 /* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var shared = __webpack_require__(22)('keys')
+var shared = __webpack_require__(23)('keys')
   , uid    = __webpack_require__(20);
 module.exports = function(key){
   return shared[key] || (shared[key] = uid(key));
@@ -514,6 +514,16 @@ module.exports = function(key){
 
 /***/ }),
 /* 21 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// 7.1.13 ToObject(argument)
+var defined = __webpack_require__(14);
+module.exports = function(it){
+  return Object(defined(it));
+};
+
+/***/ }),
+/* 22 */
 /***/ (function(module, exports) {
 
 // IE 8- don't enum bug keys
@@ -522,7 +532,7 @@ module.exports = (
 ).split(',');
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var global = __webpack_require__(2)
@@ -530,16 +540,6 @@ var global = __webpack_require__(2)
   , store  = global[SHARED] || (global[SHARED] = {});
 module.exports = function(key){
   return store[key] || (store[key] = {});
-};
-
-/***/ }),
-/* 23 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// 7.1.13 ToObject(argument)
-var defined = __webpack_require__(14);
-module.exports = function(it){
-  return Object(defined(it));
 };
 
 /***/ }),
@@ -743,22 +743,28 @@ module.exports = function(it, tag, stat){
 /* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(43), __esModule: true };
+module.exports = { "default": __webpack_require__(45), __esModule: true };
 
 /***/ }),
 /* 39 */
 /***/ (function(module, exports) {
 
-module.exports = true;
+exports.f = {}.propertyIsEnumerable;
 
 /***/ }),
 /* 40 */
 /***/ (function(module, exports) {
 
-exports.f = {}.propertyIsEnumerable;
+module.exports = true;
 
 /***/ }),
 /* 41 */
+/***/ (function(module, exports) {
+
+exports.f = Object.getOwnPropertySymbols;
+
+/***/ }),
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -787,20 +793,26 @@ exports.default = transitionEndEventName();
 module.exports = exports['default'];
 
 /***/ }),
-/* 42 */
+/* 43 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = { "default": __webpack_require__(52), __esModule: true };
+
+/***/ }),
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var LIBRARY        = __webpack_require__(39)
+var LIBRARY        = __webpack_require__(40)
   , $export        = __webpack_require__(16)
-  , redefine       = __webpack_require__(47)
+  , redefine       = __webpack_require__(48)
   , hide           = __webpack_require__(11)
   , has            = __webpack_require__(8)
   , Iterators      = __webpack_require__(32)
-  , $iterCreate    = __webpack_require__(53)
+  , $iterCreate    = __webpack_require__(54)
   , setToStringTag = __webpack_require__(37)
-  , getPrototypeOf = __webpack_require__(55)
+  , getPrototypeOf = __webpack_require__(57)
   , ITERATOR       = __webpack_require__(12)('iterator')
   , BUGGY          = !([].keys && 'next' in [].keys()) // Safari has buggy iterators w/o `next`
   , FF_ITERATOR    = '@@iterator'
@@ -863,20 +875,20 @@ module.exports = function(Base, NAME, Constructor, next, DEFAULT, IS_SET, FORCED
 };
 
 /***/ }),
-/* 43 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(48);
+__webpack_require__(49);
 module.exports = __webpack_require__(4).Object.keys;
 
 /***/ }),
-/* 44 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
 var anObject    = __webpack_require__(13)
-  , dPs         = __webpack_require__(54)
-  , enumBugKeys = __webpack_require__(21)
+  , dPs         = __webpack_require__(56)
+  , enumBugKeys = __webpack_require__(22)
   , IE_PROTO    = __webpack_require__(19)('IE_PROTO')
   , Empty       = function(){ /* empty */ }
   , PROTOTYPE   = 'prototype';
@@ -890,7 +902,7 @@ var createDict = function(){
     , gt     = '>'
     , iframeDocument;
   iframe.style.display = 'none';
-  __webpack_require__(52).appendChild(iframe);
+  __webpack_require__(53).appendChild(iframe);
   iframe.src = 'javascript:'; // eslint-disable-line no-script-url
   // createDict = iframe.contentWindow.Object;
   // html.removeChild(iframe);
@@ -917,13 +929,7 @@ module.exports = Object.create || function create(O, Properties){
 
 
 /***/ }),
-/* 45 */
-/***/ (function(module, exports) {
-
-exports.f = Object.getOwnPropertySymbols;
-
-/***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // most Object methods by ES6 should accept primitives
@@ -938,35 +944,35 @@ module.exports = function(KEY, exec){
 };
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(11);
 
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.14 Object.keys(O)
-var toObject = __webpack_require__(23)
+var toObject = __webpack_require__(21)
   , $keys    = __webpack_require__(18);
 
-__webpack_require__(46)('keys', (function(){
+__webpack_require__(47)('keys', (function(){
   return function keys(it){
     return $keys(toObject(it));
   };
 }));
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var $at  = __webpack_require__(56)(true);
+var $at  = __webpack_require__(58)(true);
 
 // 21.1.3.27 String.prototype[@@iterator]()
-__webpack_require__(42)(String, 'String', (function(iterated){
+__webpack_require__(44)(String, 'String', (function(iterated){
   this._t = String(iterated); // target
   this._i = 0;                // next index
 // 21.1.5.2.1 %StringIteratorPrototype%.next()
@@ -981,7 +987,7 @@ __webpack_require__(42)(String, 'String', (function(iterated){
 }));
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1009,24 +1015,25 @@ exports.default = debounce;
 module.exports = exports["default"];
 
 /***/ }),
-/* 51 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = { "default": __webpack_require__(59), __esModule: true };
-
-/***/ }),
 /* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(2).document && document.documentElement;
+__webpack_require__(59);
+module.exports = __webpack_require__(4).Object.assign;
 
 /***/ }),
 /* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
+module.exports = __webpack_require__(2).document && document.documentElement;
+
+/***/ }),
+/* 54 */
+/***/ (function(module, exports, __webpack_require__) {
+
 "use strict";
 
-var create         = __webpack_require__(44)
+var create         = __webpack_require__(46)
   , descriptor     = __webpack_require__(17)
   , setToStringTag = __webpack_require__(37)
   , IteratorPrototype = {};
@@ -1040,7 +1047,46 @@ module.exports = function(Constructor, NAME, next){
 };
 
 /***/ }),
-/* 54 */
+/* 55 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+// 19.1.2.1 Object.assign(target, source, ...)
+var getKeys  = __webpack_require__(18)
+  , gOPS     = __webpack_require__(41)
+  , pIE      = __webpack_require__(39)
+  , toObject = __webpack_require__(21)
+  , IObject  = __webpack_require__(26)
+  , $assign  = Object.assign;
+
+// should work with symbols and should have deterministic property order (V8 bug)
+module.exports = !$assign || __webpack_require__(5)((function(){
+  var A = {}
+    , B = {}
+    , S = Symbol()
+    , K = 'abcdefghijklmnopqrst';
+  A[S] = 7;
+  K.split('').forEach((function(k){ B[k] = k; }));
+  return $assign({}, A)[S] != 7 || Object.keys($assign({}, B)).join('') != K;
+})) ? function assign(target, source){ // eslint-disable-line no-unused-vars
+  var T     = toObject(target)
+    , aLen  = arguments.length
+    , index = 1
+    , getSymbols = gOPS.f
+    , isEnum     = pIE.f;
+  while(aLen > index){
+    var S      = IObject(arguments[index++])
+      , keys   = getSymbols ? getKeys(S).concat(getSymbols(S)) : getKeys(S)
+      , length = keys.length
+      , j      = 0
+      , key;
+    while(length > j)if(isEnum.call(S, key = keys[j++]))T[key] = S[key];
+  } return T;
+} : $assign;
+
+/***/ }),
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var dP       = __webpack_require__(9)
@@ -1058,12 +1104,12 @@ module.exports = __webpack_require__(3) ? Object.defineProperties : function def
 };
 
 /***/ }),
-/* 55 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.9 / 15.2.3.2 Object.getPrototypeOf(O)
 var has         = __webpack_require__(8)
-  , toObject    = __webpack_require__(23)
+  , toObject    = __webpack_require__(21)
   , IE_PROTO    = __webpack_require__(19)('IE_PROTO')
   , ObjectProto = Object.prototype;
 
@@ -1076,7 +1122,7 @@ module.exports = Object.getPrototypeOf || function(O){
 };
 
 /***/ }),
-/* 56 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var toInteger = __webpack_require__(15)
@@ -1098,10 +1144,19 @@ module.exports = function(TO_STRING){
 };
 
 /***/ }),
-/* 57 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var classof   = __webpack_require__(60)
+// 19.1.3.1 Object.assign(target, source)
+var $export = __webpack_require__(16);
+
+$export($export.S + $export.F, 'Object', {assign: __webpack_require__(55)});
+
+/***/ }),
+/* 60 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var classof   = __webpack_require__(62)
   , ITERATOR  = __webpack_require__(12)('iterator')
   , Iterators = __webpack_require__(32);
 module.exports = __webpack_require__(4).getIteratorMethod = function(it){
@@ -1111,7 +1166,7 @@ module.exports = __webpack_require__(4).getIteratorMethod = function(it){
 };
 
 /***/ }),
-/* 58 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1195,14 +1250,18 @@ exports.default = {
         _this2.parentContainer.inputLength = newValue ? newValue.length : 0;
       }));
     },
-    onFocus: function onFocus() {
+    onFocus: function onFocus(event) {
       if (this.parentContainer) {
         this.parentContainer.isFocused = true;
       }
+
+      this.$emit('focus', this.$el.value, event);
     },
-    onBlur: function onBlur() {
+    onBlur: function onBlur(event) {
       this.parentContainer.isFocused = false;
       this.setParentValue();
+
+      this.$emit('blur', this.$el.value, event);
     },
     onInput: function onInput() {
       this.updateValues();
@@ -1213,14 +1272,7 @@ exports.default = {
 module.exports = exports['default'];
 
 /***/ }),
-/* 59 */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(64);
-module.exports = __webpack_require__(4).Object.assign;
-
-/***/ }),
-/* 60 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // getting tag from 19.1.3.6 Object.prototype.toString()
@@ -1248,52 +1300,13 @@ module.exports = function(it){
 };
 
 /***/ }),
-/* 61 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-// 19.1.2.1 Object.assign(target, source, ...)
-var getKeys  = __webpack_require__(18)
-  , gOPS     = __webpack_require__(45)
-  , pIE      = __webpack_require__(40)
-  , toObject = __webpack_require__(23)
-  , IObject  = __webpack_require__(26)
-  , $assign  = Object.assign;
-
-// should work with symbols and should have deterministic property order (V8 bug)
-module.exports = !$assign || __webpack_require__(5)((function(){
-  var A = {}
-    , B = {}
-    , S = Symbol()
-    , K = 'abcdefghijklmnopqrst';
-  A[S] = 7;
-  K.split('').forEach((function(k){ B[k] = k; }));
-  return $assign({}, A)[S] != 7 || Object.keys($assign({}, B)).join('') != K;
-})) ? function assign(target, source){ // eslint-disable-line no-unused-vars
-  var T     = toObject(target)
-    , aLen  = arguments.length
-    , index = 1
-    , getSymbols = gOPS.f
-    , isEnum     = pIE.f;
-  while(aLen > index){
-    var S      = IObject(arguments[index++])
-      , keys   = getSymbols ? getKeys(S).concat(getSymbols(S)) : getKeys(S)
-      , length = keys.length
-      , j      = 0
-      , key;
-    while(length > j)if(isEnum.call(S, key = keys[j++]))T[key] = S[key];
-  } return T;
-} : $assign;
-
-/***/ }),
-/* 62 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var global         = __webpack_require__(2)
   , core           = __webpack_require__(4)
-  , LIBRARY        = __webpack_require__(39)
-  , wksExt         = __webpack_require__(63)
+  , LIBRARY        = __webpack_require__(40)
+  , wksExt         = __webpack_require__(64)
   , defineProperty = __webpack_require__(9).f;
 module.exports = function(name){
   var $Symbol = core.Symbol || (core.Symbol = LIBRARY ? {} : global.Symbol || {});
@@ -1301,19 +1314,10 @@ module.exports = function(name){
 };
 
 /***/ }),
-/* 63 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports.f = __webpack_require__(12);
-
-/***/ }),
 /* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
-// 19.1.3.1 Object.assign(target, source)
-var $export = __webpack_require__(16);
-
-$export($export.S + $export.F, 'Object', {assign: __webpack_require__(61)});
+exports.f = __webpack_require__(12);
 
 /***/ }),
 /* 65 */
@@ -1439,7 +1443,7 @@ module.exports = { "default": __webpack_require__(70), __esModule: true };
 /* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(49);
+__webpack_require__(50);
 __webpack_require__(78);
 module.exports = __webpack_require__(4).Array.from;
 
@@ -1533,7 +1537,7 @@ module.exports = function(done, value){
 
 // 19.1.2.7 / 15.2.3.4 Object.getOwnPropertyNames(O)
 var $keys      = __webpack_require__(31)
-  , hiddenKeys = __webpack_require__(21).concat('length', 'prototype');
+  , hiddenKeys = __webpack_require__(22).concat('length', 'prototype');
 
 exports.f = Object.getOwnPropertyNames || function getOwnPropertyNames(O){
   return $keys(O, hiddenKeys);
@@ -1547,12 +1551,12 @@ exports.f = Object.getOwnPropertyNames || function getOwnPropertyNames(O){
 
 var ctx            = __webpack_require__(28)
   , $export        = __webpack_require__(16)
-  , toObject       = __webpack_require__(23)
+  , toObject       = __webpack_require__(21)
   , call           = __webpack_require__(74)
   , isArrayIter    = __webpack_require__(73)
   , toLength       = __webpack_require__(29)
   , createProperty = __webpack_require__(72)
-  , getIterFn      = __webpack_require__(57);
+  , getIterFn      = __webpack_require__(60);
 
 $export($export.S + $export.F * !__webpack_require__(75)((function(iter){ Array.from(iter); })), 'Array', {
   // 22.1.2.1 Array.from(arrayLike, mapfn = undefined, thisArg = undefined)
@@ -1598,7 +1602,7 @@ var addToUnscopables = __webpack_require__(71)
 // 22.1.3.13 Array.prototype.keys()
 // 22.1.3.29 Array.prototype.values()
 // 22.1.3.30 Array.prototype[@@iterator]()
-module.exports = __webpack_require__(42)(Array, 'Array', (function(iterated, kind){
+module.exports = __webpack_require__(44)(Array, 'Array', (function(iterated, kind){
   this._t = toIObject(iterated); // target
   this._i = 0;                   // next index
   this._k = kind;                // kind
@@ -3528,7 +3532,7 @@ function injectStyle(style, spec, name, styleId) {
 function install(Vue) {
   Vue.material = new Vue({
     data: {
-      currentTheme: 'default',
+      currentTheme: null,
       inkRipple: true,
       prefix: 'md-theme-',
       styles: [],
@@ -3592,11 +3596,15 @@ function install(Vue) {
         this.useTheme(name);
 
         if (_dom.changeHtmlMetaColor) {
-          (0, _dom.changeHtmlMetaColor)(registeredPrimaryColor[name], prefix + this.currentTheme, prefix + name);
+          (0, _dom.changeHtmlMetaColor)(registeredPrimaryColor[name], prefix + name, prefix + this.currentTheme);
         }
 
         this.currentTheme = name;
       }
+    },
+    created: function created() {
+      // set the default theme by default
+      this.setCurrentTheme('default');
     }
   });
 
@@ -4068,7 +4076,18 @@ exports.default = {
       type: String,
       default: 'q'
     },
-    required: Boolean
+
+    maxHeight: {
+      type: Number,
+      default: 0
+    },
+
+    required: Boolean,
+
+    maxRes: {
+      type: Number,
+      default: 0
+    }
   },
   methods: {
     onFocus: function onFocus() {
@@ -4107,7 +4126,7 @@ module.exports = exports['default'];
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var margin = 8;
+var margin = 0;
 
 var isAboveOfViewport = function isAboveOfViewport(element, position) {
   return position.top <= margin - parseInt(getComputedStyle(element).marginTop, 10);
@@ -4429,41 +4448,46 @@ var onClickButton = void 0; //
 exports.default = {
   name: 'md-button-toggle',
   props: {
-    mdSingle: Boolean
+    mdSingle: Boolean,
+    mdManualToggle: Boolean
   },
   mixins: [_mixin2.default],
   mounted: function mounted() {
     var _this = this;
 
-    this.$children.forEach((function (child) {
-      var element = child.$el;
-      var toggleClass = 'md-toggle';
+    if (!this.mdManualToggle) {
+      this.$children.forEach((function (child) {
+        var element = child.$el;
+        var toggleClass = 'md-toggle';
 
-      onClickButton = function onClickButton() {
-        if (_this.mdSingle) {
-          _this.$children.forEach((function (child) {
-            child.$el.classList.remove(toggleClass);
-          }));
+        onClickButton = function onClickButton() {
+          if (_this.mdSingle) {
+            _this.$children.forEach((function (child) {
+              child.$el.classList.remove(toggleClass);
+            }));
 
-          element.classList.add(toggleClass);
-        } else {
-          element.classList.toggle(toggleClass);
+            element.classList.add(toggleClass);
+          } else {
+            element.classList.toggle(toggleClass);
+          }
+        };
+
+        if (element && element.classList.contains('md-button')) {
+          element.addEventListener('click', onClickButton);
         }
-      };
-
-      if (element && element.classList.contains('md-button')) {
-        element.addEventListener('click', onClickButton);
-      }
-    }));
+      }));
+    }
   },
   beforeDestroy: function beforeDestroy() {
-    this.$children.forEach((function (child) {
-      var element = child.$el;
+    if (!this.mdManualToggle) {
+      this.$children.forEach((function (child) {
+        var element = child.$el;
 
-      if (element && element.classList.contains('md-button')) {
-        element.removeEventListener('click', onClickButton);
-      }
-    }));
+        if (element && element.classList.contains('md-button')) {
+          element.removeEventListener('click', onClickButton);
+        }
+      }));
+    }
   }
 };
 module.exports = exports['default'];
@@ -5158,7 +5182,7 @@ var _mixin = __webpack_require__(1);
 
 var _mixin2 = _interopRequireDefault(_mixin);
 
-var _transitionEndEventName = __webpack_require__(41);
+var _transitionEndEventName = __webpack_require__(42);
 
 var _transitionEndEventName2 = _interopRequireDefault(_transitionEndEventName);
 
@@ -5986,7 +6010,7 @@ var _defineProperty2 = __webpack_require__(207);
 
 var _defineProperty3 = _interopRequireDefault(_defineProperty2);
 
-var _assign = __webpack_require__(51);
+var _assign = __webpack_require__(43);
 
 var _assign2 = _interopRequireDefault(_assign);
 
@@ -5994,7 +6018,7 @@ var _autocompleteCommon = __webpack_require__(124);
 
 var _autocompleteCommon2 = _interopRequireDefault(_autocompleteCommon);
 
-var _common = __webpack_require__(58);
+var _common = __webpack_require__(61);
 
 var _common2 = _interopRequireDefault(_common);
 
@@ -6012,6 +6036,7 @@ exports.default = {
       loading: false,
       query: '',
       selected: null,
+      isItemSelected: 0,
       timeout: 0,
       parentContainer: null,
       searchButton: null
@@ -6021,6 +6046,15 @@ exports.default = {
   computed: {
     listIsEmpty: function listIsEmpty() {
       return this.list.length === 0;
+    },
+    itemsEmpty: function itemsEmpty() {
+      return this.items.length === 0;
+    },
+    filterItemsByResLength: function filterItemsByResLength() {
+      if (this.maxRes === 0) {
+        return this.items;
+      }
+      return this.items.slice(0, this.maxRes);
     }
   },
   watch: {
@@ -6060,6 +6094,8 @@ exports.default = {
       this.selected = item;
       this.onInput();
       this.$emit('selected', this.selected, this.$refs.input.value);
+
+      this.closeMenu();
     },
     makeFetchRequest: function makeFetchRequest(queryObject) {
       var _this2 = this;
@@ -6072,14 +6108,26 @@ exports.default = {
 
         _this2.loading = false;
 
-        _this2.toggleMenu();
+        if (!_this2.itemsEmpty && !_this2.isItemSelected) {
+          _this2.openMenu();
+        } else {
+          _this2.closeMenu();
+        }
       }));
     },
     onFocus: function onFocus() {
+      this.isItemSelected = 0;
+
       if (this.parentContainer) {
         this.parentContainer.isFocused = true;
       }
+
       this.$refs.input.focus();
+
+      if (this.query.length >= this.minChars) {
+        this.renderFilteredList();
+        this.openMenu();
+      }
     },
     onInput: function onInput() {
       this.updateValues();
@@ -6087,10 +6135,19 @@ exports.default = {
       this.$emit('input', this.$refs.input.value);
     },
     renderFilteredList: function renderFilteredList() {
-      if (this.filterList) {
+      if (this.filterList && this.query.length >= this.minChars) {
         this.items = this.filterList((0, _assign2.default)([], this.list), this.query);
       }
-      this.toggleMenu();
+
+      if (this.query.length < this.minChars || this.itemsEmpty) {
+        this.closeMenu();
+      }
+
+      if (!this.itemsEmpty && this.isItemSelected === 0) {
+        this.openMenu();
+      } else if (this.isItemSelected === 1) {
+        this.isItemSelected = 0;
+      }
     },
     reset: function reset() {
       this.items = [];
@@ -6098,6 +6155,10 @@ exports.default = {
       this.loading = false;
     },
     setParentValue: function setParentValue(value) {
+      // In some cases parentContainer would be null and value would be present
+      if (this.parentContainer === null) {
+        return;
+      }
       this.parentContainer.setValue(value || this.$refs.input.value);
     },
     setParentDisabled: function setParentDisabled() {
@@ -6140,11 +6201,62 @@ exports.default = {
         this.$refs.menu.toggle();
       }
     },
+    openMenu: function openMenu() {
+      if (this.items.length && !this.itemsEmpty) {
+        this.$refs.menu.open();
+        this.$refs.input.focus();
+      }
+    },
+    closeMenu: function closeMenu() {
+      this.$refs.menu.close();
+    },
     updateValues: function updateValues(value) {
       var newValue = value || this.$refs.input.value || this.value;
 
       this.setParentValue(newValue);
+      // In some cases parentContainer would be null and value would be present
+      if (this.parentContainer === null) {
+        return;
+      }
       this.parentContainer.inputLength = newValue ? newValue.length : 0;
+    },
+    contentHighlightItem: function contentHighlightItem(direction) {
+      this.menuContent = document.body.querySelector('.md-autocomplete-content');
+
+      if (this.menuContent === null) {
+        return false;
+      }
+
+      this.menuContent.__vue__.highlightItem(direction);
+
+      return true;
+    },
+    contentFireClick: function contentFireClick() {
+      this.menuContent = document.body.querySelector('.md-autocomplete-content');
+
+      if (this.menuContent === null || this.menuContent.__vue__.highlighted === false || this.menuContent.__vue__.highlighted < 1) {
+
+        this.closeMenu();
+
+        return false;
+      }
+
+      var index = this.menuContent.__vue__.$children[0].$children[this.menuContent.__vue__.highlighted - 1].index;
+
+      this.isItemSelected = 1;
+
+      this.hit(this.items[index - 1]);
+      this.closeMenu();
+
+      return true;
+    },
+    setItemSelected: function setItemSelected(item) {
+      this.isItemSelected = 2;
+      this.hit(item);
+
+      this.closeMenu();
+
+      return true;
     }
   },
   beforeDestroy: function beforeDestroy() {
@@ -6157,12 +6269,11 @@ exports.default = {
 
     this.$nextTick((function () {
       _this3.parentContainer = (0, _getClosestVueParent2.default)(_this3.$parent, 'md-input-container');
+      _this3.menuContent = document.body.querySelector('.md-autocomplete-content');
 
       if (!_this3.listIsEmpty) {
         _this3.items = (0, _assign2.default)([], _this3.list);
       }
-
-      _this3.query = _this3.value;
 
       _this3.verifyProps();
       _this3.setSearchButton();
@@ -6175,6 +6286,18 @@ exports.default = {
     }));
   }
 }; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -6223,7 +6346,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _common = __webpack_require__(58);
+var _common = __webpack_require__(61);
 
 var _common2 = _interopRequireDefault(_common);
 
@@ -6426,7 +6549,7 @@ var _autosize = __webpack_require__(115);
 
 var _autosize2 = _interopRequireDefault(_autosize);
 
-var _common = __webpack_require__(58);
+var _common = __webpack_require__(61);
 
 var _common2 = _interopRequireDefault(_common);
 
@@ -6841,7 +6964,11 @@ exports.default = {
       var _this2 = this;
 
       window.requestAnimationFrame((function () {
-        _this2.height = -_this2.$el.scrollHeight + 'px';
+        if (_this2._destroyed) {
+          return;
+        }
+
+        _this2.height = -_this2.$refs.expand.scrollHeight + 'px';
 
         window.setTimeout((function () {
           _this2.transitionOff = false;
@@ -6886,6 +7013,8 @@ exports.default = {
     }
 
     window.removeEventListener('resize', this.recalculateAfterChange);
+
+    this._destroyed = true;
   }
 }; //
 //
@@ -6988,7 +7117,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _transitionEndEventName = __webpack_require__(41);
+var _transitionEndEventName = __webpack_require__(42);
 
 var _transitionEndEventName2 = _interopRequireDefault(_transitionEndEventName);
 
@@ -7035,6 +7164,26 @@ exports.default = {
     mdCloseOnSelect: {
       type: Boolean,
       default: true
+    },
+    mdAutoWidth: {
+      type: Boolean,
+      default: false
+    },
+    mdFixed: {
+      type: Boolean,
+      default: false
+    },
+    mdNoFocus: {
+      type: Boolean,
+      default: false
+    },
+    mdManualToggle: {
+      type: Boolean,
+      default: false
+    },
+    mdMaxHeight: {
+      type: Number,
+      default: 0
     }
   },
   data: function data() {
@@ -7110,6 +7259,13 @@ exports.default = {
     },
     calculateMenuContentPos: function calculateMenuContentPos() {
       var position = void 0;
+      var width = void 0;
+
+      var margin = 8;
+
+      if (this._destroyed) {
+        return;
+      }
 
       if (!this.mdDirection) {
         position = this.getPosition('bottom', 'right');
@@ -7117,7 +7273,20 @@ exports.default = {
         position = this.getPosition.apply(this, this.mdDirection.trim().split(' '));
       }
 
-      position = (0, _getInViewPosition2.default)(this.menuContent, position);
+      if (this.mdAutoWidth) {
+        width = this.menuTrigger.getBoundingClientRect().width;
+        this.menuContent.style.width = parseInt(width, 10) + 'px';
+      }
+
+      if (!this.mdFixed) {
+        position = (0, _getInViewPosition2.default)(this.menuContent, position);
+      } else if (this.mdMaxHeight === 0) {
+        this.menuContent.style.maxHeight = window.innerHeight - this.menuTrigger.getBoundingClientRect().bottom - margin + 'px';
+      } else if (this.menuContent.children[0].children.length > 0) {
+        var listElemHeight = this.menuContent.children[0].children[0].clientHeight;
+
+        this.menuContent.style.maxHeight = margin * 2 + listElemHeight * this.mdMaxHeight + 'px';
+      }
 
       this.menuContent.style.top = position.top + window.pageYOffset + 'px';
       this.menuContent.style.left = position.left + window.pageXOffset + 'px';
@@ -7138,7 +7307,11 @@ exports.default = {
 
       getComputedStyle(this.menuContent).top;
       this.menuContent.classList.add('md-active');
-      this.menuContent.focus();
+
+      if (!this.mdNoFocus) {
+        this.menuContent.focus();
+      }
+
       this.active = true;
       this.$emit('open');
     },
@@ -7150,15 +7323,25 @@ exports.default = {
           var activeRipple = _this.menuContent.querySelector('.md-ripple.md-active');
 
           _this.menuContent.removeEventListener(_transitionEndEventName2.default, close);
-          _this.menuTrigger.focus();
+
+          if (!_this.mdNoFocus) {
+            _this.menuTrigger.focus();
+          }
+
           _this.active = false;
 
           if (activeRipple) {
             activeRipple.classList.remove('md-active');
           }
 
-          document.body.removeChild(_this.menuContent);
-          document.body.removeChild(_this.backdropElement);
+          if (document.body.contains(_this.menuContent)) {
+            document.body.removeChild(_this.menuContent);
+          }
+
+          if (document.body.contains(_this.backdropElement)) {
+            document.body.removeChild(_this.backdropElement);
+          }
+
           window.removeEventListener('resize', _this.recalculateOnResize);
         }
       };
@@ -7188,7 +7371,10 @@ exports.default = {
       _this2.addNewDirectionMenuContentClass(_this2.mdDirection);
       _this2.$el.removeChild(_this2.$refs.backdrop.$el);
       _this2.menuContent.parentNode.removeChild(_this2.menuContent);
-      _this2.menuTrigger.addEventListener('click', _this2.toggle);
+
+      if (!_this2.mdManualToggle) {
+        _this2.menuTrigger.addEventListener('click', _this2.toggle);
+      }
     }));
   },
   beforeDestroy: function beforeDestroy() {
@@ -7197,8 +7383,13 @@ exports.default = {
       document.body.removeChild(this.backdropElement);
     }
 
-    this.menuTrigger.removeEventListener('click', this.toggle);
+    if (!this.mdManualToggle) {
+      this.menuTrigger.removeEventListener('click', this.toggle);
+    }
+
     window.removeEventListener('resize', this.recalculateOnResize);
+
+    this._destroyed = true;
   }
 };
 module.exports = exports['default'];
@@ -7236,7 +7427,8 @@ exports.default = {
     return {
       oldHighlight: false,
       highlighted: false,
-      itemsAmount: 0
+      itemsAmount: 0,
+      itemListCount: 0
     };
   },
 
@@ -7246,6 +7438,12 @@ exports.default = {
       this.$parent.close();
     },
     highlightItem: function highlightItem(direction) {
+      this.itemsAmount = this.$children[0].$children.length;
+
+      if (this.itemsAmount < this.highlighted - 1) {
+        this.highlighted = 1;
+      }
+
       this.oldHighlight = this.highlighted;
 
       if (direction === 'up') {
@@ -7263,6 +7461,16 @@ exports.default = {
           this.highlighted++;
         }
       }
+
+      this.$children[0].$children[this.highlighted - 1].$el.scrollIntoView({
+        block: 'end', behavior: 'smooth'
+      });
+
+      for (var i = 0; i < this.itemsAmount; i++) {
+        this.$children[0].$children[i].highlighted = false;
+      }
+
+      this.$children[0].$children[this.highlighted - 1].highlighted = true;
     },
     fireClick: function fireClick() {
       if (this.highlighted > 0) {
@@ -7322,12 +7530,21 @@ exports.default = {
   props: {
     href: String,
     target: String,
-    disabled: Boolean
+    disabled: Boolean,
+    listIndex: {
+      type: Number,
+      default: -1
+    },
+    manualHighlight: {
+      type: Boolean,
+      default: false
+    }
   },
   data: function data() {
     return {
       parentContent: {},
-      index: 0
+      index: 0,
+      highlighted: false
     };
   },
   computed: {
@@ -7336,37 +7553,46 @@ exports.default = {
         'md-highlighted': this.highlighted
       };
     },
-    highlighted: function highlighted() {
-      if (this.index === this.parentContent.highlighted) {
-        if (this.disabled) {
-          if (this.parentContent.oldHighlight > this.parentContent.highlighted) {
-            this.parentContent.highlighted--;
-          } else {
-            this.parentContent.highlighted++;
+    getHighlight: function getHighlight() {
+      if (!this.manualHighlight) {
+        if (this.index === this.parentContent.highlighted) {
+          if (this.disabled) {
+            if (this.parentContent.oldHighlight > this.parentContent.highlighted) {
+              this.parentContent.highlighted--;
+            } else {
+              this.parentContent.highlighted++;
+            }
           }
+
+          if (this.index === 1) {
+            this.parentContent.$el.scrollTop = 0;
+          } else if (this.index === this.parentContent.itemsAmount) {
+            this.parentContent.$el.scrollTop = this.parentContent.$el.scrollHeight;
+          } else {
+            this.$el.scrollIntoViewIfNeeded(false);
+          }
+
+          this.highlighted = true;
+          return true;
         }
 
-        if (this.index === 1) {
-          this.parentContent.$el.scrollTop = 0;
-        } else if (this.index === this.parentContent.itemsAmount) {
-          this.parentContent.$el.scrollTop = this.parentContent.$el.scrollHeight;
-        } else {
-          this.$el.scrollIntoViewIfNeeded(false);
-        }
-
-        return true;
+        this.highlighted = false;
+        return false;
       }
-
-      return false;
     }
   },
   methods: {
     close: function close($event) {
-      if (!this.disabled) {
-        if (this.parentMenu.mdCloseOnSelect) {
-          this.parentContent.close();
-        }
+      if (!this.parentMenu.mdManualToggle) {
+        if (!this.disabled) {
+          if (this.parentMenu.mdCloseOnSelect) {
+            this.parentContent.close();
+          }
 
+          this.$emit('click', $event);
+          this.$emit('selected', $event);
+        }
+      } else if (!this.disabled) {
         this.$emit('click', $event);
         this.$emit('selected', $event);
       }
@@ -7382,8 +7608,12 @@ exports.default = {
       throw new Error('You must wrap the md-menu-item in a md-menu-content');
     }
 
-    this.parentContent.itemsAmount++;
-    this.index = this.parentContent.itemsAmount;
+    if (this.listIndex === -1) {
+      this.parentContent.itemListCount++;
+      this.index = this.parentContent.itemListCount;
+    } else {
+      this.index = this.listIndex + 1;
+    }
   }
 };
 module.exports = exports['default'];
@@ -7532,7 +7762,7 @@ var _mixin = __webpack_require__(1);
 
 var _mixin2 = _interopRequireDefault(_mixin);
 
-var _throttle = __webpack_require__(50);
+var _throttle = __webpack_require__(51);
 
 var _throttle2 = _interopRequireDefault(_throttle);
 
@@ -7759,6 +7989,10 @@ exports.default = {
       var _this2 = this;
 
       window.requestAnimationFrame((function () {
+        if (_this2._destroyed) {
+          return;
+        }
+
         _this2.calculateIndicatorPos();
         _this2.calculateBoardsWidthAndPosition();
         _this2.calculateContentHeight();
@@ -7903,6 +8137,8 @@ exports.default = {
       document.removeEventListener('touchstart', this.handleTouchStart);
       document.removeEventListener('touchend', this.handleTouchEnd);
     }
+
+    this._destroyed = true;
   }
 };
 module.exports = exports['default'];
@@ -8330,8 +8566,10 @@ exports.default = {
   },
   beforeDestroy: function beforeDestroy() {
     if (this.parentSelect) {
-      delete this.parentSelect.options[this.index];
-      delete this.parentSelect.multipleOptions[this.index];
+      this.parentSelect.removeChild(this.index);
+      // delete this.parentSelect.options[this.index];
+      // delete this.parentSelect.multipleOptions[this.index];
+      // delete this.parentSelect.selectedValue[this.index];
     }
   }
 }; //
@@ -8366,6 +8604,10 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _assign = __webpack_require__(43);
+
+var _assign2 = _interopRequireDefault(_assign);
+
 var _keys = __webpack_require__(38);
 
 var _keys2 = _interopRequireDefault(_keys);
@@ -8391,7 +8633,7 @@ exports.default = {
     id: String,
     required: Boolean,
     multiple: Boolean,
-    value: [String, Number, Array],
+    value: [String, Boolean, Number, Array],
     disabled: Boolean,
     placeholder: String,
     mdMenuClass: String,
@@ -8451,44 +8693,18 @@ exports.default = {
     }
   },
   methods: {
-    onOpen: function onOpen() {
-      if (this.lastSelected) {
-        this.lastSelected.scrollIntoViewIfNeeded(true);
-      }
-
-      this.$emit('opened');
-    },
-    setParentDisabled: function setParentDisabled() {
-      this.parentContainer.isDisabled = this.disabled;
-    },
-    setParentRequired: function setParentRequired() {
-      this.parentContainer.isRequired = this.required;
-    },
-    setParentPlaceholder: function setParentPlaceholder() {
-      this.parentContainer.hasPlaceholder = !!this.placeholder;
-    },
-    selectOptions: function selectOptions(modelValue) {
-      var _this = this;
-
-      var optionsArray = (0, _keys2.default)(this.options).map((function (el) {
-        return _this.options[el];
-      }));
-
-      if (optionsArray && optionsArray.length) {
-        optionsArray.filter((function (el) {
-          return modelValue.indexOf(el.value) !== -1;
-        })).forEach((function (el) {
-          el.check = true;
-        }));
-      }
+    changeValue: function changeValue(value) {
+      this.$emit('input', value);
+      this.$emit('change', value);
+      this.$emit('selected', value);
     },
     getSingleValue: function getSingleValue(value) {
-      var _this2 = this;
+      var _this = this;
 
       var output = {};
 
       (0, _keys2.default)(this.options).forEach((function (index) {
-        var options = _this2.options[index];
+        var options = _this.options[index];
 
         if (options.value === value) {
           output.value = value;
@@ -8499,19 +8715,19 @@ exports.default = {
       return output;
     },
     getMultipleValue: function getMultipleValue(modelValue) {
-      var _this3 = this;
+      var _this2 = this;
 
       if ((0, _isArray2.default)(this.value)) {
         var outputText = [];
 
         modelValue.forEach((function (value) {
-          (0, _keys2.default)(_this3.options).forEach((function (index) {
-            var options = _this3.options[index];
+          (0, _keys2.default)(_this2.options).forEach((function (index) {
+            var options = _this2.options[index];
 
             if (options.value === value) {
               var text = options.$refs.item.textContent;
 
-              _this3.multipleOptions[index] = {
+              _this2.multipleOptions[index] = {
                 value: value,
                 text: text
               };
@@ -8528,6 +8744,63 @@ exports.default = {
 
       return {};
     },
+    onOpen: function onOpen() {
+      if (this.lastSelected) {
+        this.lastSelected.scrollIntoViewIfNeeded(true);
+      }
+
+      this.$emit('opened');
+    },
+    removeChild: function removeChild(index) {
+      this.optionsAmount--;
+      var selection = (0, _assign2.default)({}, this.options[index]);
+
+      delete this.options[index];
+      delete this.multipleOptions[index];
+
+      if (this.multiple) {
+        var element = this.selectedValue.find((function (el) {
+          return el.name === selection.$refs.item.textContent.trim();
+        }));
+        var selectionIndex = this.selectedValue.indexOf(element);
+
+        if (selectionIndex !== -1) {
+          this.selectedValue.splice(selectionIndex, 1);
+        }
+      }
+    },
+    setParentDisabled: function setParentDisabled() {
+      this.parentContainer.isDisabled = this.disabled;
+    },
+    setParentRequired: function setParentRequired() {
+      this.parentContainer.isRequired = this.required;
+    },
+    setParentPlaceholder: function setParentPlaceholder() {
+      this.parentContainer.hasPlaceholder = !!this.placeholder;
+    },
+    selectOptions: function selectOptions(modelValue) {
+      var _this3 = this;
+
+      var optionsArray = (0, _keys2.default)(this.options).map((function (el) {
+        return _this3.options[el];
+      }));
+
+      if (optionsArray && optionsArray.length) {
+        var selectedOptions = optionsArray.filter((function (el) {
+          return modelValue.includes(el.value);
+        }));
+        var unselectedOptions = optionsArray.filter((function (el) {
+          return !modelValue.includes(el.value);
+        }));
+
+        selectedOptions.forEach((function (el) {
+          el.check = true;
+        }));
+        unselectedOptions.forEach((function (el) {
+          el.check = false;
+        }));
+      }
+    },
     setTextAndValue: function setTextAndValue(modelValue) {
       var output = this.multiple ? this.getMultipleValue(modelValue) : this.getSingleValue(modelValue);
 
@@ -8539,26 +8812,25 @@ exports.default = {
         this.parentContainer.setValue(this.selectedText);
       }
     },
-    changeValue: function changeValue(value) {
-      this.$emit('input', value);
-      this.$emit('change', value);
-      this.$emit('selected', value);
-    },
     selectMultiple: function selectMultiple(index, value, text) {
-      var values = [];
+      var _this4 = this;
 
-      this.multipleOptions[index] = {
-        value: value,
-        text: text
-      };
+      this.$nextTick((function () {
+        var values = [];
 
-      for (var key in this.multipleOptions) {
-        if (this.multipleOptions.hasOwnProperty(key) && this.multipleOptions[key].value) {
-          values.push(this.multipleOptions[key].value);
+        _this4.multipleOptions[index] = {
+          value: value,
+          text: text
+        };
+
+        for (var key in _this4.multipleOptions) {
+          if (_this4.multipleOptions.hasOwnProperty(key) && _this4.multipleOptions[key].value) {
+            values.push(_this4.multipleOptions[key].value);
+          }
         }
-      }
 
-      this.changeValue(values);
+        _this4.changeValue(values);
+      }));
     },
     selectOption: function selectOption(value, text, el) {
       this.lastSelected = el;
@@ -8586,6 +8858,37 @@ exports.default = {
     }
   }
 }; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -8767,7 +9070,7 @@ var _uniqueId = __webpack_require__(36);
 
 var _uniqueId2 = _interopRequireDefault(_uniqueId);
 
-var _transitionEndEventName = __webpack_require__(41);
+var _transitionEndEventName = __webpack_require__(42);
 
 var _transitionEndEventName2 = _interopRequireDefault(_transitionEndEventName);
 
@@ -8811,11 +9114,13 @@ exports.default = {
   data: function data() {
     return {
       snackbarId: this.id || 'snackbar-' + (0, _uniqueId2.default)(),
+      removedSnackBarElementEventName: 'removedSnackBarElement',
       active: false,
       rootElement: {},
       snackbarElement: {},
       directionClass: null,
-      closeTimeout: null
+      closeTimeout: null,
+      removedSnackBarElementEvent: null
     };
   },
 
@@ -8848,7 +9153,8 @@ exports.default = {
   },
   methods: {
     removeElement: function removeElement() {
-      if (document.body.contains(this.snackbarElement)) {
+      // if we have the element and we don't want it active anymore, remove it
+      if (document.body.contains(this.snackbarElement) && !this.active) {
         var activeRipple = this.snackbarElement.querySelector('.md-ripple.md-active');
 
         if (activeRipple) {
@@ -8857,46 +9163,79 @@ exports.default = {
 
         document.body.removeChild(this.snackbarElement);
       }
+      document.dispatchEvent(this.removedSnackBarElementEvent);
     },
     open: function open() {
       if (_manager2.default.current) {
+        // we need to wait for the old element to finishing closing before we can open a new one
+        document.removeEventListener(this.removedSnackBarElementEventName, this.showElementAndStartTimer);
+        document.addEventListener(this.removedSnackBarElementEventName, this.showElementAndStartTimer);
         _manager2.default.current.close();
+        return;
       }
 
+      this.showElementAndStartTimer();
+    },
+    showElementAndStartTimer: function showElementAndStartTimer() {
+      if (document.body.contains(this.snackbarElement)) {
+        return;
+      }
+      document.removeEventListener(this.removedSnackBarElementEventName, this.showElementAndStartTimer);
       _manager2.default.current = this;
       document.body.appendChild(this.snackbarElement);
-      window.getComputedStyle(this.$refs.container).backgroundColor;
+      if (this.$refs.container !== null && this.$refs.container !== undefined) {
+        window.getComputedStyle(this.$refs.container).backgroundColor;
+      }
       this.active = true;
       this.$emit('open');
-      this.closeTimeout = window.setTimeout(this.close, this.mdDuration);
+      if (this.mdDuration !== Infinity) {
+        this.setCloseTimeout(this.mdDuration);
+      }
       this.timeoutStartedAt = Date.now();
     },
     close: function close() {
       var _this = this;
 
       if (this.$refs.container) {
+        //we set the flag to false here, because we need to inform the removeElement method that we really
+        // want to remove the element - we're in closing action
+        this.active = false;
+
         var removeElement = function removeElement() {
-          _this.$refs.container.removeEventListener(_transitionEndEventName2.default, removeElement);
+          document.removeEventListener(_transitionEndEventName2.default, removeElement);
           _this.removeElement();
         };
 
         _manager2.default.current = null;
-        this.active = false;
         this.$emit('close');
-        this.$refs.container.removeEventListener(_transitionEndEventName2.default, removeElement);
-        this.$refs.container.addEventListener(_transitionEndEventName2.default, removeElement);
-        window.clearTimeout(this.closeTimeout);
+        document.removeEventListener(_transitionEndEventName2.default, removeElement);
+        document.addEventListener(_transitionEndEventName2.default, removeElement);
+        this.clearCloseTimeout();
         this.pendingDuration = this.mdDuration;
       }
     },
     pauseTimeout: function pauseTimeout() {
       this.pendingDuration = this.pendingDuration - (Date.now() - this.timeoutStartedAt);
       this.timeoutStartedAt = 0;
-      window.clearTimeout(this.closeTimeout);
+      this.clearCloseTimeout();
     },
     resumeTimeout: function resumeTimeout() {
       this.timeoutStartedAt = Date.now();
-      this.closeTimeout = window.setTimeout(this.close, this.pendingDuration);
+      if (this.pendingDuration === Infinity) {
+        return;
+      }
+      this.setCloseTimeout(this.pendingDuration);
+    },
+    setCloseTimeout: function setCloseTimeout(delay) {
+      this.clearCloseTimeout();
+      this.closeTimeout = window.setTimeout(this.close, delay);
+    },
+    clearCloseTimeout: function clearCloseTimeout() {
+      if (!this.closeTimeout) {
+        return;
+      }
+      window.clearTimeout(this.closeTimeout);
+      this.closeTimeout = null;
     }
   },
   mounted: function mounted() {
@@ -8908,9 +9247,11 @@ exports.default = {
       _this2.timeoutStartedAt = 0;
       _this2.pendingDuration = _this2.mdDuration;
     }));
+    this.removedSnackBarElementEvent = new Event(this.removedSnackBarElementEventName);
   },
   beforeDestroy: function beforeDestroy() {
-    window.clearTimeout(this.closeTimeout);
+    this.clearCloseTimeout();
+    this.active = false;
     this.removeElement();
   }
 };
@@ -9129,7 +9470,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
-//
 
 exports.default = {
   name: 'md-step',
@@ -9149,6 +9489,7 @@ exports.default = {
       default: true
     },
     mdDisabled: Boolean,
+    mdError: Boolean,
     mdEditable: {
       type: Boolean,
       default: true
@@ -9156,7 +9497,7 @@ exports.default = {
     mdIcon: String,
     mdLabel: [String, Number],
     mdMessage: [String],
-    mdToolTip: String,
+    mdTooltip: String,
     mdTooltipDelay: {
       type: String,
       default: '0'
@@ -9191,6 +9532,9 @@ exports.default = {
     mdDisabled: function mdDisabled() {
       this.updateStepData();
     },
+    mdError: function mdError() {
+      this.updateStepData();
+    },
     mdIcon: function mdIcon() {
       this.updateStepData();
     },
@@ -9200,7 +9544,7 @@ exports.default = {
     mdMessage: function mdMessage() {
       this.updateStepData();
     },
-    mdToolTip: function mdToolTip() {
+    mdTooltip: function mdTooltip() {
       this.updateStepData();
     },
     mdTooltipDelay: function mdTooltipDelay() {
@@ -9264,7 +9608,8 @@ exports.default = {
         continue: this.mdContinue,
         editable: this.mdEditable,
         disabled: this.mdDisabled,
-        toolTip: this.mdToolTip,
+        error: this.mdError,
+        toolTip: this.mdTooltip,
         tooltipDelay: this.mdTooltipDelay,
         tooltipDirection: this.mdTooltipDirection,
         ref: this
@@ -9348,18 +9693,22 @@ exports.default = {
         'md-alternate-labels': this.mdAlternateLabels,
         'md-disabled': this.step.disabled,
         'md-has-sub-message': this.step.message,
-        'md-primary': this.isCompleted
+        'md-primary': this.isCompleted,
+        'md-warn': this.step.error
       };
     },
     icon: function icon() {
-      if (!this.step.disabled && this.step.editable && this.isCompleted) {
+      if (!this.step.disabled && this.step.editable && this.isCompleted && !this.step.error) {
         return 'mode_edit';
       }
 
-      if (!this.step.disabled && this.isCompleted) {
+      if (!this.step.disabled && this.isCompleted && !this.step.error) {
         return 'check';
       }
 
+      if (!this.step.disabled && this.step.error) {
+        return 'warning';
+      }
       return this.step.icon;
     },
     stepNumber: function stepNumber() {
@@ -9395,6 +9744,7 @@ exports.default = {
 //
 //
 //
+//
 
 module.exports = exports['default'];
 
@@ -9417,7 +9767,7 @@ var _mixin = __webpack_require__(1);
 
 var _mixin2 = _interopRequireDefault(_mixin);
 
-var _throttle = __webpack_require__(50);
+var _throttle = __webpack_require__(51);
 
 var _throttle2 = _interopRequireDefault(_throttle);
 
@@ -9623,6 +9973,10 @@ exports.default = {
       var _this2 = this;
 
       window.requestAnimationFrame((function () {
+        if (_this2._destroyed) {
+          return;
+        }
+
         _this2.calculateStepsWidthAndPosition();
         _this2.calculateContentHeight();
       }));
@@ -9665,6 +10019,8 @@ exports.default = {
     }
 
     window.removeEventListener('resize', this.calculateOnResize);
+
+    this._destroyed = true;
   }
 };
 module.exports = exports['default'];
@@ -9822,7 +10178,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _assign = __webpack_require__(51);
+var _assign = __webpack_require__(43);
 
 var _assign2 = _interopRequireDefault(_assign);
 
@@ -9884,13 +10240,19 @@ exports.default = {
       this.$emit('select', this.selectedRows);
     },
     removeRow: function removeRow(row) {
-      var array = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-
-      var list = array || this.data;
-      var index = list.indexOf(row);
+      var index = this.data.indexOf(row);
 
       if (index !== -1) {
-        list.splice(index, 1);
+        this.data.splice(index, 1);
+      }
+
+      this.removeSelectedRow(row);
+    },
+    removeSelectedRow: function removeSelectedRow(row) {
+      var selectedIndex = this.selectedRows.indexOf(row);
+
+      if (selectedIndex !== -1) {
+        this.selectedRows.splice(selectedIndex, 1);
       }
     },
     setRowSelection: function setRowSelection(isSelected, row) {
@@ -9898,7 +10260,7 @@ exports.default = {
         this.selectedRows.push(row);
         return;
       }
-      this.removeRow(row, this.selectedRows);
+      this.removeSelectedRow(row);
     },
     setMultipleRowSelection: function setMultipleRowSelection(isSelected) {
       this.selectedRows = isSelected ? (0, _assign2.default)([], this.data) : [];
@@ -10304,6 +10666,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
 
 exports.default = {
   name: 'md-table-pagination',
@@ -10345,9 +10709,6 @@ exports.default = {
 
   watch: {
     mdTotal: function mdTotal(val) {
-      var sub = this.currentPage * this.currentSize;
-
-      this.subTotal = sub > val ? val : sub;
       this.totalItems = isNaN(val) ? _maxSafeInteger2.default : parseInt(val, 10);
     },
     mdSize: function mdSize(val) {
@@ -10404,10 +10765,11 @@ exports.default = {
     var _this = this;
 
     this.$nextTick((function () {
+      _this.totalItems = isNaN(_this.mdTotal) ? _maxSafeInteger2.default : parseInt(_this.mdTotal, 10);
       if (_this.mdPageOptions) {
         _this.currentSize = _this.mdPageOptions.includes(_this.currentSize) ? _this.currentSize : _this.mdPageOptions[0];
       } else {
-        _this.currentSize = 0;
+        _this.currentSize = _this.mdSize;
       }
       _this.canFireEvents = true;
     }));
@@ -10499,9 +10861,14 @@ exports.default = {
     setRowSelection: function setRowSelection(value, row) {
       this.parentTable.setRowSelection(value, row);
     },
+    setHeadRowSelection: function setHeadRowSelection() {
+      if (this.hasSelection) {
+        this.parentTable.$children[0].checkbox = this.parentTable.numberOfSelected > 0 && this.parentTable.numberOfSelected === this.parentTable.numberOfRows;
+      }
+    },
     handleSingleSelection: function handleSingleSelection(value) {
       this.parentTable.setRowSelection(value, this.mdItem);
-      this.parentTable.$children[0].checkbox = this.parentTable.numberOfSelected === this.parentTable.numberOfRows;
+      this.setHeadRowSelection();
     },
     handleMultipleSelection: function handleMultipleSelection(value) {
       var _this = this;
@@ -10515,6 +10882,7 @@ exports.default = {
       }));
 
       this.parentTable.setMultipleRowSelection(value);
+      this.setHeadRowSelection();
 
       window.setTimeout((function () {
         return _this.parentTable.$el.classList.remove(transitionClass);
@@ -10560,6 +10928,7 @@ exports.default = {
   },
   destroyed: function destroyed() {
     this.parentTable.removeRow(this.mdItem);
+    this.setHeadRowSelection();
   },
   mounted: function mounted() {
     this.startTableRow();
@@ -10602,6 +10971,7 @@ exports.default = {
     mdLabel: [String, Number],
     mdIcon: String,
     mdIconset: String,
+    mdIconSrc: String,
     mdActive: Boolean,
     mdDisabled: Boolean,
     mdOptions: {
@@ -10639,6 +11009,9 @@ exports.default = {
     mdIconset: function mdIconset() {
       this.updateTabData();
     },
+    mdIconSrc: function mdIconSrc() {
+      this.updateTabData();
+    },
 
     mdOptions: {
       deep: true,
@@ -10674,6 +11047,7 @@ exports.default = {
         label: this.mdLabel,
         icon: this.mdIcon,
         iconset: this.mdIconset,
+        iconSrc: this.mdIconSrc,
         options: this.mdOptions,
         active: this.mdActive,
         disabled: this.mdDisabled,
@@ -10732,12 +11106,15 @@ var _mixin = __webpack_require__(1);
 
 var _mixin2 = _interopRequireDefault(_mixin);
 
-var _throttle = __webpack_require__(50);
+var _throttle = __webpack_require__(51);
 
 var _throttle2 = _interopRequireDefault(_throttle);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+//
+//
+//
 //
 //
 //
@@ -10903,7 +11280,7 @@ exports.default = {
 
       this.$set(this.tabList, tabData.id, tabData);
 
-      if (!hasActive) {
+      if (!hasActive && !tabData.disabled) {
         this.tabList[tabData.id].active = true;
       }
     },
@@ -10982,6 +11359,10 @@ exports.default = {
       var _this2 = this;
 
       window.requestAnimationFrame((function () {
+        if (_this2._destroyed) {
+          return;
+        }
+
         _this2.calculateIndicatorPos();
         _this2.calculateTabsWidthAndPosition();
         _this2.calculateContentHeight();
@@ -11019,6 +11400,10 @@ exports.default = {
       var _this4 = this;
 
       window.requestAnimationFrame((function () {
+        if (_this4._destroyed) {
+          return;
+        }
+
         _this4.calculateIndicatorPos();
         _this4.calculateScrollPos();
       }));
@@ -11032,7 +11417,7 @@ exports.default = {
       this.hasNavigationScroll = scrollWidth > clientWidth;
     },
     setActiveTab: function setActiveTab(tabData) {
-      this.hasIcons = !!tabData.icon || !!tabData.iconset;
+      this.hasIcons = !!tabData.icon || !!tabData.iconset || !!tabData.iconSrc;
       this.hasLabel = !!tabData.label;
       this.activeTab = tabData.id;
       this.activeTabNumber = this.getTabIndex(this.activeTab);
@@ -11057,6 +11442,9 @@ exports.default = {
       this.$refs.tabsContainer.scrollLeft = Math.min(scrollWidth, scrollLeft + clientWidth);
     }
   },
+  activated: function activated() {
+    this.calculateOnResize();
+  },
   mounted: function mounted() {
     var _this5 = this;
 
@@ -11077,6 +11465,8 @@ exports.default = {
     }
 
     window.removeEventListener('resize', this.calculateOnResize);
+
+    this._destroyed = true;
   }
 };
 module.exports = exports['default'];
@@ -11127,7 +11517,7 @@ var _toConsumableArray2 = __webpack_require__(67);
 
 var _toConsumableArray3 = _interopRequireDefault(_toConsumableArray2);
 
-var _transitionEndEventName = __webpack_require__(41);
+var _transitionEndEventName = __webpack_require__(42);
 
 var _transitionEndEventName2 = _interopRequireDefault(_transitionEndEventName);
 
@@ -11710,7 +12100,7 @@ exports.default = function (obj, key, value) {
 
 exports.__esModule = true;
 
-var _assign = __webpack_require__(51);
+var _assign = __webpack_require__(43);
 
 var _assign2 = _interopRequireDefault(_assign);
 
@@ -11762,7 +12152,7 @@ exports.default = typeof _symbol2.default === "function" && _typeof(_iterator2.d
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(68);
-__webpack_require__(49);
+__webpack_require__(50);
 module.exports = __webpack_require__(221);
 
 /***/ }),
@@ -11796,9 +12186,9 @@ module.exports = __webpack_require__(4).Symbol;
 /* 214 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(49);
+__webpack_require__(50);
 __webpack_require__(68);
-module.exports = __webpack_require__(63).f('iterator');
+module.exports = __webpack_require__(64).f('iterator');
 
 /***/ }),
 /* 215 */
@@ -11806,8 +12196,8 @@ module.exports = __webpack_require__(63).f('iterator');
 
 // all enumerable object keys, includes symbols
 var getKeys = __webpack_require__(18)
-  , gOPS    = __webpack_require__(45)
-  , pIE     = __webpack_require__(40);
+  , gOPS    = __webpack_require__(41)
+  , pIE     = __webpack_require__(39);
 module.exports = function(it){
   var result     = getKeys(it)
     , getSymbols = gOPS.f;
@@ -11907,7 +12297,7 @@ var meta = module.exports = {
 /* 219 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var pIE            = __webpack_require__(40)
+var pIE            = __webpack_require__(39)
   , createDesc     = __webpack_require__(17)
   , toIObject      = __webpack_require__(7)
   , toPrimitive    = __webpack_require__(27)
@@ -11954,7 +12344,7 @@ module.exports.f = function getOwnPropertyNames(it){
 /***/ (function(module, exports, __webpack_require__) {
 
 var anObject = __webpack_require__(13)
-  , get      = __webpack_require__(57);
+  , get      = __webpack_require__(60);
 module.exports = __webpack_require__(4).getIterator = function(it){
   var iterFn = get(it);
   if(typeof iterFn != 'function')throw TypeError(it + ' is not iterable!');
@@ -11995,15 +12385,15 @@ var global         = __webpack_require__(2)
   , has            = __webpack_require__(8)
   , DESCRIPTORS    = __webpack_require__(3)
   , $export        = __webpack_require__(16)
-  , redefine       = __webpack_require__(47)
+  , redefine       = __webpack_require__(48)
   , META           = __webpack_require__(218).KEY
   , $fails         = __webpack_require__(5)
-  , shared         = __webpack_require__(22)
+  , shared         = __webpack_require__(23)
   , setToStringTag = __webpack_require__(37)
   , uid            = __webpack_require__(20)
   , wks            = __webpack_require__(12)
-  , wksExt         = __webpack_require__(63)
-  , wksDefine      = __webpack_require__(62)
+  , wksExt         = __webpack_require__(64)
+  , wksDefine      = __webpack_require__(63)
   , keyOf          = __webpack_require__(217)
   , enumKeys       = __webpack_require__(215)
   , isArray        = __webpack_require__(216)
@@ -12011,7 +12401,7 @@ var global         = __webpack_require__(2)
   , toIObject      = __webpack_require__(7)
   , toPrimitive    = __webpack_require__(27)
   , createDesc     = __webpack_require__(17)
-  , _create        = __webpack_require__(44)
+  , _create        = __webpack_require__(46)
   , gOPNExt        = __webpack_require__(220)
   , $GOPD          = __webpack_require__(219)
   , $DP            = __webpack_require__(9)
@@ -12139,10 +12529,10 @@ if(!USE_NATIVE){
   $GOPD.f = $getOwnPropertyDescriptor;
   $DP.f   = $defineProperty;
   __webpack_require__(77).f = gOPNExt.f = $getOwnPropertyNames;
-  __webpack_require__(40).f  = $propertyIsEnumerable;
-  __webpack_require__(45).f = $getOwnPropertySymbols;
+  __webpack_require__(39).f  = $propertyIsEnumerable;
+  __webpack_require__(41).f = $getOwnPropertySymbols;
 
-  if(DESCRIPTORS && !__webpack_require__(39)){
+  if(DESCRIPTORS && !__webpack_require__(40)){
     redefine(ObjectProto, 'propertyIsEnumerable', $propertyIsEnumerable, true);
   }
 
@@ -12229,13 +12619,13 @@ setToStringTag(global.JSON, 'JSON', true);
 /* 226 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(62)('asyncIterator');
+__webpack_require__(63)('asyncIterator');
 
 /***/ }),
 /* 227 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(62)('observable');
+__webpack_require__(63)('observable');
 
 /***/ }),
 /* 228 */
@@ -12693,13 +13083,13 @@ module.exports = ".THEME_NAME.md-button:not([disabled]).md-raised:not(.md-icon-b
 /* 269 */
 /***/ (function(module, exports) {
 
-module.exports = ".THEME_NAME.md-button-toggle .md-button:after {\n  width: 1px;\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  content: \" \"; }\n\n.THEME_NAME.md-button-toggle .md-toggle {\n  color: BACKGROUND-CONTRAST-0.54;\n  background-color: BACKGROUND-CONTRAST-0.26; }\n  .THEME_NAME.md-button-toggle .md-toggle:hover:not([disabled]) {\n    background-color: BACKGROUND-CONTRAST-0.38; }\n  .THEME_NAME.md-button-toggle .md-toggle + .md-toggle:after {\n    background-color: BACKGROUND-CONTRAST-0.12; }\n\n.THEME_NAME.md-button-toggle.md-primary .md-toggle {\n  color: PRIMARY-CONTRAST;\n  background-color: PRIMARY-COLOR; }\n  .THEME_NAME.md-button-toggle.md-primary .md-toggle:hover:not([disabled]) {\n    background-color: PRIMARY-COLOR; }\n  .THEME_NAME.md-button-toggle.md-primary .md-toggle + .md-toggle:after {\n    background-color: PRIMARY-COLOR-600; }\n\n.THEME_NAME.md-button-toggle.md-accent .md-toggle {\n  color: ACCENT-CONTRAST;\n  background-color: ACCENT-COLOR; }\n  .THEME_NAME.md-button-toggle.md-accent .md-toggle:hover:not([disabled]) {\n    background-color: ACCENT-COLOR; }\n  .THEME_NAME.md-button-toggle.md-accent .md-toggle + .md-toggle:after {\n    background-color: ACCENT-COLOR-600; }\n\n.THEME_NAME.md-button-toggle.md-warn .md-toggle {\n  color: WARN-CONTRAST;\n  background-color: WARN-COLOR; }\n  .THEME_NAME.md-button-toggle.md-warn .md-toggle:hover:not([disabled]) {\n    background-color: WARN-COLOR; }\n  .THEME_NAME.md-button-toggle.md-warn .md-toggle + .md-toggle:after {\n    background-color: WARN-COLOR-600; }\n\n.THEME_NAME.md-button-toggle [disabled] {\n  color: rgba(0, 0, 0, 0.26); }\n  .THEME_NAME.md-button-toggle [disabled].md-toggle {\n    color: BACKGROUND-CONTRAST-0.2;\n    background-color: rgba(0, 0, 0, 0.26); }\n"
+module.exports = ".THEME_NAME.md-button-toggle .md-button:after {\n  width: 1px;\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  content: \" \"; }\n\n.THEME_NAME.md-button-toggle .md-toggle {\n  color: BACKGROUND-CONTRAST-0.54;\n  background-color: BACKGROUND-CONTRAST-0.26; }\n  .THEME_NAME.md-button-toggle .md-toggle:hover:not([disabled]) {\n    background-color: BACKGROUND-CONTRAST-0.38; }\n  .THEME_NAME.md-button-toggle .md-toggle + .md-toggle:after {\n    background-color: BACKGROUND-CONTRAST-0.12; }\n\n.THEME_NAME.md-button-toggle.md-raised .md-toggle {\n  color: BACKGROUND-CONTRAST-0.54;\n  background-color: BACKGROUND-CONTRAST-0.26; }\n  .THEME_NAME.md-button-toggle.md-raised .md-toggle:hover:not([disabled]) {\n    background-color: BACKGROUND-CONTRAST-0.38; }\n  .THEME_NAME.md-button-toggle.md-raised .md-toggle + .md-toggle:after {\n    background-color: BACKGROUND-CONTRAST-0.12; }\n\n.THEME_NAME.md-button-toggle.md-primary .md-toggle {\n  color: PRIMARY-CONTRAST;\n  background-color: PRIMARY-COLOR; }\n  .THEME_NAME.md-button-toggle.md-primary .md-toggle:hover:not([disabled]) {\n    background-color: PRIMARY-COLOR; }\n  .THEME_NAME.md-button-toggle.md-primary .md-toggle + .md-toggle:after {\n    background-color: PRIMARY-COLOR-600; }\n\n.THEME_NAME.md-button-toggle.md-accent .md-toggle {\n  color: ACCENT-CONTRAST;\n  background-color: ACCENT-COLOR; }\n  .THEME_NAME.md-button-toggle.md-accent .md-toggle:hover:not([disabled]) {\n    background-color: ACCENT-COLOR; }\n  .THEME_NAME.md-button-toggle.md-accent .md-toggle + .md-toggle:after {\n    background-color: ACCENT-COLOR-600; }\n\n.THEME_NAME.md-button-toggle.md-warn .md-toggle {\n  color: WARN-CONTRAST;\n  background-color: WARN-COLOR; }\n  .THEME_NAME.md-button-toggle.md-warn .md-toggle:hover:not([disabled]) {\n    background-color: WARN-COLOR; }\n  .THEME_NAME.md-button-toggle.md-warn .md-toggle + .md-toggle:after {\n    background-color: WARN-COLOR-600; }\n\n.THEME_NAME.md-button-toggle [disabled] {\n  color: rgba(0, 0, 0, 0.26); }\n  .THEME_NAME.md-button-toggle [disabled].md-toggle {\n    color: BACKGROUND-CONTRAST-0.2;\n    background-color: rgba(0, 0, 0, 0.26); }\n"
 
 /***/ }),
 /* 270 */
 /***/ (function(module, exports) {
 
-module.exports = ".THEME_NAME.md-card {\n  background-color: BACKGROUND-COLOR; }\n  .THEME_NAME.md-card.md-primary {\n    background-color: PRIMARY-COLOR;\n    color: PRIMARY-CONTRAST; }\n    .THEME_NAME.md-card.md-primary .md-card-header .md-icon-button:not(.md-primary):not(.md-warn):not(.md-accent) .md-icon,\n    .THEME_NAME.md-card.md-primary .md-card-actions .md-icon-button:not(.md-primary):not(.md-warn):not(.md-accent) .md-icon {\n      color: PRIMARY-CONTRAST-0.87; }\n    .THEME_NAME.md-card.md-primary .md-input-container.md-input-focused input,\n    .THEME_NAME.md-card.md-primary .md-input-container.md-input-focused textarea {\n      color: PRIMARY-CONTRAST;\n      text-shadow: 0 0 0 PRIMARY-CONTRAST; }\n    .THEME_NAME.md-card.md-primary .md-input-container.md-input-focused label,\n    .THEME_NAME.md-card.md-primary .md-input-container.md-input-focused .md-icon:not(.md-icon-delete) {\n      color: PRIMARY-CONTRAST; }\n    .THEME_NAME.md-card.md-primary .md-input-container:after {\n      background-color: PRIMARY-CONTRAST; }\n    .THEME_NAME.md-card.md-primary .md-input-container input,\n    .THEME_NAME.md-card.md-primary .md-input-container textarea {\n      color: PRIMARY-CONTRAST;\n      text-shadow: 0 0 0 PRIMARY-CONTRAST; }\n      .THEME_NAME.md-card.md-primary .md-input-container input::-webkit-input-placeholder,\n      .THEME_NAME.md-card.md-primary .md-input-container textarea::-webkit-input-placeholder {\n        color: PRIMARY-CONTRAST-0.54; }\n    .THEME_NAME.md-card.md-primary .md-input-container label,\n    .THEME_NAME.md-card.md-primary .md-input-container .md-icon:not(.md-icon-delete) {\n      color: PRIMARY-CONTRAST; }\n  .THEME_NAME.md-card.md-accent {\n    background-color: ACCENT-COLOR;\n    color: ACCENT-CONTRAST; }\n    .THEME_NAME.md-card.md-accent .md-card-header .md-icon-button:not(.md-primary):not(.md-warn):not(.md-accent) .md-icon,\n    .THEME_NAME.md-card.md-accent .md-card-actions .md-icon-button:not(.md-primary):not(.md-warn):not(.md-accent) .md-icon {\n      color: ACCENT-CONTRAST-0.87; }\n    .THEME_NAME.md-card.md-accent .md-input-container.md-input-focused input,\n    .THEME_NAME.md-card.md-accent .md-input-container.md-input-focused textarea {\n      color: ACCENT-CONTRAST;\n      text-shadow: 0 0 0 ACCENT-CONTRAST; }\n    .THEME_NAME.md-card.md-accent .md-input-container.md-input-focused label,\n    .THEME_NAME.md-card.md-accent .md-input-container.md-input-focused .md-icon:not(.md-icon-delete) {\n      color: ACCENT-CONTRAST; }\n    .THEME_NAME.md-card.md-accent .md-input-container:after {\n      background-color: ACCENT-CONTRAST; }\n    .THEME_NAME.md-card.md-accent .md-input-container input,\n    .THEME_NAME.md-card.md-accent .md-input-container textarea {\n      color: ACCENT-CONTRAST;\n      text-shadow: 0 0 0 ACCENT-CONTRAST; }\n      .THEME_NAME.md-card.md-accent .md-input-container input::-webkit-input-placeholder,\n      .THEME_NAME.md-card.md-accent .md-input-container textarea::-webkit-input-placeholder {\n        color: ACCENT-CONTRAST-0.54; }\n    .THEME_NAME.md-card.md-accent .md-input-container label,\n    .THEME_NAME.md-card.md-accent .md-input-container .md-icon:not(.md-icon-delete) {\n      color: ACCENT-CONTRAST; }\n  .THEME_NAME.md-card.md-warn {\n    background-color: WARN-COLOR;\n    color: WARN-CONTRAST; }\n    .THEME_NAME.md-card.md-warn .md-card-header .md-icon-button:not(.md-primary):not(.md-warn):not(.md-accent) .md-icon,\n    .THEME_NAME.md-card.md-warn .md-card-actions .md-icon-button:not(.md-primary):not(.md-warn):not(.md-accent) .md-icon {\n      color: WARN-CONTRAST-0.87; }\n    .THEME_NAME.md-card.md-warn .md-input-container.md-input-focused input,\n    .THEME_NAME.md-card.md-warn .md-input-container.md-input-focused textarea {\n      color: WARN-CONTRAST;\n      text-shadow: 0 0 0 WARN-CONTRAST; }\n    .THEME_NAME.md-card.md-warn .md-input-container.md-input-focused label,\n    .THEME_NAME.md-card.md-warn .md-input-container.md-input-focused .md-icon:not(.md-icon-delete) {\n      color: WARN-CONTRAST; }\n    .THEME_NAME.md-card.md-warn .md-input-container:after {\n      background-color: WARN-CONTRAST; }\n    .THEME_NAME.md-card.md-warn .md-input-container input,\n    .THEME_NAME.md-card.md-warn .md-input-container textarea {\n      color: WARN-CONTRAST;\n      text-shadow: 0 0 0 WARN-CONTRAST; }\n      .THEME_NAME.md-card.md-warn .md-input-container input::-webkit-input-placeholder,\n      .THEME_NAME.md-card.md-warn .md-input-container textarea::-webkit-input-placeholder {\n        color: WARN-CONTRAST-0.54; }\n    .THEME_NAME.md-card.md-warn .md-input-container label,\n    .THEME_NAME.md-card.md-warn .md-input-container .md-icon:not(.md-icon-delete) {\n      color: WARN-CONTRAST; }\n  .THEME_NAME.md-card .md-card-header .md-icon-button:not(.md-primary):not(.md-warn):not(.md-accent) .md-icon,\n  .THEME_NAME.md-card .md-card-actions .md-icon-button:not(.md-primary):not(.md-warn):not(.md-accent) .md-icon {\n    color: BACKGROUND-CONTRAST-0.54; }\n  .THEME_NAME.md-card > .md-card-area:after {\n    background-color: BACKGROUND-CONTRAST-0.12; }\n  .THEME_NAME.md-card .md-card-media-cover.md-text-scrim .md-backdrop {\n    background: linear-gradient(to bottom, BACKGROUND-CONTRAST-0.0 20%, BACKGROUND-CONTRAST-0.275 66%, BACKGROUND-CONTRAST-0.55 100%); }\n  .THEME_NAME.md-card .md-card-media-cover.md-solid .md-card-area {\n    background-color: BACKGROUND-CONTRAST-0.4; }\n  .THEME_NAME.md-card .md-card-media-cover .md-card-header .md-icon-button:not(.md-primary):not(.md-warn):not(.md-accent) .md-icon,\n  .THEME_NAME.md-card .md-card-media-cover .md-card-actions .md-icon-button:not(.md-primary):not(.md-warn):not(.md-accent) .md-icon {\n    color: #fff; }\n  .THEME_NAME.md-card .md-card-expand .md-card-actions {\n    background-color: BACKGROUND-COLOR; }\n"
+module.exports = ".THEME_NAME.md-card {\n  background-color: BACKGROUND-COLOR; }\n  .THEME_NAME.md-card.md-primary {\n    background-color: PRIMARY-COLOR;\n    color: PRIMARY-CONTRAST; }\n    .THEME_NAME.md-card.md-primary .md-card-header .md-icon-button:not(.md-primary):not(.md-warn):not(.md-accent) .md-icon,\n    .THEME_NAME.md-card.md-primary .md-card-actions .md-icon-button:not(.md-primary):not(.md-warn):not(.md-accent) .md-icon {\n      color: PRIMARY-CONTRAST-0.87; }\n    .THEME_NAME.md-card.md-primary .md-input-container.md-input-focused input,\n    .THEME_NAME.md-card.md-primary .md-input-container.md-input-focused textarea {\n      color: PRIMARY-CONTRAST;\n      text-shadow: 0 0 0 PRIMARY-CONTRAST; }\n    .THEME_NAME.md-card.md-primary .md-input-container.md-input-focused label,\n    .THEME_NAME.md-card.md-primary .md-input-container.md-input-focused .md-icon:not(.md-icon-delete) {\n      color: PRIMARY-CONTRAST; }\n    .THEME_NAME.md-card.md-primary .md-input-container:after {\n      background-color: PRIMARY-CONTRAST; }\n    .THEME_NAME.md-card.md-primary .md-input-container input,\n    .THEME_NAME.md-card.md-primary .md-input-container textarea {\n      color: PRIMARY-CONTRAST;\n      text-shadow: 0 0 0 PRIMARY-CONTRAST; }\n      .THEME_NAME.md-card.md-primary .md-input-container input::-webkit-input-placeholder,\n      .THEME_NAME.md-card.md-primary .md-input-container textarea::-webkit-input-placeholder {\n        color: PRIMARY-CONTRAST-0.54; }\n    .THEME_NAME.md-card.md-primary .md-input-container label,\n    .THEME_NAME.md-card.md-primary .md-input-container .md-icon:not(.md-icon-delete) {\n      color: PRIMARY-CONTRAST; }\n    .THEME_NAME.md-card.md-primary .md-card-expand .md-card-actions {\n      background-color: PRIMARY-COLOR; }\n  .THEME_NAME.md-card.md-accent {\n    background-color: ACCENT-COLOR;\n    color: ACCENT-CONTRAST; }\n    .THEME_NAME.md-card.md-accent .md-card-header .md-icon-button:not(.md-primary):not(.md-warn):not(.md-accent) .md-icon,\n    .THEME_NAME.md-card.md-accent .md-card-actions .md-icon-button:not(.md-primary):not(.md-warn):not(.md-accent) .md-icon {\n      color: ACCENT-CONTRAST-0.87; }\n    .THEME_NAME.md-card.md-accent .md-input-container.md-input-focused input,\n    .THEME_NAME.md-card.md-accent .md-input-container.md-input-focused textarea {\n      color: ACCENT-CONTRAST;\n      text-shadow: 0 0 0 ACCENT-CONTRAST; }\n    .THEME_NAME.md-card.md-accent .md-input-container.md-input-focused label,\n    .THEME_NAME.md-card.md-accent .md-input-container.md-input-focused .md-icon:not(.md-icon-delete) {\n      color: ACCENT-CONTRAST; }\n    .THEME_NAME.md-card.md-accent .md-input-container:after {\n      background-color: ACCENT-CONTRAST; }\n    .THEME_NAME.md-card.md-accent .md-input-container input,\n    .THEME_NAME.md-card.md-accent .md-input-container textarea {\n      color: ACCENT-CONTRAST;\n      text-shadow: 0 0 0 ACCENT-CONTRAST; }\n      .THEME_NAME.md-card.md-accent .md-input-container input::-webkit-input-placeholder,\n      .THEME_NAME.md-card.md-accent .md-input-container textarea::-webkit-input-placeholder {\n        color: ACCENT-CONTRAST-0.54; }\n    .THEME_NAME.md-card.md-accent .md-input-container label,\n    .THEME_NAME.md-card.md-accent .md-input-container .md-icon:not(.md-icon-delete) {\n      color: ACCENT-CONTRAST; }\n    .THEME_NAME.md-card.md-accent .md-card-expand .md-card-actions {\n      background-color: ACCENT-COLOR; }\n  .THEME_NAME.md-card.md-warn {\n    background-color: WARN-COLOR;\n    color: WARN-CONTRAST; }\n    .THEME_NAME.md-card.md-warn .md-card-header .md-icon-button:not(.md-primary):not(.md-warn):not(.md-accent) .md-icon,\n    .THEME_NAME.md-card.md-warn .md-card-actions .md-icon-button:not(.md-primary):not(.md-warn):not(.md-accent) .md-icon {\n      color: WARN-CONTRAST-0.87; }\n    .THEME_NAME.md-card.md-warn .md-input-container.md-input-focused input,\n    .THEME_NAME.md-card.md-warn .md-input-container.md-input-focused textarea {\n      color: WARN-CONTRAST;\n      text-shadow: 0 0 0 WARN-CONTRAST; }\n    .THEME_NAME.md-card.md-warn .md-input-container.md-input-focused label,\n    .THEME_NAME.md-card.md-warn .md-input-container.md-input-focused .md-icon:not(.md-icon-delete) {\n      color: WARN-CONTRAST; }\n    .THEME_NAME.md-card.md-warn .md-input-container:after {\n      background-color: WARN-CONTRAST; }\n    .THEME_NAME.md-card.md-warn .md-input-container input,\n    .THEME_NAME.md-card.md-warn .md-input-container textarea {\n      color: WARN-CONTRAST;\n      text-shadow: 0 0 0 WARN-CONTRAST; }\n      .THEME_NAME.md-card.md-warn .md-input-container input::-webkit-input-placeholder,\n      .THEME_NAME.md-card.md-warn .md-input-container textarea::-webkit-input-placeholder {\n        color: WARN-CONTRAST-0.54; }\n    .THEME_NAME.md-card.md-warn .md-input-container label,\n    .THEME_NAME.md-card.md-warn .md-input-container .md-icon:not(.md-icon-delete) {\n      color: WARN-CONTRAST; }\n    .THEME_NAME.md-card.md-warn .md-card-expand .md-card-actions {\n      background-color: WARN-COLOR; }\n  .THEME_NAME.md-card .md-card-header .md-icon-button:not(.md-primary):not(.md-warn):not(.md-accent) .md-icon,\n  .THEME_NAME.md-card .md-card-actions .md-icon-button:not(.md-primary):not(.md-warn):not(.md-accent) .md-icon {\n    color: BACKGROUND-CONTRAST-0.54; }\n  .THEME_NAME.md-card > .md-card-area:after {\n    background-color: BACKGROUND-CONTRAST-0.12; }\n  .THEME_NAME.md-card .md-card-media-cover.md-text-scrim .md-backdrop {\n    background: linear-gradient(to bottom, BACKGROUND-CONTRAST-0.0 20%, BACKGROUND-CONTRAST-0.275 66%, BACKGROUND-CONTRAST-0.55 100%); }\n  .THEME_NAME.md-card .md-card-media-cover.md-solid .md-card-area {\n    background-color: BACKGROUND-CONTRAST-0.4; }\n  .THEME_NAME.md-card .md-card-media-cover .md-card-header .md-icon-button:not(.md-primary):not(.md-warn):not(.md-accent) .md-icon,\n  .THEME_NAME.md-card .md-card-media-cover .md-card-actions .md-icon-button:not(.md-primary):not(.md-warn):not(.md-accent) .md-icon {\n    color: #fff; }\n  .THEME_NAME.md-card .md-card-expand .md-card-actions {\n    background-color: BACKGROUND-COLOR; }\n"
 
 /***/ }),
 /* 271 */
@@ -12753,7 +13143,7 @@ module.exports = ".THEME_NAME.md-list {\n  background-color: BACKGROUND-COLOR;\n
 /* 279 */
 /***/ (function(module, exports) {
 
-module.exports = ".THEME_NAME.md-menu-content .md-list {\n  background-color: BACKGROUND-COLOR;\n  color: BACKGROUND-CONTRAST; }\n  .THEME_NAME.md-menu-content .md-list .md-menu-item:hover .md-button:not([disabled]), .THEME_NAME.md-menu-content .md-list .md-menu-item:focus .md-button:not([disabled]), .THEME_NAME.md-menu-content .md-list .md-menu-item.md-highlighted .md-button:not([disabled]) {\n    background-color: BACKGROUND-CONTRAST-0.12; }\n  .THEME_NAME.md-menu-content .md-list .md-menu-item[disabled] {\n    color: BACKGROUND-CONTRAST-0.38; }\n"
+module.exports = ".md-menu-content .THEME_NAME.md-list {\n  background-color: BACKGROUND-COLOR;\n  color: BACKGROUND-CONTRAST; }\n  .md-menu-content .THEME_NAME.md-list .md-menu-item:hover .md-button:not([disabled]), .md-menu-content .THEME_NAME.md-list .md-menu-item:focus .md-button:not([disabled]), .md-menu-content .THEME_NAME.md-list .md-menu-item.md-highlighted .md-button:not([disabled]) {\n    background-color: BACKGROUND-CONTRAST-0.12; }\n  .md-menu-content .THEME_NAME.md-list .md-menu-item[disabled] {\n    color: BACKGROUND-CONTRAST-0.38; }\n"
 
 /***/ }),
 /* 280 */
@@ -12813,7 +13203,7 @@ module.exports = ".THEME_NAME.md-spinner .md-spinner-path {\n  stroke: PRIMARY-C
 /* 289 */
 /***/ (function(module, exports) {
 
-module.exports = ".THEME_NAME.md-stepper .md-step-header .md-step-icon,\n.THEME_NAME.md-stepper .md-step-header .md-step-number {\n  color: BACKGROUND-CONTRAST;\n  background-color: #bdbdbd; }\n\n.THEME_NAME.md-stepper .md-step-header.md-primary .md-step-icon,\n.THEME_NAME.md-stepper .md-step-header.md-primary .md-step-number, .THEME_NAME.md-stepper .md-step-header.md-active .md-step-icon,\n.THEME_NAME.md-stepper .md-step-header.md-active .md-step-number {\n  color: PRIMARY-CONTRAST;\n  background-color: PRIMARY-COLOR; }\n\n.THEME_NAME.md-stepper .md-step-header.md-accent .md-step-icon,\n.THEME_NAME.md-stepper .md-step-header.md-accent .md-step-number {\n  color: ACCENT-CONTRAST;\n  background-color: ACCENT-COLOR; }\n\n.THEME_NAME.md-stepper .md-step-header.md-warn .md-step-icon,\n.THEME_NAME.md-stepper .md-step-header.md-warn .md-step-number {\n  color: WARN-CONTRAST;\n  background-color: WARN-COLOR; }\n\n.THEME_NAME.md-stepper .md-step-header.md-disabled {\n  color: #bdbdbd; }\n  .THEME_NAME.md-stepper .md-step-header.md-disabled .md-step-icon,\n  .THEME_NAME.md-stepper .md-step-header.md-disabled .md-step-number {\n    color: white;\n    background-color: #bdbdbd; }\n"
+module.exports = ".THEME_NAME.md-stepper .md-step-header .md-step-icon,\n.THEME_NAME.md-stepper .md-step-header .md-step-number {\n  color: BACKGROUND-CONTRAST;\n  background-color: #bdbdbd; }\n\n.THEME_NAME.md-stepper .md-step-header.md-primary .md-step-icon,\n.THEME_NAME.md-stepper .md-step-header.md-primary .md-step-number, .THEME_NAME.md-stepper .md-step-header.md-active .md-step-icon,\n.THEME_NAME.md-stepper .md-step-header.md-active .md-step-number {\n  color: PRIMARY-CONTRAST;\n  background-color: PRIMARY-COLOR; }\n\n.THEME_NAME.md-stepper .md-step-header.md-accent .md-step-icon,\n.THEME_NAME.md-stepper .md-step-header.md-accent .md-step-number {\n  color: ACCENT-CONTRAST;\n  background-color: ACCENT-COLOR; }\n\n.THEME_NAME.md-stepper .md-step-header.md-warn .md-step-icon,\n.THEME_NAME.md-stepper .md-step-header.md-warn .md-step-number {\n  color: WARN-CONTRAST;\n  background-color: WARN-COLOR; }\n\n.THEME_NAME.md-stepper .md-step-header.md-warn .md-step-error,\n.THEME_NAME.md-stepper .md-step-header.md-warn .md-step-titles {\n  color: WARN-COLOR; }\n\n.THEME_NAME.md-stepper .md-step-header.md-disabled {\n  color: #bdbdbd; }\n  .THEME_NAME.md-stepper .md-step-header.md-disabled .md-step-icon,\n  .THEME_NAME.md-stepper .md-step-header.md-disabled .md-step-number {\n    color: white;\n    background-color: #bdbdbd; }\n"
 
 /***/ }),
 /* 290 */
@@ -16120,7 +16510,10 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "for": _vm.id || _vm.name
     },
     on: {
-      "click": _vm.toggleCheck
+      "click": function($event) {
+        $event.preventDefault();
+        _vm.toggleCheck($event)
+      }
     }
   }, [_vm._t("default")], 2) : _vm._e()])
 },staticRenderFns: []}
@@ -16139,9 +16532,9 @@ if (false) {
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "md-table-pagination"
-  }, [_c('span', {
+  }, [(_vm.mdPageOptions !== false) ? [_c('span', {
     staticClass: "md-table-pagination-label"
-  }, [_vm._v(_vm._s(_vm.mdLabel) + ":")]), _vm._v(" "), (_vm.mdPageOptions !== false) ? _c('md-select', {
+  }, [_vm._v(_vm._s(_vm.mdLabel) + ":")]), _vm._v(" "), _c('md-select', {
     attrs: {
       "md-menu-class": "md-pagination-select"
     },
@@ -16162,7 +16555,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "value": amount
       }
     }, [_vm._v(_vm._s(amount))])
-  }))) : _vm._e(), _vm._v(" "), _c('span', [_vm._v(_vm._s(((_vm.currentPage - 1) * _vm.currentSize) + 1) + "-" + _vm._s(_vm.subTotal) + " " + _vm._s(_vm.mdSeparator) + " " + _vm._s(_vm.mdTotal))]), _vm._v(" "), _c('md-button', {
+  })))] : _vm._e(), _vm._v(" "), _c('span', [_vm._v(_vm._s(((_vm.currentPage - 1) * _vm.currentSize) + 1) + "-" + _vm._s(_vm.subTotal) + " " + _vm._s(_vm.mdSeparator) + " " + _vm._s(_vm.mdTotal))]), _vm._v(" "), _c('md-button', {
     staticClass: "md-icon-button md-table-pagination-previous",
     attrs: {
       "disabled": _vm.currentPage === 1
@@ -16178,7 +16571,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     on: {
       "click": _vm.nextPage
     }
-  }, [_c('md-icon', [_vm._v("keyboard_arrow_right")])], 1)], 1)
+  }, [_c('md-icon', [_vm._v("keyboard_arrow_right")])], 1)], 2)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -16617,14 +17010,16 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     ref: "menu",
     staticClass: "md-autocomplete-menu",
     attrs: {
-      "md-offset-x": 8,
-      "md-offset-y": "45"
+      "md-align-trigger": "",
+      "md-auto-width": "",
+      "md-fixed": "",
+      "md-no-focus": "",
+      "md-manual-toggle": "",
+      "md-max-height": _vm.maxHeight,
+      "md-close-on-select": false,
+      "md-align-trigger": ""
     }
-  }, [_c('span', {
-    attrs: {
-      "md-menu-trigger": ""
-    }
-  }), _vm._v(" "), _c('input', {
+  }, [_c('input', {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -16639,7 +17034,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": _vm.required,
       "placeholder": _vm.placeholder,
       "maxlength": _vm.maxlength,
-      "name": _vm.name
+      "name": _vm.name,
+      "md-menu-trigger": ""
     },
     domProps: {
       "value": (_vm.query)
@@ -16650,18 +17046,36 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "input": [function($event) {
         if ($event.target.composing) { return; }
         _vm.query = $event.target.value
-      }, _vm.debounceUpdate]
+      }, _vm.debounceUpdate],
+      "keydown": [function($event) {
+        if (!('button' in $event) && _vm._k($event.keyCode, "up", 38)) { return null; }
+        $event.preventDefault();
+        _vm.contentHighlightItem('up')
+      }, function($event) {
+        if (!('button' in $event) && _vm._k($event.keyCode, "down", 40)) { return null; }
+        $event.preventDefault();
+        _vm.contentHighlightItem('down')
+      }, function($event) {
+        if (!('button' in $event) && _vm._k($event.keyCode, "enter", 13)) { return null; }
+        $event.preventDefault();
+        _vm.contentFireClick()
+      }, function($event) {
+        if (!('button' in $event) && _vm._k($event.keyCode, "tab", 9)) { return null; }
+        _vm.closeMenu()
+      }]
     }
-  }), _vm._v(" "), _c('md-menu-content', _vm._l((_vm.items), (function(item) {
+  }), _vm._v(" "), _c('md-menu-content', {
+    staticClass: "md-autocomplete-content"
+  }, _vm._l((_vm.filterItemsByResLength), (function(item, index) {
     return (_vm.items.length) ? _c('md-menu-item', {
-      key: item,
+      key: index,
+      attrs: {
+        "listIndex": index,
+        "manual-highlight": ""
+      },
       on: {
-        "keyup": function($event) {
-          if (!('button' in $event) && _vm._k($event.keyCode, "enter", 13)) { return null; }
-          _vm.hit(item)
-        },
         "click": function($event) {
-          _vm.hit(item)
+          _vm.setItemSelected(item)
         }
       }
     }, [_vm._v("\n        " + _vm._s(item[_vm.printAttribute]) + "\n      ")]) : _vm._e()
@@ -17005,16 +17419,22 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }
     }), _vm._v(" "), _c('div', {
       staticClass: "md-tab-header-container"
-    }, [(header.icon) ? _c('md-icon', [_vm._v(_vm._s(header.icon))]) : (header.iconset) ? _c('md-icon', {
+    }, [_vm._t("header-item", [(header.icon) ? _c('md-icon', [_vm._v(_vm._s(header.icon))]) : (header.iconset) ? _c('md-icon', {
       attrs: {
         "md-iconset": header.iconset
       }
-    }, [_vm._v(_vm._s(header.icon))]) : _vm._e(), _vm._v(" "), (header.label) ? _c('span', [_vm._v(_vm._s(header.label))]) : _vm._e(), _vm._v(" "), (header.tooltip) ? _c('md-tooltip', {
+    }, [_vm._v(_vm._s(header.icon))]) : (header.iconSrc) ? _c('md-icon', {
+      attrs: {
+        "md-src": header.iconSrc
+      }
+    }) : _vm._e(), _vm._v(" "), (header.label) ? _c('span', [_vm._v(_vm._s(header.label))]) : _vm._e()], {
+      header: header
+    })], 2), _vm._v(" "), (header.tooltip) ? _c('md-tooltip', {
       attrs: {
         "md-direction": header.tooltipDirection,
         "md-delay": header.tooltipDelay
       }
-    }, [_vm._v(_vm._s(header.tooltip))]) : _vm._e()], 1)], 1)
+    }, [_vm._v(_vm._s(header.tooltip))]) : _vm._e()], 1)
   })), _vm._v(" "), _c('span', {
     ref: "indicator",
     staticClass: "md-tab-indicator",
@@ -17080,7 +17500,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "step": step,
         "md-alternate-labels": _vm.mdAlternateLabels
       },
-      on: {
+      nativeOn: {
         "click": function($event) {
           _vm.setActiveStep(step)
         }
@@ -17193,8 +17613,10 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     class: _vm.getHeaderClasses
   }, [_c('div', {
     staticClass: "md-step-icons"
-  }, [(_vm.icon) ? _c('md-icon', {
+  }, [(_vm.icon && !_vm.step.error) ? _c('md-icon', {
     staticClass: "md-step-icon"
+  }, [_vm._v(_vm._s(_vm.icon))]) : _vm._e(), _vm._v(" "), (_vm.icon && _vm.step.error) ? _c('md-icon', {
+    staticClass: "md-step-error"
   }, [_vm._v(_vm._s(_vm.icon))]) : _vm._e(), _vm._v(" "), (!_vm.icon) ? _c('div', {
     staticClass: "md-step-number"
   }, [_c('span', [_vm._v(_vm._s(_vm.stepNumber))])]) : _vm._e()], 1), _vm._v(" "), _c('div', {
@@ -17566,11 +17988,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [(_vm.vertical) ? _c('md-step-header', {
     attrs: {
       "step": _vm.getStepData()
-    },
-    on: {
-      "click": function($event) {
-        _vm.setActiveStep()
-      }
     }
   }) : _vm._e(), _vm._v(" "), (!_vm.vertical || (_vm.vertical && _vm.isCurrentStep)) ? _c('div', {
     staticClass: "md-step-content"
@@ -18323,11 +18740,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "md-close-on-select": !_vm.multiple
     },
     on: {
-      "opened": function($event) {
-        _vm.$emit('open')
-      },
-      "closed": function($event) {
-        _vm.$emit('close')
+      "open": _vm.onOpen,
+      "close": function($event) {
+        _vm.$emit('closed')
       }
     }
   }, 'md-menu', _vm.mdMenuOptions), [_vm._t("icon"), _vm._v(" "), _c('span', {
@@ -18337,7 +18752,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "md-menu-trigger": ""
     }
-  }, [_vm._v(_vm._s(_vm.selectedText || _vm.placeholder))]), _vm._v(" "), _c('md-menu-content', {
+  }, [_vm._v("\n      " + _vm._s(_vm.selectedText || _vm.placeholder) + "\n    ")]), _vm._v(" "), _c('md-menu-content', {
     staticClass: "md-select-content",
     class: [_vm.themeClass, _vm.contentClasses]
   }, [_vm._t("default")], 2)], 2), _vm._v(" "), _c('select', {
@@ -18355,15 +18770,16 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     domProps: {
       "value": _vm.selectedValue
     }
-  }, [_vm._v(_vm._s(_vm.selectedText))]) : _vm._e(), _vm._v(" "), _vm._l((_vm.multipleOptions), (function(option) {
+  }, [_vm._v("\n      " + _vm._s(_vm.selectedText) + "\n    ")]) : _vm._e(), _vm._v(" "), _vm._l((_vm.multipleOptions), (function(option, index) {
     return (option.value) ? _c('option', {
+      key: index,
       attrs: {
         "selected": "true"
       },
       domProps: {
         "value": option.value
       }
-    }, [_vm._v(_vm._s(option.text))]) : _vm._e()
+    }, [_vm._v("\n      " + _vm._s(option.text) + "\n    ")]) : _vm._e()
   }))], 2)], 1)
 },staticRenderFns: []}
 module.exports.render._withStripped = true

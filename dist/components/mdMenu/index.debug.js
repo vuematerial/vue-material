@@ -215,7 +215,7 @@ module.exports = exports["default"];
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var margin = 8;
+var margin = 0;
 
 var isAboveOfViewport = function isAboveOfViewport(element, position) {
   return position.top <= margin - parseInt(getComputedStyle(element).marginTop, 10);
@@ -270,7 +270,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _transitionEndEventName = __webpack_require__(41);
+var _transitionEndEventName = __webpack_require__(42);
 
 var _transitionEndEventName2 = _interopRequireDefault(_transitionEndEventName);
 
@@ -317,6 +317,26 @@ exports.default = {
     mdCloseOnSelect: {
       type: Boolean,
       default: true
+    },
+    mdAutoWidth: {
+      type: Boolean,
+      default: false
+    },
+    mdFixed: {
+      type: Boolean,
+      default: false
+    },
+    mdNoFocus: {
+      type: Boolean,
+      default: false
+    },
+    mdManualToggle: {
+      type: Boolean,
+      default: false
+    },
+    mdMaxHeight: {
+      type: Number,
+      default: 0
     }
   },
   data: function data() {
@@ -392,6 +412,13 @@ exports.default = {
     },
     calculateMenuContentPos: function calculateMenuContentPos() {
       var position = void 0;
+      var width = void 0;
+
+      var margin = 8;
+
+      if (this._destroyed) {
+        return;
+      }
 
       if (!this.mdDirection) {
         position = this.getPosition('bottom', 'right');
@@ -399,7 +426,20 @@ exports.default = {
         position = this.getPosition.apply(this, this.mdDirection.trim().split(' '));
       }
 
-      position = (0, _getInViewPosition2.default)(this.menuContent, position);
+      if (this.mdAutoWidth) {
+        width = this.menuTrigger.getBoundingClientRect().width;
+        this.menuContent.style.width = parseInt(width, 10) + 'px';
+      }
+
+      if (!this.mdFixed) {
+        position = (0, _getInViewPosition2.default)(this.menuContent, position);
+      } else if (this.mdMaxHeight === 0) {
+        this.menuContent.style.maxHeight = window.innerHeight - this.menuTrigger.getBoundingClientRect().bottom - margin + 'px';
+      } else if (this.menuContent.children[0].children.length > 0) {
+        var listElemHeight = this.menuContent.children[0].children[0].clientHeight;
+
+        this.menuContent.style.maxHeight = margin * 2 + listElemHeight * this.mdMaxHeight + 'px';
+      }
 
       this.menuContent.style.top = position.top + window.pageYOffset + 'px';
       this.menuContent.style.left = position.left + window.pageXOffset + 'px';
@@ -420,7 +460,11 @@ exports.default = {
 
       getComputedStyle(this.menuContent).top;
       this.menuContent.classList.add('md-active');
-      this.menuContent.focus();
+
+      if (!this.mdNoFocus) {
+        this.menuContent.focus();
+      }
+
       this.active = true;
       this.$emit('open');
     },
@@ -432,15 +476,25 @@ exports.default = {
           var activeRipple = _this.menuContent.querySelector('.md-ripple.md-active');
 
           _this.menuContent.removeEventListener(_transitionEndEventName2.default, close);
-          _this.menuTrigger.focus();
+
+          if (!_this.mdNoFocus) {
+            _this.menuTrigger.focus();
+          }
+
           _this.active = false;
 
           if (activeRipple) {
             activeRipple.classList.remove('md-active');
           }
 
-          document.body.removeChild(_this.menuContent);
-          document.body.removeChild(_this.backdropElement);
+          if (document.body.contains(_this.menuContent)) {
+            document.body.removeChild(_this.menuContent);
+          }
+
+          if (document.body.contains(_this.backdropElement)) {
+            document.body.removeChild(_this.backdropElement);
+          }
+
           window.removeEventListener('resize', _this.recalculateOnResize);
         }
       };
@@ -470,7 +524,10 @@ exports.default = {
       _this2.addNewDirectionMenuContentClass(_this2.mdDirection);
       _this2.$el.removeChild(_this2.$refs.backdrop.$el);
       _this2.menuContent.parentNode.removeChild(_this2.menuContent);
-      _this2.menuTrigger.addEventListener('click', _this2.toggle);
+
+      if (!_this2.mdManualToggle) {
+        _this2.menuTrigger.addEventListener('click', _this2.toggle);
+      }
     }));
   },
   beforeDestroy: function beforeDestroy() {
@@ -479,8 +536,13 @@ exports.default = {
       document.body.removeChild(this.backdropElement);
     }
 
-    this.menuTrigger.removeEventListener('click', this.toggle);
+    if (!this.mdManualToggle) {
+      this.menuTrigger.removeEventListener('click', this.toggle);
+    }
+
     window.removeEventListener('resize', this.recalculateOnResize);
+
+    this._destroyed = true;
   }
 };
 module.exports = exports['default'];
@@ -519,7 +581,8 @@ exports.default = {
     return {
       oldHighlight: false,
       highlighted: false,
-      itemsAmount: 0
+      itemsAmount: 0,
+      itemListCount: 0
     };
   },
 
@@ -529,6 +592,12 @@ exports.default = {
       this.$parent.close();
     },
     highlightItem: function highlightItem(direction) {
+      this.itemsAmount = this.$children[0].$children.length;
+
+      if (this.itemsAmount < this.highlighted - 1) {
+        this.highlighted = 1;
+      }
+
       this.oldHighlight = this.highlighted;
 
       if (direction === 'up') {
@@ -546,6 +615,16 @@ exports.default = {
           this.highlighted++;
         }
       }
+
+      this.$children[0].$children[this.highlighted - 1].$el.scrollIntoView({
+        block: 'end', behavior: 'smooth'
+      });
+
+      for (var i = 0; i < this.itemsAmount; i++) {
+        this.$children[0].$children[i].highlighted = false;
+      }
+
+      this.$children[0].$children[this.highlighted - 1].highlighted = true;
     },
     fireClick: function fireClick() {
       if (this.highlighted > 0) {
@@ -606,12 +685,21 @@ exports.default = {
   props: {
     href: String,
     target: String,
-    disabled: Boolean
+    disabled: Boolean,
+    listIndex: {
+      type: Number,
+      default: -1
+    },
+    manualHighlight: {
+      type: Boolean,
+      default: false
+    }
   },
   data: function data() {
     return {
       parentContent: {},
-      index: 0
+      index: 0,
+      highlighted: false
     };
   },
   computed: {
@@ -620,37 +708,46 @@ exports.default = {
         'md-highlighted': this.highlighted
       };
     },
-    highlighted: function highlighted() {
-      if (this.index === this.parentContent.highlighted) {
-        if (this.disabled) {
-          if (this.parentContent.oldHighlight > this.parentContent.highlighted) {
-            this.parentContent.highlighted--;
-          } else {
-            this.parentContent.highlighted++;
+    getHighlight: function getHighlight() {
+      if (!this.manualHighlight) {
+        if (this.index === this.parentContent.highlighted) {
+          if (this.disabled) {
+            if (this.parentContent.oldHighlight > this.parentContent.highlighted) {
+              this.parentContent.highlighted--;
+            } else {
+              this.parentContent.highlighted++;
+            }
           }
+
+          if (this.index === 1) {
+            this.parentContent.$el.scrollTop = 0;
+          } else if (this.index === this.parentContent.itemsAmount) {
+            this.parentContent.$el.scrollTop = this.parentContent.$el.scrollHeight;
+          } else {
+            this.$el.scrollIntoViewIfNeeded(false);
+          }
+
+          this.highlighted = true;
+          return true;
         }
 
-        if (this.index === 1) {
-          this.parentContent.$el.scrollTop = 0;
-        } else if (this.index === this.parentContent.itemsAmount) {
-          this.parentContent.$el.scrollTop = this.parentContent.$el.scrollHeight;
-        } else {
-          this.$el.scrollIntoViewIfNeeded(false);
-        }
-
-        return true;
+        this.highlighted = false;
+        return false;
       }
-
-      return false;
     }
   },
   methods: {
     close: function close($event) {
-      if (!this.disabled) {
-        if (this.parentMenu.mdCloseOnSelect) {
-          this.parentContent.close();
-        }
+      if (!this.parentMenu.mdManualToggle) {
+        if (!this.disabled) {
+          if (this.parentMenu.mdCloseOnSelect) {
+            this.parentContent.close();
+          }
 
+          this.$emit('click', $event);
+          this.$emit('selected', $event);
+        }
+      } else if (!this.disabled) {
         this.$emit('click', $event);
         this.$emit('selected', $event);
       }
@@ -666,8 +763,12 @@ exports.default = {
       throw new Error('You must wrap the md-menu-item in a md-menu-content');
     }
 
-    this.parentContent.itemsAmount++;
-    this.index = this.parentContent.itemsAmount;
+    if (this.listIndex === -1) {
+      this.parentContent.itemListCount++;
+      this.index = this.parentContent.itemListCount;
+    } else {
+      this.index = this.listIndex + 1;
+    }
   }
 };
 module.exports = exports['default'];
@@ -717,7 +818,7 @@ if (!Element.prototype.scrollIntoViewIfNeeded) {
 /***/ 279:
 /***/ (function(module, exports) {
 
-module.exports = ".THEME_NAME.md-menu-content .md-list {\n  background-color: BACKGROUND-COLOR;\n  color: BACKGROUND-CONTRAST; }\n  .THEME_NAME.md-menu-content .md-list .md-menu-item:hover .md-button:not([disabled]), .THEME_NAME.md-menu-content .md-list .md-menu-item:focus .md-button:not([disabled]), .THEME_NAME.md-menu-content .md-list .md-menu-item.md-highlighted .md-button:not([disabled]) {\n    background-color: BACKGROUND-CONTRAST-0.12; }\n  .THEME_NAME.md-menu-content .md-list .md-menu-item[disabled] {\n    color: BACKGROUND-CONTRAST-0.38; }\n"
+module.exports = ".md-menu-content .THEME_NAME.md-list {\n  background-color: BACKGROUND-COLOR;\n  color: BACKGROUND-CONTRAST; }\n  .md-menu-content .THEME_NAME.md-list .md-menu-item:hover .md-button:not([disabled]), .md-menu-content .THEME_NAME.md-list .md-menu-item:focus .md-button:not([disabled]), .md-menu-content .THEME_NAME.md-list .md-menu-item.md-highlighted .md-button:not([disabled]) {\n    background-color: BACKGROUND-CONTRAST-0.12; }\n  .md-menu-content .THEME_NAME.md-list .md-menu-item[disabled] {\n    color: BACKGROUND-CONTRAST-0.38; }\n"
 
 /***/ }),
 
@@ -875,7 +976,7 @@ if (false) {
 
 /***/ }),
 
-/***/ 41:
+/***/ 42:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

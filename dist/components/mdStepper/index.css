@@ -52,6 +52,18 @@
               user-select: none;
       width: 24px;
 }
+.md-stepper .md-step-header .md-step-error {
+      margin-right: 8px;
+      min-width: 24px;
+      height: 24px;
+      width: 24px;
+      line-height: 24px;
+      pointer-events: none;
+      -webkit-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+              user-select: none;
+}
 .md-stepper .md-step-header .md-step-number {
       border-radius: 50%;
       display: inline-block;
@@ -161,7 +173,7 @@
 .md-stepper .md-steps-vertical-container .md-step:not(:last-of-type) .md-step-content {
     border-left: 1px solid #BDBDBD;
 }
-@media (min-width: 660px) {
+@media (min-width: 601px) {
   .md-stepper .md-steps-navigation .md-steps-navigation-container {
     margin-bottom: -15px;
   }

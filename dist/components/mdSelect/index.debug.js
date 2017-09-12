@@ -526,8 +526,10 @@ exports.default = {
   },
   beforeDestroy: function beforeDestroy() {
     if (this.parentSelect) {
-      delete this.parentSelect.options[this.index];
-      delete this.parentSelect.multipleOptions[this.index];
+      this.parentSelect.removeChild(this.index);
+      // delete this.parentSelect.options[this.index];
+      // delete this.parentSelect.multipleOptions[this.index];
+      // delete this.parentSelect.selectedValue[this.index];
     }
   }
 }; //
@@ -563,6 +565,10 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _assign = __webpack_require__(43);
+
+var _assign2 = _interopRequireDefault(_assign);
+
 var _keys = __webpack_require__(38);
 
 var _keys2 = _interopRequireDefault(_keys);
@@ -588,7 +594,7 @@ exports.default = {
     id: String,
     required: Boolean,
     multiple: Boolean,
-    value: [String, Number, Array],
+    value: [String, Boolean, Number, Array],
     disabled: Boolean,
     placeholder: String,
     mdMenuClass: String,
@@ -648,44 +654,18 @@ exports.default = {
     }
   },
   methods: {
-    onOpen: function onOpen() {
-      if (this.lastSelected) {
-        this.lastSelected.scrollIntoViewIfNeeded(true);
-      }
-
-      this.$emit('opened');
-    },
-    setParentDisabled: function setParentDisabled() {
-      this.parentContainer.isDisabled = this.disabled;
-    },
-    setParentRequired: function setParentRequired() {
-      this.parentContainer.isRequired = this.required;
-    },
-    setParentPlaceholder: function setParentPlaceholder() {
-      this.parentContainer.hasPlaceholder = !!this.placeholder;
-    },
-    selectOptions: function selectOptions(modelValue) {
-      var _this = this;
-
-      var optionsArray = (0, _keys2.default)(this.options).map((function (el) {
-        return _this.options[el];
-      }));
-
-      if (optionsArray && optionsArray.length) {
-        optionsArray.filter((function (el) {
-          return modelValue.indexOf(el.value) !== -1;
-        })).forEach((function (el) {
-          el.check = true;
-        }));
-      }
+    changeValue: function changeValue(value) {
+      this.$emit('input', value);
+      this.$emit('change', value);
+      this.$emit('selected', value);
     },
     getSingleValue: function getSingleValue(value) {
-      var _this2 = this;
+      var _this = this;
 
       var output = {};
 
       (0, _keys2.default)(this.options).forEach((function (index) {
-        var options = _this2.options[index];
+        var options = _this.options[index];
 
         if (options.value === value) {
           output.value = value;
@@ -696,19 +676,19 @@ exports.default = {
       return output;
     },
     getMultipleValue: function getMultipleValue(modelValue) {
-      var _this3 = this;
+      var _this2 = this;
 
       if ((0, _isArray2.default)(this.value)) {
         var outputText = [];
 
         modelValue.forEach((function (value) {
-          (0, _keys2.default)(_this3.options).forEach((function (index) {
-            var options = _this3.options[index];
+          (0, _keys2.default)(_this2.options).forEach((function (index) {
+            var options = _this2.options[index];
 
             if (options.value === value) {
               var text = options.$refs.item.textContent;
 
-              _this3.multipleOptions[index] = {
+              _this2.multipleOptions[index] = {
                 value: value,
                 text: text
               };
@@ -725,6 +705,63 @@ exports.default = {
 
       return {};
     },
+    onOpen: function onOpen() {
+      if (this.lastSelected) {
+        this.lastSelected.scrollIntoViewIfNeeded(true);
+      }
+
+      this.$emit('opened');
+    },
+    removeChild: function removeChild(index) {
+      this.optionsAmount--;
+      var selection = (0, _assign2.default)({}, this.options[index]);
+
+      delete this.options[index];
+      delete this.multipleOptions[index];
+
+      if (this.multiple) {
+        var element = this.selectedValue.find((function (el) {
+          return el.name === selection.$refs.item.textContent.trim();
+        }));
+        var selectionIndex = this.selectedValue.indexOf(element);
+
+        if (selectionIndex !== -1) {
+          this.selectedValue.splice(selectionIndex, 1);
+        }
+      }
+    },
+    setParentDisabled: function setParentDisabled() {
+      this.parentContainer.isDisabled = this.disabled;
+    },
+    setParentRequired: function setParentRequired() {
+      this.parentContainer.isRequired = this.required;
+    },
+    setParentPlaceholder: function setParentPlaceholder() {
+      this.parentContainer.hasPlaceholder = !!this.placeholder;
+    },
+    selectOptions: function selectOptions(modelValue) {
+      var _this3 = this;
+
+      var optionsArray = (0, _keys2.default)(this.options).map((function (el) {
+        return _this3.options[el];
+      }));
+
+      if (optionsArray && optionsArray.length) {
+        var selectedOptions = optionsArray.filter((function (el) {
+          return modelValue.includes(el.value);
+        }));
+        var unselectedOptions = optionsArray.filter((function (el) {
+          return !modelValue.includes(el.value);
+        }));
+
+        selectedOptions.forEach((function (el) {
+          el.check = true;
+        }));
+        unselectedOptions.forEach((function (el) {
+          el.check = false;
+        }));
+      }
+    },
     setTextAndValue: function setTextAndValue(modelValue) {
       var output = this.multiple ? this.getMultipleValue(modelValue) : this.getSingleValue(modelValue);
 
@@ -736,26 +773,25 @@ exports.default = {
         this.parentContainer.setValue(this.selectedText);
       }
     },
-    changeValue: function changeValue(value) {
-      this.$emit('input', value);
-      this.$emit('change', value);
-      this.$emit('selected', value);
-    },
     selectMultiple: function selectMultiple(index, value, text) {
-      var values = [];
+      var _this4 = this;
 
-      this.multipleOptions[index] = {
-        value: value,
-        text: text
-      };
+      this.$nextTick((function () {
+        var values = [];
 
-      for (var key in this.multipleOptions) {
-        if (this.multipleOptions.hasOwnProperty(key) && this.multipleOptions[key].value) {
-          values.push(this.multipleOptions[key].value);
+        _this4.multipleOptions[index] = {
+          value: value,
+          text: text
+        };
+
+        for (var key in _this4.multipleOptions) {
+          if (_this4.multipleOptions.hasOwnProperty(key) && _this4.multipleOptions[key].value) {
+            values.push(_this4.multipleOptions[key].value);
+          }
         }
-      }
 
-      this.changeValue(values);
+        _this4.changeValue(values);
+      }));
     },
     selectOption: function selectOption(value, text, el) {
       this.lastSelected = el;
@@ -802,6 +838,37 @@ exports.default = {
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 module.exports = exports['default'];
 
@@ -812,7 +879,7 @@ module.exports = exports['default'];
 
 // 19.1.2.14 / 15.2.3.14 Object.keys(O)
 var $keys       = __webpack_require__(31)
-  , enumBugKeys = __webpack_require__(21);
+  , enumBugKeys = __webpack_require__(22);
 
 module.exports = Object.keys || function keys(O){
   return $keys(O, enumBugKeys);
@@ -823,7 +890,7 @@ module.exports = Object.keys || function keys(O){
 /***/ 19:
 /***/ (function(module, exports, __webpack_require__) {
 
-var shared = __webpack_require__(22)('keys')
+var shared = __webpack_require__(23)('keys')
   , uid    = __webpack_require__(20);
 module.exports = function(key){
   return shared[key] || (shared[key] = uid(key));
@@ -853,6 +920,17 @@ module.exports = function(key){
 /***/ }),
 
 /***/ 21:
+/***/ (function(module, exports, __webpack_require__) {
+
+// 7.1.13 ToObject(argument)
+var defined = __webpack_require__(14);
+module.exports = function(it){
+  return Object(defined(it));
+};
+
+/***/ }),
+
+/***/ 22:
 /***/ (function(module, exports) {
 
 // IE 8- don't enum bug keys
@@ -862,7 +940,7 @@ module.exports = (
 
 /***/ }),
 
-/***/ 22:
+/***/ 23:
 /***/ (function(module, exports, __webpack_require__) {
 
 var global = __webpack_require__(2)
@@ -870,17 +948,6 @@ var global = __webpack_require__(2)
   , store  = global[SHARED] || (global[SHARED] = {});
 module.exports = function(key){
   return store[key] || (store[key] = {});
-};
-
-/***/ }),
-
-/***/ 23:
-/***/ (function(module, exports, __webpack_require__) {
-
-// 7.1.13 ToObject(argument)
-var defined = __webpack_require__(14);
-module.exports = function(it){
-  return Object(defined(it));
 };
 
 /***/ }),
@@ -1171,7 +1238,14 @@ module.exports = function(index, length){
 /***/ 38:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(43), __esModule: true };
+module.exports = { "default": __webpack_require__(45), __esModule: true };
+
+/***/ }),
+
+/***/ 39:
+/***/ (function(module, exports) {
+
+exports.f = {}.propertyIsEnumerable;
 
 /***/ }),
 
@@ -1180,6 +1254,13 @@ module.exports = { "default": __webpack_require__(43), __esModule: true };
 
 var core = module.exports = {version: '2.4.0'};
 if(typeof __e == 'number')__e = core; // eslint-disable-line no-undef
+
+/***/ }),
+
+/***/ 41:
+/***/ (function(module, exports) {
+
+exports.f = Object.getOwnPropertySymbols;
 
 /***/ }),
 
@@ -1224,8 +1305,7 @@ if (false) {
 /***/ 43:
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(48);
-module.exports = __webpack_require__(4).Object.keys;
+module.exports = { "default": __webpack_require__(52), __esModule: true };
 
 /***/ }),
 
@@ -1241,11 +1321,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "md-close-on-select": !_vm.multiple
     },
     on: {
-      "opened": function($event) {
-        _vm.$emit('open')
-      },
-      "closed": function($event) {
-        _vm.$emit('close')
+      "open": _vm.onOpen,
+      "close": function($event) {
+        _vm.$emit('closed')
       }
     }
   }, 'md-menu', _vm.mdMenuOptions), [_vm._t("icon"), _vm._v(" "), _c('span', {
@@ -1255,7 +1333,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "md-menu-trigger": ""
     }
-  }, [_vm._v(_vm._s(_vm.selectedText || _vm.placeholder))]), _vm._v(" "), _c('md-menu-content', {
+  }, [_vm._v("\n      " + _vm._s(_vm.selectedText || _vm.placeholder) + "\n    ")]), _vm._v(" "), _c('md-menu-content', {
     staticClass: "md-select-content",
     class: [_vm.themeClass, _vm.contentClasses]
   }, [_vm._t("default")], 2)], 2), _vm._v(" "), _c('select', {
@@ -1273,15 +1351,16 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     domProps: {
       "value": _vm.selectedValue
     }
-  }, [_vm._v(_vm._s(_vm.selectedText))]) : _vm._e(), _vm._v(" "), _vm._l((_vm.multipleOptions), (function(option) {
+  }, [_vm._v("\n      " + _vm._s(_vm.selectedText) + "\n    ")]) : _vm._e(), _vm._v(" "), _vm._l((_vm.multipleOptions), (function(option, index) {
     return (option.value) ? _c('option', {
+      key: index,
       attrs: {
         "selected": "true"
       },
       domProps: {
         "value": option.value
       }
-    }, [_vm._v(_vm._s(option.text))]) : _vm._e()
+    }, [_vm._v("\n      " + _vm._s(option.text) + "\n    ")]) : _vm._e()
   }))], 2)], 1)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
@@ -1294,7 +1373,23 @@ if (false) {
 
 /***/ }),
 
-/***/ 46:
+/***/ 45:
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(49);
+module.exports = __webpack_require__(4).Object.keys;
+
+/***/ }),
+
+/***/ 468:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(101);
+
+
+/***/ }),
+
+/***/ 47:
 /***/ (function(module, exports, __webpack_require__) {
 
 // most Object methods by ES6 should accept primitives
@@ -1310,22 +1405,14 @@ module.exports = function(KEY, exec){
 
 /***/ }),
 
-/***/ 468:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(101);
-
-
-/***/ }),
-
-/***/ 48:
+/***/ 49:
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.14 Object.keys(O)
-var toObject = __webpack_require__(23)
+var toObject = __webpack_require__(21)
   , $keys    = __webpack_require__(18);
 
-__webpack_require__(46)('keys', (function(){
+__webpack_require__(47)('keys', (function(){
   return function keys(it){
     return $keys(toObject(it));
   };
@@ -1343,6 +1430,64 @@ module.exports = function(exec){
     return true;
   }
 };
+
+/***/ }),
+
+/***/ 52:
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(59);
+module.exports = __webpack_require__(4).Object.assign;
+
+/***/ }),
+
+/***/ 55:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+// 19.1.2.1 Object.assign(target, source, ...)
+var getKeys  = __webpack_require__(18)
+  , gOPS     = __webpack_require__(41)
+  , pIE      = __webpack_require__(39)
+  , toObject = __webpack_require__(21)
+  , IObject  = __webpack_require__(26)
+  , $assign  = Object.assign;
+
+// should work with symbols and should have deterministic property order (V8 bug)
+module.exports = !$assign || __webpack_require__(5)((function(){
+  var A = {}
+    , B = {}
+    , S = Symbol()
+    , K = 'abcdefghijklmnopqrst';
+  A[S] = 7;
+  K.split('').forEach((function(k){ B[k] = k; }));
+  return $assign({}, A)[S] != 7 || Object.keys($assign({}, B)).join('') != K;
+})) ? function assign(target, source){ // eslint-disable-line no-unused-vars
+  var T     = toObject(target)
+    , aLen  = arguments.length
+    , index = 1
+    , getSymbols = gOPS.f
+    , isEnum     = pIE.f;
+  while(aLen > index){
+    var S      = IObject(arguments[index++])
+      , keys   = getSymbols ? getKeys(S).concat(getSymbols(S)) : getKeys(S)
+      , length = keys.length
+      , j      = 0
+      , key;
+    while(length > j)if(isEnum.call(S, key = keys[j++]))T[key] = S[key];
+  } return T;
+} : $assign;
+
+/***/ }),
+
+/***/ 59:
+/***/ (function(module, exports, __webpack_require__) {
+
+// 19.1.3.1 Object.assign(target, source)
+var $export = __webpack_require__(16);
+
+$export($export.S + $export.F, 'Object', {assign: __webpack_require__(55)});
 
 /***/ }),
 

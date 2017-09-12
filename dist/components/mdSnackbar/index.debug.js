@@ -303,7 +303,7 @@ var _uniqueId = __webpack_require__(36);
 
 var _uniqueId2 = _interopRequireDefault(_uniqueId);
 
-var _transitionEndEventName = __webpack_require__(41);
+var _transitionEndEventName = __webpack_require__(42);
 
 var _transitionEndEventName2 = _interopRequireDefault(_transitionEndEventName);
 
@@ -347,11 +347,13 @@ exports.default = {
   data: function data() {
     return {
       snackbarId: this.id || 'snackbar-' + (0, _uniqueId2.default)(),
+      removedSnackBarElementEventName: 'removedSnackBarElement',
       active: false,
       rootElement: {},
       snackbarElement: {},
       directionClass: null,
-      closeTimeout: null
+      closeTimeout: null,
+      removedSnackBarElementEvent: null
     };
   },
 
@@ -384,7 +386,8 @@ exports.default = {
   },
   methods: {
     removeElement: function removeElement() {
-      if (document.body.contains(this.snackbarElement)) {
+      // if we have the element and we don't want it active anymore, remove it
+      if (document.body.contains(this.snackbarElement) && !this.active) {
         var activeRipple = this.snackbarElement.querySelector('.md-ripple.md-active');
 
         if (activeRipple) {
@@ -393,46 +396,79 @@ exports.default = {
 
         document.body.removeChild(this.snackbarElement);
       }
+      document.dispatchEvent(this.removedSnackBarElementEvent);
     },
     open: function open() {
       if (_manager2.default.current) {
+        // we need to wait for the old element to finishing closing before we can open a new one
+        document.removeEventListener(this.removedSnackBarElementEventName, this.showElementAndStartTimer);
+        document.addEventListener(this.removedSnackBarElementEventName, this.showElementAndStartTimer);
         _manager2.default.current.close();
+        return;
       }
 
+      this.showElementAndStartTimer();
+    },
+    showElementAndStartTimer: function showElementAndStartTimer() {
+      if (document.body.contains(this.snackbarElement)) {
+        return;
+      }
+      document.removeEventListener(this.removedSnackBarElementEventName, this.showElementAndStartTimer);
       _manager2.default.current = this;
       document.body.appendChild(this.snackbarElement);
-      window.getComputedStyle(this.$refs.container).backgroundColor;
+      if (this.$refs.container !== null && this.$refs.container !== undefined) {
+        window.getComputedStyle(this.$refs.container).backgroundColor;
+      }
       this.active = true;
       this.$emit('open');
-      this.closeTimeout = window.setTimeout(this.close, this.mdDuration);
+      if (this.mdDuration !== Infinity) {
+        this.setCloseTimeout(this.mdDuration);
+      }
       this.timeoutStartedAt = Date.now();
     },
     close: function close() {
       var _this = this;
 
       if (this.$refs.container) {
+        //we set the flag to false here, because we need to inform the removeElement method that we really
+        // want to remove the element - we're in closing action
+        this.active = false;
+
         var removeElement = function removeElement() {
-          _this.$refs.container.removeEventListener(_transitionEndEventName2.default, removeElement);
+          document.removeEventListener(_transitionEndEventName2.default, removeElement);
           _this.removeElement();
         };
 
         _manager2.default.current = null;
-        this.active = false;
         this.$emit('close');
-        this.$refs.container.removeEventListener(_transitionEndEventName2.default, removeElement);
-        this.$refs.container.addEventListener(_transitionEndEventName2.default, removeElement);
-        window.clearTimeout(this.closeTimeout);
+        document.removeEventListener(_transitionEndEventName2.default, removeElement);
+        document.addEventListener(_transitionEndEventName2.default, removeElement);
+        this.clearCloseTimeout();
         this.pendingDuration = this.mdDuration;
       }
     },
     pauseTimeout: function pauseTimeout() {
       this.pendingDuration = this.pendingDuration - (Date.now() - this.timeoutStartedAt);
       this.timeoutStartedAt = 0;
-      window.clearTimeout(this.closeTimeout);
+      this.clearCloseTimeout();
     },
     resumeTimeout: function resumeTimeout() {
       this.timeoutStartedAt = Date.now();
-      this.closeTimeout = window.setTimeout(this.close, this.pendingDuration);
+      if (this.pendingDuration === Infinity) {
+        return;
+      }
+      this.setCloseTimeout(this.pendingDuration);
+    },
+    setCloseTimeout: function setCloseTimeout(delay) {
+      this.clearCloseTimeout();
+      this.closeTimeout = window.setTimeout(this.close, delay);
+    },
+    clearCloseTimeout: function clearCloseTimeout() {
+      if (!this.closeTimeout) {
+        return;
+      }
+      window.clearTimeout(this.closeTimeout);
+      this.closeTimeout = null;
     }
   },
   mounted: function mounted() {
@@ -444,9 +480,11 @@ exports.default = {
       _this2.timeoutStartedAt = 0;
       _this2.pendingDuration = _this2.mdDuration;
     }));
+    this.removedSnackBarElementEvent = new Event(this.removedSnackBarElementEventName);
   },
   beforeDestroy: function beforeDestroy() {
-    window.clearTimeout(this.closeTimeout);
+    this.clearCloseTimeout();
+    this.active = false;
     this.removeElement();
   }
 };
@@ -531,7 +569,7 @@ module.exports = exports["default"];
 
 /***/ }),
 
-/***/ 41:
+/***/ 42:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

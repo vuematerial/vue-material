@@ -533,7 +533,7 @@ var _mixin = __webpack_require__(1);
 
 var _mixin2 = _interopRequireDefault(_mixin);
 
-var _throttle = __webpack_require__(50);
+var _throttle = __webpack_require__(51);
 
 var _throttle2 = _interopRequireDefault(_throttle);
 
@@ -760,6 +760,10 @@ exports.default = {
       var _this2 = this;
 
       window.requestAnimationFrame((function () {
+        if (_this2._destroyed) {
+          return;
+        }
+
         _this2.calculateIndicatorPos();
         _this2.calculateBoardsWidthAndPosition();
         _this2.calculateContentHeight();
@@ -904,6 +908,8 @@ exports.default = {
       document.removeEventListener('touchstart', this.handleTouchStart);
       document.removeEventListener('touchend', this.handleTouchEnd);
     }
+
+    this._destroyed = true;
   }
 };
 module.exports = exports['default'];
@@ -915,7 +921,7 @@ module.exports = exports['default'];
 
 // 19.1.2.14 / 15.2.3.14 Object.keys(O)
 var $keys       = __webpack_require__(31)
-  , enumBugKeys = __webpack_require__(21);
+  , enumBugKeys = __webpack_require__(22);
 
 module.exports = Object.keys || function keys(O){
   return $keys(O, enumBugKeys);
@@ -926,7 +932,7 @@ module.exports = Object.keys || function keys(O){
 /***/ 19:
 /***/ (function(module, exports, __webpack_require__) {
 
-var shared = __webpack_require__(22)('keys')
+var shared = __webpack_require__(23)('keys')
   , uid    = __webpack_require__(20);
 module.exports = function(key){
   return shared[key] || (shared[key] = uid(key));
@@ -956,6 +962,17 @@ module.exports = function(key){
 /***/ }),
 
 /***/ 21:
+/***/ (function(module, exports, __webpack_require__) {
+
+// 7.1.13 ToObject(argument)
+var defined = __webpack_require__(14);
+module.exports = function(it){
+  return Object(defined(it));
+};
+
+/***/ }),
+
+/***/ 22:
 /***/ (function(module, exports) {
 
 // IE 8- don't enum bug keys
@@ -965,7 +982,7 @@ module.exports = (
 
 /***/ }),
 
-/***/ 22:
+/***/ 23:
 /***/ (function(module, exports, __webpack_require__) {
 
 var global = __webpack_require__(2)
@@ -973,17 +990,6 @@ var global = __webpack_require__(2)
   , store  = global[SHARED] || (global[SHARED] = {});
 module.exports = function(key){
   return store[key] || (store[key] = {});
-};
-
-/***/ }),
-
-/***/ 23:
-/***/ (function(module, exports, __webpack_require__) {
-
-// 7.1.13 ToObject(argument)
-var defined = __webpack_require__(14);
-module.exports = function(it){
-  return Object(defined(it));
 };
 
 /***/ }),
@@ -1292,7 +1298,7 @@ module.exports = exports["default"];
 /***/ 38:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(43), __esModule: true };
+module.exports = { "default": __webpack_require__(45), __esModule: true };
 
 /***/ }),
 
@@ -1323,14 +1329,6 @@ if (false) {
      require("vue-hot-reload-api").rerender("data-v-47ba0acd", module.exports)
   }
 }
-
-/***/ }),
-
-/***/ 43:
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(48);
-module.exports = __webpack_require__(4).Object.keys;
 
 /***/ }),
 
@@ -1425,7 +1423,23 @@ if (false) {
 
 /***/ }),
 
-/***/ 46:
+/***/ 45:
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(49);
+module.exports = __webpack_require__(4).Object.keys;
+
+/***/ }),
+
+/***/ 464:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(97);
+
+
+/***/ }),
+
+/***/ 47:
 /***/ (function(module, exports, __webpack_require__) {
 
 // most Object methods by ES6 should accept primitives
@@ -1441,22 +1455,14 @@ module.exports = function(KEY, exec){
 
 /***/ }),
 
-/***/ 464:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(97);
-
-
-/***/ }),
-
-/***/ 48:
+/***/ 49:
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.14 Object.keys(O)
-var toObject = __webpack_require__(23)
+var toObject = __webpack_require__(21)
   , $keys    = __webpack_require__(18);
 
-__webpack_require__(46)('keys', (function(){
+__webpack_require__(47)('keys', (function(){
   return function keys(it){
     return $keys(toObject(it));
   };
@@ -1477,7 +1483,7 @@ module.exports = function(exec){
 
 /***/ }),
 
-/***/ 50:
+/***/ 51:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

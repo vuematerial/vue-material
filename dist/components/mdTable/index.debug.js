@@ -475,7 +475,7 @@ module.exports = function(bitmap, value){
 
 // 19.1.2.14 / 15.2.3.14 Object.keys(O)
 var $keys       = __webpack_require__(31)
-  , enumBugKeys = __webpack_require__(21);
+  , enumBugKeys = __webpack_require__(22);
 
 module.exports = Object.keys || function keys(O){
   return $keys(O, enumBugKeys);
@@ -493,7 +493,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _assign = __webpack_require__(51);
+var _assign = __webpack_require__(43);
 
 var _assign2 = _interopRequireDefault(_assign);
 
@@ -555,13 +555,19 @@ exports.default = {
       this.$emit('select', this.selectedRows);
     },
     removeRow: function removeRow(row) {
-      var array = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-
-      var list = array || this.data;
-      var index = list.indexOf(row);
+      var index = this.data.indexOf(row);
 
       if (index !== -1) {
-        list.splice(index, 1);
+        this.data.splice(index, 1);
+      }
+
+      this.removeSelectedRow(row);
+    },
+    removeSelectedRow: function removeSelectedRow(row) {
+      var selectedIndex = this.selectedRows.indexOf(row);
+
+      if (selectedIndex !== -1) {
+        this.selectedRows.splice(selectedIndex, 1);
       }
     },
     setRowSelection: function setRowSelection(isSelected, row) {
@@ -569,7 +575,7 @@ exports.default = {
         this.selectedRows.push(row);
         return;
       }
-      this.removeRow(row, this.selectedRows);
+      this.removeSelectedRow(row);
     },
     setMultipleRowSelection: function setMultipleRowSelection(isSelected) {
       this.selectedRows = isSelected ? (0, _assign2.default)([], this.data) : [];
@@ -706,7 +712,7 @@ module.exports = exports['default'];
 /***/ 19:
 /***/ (function(module, exports, __webpack_require__) {
 
-var shared = __webpack_require__(22)('keys')
+var shared = __webpack_require__(23)('keys')
   , uid    = __webpack_require__(20);
 module.exports = function(key){
   return shared[key] || (shared[key] = uid(key));
@@ -992,6 +998,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
 
 exports.default = {
   name: 'md-table-pagination',
@@ -1033,9 +1041,6 @@ exports.default = {
 
   watch: {
     mdTotal: function mdTotal(val) {
-      var sub = this.currentPage * this.currentSize;
-
-      this.subTotal = sub > val ? val : sub;
       this.totalItems = isNaN(val) ? _maxSafeInteger2.default : parseInt(val, 10);
     },
     mdSize: function mdSize(val) {
@@ -1092,10 +1097,11 @@ exports.default = {
     var _this = this;
 
     this.$nextTick((function () {
+      _this.totalItems = isNaN(_this.mdTotal) ? _maxSafeInteger2.default : parseInt(_this.mdTotal, 10);
       if (_this.mdPageOptions) {
         _this.currentSize = _this.mdPageOptions.includes(_this.currentSize) ? _this.currentSize : _this.mdPageOptions[0];
       } else {
-        _this.currentSize = 0;
+        _this.currentSize = _this.mdSize;
       }
       _this.canFireEvents = true;
     }));
@@ -1188,9 +1194,14 @@ exports.default = {
     setRowSelection: function setRowSelection(value, row) {
       this.parentTable.setRowSelection(value, row);
     },
+    setHeadRowSelection: function setHeadRowSelection() {
+      if (this.hasSelection) {
+        this.parentTable.$children[0].checkbox = this.parentTable.numberOfSelected > 0 && this.parentTable.numberOfSelected === this.parentTable.numberOfRows;
+      }
+    },
     handleSingleSelection: function handleSingleSelection(value) {
       this.parentTable.setRowSelection(value, this.mdItem);
-      this.parentTable.$children[0].checkbox = this.parentTable.numberOfSelected === this.parentTable.numberOfRows;
+      this.setHeadRowSelection();
     },
     handleMultipleSelection: function handleMultipleSelection(value) {
       var _this = this;
@@ -1204,6 +1215,7 @@ exports.default = {
       }));
 
       this.parentTable.setMultipleRowSelection(value);
+      this.setHeadRowSelection();
 
       window.setTimeout((function () {
         return _this.parentTable.$el.classList.remove(transitionClass);
@@ -1249,6 +1261,7 @@ exports.default = {
   },
   destroyed: function destroyed() {
     this.parentTable.removeRow(this.mdItem);
+    this.setHeadRowSelection();
   },
   mounted: function mounted() {
     this.startTableRow();
@@ -1287,12 +1300,13 @@ module.exports = { "default": __webpack_require__(211), __esModule: true };
 /***/ }),
 
 /***/ 21:
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-// IE 8- don't enum bug keys
-module.exports = (
-  'constructor,hasOwnProperty,isPrototypeOf,propertyIsEnumerable,toLocaleString,toString,valueOf'
-).split(',');
+// 7.1.13 ToObject(argument)
+var defined = __webpack_require__(14);
+module.exports = function(it){
+  return Object(defined(it));
+};
 
 /***/ }),
 
@@ -1305,14 +1319,12 @@ module.exports = 0x1fffffffffffff;
 /***/ }),
 
 /***/ 22:
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-var global = __webpack_require__(2)
-  , SHARED = '__core-js_shared__'
-  , store  = global[SHARED] || (global[SHARED] = {});
-module.exports = function(key){
-  return store[key] || (store[key] = {});
-};
+// IE 8- don't enum bug keys
+module.exports = (
+  'constructor,hasOwnProperty,isPrototypeOf,propertyIsEnumerable,toLocaleString,toString,valueOf'
+).split(',');
 
 /***/ }),
 
@@ -1329,10 +1341,11 @@ $export($export.S, 'Number', {MAX_SAFE_INTEGER: 0x1fffffffffffff});
 /***/ 23:
 /***/ (function(module, exports, __webpack_require__) {
 
-// 7.1.13 ToObject(argument)
-var defined = __webpack_require__(14);
-module.exports = function(it){
-  return Object(defined(it));
+var global = __webpack_require__(2)
+  , SHARED = '__core-js_shared__'
+  , store  = global[SHARED] || (global[SHARED] = {});
+module.exports = function(key){
+  return store[key] || (store[key] = {});
 };
 
 /***/ }),
@@ -1909,9 +1922,9 @@ if (false) {
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "md-table-pagination"
-  }, [_c('span', {
+  }, [(_vm.mdPageOptions !== false) ? [_c('span', {
     staticClass: "md-table-pagination-label"
-  }, [_vm._v(_vm._s(_vm.mdLabel) + ":")]), _vm._v(" "), (_vm.mdPageOptions !== false) ? _c('md-select', {
+  }, [_vm._v(_vm._s(_vm.mdLabel) + ":")]), _vm._v(" "), _c('md-select', {
     attrs: {
       "md-menu-class": "md-pagination-select"
     },
@@ -1932,7 +1945,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "value": amount
       }
     }, [_vm._v(_vm._s(amount))])
-  }))) : _vm._e(), _vm._v(" "), _c('span', [_vm._v(_vm._s(((_vm.currentPage - 1) * _vm.currentSize) + 1) + "-" + _vm._s(_vm.subTotal) + " " + _vm._s(_vm.mdSeparator) + " " + _vm._s(_vm.mdTotal))]), _vm._v(" "), _c('md-button', {
+  })))] : _vm._e(), _vm._v(" "), _c('span', [_vm._v(_vm._s(((_vm.currentPage - 1) * _vm.currentSize) + 1) + "-" + _vm._s(_vm.subTotal) + " " + _vm._s(_vm.mdSeparator) + " " + _vm._s(_vm.mdTotal))]), _vm._v(" "), _c('md-button', {
     staticClass: "md-icon-button md-table-pagination-previous",
     attrs: {
       "disabled": _vm.currentPage === 1
@@ -1948,7 +1961,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     on: {
       "click": _vm.nextPage
     }
-  }, [_c('md-icon', [_vm._v("keyboard_arrow_right")])], 1)], 1)
+  }, [_c('md-icon', [_vm._v("keyboard_arrow_right")])], 1)], 2)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -1979,18 +1992,18 @@ if (false) {
 
 /***/ }),
 
+/***/ 39:
+/***/ (function(module, exports) {
+
+exports.f = {}.propertyIsEnumerable;
+
+/***/ }),
+
 /***/ 4:
 /***/ (function(module, exports) {
 
 var core = module.exports = {version: '2.4.0'};
 if(typeof __e == 'number')__e = core; // eslint-disable-line no-undef
-
-/***/ }),
-
-/***/ 40:
-/***/ (function(module, exports) {
-
-exports.f = {}.propertyIsEnumerable;
 
 /***/ }),
 
@@ -2039,6 +2052,13 @@ if (false) {
      require("vue-hot-reload-api").rerender("data-v-4a848bf6", module.exports)
   }
 }
+
+/***/ }),
+
+/***/ 41:
+/***/ (function(module, exports) {
+
+exports.f = Object.getOwnPropertySymbols;
 
 /***/ }),
 
@@ -2138,6 +2158,13 @@ if (false) {
 
 /***/ }),
 
+/***/ 43:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = { "default": __webpack_require__(52), __esModule: true };
+
+/***/ }),
+
 /***/ 431:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2170,13 +2197,6 @@ if (false) {
 
 /***/ }),
 
-/***/ 45:
-/***/ (function(module, exports) {
-
-exports.f = Object.getOwnPropertySymbols;
-
-/***/ }),
-
 /***/ 476:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2198,40 +2218,24 @@ module.exports = function(exec){
 
 /***/ }),
 
-/***/ 51:
+/***/ 52:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(59), __esModule: true };
-
-/***/ }),
-
-/***/ 59:
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(64);
+__webpack_require__(59);
 module.exports = __webpack_require__(4).Object.assign;
 
 /***/ }),
 
-/***/ 6:
-/***/ (function(module, exports) {
-
-module.exports = function(it){
-  return typeof it === 'object' ? it !== null : typeof it === 'function';
-};
-
-/***/ }),
-
-/***/ 61:
+/***/ 55:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 // 19.1.2.1 Object.assign(target, source, ...)
 var getKeys  = __webpack_require__(18)
-  , gOPS     = __webpack_require__(45)
-  , pIE      = __webpack_require__(40)
-  , toObject = __webpack_require__(23)
+  , gOPS     = __webpack_require__(41)
+  , pIE      = __webpack_require__(39)
+  , toObject = __webpack_require__(21)
   , IObject  = __webpack_require__(26)
   , $assign  = Object.assign;
 
@@ -2262,13 +2266,22 @@ module.exports = !$assign || __webpack_require__(5)((function(){
 
 /***/ }),
 
-/***/ 64:
+/***/ 59:
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.3.1 Object.assign(target, source)
 var $export = __webpack_require__(16);
 
-$export($export.S + $export.F, 'Object', {assign: __webpack_require__(61)});
+$export($export.S + $export.F, 'Object', {assign: __webpack_require__(55)});
+
+/***/ }),
+
+/***/ 6:
+/***/ (function(module, exports) {
+
+module.exports = function(it){
+  return typeof it === 'object' ? it !== null : typeof it === 'function';
+};
 
 /***/ }),
 

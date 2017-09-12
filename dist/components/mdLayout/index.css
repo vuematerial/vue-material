@@ -1385,7 +1385,7 @@
   }
 }
 
-@media (min-width: 1264px) {
+@media (min-width: 1265px) {
   .md-row-large-and-up {
     -ms-flex-direction: row;
     flex-direction: row;
@@ -1591,7 +1591,7 @@
   }
 }
 
-@media (min-width: 944px) {
+@media (min-width: 945px) {
   .md-row-medium-and-up {
     -ms-flex-direction: row;
     flex-direction: row;
@@ -1797,7 +1797,7 @@
   }
 }
 
-@media (min-width: 660px) {
+@media (min-width: 601px) {
   .md-row-small-and-up {
     -ms-flex-direction: row;
     flex-direction: row;

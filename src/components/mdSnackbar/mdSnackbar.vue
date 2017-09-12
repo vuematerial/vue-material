@@ -137,15 +137,19 @@
       },
       resumeTimeout() {
         this.timeoutStartedAt = Date.now();
-        if (this.pendingDuration === Infinity) return;
+        if (this.pendingDuration === Infinity) {
+          return;
+        }
         this.setCloseTimeout(this.pendingDuration);
       },
-      setCloseTimeout (delay) {
+      setCloseTimeout(delay) {
         this.clearCloseTimeout();
         this.closeTimeout = window.setTimeout(this.close, delay);
       },
       clearCloseTimeout() {
-        if (!this.closeTimeout) return;
+        if (!this.closeTimeout) {
+          return;
+        }
         window.clearTimeout(this.closeTimeout);
         this.closeTimeout = null;
       }
