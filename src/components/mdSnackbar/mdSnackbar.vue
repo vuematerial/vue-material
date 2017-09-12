@@ -106,7 +106,9 @@
         }
         this.active = true;
         this.$emit('open');
-        this.closeTimeout = window.setTimeout(this.close, this.mdDuration);
+        if (this.mdDuration !== Infinity) {
+          this.setCloseTimeout(this.mdDuration);
+        }
         this.timeoutStartedAt = Date.now();
       },
       close() {
@@ -124,18 +126,28 @@
           this.$emit('close');
           document.removeEventListener(transitionEndEventName, removeElement);
           document.addEventListener(transitionEndEventName, removeElement);
-          window.clearTimeout(this.closeTimeout);
+          this.clearCloseTimeout();
           this.pendingDuration = this.mdDuration;
         }
       },
       pauseTimeout() {
         this.pendingDuration = this.pendingDuration - (Date.now() - this.timeoutStartedAt);
         this.timeoutStartedAt = 0;
-        window.clearTimeout(this.closeTimeout);
+        this.clearCloseTimeout();
       },
       resumeTimeout() {
         this.timeoutStartedAt = Date.now();
-        this.closeTimeout = window.setTimeout(this.close, this.pendingDuration);
+        if (this.pendingDuration === Infinity) return;
+        this.setCloseTimeout(this.pendingDuration);
+      },
+      setCloseTimeout (delay) {
+        this.clearCloseTimeout();
+        this.closeTimeout = window.setTimeout(this.close, delay);
+      },
+      clearCloseTimeout() {
+        if (!this.closeTimeout) return;
+        window.clearTimeout(this.closeTimeout);
+        this.closeTimeout = null;
       }
     },
     mounted() {
@@ -148,7 +160,7 @@
       this.removedSnackBarElementEvent = new Event(this.removedSnackBarElementEventName);
     },
     beforeDestroy() {
-      window.clearTimeout(this.closeTimeout);
+      this.clearCloseTimeout();
       this.active = false;
       this.removeElement();
     }
