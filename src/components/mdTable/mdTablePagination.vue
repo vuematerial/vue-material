@@ -52,7 +52,7 @@
     data() {
       return {
         totalItems: 0,
-        currentPage: 1,
+        currentPage: parseInt(this.mdPage, 10),
         currentSize: parseInt(this.mdSize, 10)
       };
     },
