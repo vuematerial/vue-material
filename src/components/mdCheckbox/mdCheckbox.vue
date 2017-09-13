@@ -71,7 +71,6 @@
 
       isArray() {
         return Array.isArray(this.value);
-        //return typeof this.value === 'object';
       }
     }
   };
