@@ -2,6 +2,7 @@
   <textarea
     class="md-input"
     :value="value"
+    :name="name"
     :disabled="disabled"
     :required="required"
     :placeholder="placeholder"
