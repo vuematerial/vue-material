@@ -10,6 +10,11 @@ export const routes = [
     component: () => import(/* webpackChunkName: "tabs" */ './pages/Components/Tabs/Tabs.vue')
   },
   {
+    path: '/components/bottom-bar/:test?',
+    name: 'components/bottom-bar',
+    component: () => import(/* webpackChunkName: "bottom-bar" */ './pages/Components/BottomBar/BottomBar.vue')
+  },
+  {
     path: '/components/chips',
     name: 'components/chips',
     component: () => import(/* webpackChunkName: "chips" */ './pages/Components/Chips/Chips.vue')

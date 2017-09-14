@@ -1,6 +1,6 @@
 import MdApp from './MdApp'
-import MdTabs from './MdTabs'
 import MdAvatar from './MdAvatar'
+import MdBottomBar from './MdBottomBar'
 import MdButton from './MdButton'
 import MdCard from './MdCard'
 import MdCheckbox from './MdCheckbox'
@@ -19,12 +19,13 @@ import MdRipple from './MdRipple'
 import MdSpeedDial from './MdSpeedDial'
 import MdSubheader from './MdSubheader'
 import MdSwitch from './MdSwitch'
+import MdTabs from './MdTabs'
 import MdToolbar from './MdToolbar'
 
 export {
-  MdTabs,
   MdApp,
   MdAvatar,
+  MdBottomBar,
   MdButton,
   MdCard,
   MdCheckbox,
@@ -43,5 +44,6 @@ export {
   MdSpeedDial,
   MdSubheader,
   MdSwitch,
+  MdTabs,
   MdToolbar
 }

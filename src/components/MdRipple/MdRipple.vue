@@ -19,7 +19,7 @@ import MdComponent from 'core/MdComponent'
 export default new MdComponent({
   name: 'MdRipple',
   props: {
-    mdActive: Boolean,
+    mdActive: [Event, Boolean],
     mdDisabled: Boolean,
     mdCentered: Boolean
   },
@@ -46,10 +46,16 @@ export default new MdComponent({
   },
   watch: {
     mdActive (active) {
-      if (this.mdCentered && active) {
+      const isBoolean = typeof active === 'boolean'
+      const isEvent = active.constructor.name.toLowerCase() === 'mouseevent'
+
+      if (this.mdCentered && isBoolean && active) {
         this.startRipple({
           type: 'mousedown'
         })
+        this.$emit('update:mdActive', false)
+      } else if (isEvent) {
+        this.startRipple(active)
         this.$emit('update:mdActive', false)
       }
     }

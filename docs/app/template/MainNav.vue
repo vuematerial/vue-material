@@ -41,8 +41,9 @@ export default {
     })
   },
   created () {
-    this.$router.afterEach((to, from, next) => {
+    this.$router.beforeEach((to, from, next) => {
       this.hideMenu()
+      next()
     })
   }
 }

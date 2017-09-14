@@ -31,6 +31,9 @@ export default {
     avatar: {
       title: 'Avatar'
     },
+    bottomBar: {
+      title: 'Bottom Bar'
+    },
     card: {
       title: 'Card'
     },

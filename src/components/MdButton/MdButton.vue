@@ -45,11 +45,7 @@ export default new MdComponent({
         disabled: this.disabled,
         type: !this.href && (this.type || 'button')
       },
-      on: {
-        click: ($event) => {
-          this.$emit('click', $event)
-        }
-      }
+      on: this.$listeners
     }
     let tag = 'button'
 
@@ -100,8 +96,8 @@ export default new MdComponent({
     border: 0;
     border-radius: 0;
     transition: $md-transition-default;
-    transition-property: opacity, box-shadow, color, background-color;
-    will-change: opacity, box-shadow, color, background-color;
+    transition-property: opacity, box-shadow, color, background-color, font-size;
+    will-change: opacity, box-shadow, color, background-color, font-size;
     font-family: inherit;
     line-height: normal;
     text-transform: uppercase;

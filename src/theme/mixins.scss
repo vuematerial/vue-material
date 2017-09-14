@@ -145,6 +145,7 @@
  * @param {string} $property —  The css property
  * @param {string} $type —  A palette type
  * @param {string} $background —  The background color to analyse contrast
+ * @param {number} $opacity —  The opacity amount
  */
 
 @mixin md-theme-property ($property, $type, $background: "", $opacity: "") {
@@ -157,6 +158,48 @@
 
   @if $opacity != "" {
     $value: rgba($value, $opacity);
+  }
+
+  #{$property}: $value;
+  #{$property}: var(--md-theme-#{$md-current-theme}-#{$type}#{$variant}, $value);
+}
+
+/**
+ * Theme a single css property darkening the color by a certain amount
+ * ---
+ * Usage example:
+ *
+ * .md-button {
+ *   min-width: 88px;
+ *   height: 40px;
+ *   display: inline-block;
+ *   border-radius: 2px;
+ *   transition: .3s ease;
+ *
+ *   @include md-theme-component() {
+ *     @include md-theme-property-darken(background, primary, background, 10%);
+ *     @include md-theme-property(color, text-primary, primary);
+ *   }
+ * }
+ *
+ * ---
+ * @access public
+ * @param {string} $property —  The css property
+ * @param {string} $type —  A palette type
+ * @param {string} $background —  The background color to analyse contrast
+ * @param {string} $darken —  The darken amount to apply to the color
+ */
+
+@mixin md-theme-property-darken ($property, $type, $background: "", $darken: "") {
+  $value: md-theme($type, $background);
+  $variant: null;
+
+  @if $background != "" {
+    $variant: -on-#{$background};
+  }
+
+  @if $darken != "" {
+    $value: darken($value, $darken);
   }
 
   #{$property}: $value;
