@@ -19,10 +19,12 @@
         </div>
 
         <div class="md-toolbar-row">
-          <md-button>Home</md-button>
-          <md-button>Pages</md-button>
-          <md-button>Posts</md-button>
-          <md-button>Favorites</md-button>
+          <md-tabs class="md-primary">
+            <md-tab id="tab-home" md-label="Home"></md-tab>
+            <md-tab id="tab-pages" md-label="Pages"></md-tab>
+            <md-tab id="tab-posts" md-label="Posts"></md-tab>
+            <md-tab id="tab-favorites" md-label="Favorites"></md-tab>
+          </md-tabs>
         </div>
       </md-app-toolbar>
 
@@ -77,10 +79,6 @@
   .md-app {
     max-height: 400px;
     border: 1px solid rgba(#000, .12);
-  }
-
-  .md-toolbar-row:last-child .md-button {
-    margin: 4px 0;
   }
 
    // Demo purposes only

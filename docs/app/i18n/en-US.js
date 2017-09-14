@@ -88,6 +88,9 @@ export default {
     typography: {
       title: 'Typography'
     },
+    tabs: {
+      title: 'Tabs'
+    },
     error: {
       title: 'Not Found'
     }

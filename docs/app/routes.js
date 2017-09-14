@@ -5,6 +5,11 @@ Vue.use(VueRouter)
 
 export const routes = [
   {
+    path: '/components/tabs/:test?',
+    name: 'components/tabs',
+    component: () => import(/* webpackChunkName: "tabs" */ './pages/Components/Tabs/Tabs.vue')
+  },
+  {
     path: '/components/chips',
     name: 'components/chips',
     component: () => import(/* webpackChunkName: "chips" */ './pages/Components/Chips/Chips.vue')

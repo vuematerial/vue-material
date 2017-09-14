@@ -40,6 +40,7 @@ export default new MdComponent({
         }
       ],
       attrs: {
+        ...this.attrs,
         href: this.href,
         disabled: this.disabled,
         type: !this.href && (this.type || 'button')
@@ -102,6 +103,7 @@ export default new MdComponent({
     transition-property: opacity, box-shadow, color, background-color;
     will-change: opacity, box-shadow, color, background-color;
     font-family: inherit;
+    line-height: normal;
     text-transform: uppercase;
     text-decoration: none;
     vertical-align: top;

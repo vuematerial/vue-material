@@ -7,7 +7,7 @@ import { config, resolvePath } from '../config'
 const componentExampleLoader = require.resolve('./loaders/component-example-loader')
 
 export default {
-  devtool: '#cheap-module-eval-source-map',
+  devtool: '#source-map',
   entry: {
     docs: [
       './docs/app/index.js',

@@ -10,9 +10,9 @@ addons:
   code_climate:
     repo_token: 2bcf2bd351aa016cb70c405b0571f454f353d5150531fb92e6a111634c6e0feb
 before_install:
-  - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 0.27.5
+  - curl -o- -L https://yarnpkg.com/install.sh | bash -s
   - export PATH="$HOME/.yarn/bin:$PATH"
-  - npm i -g npm@5.3.0
+  - npm i -g npm
 install:
   - yarn add --dev babel-cli
   - yarn
