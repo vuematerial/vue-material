@@ -9,7 +9,6 @@
     "jest"
   ],
   "extends": [
-    "standard",
     "plugin:vue/recommended"
   ],
   "env": {

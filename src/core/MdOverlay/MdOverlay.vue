@@ -45,30 +45,24 @@ export default {
       this.isActive = true
     },
     removeNode (content) {
-      const { parentNode } = content
-
-      if (parentNode.contains(content)) {
-        parentNode.removeChild(content)
+      if (content.parentNode.contains(content)) {
+        content.parentNode.removeChild(content)
       }
     },
     detachFromBody () {
-      const { body } = document
-      const { overlayElement } = this
-      let container = this.mdBodyAttach ? body : this.parentElement
+      let container = this.mdBodyAttach ? document.body : this.parentElement
 
-      if (container.contains(overlayElement)) {
-        container.removeChild(overlayElement)
+      if (container.contains(this.overlayElement)) {
+        container.removeChild(this.overlayElement)
       }
 
       this.isActive = false
     },
     attachToBody () {
-      const { body } = document
-      const { overlayElement } = this
-      let container = this.mdBodyAttach ? body : this.parentElement
+      let container = this.mdBodyAttach ? document.body : this.parentElement
 
-      if (!container.contains(overlayElement)) {
-        container.appendChild(overlayElement)
+      if (!container.contains(this.overlayElement)) {
+        container.appendChild(this.overlayElement)
       }
     }
   },
