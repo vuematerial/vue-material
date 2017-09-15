@@ -11,7 +11,7 @@ exclude_paths:
 
 engines:
   eslint:
-    enabled: true
+    enabled: false
 
   duplication:
     enabled: true
