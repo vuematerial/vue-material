@@ -5,19 +5,19 @@
 </template>
 
 <script>
-export default {
-  name: 'MdCardArea',
-  props: {
-    mdInset: Boolean
-  },
-  computed: {
-    areaClasses () {
-      return {
-        'md-inset': this.mdInset
+  export default {
+    name: 'MdCardArea',
+    props: {
+      mdInset: Boolean
+    },
+    computed: {
+      areaClasses () {
+        return {
+          'md-inset': this.mdInset
+        }
       }
     }
   }
-}
 </script>
 
 <style lang="scss">

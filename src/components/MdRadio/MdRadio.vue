@@ -13,59 +13,59 @@
 </template>
 
 <script>
-import MdComponent from 'core/MdComponent'
-import MdUuid from 'core/MdUuid'
-import MdRipple from 'components/MdRipple/MdRipple'
+  import MdComponent from 'core/MdComponent'
+  import MdUuid from 'core/MdUuid'
+  import MdRipple from 'components/MdRipple/MdRipple'
 
-export default new MdComponent({
-  name: 'MdRadio',
-  components: {
-    MdRipple
-  },
-  props: {
-    model: [String, Number, Boolean],
-    value: {
-      type: [String, Number, Boolean],
-      default: 'on'
+  export default new MdComponent({
+    name: 'MdRadio',
+    components: {
+      MdRipple
     },
-    id: {
-      type: String,
-      default () {
-        return 'md-radio-' + MdUuid()
+    props: {
+      model: [String, Number, Boolean],
+      value: {
+        type: [String, Number, Boolean],
+        default: 'on'
+      },
+      id: {
+        type: String,
+        default () {
+          return 'md-radio-' + MdUuid()
+        }
+      },
+      name: [String, Number],
+      required: Boolean,
+      disabled: Boolean
+    },
+    model: {
+      prop: 'model',
+      event: 'change'
+    },
+    data: () => ({
+      rippleActive: false
+    }),
+    computed: {
+      isSelected () {
+        return this.model === this.value
+      },
+      radioClasses () {
+        return {
+          'md-checked': this.isSelected,
+          'md-disabled': this.disabled,
+          'md-required': this.required
+        }
       }
     },
-    name: [String, Number],
-    required: Boolean,
-    disabled: Boolean
-  },
-  model: {
-    prop: 'model',
-    event: 'change'
-  },
-  data: () => ({
-    rippleActive: false
-  }),
-  computed: {
-    isSelected () {
-      return this.model === this.value
-    },
-    radioClasses () {
-      return {
-        'md-checked': this.isSelected,
-        'md-disabled': this.disabled,
-        'md-required': this.required
+    methods: {
+      toggleCheck () {
+        if (!this.disabled) {
+          this.rippleActive = true
+          this.$emit('change', this.value)
+        }
       }
     }
-  },
-  methods: {
-    toggleCheck () {
-      if (!this.disabled) {
-        this.rippleActive = true
-        this.$emit('change', this.value)
-      }
-    }
-  }
-})
+  })
 </script>
 
 <style lang="scss">

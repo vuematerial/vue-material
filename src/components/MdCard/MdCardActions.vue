@@ -5,20 +5,20 @@
 </template>
 
 <script>
-import MdPropValidator from 'core/MdPropValidator'
+  import MdPropValidator from 'core/MdPropValidator'
 
-const alignments = ['left', 'right', 'space-between']
+  const alignments = ['left', 'right', 'space-between']
 
-export default {
-  name: 'MdCardActions',
-  props: {
-    mdAlignment: {
-      type: String,
-      default: 'right',
-      ...MdPropValidator('md-alignment', alignments)
+  export default {
+    name: 'MdCardActions',
+    props: {
+      mdAlignment: {
+        type: String,
+        default: 'right',
+        ...MdPropValidator('md-alignment', alignments)
+      }
     }
   }
-}
 </script>
 
 <style lang="scss">

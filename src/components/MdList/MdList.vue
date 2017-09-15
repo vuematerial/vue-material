@@ -5,11 +5,11 @@
 </template>
 
 <script>
-import MdComponent from 'core/MdComponent'
+  import MdComponent from 'core/MdComponent'
 
-export default new MdComponent({
-  name: 'MdList'
-})
+  export default new MdComponent({
+    name: 'MdList'
+  })
 </script>
 
 <style lang="scss">

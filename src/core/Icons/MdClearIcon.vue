@@ -8,7 +8,7 @@
 </template>
 
 <script>
-export default {
-  name: 'MdClearIcon'
-}
+  export default {
+    name: 'MdClearIcon'
+  }
 </script>

@@ -5,17 +5,17 @@
 </template>
 
 <script>
-export default {
-  name: 'MdSpeedDialTarget',
-  inject: ['MdSpeedDial'],
-  methods: {
-    handleClick () {
-      if (this.MdSpeedDial.event === 'click') {
-        this.MdSpeedDial.active = !this.MdSpeedDial.active
+  export default {
+    name: 'MdSpeedDialTarget',
+    inject: ['MdSpeedDial'],
+    methods: {
+      handleClick () {
+        if (this.MdSpeedDial.event === 'click') {
+          this.MdSpeedDial.active = !this.MdSpeedDial.active
+        }
       }
     }
   }
-}
 </script>
 
 <style lang="scss">

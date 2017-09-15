@@ -5,53 +5,53 @@
 </template>
 
 <script>
-import MdComponent from 'core/MdComponent'
-import MdPropValidator from 'core/MdPropValidator'
+  import MdComponent from 'core/MdComponent'
+  import MdPropValidator from 'core/MdPropValidator'
 
-export default new MdComponent({
-  name: 'MdSpeedDial',
-  props: {
-    mdEvent: {
-      type: String,
-      default: 'hover',
-      ...MdPropValidator('md-event', ['click', 'hover'])
-    },
-    mdDirection: {
-      type: String,
-      default: 'top',
-      ...MdPropValidator('md-direction', ['top', 'bottom'])
-    },
-    mdEffect: {
-      type: String,
-      default: 'fling',
-      ...MdPropValidator('md-effect', ['fling', 'scale', 'opacity'])
-    }
-  },
-  data () {
-    return {
-      MdSpeedDial: {
-        active: false,
-        event: this.mdEvent,
-        direction: this.mdDirection
+  export default new MdComponent({
+    name: 'MdSpeedDial',
+    props: {
+      mdEvent: {
+        type: String,
+        default: 'hover',
+        ...MdPropValidator('md-event', ['click', 'hover'])
+      },
+      mdDirection: {
+        type: String,
+        default: 'top',
+        ...MdPropValidator('md-direction', ['top', 'bottom'])
+      },
+      mdEffect: {
+        type: String,
+        default: 'fling',
+        ...MdPropValidator('md-effect', ['fling', 'scale', 'opacity'])
       }
-    }
-  },
-  computed: {
-    speedDialClasses () {
+    },
+    data () {
       return {
-        'md-active': this.MdSpeedDial.active,
-        'md-with-hover': this.mdEvent === 'hover',
-        ['md-direction-' + this.mdDirection]: true,
-        ['md-effect-' + this.mdEffect]: true
+        MdSpeedDial: {
+          active: false,
+          event: this.mdEvent,
+          direction: this.mdDirection
+        }
+      }
+    },
+    computed: {
+      speedDialClasses () {
+        return {
+          'md-active': this.MdSpeedDial.active,
+          'md-with-hover': this.mdEvent === 'hover',
+          ['md-direction-' + this.mdDirection]: true,
+          ['md-effect-' + this.mdEffect]: true
+        }
+      }
+    },
+    provide () {
+      return {
+        MdSpeedDial: this.MdSpeedDial
       }
     }
-  },
-  provide () {
-    return {
-      MdSpeedDial: this.MdSpeedDial
-    }
-  }
-})
+  })
 </script>
 
 <style lang="scss">

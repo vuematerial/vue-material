@@ -13,17 +13,6 @@
   "plugins": [
     "syntax-dynamic-import"
   ],
-  "env": {
-    "test": {
-      "presets": [
-        "es2015",
-        "stage-3"
-      ],
-      "plugins": [
-        "transform-runtime"
-      ]
-    }
-  },
   "ignore": [
     "dist/*.js"
   ]

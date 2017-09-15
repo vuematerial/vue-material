@@ -7,80 +7,80 @@
 </template>
 
 <script>
-import MdComponent from 'core/MdComponent'
-import MdOverlay from 'core/MdOverlay/MdOverlay'
-import MdPropValidator from 'core/MdPropValidator'
+  import MdComponent from 'core/MdComponent'
+  import MdOverlay from 'core/MdOverlay/MdOverlay'
+  import MdPropValidator from 'core/MdPropValidator'
 
-const drawerPermanentTypes = [
-  'full',
-  'clipped',
-  'card'
-]
+  const drawerPermanentTypes = [
+    'full',
+    'clipped',
+    'card'
+  ]
 
-export default new MdComponent({
-  name: 'MdDrawer',
-  components: {
-    MdOverlay
-  },
-  props: {
-    mdLeft: Boolean,
-    mdRight: Boolean,
-    mdPermanent: {
-      type: String,
-      ...MdPropValidator('md-alignment', drawerPermanentTypes)
+  export default new MdComponent({
+    name: 'MdDrawer',
+    components: {
+      MdOverlay
     },
-    mdPersistent: Boolean,
-    mdVisible: Boolean,
-    mdFixed: Boolean
-  },
-  watch: {
-    mdVisible (visible) {
-      if (visible) {
-        this.$emit('md-opened')
-      } else {
-        this.$emit('md-closed')
+    props: {
+      mdLeft: Boolean,
+      mdRight: Boolean,
+      mdPermanent: {
+        type: String,
+        ...MdPropValidator('md-alignment', drawerPermanentTypes)
+      },
+      mdPersistent: Boolean,
+      mdVisible: Boolean,
+      mdFixed: Boolean
+    },
+    watch: {
+      mdVisible (visible) {
+        if (visible) {
+          this.$emit('md-opened')
+        } else {
+          this.$emit('md-closed')
+        }
+      }
+    },
+    computed: {
+      drawerClasses () {
+        let classes = {
+          'md-left': this.mdLeft,
+          'md-right': this.mdRight,
+          'md-temporary': this.isTemporary,
+          'md-persistent': this.mdPersistent,
+          'md-permanent': this.mdPermanent,
+          'md-active': this.mdVisible,
+          'md-fixed': this.mdFixed
+        }
+
+        if (this.mdPermanent) {
+          classes['md-permanent-' + this.mdPermanent] = true
+        }
+
+        return classes
+      },
+      isTemporary () {
+        return !this.mdPermanent && !this.mdPersistent
+      },
+      mode () {
+        if (this.mdPersistent) {
+          return 'persistent'
+        }
+
+        if (this.mdPermanent) {
+          return 'permanent'
+        }
+
+        return 'temporary'
+      }
+    },
+    methods: {
+      closeDrawer () {
+        this.$emit('update:mdVisible', false)
       }
     }
-  },
-  computed: {
-    drawerClasses () {
-      let classes = {
-        'md-left': this.mdLeft,
-        'md-right': this.mdRight,
-        'md-temporary': this.isTemporary,
-        'md-persistent': this.mdPersistent,
-        'md-permanent': this.mdPermanent,
-        'md-active': this.mdVisible,
-        'md-fixed': this.mdFixed
-      }
-
-      if (this.mdPermanent) {
-        classes['md-permanent-' + this.mdPermanent] = true
-      }
-
-      return classes
-    },
-    isTemporary () {
-      return !this.mdPermanent && !this.mdPersistent
-    },
-    mode () {
-      if (this.mdPersistent) {
-        return 'persistent'
-      }
-
-      if (this.mdPermanent) {
-        return 'permanent'
-      }
-
-      return 'temporary'
-    }
-  },
-  methods: {
-    closeDrawer () {
-      this.$emit('update:mdVisible', false)
-    }
-  }
-})
+  })
 </script>
 
 <style lang="scss">

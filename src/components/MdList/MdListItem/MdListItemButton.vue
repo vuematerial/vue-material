@@ -7,12 +7,12 @@
 </template>
 
 <script>
-import MdListItemMixin from './MdListItemMixin'
+  import MdListItemMixin from './MdListItemMixin'
 
-export default {
-  name: 'MdListItemButton',
-  mixins: [MdListItemMixin]
-}
+  export default {
+    name: 'MdListItemButton',
+    mixins: [MdListItemMixin]
+  }
 </script>
 
 <style lang="scss">

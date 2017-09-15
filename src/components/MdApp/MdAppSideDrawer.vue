@@ -12,13 +12,13 @@
 </template>
 
 <script>
-import MdComponent from 'core/MdComponent'
-import MdAppMixin from './MdAppMixin'
+  import MdComponent from 'core/MdComponent'
+  import MdAppMixin from './MdAppMixin'
 
-export default new MdComponent({
-  name: 'MdAppInternalSideDrawer',
-  mixins: [MdAppMixin]
-})
+  export default new MdComponent({
+    name: 'MdAppInternalSideDrawer',
+    mixins: [MdAppMixin]
+  })
 </script>
 
 <style lang="scss">

@@ -35,243 +35,243 @@
 </template>
 
 <script>
-import MdComponent from 'core/MdComponent'
-import MdPropValidator from 'core/MdPropValidator'
-import MdObserveElement from 'core/MdObserveElement'
-import MdContent from 'components/MdContent/MdContent'
+  import MdComponent from 'core/MdComponent'
+  import MdPropValidator from 'core/MdPropValidator'
+  import MdObserveElement from 'core/MdObserveElement'
+  import MdContent from 'components/MdContent/MdContent'
 
-export default new MdComponent({
-  name: 'MdTabs',
-  components: {
-    MdContent
-  },
-  props: {
-    mdAlignment: {
-      type: String,
-      default: 'left',
-      ...MdPropValidator('md-alignment', ['left', 'right', 'centered', 'fixed'])
+  export default new MdComponent({
+    name: 'MdTabs',
+    components: {
+      MdContent
     },
-    mdElevation: {
-      type: [Number, String],
-      default: 0
+    props: {
+      mdAlignment: {
+        type: String,
+        default: 'left',
+        ...MdPropValidator('md-alignment', ['left', 'right', 'centered', 'fixed'])
+      },
+      mdElevation: {
+        type: [Number, String],
+        default: 0
+      },
+      mdSyncRoute: Boolean,
+      mdDynamicHeight: Boolean,
+      mdActiveTab: [String, Number]
     },
-    mdSyncRoute: Boolean,
-    mdDynamicHeight: Boolean,
-    mdActiveTab: [String, Number]
-  },
-  data: () => ({
-    resizeObserver: null,
-    activeTab: 0,
-    activeTabIndex: 0,
-    indicatorStyles: {},
-    indicatorClass: null,
-    noTransition: true,
-    containerStyles: {},
-    contentStyles: {
-      height: '0px'
-    },
-    hasContent: false,
-    MdTabs: {
-      items: {}
-    }
-  }),
-  provide () {
-    return {
-      MdTabs: this.MdTabs
-    }
-  },
-  computed: {
-    tabsClasses () {
+    data: () => ({
+      resizeObserver: null,
+      activeTab: 0,
+      activeTabIndex: 0,
+      indicatorStyles: {},
+      indicatorClass: null,
+      noTransition: true,
+      containerStyles: {},
+      contentStyles: {
+        height: '0px'
+      },
+      hasContent: false,
+      MdTabs: {
+        items: {}
+      }
+    }),
+    provide () {
       return {
-        ['md-alignment-' + this.mdAlignment]: true,
-        'md-no-transition': this.noTransition,
-        'md-dynamic-height': this.mdDynamicHeight
+        MdTabs: this.MdTabs
       }
     },
-    navigationClasses () {
-      return 'md-elevation-' + this.mdElevation
-    }
-  },
-  watch: {
-    MdTabs: {
-      deep: true,
-      handler () {
-        this.setHasContent()
+    computed: {
+      tabsClasses () {
+        return {
+          ['md-alignment-' + this.mdAlignment]: true,
+          'md-no-transition': this.noTransition,
+          'md-dynamic-height': this.mdDynamicHeight
+        }
+      },
+      navigationClasses () {
+        return 'md-elevation-' + this.mdElevation
       }
     },
-    async activeTab () {
-      await this.$nextTick()
-      this.setIndicatorStyles()
-      this.setActiveTabIndex()
-      this.calculateTabPos()
-    },
-    mdActiveTab (tab) {
-      this.activeTab = tab
-      this.$emit('md-changed', tab)
-    },
-    async mdAlignment () {
-      await this.$nextTick()
-      this.setIndicatorStyles()
-    }
-  },
-  methods: {
-    isAssetIcon (icon) {
-      return /\w+[/\\.]\w+/.test(icon)
-    },
-    hasActiveTab () {
-      return this.activeTab || this.mdActiveTab
-    },
-    getItemsAndKeys () {
-      const items = this.MdTabs.items
-
-      return {
-        items,
-        keys: Object.keys(items)
-      }
-    },
-    setActiveTab (index) {
-      this.activeTab = index
-      this.$emit('md-changed', index)
-    },
-    setActiveTabIndex () {
-      const activeButton = this.$el.querySelector('.md-button.md-active')
-
-      if (activeButton) {
-        this.activeTabIndex = [].indexOf.call(activeButton.parentNode.childNodes, activeButton)
-      }
-    },
-    setActiveTabByIndex (index) {
-      const { keys } = this.getItemsAndKeys()
-
-      if (!this.hasActiveTab()) {
-        this.activeTab = keys[index]
-      }
-    },
-    setActiveTabByRoute () {
-      const { items, keys } = this.getItemsAndKeys()
-      let tabIndex = null
-
-      if (this.$router) {
-        keys.forEach((key, index) => {
-          const item = items[key]
-          const toProp = item.props.to
-
-          if (toProp && toProp === this.$route.path) {
-            tabIndex = index
-          }
-        })
-      }
-
-      if (!this.hasActiveTab() && !tabIndex) {
-        this.activeTab = keys[0]
-      } else {
-        this.activeTab = keys[tabIndex]
-      }
-    },
-    setHasContent () {
-      const { items, keys } = this.getItemsAndKeys()
-
-      this.hasContent = keys.some(key => items[key].hasContent)
-    },
-    setIndicatorStyles () {
-      window.requestAnimationFrame(async () => {
+    watch: {
+      MdTabs: {
+        deep: true,
+        handler () {
+          this.setHasContent()
+        }
+      },
+      async activeTab () {
         await this.$nextTick()
+        this.setIndicatorStyles()
+        this.setActiveTabIndex()
+        this.calculateTabPos()
+      },
+      mdActiveTab (tab) {
+        this.activeTab = tab
+        this.$emit('md-changed', tab)
+      },
+      async mdAlignment () {
+        await this.$nextTick()
+        this.setIndicatorStyles()
+      }
+    },
+    methods: {
+      isAssetIcon (icon) {
+        return /\w+[/\\.]\w+/.test(icon)
+      },
+      hasActiveTab () {
+        return this.activeTab || this.mdActiveTab
+      },
+      getItemsAndKeys () {
+        const items = this.MdTabs.items
 
+        return {
+          items,
+          keys: Object.keys(items)
+        }
+      },
+      setActiveTab (index) {
+        this.activeTab = index
+        this.$emit('md-changed', index)
+      },
+      setActiveTabIndex () {
         const activeButton = this.$el.querySelector('.md-button.md-active')
 
-        if (activeButton && this.$refs.indicator) {
-          const buttonWidth = activeButton.offsetWidth
-          const buttonLeft = activeButton.offsetLeft
-          const indicatorLeft = this.$refs.indicator.offsetLeft
-
-          if (indicatorLeft < buttonLeft) {
-            this.indicatorClass = 'md-tabs-indicator-right'
-          } else {
-            this.indicatorClass = 'md-tabs-indicator-left'
-          }
-
-          this.indicatorStyles = {
-            left: `${buttonLeft}px`,
-            right: `calc(100% - ${buttonWidth + buttonLeft}px)`
-          }
+        if (activeButton) {
+          this.activeTabIndex = [].indexOf.call(activeButton.parentNode.childNodes, activeButton)
         }
-      })
-    },
-    calculateTabPos () {
-      if (this.hasContent) {
-        const tabElement = this.$el.querySelector(`.md-tab:nth-child(${this.activeTabIndex + 1})`)
+      },
+      setActiveTabByIndex (index) {
+        const { keys } = this.getItemsAndKeys()
 
-        this.contentStyles = {
-          height: `${tabElement.offsetHeight}px`
+        if (!this.hasActiveTab()) {
+          this.activeTab = keys[index]
+        }
+      },
+      setActiveTabByRoute () {
+        const { items, keys } = this.getItemsAndKeys()
+        let tabIndex = null
+
+        if (this.$router) {
+          keys.forEach((key, index) => {
+            const item = items[key]
+            const toProp = item.props.to
+
+            if (toProp && toProp === this.$route.path) {
+              tabIndex = index
+            }
+          })
         }
 
-        this.containerStyles = {
-          transform: `translate3D(${-this.activeTabIndex * 100}%, 0, 0)`
+        if (!this.hasActiveTab() && !tabIndex) {
+          this.activeTab = keys[0]
+        } else {
+          this.activeTab = keys[tabIndex]
         }
-      }
-    },
-    setupObservers () {
-      if ('ResizeObserver' in window) {
-        this.resizeObserver = new window.ResizeObserver(this.setIndicatorStyles)
-        this.resizeObserver.observe(this.$el)
-      } else {
-        this.resizeObserver = MdObserveElement(this.$el.querySelector('.md-tabs-content'), {
-          childList: true,
-          characterData: true,
-          subtree: true
-        }, () => {
-          this.setIndicatorStyles()
-          this.calculateTabPos()
-        })
+      },
+      setHasContent () {
+        const { items, keys } = this.getItemsAndKeys()
 
-        window.addEventListener('resize', this.setIndicatorStyles)
-      }
-    },
-    setupWatchers () {
-      if (this.mdSyncRoute) {
-        this.$watch('$route', {
-          deep: true,
-          handler () {
-            if (this.mdSyncRoute) {
-              this.setActiveTabByRoute()
+        this.hasContent = keys.some(key => items[key].hasContent)
+      },
+      setIndicatorStyles () {
+        window.requestAnimationFrame(async () => {
+          await this.$nextTick()
+
+          const activeButton = this.$el.querySelector('.md-button.md-active')
+
+          if (activeButton && this.$refs.indicator) {
+            const buttonWidth = activeButton.offsetWidth
+            const buttonLeft = activeButton.offsetLeft
+            const indicatorLeft = this.$refs.indicator.offsetLeft
+
+            if (indicatorLeft < buttonLeft) {
+              this.indicatorClass = 'md-tabs-indicator-right'
+            } else {
+              this.indicatorClass = 'md-tabs-indicator-left'
+            }
+
+            this.indicatorStyles = {
+              left: `${buttonLeft}px`,
+              right: `calc(100% - ${buttonWidth + buttonLeft}px)`
             }
           }
         })
+      },
+      calculateTabPos () {
+        if (this.hasContent) {
+          const tabElement = this.$el.querySelector(`.md-tab:nth-child(${this.activeTabIndex + 1})`)
+
+          this.contentStyles = {
+            height: `${tabElement.offsetHeight}px`
+          }
+
+          this.containerStyles = {
+            transform: `translate3D(${-this.activeTabIndex * 100}%, 0, 0)`
+          }
+        }
+      },
+      setupObservers () {
+        if ('ResizeObserver' in window) {
+          this.resizeObserver = new window.ResizeObserver(this.setIndicatorStyles)
+          this.resizeObserver.observe(this.$el)
+        } else {
+          this.resizeObserver = MdObserveElement(this.$el.querySelector('.md-tabs-content'), {
+            childList: true,
+            characterData: true,
+            subtree: true
+          }, () => {
+            this.setIndicatorStyles()
+            this.calculateTabPos()
+          })
+
+          window.addEventListener('resize', this.setIndicatorStyles)
+        }
+      },
+      setupWatchers () {
+        if (this.mdSyncRoute) {
+          this.$watch('$route', {
+            deep: true,
+            handler () {
+              if (this.mdSyncRoute) {
+                this.setActiveTabByRoute()
+              }
+            }
+          })
+        }
       }
+    },
+    created () {
+      this.setHasContent()
+      this.activeTab = this.mdActiveTab
+    },
+    async mounted () {
+      await this.$nextTick()
+
+      if (this.mdSyncRoute) {
+        this.setActiveTabByRoute()
+      } else {
+        this.setActiveTabByIndex(0)
+      }
+
+      await this.$nextTick()
+
+      this.setActiveTabIndex()
+      this.calculateTabPos()
+
+      window.setTimeout(() => {
+        this.noTransition = false
+        this.setupObservers()
+        this.setupWatchers()
+      }, 100)
+    },
+    beforeDestroy () {
+      if (this.resizeObserver) {
+        this.resizeObserver.disconnect()
+      }
+
+      window.removeEventListener('resize', this.setIndicatorStyles)
     }
-  },
-  created () {
-    this.setHasContent()
-    this.activeTab = this.mdActiveTab
-  },
-  async mounted () {
-    await this.$nextTick()
-
-    if (this.mdSyncRoute) {
-      this.setActiveTabByRoute()
-    } else {
-      this.setActiveTabByIndex(0)
-    }
-
-    await this.$nextTick()
-
-    this.setActiveTabIndex()
-    this.calculateTabPos()
-
-    window.setTimeout(() => {
-      this.noTransition = false
-      this.setupObservers()
-      this.setupWatchers()
-    }, 100)
-  },
-  beforeDestroy () {
-    if (this.resizeObserver) {
-      this.resizeObserver.disconnect()
-    }
-
-    window.removeEventListener('resize', this.setIndicatorStyles)
-  }
-})
+  })
 </script>
 
 <style lang="scss">

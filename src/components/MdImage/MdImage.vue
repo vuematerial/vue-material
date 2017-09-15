@@ -13,12 +13,12 @@
 </style>
 
 <script lang="babel">
-import MdComponent from 'core/MdComponent'
+  import MdComponent from 'core/MdComponent'
 
-export default new MdComponent({
-  name: 'MdImage',
-  props: {
-    mdSrc: String
-  }
-})
+  export default new MdComponent({
+    name: 'MdImage',
+    props: {
+      mdSrc: String
+    }
+  })
 </script>

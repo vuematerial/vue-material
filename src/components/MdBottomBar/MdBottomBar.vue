@@ -7,127 +7,127 @@
 </template>
 
 <script>
-import MdComponent from 'core/MdComponent'
-import MdPropValidator from 'core/MdPropValidator'
-import MdRipple from 'components/MdRipple/MdRipple'
+  import MdComponent from 'core/MdComponent'
+  import MdPropValidator from 'core/MdPropValidator'
+  import MdRipple from 'components/MdRipple/MdRipple'
 
-export default new MdComponent({
-  name: 'MdBottomBar',
-  components: {
-    MdRipple
-  },
-  props: {
-    mdSyncRoute: Boolean,
-    mdActiveItem: [String, Number],
-    mdType: {
-      type: String,
-      default: 'fixed',
-      ...MdPropValidator('md-type', ['fixed', 'shift'])
-    }
-  },
-  data: () => ({
-    MdBottomBar: {
-      mouseEvent: null,
-      activeItem: null,
-      items: {}
-    }
-  }),
-  provide () {
-    return {
-      MdBottomBar: this.MdBottomBar
-    }
-  },
-  computed: {
-    activeItem () {
-      return this.MdBottomBar.activeItem
+  export default new MdComponent({
+    name: 'MdBottomBar',
+    components: {
+      MdRipple
     },
-    barClasses () {
+    props: {
+      mdSyncRoute: Boolean,
+      mdActiveItem: [String, Number],
+      mdType: {
+        type: String,
+        default: 'fixed',
+        ...MdPropValidator('md-type', ['fixed', 'shift'])
+      }
+    },
+    data: () => ({
+      MdBottomBar: {
+        mouseEvent: null,
+        activeItem: null,
+        items: {}
+      }
+    }),
+    provide () {
       return {
-        ['md-type-' + this.mdType]: true
-      }
-    }
-  },
-  watch: {
-    activeItem () {
-      this.$emit('md-changed', this.activeItem)
-    }
-  },
-  methods: {
-    setupWatchers () {
-      if (this.mdSyncRoute) {
-        this.$watch('$route', {
-          deep: true,
-          handler () {
-            if (this.mdSyncRoute) {
-              this.setActiveItemByRoute()
-            }
-          }
-        })
+        MdBottomBar: this.MdBottomBar
       }
     },
-    hasActiveItem () {
-      return this.MdBottomBar.activeItem || this.mdActiveItem
-    },
-    getItemsAndKeys () {
-      const items = this.MdBottomBar.items
-
-      return {
-        items,
-        keys: Object.keys(items)
-      }
-    },
-    setActiveItemByIndex (index) {
-      const { keys } = this.getItemsAndKeys()
-
-      if (!this.mdActiveItem) {
-        this.MdBottomBar.activeItem = keys[index]
-      } else {
-        this.MdBottomBar.activeItem = this.mdActiveItem
-      }
-    },
-    setActiveItemByRoute () {
-      const { items, keys } = this.getItemsAndKeys()
-      let tabIndex = null
-
-      if (this.$router) {
-        keys.forEach((key, index) => {
-          const item = items[key]
-          const toProp = item.props.to
-
-          if (toProp && toProp === this.$route.path) {
-            tabIndex = index
-          }
-        })
-      }
-
-      if (!this.hasActiveItem()) {
-        if (keys[tabIndex]) {
-          this.MdBottomBar.activeItem = keys[tabIndex]
-        } else {
-          this.MdBottomBar.activeItem = keys[0]
+    computed: {
+      activeItem () {
+        return this.MdBottomBar.activeItem
+      },
+      barClasses () {
+        return {
+          ['md-type-' + this.mdType]: true
         }
-      } else if (keys[tabIndex]) {
-        this.MdBottomBar.activeItem = keys[tabIndex]
       }
-    }
-  },
-  created () {
-    this.MdBottomBar.type = this.mdType
-  },
-  async mounted () {
-    await this.$nextTick()
+    },
+    watch: {
+      activeItem () {
+        this.$emit('md-changed', this.activeItem)
+      }
+    },
+    methods: {
+      setupWatchers () {
+        if (this.mdSyncRoute) {
+          this.$watch('$route', {
+            deep: true,
+            handler () {
+              if (this.mdSyncRoute) {
+                this.setActiveItemByRoute()
+              }
+            }
+          })
+        }
+      },
+      hasActiveItem () {
+        return this.MdBottomBar.activeItem || this.mdActiveItem
+      },
+      getItemsAndKeys () {
+        const items = this.MdBottomBar.items
 
-    if (this.mdSyncRoute) {
-      this.setActiveItemByRoute()
-    } else {
-      this.setActiveItemByIndex(0)
-    }
+        return {
+          items,
+          keys: Object.keys(items)
+        }
+      },
+      setActiveItemByIndex (index) {
+        const { keys } = this.getItemsAndKeys()
 
-    window.setTimeout(() => {
-      this.setupWatchers()
-    }, 100)
-  }
-})
+        if (!this.mdActiveItem) {
+          this.MdBottomBar.activeItem = keys[index]
+        } else {
+          this.MdBottomBar.activeItem = this.mdActiveItem
+        }
+      },
+      setActiveItemByRoute () {
+        const { items, keys } = this.getItemsAndKeys()
+        let tabIndex = null
+
+        if (this.$router) {
+          keys.forEach((key, index) => {
+            const item = items[key]
+            const toProp = item.props.to
+
+            if (toProp && toProp === this.$route.path) {
+              tabIndex = index
+            }
+          })
+        }
+
+        if (!this.hasActiveItem()) {
+          if (keys[tabIndex]) {
+            this.MdBottomBar.activeItem = keys[tabIndex]
+          } else {
+            this.MdBottomBar.activeItem = keys[0]
+          }
+        } else if (keys[tabIndex]) {
+          this.MdBottomBar.activeItem = keys[tabIndex]
+        }
+      }
+    },
+    created () {
+      this.MdBottomBar.type = this.mdType
+    },
+    async mounted () {
+      await this.$nextTick()
+
+      if (this.mdSyncRoute) {
+        this.setActiveItemByRoute()
+      } else {
+        this.setActiveItemByIndex(0)
+      }
+
+      window.setTimeout(() => {
+        this.setupWatchers()
+      }, 100)
+    }
+  })
 </script>
 
 <style lang="scss">

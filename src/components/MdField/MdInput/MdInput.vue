@@ -12,56 +12,56 @@
 </template>
 
 <script>
-import MdComponent from 'core/MdComponent'
-import MdUuid from 'core/MdUuid'
-import MdFieldMixin from '../MdFieldMixin'
+  import MdComponent from 'core/MdComponent'
+  import MdUuid from 'core/MdUuid'
+  import MdFieldMixin from '../MdFieldMixin'
 
-export default new MdComponent({
-  name: 'MdInput',
-  mixins: [MdFieldMixin],
-  inject: ['MdField'],
-  props: {
-    id: {
-      type: String,
-      default () {
-        return 'md-input-' + MdUuid()
+  export default new MdComponent({
+    name: 'MdInput',
+    mixins: [MdFieldMixin],
+    inject: ['MdField'],
+    props: {
+      id: {
+        type: String,
+        default () {
+          return 'md-input-' + MdUuid()
+        }
+      },
+      type: {
+        type: String,
+        default: 'text'
       }
     },
-    type: {
-      type: String,
-      default: 'text'
-    }
-  },
-  computed: {
-    toggleType () {
-      return this.MdField.togglePassword
-    }
-  },
-  watch: {
-    type (type) {
+    computed: {
+      toggleType () {
+        return this.MdField.togglePassword
+      }
+    },
+    watch: {
+      type (type) {
+        this.setPassword()
+      },
+      toggleType (toggle) {
+        if (toggle) {
+          this.setTypeText()
+        } else {
+          this.setTypePassword()
+        }
+      }
+    },
+    methods: {
+      setPassword () {
+        this.MdField.password = this.type === 'password'
+      },
+      setTypePassword () {
+        this.$el.type = 'password'
+      },
+      setTypeText () {
+        this.$el.type = 'text'
+      }
+    },
+    created () {
       this.setPassword()
-    },
-    toggleType (toggle) {
-      if (toggle) {
-        this.setTypeText()
-      } else {
-        this.setTypePassword()
-      }
     }
-  },
-  methods: {
-    setPassword () {
-      this.MdField.password = this.type === 'password'
-    },
-    setTypePassword () {
-      this.$el.type = 'password'
-    },
-    setTypeText () {
-      this.$el.type = 'text'
-    }
-  },
-  created () {
-    this.setPassword()
-  }
-})
+  })
 </script>

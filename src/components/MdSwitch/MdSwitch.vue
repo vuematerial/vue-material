@@ -15,22 +15,22 @@
 </template>
 
 <script>
-import MdComponent from 'core/MdComponent'
-import MdCheckboxMixin from 'components/MdCheckbox/MdCheckboxMixin'
-import MdUuid from 'core/MdUuid'
+  import MdComponent from 'core/MdComponent'
+  import MdCheckboxMixin from 'components/MdCheckbox/MdCheckboxMixin'
+  import MdUuid from 'core/MdUuid'
 
-export default new MdComponent({
-  name: 'MdSwitch',
-  mixins: [MdCheckboxMixin],
-  props: {
-    id: {
-      type: String,
-      default () {
-        return 'md-switch-' + MdUuid()
+  export default new MdComponent({
+    name: 'MdSwitch',
+    mixins: [MdCheckboxMixin],
+    props: {
+      id: {
+        type: String,
+        default () {
+          return 'md-switch-' + MdUuid()
+        }
       }
     }
-  }
-})
+  })
 </script>
 
 <style lang="scss">

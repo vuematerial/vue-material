@@ -11,7 +11,8 @@ test('should render the theme class', async () => {
   expect(wrapper.hasClass('md-button')).toBe(true)
   expect(wrapper.hasClass('md-theme-alt')).toBe(true)
   expect(wrapper.is('button')).toBe(true)
-  expect(wrapper.hasAttribute('type', 'button')).toBe(true)
+  expect(wrapper.hasAttribute('type')).toBe(true)
+  expect(wrapper.getAttribute('type')).toBe('button')
 })
 
 test('should render tag <button> with type "button"', async () => {
@@ -22,7 +23,8 @@ test('should render tag <button> with type "button"', async () => {
 
   expect(wrapper.hasClass('md-button')).toBe(true)
   expect(wrapper.is('button')).toBe(true)
-  expect(wrapper.hasAttribute('type', 'button')).toBe(true)
+  expect(wrapper.hasAttribute('type')).toBe(true)
+  expect(wrapper.getAttribute('type')).toBe('button')
 })
 
 test('should render tag <button> with type "submit"', async () => {
@@ -31,7 +33,8 @@ test('should render tag <button> with type "submit"', async () => {
 
   expect(wrapper.hasClass('md-button')).toBe(true)
   expect(wrapper.is('button')).toBe(true)
-  expect(wrapper.hasAttribute('type', 'submit')).toBe(true)
+  expect(wrapper.hasAttribute('type')).toBe(true)
+  expect(wrapper.getAttribute('type')).toBe('submit')
 })
 
 test('should render tag <a> when a href is given', async () => {
@@ -40,8 +43,9 @@ test('should render tag <a> when a href is given', async () => {
 
   expect(wrapper.hasClass('md-button')).toBe(true)
   expect(wrapper.is('a')).toBe(true)
-  expect(wrapper.hasAttribute('type', 'button')).toBe(false)
-  expect(wrapper.hasAttribute('href', '#test')).toBe(true)
+  expect(wrapper.hasAttribute('type')).toBe(false)
+  expect(wrapper.hasAttribute('href')).toBe(true)
+  expect(wrapper.getAttribute('href')).toBe('#test')
 })
 
 test('should render tag <a> when using "to" prop from vue-router', async () => {
@@ -59,9 +63,11 @@ test('should render tag <a> when using "to" prop from vue-router', async () => {
   expect(rootWrapper.hasClass('router-link-active')).toBe(true)
   expect(testWrapper.hasClass('md-button')).toBe(true)
   expect(testWrapper.is('a')).toBe(true)
-  expect(testWrapper.hasAttribute('type', 'button')).toBe(false)
-  expect(rootWrapper.hasAttribute('href', '/')).toBe(true)
-  expect(testWrapper.hasAttribute('href', '/test')).toBe(true)
+  expect(testWrapper.hasAttribute('type')).toBe(false)
+  expect(rootWrapper.hasAttribute('href')).toBe(true)
+  expect(rootWrapper.getAttribute('href')).toBe('/')
+  expect(testWrapper.hasAttribute('href')).toBe(true)
+  expect(testWrapper.getAttribute('href')).toBe('/test')
 })
 
 test('should render tag <button> when using "to" prop and vue-router is not configured', async () => {
@@ -70,8 +76,9 @@ test('should render tag <button> when using "to" prop and vue-router is not conf
 
   expect(wrapper.hasClass('md-button')).toBe(true)
   expect(wrapper.is('button')).toBe(true)
-  expect(wrapper.hasAttribute('type', 'button')).toBe(true)
-  expect(wrapper.hasAttribute('href', '/test')).toBe(false)
+  expect(wrapper.hasAttribute('type')).toBe(true)
+  expect(wrapper.getAttribute('type')).toBe('button')
+  expect(wrapper.hasAttribute('href')).toBe(false)
 })
 
 test('should not render a ripple element if the button is disabled', async () => {
@@ -81,8 +88,10 @@ test('should not render a ripple element if the button is disabled', async () =>
 
   expect(wrapper.hasClass('md-button')).toBe(true)
   expect(wrapper.is('button')).toBe(true)
-  expect(wrapper.hasAttribute('type', 'button')).toBe(true)
-  expect(wrapper.hasAttribute('disabled', 'disabled')).toBe(true)
+  expect(wrapper.hasAttribute('type')).toBe(true)
+  expect(wrapper.getAttribute('type')).toBe('button')
+  expect(wrapper.hasAttribute('disabled')).toBe(true)
+  expect(wrapper.getAttribute('disabled')).toBe('disabled')
   expect(ripple.hasClass('md-disabled')).toBe(true)
 })
 
@@ -94,6 +103,7 @@ test('should not render a ripple element when md-ripple is false', async () => {
   expect(wrapper.hasClass('md-button')).toBe(true)
   expect(wrapper.hasClass('md-ripple-off')).toBe(true)
   expect(wrapper.is('button')).toBe(true)
-  expect(wrapper.hasAttribute('type', 'button')).toBe(true)
+  expect(wrapper.hasAttribute('type')).toBe(true)
+  expect(wrapper.getAttribute('type')).toBe('button')
   expect(ripple.hasClass('md-disabled')).toBe(true)
 })

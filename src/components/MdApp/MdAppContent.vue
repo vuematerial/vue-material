@@ -9,15 +9,15 @@
 </template>
 
 <script>
-export default {
-  name: 'MdAppContent',
-  inject: ['MdApp'],
-  computed: {
-    showCard () {
-      return this.MdApp.options && this.MdApp.options.mode === 'overlap'
+  export default {
+    name: 'MdAppContent',
+    inject: ['MdApp'],
+    computed: {
+      showCard () {
+        return this.MdApp.options && this.MdApp.options.mode === 'overlap'
+      }
     }
   }
-}
 </script>
 
 <style lang="scss">

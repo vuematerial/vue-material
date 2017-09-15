@@ -1,40 +1,40 @@
 <script>
-import MdRouterLinkProps from 'core/MdRouterLinkProps'
-import MdListItemButton from './MdListItemButton'
-import MdListItemLink from './MdListItemLink'
-import MdListItemRouter from './MdListItemRouter'
-import MdButton from 'components/MdButton/MdButton'
+  import MdRouterLinkProps from 'core/MdRouterLinkProps'
+  import MdListItemButton from './MdListItemButton'
+  import MdListItemLink from './MdListItemLink'
+  import MdListItemRouter from './MdListItemRouter'
+  import MdButton from 'components/MdButton/MdButton'
 
-export default {
-  name: 'MdListItem',
-  functional: true,
-  components: {
-    MdButton
-  },
-  render (createElement, { data, parent, props, listeners, children }) {
-    let listComponent = MdListItemButton
+  export default {
+    name: 'MdListItem',
+    functional: true,
+    components: {
+      MdButton
+    },
+    render (createElement, { data, parent, props, listeners, children }) {
+      let listComponent = MdListItemButton
 
-    if (parent && parent.$router && props.to) {
-      listComponent = MdListItemRouter
-      listComponent.props = MdRouterLinkProps(parent, {
-        target: String
-      })
-      delete listComponent.props.href
-    } else if (props.href) {
-      listComponent = MdListItemLink
+      if (parent && parent.$router && props.to) {
+        listComponent = MdListItemRouter
+        listComponent.props = MdRouterLinkProps(parent, {
+          target: String
+        })
+        delete listComponent.props.href
+      } else if (props.href) {
+        listComponent = MdListItemLink
+      }
+
+      return createElement('li', {
+        on: listeners,
+        staticClass: 'md-list-item'
+      }, [
+        createElement(listComponent, {
+          staticClass: 'md-list-item-container md-button-clean',
+          props
+        }, [children])
+      ])
     }
-
-    return createElement('li', {
-      on: listeners,
-      staticClass: 'md-list-item'
-    }, [
-      createElement(listComponent, {
-        staticClass: 'md-list-item-container md-button-clean',
-        props
-      }, [children])
-    ])
   }
-}
 </script>
 
 <style lang="scss">

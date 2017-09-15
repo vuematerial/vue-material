@@ -7,17 +7,17 @@
 </template>
 
 <script>
-import MdListItemMixin from './MdListItemMixin'
+  import MdListItemMixin from './MdListItemMixin'
 
-export default {
-  name: 'MdListItemRouter',
-  mixins: [MdListItemMixin],
-  computed: {
-    routerProps () {
-      return this.$props
+  export default {
+    name: 'MdListItemRouter',
+    mixins: [MdListItemMixin],
+    computed: {
+      routerProps () {
+        return this.$props
+      }
     }
   }
-}
 </script>
 
 <style lang="scss">

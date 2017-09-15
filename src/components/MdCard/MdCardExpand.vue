@@ -5,10 +5,10 @@
 </template>
 
 <script>
-export default {
-  name: 'MdCardExpand',
-  inject: ['MdCard']
-}
+  export default {
+    name: 'MdCardExpand',
+    inject: ['MdCard']
+  }
 </script>
 
 <style lang="scss">

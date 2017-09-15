@@ -20,98 +20,101 @@
 </template>
 
 <script>
-import MdComponent from 'core/MdComponent'
-import MdClearIcon from 'core/Icons/MdClearIcon'
-import MdPasswordOffIcon from 'core/Icons/MdPasswordOffIcon'
-import MdPasswordOnIcon from 'core/Icons/MdPasswordOnIcon'
+  import MdComponent from 'core/MdComponent'
+  import MdClearIcon from 'core/Icons/MdClearIcon'
+  import MdPasswordOffIcon from 'core/Icons/MdPasswordOffIcon'
+  import MdPasswordOnIcon from 'core/Icons/MdPasswordOnIcon'
 
-export default new MdComponent({
-  name: 'MdField',
-  components: {
-    MdClearIcon,
-    MdPasswordOffIcon,
-    MdPasswordOnIcon
-  },
-  props: {
-    mdInline: Boolean,
-    mdClearable: Boolean,
-    mdCounter: {
-      type: Boolean,
-      default: true
+  export default new MdComponent({
+    name: 'MdField',
+    components: {
+      MdClearIcon,
+      MdPasswordOffIcon,
+      MdPasswordOnIcon
     },
-    mdTogglePassword: {
-      type: Boolean,
-      default: true
-    }
-  },
-  data: () => ({
-    showPassword: false,
-    MdField: {
-      value: null,
-      focused: false,
-      disabled: false,
-      required: false,
-      placeholder: false,
-      textarea: false,
-      autogrow: false,
-      maxlength: null,
-      password: null,
-      togglePassword: false,
-      clear: false
-    }
-  }),
-  provide () {
-    return {
-      MdField: this.MdField
-    }
-  },
-  computed: {
-    hasCounter () {
-      return this.mdCounter && this.MdField.maxlength
-    },
-    hasPasswordToggle () {
-      return this.mdTogglePassword && this.MdField.password
-    },
-    hasValue () {
-      return this.MdField.value && this.MdField.value.length > 0
-    },
-    valueLength () {
-      if (this.MdField.value) {
-        return this.MdField.value.length
+    props: {
+      mdInline: Boolean,
+      mdClearable: Boolean,
+      mdCounter: {
+        type: Boolean,
+        default: true
+      },
+      mdTogglePassword: {
+        type: Boolean,
+        default: true
       }
-
-      return 0
     },
-    fieldClasses () {
+    data: () => ({
+      showPassword: false,
+      MdField: {
+        value: null,
+        focused: false,
+        disabled: false,
+        required: false,
+        placeholder: false,
+        textarea: false,
+        autogrow: false,
+        maxlength: null,
+        password: null,
+        togglePassword: false,
+        clear: false
+      }
+    }),
+    provide () {
       return {
-        'md-inline': this.mdInline,
-        'md-clearable': this.mdClearable,
-        'md-focused': this.MdField.focused,
-        'md-disabled': this.MdField.disabled,
-        'md-required': this.MdField.required,
-        'md-has-value': this.MdField.value && this.MdField.value.length > 0,
-        'md-has-placeholder': this.MdField.placeholder,
-        'md-has-textarea': this.MdField.textarea,
-        'md-has-password': this.MdField.password,
-        'md-autogrow': this.MdField.autogrow
-        /* ,
-          'md-has-select': this.MdField.mdHasSelect,
-          'md-has-file': this.MdField.hasFile,
-           */
+        MdField: this.MdField
+      }
+    },
+    computed: {
+      stringValue () {
+        return this.MdField.value && this.MdField.value.toString()
+      },
+      hasCounter () {
+        return this.mdCounter && this.MdField.maxlength
+      },
+      hasPasswordToggle () {
+        return this.mdTogglePassword && this.MdField.password
+      },
+      hasValue () {
+        return this.stringValue && this.stringValue.length > 0
+      },
+      valueLength () {
+        if (this.stringValue) {
+          return this.stringValue.length
+        }
+
+        return 0
+      },
+      fieldClasses () {
+        return {
+          'md-inline': this.mdInline,
+          'md-clearable': this.mdClearable,
+          'md-focused': this.MdField.focused,
+          'md-disabled': this.MdField.disabled,
+          'md-required': this.MdField.required,
+          'md-has-value': this.hasValue,
+          'md-has-placeholder': this.MdField.placeholder,
+          'md-has-textarea': this.MdField.textarea,
+          'md-has-password': this.MdField.password,
+          'md-autogrow': this.MdField.autogrow
+          /* ,
+            'md-has-select': this.MdField.mdHasSelect,
+            'md-has-file': this.MdField.hasFile,
+            */
+        }
+      }
+    },
+    methods: {
+      async clearInput () {
+        this.MdField.clear = true
+        await this.$nextTick()
+        this.MdField.clear = false
+      },
+      async togglePassword () {
+        this.MdField.togglePassword = !this.MdField.togglePassword
       }
     }
-  },
-  methods: {
-    async clearInput () {
-      this.MdField.clear = true
-      await this.$nextTick()
-      this.MdField.clear = false
-    },
-    async togglePassword () {
-      this.MdField.togglePassword = !this.MdField.togglePassword
-    }
-  }
-})
+  })
 </script>
 
 <style lang="scss">

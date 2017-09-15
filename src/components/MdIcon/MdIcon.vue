@@ -6,18 +6,18 @@
 </template>
 
 <script>
-import MdComponent from 'core/MdComponent'
-import MdSvgLoader from 'core/MdSvgLoader/MdSvgLoader'
+  import MdComponent from 'core/MdComponent'
+  import MdSvgLoader from 'core/MdSvgLoader/MdSvgLoader'
 
-export default new MdComponent({
-  name: 'MdIcon',
-  components: {
-    MdSvgLoader
-  },
-  props: {
-    mdSrc: String
-  }
-})
+  export default new MdComponent({
+    name: 'MdIcon',
+    components: {
+      MdSvgLoader
+    },
+    props: {
+      mdSrc: String
+    }
+  })
 </script>
 
 <style lang="scss">

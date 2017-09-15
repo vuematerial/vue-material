@@ -5,17 +5,17 @@
 </template>
 
 <script>
-import MdComponent from 'core/MdComponent'
+  import MdComponent from 'core/MdComponent'
 
-export default new MdComponent({
-  name: 'MdToolbar',
-  props: {
-    mdElevation: {
-      type: [String, Number],
-      default: 4
+  export default new MdComponent({
+    name: 'MdToolbar',
+    props: {
+      mdElevation: {
+        type: [String, Number],
+        default: 4
+      }
     }
-  }
-})
+  })
 </script>
 
 <style lang="scss">

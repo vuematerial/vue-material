@@ -28,76 +28,76 @@
 </template>
 
 <script>
-import MdComponent from 'core/MdComponent'
-import MdUuid from 'core/MdUuid'
-import MdField from 'components/MdField/MdField'
-import MdInput from 'components/MdField/MdInput/MdInput'
+  import MdComponent from 'core/MdComponent'
+  import MdUuid from 'core/MdUuid'
+  import MdField from 'components/MdField/MdField'
+  import MdInput from 'components/MdField/MdInput/MdInput'
 
-export default new MdComponent({
-  name: 'MdChips',
-  components: {
-    MdField,
-    MdInput
-  },
-  props: {
-    value: Array,
-    id: {
-      type: [String, Number],
-      default: () => 'md-chips-' + MdUuid()
+  export default new MdComponent({
+    name: 'MdChips',
+    components: {
+      MdField,
+      MdInput
     },
-    mdInputType: {
-      type: [String, Number],
-      validator (type) {
-        if (type === 'file') {
-          console.error('The md-input-type prop cannot be \'file\'')
+    props: {
+      value: Array,
+      id: {
+        type: [String, Number],
+        default: () => 'md-chips-' + MdUuid()
+      },
+      mdInputType: {
+        type: [String, Number],
+        validator (type) {
+          if (type === 'file') {
+            console.error('The md-input-type prop cannot be \'file\'')
 
-          return false
+            return false
+          }
+
+          return true
         }
+      },
+      mdPlaceholder: [String, Number],
+      mdStatic: Boolean,
+      mdLimit: Number
+    },
+    data: () => ({
+      inputValue: null
+    }),
+    computed: {
+      chipsClasses () {
+        return {
+          'md-has-value': this.value && this.value.length
+        }
+      }
+    },
+    methods: {
+      modelRespectLimit () {
+        return !this.mdLimit || this.value.length < +this.mdLimit
+      },
+      insertChip ({ target }) {
+        if (!this.value.includes(this.inputValue) && this.modelRespectLimit()) {
+          this.value.push(this.inputValue)
+          this.$emit('input', this.value)
+          this.$emit('md-insert', this.inputValue)
+          this.inputValue = ''
+        }
+      },
+      removeChip (chip) {
+        const index = this.value.indexOf(chip)
 
-        return true
-      }
-    },
-    mdPlaceholder: [String, Number],
-    mdStatic: Boolean,
-    mdLimit: Number
-  },
-  data: () => ({
-    inputValue: null
-  }),
-  computed: {
-    chipsClasses () {
-      return {
-        'md-has-value': this.value && this.value.length
-      }
-    }
-  },
-  methods: {
-    modelRespectLimit () {
-      return !this.mdLimit || this.value.length < +this.mdLimit
-    },
-    insertChip ({ target }) {
-      if (!this.value.includes(this.inputValue) && this.modelRespectLimit()) {
-        this.value.push(this.inputValue)
+        this.value.splice(index, 1)
         this.$emit('input', this.value)
-        this.$emit('md-insert', this.inputValue)
-        this.inputValue = ''
-      }
-    },
-    removeChip (chip) {
-      const index = this.value.indexOf(chip)
-
-      this.value.splice(index, 1)
-      this.$emit('input', this.value)
-      this.$emit('md-delete', chip, index)
-      this.$refs.input.$el.focus()
-    },
-    handleBackRemove () {
-      if (!this.inputValue) {
-        this.removeChip(this.value[this.value.length - 1])
+        this.$emit('md-delete', chip, index)
+        this.$refs.input.$el.focus()
+      },
+      handleBackRemove () {
+        if (!this.inputValue) {
+          this.removeChip(this.value[this.value.length - 1])
+        }
       }
     }
-  }
-})
+  })
 </script>
 
 <style lang="scss">

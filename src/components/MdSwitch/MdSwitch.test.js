@@ -23,8 +23,11 @@ test('should add id and for on input and label', async () => {
   const input = wrapper.find('input')[0]
   const label = wrapper.find('label')[0]
 
-  expect(input.hasAttribute('id', myId)).toBe(true)
-  expect(label.hasAttribute('for', myId)).toBe(true)
+  expect(input.hasAttribute('id')).toBe(true)
+  expect(input.getAttribute('id')).toBe(myId)
+
+  expect(label.hasAttribute('for')).toBe(true)
+  expect(label.getAttribute('for')).toBe(myId)
 })
 
 test('should create a fallback id if not given', async () => {
@@ -33,8 +36,11 @@ test('should create a fallback id if not given', async () => {
   const input = wrapper.find('input')[0]
   const label = wrapper.find('label')[0]
 
-  expect(input.hasAttribute('id', createdId)).toBe(true)
-  expect(label.hasAttribute('for', createdId)).toBe(true)
+  expect(input.hasAttribute('id')).toBe(true)
+  expect(input.getAttribute('id')).toBe(createdId)
+
+  expect(label.hasAttribute('for')).toBe(true)
+  expect(label.getAttribute('for')).toBe(createdId)
 })
 
 test('should create a fallback value if not given', async () => {
@@ -67,10 +73,17 @@ test('should bind id, name, disabled and required to the inner input', async () 
   })
   const input = wrapper.find('input')[0]
 
-  expect(input.hasAttribute('id', 'test')).toBe(true)
-  expect(input.hasAttribute('name', 'test')).toBe(true)
-  expect(input.hasAttribute('disabled', 'disabled')).toBe(true)
-  expect(input.hasAttribute('required', 'required')).toBe(true)
+  expect(input.hasAttribute('id')).toBe(true)
+  expect(input.getAttribute('id')).toBe('test')
+
+  expect(input.hasAttribute('name')).toBe(true)
+  expect(input.getAttribute('name')).toBe('test')
+
+  expect(input.hasAttribute('disabled')).toBe(true)
+  expect(input.getAttribute('disabled')).toBe('disabled')
+
+  expect(input.hasAttribute('required')).toBe(true)
+  expect(input.getAttribute('required')).toBe('required')
 })
 
 test('should add and remove a value from model when model is an array by clicking on container', async () => {

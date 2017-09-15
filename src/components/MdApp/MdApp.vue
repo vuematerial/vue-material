@@ -1,66 +1,66 @@
 <script>
-import MdAppSideDrawer from './MdAppSideDrawer'
-import MdAppInternalDrawer from './MdAppInternalDrawer'
+  import MdAppSideDrawer from './MdAppSideDrawer'
+  import MdAppInternalDrawer from './MdAppInternalDrawer'
 
-const componentTypes = [
-  'md-app-toolbar',
-  'md-app-drawer',
-  'md-app-content'
-]
+  const componentTypes = [
+    'md-app-toolbar',
+    'md-app-drawer',
+    'md-app-content'
+  ]
 
-function buildSlots (children, context, functionalContext, options) {
-  let slots = []
+  function buildSlots (children, context, functionalContext, options) {
+    let slots = []
 
-  if (children) {
-    children.forEach(child => {
-      const opts = child.componentOptions
+    if (children) {
+      children.forEach(child => {
+        const opts = child.componentOptions
 
-      if (opts && componentTypes.includes(opts.tag)) {
-        child.data.slot = opts.tag
-        child.data.provide = options.Ctor.options.provide
-        child.context = context
-        child.functionalContext = functionalContext
+        if (opts && componentTypes.includes(opts.tag)) {
+          child.data.slot = opts.tag
+          child.data.provide = options.Ctor.options.provide
+          child.context = context
+          child.functionalContext = functionalContext
 
-        slots.push(child)
-      }
-    })
-  }
-
-  return slots
-}
-
-function getDrawer (children) {
-  const drawerVnode = children.filter(child => {
-    return child.componentOptions.tag === 'md-app-drawer'
-  })
-
-  return drawerVnode && drawerVnode[0]
-}
-
-function hasInternalDrawer (attrs) {
-  const mdPermanent = attrs && attrs['md-permanent']
-
-  return mdPermanent && (mdPermanent === 'clipped' || mdPermanent === 'card')
-}
-
-export default {
-  name: 'MdApp',
-  functional: true,
-  render (createElement, { children, props }) {
-    let appComponent = MdAppSideDrawer
-    const { context, functionalContext, componentOptions } = createElement(appComponent)
-    const slots = buildSlots(children, context, functionalContext, componentOptions)
-    const drawer = getDrawer(slots)
-
-    if (drawer && hasInternalDrawer(drawer.data.attrs)) {
-      appComponent = MdAppInternalDrawer
+          slots.push(child)
+        }
+      })
     }
 
-    return createElement(appComponent, {
-      attrs: props
-    }, slots)
+    return slots
   }
-}
+
+  function getDrawer (children) {
+    const drawerVnode = children.filter(child => {
+      return child.componentOptions.tag === 'md-app-drawer'
+    })
+
+    return drawerVnode && drawerVnode[0]
+  }
+
+  function hasInternalDrawer (attrs) {
+    const mdPermanent = attrs && attrs['md-permanent']
+
+    return mdPermanent && (mdPermanent === 'clipped' || mdPermanent === 'card')
+  }
+
+  export default {
+    name: 'MdApp',
+    functional: true,
+    render (createElement, { children, props }) {
+      let appComponent = MdAppSideDrawer
+      const { context, functionalContext, componentOptions } = createElement(appComponent)
+      const slots = buildSlots(children, context, functionalContext, componentOptions)
+      const drawer = getDrawer(slots)
+
+      if (drawer && hasInternalDrawer(drawer.data.attrs)) {
+        appComponent = MdAppInternalDrawer
+      }
+
+      return createElement(appComponent, {
+        attrs: props
+      }, slots)
+    }
+  }
 </script>
 
 <style lang="scss">

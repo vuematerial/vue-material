@@ -73,6 +73,9 @@ export default {
     speedDial: {
       title: 'Speed Dial'
     },
+    snackbar: {
+      title: 'Snackbar'
+    },
     subheader: {
       title: 'Subheader'
     },

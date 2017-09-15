@@ -17,38 +17,38 @@
 </template>
 
 <script>
-import MdComponent from 'core/MdComponent'
-import MdFocused from 'core/mixins/MdFocused/MdFocused'
-import MdRipple from 'core/mixins/MdRipple/MdRipple'
-import MdClearIcon from 'core/Icons/MdClearIcon'
-import MdButton from 'components/MdButton/MdButton'
+  import MdComponent from 'core/MdComponent'
+  import MdFocused from 'core/mixins/MdFocused/MdFocused'
+  import MdRipple from 'core/mixins/MdRipple/MdRipple'
+  import MdClearIcon from 'core/Icons/MdClearIcon'
+  import MdButton from 'components/MdButton/MdButton'
 
-export default new MdComponent({
-  name: 'MdChip',
-  components: {
-    MdButton,
-    MdClearIcon
-  },
-  mixins: [
-    MdFocused,
-    MdRipple
-  ],
-  props: {
-    mdDisabled: Boolean,
-    mdDeletable: Boolean,
-    mdClickable: Boolean
-  },
-  computed: {
-    chipClasses () {
-      return {
-        'md-disabled': this.mdDisabled,
-        'md-deletable': this.mdDeletable,
-        'md-clickable': this.mdClickable,
-        'md-focused': this.mdHasFocus
+  export default new MdComponent({
+    name: 'MdChip',
+    components: {
+      MdButton,
+      MdClearIcon
+    },
+    mixins: [
+      MdFocused,
+      MdRipple
+    ],
+    props: {
+      mdDisabled: Boolean,
+      mdDeletable: Boolean,
+      mdClickable: Boolean
+    },
+    computed: {
+      chipClasses () {
+        return {
+          'md-disabled': this.mdDisabled,
+          'md-deletable': this.mdDeletable,
+          'md-clickable': this.mdClickable,
+          'md-focused': this.mdHasFocus
+        }
       }
     }
-  }
-})
+  })
 </script>
 
 <style lang="scss">

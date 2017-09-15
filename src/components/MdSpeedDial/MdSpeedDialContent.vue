@@ -5,40 +5,40 @@
 </template>
 
 <script>
-function getChildIndex (direction, index, count) {
-  if (direction === 'top') {
-    return count - index - 1
-  }
-
-  return index
-}
-
-export default {
-  name: 'MdSpeedDialContent',
-  inject: ['MdSpeedDial'],
-  methods: {
-    async setChildrenIndexes () {
-      await this.$nextTick()
-
-      const countChild = this.$children.length
-
-      this.$children.forEach((child, index) => {
-        if (child._vnode.tag === 'button') {
-          const childIndex = getChildIndex(this.MdSpeedDial.direction, index, countChild)
-
-          child.$el.setAttribute('md-button-index', childIndex)
-          child.$el.classList.add('md-raised')
-        }
-      })
+  function getChildIndex (direction, index, count) {
+    if (direction === 'top') {
+      return count - index - 1
     }
-  },
-  mounted () {
-    this.setChildrenIndexes()
-  },
-  updated () {
-    this.setChildrenIndexes()
+
+    return index
   }
-}
+
+  export default {
+    name: 'MdSpeedDialContent',
+    inject: ['MdSpeedDial'],
+    methods: {
+      async setChildrenIndexes () {
+        await this.$nextTick()
+
+        const countChild = this.$children.length
+
+        this.$children.forEach((child, index) => {
+          if (child._vnode.tag === 'button') {
+            const childIndex = getChildIndex(this.MdSpeedDial.direction, index, countChild)
+
+            child.$el.setAttribute('md-button-index', childIndex)
+            child.$el.classList.add('md-raised')
+          }
+        })
+      }
+    },
+    mounted () {
+      this.setChildrenIndexes()
+    },
+    updated () {
+      this.setChildrenIndexes()
+    }
+  }
 </script>
 
 <style lang="scss">

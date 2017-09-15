@@ -16,6 +16,7 @@ import MdLayout from './MdLayout'
 import MdList from './MdList'
 import MdRadio from './MdRadio'
 import MdRipple from './MdRipple'
+import MdSnackbar from './MdSnackbar'
 import MdSpeedDial from './MdSpeedDial'
 import MdSubheader from './MdSubheader'
 import MdSwitch from './MdSwitch'
@@ -41,6 +42,7 @@ export {
   MdList,
   MdRadio,
   MdRipple,
+  MdSnackbar,
   MdSpeedDial,
   MdSubheader,
   MdSwitch,

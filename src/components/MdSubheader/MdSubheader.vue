@@ -9,16 +9,16 @@
 </template>
 
 <script>
-import MdComponent from 'core/MdComponent'
+  import MdComponent from 'core/MdComponent'
 
-export default new MdComponent({
-  name: 'MdSubheader',
-  computed: {
-    insideList () {
-      return this.$parent.$options._componentTag === 'md-list'
+  export default new MdComponent({
+    name: 'MdSubheader',
+    computed: {
+      insideList () {
+        return this.$parent.$options._componentTag === 'md-list'
+      }
     }
-  }
-})
+  })
 </script>
 
 <style lang="scss">

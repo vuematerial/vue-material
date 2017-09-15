@@ -46,11 +46,17 @@ test('should create a fallback id if not given', async () => {
   const inputId = input.vm.$props.id
   const textareaId = textarea.vm.$props.id
 
-  expect(input.hasAttribute('id', inputId)).toBe(true)
-  expect(inputLabel.hasAttribute('for', inputId)).toBe(true)
+  expect(input.hasAttribute('id')).toBe(true)
+  expect(input.getAttribute('id')).toBe(inputId)
 
-  expect(textarea.hasAttribute('id', textareaId)).toBe(true)
-  expect(textareaLabel.hasAttribute('for', textareaId)).toBe(true)
+  expect(inputLabel.hasAttribute('for')).toBe(true)
+  expect(inputLabel.getAttribute('for')).toBe(inputId)
+
+  expect(textarea.hasAttribute('id')).toBe(true)
+  expect(textarea.getAttribute('id')).toBe(textareaId)
+
+  expect(textareaLabel.hasAttribute('for')).toBe(true)
+  expect(textareaLabel.getAttribute('for')).toBe(textareaId)
 })
 
 /* test('should bind id, name, disabled and required to the inner input', async () => {

@@ -5,77 +5,77 @@
 </template>
 
 <script>
-export default {
-  name: 'MdOverlay',
-  props: {
-    mdVisible: Boolean,
-    mdBodyAttach: Boolean
-  },
-  data: () => ({
-    noop: null,
-    overlayElement: null,
-    isVisible: false,
-    isActive: false
-  }),
-  computed: {
-    overlayClasses () {
-      return {
-        'md-active': this.isActive,
-        'md-fixed': this.mdBodyAttach
+  export default {
+    name: 'MdOverlay',
+    props: {
+      mdVisible: Boolean,
+      mdBodyAttach: Boolean
+    },
+    data: () => ({
+      noop: null,
+      overlayElement: null,
+      isVisible: false,
+      isActive: false
+    }),
+    computed: {
+      overlayClasses () {
+        return {
+          'md-active': this.isActive,
+          'md-fixed': this.mdBodyAttach
+        }
       }
-    }
-  },
-  watch: {
-    mdVisible (visible) {
-      this.controlVisibility(visible)
-    }
-  },
-  methods: {
-    controlVisibility (visible) {
-      window.requestAnimationFrame(() => {
-        if (visible) {
-          this.attachToBody()
+    },
+    watch: {
+      mdVisible (visible) {
+        this.controlVisibility(visible)
+      }
+    },
+    methods: {
+      controlVisibility (visible) {
+        window.requestAnimationFrame(() => {
+          if (visible) {
+            this.attachToBody()
+          }
+
+          this.isVisible = visible
+        })
+      },
+      async setActive () {
+        await this.$nextTick()
+        this.isActive = true
+      },
+      removeNode (content) {
+        if (content.parentNode.contains(content)) {
+          content.parentNode.removeChild(content)
+        }
+      },
+      detachFromBody () {
+        let container = this.mdBodyAttach ? document.body : this.parentElement
+
+        if (container.contains(this.overlayElement)) {
+          container.removeChild(this.overlayElement)
         }
 
-        this.isVisible = visible
-      })
-    },
-    async setActive () {
-      await this.$nextTick()
-      this.isActive = true
-    },
-    removeNode (content) {
-      if (content.parentNode.contains(content)) {
-        content.parentNode.removeChild(content)
+        this.isActive = false
+      },
+      attachToBody () {
+        let container = this.mdBodyAttach ? document.body : this.parentElement
+
+        if (!container.contains(this.overlayElement)) {
+          container.appendChild(this.overlayElement)
+        }
       }
     },
-    detachFromBody () {
-      let container = this.mdBodyAttach ? document.body : this.parentElement
+    mounted () {
+      this.overlayElement = this.$el
+      this.parentElement = this.$el.parentNode.parentNode
+      this.removeNode(this.$el)
 
-      if (container.contains(this.overlayElement)) {
-        container.removeChild(this.overlayElement)
+      if (this.mdVisible) {
+        this.controlVisibility(this.mdVisible)
       }
-
-      this.isActive = false
-    },
-    attachToBody () {
-      let container = this.mdBodyAttach ? document.body : this.parentElement
-
-      if (!container.contains(this.overlayElement)) {
-        container.appendChild(this.overlayElement)
-      }
-    }
-  },
-  mounted () {
-    this.overlayElement = this.$el
-    this.parentElement = this.$el.parentNode.parentNode
-    this.removeNode(this.$el)
-
-    if (this.mdVisible) {
-      this.controlVisibility(this.mdVisible)
     }
   }
-}
 </script>
 
 <style lang="scss">
