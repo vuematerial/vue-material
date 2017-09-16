@@ -2,8 +2,17 @@
   <div class="release-version">
     <div v-if="availableDocs.length > 1">
       <span>Version:</span>
-      <md-select id="docs-select" v-model="currentDocs" @change="changeDocs">
-        <md-option v-for="doc in availableDocs" :key="doc" :value="doc">{{ doc }}</md-option>
+      
+      <md-select
+        id="docs-select"
+        v-model="currentDocs"
+        @change="changeDocs">
+        <md-option
+          v-for="doc in availableDocs"
+          :key="doc"
+          :value="doc">
+          {{ doc }}
+        </md-option>
       </md-select>
     </div>
   </div>
@@ -75,11 +84,14 @@
         }
       },
       setVersion(versions) {
-        versions.sort((a, b) => a < b);
+        // versions.sort((a, b) => a < b);
+        const auxVersion = Object.assign([], versions);
+  
+        auxVersion.sort().reverse();
 
-        this.latest = versions[0];
-        this.currentDocs = versions[0];
-        this.availableDocs = versions;
+        this.latest = auxVersion[0];
+        this.currentDocs = auxVersion[0];
+        this.availableDocs = auxVersion;
       },
       setCurrentByLocation() {
         let normalizedPathname = location.pathname.replace(/\/|releases\/v/g, '');
