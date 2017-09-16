@@ -124,6 +124,9 @@
           this.setActiveStep(prevStep);
         }
       },
+      goToStep(stepNumber) {
+          this.setActiveStep(this.stepList[Object.keys(this.stepList)[stepNumber]])
+      },
       setActiveStep(stepData) {
         if (this.activeStepNumber > this.getStepIndex(stepData.id) && !stepData.editable) {
           return;
