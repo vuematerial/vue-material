@@ -36,6 +36,11 @@
         }
       }
     },
+    provide () {
+      return {
+        MdSpeedDial: this.MdSpeedDial
+      }
+    },
     computed: {
       speedDialClasses () {
         return {
@@ -44,11 +49,6 @@
           ['md-direction-' + this.mdDirection]: true,
           ['md-effect-' + this.mdEffect]: true
         }
-      }
-    },
-    provide () {
-      return {
-        MdSpeedDial: this.MdSpeedDial
       }
     }
   })
