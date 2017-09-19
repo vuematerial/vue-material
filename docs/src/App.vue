@@ -194,8 +194,6 @@
           </md-list-item>
         </md-list>
       </div>
-
-      <release-version></release-version>
     </md-sidenav>
 
     <transition name="md-router" appear>

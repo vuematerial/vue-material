@@ -75,11 +75,7 @@
         }
       },
       setVersion(versions) {
-        versions.sort((a, b) => {
-          const regex = /\./;
-
-          return a.replace(regex, '') < b.replace(regex, '');
-        });
+        versions.reverse();
 
         this.latest = versions[0];
         this.currentDocs = versions[0];
