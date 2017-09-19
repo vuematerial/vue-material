@@ -1,6 +1,6 @@
 <h1 align="center">Sponsors &amp; Backers</h1>
 <p>Vue Material do not run under the umbrella of any company or something like that. Is an independent project created by <a href="https://www.github.com/marcosmoura" target="_blank">Marcos Moura</a> on spare time that became one of the most used UI Libraries for Vue.js. The development is active and we are working hard to release great things for you.</p>
-<p>If you feel that this project helped you or your company, you can consider become a backer/sponsor on Patreon:</p>
+<p>If you think that this project helped you or your company in some way, you can consider become a backer/sponsor on Patreon:</p>
 
 <p>
   <a href="https://www.patreon.com/marcosmoura" target="_blank">
