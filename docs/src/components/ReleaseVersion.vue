@@ -67,6 +67,7 @@
           request.setRequestHeader('Content-Type', 'application/json');
           request.onload = function() {
             versions = JSON.parse(this.response);
+            versions.reverse();
             callback(versions);
           };
           request.send();
@@ -75,8 +76,6 @@
         }
       },
       setVersion(versions) {
-        versions.reverse();
-
         this.latest = versions[0];
         this.currentDocs = versions[0];
         this.availableDocs = versions;
