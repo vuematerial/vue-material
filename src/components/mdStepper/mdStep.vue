@@ -2,8 +2,7 @@
   <div class="md-step" :id="stepId" :style="styles">
     <md-step-header
       v-if="vertical"
-      :step="getStepData()"
-      @click="setActiveStep()">
+      :step="getStepData()">
     </md-step-header>
     <div class="md-step-content" v-if="!vertical || (vertical && isCurrentStep)">
       <slot></slot>
@@ -37,6 +36,7 @@
         default: true
       },
       mdDisabled: Boolean,
+      mdError: Boolean,
       mdEditable: {
         type: Boolean,
         default: true
@@ -44,7 +44,7 @@
       mdIcon: String,
       mdLabel: [String, Number],
       mdMessage: [String],
-      mdToolTip: String,
+      mdTooltip: String,
       mdTooltipDelay: {
         type: String,
         default: '0'
@@ -78,6 +78,9 @@
       mdDisabled() {
         this.updateStepData();
       },
+      mdError() {
+        this.updateStepData();
+      },
       mdIcon() {
         this.updateStepData();
       },
@@ -87,7 +90,7 @@
       mdMessage() {
         this.updateStepData();
       },
-      mdToolTip() {
+      mdTooltip() {
         this.updateStepData();
       },
       mdTooltipDelay() {
@@ -151,7 +154,8 @@
           continue: this.mdContinue,
           editable: this.mdEditable,
           disabled: this.mdDisabled,
-          toolTip: this.mdToolTip,
+          error: this.mdError,
+          toolTip: this.mdTooltip,
           tooltipDelay: this.mdTooltipDelay,
           tooltipDirection: this.mdTooltipDirection,
           ref: this

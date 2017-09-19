@@ -139,7 +139,9 @@
 
         let margin = 8;
 
-        if (this._destroyed) return;
+        if (this._destroyed) {
+          return;
+        }
 
         if (!this.mdDirection) {
           position = this.getPosition('bottom', 'right');
@@ -154,17 +156,13 @@
 
         if (!this.mdFixed) {
           position = getInViewPosition(this.menuContent, position);
-        } else {
-          if (this.mdMaxHeight === 0) {
-            this.menuContent.style.maxHeight =
-                window.innerHeight - this.menuTrigger.getBoundingClientRect().bottom - margin + "px";
-          } else {
-            if (this.menuContent.children[0].children.length > 0) {
-              let listElemHeight = this.menuContent.children[0].children[0].clientHeight;
+        } else if (this.mdMaxHeight === 0) {
+          this.menuContent.style.maxHeight =
+              window.innerHeight - this.menuTrigger.getBoundingClientRect().bottom - margin + 'px';
+        } else if (this.menuContent.children[0].children.length > 0) {
+          let listElemHeight = this.menuContent.children[0].children[0].clientHeight;
 
-              this.menuContent.style.maxHeight = ((margin * 2) + (listElemHeight * this.mdMaxHeight)) + "px";
-            }
-          }
+          this.menuContent.style.maxHeight = margin * 2 + listElemHeight * this.mdMaxHeight + 'px';
         }
 
         this.menuContent.style.top = position.top + window.pageYOffset + 'px';

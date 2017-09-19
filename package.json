@@ -39,9 +39,7 @@
     "lint": "eslint --ext .js,.vue --fix src docs",
     "release": "bash build/release.sh"
   },
-  "dependencies": {
-    "vue": "^2.4.2"
-  },
+  "dependencies": {},
   "devDependencies": {
     "autoprefixer": "^6.7.4",
     "autosize": "^3.0.20",
@@ -85,6 +83,7 @@
     "raw-loader": "^0.5.1",
     "sass-loader": "^6.0.5",
     "url-loader": "^0.5.7",
+    "vue": "^2.4.2",
     "vue-hot-reload-api": "^2.1.0",
     "vue-html-loader": "^1.2.4",
     "vue-loader": "^12.2.1",
@@ -95,5 +94,8 @@
     "webpack-dev-middleware": "^1.11.0",
     "webpack-hot-middleware": "^2.18.2",
     "webpack-merge": "^4.1.0"
+  },
+  "peerDependencies": {
+    "vue": "^2.4.2"
   }
 }

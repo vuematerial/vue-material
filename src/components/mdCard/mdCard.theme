@@ -45,6 +45,12 @@
         color: $second-color;
       }
     }
+
+    .md-card-expand {
+      .md-card-actions {
+        background-color: $main-color;
+      }
+    }
   }
 
   &.md-card {

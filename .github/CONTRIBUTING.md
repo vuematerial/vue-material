@@ -8,7 +8,7 @@ Before submitting your contribution please read the guidelines.
 
 ## Issue Reporting Guidelines
 
-- Do not create questions. The issue list is exclusively for reports, bugs and feature requests. Use the [Gitter Channel]( https://gitter.im/vuematerial/questions) instead.
+- Do not create questions. The issue list is exclusively for reports, bugs and feature requests. Use the [Slack](https://join.slack.com/t/vuematerial/shared_invite/MTgzMzU2NDQ5ODkwLTE0OTQ4MDI3MDAtNWYyZjhkNzEzMA) instead.
 
 - Always search for your issue first. It may have already been answered, planned or fixed in some branch. New components and features will be planned on [Milestones](https://github.com/marcosmoura/vue-material/milestones) or on [Projects](https://github.com/marcosmoura/vue-material/projects).
 
@@ -26,6 +26,8 @@ Before submitting your contribution please read the guidelines.
 
 - Work in the `src` or `docs` folder and **DO NOT** add `dist` in the commits.
 
+- In your own fork of this repository, always work in the `develop` branch or in a branch created from `develop`. Then when you want to submit the PR, do it from your `develop` or `develop`-derived branch.
+
 - Make small commits as you work on the PR. They will be automatically squashed before merging.
 
 - Provide convincing reason to add a new feature. Ideally you should open a suggestion/request issue first and have it greenlighted before working on it.
@@ -41,7 +43,7 @@ You will need [Node.js](http://nodejs.org) **version 6+**
 After cloning the repo, run:
 
 ``` bash
-$ npm install
+$ yarn install
 ```
 
 ### Commonly used NPM scripts

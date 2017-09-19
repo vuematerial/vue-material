@@ -26,6 +26,11 @@
           color: #{'WARN-CONTRAST'};
           background-color: #{'WARN-COLOR'};
         }
+
+        .md-step-error,
+        .md-step-titles{
+          color: #{'WARN-COLOR'};
+        }
       }
       &.md-disabled {
         color: #bdbdbd;

@@ -4,8 +4,8 @@
     :class="[themeClass, classes]">
     <md-menu
       :md-close-on-select="!multiple"
-      @opened="$emit('open')"
-      @closed="$emit('close')"
+      @open="onOpen"
+      @close="$emit('closed')"
       v-bind="mdMenuOptions">
       <slot name="icon"></slot>
       <span
@@ -204,9 +204,16 @@
         const optionsArray = Object.keys(this.options).map((el) => this.options[el]);
 
         if (optionsArray && optionsArray.length) {
-          optionsArray.filter((el) => modelValue.indexOf(el.value) !== -1)
+          let selectedOptions = optionsArray.filter((el) => modelValue.includes(el.value));
+          let unselectedOptions = optionsArray.filter((el) => !modelValue.includes(el.value));
+  
+          selectedOptions
             .forEach((el) => {
               el.check = true;
+            });
+          unselectedOptions
+            .forEach((el) => {
+              el.check = false;
             });
         }
       },
@@ -224,20 +231,22 @@
         }
       },
       selectMultiple(index, value, text) {
-        let values = [];
+        this.$nextTick(() => {
+          let values = [];
 
-        this.multipleOptions[index] = {
-          value,
-          text
-        };
+          this.multipleOptions[index] = {
+            value,
+            text
+          };
 
-        for (var key in this.multipleOptions) {
-          if (this.multipleOptions.hasOwnProperty(key) && this.multipleOptions[key].value) {
-            values.push(this.multipleOptions[key].value);
+          for (let key in this.multipleOptions) {
+            if (this.multipleOptions.hasOwnProperty(key) && this.multipleOptions[key].value) {
+              values.push(this.multipleOptions[key].value);
+            }
           }
-        }
 
-        this.changeValue(values);
+          this.changeValue(values);
+        });
       },
       selectOption(value, text, el) {
         this.lastSelected = el;

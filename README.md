@@ -13,22 +13,10 @@
 
   <a href="https://www.npmjs.com/package/vue-material">
     <img src="https://img.shields.io/npm/v/vue-material.svg" alt="Version">
-</a>
-
-  <a href="https://cdnjs.com/libraries/vue-material">
-    <img src="https://img.shields.io/cdnjs/v/vue-material.svg" alt="Version">
-  </a>
-
-  <a href="https://cdnjs.com/libraries/vue-material">
-    <img src="https://img.shields.io/cdnjs/v/vue-material.svg" alt="Version">
   </a>
 
   <a href="https://www.npmjs.com/package/vue-material">
     <img src="https://img.shields.io/npm/l/vue-material.svg" alt="License">
-  </a>
-
-  <a href="https://gitter.im/vuematerial">
-    <img src="https://img.shields.io/gitter/room/vuematerial/home.svg" alt="Gitter Chat">
   </a>
 </p>
 
@@ -96,7 +84,7 @@ Vue.use(VueMaterial.MdToolbar)
 <a href="https://vuematerial.github.io/#/changelog" target="_blank">Changelog</a>
 
 ## Questions
-The issue list is exclusively for reports, bugs and feature requests. Use the [Gitter Channel]( https://gitter.im/vuematerial) instead.
+The issue list is exclusively for reports, bugs and feature requests. Use the [Slack](https://join.slack.com/t/vuematerial/shared_invite/MTgzMzU2NDQ5ODkwLTE0OTQ4MDI3MDAtNWYyZjhkNzEzMA) instead.
 
 ## Contributing
 
@@ -123,6 +111,9 @@ You don't need to include any other library to work with vue-material. The focus
 * <a href="http://vuejs.org" target="_blank">vue</a>
 * <a href="http://www.jacklmoore.com/autosize/" target="_blank">autosize</a>
 * <a href="https://www.npmjs.com/package/element.scrollintoviewifneeded-polyfill" target="_blank">element.scrollintoviewifneeded-polyfill</a>
+
+## I want to pay you a Coffee
+I don't drink coffee, but I can easily turn this into a strong and bold IPA beer or a burger! If you think that this project helped you in some way, and you have extra pennies to give, just access this [Patreon](https://www.patreon.com/marcosmoura) page. You name you be at the backers page inside the project website.
 
 ## License 
 MIT
