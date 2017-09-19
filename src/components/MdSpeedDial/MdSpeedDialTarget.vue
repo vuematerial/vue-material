@@ -5,8 +5,13 @@
 </template>
 
 <script>
+  import MdButton from 'components/MdButton/MdButton'
+
   export default {
     name: 'MdSpeedDialTarget',
+    components: {
+      MdButton
+    },
     inject: ['MdSpeedDial'],
     methods: {
       handleClick () {
