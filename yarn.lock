@@ -3824,9 +3824,9 @@ jest-vue-preprocessor@^1.1.0:
     typescript "2.4.2"
     vue-property-decorator "5.1.1"
 
-jest-vue@^0.5.3:
-  version "0.5.3"
-  resolved "https://registry.yarnpkg.com/jest-vue/-/jest-vue-0.5.3.tgz#bd95177a984dc13aabf06dd5f8df0d87ef492c9a"
+jest-vue@^0.5.6:
+  version "0.5.6"
+  resolved "https://registry.yarnpkg.com/jest-vue/-/jest-vue-0.5.6.tgz#b80675701c6ce2f6918dfaa0ba76442e5c66af04"
   dependencies:
     babel-core "^6.25.0"
     babel-plugin-transform-runtime "^6.23.0"
@@ -3837,7 +3837,7 @@ jest-vue@^0.5.3:
     js-beautify "^1.6.14"
     object-assign "^4.1.1"
     source-map "^0.5.6"
-    typescript "^2.5.2"
+    vue-template-es2015-compiler "^1.5.3"
 
 jest@^21.1.0:
   version "21.1.0"
@@ -6278,10 +6278,6 @@ typedarray@^0.0.6:
 typescript@2.4.2:
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.4.2.tgz#f8395f85d459276067c988aa41837a8f82870844"
-
-typescript@^2.5.2:
-  version "2.5.2"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.5.2.tgz#038a95f7d9bbb420b1bf35ba31d4c5c1dd3ffe34"
 
 uglify-js@3.1.x:
   version "3.1.0"
