@@ -11,41 +11,38 @@
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
-
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
-
+/******/
 /******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId])
+/******/ 		if(installedModules[moduleId]) {
 /******/ 			return installedModules[moduleId].exports;
-
+/******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = installedModules[moduleId] = {
 /******/ 			i: moduleId,
 /******/ 			l: false,
 /******/ 			exports: {}
 /******/ 		};
-
+/******/
 /******/ 		// Execute the module function
 /******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-
+/******/
 /******/ 		// Flag the module as loaded
 /******/ 		module.l = true;
-
+/******/
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-
-
+/******/
+/******/
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = modules;
-
+/******/
 /******/ 	// expose the module cache
 /******/ 	__webpack_require__.c = installedModules;
-
-/******/ 	// identity function for calling harmony imports with the correct context
-/******/ 	__webpack_require__.i = function(value) { return value; };
-
+/******/
 /******/ 	// define getter function for harmony exports
 /******/ 	__webpack_require__.d = function(exports, name, getter) {
 /******/ 		if(!__webpack_require__.o(exports, name)) {
@@ -56,7 +53,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 			});
 /******/ 		}
 /******/ 	};
-
+/******/
 /******/ 	// getDefaultExport function for compatibility with non-harmony modules
 /******/ 	__webpack_require__.n = function(module) {
 /******/ 		var getter = module && module.__esModule ?
@@ -65,15 +62,15 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 		__webpack_require__.d(getter, 'a', getter);
 /******/ 		return getter;
 /******/ 	};
-
+/******/
 /******/ 	// Object.prototype.hasOwnProperty.call
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
-
+/******/
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "/";
-
+/******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 464);
+/******/ 	return __webpack_require__(__webpack_require__.s = 467);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -233,6 +230,20 @@ module.exports = exports['default'];
 /***/ 10:
 /***/ (function(module, exports, __webpack_require__) {
 
+var dP         = __webpack_require__(9)
+  , createDesc = __webpack_require__(17);
+module.exports = __webpack_require__(3) ? function(object, key, value){
+  return dP.f(object, key, createDesc(1, value));
+} : function(object, key, value){
+  object[key] = value;
+  return object;
+};
+
+/***/ }),
+
+/***/ 11:
+/***/ (function(module, exports, __webpack_require__) {
+
 "use strict";
 
 
@@ -257,20 +268,6 @@ var getClosestVueParent = function getClosestVueParent($parent, cssClass) {
 
 exports.default = getClosestVueParent;
 module.exports = exports["default"];
-
-/***/ }),
-
-/***/ 11:
-/***/ (function(module, exports, __webpack_require__) {
-
-var dP         = __webpack_require__(9)
-  , createDesc = __webpack_require__(17);
-module.exports = __webpack_require__(3) ? function(object, key, value){
-  return dP.f(object, key, createDesc(1, value));
-} : function(object, key, value){
-  object[key] = value;
-  return object;
-};
 
 /***/ }),
 
@@ -313,8 +310,8 @@ module.exports = function(it){
 
 var global    = __webpack_require__(2)
   , core      = __webpack_require__(4)
-  , ctx       = __webpack_require__(28)
-  , hide      = __webpack_require__(11)
+  , ctx       = __webpack_require__(29)
+  , hide      = __webpack_require__(10)
   , PROTOTYPE = 'prototype';
 
 var $export = function(type, name, source){
@@ -389,7 +386,209 @@ module.exports = function(bitmap, value){
 
 /***/ }),
 
-/***/ 171:
+/***/ 18:
+/***/ (function(module, exports, __webpack_require__) {
+
+// 19.1.2.14 / 15.2.3.14 Object.keys(O)
+var $keys       = __webpack_require__(30)
+  , enumBugKeys = __webpack_require__(23);
+
+module.exports = Object.keys || function keys(O){
+  return $keys(O, enumBugKeys);
+};
+
+/***/ }),
+
+/***/ 19:
+/***/ (function(module, exports, __webpack_require__) {
+
+var shared = __webpack_require__(22)('keys')
+  , uid    = __webpack_require__(20);
+module.exports = function(key){
+  return shared[key] || (shared[key] = uid(key));
+};
+
+/***/ }),
+
+/***/ 2:
+/***/ (function(module, exports) {
+
+// https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
+var global = module.exports = typeof window != 'undefined' && window.Math == Math
+  ? window : typeof self != 'undefined' && self.Math == Math ? self : Function('return this')();
+if(typeof __g == 'number')__g = global; // eslint-disable-line no-undef
+
+/***/ }),
+
+/***/ 20:
+/***/ (function(module, exports) {
+
+var id = 0
+  , px = Math.random();
+module.exports = function(key){
+  return 'Symbol('.concat(key === undefined ? '' : key, ')_', (++id + px).toString(36));
+};
+
+/***/ }),
+
+/***/ 21:
+/***/ (function(module, exports, __webpack_require__) {
+
+// 7.1.13 ToObject(argument)
+var defined = __webpack_require__(14);
+module.exports = function(it){
+  return Object(defined(it));
+};
+
+/***/ }),
+
+/***/ 22:
+/***/ (function(module, exports, __webpack_require__) {
+
+var global = __webpack_require__(2)
+  , SHARED = '__core-js_shared__'
+  , store  = global[SHARED] || (global[SHARED] = {});
+module.exports = function(key){
+  return store[key] || (store[key] = {});
+};
+
+/***/ }),
+
+/***/ 23:
+/***/ (function(module, exports) {
+
+// IE 8- don't enum bug keys
+module.exports = (
+  'constructor,hasOwnProperty,isPrototypeOf,propertyIsEnumerable,toLocaleString,toString,valueOf'
+).split(',');
+
+/***/ }),
+
+/***/ 24:
+/***/ (function(module, exports) {
+
+var toString = {}.toString;
+
+module.exports = function(it){
+  return toString.call(it).slice(8, -1);
+};
+
+/***/ }),
+
+/***/ 25:
+/***/ (function(module, exports, __webpack_require__) {
+
+// fallback for non-array-like ES3 and non-enumerable old V8 strings
+var cof = __webpack_require__(24);
+module.exports = Object('z').propertyIsEnumerable(0) ? Object : function(it){
+  return cof(it) == 'String' ? it.split('') : Object(it);
+};
+
+/***/ }),
+
+/***/ 26:
+/***/ (function(module, exports, __webpack_require__) {
+
+var isObject = __webpack_require__(6)
+  , document = __webpack_require__(2).document
+  // in old IE typeof document.createElement is 'object'
+  , is = isObject(document) && isObject(document.createElement);
+module.exports = function(it){
+  return is ? document.createElement(it) : {};
+};
+
+/***/ }),
+
+/***/ 27:
+/***/ (function(module, exports, __webpack_require__) {
+
+// 7.1.1 ToPrimitive(input [, PreferredType])
+var isObject = __webpack_require__(6);
+// instead of the ES6 spec version, we didn't implement @@toPrimitive case
+// and the second argument - flag - preferred type is a string
+module.exports = function(it, S){
+  if(!isObject(it))return it;
+  var fn, val;
+  if(S && typeof (fn = it.toString) == 'function' && !isObject(val = fn.call(it)))return val;
+  if(typeof (fn = it.valueOf) == 'function' && !isObject(val = fn.call(it)))return val;
+  if(!S && typeof (fn = it.toString) == 'function' && !isObject(val = fn.call(it)))return val;
+  throw TypeError("Can't convert object to primitive value");
+};
+
+/***/ }),
+
+/***/ 28:
+/***/ (function(module, exports, __webpack_require__) {
+
+// 7.1.15 ToLength
+var toInteger = __webpack_require__(15)
+  , min       = Math.min;
+module.exports = function(it){
+  return it > 0 ? min(toInteger(it), 0x1fffffffffffff) : 0; // pow(2, 53) - 1 == 9007199254740991
+};
+
+/***/ }),
+
+/***/ 29:
+/***/ (function(module, exports, __webpack_require__) {
+
+// optional / simple context binding
+var aFunction = __webpack_require__(35);
+module.exports = function(fn, that, length){
+  aFunction(fn);
+  if(that === undefined)return fn;
+  switch(length){
+    case 1: return function(a){
+      return fn.call(that, a);
+    };
+    case 2: return function(a, b){
+      return fn.call(that, a, b);
+    };
+    case 3: return function(a, b, c){
+      return fn.call(that, a, b, c);
+    };
+  }
+  return function(/* ...args */){
+    return fn.apply(that, arguments);
+  };
+};
+
+/***/ }),
+
+/***/ 3:
+/***/ (function(module, exports, __webpack_require__) {
+
+// Thank's IE8 for his funny defineProperty
+module.exports = !__webpack_require__(5)((function(){
+  return Object.defineProperty({}, 'a', {get: function(){ return 7; }}).a != 7;
+}));
+
+/***/ }),
+
+/***/ 30:
+/***/ (function(module, exports, __webpack_require__) {
+
+var has          = __webpack_require__(8)
+  , toIObject    = __webpack_require__(7)
+  , arrayIndexOf = __webpack_require__(33)(false)
+  , IE_PROTO     = __webpack_require__(19)('IE_PROTO');
+
+module.exports = function(object, names){
+  var O      = toIObject(object)
+    , i      = 0
+    , result = []
+    , key;
+  for(key in O)if(key != IE_PROTO)has(O, key) && result.push(key);
+  // Don't enum bug & hidden keys
+  while(names.length > i)if(has(O, key = names[i++])){
+    ~arrayIndexOf(result, key) || result.push(key);
+  }
+  return result;
+};
+
+/***/ }),
+
+/***/ 302:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -398,124 +597,85 @@ module.exports = function(bitmap, value){
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.default = install;
 
-var _uniqueId = __webpack_require__(36);
+var _mdBoards = __webpack_require__(303);
 
-var _uniqueId2 = _interopRequireDefault(_uniqueId);
+var _mdBoards2 = _interopRequireDefault(_mdBoards);
 
-var _getClosestVueParent = __webpack_require__(10);
+var _mdBoard = __webpack_require__(307);
 
-var _getClosestVueParent2 = _interopRequireDefault(_getClosestVueParent);
+var _mdBoard2 = _interopRequireDefault(_mdBoard);
+
+var _mdBoards3 = __webpack_require__(310);
+
+var _mdBoards4 = _interopRequireDefault(_mdBoards3);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//
-//
-//
-//
-//
-//
+function install(Vue) {
+  Vue.component('md-boards', _mdBoards2.default);
+  Vue.component('md-board', _mdBoard2.default);
 
-exports.default = {
-  props: {
-    id: [String, Number],
-    mdLabel: [String, Number],
-    mdIcon: String,
-    mdActive: Boolean,
-    mdDisabled: Boolean,
-    mdTooltip: String,
-    mdTooltipDelay: {
-      type: String,
-      default: '0'
-    },
-    mdTooltipDirection: {
-      type: String,
-      default: 'bottom'
-    }
-  },
-  data: function data() {
-    return {
-      mounted: false,
-      boardId: this.id || 'board-' + (0, _uniqueId2.default)(),
-      width: '0px',
-      left: '0px'
-    };
-  },
-
-  watch: {
-    mdActive: function mdActive() {
-      this.updateBoardData();
-    },
-    mdDisabled: function mdDisabled() {
-      this.updateBoardData();
-    },
-    mdIcon: function mdIcon() {
-      this.updateBoardData();
-    },
-    mdLabel: function mdLabel() {
-      this.updateBoardData();
-    },
-    mdTooltip: function mdTooltip() {
-      this.updateBoardData();
-    },
-    mdTooltipDelay: function mdTooltipDelay() {
-      this.updateBoardData();
-    },
-    mdTooltipDirection: function mdTooltipDirection() {
-      this.updateBoardData();
-    }
-  },
-  computed: {
-    styles: function styles() {
-      return {
-        width: this.width,
-        left: this.left
-      };
-    }
-  },
-  methods: {
-    getBoardData: function getBoardData() {
-      return {
-        id: this.boardId,
-        label: this.mdLabel,
-        icon: this.mdIcon,
-        active: this.mdActive,
-        disabled: this.mdDisabled,
-        tooltip: this.mdTooltip,
-        tooltipDelay: this.mdTooltipDelay,
-        tooltipDirection: this.mdTooltipDirection,
-        ref: this
-      };
-    },
-    updateBoardData: function updateBoardData() {
-      this.parentBoards.updateBoard(this.getBoardData());
-    }
-  },
-  mounted: function mounted() {
-    var boardData = this.getBoardData();
-
-    this.parentBoards = (0, _getClosestVueParent2.default)(this.$parent, 'md-boards');
-
-    if (!this.parentBoards) {
-      throw new Error('You must wrap the md-board in a md-boards');
-    }
-
-    this.mounted = true;
-    this.parentBoards.updateBoard(boardData);
-
-    if (this.mdActive) {
-      this.parentBoards.setActiveBoard(boardData);
-    }
-  },
-  beforeDestroy: function beforeDestroy() {
-    this.parentBoards.unregisterBoard(this.getBoardData());
-  }
-};
+  Vue.material.styles.push(_mdBoards4.default);
+}
 module.exports = exports['default'];
 
 /***/ }),
 
-/***/ 172:
+/***/ 303:
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(304)
+}
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(305),
+  /* template */
+  __webpack_require__(306),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+Component.options.__file = "/Users/marcosmoura/Projects/github/vue-material/src/components/mdOnboarding/mdBoards.vue"
+if (Component.esModule && Object.keys(Component.esModule).some((function (key) {return key !== "default" && key.substr(0, 2) !== "__"}))) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] mdBoards.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-999a2014", Component.options)
+  } else {
+    hotAPI.reload("data-v-999a2014", Component.options)
+  }
+  module.hot.dispose((function (data) {
+    disposed = true
+  }))
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+
+/***/ 304:
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 305:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -533,7 +693,7 @@ var _mixin = __webpack_require__(1);
 
 var _mixin2 = _interopRequireDefault(_mixin);
 
-var _throttle = __webpack_require__(51);
+var _throttle = __webpack_require__(59);
 
 var _throttle2 = _interopRequireDefault(_throttle);
 
@@ -916,423 +1076,7 @@ module.exports = exports['default'];
 
 /***/ }),
 
-/***/ 18:
-/***/ (function(module, exports, __webpack_require__) {
-
-// 19.1.2.14 / 15.2.3.14 Object.keys(O)
-var $keys       = __webpack_require__(31)
-  , enumBugKeys = __webpack_require__(22);
-
-module.exports = Object.keys || function keys(O){
-  return $keys(O, enumBugKeys);
-};
-
-/***/ }),
-
-/***/ 19:
-/***/ (function(module, exports, __webpack_require__) {
-
-var shared = __webpack_require__(23)('keys')
-  , uid    = __webpack_require__(20);
-module.exports = function(key){
-  return shared[key] || (shared[key] = uid(key));
-};
-
-/***/ }),
-
-/***/ 2:
-/***/ (function(module, exports) {
-
-// https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
-var global = module.exports = typeof window != 'undefined' && window.Math == Math
-  ? window : typeof self != 'undefined' && self.Math == Math ? self : Function('return this')();
-if(typeof __g == 'number')__g = global; // eslint-disable-line no-undef
-
-/***/ }),
-
-/***/ 20:
-/***/ (function(module, exports) {
-
-var id = 0
-  , px = Math.random();
-module.exports = function(key){
-  return 'Symbol('.concat(key === undefined ? '' : key, ')_', (++id + px).toString(36));
-};
-
-/***/ }),
-
-/***/ 21:
-/***/ (function(module, exports, __webpack_require__) {
-
-// 7.1.13 ToObject(argument)
-var defined = __webpack_require__(14);
-module.exports = function(it){
-  return Object(defined(it));
-};
-
-/***/ }),
-
-/***/ 22:
-/***/ (function(module, exports) {
-
-// IE 8- don't enum bug keys
-module.exports = (
-  'constructor,hasOwnProperty,isPrototypeOf,propertyIsEnumerable,toLocaleString,toString,valueOf'
-).split(',');
-
-/***/ }),
-
-/***/ 23:
-/***/ (function(module, exports, __webpack_require__) {
-
-var global = __webpack_require__(2)
-  , SHARED = '__core-js_shared__'
-  , store  = global[SHARED] || (global[SHARED] = {});
-module.exports = function(key){
-  return store[key] || (store[key] = {});
-};
-
-/***/ }),
-
-/***/ 24:
-/***/ (function(module, exports) {
-
-var toString = {}.toString;
-
-module.exports = function(it){
-  return toString.call(it).slice(8, -1);
-};
-
-/***/ }),
-
-/***/ 25:
-/***/ (function(module, exports, __webpack_require__) {
-
-var isObject = __webpack_require__(6)
-  , document = __webpack_require__(2).document
-  // in old IE typeof document.createElement is 'object'
-  , is = isObject(document) && isObject(document.createElement);
-module.exports = function(it){
-  return is ? document.createElement(it) : {};
-};
-
-/***/ }),
-
-/***/ 256:
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ 26:
-/***/ (function(module, exports, __webpack_require__) {
-
-// fallback for non-array-like ES3 and non-enumerable old V8 strings
-var cof = __webpack_require__(24);
-module.exports = Object('z').propertyIsEnumerable(0) ? Object : function(it){
-  return cof(it) == 'String' ? it.split('') : Object(it);
-};
-
-/***/ }),
-
-/***/ 27:
-/***/ (function(module, exports, __webpack_require__) {
-
-// 7.1.1 ToPrimitive(input [, PreferredType])
-var isObject = __webpack_require__(6);
-// instead of the ES6 spec version, we didn't implement @@toPrimitive case
-// and the second argument - flag - preferred type is a string
-module.exports = function(it, S){
-  if(!isObject(it))return it;
-  var fn, val;
-  if(S && typeof (fn = it.toString) == 'function' && !isObject(val = fn.call(it)))return val;
-  if(typeof (fn = it.valueOf) == 'function' && !isObject(val = fn.call(it)))return val;
-  if(!S && typeof (fn = it.toString) == 'function' && !isObject(val = fn.call(it)))return val;
-  throw TypeError("Can't convert object to primitive value");
-};
-
-/***/ }),
-
-/***/ 28:
-/***/ (function(module, exports, __webpack_require__) {
-
-// optional / simple context binding
-var aFunction = __webpack_require__(33);
-module.exports = function(fn, that, length){
-  aFunction(fn);
-  if(that === undefined)return fn;
-  switch(length){
-    case 1: return function(a){
-      return fn.call(that, a);
-    };
-    case 2: return function(a, b){
-      return fn.call(that, a, b);
-    };
-    case 3: return function(a, b, c){
-      return fn.call(that, a, b, c);
-    };
-  }
-  return function(/* ...args */){
-    return fn.apply(that, arguments);
-  };
-};
-
-/***/ }),
-
-/***/ 280:
-/***/ (function(module, exports) {
-
-module.exports = ".THEME_NAME.md-boards > .md-boards-navigation {\n  background-color: transparent; }\n  .THEME_NAME.md-boards > .md-boards-navigation .md-board-header {\n    color: BACKGROUND-CONTRAST-0.54; }\n    .THEME_NAME.md-boards > .md-boards-navigation .md-board-header.md-active, .THEME_NAME.md-boards > .md-boards-navigation .md-board-header:focus {\n      color: PRIMARY-COLOR; }\n    .THEME_NAME.md-boards > .md-boards-navigation .md-board-header.md-disabled {\n      color: BACKGROUND-CONTRAST-0.26; }\n  .THEME_NAME.md-boards > .md-boards-navigation .md-button {\n    color: PRIMARY-COLOR; }\n\n.THEME_NAME.md-boards.md-transparent > .md-boards-navigation {\n  background-color: transparent; }\n  .THEME_NAME.md-boards.md-transparent > .md-boards-navigation .md-board-header {\n    color: PRIMARY-CONTRAST-0.54; }\n    .THEME_NAME.md-boards.md-transparent > .md-boards-navigation .md-board-header.md-active, .THEME_NAME.md-boards.md-transparent > .md-boards-navigation .md-board-header:focus {\n      color: PRIMARY-CONTRAST; }\n    .THEME_NAME.md-boards.md-transparent > .md-boards-navigation .md-board-header.md-disabled {\n      color: PRIMARY-CONTRAST-0.26; }\n  .THEME_NAME.md-boards.md-transparent > .md-boards-navigation .md-button {\n    color: PRIMARY-CONTRAST-0.54; }\n\n.THEME_NAME.md-boards.md-primary > .md-boards-navigation {\n  background-color: PRIMARY-COLOR; }\n  .THEME_NAME.md-boards.md-primary > .md-boards-navigation .md-board-header {\n    color: PRIMARY-CONTRAST-0.54; }\n    .THEME_NAME.md-boards.md-primary > .md-boards-navigation .md-board-header.md-active, .THEME_NAME.md-boards.md-primary > .md-boards-navigation .md-board-header:focus {\n      color: PRIMARY-CONTRAST; }\n    .THEME_NAME.md-boards.md-primary > .md-boards-navigation .md-board-header.md-disabled {\n      color: PRIMARY-CONTRAST-0.26; }\n  .THEME_NAME.md-boards.md-primary > .md-boards-navigation .md-button {\n    color: PRIMARY-CONTRAST-0.54; }\n\n.THEME_NAME.md-boards.md-accent > .md-boards-navigation {\n  background-color: ACCENT-COLOR; }\n  .THEME_NAME.md-boards.md-accent > .md-boards-navigation .md-board-header {\n    color: ACCENT-CONTRAST-0.54; }\n    .THEME_NAME.md-boards.md-accent > .md-boards-navigation .md-board-header.md-active, .THEME_NAME.md-boards.md-accent > .md-boards-navigation .md-board-header:focus {\n      color: ACCENT-CONTRAST; }\n    .THEME_NAME.md-boards.md-accent > .md-boards-navigation .md-board-header.md-disabled {\n      color: ACCENT-CONTRAST-0.26; }\n  .THEME_NAME.md-boards.md-accent > .md-boards-navigation .md-button {\n    color: ACCENT-CONTRAST-0.54; }\n\n.THEME_NAME.md-boards.md-warn > .md-boards-navigation {\n  background-color: WARN-COLOR; }\n  .THEME_NAME.md-boards.md-warn > .md-boards-navigation .md-board-header {\n    color: WARN-CONTRAST-0.54; }\n    .THEME_NAME.md-boards.md-warn > .md-boards-navigation .md-board-header.md-active, .THEME_NAME.md-boards.md-warn > .md-boards-navigation .md-board-header:focus {\n      color: WARN-CONTRAST; }\n    .THEME_NAME.md-boards.md-warn > .md-boards-navigation .md-board-header.md-disabled {\n      color: WARN-CONTRAST-0.26; }\n  .THEME_NAME.md-boards.md-warn > .md-boards-navigation .md-button {\n    color: WARN-CONTRAST-0.54; }\n"
-
-/***/ }),
-
-/***/ 29:
-/***/ (function(module, exports, __webpack_require__) {
-
-// 7.1.15 ToLength
-var toInteger = __webpack_require__(15)
-  , min       = Math.min;
-module.exports = function(it){
-  return it > 0 ? min(toInteger(it), 0x1fffffffffffff) : 0; // pow(2, 53) - 1 == 9007199254740991
-};
-
-/***/ }),
-
-/***/ 3:
-/***/ (function(module, exports, __webpack_require__) {
-
-// Thank's IE8 for his funny defineProperty
-module.exports = !__webpack_require__(5)((function(){
-  return Object.defineProperty({}, 'a', {get: function(){ return 7; }}).a != 7;
-}));
-
-/***/ }),
-
-/***/ 30:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = !__webpack_require__(3) && !__webpack_require__(5)((function(){
-  return Object.defineProperty(__webpack_require__(25)('div'), 'a', {get: function(){ return 7; }}).a != 7;
-}));
-
-/***/ }),
-
-/***/ 31:
-/***/ (function(module, exports, __webpack_require__) {
-
-var has          = __webpack_require__(8)
-  , toIObject    = __webpack_require__(7)
-  , arrayIndexOf = __webpack_require__(34)(false)
-  , IE_PROTO     = __webpack_require__(19)('IE_PROTO');
-
-module.exports = function(object, names){
-  var O      = toIObject(object)
-    , i      = 0
-    , result = []
-    , key;
-  for(key in O)if(key != IE_PROTO)has(O, key) && result.push(key);
-  // Don't enum bug & hidden keys
-  while(names.length > i)if(has(O, key = names[i++])){
-    ~arrayIndexOf(result, key) || result.push(key);
-  }
-  return result;
-};
-
-/***/ }),
-
-/***/ 33:
-/***/ (function(module, exports) {
-
-module.exports = function(it){
-  if(typeof it != 'function')throw TypeError(it + ' is not a function!');
-  return it;
-};
-
-/***/ }),
-
-/***/ 34:
-/***/ (function(module, exports, __webpack_require__) {
-
-// false -> Array#indexOf
-// true  -> Array#includes
-var toIObject = __webpack_require__(7)
-  , toLength  = __webpack_require__(29)
-  , toIndex   = __webpack_require__(35);
-module.exports = function(IS_INCLUDES){
-  return function($this, el, fromIndex){
-    var O      = toIObject($this)
-      , length = toLength(O.length)
-      , index  = toIndex(fromIndex, length)
-      , value;
-    // Array#includes uses SameValueZero equality algorithm
-    if(IS_INCLUDES && el != el)while(length > index){
-      value = O[index++];
-      if(value != value)return true;
-    // Array#toIndex ignores holes, Array#includes - not
-    } else for(;length > index; index++)if(IS_INCLUDES || index in O){
-      if(O[index] === el)return IS_INCLUDES || index || 0;
-    } return !IS_INCLUDES && -1;
-  };
-};
-
-/***/ }),
-
-/***/ 341:
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var Component = __webpack_require__(0)(
-  /* script */
-  __webpack_require__(171),
-  /* template */
-  __webpack_require__(408),
-  /* styles */
-  null,
-  /* scopeId */
-  null,
-  /* moduleIdentifier (server only) */
-  null
-)
-Component.options.__file = "/Users/pablohpsilva/Code/vue-material/src/components/mdOnboarding/mdBoard.vue"
-if (Component.esModule && Object.keys(Component.esModule).some((function (key) {return key !== "default" && key.substr(0, 2) !== "__"}))) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] mdBoard.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-47ba0acd", Component.options)
-  } else {
-    hotAPI.reload("data-v-47ba0acd", Component.options)
-  }
-  module.hot.dispose((function (data) {
-    disposed = true
-  }))
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-
-/***/ 342:
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(256)
-}
-var Component = __webpack_require__(0)(
-  /* script */
-  __webpack_require__(172),
-  /* template */
-  __webpack_require__(435),
-  /* styles */
-  injectStyle,
-  /* scopeId */
-  null,
-  /* moduleIdentifier (server only) */
-  null
-)
-Component.options.__file = "/Users/pablohpsilva/Code/vue-material/src/components/mdOnboarding/mdBoards.vue"
-if (Component.esModule && Object.keys(Component.esModule).some((function (key) {return key !== "default" && key.substr(0, 2) !== "__"}))) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] mdBoards.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-999a2014", Component.options)
-  } else {
-    hotAPI.reload("data-v-999a2014", Component.options)
-  }
-  module.hot.dispose((function (data) {
-    disposed = true
-  }))
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-
-/***/ 35:
-/***/ (function(module, exports, __webpack_require__) {
-
-var toInteger = __webpack_require__(15)
-  , max       = Math.max
-  , min       = Math.min;
-module.exports = function(index, length){
-  index = toInteger(index);
-  return index < 0 ? max(index + length, 0) : min(index, length);
-};
-
-/***/ }),
-
-/***/ 36:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var uniqueId = function uniqueId() {
-  return Math.random().toString(36).slice(4);
-};
-
-exports.default = uniqueId;
-module.exports = exports["default"];
-
-/***/ }),
-
-/***/ 38:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = { "default": __webpack_require__(45), __esModule: true };
-
-/***/ }),
-
-/***/ 4:
-/***/ (function(module, exports) {
-
-var core = module.exports = {version: '2.4.0'};
-if(typeof __e == 'number')__e = core; // eslint-disable-line no-undef
-
-/***/ }),
-
-/***/ 408:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "md-board",
-    style: (_vm.styles),
-    attrs: {
-      "id": _vm.boardId
-    }
-  }, [_vm._t("default")], 2)
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-47ba0acd", module.exports)
-  }
-}
-
-/***/ }),
-
-/***/ 435:
+/***/ 306:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -1423,18 +1167,321 @@ if (false) {
 
 /***/ }),
 
+/***/ 307:
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(308),
+  /* template */
+  __webpack_require__(309),
+  /* styles */
+  null,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+Component.options.__file = "/Users/marcosmoura/Projects/github/vue-material/src/components/mdOnboarding/mdBoard.vue"
+if (Component.esModule && Object.keys(Component.esModule).some((function (key) {return key !== "default" && key.substr(0, 2) !== "__"}))) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] mdBoard.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-47ba0acd", Component.options)
+  } else {
+    hotAPI.reload("data-v-47ba0acd", Component.options)
+  }
+  module.hot.dispose((function (data) {
+    disposed = true
+  }))
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+
+/***/ 308:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _uniqueId = __webpack_require__(36);
+
+var _uniqueId2 = _interopRequireDefault(_uniqueId);
+
+var _getClosestVueParent = __webpack_require__(11);
+
+var _getClosestVueParent2 = _interopRequireDefault(_getClosestVueParent);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//
+//
+//
+//
+//
+//
+
+exports.default = {
+  props: {
+    id: [String, Number],
+    mdLabel: [String, Number],
+    mdIcon: String,
+    mdActive: Boolean,
+    mdDisabled: Boolean,
+    mdTooltip: String,
+    mdTooltipDelay: {
+      type: String,
+      default: '0'
+    },
+    mdTooltipDirection: {
+      type: String,
+      default: 'bottom'
+    }
+  },
+  data: function data() {
+    return {
+      mounted: false,
+      boardId: this.id || 'board-' + (0, _uniqueId2.default)(),
+      width: '0px',
+      left: '0px'
+    };
+  },
+
+  watch: {
+    mdActive: function mdActive() {
+      this.updateBoardData();
+    },
+    mdDisabled: function mdDisabled() {
+      this.updateBoardData();
+    },
+    mdIcon: function mdIcon() {
+      this.updateBoardData();
+    },
+    mdLabel: function mdLabel() {
+      this.updateBoardData();
+    },
+    mdTooltip: function mdTooltip() {
+      this.updateBoardData();
+    },
+    mdTooltipDelay: function mdTooltipDelay() {
+      this.updateBoardData();
+    },
+    mdTooltipDirection: function mdTooltipDirection() {
+      this.updateBoardData();
+    }
+  },
+  computed: {
+    styles: function styles() {
+      return {
+        width: this.width,
+        left: this.left
+      };
+    }
+  },
+  methods: {
+    getBoardData: function getBoardData() {
+      return {
+        id: this.boardId,
+        label: this.mdLabel,
+        icon: this.mdIcon,
+        active: this.mdActive,
+        disabled: this.mdDisabled,
+        tooltip: this.mdTooltip,
+        tooltipDelay: this.mdTooltipDelay,
+        tooltipDirection: this.mdTooltipDirection,
+        ref: this
+      };
+    },
+    updateBoardData: function updateBoardData() {
+      this.parentBoards.updateBoard(this.getBoardData());
+    }
+  },
+  mounted: function mounted() {
+    var boardData = this.getBoardData();
+
+    this.parentBoards = (0, _getClosestVueParent2.default)(this.$parent, 'md-boards');
+
+    if (!this.parentBoards) {
+      throw new Error('You must wrap the md-board in a md-boards');
+    }
+
+    this.mounted = true;
+    this.parentBoards.updateBoard(boardData);
+
+    if (this.mdActive) {
+      this.parentBoards.setActiveBoard(boardData);
+    }
+  },
+  beforeDestroy: function beforeDestroy() {
+    this.parentBoards.unregisterBoard(this.getBoardData());
+  }
+};
+module.exports = exports['default'];
+
+/***/ }),
+
+/***/ 309:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "md-board",
+    style: (_vm.styles),
+    attrs: {
+      "id": _vm.boardId
+    }
+  }, [_vm._t("default")], 2)
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-47ba0acd", module.exports)
+  }
+}
+
+/***/ }),
+
+/***/ 31:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = !__webpack_require__(3) && !__webpack_require__(5)((function(){
+  return Object.defineProperty(__webpack_require__(26)('div'), 'a', {get: function(){ return 7; }}).a != 7;
+}));
+
+/***/ }),
+
+/***/ 310:
+/***/ (function(module, exports) {
+
+module.exports = ".THEME_NAME.md-boards > .md-boards-navigation {\n  background-color: transparent; }\n  .THEME_NAME.md-boards > .md-boards-navigation .md-board-header {\n    color: BACKGROUND-CONTRAST-0.54; }\n    .THEME_NAME.md-boards > .md-boards-navigation .md-board-header.md-active, .THEME_NAME.md-boards > .md-boards-navigation .md-board-header:focus {\n      color: PRIMARY-COLOR; }\n    .THEME_NAME.md-boards > .md-boards-navigation .md-board-header.md-disabled {\n      color: BACKGROUND-CONTRAST-0.26; }\n  .THEME_NAME.md-boards > .md-boards-navigation .md-button {\n    color: PRIMARY-COLOR; }\n\n.THEME_NAME.md-boards.md-transparent > .md-boards-navigation {\n  background-color: transparent; }\n  .THEME_NAME.md-boards.md-transparent > .md-boards-navigation .md-board-header {\n    color: PRIMARY-CONTRAST-0.54; }\n    .THEME_NAME.md-boards.md-transparent > .md-boards-navigation .md-board-header.md-active, .THEME_NAME.md-boards.md-transparent > .md-boards-navigation .md-board-header:focus {\n      color: PRIMARY-CONTRAST; }\n    .THEME_NAME.md-boards.md-transparent > .md-boards-navigation .md-board-header.md-disabled {\n      color: PRIMARY-CONTRAST-0.26; }\n  .THEME_NAME.md-boards.md-transparent > .md-boards-navigation .md-button {\n    color: PRIMARY-CONTRAST-0.54; }\n\n.THEME_NAME.md-boards.md-primary > .md-boards-navigation {\n  background-color: PRIMARY-COLOR; }\n  .THEME_NAME.md-boards.md-primary > .md-boards-navigation .md-board-header {\n    color: PRIMARY-CONTRAST-0.54; }\n    .THEME_NAME.md-boards.md-primary > .md-boards-navigation .md-board-header.md-active, .THEME_NAME.md-boards.md-primary > .md-boards-navigation .md-board-header:focus {\n      color: PRIMARY-CONTRAST; }\n    .THEME_NAME.md-boards.md-primary > .md-boards-navigation .md-board-header.md-disabled {\n      color: PRIMARY-CONTRAST-0.26; }\n  .THEME_NAME.md-boards.md-primary > .md-boards-navigation .md-button {\n    color: PRIMARY-CONTRAST-0.54; }\n\n.THEME_NAME.md-boards.md-accent > .md-boards-navigation {\n  background-color: ACCENT-COLOR; }\n  .THEME_NAME.md-boards.md-accent > .md-boards-navigation .md-board-header {\n    color: ACCENT-CONTRAST-0.54; }\n    .THEME_NAME.md-boards.md-accent > .md-boards-navigation .md-board-header.md-active, .THEME_NAME.md-boards.md-accent > .md-boards-navigation .md-board-header:focus {\n      color: ACCENT-CONTRAST; }\n    .THEME_NAME.md-boards.md-accent > .md-boards-navigation .md-board-header.md-disabled {\n      color: ACCENT-CONTRAST-0.26; }\n  .THEME_NAME.md-boards.md-accent > .md-boards-navigation .md-button {\n    color: ACCENT-CONTRAST-0.54; }\n\n.THEME_NAME.md-boards.md-warn > .md-boards-navigation {\n  background-color: WARN-COLOR; }\n  .THEME_NAME.md-boards.md-warn > .md-boards-navigation .md-board-header {\n    color: WARN-CONTRAST-0.54; }\n    .THEME_NAME.md-boards.md-warn > .md-boards-navigation .md-board-header.md-active, .THEME_NAME.md-boards.md-warn > .md-boards-navigation .md-board-header:focus {\n      color: WARN-CONTRAST; }\n    .THEME_NAME.md-boards.md-warn > .md-boards-navigation .md-board-header.md-disabled {\n      color: WARN-CONTRAST-0.26; }\n  .THEME_NAME.md-boards.md-warn > .md-boards-navigation .md-button {\n    color: WARN-CONTRAST-0.54; }\n"
+
+/***/ }),
+
+/***/ 33:
+/***/ (function(module, exports, __webpack_require__) {
+
+// false -> Array#indexOf
+// true  -> Array#includes
+var toIObject = __webpack_require__(7)
+  , toLength  = __webpack_require__(28)
+  , toIndex   = __webpack_require__(34);
+module.exports = function(IS_INCLUDES){
+  return function($this, el, fromIndex){
+    var O      = toIObject($this)
+      , length = toLength(O.length)
+      , index  = toIndex(fromIndex, length)
+      , value;
+    // Array#includes uses SameValueZero equality algorithm
+    if(IS_INCLUDES && el != el)while(length > index){
+      value = O[index++];
+      if(value != value)return true;
+    // Array#toIndex ignores holes, Array#includes - not
+    } else for(;length > index; index++)if(IS_INCLUDES || index in O){
+      if(O[index] === el)return IS_INCLUDES || index || 0;
+    } return !IS_INCLUDES && -1;
+  };
+};
+
+/***/ }),
+
+/***/ 34:
+/***/ (function(module, exports, __webpack_require__) {
+
+var toInteger = __webpack_require__(15)
+  , max       = Math.max
+  , min       = Math.min;
+module.exports = function(index, length){
+  index = toInteger(index);
+  return index < 0 ? max(index + length, 0) : min(index, length);
+};
+
+/***/ }),
+
+/***/ 35:
+/***/ (function(module, exports) {
+
+module.exports = function(it){
+  if(typeof it != 'function')throw TypeError(it + ' is not a function!');
+  return it;
+};
+
+/***/ }),
+
+/***/ 36:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var uniqueId = function uniqueId() {
+  return Math.random().toString(36).slice(4);
+};
+
+exports.default = uniqueId;
+module.exports = exports["default"];
+
+/***/ }),
+
+/***/ 38:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = { "default": __webpack_require__(45), __esModule: true };
+
+/***/ }),
+
+/***/ 4:
+/***/ (function(module, exports) {
+
+var core = module.exports = {version: '2.4.0'};
+if(typeof __e == 'number')__e = core; // eslint-disable-line no-undef
+
+/***/ }),
+
 /***/ 45:
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(49);
+__webpack_require__(46);
 module.exports = __webpack_require__(4).Object.keys;
 
 /***/ }),
 
-/***/ 464:
+/***/ 46:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(97);
+// 19.1.2.14 Object.keys(O)
+var toObject = __webpack_require__(21)
+  , $keys    = __webpack_require__(18);
+
+__webpack_require__(47)('keys', (function(){
+  return function keys(it){
+    return $keys(toObject(it));
+  };
+}));
+
+/***/ }),
+
+/***/ 467:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(302);
 
 
 /***/ }),
@@ -1455,21 +1502,6 @@ module.exports = function(KEY, exec){
 
 /***/ }),
 
-/***/ 49:
-/***/ (function(module, exports, __webpack_require__) {
-
-// 19.1.2.14 Object.keys(O)
-var toObject = __webpack_require__(21)
-  , $keys    = __webpack_require__(18);
-
-__webpack_require__(47)('keys', (function(){
-  return function keys(it){
-    return $keys(toObject(it));
-  };
-}));
-
-/***/ }),
-
 /***/ 5:
 /***/ (function(module, exports) {
 
@@ -1483,7 +1515,7 @@ module.exports = function(exec){
 
 /***/ }),
 
-/***/ 51:
+/***/ 59:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1525,7 +1557,7 @@ module.exports = function(it){
 /***/ (function(module, exports, __webpack_require__) {
 
 // to indexed object, toObject with fallback for non-array-like ES3 strings
-var IObject = __webpack_require__(26)
+var IObject = __webpack_require__(25)
   , defined = __webpack_require__(14);
 module.exports = function(it){
   return IObject(defined(it));
@@ -1547,7 +1579,7 @@ module.exports = function(it, key){
 /***/ (function(module, exports, __webpack_require__) {
 
 var anObject       = __webpack_require__(13)
-  , IE8_DOM_DEFINE = __webpack_require__(30)
+  , IE8_DOM_DEFINE = __webpack_require__(31)
   , toPrimitive    = __webpack_require__(27)
   , dP             = Object.defineProperty;
 
@@ -1562,41 +1594,6 @@ exports.f = __webpack_require__(3) ? Object.defineProperty : function defineProp
   if('value' in Attributes)O[P] = Attributes.value;
   return O;
 };
-
-/***/ }),
-
-/***/ 97:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = install;
-
-var _mdBoards = __webpack_require__(342);
-
-var _mdBoards2 = _interopRequireDefault(_mdBoards);
-
-var _mdBoard = __webpack_require__(341);
-
-var _mdBoard2 = _interopRequireDefault(_mdBoard);
-
-var _mdBoards3 = __webpack_require__(280);
-
-var _mdBoards4 = _interopRequireDefault(_mdBoards3);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function install(Vue) {
-  Vue.component('md-boards', _mdBoards2.default);
-  Vue.component('md-board', _mdBoard2.default);
-
-  Vue.material.styles.push(_mdBoards4.default);
-}
-module.exports = exports['default'];
 
 /***/ })
 

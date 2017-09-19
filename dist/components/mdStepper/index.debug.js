@@ -11,41 +11,38 @@
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
-
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
-
+/******/
 /******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId])
+/******/ 		if(installedModules[moduleId]) {
 /******/ 			return installedModules[moduleId].exports;
-
+/******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = installedModules[moduleId] = {
 /******/ 			i: moduleId,
 /******/ 			l: false,
 /******/ 			exports: {}
 /******/ 		};
-
+/******/
 /******/ 		// Execute the module function
 /******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-
+/******/
 /******/ 		// Flag the module as loaded
 /******/ 		module.l = true;
-
+/******/
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-
-
+/******/
+/******/
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = modules;
-
+/******/
 /******/ 	// expose the module cache
 /******/ 	__webpack_require__.c = installedModules;
-
-/******/ 	// identity function for calling harmony imports with the correct context
-/******/ 	__webpack_require__.i = function(value) { return value; };
-
+/******/
 /******/ 	// define getter function for harmony exports
 /******/ 	__webpack_require__.d = function(exports, name, getter) {
 /******/ 		if(!__webpack_require__.o(exports, name)) {
@@ -56,7 +53,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 			});
 /******/ 		}
 /******/ 	};
-
+/******/
 /******/ 	// getDefaultExport function for compatibility with non-harmony modules
 /******/ 	__webpack_require__.n = function(module) {
 /******/ 		var getter = module && module.__esModule ?
@@ -65,15 +62,15 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 		__webpack_require__.d(getter, 'a', getter);
 /******/ 		return getter;
 /******/ 	};
-
+/******/
 /******/ 	// Object.prototype.hasOwnProperty.call
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
-
+/******/
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "/";
-
+/******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 473);
+/******/ 	return __webpack_require__(__webpack_require__.s = 476);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -233,6 +230,20 @@ module.exports = exports['default'];
 /***/ 10:
 /***/ (function(module, exports, __webpack_require__) {
 
+var dP         = __webpack_require__(9)
+  , createDesc = __webpack_require__(17);
+module.exports = __webpack_require__(3) ? function(object, key, value){
+  return dP.f(object, key, createDesc(1, value));
+} : function(object, key, value){
+  object[key] = value;
+  return object;
+};
+
+/***/ }),
+
+/***/ 11:
+/***/ (function(module, exports, __webpack_require__) {
+
 "use strict";
 
 
@@ -257,119 +268,6 @@ var getClosestVueParent = function getClosestVueParent($parent, cssClass) {
 
 exports.default = getClosestVueParent;
 module.exports = exports["default"];
-
-/***/ }),
-
-/***/ 106:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = install;
-
-var _mdStepper = __webpack_require__(354);
-
-var _mdStepper2 = _interopRequireDefault(_mdStepper);
-
-var _mdStep = __webpack_require__(352);
-
-var _mdStep2 = _interopRequireDefault(_mdStep);
-
-var _mdStepHeaderContainer = __webpack_require__(118);
-
-var _mdStepHeaderContainer2 = _interopRequireDefault(_mdStepHeaderContainer);
-
-var _mdStepHeader = __webpack_require__(353);
-
-var _mdStepHeader2 = _interopRequireDefault(_mdStepHeader);
-
-var _mdStepper3 = __webpack_require__(289);
-
-var _mdStepper4 = _interopRequireDefault(_mdStepper3);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function install(Vue) {
-  Vue.component('md-stepper', _mdStepper2.default);
-  Vue.component('md-step', _mdStep2.default);
-  Vue.component('md-step-header-container', _mdStepHeaderContainer2.default);
-  Vue.component('md-step-header', _mdStepHeader2.default);
-
-  Vue.material.styles.push(_mdStepper4.default);
-}
-module.exports = exports['default'];
-
-/***/ }),
-
-/***/ 11:
-/***/ (function(module, exports, __webpack_require__) {
-
-var dP         = __webpack_require__(9)
-  , createDesc = __webpack_require__(17);
-module.exports = __webpack_require__(3) ? function(object, key, value){
-  return dP.f(object, key, createDesc(1, value));
-} : function(object, key, value){
-  object[key] = value;
-  return object;
-};
-
-/***/ }),
-
-/***/ 118:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _uniqueId = __webpack_require__(36);
-
-var _uniqueId2 = _interopRequireDefault(_uniqueId);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = {
-  functional: true,
-  props: {
-    mdVertical: {
-      type: Boolean,
-      default: false
-    }
-  },
-  render: function render(createElement, _ref) {
-    var children = _ref.children,
-        props = _ref.props;
-
-    var insertDividerIntoArray = function insertDividerIntoArray(arr) {
-      return arr.reduce((function (result, element, index, array) {
-
-        result.push(element);
-
-        if (index < array.length - 1) {
-          var mdDivider = createElement('md-divider', { key: 'divider-' + (0, _uniqueId2.default)() });
-
-          result.push(mdDivider);
-        }
-
-        return result;
-      }), []);
-    };
-
-    if (!props.mdVertical) {
-      children = insertDividerIntoArray(children);
-    }
-
-    return createElement('div', { class: 'md-steps-navigation-container' }, children);
-  }
-};
-module.exports = exports['default'];
 
 /***/ }),
 
@@ -412,8 +310,8 @@ module.exports = function(it){
 
 var global    = __webpack_require__(2)
   , core      = __webpack_require__(4)
-  , ctx       = __webpack_require__(28)
-  , hide      = __webpack_require__(11)
+  , ctx       = __webpack_require__(29)
+  , hide      = __webpack_require__(10)
   , PROTOTYPE = 'prototype';
 
 var $export = function(type, name, source){
@@ -492,8 +390,8 @@ module.exports = function(bitmap, value){
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.14 / 15.2.3.14 Object.keys(O)
-var $keys       = __webpack_require__(31)
-  , enumBugKeys = __webpack_require__(22);
+var $keys       = __webpack_require__(30)
+  , enumBugKeys = __webpack_require__(23);
 
 module.exports = Object.keys || function keys(O){
   return $keys(O, enumBugKeys);
@@ -501,229 +399,255 @@ module.exports = Object.keys || function keys(O){
 
 /***/ }),
 
-/***/ 182:
+/***/ 19:
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _uniqueId = __webpack_require__(36);
-
-var _uniqueId2 = _interopRequireDefault(_uniqueId);
-
-var _getClosestVueParent = __webpack_require__(10);
-
-var _getClosestVueParent2 = _interopRequireDefault(_getClosestVueParent);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-exports.default = {
-  name: 'md-step',
-  props: {
-    id: [String, Number],
-    mdActive: Boolean,
-    mdButtonBack: {
-      type: String,
-      default: 'BACK'
-    },
-    mdButtonContinue: {
-      type: String,
-      default: 'CONTINUE'
-    },
-    mdContinue: {
-      type: Boolean,
-      default: true
-    },
-    mdDisabled: Boolean,
-    mdError: Boolean,
-    mdEditable: {
-      type: Boolean,
-      default: true
-    },
-    mdIcon: String,
-    mdLabel: [String, Number],
-    mdMessage: [String],
-    mdTooltip: String,
-    mdTooltipDelay: {
-      type: String,
-      default: '0'
-    },
-    mdTooltipDirection: {
-      type: String,
-      default: 'bottom'
-    }
-  },
-  data: function data() {
-    return {
-      index: 0,
-      left: '0px',
-      mounted: false,
-      parentStepper: undefined,
-      stepId: this.id || 'step-' + (0, _uniqueId2.default)(),
-      vertical: false,
-      width: '0px'
-    };
-  },
-
-  watch: {
-    mdActive: function mdActive() {
-      this.updateStepData();
-    },
-    mdContinue: function mdContinue() {
-      this.updateStepData();
-    },
-    mdEditable: function mdEditable() {
-      this.updateStepData();
-    },
-    mdDisabled: function mdDisabled() {
-      this.updateStepData();
-    },
-    mdError: function mdError() {
-      this.updateStepData();
-    },
-    mdIcon: function mdIcon() {
-      this.updateStepData();
-    },
-    mdLabel: function mdLabel() {
-      this.updateStepData();
-    },
-    mdMessage: function mdMessage() {
-      this.updateStepData();
-    },
-    mdTooltip: function mdTooltip() {
-      this.updateStepData();
-    },
-    mdTooltipDelay: function mdTooltipDelay() {
-      this.updateStepData();
-    },
-    mdTooltipDirection: function mdTooltipDirection() {
-      this.updateStepData();
-    }
-  },
-  computed: {
-    canGoBack: function canGoBack() {
-      if (this.index === 0) {
-        return false;
-      }
-
-      if (!this.parentStepper) {
-        return false;
-      }
-
-      var previousStep = this.parentStepper.getPreviousStep(this.stepId);
-
-      if (previousStep !== undefined && !previousStep.editable) {
-        return false;
-      }
-
-      return true;
-    },
-    continueText: function continueText() {
-      if (!this.parentStepper) {
-        return this.mdButtonContinue;
-      }
-
-      if (this.index + 1 === this.parentStepper.getStepsCount() && this.mdButtonContinue === 'CONTINUE') {
-        return 'FINISH';
-      }
-
-      return this.mdButtonContinue;
-    },
-    isCurrentStep: function isCurrentStep() {
-      return this.index === this.parentStepper.activeStepNumber;
-    },
-    styles: function styles() {
-      if (this.vertical) {
-        return {};
-      }
-
-      return {
-        width: this.width,
-        left: this.left
-      };
-    }
-  },
-  methods: {
-    getStepData: function getStepData() {
-      return {
-        id: this.stepId,
-        label: this.mdLabel,
-        message: this.mdMessage,
-        icon: this.mdIcon,
-        active: this.mdActive,
-        continue: this.mdContinue,
-        editable: this.mdEditable,
-        disabled: this.mdDisabled,
-        error: this.mdError,
-        toolTip: this.mdTooltip,
-        tooltipDelay: this.mdTooltipDelay,
-        tooltipDirection: this.mdTooltipDirection,
-        ref: this
-      };
-    },
-    moveNextStep: function moveNextStep() {
-      this.parentStepper.moveNextStep();
-    },
-    movePreviousStep: function movePreviousStep() {
-      this.parentStepper.movePreviousStep();
-    },
-    setActiveStep: function setActiveStep() {
-      this.parentStepper.setActiveStep(this.getStepData());
-    },
-    updateStepData: function updateStepData() {
-      this.parentStepper.updateStep(this.getStepData());
-    }
-  },
-  mounted: function mounted() {
-    var stepData = this.getStepData();
-
-    this.parentStepper = (0, _getClosestVueParent2.default)(this.$parent, 'md-stepper');
-
-    if (!this.parentStepper) {
-      throw new Error('You must wrap the md-step in a md-stepper');
-    }
-
-    this.mounted = true;
-    this.parentStepper.updateStep(stepData);
-
-    if (this.mdActive) {
-      this.parentStepper.setActiveStep(stepData);
-    }
-
-    this.vertical = this.parentStepper.mdVertical;
-
-    this.index = this.parentStepper.getStepIndex(this.stepId);
-  },
-  beforeDestroy: function beforeDestroy() {
-    this.parentStepper.unregisterStep(this.getStepData());
-  }
+var shared = __webpack_require__(22)('keys')
+  , uid    = __webpack_require__(20);
+module.exports = function(key){
+  return shared[key] || (shared[key] = uid(key));
 };
-module.exports = exports['default'];
 
 /***/ }),
 
-/***/ 183:
+/***/ 2:
+/***/ (function(module, exports) {
+
+// https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
+var global = module.exports = typeof window != 'undefined' && window.Math == Math
+  ? window : typeof self != 'undefined' && self.Math == Math ? self : Function('return this')();
+if(typeof __g == 'number')__g = global; // eslint-disable-line no-undef
+
+/***/ }),
+
+/***/ 20:
+/***/ (function(module, exports) {
+
+var id = 0
+  , px = Math.random();
+module.exports = function(key){
+  return 'Symbol('.concat(key === undefined ? '' : key, ')_', (++id + px).toString(36));
+};
+
+/***/ }),
+
+/***/ 21:
+/***/ (function(module, exports, __webpack_require__) {
+
+// 7.1.13 ToObject(argument)
+var defined = __webpack_require__(14);
+module.exports = function(it){
+  return Object(defined(it));
+};
+
+/***/ }),
+
+/***/ 22:
+/***/ (function(module, exports, __webpack_require__) {
+
+var global = __webpack_require__(2)
+  , SHARED = '__core-js_shared__'
+  , store  = global[SHARED] || (global[SHARED] = {});
+module.exports = function(key){
+  return store[key] || (store[key] = {});
+};
+
+/***/ }),
+
+/***/ 23:
+/***/ (function(module, exports) {
+
+// IE 8- don't enum bug keys
+module.exports = (
+  'constructor,hasOwnProperty,isPrototypeOf,propertyIsEnumerable,toLocaleString,toString,valueOf'
+).split(',');
+
+/***/ }),
+
+/***/ 24:
+/***/ (function(module, exports) {
+
+var toString = {}.toString;
+
+module.exports = function(it){
+  return toString.call(it).slice(8, -1);
+};
+
+/***/ }),
+
+/***/ 25:
+/***/ (function(module, exports, __webpack_require__) {
+
+// fallback for non-array-like ES3 and non-enumerable old V8 strings
+var cof = __webpack_require__(24);
+module.exports = Object('z').propertyIsEnumerable(0) ? Object : function(it){
+  return cof(it) == 'String' ? it.split('') : Object(it);
+};
+
+/***/ }),
+
+/***/ 26:
+/***/ (function(module, exports, __webpack_require__) {
+
+var isObject = __webpack_require__(6)
+  , document = __webpack_require__(2).document
+  // in old IE typeof document.createElement is 'object'
+  , is = isObject(document) && isObject(document.createElement);
+module.exports = function(it){
+  return is ? document.createElement(it) : {};
+};
+
+/***/ }),
+
+/***/ 27:
+/***/ (function(module, exports, __webpack_require__) {
+
+// 7.1.1 ToPrimitive(input [, PreferredType])
+var isObject = __webpack_require__(6);
+// instead of the ES6 spec version, we didn't implement @@toPrimitive case
+// and the second argument - flag - preferred type is a string
+module.exports = function(it, S){
+  if(!isObject(it))return it;
+  var fn, val;
+  if(S && typeof (fn = it.toString) == 'function' && !isObject(val = fn.call(it)))return val;
+  if(typeof (fn = it.valueOf) == 'function' && !isObject(val = fn.call(it)))return val;
+  if(!S && typeof (fn = it.toString) == 'function' && !isObject(val = fn.call(it)))return val;
+  throw TypeError("Can't convert object to primitive value");
+};
+
+/***/ }),
+
+/***/ 28:
+/***/ (function(module, exports, __webpack_require__) {
+
+// 7.1.15 ToLength
+var toInteger = __webpack_require__(15)
+  , min       = Math.min;
+module.exports = function(it){
+  return it > 0 ? min(toInteger(it), 0x1fffffffffffff) : 0; // pow(2, 53) - 1 == 9007199254740991
+};
+
+/***/ }),
+
+/***/ 29:
+/***/ (function(module, exports, __webpack_require__) {
+
+// optional / simple context binding
+var aFunction = __webpack_require__(35);
+module.exports = function(fn, that, length){
+  aFunction(fn);
+  if(that === undefined)return fn;
+  switch(length){
+    case 1: return function(a){
+      return fn.call(that, a);
+    };
+    case 2: return function(a, b){
+      return fn.call(that, a, b);
+    };
+    case 3: return function(a, b, c){
+      return fn.call(that, a, b, c);
+    };
+  }
+  return function(/* ...args */){
+    return fn.apply(that, arguments);
+  };
+};
+
+/***/ }),
+
+/***/ 3:
+/***/ (function(module, exports, __webpack_require__) {
+
+// Thank's IE8 for his funny defineProperty
+module.exports = !__webpack_require__(5)((function(){
+  return Object.defineProperty({}, 'a', {get: function(){ return 7; }}).a != 7;
+}));
+
+/***/ }),
+
+/***/ 30:
+/***/ (function(module, exports, __webpack_require__) {
+
+var has          = __webpack_require__(8)
+  , toIObject    = __webpack_require__(7)
+  , arrayIndexOf = __webpack_require__(33)(false)
+  , IE_PROTO     = __webpack_require__(19)('IE_PROTO');
+
+module.exports = function(object, names){
+  var O      = toIObject(object)
+    , i      = 0
+    , result = []
+    , key;
+  for(key in O)if(key != IE_PROTO)has(O, key) && result.push(key);
+  // Don't enum bug & hidden keys
+  while(names.length > i)if(has(O, key = names[i++])){
+    ~arrayIndexOf(result, key) || result.push(key);
+  }
+  return result;
+};
+
+/***/ }),
+
+/***/ 31:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = !__webpack_require__(3) && !__webpack_require__(5)((function(){
+  return Object.defineProperty(__webpack_require__(26)('div'), 'a', {get: function(){ return 7; }}).a != 7;
+}));
+
+/***/ }),
+
+/***/ 33:
+/***/ (function(module, exports, __webpack_require__) {
+
+// false -> Array#indexOf
+// true  -> Array#includes
+var toIObject = __webpack_require__(7)
+  , toLength  = __webpack_require__(28)
+  , toIndex   = __webpack_require__(34);
+module.exports = function(IS_INCLUDES){
+  return function($this, el, fromIndex){
+    var O      = toIObject($this)
+      , length = toLength(O.length)
+      , index  = toIndex(fromIndex, length)
+      , value;
+    // Array#includes uses SameValueZero equality algorithm
+    if(IS_INCLUDES && el != el)while(length > index){
+      value = O[index++];
+      if(value != value)return true;
+    // Array#toIndex ignores holes, Array#includes - not
+    } else for(;length > index; index++)if(IS_INCLUDES || index in O){
+      if(O[index] === el)return IS_INCLUDES || index || 0;
+    } return !IS_INCLUDES && -1;
+  };
+};
+
+/***/ }),
+
+/***/ 34:
+/***/ (function(module, exports, __webpack_require__) {
+
+var toInteger = __webpack_require__(15)
+  , max       = Math.max
+  , min       = Math.min;
+module.exports = function(index, length){
+  index = toInteger(index);
+  return index < 0 ? max(index + length, 0) : min(index, length);
+};
+
+/***/ }),
+
+/***/ 35:
+/***/ (function(module, exports) {
+
+module.exports = function(it){
+  if(typeof it != 'function')throw TypeError(it + ' is not a function!');
+  return it;
+};
+
+/***/ }),
+
+/***/ 36:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -732,93 +656,113 @@ module.exports = exports['default'];
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+var uniqueId = function uniqueId() {
+  return Math.random().toString(36).slice(4);
+};
 
-var _getClosestVueParent = __webpack_require__(10);
+exports.default = uniqueId;
+module.exports = exports["default"];
 
-var _getClosestVueParent2 = _interopRequireDefault(_getClosestVueParent);
+/***/ }),
+
+/***/ 364:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = install;
+
+var _mdStepper = __webpack_require__(365);
+
+var _mdStepper2 = _interopRequireDefault(_mdStepper);
+
+var _mdStep = __webpack_require__(369);
+
+var _mdStep2 = _interopRequireDefault(_mdStep);
+
+var _mdStepHeaderContainer = __webpack_require__(372);
+
+var _mdStepHeaderContainer2 = _interopRequireDefault(_mdStepHeaderContainer);
+
+var _mdStepHeader = __webpack_require__(373);
+
+var _mdStepHeader2 = _interopRequireDefault(_mdStepHeader);
+
+var _mdStepper3 = __webpack_require__(376);
+
+var _mdStepper4 = _interopRequireDefault(_mdStepper3);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = {
-  props: {
-    step: Object,
-    mdAlternateLabels: Boolean
-  },
-  data: function data() {
-    return {
-      index: Number,
-      parentStepper: {}
-    };
-  },
+function install(Vue) {
+  Vue.component('md-stepper', _mdStepper2.default);
+  Vue.component('md-step', _mdStep2.default);
+  Vue.component('md-step-header-container', _mdStepHeaderContainer2.default);
+  Vue.component('md-step-header', _mdStepHeader2.default);
 
-  computed: {
-    isCompleted: function isCompleted() {
-      return this.index < this.parentStepper.activeStepNumber;
-    },
-    getHeaderClasses: function getHeaderClasses() {
-      return {
-        'md-active': this.parentStepper.activeStep === this.step.id,
-        'md-alternate-labels': this.mdAlternateLabels,
-        'md-disabled': this.step.disabled,
-        'md-has-sub-message': this.step.message,
-        'md-primary': this.isCompleted,
-        'md-warn': this.step.error
-      };
-    },
-    icon: function icon() {
-      if (!this.step.disabled && this.step.editable && this.isCompleted && !this.step.error) {
-        return 'mode_edit';
-      }
-
-      if (!this.step.disabled && this.isCompleted && !this.step.error) {
-        return 'check';
-      }
-
-      if (!this.step.disabled && this.step.error) {
-        return 'warning';
-      }
-      return this.step.icon;
-    },
-    stepNumber: function stepNumber() {
-      return this.index + 1;
-    }
-  },
-  mounted: function mounted() {
-    var _this = this;
-
-    this.$nextTick((function () {
-      _this.parentStepper = (0, _getClosestVueParent2.default)(_this.$parent, 'md-stepper');
-
-      if (!_this.parentStepper) {
-        _this.$destroy();
-
-        throw new Error('You should wrap the md-step-header in a md-stepper');
-      }
-
-      _this.index = _this.parentStepper.getStepIndex(_this.step.id);
-    }));
-  }
-}; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
+  Vue.material.styles.push(_mdStepper4.default);
+}
 module.exports = exports['default'];
 
 /***/ }),
 
-/***/ 184:
+/***/ 365:
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(366)
+}
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(367),
+  /* template */
+  __webpack_require__(368),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+Component.options.__file = "/Users/marcosmoura/Projects/github/vue-material/src/components/mdStepper/mdStepper.vue"
+if (Component.esModule && Object.keys(Component.esModule).some((function (key) {return key !== "default" && key.substr(0, 2) !== "__"}))) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] mdStepper.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-4122aeba", Component.options)
+  } else {
+    hotAPI.reload("data-v-4122aeba", Component.options)
+  }
+  module.hot.dispose((function (data) {
+    disposed = true
+  }))
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+
+/***/ 366:
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 367:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -836,7 +780,7 @@ var _mixin = __webpack_require__(1);
 
 var _mixin2 = _interopRequireDefault(_mixin);
 
-var _throttle = __webpack_require__(51);
+var _throttle = __webpack_require__(59);
 
 var _throttle2 = _interopRequireDefault(_throttle);
 
@@ -1096,429 +1040,7 @@ module.exports = exports['default'];
 
 /***/ }),
 
-/***/ 19:
-/***/ (function(module, exports, __webpack_require__) {
-
-var shared = __webpack_require__(23)('keys')
-  , uid    = __webpack_require__(20);
-module.exports = function(key){
-  return shared[key] || (shared[key] = uid(key));
-};
-
-/***/ }),
-
-/***/ 2:
-/***/ (function(module, exports) {
-
-// https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
-var global = module.exports = typeof window != 'undefined' && window.Math == Math
-  ? window : typeof self != 'undefined' && self.Math == Math ? self : Function('return this')();
-if(typeof __g == 'number')__g = global; // eslint-disable-line no-undef
-
-/***/ }),
-
-/***/ 20:
-/***/ (function(module, exports) {
-
-var id = 0
-  , px = Math.random();
-module.exports = function(key){
-  return 'Symbol('.concat(key === undefined ? '' : key, ')_', (++id + px).toString(36));
-};
-
-/***/ }),
-
-/***/ 21:
-/***/ (function(module, exports, __webpack_require__) {
-
-// 7.1.13 ToObject(argument)
-var defined = __webpack_require__(14);
-module.exports = function(it){
-  return Object(defined(it));
-};
-
-/***/ }),
-
-/***/ 22:
-/***/ (function(module, exports) {
-
-// IE 8- don't enum bug keys
-module.exports = (
-  'constructor,hasOwnProperty,isPrototypeOf,propertyIsEnumerable,toLocaleString,toString,valueOf'
-).split(',');
-
-/***/ }),
-
-/***/ 23:
-/***/ (function(module, exports, __webpack_require__) {
-
-var global = __webpack_require__(2)
-  , SHARED = '__core-js_shared__'
-  , store  = global[SHARED] || (global[SHARED] = {});
-module.exports = function(key){
-  return store[key] || (store[key] = {});
-};
-
-/***/ }),
-
-/***/ 24:
-/***/ (function(module, exports) {
-
-var toString = {}.toString;
-
-module.exports = function(it){
-  return toString.call(it).slice(8, -1);
-};
-
-/***/ }),
-
-/***/ 242:
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ 25:
-/***/ (function(module, exports, __webpack_require__) {
-
-var isObject = __webpack_require__(6)
-  , document = __webpack_require__(2).document
-  // in old IE typeof document.createElement is 'object'
-  , is = isObject(document) && isObject(document.createElement);
-module.exports = function(it){
-  return is ? document.createElement(it) : {};
-};
-
-/***/ }),
-
-/***/ 26:
-/***/ (function(module, exports, __webpack_require__) {
-
-// fallback for non-array-like ES3 and non-enumerable old V8 strings
-var cof = __webpack_require__(24);
-module.exports = Object('z').propertyIsEnumerable(0) ? Object : function(it){
-  return cof(it) == 'String' ? it.split('') : Object(it);
-};
-
-/***/ }),
-
-/***/ 27:
-/***/ (function(module, exports, __webpack_require__) {
-
-// 7.1.1 ToPrimitive(input [, PreferredType])
-var isObject = __webpack_require__(6);
-// instead of the ES6 spec version, we didn't implement @@toPrimitive case
-// and the second argument - flag - preferred type is a string
-module.exports = function(it, S){
-  if(!isObject(it))return it;
-  var fn, val;
-  if(S && typeof (fn = it.toString) == 'function' && !isObject(val = fn.call(it)))return val;
-  if(typeof (fn = it.valueOf) == 'function' && !isObject(val = fn.call(it)))return val;
-  if(!S && typeof (fn = it.toString) == 'function' && !isObject(val = fn.call(it)))return val;
-  throw TypeError("Can't convert object to primitive value");
-};
-
-/***/ }),
-
-/***/ 28:
-/***/ (function(module, exports, __webpack_require__) {
-
-// optional / simple context binding
-var aFunction = __webpack_require__(33);
-module.exports = function(fn, that, length){
-  aFunction(fn);
-  if(that === undefined)return fn;
-  switch(length){
-    case 1: return function(a){
-      return fn.call(that, a);
-    };
-    case 2: return function(a, b){
-      return fn.call(that, a, b);
-    };
-    case 3: return function(a, b, c){
-      return fn.call(that, a, b, c);
-    };
-  }
-  return function(/* ...args */){
-    return fn.apply(that, arguments);
-  };
-};
-
-/***/ }),
-
-/***/ 289:
-/***/ (function(module, exports) {
-
-module.exports = ".THEME_NAME.md-stepper .md-step-header .md-step-icon,\n.THEME_NAME.md-stepper .md-step-header .md-step-number {\n  color: BACKGROUND-CONTRAST;\n  background-color: #bdbdbd; }\n\n.THEME_NAME.md-stepper .md-step-header.md-primary .md-step-icon,\n.THEME_NAME.md-stepper .md-step-header.md-primary .md-step-number, .THEME_NAME.md-stepper .md-step-header.md-active .md-step-icon,\n.THEME_NAME.md-stepper .md-step-header.md-active .md-step-number {\n  color: PRIMARY-CONTRAST;\n  background-color: PRIMARY-COLOR; }\n\n.THEME_NAME.md-stepper .md-step-header.md-accent .md-step-icon,\n.THEME_NAME.md-stepper .md-step-header.md-accent .md-step-number {\n  color: ACCENT-CONTRAST;\n  background-color: ACCENT-COLOR; }\n\n.THEME_NAME.md-stepper .md-step-header.md-warn .md-step-icon,\n.THEME_NAME.md-stepper .md-step-header.md-warn .md-step-number {\n  color: WARN-CONTRAST;\n  background-color: WARN-COLOR; }\n\n.THEME_NAME.md-stepper .md-step-header.md-warn .md-step-error,\n.THEME_NAME.md-stepper .md-step-header.md-warn .md-step-titles {\n  color: WARN-COLOR; }\n\n.THEME_NAME.md-stepper .md-step-header.md-disabled {\n  color: #bdbdbd; }\n  .THEME_NAME.md-stepper .md-step-header.md-disabled .md-step-icon,\n  .THEME_NAME.md-stepper .md-step-header.md-disabled .md-step-number {\n    color: white;\n    background-color: #bdbdbd; }\n"
-
-/***/ }),
-
-/***/ 29:
-/***/ (function(module, exports, __webpack_require__) {
-
-// 7.1.15 ToLength
-var toInteger = __webpack_require__(15)
-  , min       = Math.min;
-module.exports = function(it){
-  return it > 0 ? min(toInteger(it), 0x1fffffffffffff) : 0; // pow(2, 53) - 1 == 9007199254740991
-};
-
-/***/ }),
-
-/***/ 3:
-/***/ (function(module, exports, __webpack_require__) {
-
-// Thank's IE8 for his funny defineProperty
-module.exports = !__webpack_require__(5)((function(){
-  return Object.defineProperty({}, 'a', {get: function(){ return 7; }}).a != 7;
-}));
-
-/***/ }),
-
-/***/ 30:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = !__webpack_require__(3) && !__webpack_require__(5)((function(){
-  return Object.defineProperty(__webpack_require__(25)('div'), 'a', {get: function(){ return 7; }}).a != 7;
-}));
-
-/***/ }),
-
-/***/ 31:
-/***/ (function(module, exports, __webpack_require__) {
-
-var has          = __webpack_require__(8)
-  , toIObject    = __webpack_require__(7)
-  , arrayIndexOf = __webpack_require__(34)(false)
-  , IE_PROTO     = __webpack_require__(19)('IE_PROTO');
-
-module.exports = function(object, names){
-  var O      = toIObject(object)
-    , i      = 0
-    , result = []
-    , key;
-  for(key in O)if(key != IE_PROTO)has(O, key) && result.push(key);
-  // Don't enum bug & hidden keys
-  while(names.length > i)if(has(O, key = names[i++])){
-    ~arrayIndexOf(result, key) || result.push(key);
-  }
-  return result;
-};
-
-/***/ }),
-
-/***/ 33:
-/***/ (function(module, exports) {
-
-module.exports = function(it){
-  if(typeof it != 'function')throw TypeError(it + ' is not a function!');
-  return it;
-};
-
-/***/ }),
-
-/***/ 34:
-/***/ (function(module, exports, __webpack_require__) {
-
-// false -> Array#indexOf
-// true  -> Array#includes
-var toIObject = __webpack_require__(7)
-  , toLength  = __webpack_require__(29)
-  , toIndex   = __webpack_require__(35);
-module.exports = function(IS_INCLUDES){
-  return function($this, el, fromIndex){
-    var O      = toIObject($this)
-      , length = toLength(O.length)
-      , index  = toIndex(fromIndex, length)
-      , value;
-    // Array#includes uses SameValueZero equality algorithm
-    if(IS_INCLUDES && el != el)while(length > index){
-      value = O[index++];
-      if(value != value)return true;
-    // Array#toIndex ignores holes, Array#includes - not
-    } else for(;length > index; index++)if(IS_INCLUDES || index in O){
-      if(O[index] === el)return IS_INCLUDES || index || 0;
-    } return !IS_INCLUDES && -1;
-  };
-};
-
-/***/ }),
-
-/***/ 35:
-/***/ (function(module, exports, __webpack_require__) {
-
-var toInteger = __webpack_require__(15)
-  , max       = Math.max
-  , min       = Math.min;
-module.exports = function(index, length){
-  index = toInteger(index);
-  return index < 0 ? max(index + length, 0) : min(index, length);
-};
-
-/***/ }),
-
-/***/ 352:
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var Component = __webpack_require__(0)(
-  /* script */
-  __webpack_require__(182),
-  /* template */
-  __webpack_require__(417),
-  /* styles */
-  null,
-  /* scopeId */
-  null,
-  /* moduleIdentifier (server only) */
-  null
-)
-Component.options.__file = "/Users/pablohpsilva/Code/vue-material/src/components/mdStepper/mdStep.vue"
-if (Component.esModule && Object.keys(Component.esModule).some((function (key) {return key !== "default" && key.substr(0, 2) !== "__"}))) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] mdStep.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-5a2a8733", Component.options)
-  } else {
-    hotAPI.reload("data-v-5a2a8733", Component.options)
-  }
-  module.hot.dispose((function (data) {
-    disposed = true
-  }))
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-
-/***/ 353:
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var Component = __webpack_require__(0)(
-  /* script */
-  __webpack_require__(183),
-  /* template */
-  __webpack_require__(407),
-  /* styles */
-  null,
-  /* scopeId */
-  null,
-  /* moduleIdentifier (server only) */
-  null
-)
-Component.options.__file = "/Users/pablohpsilva/Code/vue-material/src/components/mdStepper/mdStepHeader.vue"
-if (Component.esModule && Object.keys(Component.esModule).some((function (key) {return key !== "default" && key.substr(0, 2) !== "__"}))) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] mdStepHeader.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-462bd1c0", Component.options)
-  } else {
-    hotAPI.reload("data-v-462bd1c0", Component.options)
-  }
-  module.hot.dispose((function (data) {
-    disposed = true
-  }))
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-
-/***/ 354:
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(242)
-}
-var Component = __webpack_require__(0)(
-  /* script */
-  __webpack_require__(184),
-  /* template */
-  __webpack_require__(403),
-  /* styles */
-  injectStyle,
-  /* scopeId */
-  null,
-  /* moduleIdentifier (server only) */
-  null
-)
-Component.options.__file = "/Users/pablohpsilva/Code/vue-material/src/components/mdStepper/mdStepper.vue"
-if (Component.esModule && Object.keys(Component.esModule).some((function (key) {return key !== "default" && key.substr(0, 2) !== "__"}))) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] mdStepper.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-4122aeba", Component.options)
-  } else {
-    hotAPI.reload("data-v-4122aeba", Component.options)
-  }
-  module.hot.dispose((function (data) {
-    disposed = true
-  }))
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-
-/***/ 36:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var uniqueId = function uniqueId() {
-  return Math.random().toString(36).slice(4);
-};
-
-exports.default = uniqueId;
-module.exports = exports["default"];
-
-/***/ }),
-
-/***/ 38:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = { "default": __webpack_require__(45), __esModule: true };
-
-/***/ }),
-
-/***/ 4:
-/***/ (function(module, exports) {
-
-var core = module.exports = {version: '2.4.0'};
-if(typeof __e == 'number')__e = core; // eslint-disable-line no-undef
-
-/***/ }),
-
-/***/ 403:
+/***/ 368:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -1581,43 +1103,270 @@ if (false) {
 
 /***/ }),
 
-/***/ 407:
+/***/ 369:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "md-step-header",
-    class: _vm.getHeaderClasses
-  }, [_c('div', {
-    staticClass: "md-step-icons"
-  }, [(_vm.icon && !_vm.step.error) ? _c('md-icon', {
-    staticClass: "md-step-icon"
-  }, [_vm._v(_vm._s(_vm.icon))]) : _vm._e(), _vm._v(" "), (_vm.icon && _vm.step.error) ? _c('md-icon', {
-    staticClass: "md-step-error"
-  }, [_vm._v(_vm._s(_vm.icon))]) : _vm._e(), _vm._v(" "), (!_vm.icon) ? _c('div', {
-    staticClass: "md-step-number"
-  }, [_c('span', [_vm._v(_vm._s(_vm.stepNumber))])]) : _vm._e()], 1), _vm._v(" "), _c('div', {
-    staticClass: "md-step-titles"
-  }, [_c('div', {
-    staticClass: "md-step-title"
-  }, [_vm._v(_vm._s(_vm.step.label))]), _vm._v(" "), (_vm.step.message) ? _c('small', [_vm._v(_vm._s(_vm.step.message))]) : _vm._e()]), _vm._v(" "), (_vm.step.toolTip) ? _c('md-tooltip', {
-    attrs: {
-      "md-direction": _vm.step.tooltipDirection,
-      "md-delay": _vm.step.tooltipDelay
-    }
-  }, [_vm._v(_vm._s(_vm.step.toolTip))]) : _vm._e()], 1)
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-if (false) {
+var disposed = false
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(370),
+  /* template */
+  __webpack_require__(371),
+  /* styles */
+  null,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+Component.options.__file = "/Users/marcosmoura/Projects/github/vue-material/src/components/mdStepper/mdStep.vue"
+if (Component.esModule && Object.keys(Component.esModule).some((function (key) {return key !== "default" && key.substr(0, 2) !== "__"}))) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] mdStep.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
   module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-462bd1c0", module.exports)
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-5a2a8733", Component.options)
+  } else {
+    hotAPI.reload("data-v-5a2a8733", Component.options)
   }
-}
+  module.hot.dispose((function (data) {
+    disposed = true
+  }))
+})()}
+
+module.exports = Component.exports
+
 
 /***/ }),
 
-/***/ 417:
+/***/ 370:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _uniqueId = __webpack_require__(36);
+
+var _uniqueId2 = _interopRequireDefault(_uniqueId);
+
+var _getClosestVueParent = __webpack_require__(11);
+
+var _getClosestVueParent2 = _interopRequireDefault(_getClosestVueParent);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+exports.default = {
+  name: 'md-step',
+  props: {
+    id: [String, Number],
+    mdActive: Boolean,
+    mdButtonBack: {
+      type: String,
+      default: 'BACK'
+    },
+    mdButtonContinue: {
+      type: String,
+      default: 'CONTINUE'
+    },
+    mdContinue: {
+      type: Boolean,
+      default: true
+    },
+    mdDisabled: Boolean,
+    mdError: Boolean,
+    mdEditable: {
+      type: Boolean,
+      default: true
+    },
+    mdIcon: String,
+    mdLabel: [String, Number],
+    mdMessage: [String],
+    mdTooltip: String,
+    mdTooltipDelay: {
+      type: String,
+      default: '0'
+    },
+    mdTooltipDirection: {
+      type: String,
+      default: 'bottom'
+    }
+  },
+  data: function data() {
+    return {
+      index: 0,
+      left: '0px',
+      mounted: false,
+      parentStepper: undefined,
+      stepId: this.id || 'step-' + (0, _uniqueId2.default)(),
+      vertical: false,
+      width: '0px'
+    };
+  },
+
+  watch: {
+    mdActive: function mdActive() {
+      this.updateStepData();
+    },
+    mdContinue: function mdContinue() {
+      this.updateStepData();
+    },
+    mdEditable: function mdEditable() {
+      this.updateStepData();
+    },
+    mdDisabled: function mdDisabled() {
+      this.updateStepData();
+    },
+    mdError: function mdError() {
+      this.updateStepData();
+    },
+    mdIcon: function mdIcon() {
+      this.updateStepData();
+    },
+    mdLabel: function mdLabel() {
+      this.updateStepData();
+    },
+    mdMessage: function mdMessage() {
+      this.updateStepData();
+    },
+    mdTooltip: function mdTooltip() {
+      this.updateStepData();
+    },
+    mdTooltipDelay: function mdTooltipDelay() {
+      this.updateStepData();
+    },
+    mdTooltipDirection: function mdTooltipDirection() {
+      this.updateStepData();
+    }
+  },
+  computed: {
+    canGoBack: function canGoBack() {
+      if (this.index === 0) {
+        return false;
+      }
+
+      if (!this.parentStepper) {
+        return false;
+      }
+
+      var previousStep = this.parentStepper.getPreviousStep(this.stepId);
+
+      if (previousStep !== undefined && !previousStep.editable) {
+        return false;
+      }
+
+      return true;
+    },
+    continueText: function continueText() {
+      if (!this.parentStepper) {
+        return this.mdButtonContinue;
+      }
+
+      if (this.index + 1 === this.parentStepper.getStepsCount() && this.mdButtonContinue === 'CONTINUE') {
+        return 'FINISH';
+      }
+
+      return this.mdButtonContinue;
+    },
+    isCurrentStep: function isCurrentStep() {
+      return this.index === this.parentStepper.activeStepNumber;
+    },
+    styles: function styles() {
+      if (this.vertical) {
+        return {};
+      }
+
+      return {
+        width: this.width,
+        left: this.left
+      };
+    }
+  },
+  methods: {
+    getStepData: function getStepData() {
+      return {
+        id: this.stepId,
+        label: this.mdLabel,
+        message: this.mdMessage,
+        icon: this.mdIcon,
+        active: this.mdActive,
+        continue: this.mdContinue,
+        editable: this.mdEditable,
+        disabled: this.mdDisabled,
+        error: this.mdError,
+        toolTip: this.mdTooltip,
+        tooltipDelay: this.mdTooltipDelay,
+        tooltipDirection: this.mdTooltipDirection,
+        ref: this
+      };
+    },
+    moveNextStep: function moveNextStep() {
+      this.parentStepper.moveNextStep();
+    },
+    movePreviousStep: function movePreviousStep() {
+      this.parentStepper.movePreviousStep();
+    },
+    setActiveStep: function setActiveStep() {
+      this.parentStepper.setActiveStep(this.getStepData());
+    },
+    updateStepData: function updateStepData() {
+      this.parentStepper.updateStep(this.getStepData());
+    }
+  },
+  mounted: function mounted() {
+    var stepData = this.getStepData();
+
+    this.parentStepper = (0, _getClosestVueParent2.default)(this.$parent, 'md-stepper');
+
+    if (!this.parentStepper) {
+      throw new Error('You must wrap the md-step in a md-stepper');
+    }
+
+    this.mounted = true;
+    this.parentStepper.updateStep(stepData);
+
+    if (this.mdActive) {
+      this.parentStepper.setActiveStep(stepData);
+    }
+
+    this.vertical = this.parentStepper.mdVertical;
+
+    this.index = this.parentStepper.getStepIndex(this.stepId);
+  },
+  beforeDestroy: function beforeDestroy() {
+    this.parentStepper.unregisterStep(this.getStepData());
+  }
+};
+module.exports = exports['default'];
+
+/***/ }),
+
+/***/ 371:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -1662,11 +1411,274 @@ if (false) {
 
 /***/ }),
 
+/***/ 372:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _uniqueId = __webpack_require__(36);
+
+var _uniqueId2 = _interopRequireDefault(_uniqueId);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = {
+  functional: true,
+  props: {
+    mdVertical: {
+      type: Boolean,
+      default: false
+    }
+  },
+  render: function render(createElement, _ref) {
+    var children = _ref.children,
+        props = _ref.props;
+
+    var insertDividerIntoArray = function insertDividerIntoArray(arr) {
+      return arr.reduce((function (result, element, index, array) {
+
+        result.push(element);
+
+        if (index < array.length - 1) {
+          var mdDivider = createElement('md-divider', { key: 'divider-' + (0, _uniqueId2.default)() });
+
+          result.push(mdDivider);
+        }
+
+        return result;
+      }), []);
+    };
+
+    if (!props.mdVertical) {
+      children = insertDividerIntoArray(children);
+    }
+
+    return createElement('div', { class: 'md-steps-navigation-container' }, children);
+  }
+};
+module.exports = exports['default'];
+
+/***/ }),
+
+/***/ 373:
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(374),
+  /* template */
+  __webpack_require__(375),
+  /* styles */
+  null,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+Component.options.__file = "/Users/marcosmoura/Projects/github/vue-material/src/components/mdStepper/mdStepHeader.vue"
+if (Component.esModule && Object.keys(Component.esModule).some((function (key) {return key !== "default" && key.substr(0, 2) !== "__"}))) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] mdStepHeader.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-462bd1c0", Component.options)
+  } else {
+    hotAPI.reload("data-v-462bd1c0", Component.options)
+  }
+  module.hot.dispose((function (data) {
+    disposed = true
+  }))
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+
+/***/ 374:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _getClosestVueParent = __webpack_require__(11);
+
+var _getClosestVueParent2 = _interopRequireDefault(_getClosestVueParent);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = {
+  props: {
+    step: Object,
+    mdAlternateLabels: Boolean
+  },
+  data: function data() {
+    return {
+      index: Number,
+      parentStepper: {}
+    };
+  },
+
+  computed: {
+    isCompleted: function isCompleted() {
+      return this.index < this.parentStepper.activeStepNumber;
+    },
+    getHeaderClasses: function getHeaderClasses() {
+      return {
+        'md-active': this.parentStepper.activeStep === this.step.id,
+        'md-alternate-labels': this.mdAlternateLabels,
+        'md-disabled': this.step.disabled,
+        'md-has-sub-message': this.step.message,
+        'md-primary': this.isCompleted,
+        'md-warn': this.step.error
+      };
+    },
+    icon: function icon() {
+      if (!this.step.disabled && this.step.editable && this.isCompleted && !this.step.error) {
+        return 'mode_edit';
+      }
+
+      if (!this.step.disabled && this.isCompleted && !this.step.error) {
+        return 'check';
+      }
+
+      if (!this.step.disabled && this.step.error) {
+        return 'warning';
+      }
+      return this.step.icon;
+    },
+    stepNumber: function stepNumber() {
+      return this.index + 1;
+    }
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    this.$nextTick((function () {
+      _this.parentStepper = (0, _getClosestVueParent2.default)(_this.$parent, 'md-stepper');
+
+      if (!_this.parentStepper) {
+        _this.$destroy();
+
+        throw new Error('You should wrap the md-step-header in a md-stepper');
+      }
+
+      _this.index = _this.parentStepper.getStepIndex(_this.step.id);
+    }));
+  }
+}; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+module.exports = exports['default'];
+
+/***/ }),
+
+/***/ 375:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "md-step-header",
+    class: _vm.getHeaderClasses
+  }, [_c('div', {
+    staticClass: "md-step-icons"
+  }, [(_vm.icon && !_vm.step.error) ? _c('md-icon', {
+    staticClass: "md-step-icon"
+  }, [_vm._v(_vm._s(_vm.icon))]) : _vm._e(), _vm._v(" "), (_vm.icon && _vm.step.error) ? _c('md-icon', {
+    staticClass: "md-step-error"
+  }, [_vm._v(_vm._s(_vm.icon))]) : _vm._e(), _vm._v(" "), (!_vm.icon) ? _c('div', {
+    staticClass: "md-step-number"
+  }, [_c('span', [_vm._v(_vm._s(_vm.stepNumber))])]) : _vm._e()], 1), _vm._v(" "), _c('div', {
+    staticClass: "md-step-titles"
+  }, [_c('div', {
+    staticClass: "md-step-title"
+  }, [_vm._v(_vm._s(_vm.step.label))]), _vm._v(" "), (_vm.step.message) ? _c('small', [_vm._v(_vm._s(_vm.step.message))]) : _vm._e()]), _vm._v(" "), (_vm.step.toolTip) ? _c('md-tooltip', {
+    attrs: {
+      "md-direction": _vm.step.tooltipDirection,
+      "md-delay": _vm.step.tooltipDelay
+    }
+  }, [_vm._v(_vm._s(_vm.step.toolTip))]) : _vm._e()], 1)
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-462bd1c0", module.exports)
+  }
+}
+
+/***/ }),
+
+/***/ 376:
+/***/ (function(module, exports) {
+
+module.exports = ".THEME_NAME.md-stepper .md-step-header .md-step-icon,\n.THEME_NAME.md-stepper .md-step-header .md-step-number {\n  color: BACKGROUND-CONTRAST;\n  background-color: #bdbdbd; }\n\n.THEME_NAME.md-stepper .md-step-header.md-primary .md-step-icon,\n.THEME_NAME.md-stepper .md-step-header.md-primary .md-step-number, .THEME_NAME.md-stepper .md-step-header.md-active .md-step-icon,\n.THEME_NAME.md-stepper .md-step-header.md-active .md-step-number {\n  color: PRIMARY-CONTRAST;\n  background-color: PRIMARY-COLOR; }\n\n.THEME_NAME.md-stepper .md-step-header.md-accent .md-step-icon,\n.THEME_NAME.md-stepper .md-step-header.md-accent .md-step-number {\n  color: ACCENT-CONTRAST;\n  background-color: ACCENT-COLOR; }\n\n.THEME_NAME.md-stepper .md-step-header.md-warn .md-step-icon,\n.THEME_NAME.md-stepper .md-step-header.md-warn .md-step-number {\n  color: WARN-CONTRAST;\n  background-color: WARN-COLOR; }\n\n.THEME_NAME.md-stepper .md-step-header.md-warn .md-step-error,\n.THEME_NAME.md-stepper .md-step-header.md-warn .md-step-titles {\n  color: WARN-COLOR; }\n\n.THEME_NAME.md-stepper .md-step-header.md-disabled {\n  color: #bdbdbd; }\n  .THEME_NAME.md-stepper .md-step-header.md-disabled .md-step-icon,\n  .THEME_NAME.md-stepper .md-step-header.md-disabled .md-step-number {\n    color: white;\n    background-color: #bdbdbd; }\n"
+
+/***/ }),
+
+/***/ 38:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = { "default": __webpack_require__(45), __esModule: true };
+
+/***/ }),
+
+/***/ 4:
+/***/ (function(module, exports) {
+
+var core = module.exports = {version: '2.4.0'};
+if(typeof __e == 'number')__e = core; // eslint-disable-line no-undef
+
+/***/ }),
+
 /***/ 45:
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(49);
+__webpack_require__(46);
 module.exports = __webpack_require__(4).Object.keys;
+
+/***/ }),
+
+/***/ 46:
+/***/ (function(module, exports, __webpack_require__) {
+
+// 19.1.2.14 Object.keys(O)
+var toObject = __webpack_require__(21)
+  , $keys    = __webpack_require__(18);
+
+__webpack_require__(47)('keys', (function(){
+  return function keys(it){
+    return $keys(toObject(it));
+  };
+}));
 
 /***/ }),
 
@@ -1686,26 +1698,11 @@ module.exports = function(KEY, exec){
 
 /***/ }),
 
-/***/ 473:
+/***/ 476:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(106);
+module.exports = __webpack_require__(364);
 
-
-/***/ }),
-
-/***/ 49:
-/***/ (function(module, exports, __webpack_require__) {
-
-// 19.1.2.14 Object.keys(O)
-var toObject = __webpack_require__(21)
-  , $keys    = __webpack_require__(18);
-
-__webpack_require__(47)('keys', (function(){
-  return function keys(it){
-    return $keys(toObject(it));
-  };
-}));
 
 /***/ }),
 
@@ -1722,7 +1719,7 @@ module.exports = function(exec){
 
 /***/ }),
 
-/***/ 51:
+/***/ 59:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1764,7 +1761,7 @@ module.exports = function(it){
 /***/ (function(module, exports, __webpack_require__) {
 
 // to indexed object, toObject with fallback for non-array-like ES3 strings
-var IObject = __webpack_require__(26)
+var IObject = __webpack_require__(25)
   , defined = __webpack_require__(14);
 module.exports = function(it){
   return IObject(defined(it));
@@ -1786,7 +1783,7 @@ module.exports = function(it, key){
 /***/ (function(module, exports, __webpack_require__) {
 
 var anObject       = __webpack_require__(13)
-  , IE8_DOM_DEFINE = __webpack_require__(30)
+  , IE8_DOM_DEFINE = __webpack_require__(31)
   , toPrimitive    = __webpack_require__(27)
   , dP             = Object.defineProperty;
 
