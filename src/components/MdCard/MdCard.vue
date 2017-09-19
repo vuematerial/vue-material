@@ -17,17 +17,17 @@
         expand: false
       }
     }),
+    provide () {
+      return {
+        MdCard: this.MdCard
+      }
+    },
     computed: {
       cardClasses () {
         return {
           'md-with-hover': this.mdWithHover,
           'md-expand-active': this.MdCard.expand
         }
-      }
-    },
-    provide () {
-      return {
-        MdCard: this.MdCard
       }
     }
   })
