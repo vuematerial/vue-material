@@ -29,7 +29,8 @@
     "dist",
     "src",
     "LICENSE",
-    "README.md"
+    "README.md",
+    "BACKERS.md"
   ],
   "scripts": {
     "dev": "babel-node build/server/index.js --presets es2015,stage-0",
