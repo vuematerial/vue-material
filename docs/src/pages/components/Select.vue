@@ -362,7 +362,7 @@
                     :value=&quot;option=&quot;&gt;
                     { { option.name } }
                   &lt;/md-option&gt;
-                &lt;md-select&gt;
+                &lt;/md-select&gt;
               &lt;/md-input-container&gt;
 
               &lt;div&gt;Selected letters: {{ items }}&lt;/div&gt;
