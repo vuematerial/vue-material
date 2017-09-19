@@ -48,7 +48,7 @@
         const location = window.location;
         const latestUrl = location.origin + '/' + location.hash;
         const releaseUrl = location.origin + '/releases/v' + this.currentDocs + '/' + location.hash;
-  
+
         if (process.NODE_ENV === 'development') {
           return;
         }
@@ -75,7 +75,11 @@
         }
       },
       setVersion(versions) {
-        versions.sort((a, b) => a < b);
+        versions.sort((a, b) => {
+          const regex = /\./;
+
+          return a.replace(regex, '') < b.replace(regex, '');
+        });
 
         this.latest = versions[0];
         this.currentDocs = versions[0];
