@@ -78,24 +78,24 @@
       $size: 80px;
 
       width: $size;
-      flex: 0 0 $size;
       height: $size;
       margin-left: 16px;
+      flex: 0 0 $size;
 
       &.md-medium {
         $size: 120px;
 
         width: $size;
-        flex: 0 0 $size;
         height: $size;
+        flex: 0 0 $size;
       }
 
       &.md-big {
         $size: 160px;
 
         width: $size;
-        flex: 0 0 $size;
         height: $size;
+        flex: 0 0 $size;
       }
     }
   }

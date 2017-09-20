@@ -5,10 +5,25 @@
 </template>
 
 <script>
+  import MdPropValidator from 'core/utils/MdPropValidator'
+
   export default {
     name: 'MdCardMedia',
     props: {
-      mdRatio: String,
+      mdRatio: {
+        type: String,
+        ...MdPropValidator('md-ratio', [
+          '16-9',
+          '16/9',
+          '16:9',
+          '4-3',
+          '4/3',
+          '4:3',
+          '1-1',
+          '1/1',
+          '1:1'
+        ])
+      },
       mdMedium: Boolean,
       mdBig: Boolean
     },
@@ -44,6 +59,8 @@
           ratio = this.mdRatio.split(':')
         } else if (this.mdRatio.indexOf('/') !== -1) {
           ratio = this.mdRatio.split('/')
+        } else if (this.mdRatio.indexOf('-') !== -1) {
+          ratio = this.mdRatio.split('-')
         }
 
         return ratio.length === 2 ? ratio : null
