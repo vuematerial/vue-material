@@ -1,78 +1,28 @@
 <template>
-  <transition name="md-overlay" @before-enter="setActive" @after-leave="detachFromBody">
-    <div class="md-overlay" :class="overlayClasses" v-if="isVisible" @click="$emit('click', $event)"></div>
-  </transition>
+  <md-portal class="md-overlay" :class="{ 'md-fixed' : mdFixed}" :md-target-el="targetEl" v-on="$listeners" md-transition-name="md-overlay" :md-if="mdVisible" v-if="!mdAttachToParent || targetEl"></md-portal>
 </template>
 
 <script>
+  import MdPortal from 'components/MdPortal/MdPortal'
+
   export default {
     name: 'MdOverlay',
+    components: {
+      MdPortal
+    },
     props: {
+      mdAttachToParent: Boolean,
       mdVisible: Boolean,
-      mdBodyAttach: Boolean
+      mdFixed: Boolean
     },
     data: () => ({
-      noop: null,
-      overlayElement: null,
-      isVisible: false,
-      isActive: false
+      targetEl: null
     }),
-    computed: {
-      overlayClasses () {
-        return {
-          'md-active': this.isActive,
-          'md-fixed': this.mdBodyAttach
-        }
-      }
-    },
-    watch: {
-      mdVisible (visible) {
-        this.controlVisibility(visible)
-      }
-    },
-    methods: {
-      controlVisibility (visible) {
-        window.requestAnimationFrame(() => {
-          if (visible) {
-            this.attachToBody()
-          }
-
-          this.isVisible = visible
-        })
-      },
-      async setActive () {
-        await this.$nextTick()
-        this.isActive = true
-      },
-      removeNode (content) {
-        if (content.parentNode.contains(content)) {
-          content.parentNode.removeChild(content)
-        }
-      },
-      detachFromBody () {
-        let container = this.mdBodyAttach ? document.body : this.parentElement
-
-        if (container.contains(this.overlayElement)) {
-          container.removeChild(this.overlayElement)
-        }
-
-        this.isActive = false
-      },
-      attachToBody () {
-        let container = this.mdBodyAttach ? document.body : this.parentElement
-
-        if (!container.contains(this.overlayElement)) {
-          container.appendChild(this.overlayElement)
-        }
-      }
-    },
     mounted () {
-      this.overlayElement = this.$el
-      this.parentElement = this.$el.parentNode.parentNode
-      this.removeNode(this.$el)
-
-      if (this.mdVisible) {
-        this.controlVisibility(this.mdVisible)
+      if (this.mdAttachToParent) {
+        this.targetEl = this.$el.parentNode.parentNode
+      } else {
+        this.targetEl = document.body
       }
     }
   }
@@ -89,25 +39,17 @@
     left: 0;
     z-index: 10;
     background: rgba(#000, .6);
-    opacity: 0;
-    transition: .4s $md-transition-stand-timing;
+    transition: .4s $md-transition-default-timing;
     transition-property: opacity;
     will-change: opacity;
 
     &.md-fixed {
       position: fixed;
     }
+  }
 
-    &.md-active {
-      opacity: 1;
-    }
-
-    &.md-overlay-enter-active {
-      transition: .4s $md-transition-stand-timing;
-    }
-
-    &.md-overlay-leave-active {
-      opacity: 0;
-    }
+  .md-overlay-enter,
+  .md-overlay-leave-active {
+    opacity: 0;
   }
 </style>

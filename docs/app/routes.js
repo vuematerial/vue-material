@@ -5,6 +5,16 @@ Vue.use(VueRouter)
 
 export const routes = [
   {
+    path: '/components/dialog',
+    name: 'components/dialog',
+    component: () => import(/* webpackChunkName: "dialog" */ './pages/Components/Dialog/Dialog.vue')
+  },
+  {
+    path: '/components/datepicker',
+    name: 'components/datepicker',
+    component: () => import(/* webpackChunkName: "datepicker" */ './pages/Components/Datepicker/Datepicker.vue')
+  },
+  {
     path: '/components/snackbar',
     name: 'components/snackbar',
     component: () => import(/* webpackChunkName: "snackbar" */ './pages/Components/Snackbar/Snackbar.vue')
@@ -100,6 +110,11 @@ export const routes = [
     component: () => import(/* webpackChunkName: "input" */ './pages/Components/Input/Input.vue')
   },
   {
+    path: '/components/file',
+    name: 'components/file',
+    component: () => import(/* webpackChunkName: "file" */ './pages/Components/File/File.vue')
+  },
+  {
     path: '/components/list',
     name: 'components/list',
     component: () => import(/* webpackChunkName: "list" */ './pages/Components/List/List.vue')
@@ -148,11 +163,6 @@ export const routes = [
     path: '/ui-elements/typography',
     name: 'ui-elements/typography',
     component: () => import(/* webpackChunkName: "typography" */ './pages/UiElements/Typography/Typography.vue')
-  },
-  {
-    path: '/temp',
-    name: 'temp',
-    component: () => import(/* webpackChunkName: "temp" */ './pages/Temp.vue')
   },
   {
     path: '*',

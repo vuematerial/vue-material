@@ -1,14 +1,15 @@
 <template>
   <textarea
-    v-bind="{ id, disabled, required, placeholder, readonly, maxlength }"
-    v-model="content"
     class="md-textarea"
+    v-bind="attributes"
+    v-on="$listeners"
+    v-model="content"
     @focus="onFocus"
     @blur="onBlur"
     @input="onInput"
     @keydown.up="onInput"
-    @keydown.down="onInput"
-    ref="textarea"></textarea>
+    @keydown.down="onInput">
+  </textarea>
 </template>
 
 <script>
@@ -23,9 +24,7 @@
     props: {
       id: {
         type: String,
-        default () {
-          return 'md-textarea-' + MdUuid()
-        }
+        default: () => 'md-textarea-' + MdUuid()
       },
       mdAutogrow: Boolean
     },
@@ -56,6 +55,9 @@
     async mounted () {
       await this.$nextTick()
       this.applyStyles()
+    },
+    beforeDestroy () {
+      this.setTextarea(false)
     }
   })
 </script>

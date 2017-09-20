@@ -57,7 +57,8 @@
         maxlength: null,
         password: null,
         togglePassword: false,
-        clear: false
+        clear: false,
+        file: false
       }
     }),
     provide () {
@@ -96,11 +97,9 @@
           'md-has-placeholder': this.MdField.placeholder,
           'md-has-textarea': this.MdField.textarea,
           'md-has-password': this.MdField.password,
+          'md-has-file': this.MdField.file,
+          'md-has-select': this.MdField.select,
           'md-autogrow': this.MdField.autogrow
-          /* ,
-            'md-has-select': this.MdField.mdHasSelect,
-            'md-has-file': this.MdField.hasFile,
-            */
         }
       }
     },
@@ -202,7 +201,7 @@
       position: absolute;
       bottom: -22px;
       font-size: 12px;
-      transition: $md-transition-default;
+      transition: .3s $md-transition-default-timing;
     }
 
     .md-error {
@@ -351,6 +350,18 @@
       }
     }
 
+    &.md-has-file {
+      &:before,
+      &:after,
+      label {
+        left: 36px;
+      }
+
+      .md-input {
+        margin-left: 12px;
+      }
+    }
+
     &:hover,
     &.md-focused {
       &:after,
@@ -460,12 +471,6 @@
         content: "*";
         line-height: 1em;
         vertical-align: top;
-      }
-    }
-
-    &.md-has-select:hover {
-      .md-select:not(.md-disabled):after {
-
       }
     }
   }

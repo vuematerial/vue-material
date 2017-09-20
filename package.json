@@ -26,11 +26,11 @@
     "build": "rm -rf dist; babel-node build/lib",
     "lint": "eslint --ext .js,.vue docs src build test",
     "test": "jest",
-    "coverage": "yarn test -- --coverage",
+    "coverage": "yarn test --coverage",
     "postinstall": "babel-node build/git-hooks/install.js",
     "changelog": "babel-node build/generate-changelog.js",
     "release": "sh build/release.sh",
-    "new-component": "babel-node build/new-component.js; yarn lint --fix",
+    "new-component": "babel-node build/new-component.js",
     "github-release": "github-release",
     "commit": "git-cz"
   },
@@ -117,6 +117,7 @@
   "jest": {
     "moduleNameMapper": {
       "^vue$": "<rootDir>/node_modules/vue/dist/vue.common.js",
+      "^vue-material(.*)$": "<rootDir>/src$1",
       "^test(.*)$": "<rootDir>/test$1",
       "^src(.*)$": "<rootDir>/src$1",
       "^theme(.*)$": "<rootDir>/src/theme$1",

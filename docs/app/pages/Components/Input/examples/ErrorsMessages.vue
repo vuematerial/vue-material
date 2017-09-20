@@ -1,12 +1,12 @@
 <template>
   <div>
     <md-field>
-      <label>Required Field</label>
-      <md-input required></md-input>
+      <label>No error</label>
+      <md-input></md-input>
     </md-field>
 
     <md-field :class="messageClass">
-      <label>Error</label>
+      <label>Required Field</label>
       <md-input required></md-input>
       <span class="md-error">There is an error</span>
     </md-field>

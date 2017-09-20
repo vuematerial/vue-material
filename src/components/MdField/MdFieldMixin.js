@@ -15,6 +15,18 @@ export default {
   computed: {
     clear () {
       return this.MdField.clear
+    },
+    attributes () {
+      return {
+        ...this.$attrs,
+        type: this.type,
+        id: this.id,
+        disabled: this.disabled,
+        required: this.required,
+        placeholder: this.placeholder,
+        readonly: this.readonly,
+        maxlength: this.maxlength
+      }
     }
   },
   watch: {

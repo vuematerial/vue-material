@@ -6,6 +6,8 @@ import MdCard from './MdCard'
 import MdCheckbox from './MdCheckbox'
 import MdChips from './MdChips'
 import MdContent from './MdContent'
+import MdDialog from './MdDialog'
+import MdDatepicker from './MdDatepicker'
 import MdDivider from './MdDivider'
 import MdDrawer from './MdDrawer'
 import MdElevation from './MdElevation'
@@ -32,6 +34,8 @@ export {
   MdCheckbox,
   MdChips,
   MdContent,
+  MdDialog,
+  MdDatepicker,
   MdDivider,
   MdDrawer,
   MdElevation,

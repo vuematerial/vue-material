@@ -46,8 +46,14 @@ export default {
     content: {
       title: 'Content'
     },
+    dialog: {
+      title: 'Dialog'
+    },
     divider: {
       title: 'Divider'
+    },
+    datepicker: {
+      title: 'Datepicker'
     },
     drawer: {
       title: 'Drawer'
@@ -66,6 +72,9 @@ export default {
     },
     radio: {
       title: 'Radio'
+    },
+    file: {
+      title: 'File'
     },
     switch: {
       title: 'Switch'

@@ -1,9 +1,9 @@
 <template>
   <input
     class="md-input"
-    v-model="content"
-    v-bind="{ type, id, disabled, required, placeholder, readonly, maxlength }"
+    v-bind="attributes"
     v-on="$listeners"
+    v-model="content"
     @focus="onFocus"
     @blur="onBlur"
     @input="onInput"
@@ -23,9 +23,7 @@
     props: {
       id: {
         type: String,
-        default () {
-          return 'md-input-' + MdUuid()
-        }
+        default: () => 'md-input-' + MdUuid()
       },
       type: {
         type: String,
@@ -50,18 +48,29 @@
       }
     },
     methods: {
-      setPassword () {
-        this.MdField.password = this.type === 'password'
+      setPassword (state) {
+        this.MdField.password = state
       },
-      setTypePassword () {
-        this.$el.type = 'password'
+      methods: {
+        setPassword () {
+          this.MdField.password = this.type === 'password'
+        },
+        setTypePassword () {
+          this.$el.type = 'password'
+        },
+        setTypeText () {
+          this.$el.type = 'text'
+        }
       },
-      setTypeText () {
-        this.$el.type = 'text'
+      created () {
+        this.setPassword()
       }
     },
     created () {
-      this.setPassword()
+      this.setPassword(this.type === 'password')
+    },
+    beforeDestroy () {
+      this.setPassword(false)
     }
   })
 </script>

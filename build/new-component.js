@@ -1,4 +1,4 @@
-import { ShellString, test, mkdir, cd, sed, exit } from 'shelljs'
+import { ShellString, test, mkdir, cd, sed, exit, exec } from 'shelljs'
 import { join } from 'path'
 
 function pascalToDash (str) {
@@ -194,3 +194,5 @@ if (!test('-e', docsPath)) {
 } else {
   exit(`echo 'This component already exists'`)
 }
+
+exec('yarn lint --fix')

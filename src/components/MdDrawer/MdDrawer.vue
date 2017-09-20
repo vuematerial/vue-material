@@ -1,8 +1,8 @@
 <template>
   <div class="md-drawer" :class="[$mdActiveTheme, drawerClasses]">
     <slot />
-    <md-overlay :md-visible="mdVisible" md-body-attach @click="closeDrawer" v-if="mdFixed" />
-    <md-overlay :md-visible="mdVisible" @click="closeDrawer" v-else-if="!mdFixed" />
+    <md-overlay :md-visible="mdVisible" @click="closeDrawer" v-if="mdFixed" />
+    <md-overlay :md-visible="mdVisible" @click="closeDrawer" md-attach-to-parent v-else />
   </div>
 </template>
 
