@@ -21,9 +21,9 @@
 
 <script>
   import MdComponent from 'core/MdComponent'
-  import MdClearIcon from 'core/Icons/MdClearIcon'
-  import MdPasswordOffIcon from 'core/Icons/MdPasswordOffIcon'
-  import MdPasswordOnIcon from 'core/Icons/MdPasswordOnIcon'
+  import MdClearIcon from 'core/icons/MdClearIcon'
+  import MdPasswordOffIcon from 'core/icons/MdPasswordOffIcon'
+  import MdPasswordOnIcon from 'core/icons/MdPasswordOnIcon'
 
   export default new MdComponent({
     name: 'MdField',

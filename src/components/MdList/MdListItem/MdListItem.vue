@@ -1,5 +1,5 @@
 <script>
-  import MdRouterLinkProps from 'core/MdRouterLinkProps'
+  import MdRouterLinkProps from 'core/utils/MdRouterLinkProps'
   import MdListItemButton from './MdListItemButton'
   import MdListItemLink from './MdListItemLink'
   import MdListItemRouter from './MdListItemRouter'

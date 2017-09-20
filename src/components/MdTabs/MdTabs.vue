@@ -36,8 +36,8 @@
 
 <script>
   import MdComponent from 'core/MdComponent'
-  import MdPropValidator from 'core/MdPropValidator'
-  import MdObserveElement from 'core/MdObserveElement'
+  import MdPropValidator from 'core/utils/MdPropValidator'
+  import MdObserveElement from 'core/utils/MdObserveElement'
   import MdContent from 'components/MdContent/MdContent'
 
   export default new MdComponent({

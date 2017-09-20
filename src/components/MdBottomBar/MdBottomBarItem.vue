@@ -19,8 +19,8 @@
 </template>
 
 <script>
-  import MdUuid from 'core/MdUuid'
-  import MdRouterLinkProps from 'core/MdRouterLinkProps'
+  import MdUuid from 'core/utils/MdUuid'
+  import MdRouterLinkProps from 'core/utils/MdRouterLinkProps'
 
   const ignoredProps = ['id', 'mdLabel', 'mdIcon', 'mdDisabled']
 

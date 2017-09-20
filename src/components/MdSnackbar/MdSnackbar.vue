@@ -8,8 +8,8 @@
 
 <script>
   import MdComponent from 'core/MdComponent'
-  import MdPropValidator from 'core/MdPropValidator'
-  import MdPortal from 'core/MdPortal/MdPortal'
+  import MdPropValidator from 'core/utils/MdPropValidator'
+  import MdPortal from 'components/MdPortal/MdPortal'
   import { createSnackbar, destroySnackbar } from './MdSnackbarQueue'
 
   export default new MdComponent({

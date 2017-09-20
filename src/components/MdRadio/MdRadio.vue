@@ -14,7 +14,7 @@
 
 <script>
   import MdComponent from 'core/MdComponent'
-  import MdUuid from 'core/MdUuid'
+  import MdUuid from 'core/utils/MdUuid'
   import MdRipple from 'components/MdRipple/MdRipple'
 
   export default new MdComponent({

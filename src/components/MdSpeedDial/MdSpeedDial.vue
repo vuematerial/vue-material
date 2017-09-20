@@ -6,7 +6,7 @@
 
 <script>
   import MdComponent from 'core/MdComponent'
-  import MdPropValidator from 'core/MdPropValidator'
+  import MdPropValidator from 'core/utils/MdPropValidator'
 
   export default new MdComponent({
     name: 'MdSpeedDial',

@@ -29,7 +29,7 @@
 
 <script>
   import MdComponent from 'core/MdComponent'
-  import MdUuid from 'core/MdUuid'
+  import MdUuid from 'core/utils/MdUuid'
   import MdField from 'components/MdField/MdField'
   import MdInput from 'components/MdField/MdInput/MdInput'
 

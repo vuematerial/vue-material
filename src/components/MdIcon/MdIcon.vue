@@ -7,7 +7,7 @@
 
 <script>
   import MdComponent from 'core/MdComponent'
-  import MdSvgLoader from 'core/MdSvgLoader/MdSvgLoader'
+  import MdSvgLoader from 'components/MdSvgLoader/MdSvgLoader'
 
   export default new MdComponent({
     name: 'MdIcon',

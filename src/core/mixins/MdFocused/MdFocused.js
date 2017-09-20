@@ -1,4 +1,4 @@
-import MdReactive from 'core/MdReactive'
+import MdReactive from 'core/utils/MdReactive'
 
 const eventTarget = document.body
 

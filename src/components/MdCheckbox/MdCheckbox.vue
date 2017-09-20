@@ -15,7 +15,7 @@
 <script>
   import MdComponent from 'core/MdComponent'
   import MdCheckboxMixin from 'components/MdCheckbox/MdCheckboxMixin'
-  import MdUuid from 'core/MdUuid'
+  import MdUuid from 'core/utils/MdUuid'
 
   export default new MdComponent({
     name: 'MdCheckbox',

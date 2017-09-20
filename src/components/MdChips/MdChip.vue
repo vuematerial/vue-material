@@ -20,7 +20,7 @@
   import MdComponent from 'core/MdComponent'
   import MdFocused from 'core/mixins/MdFocused/MdFocused'
   import MdRipple from 'core/mixins/MdRipple/MdRipple'
-  import MdClearIcon from 'core/Icons/MdClearIcon'
+  import MdClearIcon from 'core/icons/MdClearIcon'
   import MdButton from 'components/MdButton/MdButton'
 
   export default new MdComponent({

@@ -2,7 +2,7 @@
   import MdComponent from 'core/MdComponent'
   import MdFocused from 'core/mixins/MdFocused/MdFocused'
   import MdRipple from 'core/mixins/MdRipple/MdRipple'
-  import MdRouterLinkProps from 'core/MdRouterLinkProps'
+  import MdRouterLinkProps from 'core/utils/MdRouterLinkProps'
   import MdButtonContent from './MdButtonContent'
 
   export default new MdComponent({

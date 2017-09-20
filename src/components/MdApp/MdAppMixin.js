@@ -1,4 +1,4 @@
-import MdPropValidator from 'core/MdPropValidator'
+import MdPropValidator from 'core/utils/MdPropValidator'
 
 const mdAppModes = [
   'fixed',

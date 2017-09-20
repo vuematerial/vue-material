@@ -1,5 +1,5 @@
 import './base/index.scss'
-import MdReactive from 'core/MdReactive'
+import MdReactive from 'core/utils/MdReactive'
 import MdTheme from 'core/MdTheme'
 
 const init = () => {

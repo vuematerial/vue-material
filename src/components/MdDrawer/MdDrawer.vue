@@ -8,8 +8,8 @@
 
 <script>
   import MdComponent from 'core/MdComponent'
-  import MdOverlay from 'core/MdOverlay/MdOverlay'
-  import MdPropValidator from 'core/MdPropValidator'
+  import MdOverlay from 'components/MdOverlay/MdOverlay'
+  import MdPropValidator from 'core/utils/MdPropValidator'
 
   const drawerPermanentTypes = [
     'full',

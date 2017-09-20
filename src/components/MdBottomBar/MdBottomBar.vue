@@ -8,7 +8,7 @@
 
 <script>
   import MdComponent from 'core/MdComponent'
-  import MdPropValidator from 'core/MdPropValidator'
+  import MdPropValidator from 'core/utils/MdPropValidator'
   import MdRipple from 'components/MdRipple/MdRipple'
 
   export default new MdComponent({
