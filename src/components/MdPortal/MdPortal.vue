@@ -31,6 +31,7 @@
       mdFollowEl: HTMLElement,
       mdTargetEl: {
         type: HTMLElement,
+        default: () => document.body,
         validator: (value) => validator('md-target-el', this, value && value instanceof HTMLElement, 'You should pass a valid HTMLElement')
       }
     },
