@@ -229,6 +229,7 @@
     .md-checkbox-container {
       width: 18px;
       height: 18px;
+      min-width: auto;
       margin-top: 1px;
 
       &:after {
