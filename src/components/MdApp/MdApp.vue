@@ -34,7 +34,7 @@
       return child.componentOptions.tag === 'md-app-drawer'
     })
 
-    return drawerVnodes.length && drawerVnodes
+    return drawerVnodes.length ? drawerVnodes : []
   }
 
   function hasInternalDrawer (attrs) {
