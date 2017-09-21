@@ -21,8 +21,6 @@
     mounted () {
       if (this.mdAttachToParent) {
         this.targetEl = this.$el.parentNode.parentNode
-      } else {
-        this.targetEl = document.body
       }
     }
   }
@@ -38,11 +36,13 @@
     bottom: 0;
     left: 0;
     z-index: 10;
+    overflow: hidden;
     background: rgba(#000, .6);
     transition: .4s $md-transition-default-timing;
     transition-property: opacity;
     will-change: opacity;
 
+    body > &,
     &.md-fixed {
       position: fixed;
     }
