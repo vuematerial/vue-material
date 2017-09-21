@@ -14,12 +14,12 @@
 </template>
 
 <script>
-export default {
-  name: 'UiElements',
-  data: () => ({
-    elements: [
+  export default {
+    name: 'UiElements',
+    data: () => ({
+      elements: [
 
-    ]
-  })
-}
+      ]
+    })
+  }
 </script>

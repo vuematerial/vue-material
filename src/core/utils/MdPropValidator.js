@@ -1,11 +1,13 @@
+import { util } from 'vue'
+
 export default (name, options) => {
   return {
-    validator (value) {
+    validator: value => {
       if (options.includes(value)) {
         return true
       }
 
-      console.error(`The ${name} prop is invalid. Given value: ${value}. Available options: ${options.join(', ')}.`)
+      util.warn(`The ${name} prop is invalid. Given value: ${value}. Available options: ${options.join(', ')}.`, this)
 
       return false
     }

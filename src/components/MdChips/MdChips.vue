@@ -29,9 +29,10 @@
 
 <script>
   import MdComponent from 'core/MdComponent'
-  import MdUuid from 'core/utils/MdUuid'
   import MdField from 'components/MdField/MdField'
   import MdInput from 'components/MdField/MdInput/MdInput'
+  import MdUuid from 'core/utils/MdUuid'
+  import MdPropValidator from 'core/utils/MdPropValidator'
 
   export default new MdComponent({
     name: 'MdChips',
@@ -47,15 +48,7 @@
       },
       mdInputType: {
         type: [String, Number],
-        validator (type) {
-          if (type === 'file') {
-            console.error('The md-input-type prop cannot be \'file\'')
-
-            return false
-          }
-
-          return true
-        }
+        ...MdPropValidator('md-input-type', ['email', 'number', 'password', 'search', 'tel', 'text', 'url'])
       },
       mdPlaceholder: [String, Number],
       mdStatic: Boolean,

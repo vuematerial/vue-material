@@ -24,18 +24,14 @@
     props: {
       mdIf: {
         type: null,
-        validator: (value) => {
-          return validator('md-if', this, value === null || typeof value === 'boolean', 'You should pass a Boolean value')
-        }
+        validator: (value) => validator('md-if', this, value === null || typeof value === 'boolean', 'You should pass a Boolean value')
       },
       mdTransitionName: String,
       mdTransitionAppear: Boolean,
       mdFollowEl: HTMLElement,
       mdTargetEl: {
         type: HTMLElement,
-        validator: (value) => {
-          return validator('md-target-el', this, value && value instanceof HTMLElement, 'You should pass a valid HTMLElement')
-        }
+        validator: (value) => validator('md-target-el', this, value && value instanceof HTMLElement, 'You should pass a valid HTMLElement')
       }
     },
     data: () => ({
