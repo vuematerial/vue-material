@@ -17,7 +17,7 @@
           <li>primary - indigo</li>
           <li>accent - pink</li>
           <li>warn - deep-orange</li>
-          <li>background - grey</li>
+          <li>background - white</li>
         </ul>
         <p>All of those colors can be applied to create a theme.</p>
         <ul>
