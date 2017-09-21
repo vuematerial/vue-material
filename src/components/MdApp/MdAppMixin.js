@@ -59,13 +59,9 @@ export default {
     contentStyles () {
       const drawer = this.MdApp.drawer
 
-      if (drawer.mode === 'persistent') {
-        const persistentFullActive = drawer.active && drawer.submode === 'full'
-
-        if (persistentFullActive) {
-          return {
-            'padding-left': drawer.width + 'px'
-          }
+      if (drawer.active && drawer.mode === 'persistent' && drawer.submode === 'full') {
+        return {
+          'padding-left': drawer.width
         }
       }
     },
