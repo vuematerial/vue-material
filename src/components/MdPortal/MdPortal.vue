@@ -54,9 +54,10 @@
     },
     watch: {
       mdTargetEl (newTarget, oldTarget) {
+        this.changeParentEl()
+        newTarget.appendChild(this.$el)
+
         if (oldTarget) {
-          this.changeParentEl()
-          newTarget.appendChild(this.$el)
           this.$forceUpdate()
         }
       }
@@ -70,11 +71,12 @@
         })
       },
       changeParentEl () {
-        this.$options._parentElm = this.mdTargetEl || document.body
+        this.targetEl = this.mdTargetEl || document.body
+        this.$options._parentElm = this.targetEl
       },
       killGhostElement () {
-        if (this.mdTargetEl.contains(this.$el)) {
-          this.mdTargetEl.removeChild(this.$el)
+        if (this.targetEl.contains(this.$el)) {
+          this.targetEl.removeChild(this.$el)
         }
       },
       destroyElement () {

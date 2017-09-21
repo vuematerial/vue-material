@@ -68,6 +68,7 @@ test('should re render after target change', async () => {
   portalWrapper.setProps({
     mdTargetEl: targetEl
   })
+  portalWrapper.vm.$nextTick()
   expect(document.body.childNodes).not.toContain(portalEl)
   expect(targetEl.contains(portalEl)).toBe(true)
 })
