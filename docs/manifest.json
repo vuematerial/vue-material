@@ -1,5 +1,5 @@
 {
-    "name": "Vue Material",
+    "name": "",
     "icons": [
         {
             "src": "assets/favicon/android-chrome-192x192.png",
@@ -7,13 +7,14 @@
             "type": "image/png"
         },
         {
-            "src": "assets/favicon/android-chrome-512x512.png",
-            "sizes": "512x512",
+            "src": "assets/favicon/android-chrome-256x256.png",
+            "sizes": "256x256",
             "type": "image/png"
         }
     ],
-    "theme_color": "#303030",
-    "background_color": "#303030",
+    "theme_color": "#212121",
+    "background_color": "#212121",
+    "start_url": "http://vuematerial.io/",
     "display": "standalone",
     "orientation": "portrait"
 }
