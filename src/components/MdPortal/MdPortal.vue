@@ -31,7 +31,6 @@
       mdFollowEl: HTMLElement,
       mdTargetEl: {
         type: HTMLElement,
-        default: () => document.body,
         validator: (value) => validator('md-target-el', this, value && value instanceof HTMLElement, 'You should pass a valid HTMLElement')
       }
     },
@@ -71,7 +70,7 @@
         })
       },
       changeParentEl () {
-        this.$options._parentElm = this.mdTargetEl
+        this.$options._parentElm = this.mdTargetEl || document.body
       },
       killGhostElement () {
         if (this.mdTargetEl.contains(this.$el)) {
