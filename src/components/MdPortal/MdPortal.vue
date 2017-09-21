@@ -75,8 +75,12 @@
         this.$options._parentElm = this.targetEl
       },
       killGhostElement () {
-        if (this.targetEl.contains(this.$el)) {
-          this.targetEl.removeChild(this.$el)
+        if (this.targetEl) {
+          const children = Array.from(this.targetEl.childNodes)
+
+          if (children.includes(this.$el)) {
+            this.targetEl.removeChild(this.$el)
+          }
         }
       },
       destroyElement () {
