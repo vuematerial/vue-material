@@ -40,7 +40,7 @@
         </md-list>
       </md-app-drawer>
 
-      <md-drawer class="md-right" :md-visible.sync="showSidepanel">
+      <md-app-drawer class="md-right" :md-visible.sync="showSidepanel">
         <md-toolbar class="md-transparent" md-elevation="0">
           <span class="md-title">Favorites</span>
         </md-toolbar>
@@ -70,7 +70,7 @@
             </md-button>
           </md-list-item>
         </md-list>
-      </md-drawer>
+      </md-app-drawer>
 
       <md-app-content>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quibusdam, non molestias et! Earum magnam, similique, quo recusandae placeat dicta asperiores modi sint ea repudiandae maxime? Quae non explicabo, neque.

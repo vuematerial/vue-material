@@ -29,12 +29,12 @@
     return slots
   }
 
-  function getDrawer (children) {
-    const drawerVnode = children.filter(child => {
+  function getDrawers (children) {
+    const drawerVnodes = children.filter(child => {
       return child.componentOptions.tag === 'md-app-drawer'
     })
 
-    return drawerVnode && drawerVnode[0]
+    return drawerVnodes.length && drawerVnodes
   }
 
   function hasInternalDrawer (attrs) {
@@ -50,11 +50,13 @@
       let appComponent = MdAppSideDrawer
       const { context, functionalContext, componentOptions } = createElement(appComponent)
       const slots = buildSlots(children, context, functionalContext, componentOptions)
-      const drawer = getDrawer(slots)
+      const drawers = getDrawers(slots)
 
-      if (drawer && hasInternalDrawer(drawer.data.attrs)) {
-        appComponent = MdAppInternalDrawer
-      }
+      drawers.forEach(drawer => {
+        if (drawer && hasInternalDrawer(drawer.data.attrs)) {
+          appComponent = MdAppInternalDrawer
+        }
+      })
 
       return createElement(appComponent, {
         attrs: props

@@ -11,12 +11,6 @@
   import MdOverlay from 'components/MdOverlay/MdOverlay'
   import MdPropValidator from 'core/utils/MdPropValidator'
 
-  const drawerPermanentTypes = [
-    'full',
-    'clipped',
-    'card'
-  ]
-
   export default new MdComponent({
     name: 'MdDrawer',
     components: {
@@ -27,9 +21,19 @@
       mdRight: Boolean,
       mdPermanent: {
         type: String,
-        ...MdPropValidator('md-alignment', drawerPermanentTypes)
+        ...MdPropValidator('md-alignment', [
+          'full',
+          'clipped',
+          'card'
+        ])
       },
-      mdPersistent: Boolean,
+      mdPersistent: {
+        type: String,
+        ...MdPropValidator('md-persistent', [
+          'mini',
+          'full'
+        ])
+      },
       mdVisible: Boolean,
       mdFixed: Boolean
     },
@@ -58,6 +62,10 @@
           classes['md-permanent-' + this.mdPermanent] = true
         }
 
+        if (this.mdPersistent) {
+          classes['md-persistent-' + this.mdPersistent] = true
+        }
+
         return classes
       },
       isTemporary () {
@@ -73,6 +81,15 @@
         }
 
         return 'temporary'
+      },
+      submode () {
+        if (this.mdPersistent) {
+          return this.mdPersistent
+        }
+
+        if (this.mdPermanent) {
+          return this.mdPermanent
+        }
       }
     },
     methods: {
@@ -89,11 +106,15 @@
   @import "~components/MdElevation/mixins";
   @import "~components/MdCard/base";
 
-  @mixin md-drawer-temporary () {
+  @mixin md-drawer-base () {
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
+  }
+
+  @mixin md-drawer-temporary () {
+    @include md-drawer-base;
     z-index: 30;
     transform: translate3D(-100%, 0, 0);
     transition: transform .4s $md-transition-stand-timing;
@@ -113,7 +134,8 @@
     @include md-drawer-temporary;
     width: 400px;
     max-width: calc(100vw - 56px);
-    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
 
     @include md-layout-xsmall {
       width: 320px;
@@ -145,6 +167,10 @@
     &.md-temporary {
       + .md-app-container .md-content {
         border-left: none;
+      }
+
+      &.md-active {
+        @include md-elevation(16);
       }
     }
 
@@ -194,6 +220,40 @@
         + .md-app-container .md-content {
           border-left: none;
         }
+      }
+    }
+
+    &.md-persistent-mini {
+      border-right: 1px solid;
+      transform: translate3D(0, 64px, 0);
+      transition: .3s $md-transition-stand-timing;
+      transition-property: transform, width;
+      will-change: transform, box-shadow;
+
+      &.md-active {
+        + .md-app-container .md-content {
+          border-left: none;
+        }
+      }
+
+      &:not(.md-active) {
+        width: 70px !important;
+        z-index: 1;
+        white-space: nowrap;
+
+        .md-toolbar {
+          display: none;
+        }
+
+        .md-list-item-content {
+          padding: 0 23px;
+        }
+      }
+
+      &.md-active {
+        position: relative;
+        transform: translate3D(0, 0, 0);
+        white-space: normal;
       }
     }
 

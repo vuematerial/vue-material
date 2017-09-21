@@ -2,7 +2,8 @@
 <example src="./examples/PermanentFull.vue" />
 <example src="./examples/PermanentClipped.vue" />
 <example src="./examples/PermanentCard.vue" />
-<example src="./examples/Persistent.vue" />
+<example src="./examples/PersistentFull.vue" />
+<example src="./examples/PersistentMini.vue" />
 
 <template>
   <page-container centered :title="$t('pages.drawer.title')">
@@ -21,13 +22,14 @@
     <div class="page-container-section">
       <h2>Persistent</h2>
 
-      <code-example title="Push page content" :component="examples['persistent']" />
+      <code-example title="Push page content" :component="examples['persistent-full']" />
+      <code-example title="Mini drawer always visible" :component="examples['persistent-mini']" />
     </div>
 
     <div class="page-container-section">
       <h2>Temporary</h2>
 
-      <code-example title="Side Nav" :component="examples['temporary']" />
+      <code-example title="Works with two side drawers" :component="examples['temporary']" />
     </div>
   </page-container>
 </template>

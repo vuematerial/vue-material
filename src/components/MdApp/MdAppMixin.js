@@ -43,6 +43,7 @@ export default {
         overlapOff: false
       },
       drawer: {
+        initialWidth: 0,
         active: false,
         mode: 'temporary',
         width: 0
@@ -56,18 +57,31 @@ export default {
   },
   computed: {
     contentStyles () {
-      if (this.MdApp.drawer.active && this.MdApp.drawer.mode === 'persistent') {
-        return {
-          'padding-left': this.MdApp.drawer.width
+      const drawer = this.MdApp.drawer
+
+      if (drawer.mode === 'persistent') {
+        const persistentFullActive = drawer.active && drawer.submode === 'full'
+
+        if (persistentFullActive) {
+          return {
+            'padding-left': drawer.width + 'px'
+          }
         }
       }
     },
     containerStyles () {
+      const drawer = this.MdApp.drawer
+      let styles = {}
+
       if (this.mdMode && this.mdMode !== 'fixed') {
-        return {
-          'margin-top': this.MdApp.toolbar.initialHeight + 'px'
-        }
+        styles['margin-top'] = this.MdApp.toolbar.initialHeight + 'px'
       }
+
+      if (drawer.mode === 'persistent' && drawer.submode === 'mini') {
+        styles['padding-left'] = !drawer.active ? drawer.initialWidth + 'px' : 0
+      }
+
+      return styles
     },
     scrollerClasses () {
       if (this.mdScrollbar) {

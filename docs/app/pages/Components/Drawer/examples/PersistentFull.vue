@@ -8,7 +8,7 @@
         <span class="md-title">My Title</span>
       </md-app-toolbar>
 
-      <md-app-drawer :md-visible.sync="menuVisible" md-persistent>
+      <md-app-drawer :md-visible.sync="menuVisible" md-persistent="full">
         <md-toolbar class="md-transparent" md-elevation="0">
           <span>Navigation</span>
 
@@ -43,7 +43,7 @@
       </md-app-drawer>
 
       <md-app-content>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quibusdam, non molestias et! Earum magnam, similique, quo recusandae placeat dicta asperiores modi sint ea repudiandae maxime? Quae non explicabo, neque.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quibusdam, non molestias et! Earum magnam, similique, quo recusandae placeat dicta asperiores modi sint ea.
       </md-app-content>
     </md-app>
   </div>
@@ -64,7 +64,7 @@
 
 <script>
 export default {
-  name: 'Persistent',
+  name: 'PersistentFull',
   data: () => ({
     menuVisible: false
   }),

@@ -36,8 +36,8 @@
     align-items: center;
     align-content: center;
     transition: .3s $md-transition-default-timing;
-    transition-property: background-color, box-shadow, transform, color, min-height;
-    will-change: background-color, box-shadow, transform, color, min-height;
+    transition-property: opacity, background-color, box-shadow, transform, color, min-height;
+    will-change: opacity, background-color, box-shadow, transform, color, min-height;
 
     @include md-layout-small {
       min-height: $md-toolbar-height-landscape;

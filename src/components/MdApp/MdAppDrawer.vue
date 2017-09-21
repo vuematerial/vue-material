@@ -11,7 +11,8 @@
     data: () => ({
       drawerElement: {
         mdVisible: null,
-        mode: null
+        mode: null,
+        submode: null
       }
     }),
     computed: {
@@ -20,6 +21,9 @@
       },
       mode () {
         return this.drawerElement.mode
+      },
+      submode () {
+        return this.drawerElement.submode
       }
     },
     watch: {
@@ -29,20 +33,28 @@
       },
       mode (mode) {
         this.MdApp.drawer.mode = mode
+      },
+      submode (submode) {
+        this.MdApp.drawer.submode = submode
       }
     },
     methods: {
       getDrawerWidth () {
-        let drawerWidth = this.$el ? this.$el.offsetWidth : 0
+        if (this.$el) {
+          return window.getComputedStyle(this.$el).width
+        }
 
-        return drawerWidth + 'px'
+        return 0
       }
     },
-    mounted () {
+    async mounted () {
+      await this.$nextTick()
       this.drawerElement = this.$children[0]
       this.MdApp.drawer.width = this.getDrawerWidth()
       this.MdApp.drawer.active = this.visible
       this.MdApp.drawer.mode = this.mode
+      this.MdApp.drawer.submode = this.submode
+      this.MdApp.drawer.initialWidth = this.$el.offsetWidth
     }
   }
 </script>

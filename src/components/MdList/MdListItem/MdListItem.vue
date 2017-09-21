@@ -79,6 +79,8 @@
     flex-flow: row nowrap;
     align-items: center;
     flex: 1;
+    transition: padding .4s $md-transition-stand-timing;
+    will-change: padding;
 
     > .md-icon:first-child {
       margin-right: 32px;

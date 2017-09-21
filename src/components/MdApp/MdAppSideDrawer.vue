@@ -20,11 +20,3 @@
     mixins: [MdAppMixin]
   })
 </script>
-
-<style lang="scss">
-  @import "~components/MdAnimation/variables";
-
-  .md-app-side-drawer {
-    transition: .3s $md-transition-default-timing;
-  }
-</style>
