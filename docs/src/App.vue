@@ -322,7 +322,6 @@
     flex: 1;
     overflow: auto;
     background-color: #fff;
-    transform: translate3D(0, 0, 0);
     transition: $swift-ease-out;
     transition-delay: .2s;
   }
@@ -394,13 +393,11 @@
   import Vue from 'vue';
 
   export default {
-    data() {
-      return {
-        toolbar: true,
-        theme: 'default',
-        pageTitle: ''
-      };
-    },
+    data: () => ({
+      toolbar: true,
+      theme: 'default',
+      pageTitle: ''
+    }),
     computed: {
       logo() {
         let theme = Vue.material.currentTheme;
@@ -419,8 +416,6 @@
       closeSidenav() {
         this.$refs['main-sidebar'].close();
       }
-    },
-    mounted() {
     }
   };
 </script>

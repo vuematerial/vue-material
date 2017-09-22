@@ -53,6 +53,48 @@
   }
 </style>
 
+<style lang="scss">
+  #carbonads {
+    $carbon-ads-responsive: 1600px;
+
+    max-width: 150px;
+    min-height: 100px;
+    margin: 0 0 24px 24px;
+    padding: 10px;
+    float: right;
+    position: relative;
+    background: #f5f5f5;
+
+    @media (min-width: $carbon-ads-responsive) {
+      margin: 0;
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+    }
+
+    .carbon-wrap {
+      display: flex;
+      flex-direction: column;
+      font-size: 14px;
+
+      a {
+        margin: 0 0 8px;
+        color: rgba(#000, .7);
+
+        &:hover {
+          color: #000;
+          text-decoration: none;
+        }
+      }
+    }
+
+    .carbon-poweredby {
+      color: rgba(#000, .54);
+      font-size: 12px;
+    }
+  }
+</style>
+
 <script>
   export default {
     props: {
@@ -61,10 +103,28 @@
     methods: {
       toggleSidenav() {
         this.$root.toggleSidenav();
+      },
+      appendCarbonAds() {
+        const interval = window.setInterval(() => {
+          const carbonAds = document.getElementById('carbonads');
+          const mainContent = this.$el.querySelector('.main-content');
+
+          if (carbonAds && mainContent) {
+            mainContent.insertBefore(carbonAds, mainContent.firstChild);
+            window.clearInterval(interval);
+          }
+        }, 50);
+      },
+      moveCarbonAdsToBody() {
+        document.body.appendChild(document.getElementById('carbonads'));
       }
     },
     mounted() {
       document.title = this.pageTitle + ' - Vue Material';
+      this.appendCarbonAds();
+    },
+    beforeDestroy() {
+      this.moveCarbonAdsToBody();
     }
   };
 </script>
