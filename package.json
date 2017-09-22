@@ -84,7 +84,6 @@
     "raw-loader": "^0.5.1",
     "sass-loader": "^6.0.5",
     "url-loader": "^0.5.7",
-    "vue": "^2.4.2",
     "vue-hot-reload-api": "^2.1.0",
     "vue-html-loader": "^1.2.4",
     "vue-loader": "^12.2.1",
