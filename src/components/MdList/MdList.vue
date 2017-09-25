@@ -1,6 +1,6 @@
 <template>
   <ul class="md-list" :class="[$mdActiveTheme]">
-    <slot></slot>
+    <slot />
   </ul>
 </template>
 

@@ -1,10 +1,10 @@
 <template>
   <li class="md-subheader" :class="[$mdActiveTheme]" v-if="insideList">
-    <slot></slot>
+    <slot />
   </li>
 
   <div class="md-subheader" :class="[$mdActiveTheme]" v-else>
-    <slot></slot>
+    <slot />
   </div>
 </template>
 

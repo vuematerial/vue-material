@@ -1,7 +1,7 @@
 <template>
   <a class="md-list-item-link" v-bind="{ href, disabled, target }">
     <md-list-item-content :md-disabled="isDisabled">
-      <slot></slot>
+      <slot />
     </md-list-item-content>
   </a>
 </template>

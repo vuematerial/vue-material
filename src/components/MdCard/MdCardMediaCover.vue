@@ -1,6 +1,6 @@
 <template>
   <div class="md-card-media-cover" :class="coverClasses">
-    <slot></slot>
+    <slot />
     <div class="md-card-backdrop" :style="coverStyles" v-if="mdTextScrim" ref="backdrop"></div>
   </div>
 </template>

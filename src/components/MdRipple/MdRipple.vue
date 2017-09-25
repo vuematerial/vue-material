@@ -69,25 +69,27 @@
           this.startRipple($event)
         }, 100)
       },
-      async startRipple ($event) {
-        const { eventType, isDisabled, mdCentered } = this
+      startRipple ($event) {
+        window.requestAnimationFrame(async () => {
+          const { eventType, isDisabled, mdCentered } = this
 
-        if (!isDisabled && (!eventType || eventType === $event.type)) {
-          let rippleSize = this.getSize()
-          let ripplePosition = null
+          if (!isDisabled && (!eventType || eventType === $event.type)) {
+            let size = this.getSize()
+            let position = null
 
-          if (mdCentered) {
-            ripplePosition = this.getCenteredPosition(rippleSize)
-          } else {
-            ripplePosition = this.getHitPosition($event, rippleSize)
+            if (mdCentered) {
+              position = this.getCenteredPosition(size)
+            } else {
+              position = this.getHitPosition($event, size)
+            }
+
+            await this.clearWave()
+
+            this.eventType = $event.type
+            this.animating = true
+            this.applyStyles(position, size)
           }
-
-          await this.clearWave()
-
-          this.eventType = $event.type
-          this.animating = true
-          this.applyStyles(ripplePosition, rippleSize)
-        }
+        })
       },
       applyStyles (position, size) {
         size += 'px'

@@ -1,6 +1,6 @@
 <template>
   <div class="md-card-expand">
-    <slot></slot>
+    <slot />
   </div>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
   <md-ripple class="md-list-item-content" :md-disabled="mdDisabled">
-    <slot></slot>
+    <slot />
   </md-ripple>
 </template>
 

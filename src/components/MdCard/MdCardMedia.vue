@@ -1,6 +1,6 @@
 <template>
   <div class="md-card-media" :class="mediaClasses">
-    <slot></slot>
+    <slot />
   </div>
 </template>
 

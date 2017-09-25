@@ -1,6 +1,6 @@
 <template>
   <div class="md-card-media-actions">
-    <slot></slot>
+    <slot />
   </div>
 </template>
 

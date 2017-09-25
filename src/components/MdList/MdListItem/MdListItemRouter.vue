@@ -1,7 +1,7 @@
 <template>
   <router-link class="md-list-item-router" v-bind="routerProps">
     <md-list-item-content :md-disabled="isDisabled">
-      <slot></slot>
+      <slot />
     </md-list-item-content>
   </router-link>
 </template>

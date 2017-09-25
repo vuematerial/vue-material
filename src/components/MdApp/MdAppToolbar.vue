@@ -1,6 +1,6 @@
 <template>
   <md-toolbar class="md-app-toolbar" v-bind="$attrs" v-on="$listeners" :class="toolbarClasses" :style="toolbarStyles">
-    <slot></slot>
+    <slot />
   </md-toolbar>
 </template>
 

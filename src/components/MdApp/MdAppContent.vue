@@ -1,10 +1,10 @@
 <template>
   <md-card class="md-app-content md-flex" v-bind="$attrs" v-on="$listeners" v-if="showCard">
-    <slot></slot>
+    <slot />
   </md-card>
 
   <md-content class="md-app-content md-flex" v-bind="$attrs" v-on="$listeners" v-else>
-    <slot></slot>
+    <slot />
   </md-content>
 </template>
 

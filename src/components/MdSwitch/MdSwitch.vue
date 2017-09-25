@@ -9,7 +9,7 @@
     </div>
 
     <label :for="id" class="md-switch-label" v-if="$slots.default" @click.prevent="toggleCheck">
-      <slot></slot>
+      <slot />
     </label>
   </div>
 </template>

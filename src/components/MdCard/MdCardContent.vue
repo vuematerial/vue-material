@@ -1,6 +1,6 @@
 <template>
   <div class="md-card-content">
-    <slot></slot>
+    <slot />
   </div>
 </template>
 

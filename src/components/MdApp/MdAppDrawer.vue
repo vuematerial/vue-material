@@ -1,6 +1,6 @@
 <template>
   <md-drawer class="md-app-drawer" v-bind="$attrs" v-on="$listeners">
-    <slot></slot>
+    <slot />
   </md-drawer>
 </template>
 

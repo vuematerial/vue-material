@@ -1,7 +1,7 @@
 <template>
   <button type="button" class="md-list-item-button">
     <md-list-item-content :md-disabled="isDisabled">
-      <slot></slot>
+      <slot />
     </md-list-item-content>
   </button>
 </template>

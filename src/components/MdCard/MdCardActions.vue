@@ -1,6 +1,6 @@
 <template>
   <div class="md-card-actions" :class="`md-alignment-${mdAlignment}`">
-    <slot></slot>
+    <slot />
   </div>
 </template>
 

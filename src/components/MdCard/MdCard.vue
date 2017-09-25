@@ -1,6 +1,6 @@
 <template>
   <div class="md-card" :class="[$mdActiveTheme, cardClasses]">
-    <slot></slot>
+    <slot />
   </div>
 </template>
 

@@ -4,7 +4,18 @@
   import MdListItemButton from './MdListItemButton'
   import MdListItemLink from './MdListItemLink'
   import MdListItemRouter from './MdListItemRouter'
+  import MdListItemExpand from './MdListItemExpand'
   import MdButton from 'components/MdButton/MdButton'
+
+  function resolveScopedSlot (hasExpand, children) {
+    if (hasExpand) {
+      return {
+        'md-expand': () => {
+          return children['md-expand'][0]
+        }
+      }
+    }
+  }
 
   export default {
     name: 'MdListItem',
@@ -12,7 +23,10 @@
     components: {
       MdButton
     },
-    render (createElement, { parent, props, listeners, children, data }) {
+    props: {
+      mdExpand: Boolean
+    },
+    render (createElement, { parent, props, listeners, data, slots }) {
       const interactionEvents = [
         'click',
         'contextmenu',
@@ -20,10 +34,13 @@
         'mousedown',
         'mouseup'
       ]
+      let children = slots()
       let listComponent = MdListItemDefault
       let staticClass = 'md-list-item'
 
-      if (parent && parent.$router && props.to) {
+      if (props.mdExpand) {
+        listComponent = MdListItemExpand
+      } else if (parent && parent.$router && props.to) {
         listComponent = MdListItemRouter
         listComponent.props = MdRouterLinkProps(parent, {
           target: String
@@ -50,9 +67,10 @@
         on: listeners
       }, [
         createElement(listComponent, {
-          staticClass: 'md-list-item-container md-button-clean',
-          props
-        }, [children])
+          props,
+          scopedSlots: resolveScopedSlot(props.mdExpand, children),
+          staticClass: 'md-list-item-container md-button-clean'
+        }, children.default)
       ])
     }
   }
@@ -98,22 +116,23 @@
 
   .md-list-item-content {
     min-height: 48px;
-    padding: 8px 16px;
+    padding: 4px 16px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     transition: padding .4s $md-transition-stand-timing;
     will-change: padding;
 
     .md-list.md-dense & {
       min-height: 40px;
-      padding-top: 4px;
-      padding-bottom: 4px;
       font-size: 13px;
 
       > .md-avatar {
         width: 36px;
         min-width: 36px;
         height: 36px;
+        margin-top: 0;
+        margin-bottom: 0;
 
         &:first-child {
           margin-right: 20px;
@@ -137,14 +156,6 @@
       min-height: 76px;
     }
 
-    > .md-icon:first-child {
-      margin-right: 32px;
-    }
-
-    > .md-avatar:first-child {
-      margin-right: 16px;
-    }
-
     .md-list-action {
       margin: 0 -10px 0 0;
 
@@ -154,6 +165,18 @@
         .md-list.md-triple-line & {
           align-self: flex-start;
         }
+      }
+    }
+
+    > .md-icon:first-child {
+      margin-right: 32px;
+    }
+
+    > .md-avatar {
+      margin: 4px 0;
+
+      &:first-child {
+        margin-right: 16px;
       }
     }
   }

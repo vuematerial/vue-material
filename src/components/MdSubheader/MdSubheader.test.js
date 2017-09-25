@@ -19,7 +19,7 @@ test('should render the theme class', async () => {
 
 test('should render a <li> tag when inside lists', async () => {
   Vue.component('MdList', {
-    template: '<div><slot></slot></div>'
+    template: '<div><slot /></div>'
   })
   const template = `
     <md-list>
