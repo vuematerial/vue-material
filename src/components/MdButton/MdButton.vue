@@ -90,7 +90,6 @@
     display: inline-block;
     position: relative;
     overflow: hidden;
-    user-select: none;
     outline: none;
     background: transparent;
     border: 0;
@@ -111,6 +110,7 @@
     min-width: $md-button-min-width;
     height: $md-button-height;
     margin: 6px 8px;
+    user-select: none;
     border-radius: $md-button-radius;
     font-size: $md-button-font-size;
     font-weight: 500;

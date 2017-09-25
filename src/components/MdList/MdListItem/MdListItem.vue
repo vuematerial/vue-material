@@ -1,5 +1,6 @@
 <script>
   import MdRouterLinkProps from 'core/utils/MdRouterLinkProps'
+  import MdListItemDefault from './MdListItemDefault'
   import MdListItemButton from './MdListItemButton'
   import MdListItemLink from './MdListItemLink'
   import MdListItemRouter from './MdListItemRouter'
@@ -12,7 +13,14 @@
       MdButton
     },
     render (createElement, { data, parent, props, listeners, children }) {
-      let listComponent = MdListItemButton
+      const interactionEvents = [
+        'click',
+        'contextmenu',
+        'dblclick',
+        'mousedown',
+        'mouseup'
+      ]
+      let listComponent = MdListItemDefault
 
       if (parent && parent.$router && props.to) {
         listComponent = MdListItemRouter
@@ -22,6 +30,14 @@
         delete listComponent.props.href
       } else if (props.href) {
         listComponent = MdListItemLink
+      } else {
+        let listenerNames = Object.keys(listeners)
+
+        listenerNames.forEach(listener => {
+          if (interactionEvents.includes(listener)) {
+            listComponent = MdListItemButton
+          }
+        })
       }
 
       return createElement('li', {
@@ -45,15 +61,15 @@
     position: relative;
     z-index: 2;
 
-    .md-icon {
-      margin: 0;
-      transition-property: color, margin-right;
-    }
-
     &.md-inset {
       .md-list-item-content {
         padding-left: 72px;
       }
+    }
+
+    .md-icon {
+      margin: 0;
+      transition-property: color, margin-right;
     }
   }
 
@@ -64,7 +80,15 @@
     font-weight: 400;
     text-align: left;
     text-transform: none;
-    cursor: pointer;
+
+    .md-list.md-dense & {
+      font-size: 13px;
+    }
+
+    &:not(.md-list-item-default) {
+      user-select: none;
+      cursor: pointer;
+    }
 
     &.md-button-clean:hover {
       opacity: 1;
@@ -74,7 +98,7 @@
 
   .md-list-item-content {
     min-height: 48px;
-    padding: 0 16px;
+    padding: 8px 16px;
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
@@ -82,8 +106,27 @@
     transition: padding .4s $md-transition-stand-timing;
     will-change: padding;
 
+    .md-list.md-dense & {
+      min-height: 40px;
+      padding-top: 4px;
+      padding-bottom: 4px;
+
+      > .md-avatar {
+        width: 36px;
+        height: 36px;
+
+        &:first-child {
+          margin-right: 20px;
+        }
+      }
+    }
+
     > .md-icon:first-child {
       margin-right: 32px;
+    }
+
+    > .md-avatar:first-child {
+      margin-right: 16px;
     }
 
     .md-list-action {
