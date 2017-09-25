@@ -13,6 +13,7 @@
 </template>
 
 <script>
+  import raf from 'raf'
   import MdArrowDownIcon from 'core/icons/MdArrowDownIcon'
   import MdListItemMixin from './MdListItemMixin'
 
@@ -45,7 +46,7 @@
         return size
       },
       toggleExpand () {
-        window.requestAnimationFrame(() => {
+        raf(() => {
           let fullHeight = 0
 
           if (!this.showContent) {
@@ -56,6 +57,9 @@
           this.showContent = !this.showContent
         })
       }
+    },
+    created () {
+      console.log(this.$slots)
     }
   }
 </script>

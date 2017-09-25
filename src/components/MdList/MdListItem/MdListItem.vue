@@ -7,8 +7,12 @@
   import MdListItemExpand from './MdListItemExpand'
   import MdButton from 'components/MdButton/MdButton'
 
-  function resolveScopedSlot (hasExpand, children) {
-    if (hasExpand) {
+  function hasExpansion (props) {
+    return props.hasOwnProperty('mdExpand') && props.mdExpand !== false
+  }
+
+  function resolveScopedSlot (props, children) {
+    if (hasExpansion(props)) {
       return {
         'md-expand': () => {
           return children['md-expand'][0]
@@ -23,9 +27,6 @@
     components: {
       MdButton
     },
-    props: {
-      mdExpand: Boolean
-    },
     render (createElement, { parent, props, listeners, data, slots }) {
       const interactionEvents = [
         'click',
@@ -38,7 +39,7 @@
       let listComponent = MdListItemDefault
       let staticClass = 'md-list-item'
 
-      if (props.mdExpand) {
+      if (hasExpansion(props)) {
         listComponent = MdListItemExpand
       } else if (parent && parent.$router && props.to) {
         listComponent = MdListItemRouter
@@ -68,7 +69,7 @@
       }, [
         createElement(listComponent, {
           props,
-          scopedSlots: resolveScopedSlot(props.mdExpand, children),
+          scopedSlots: resolveScopedSlot(props, children),
           staticClass: 'md-list-item-container md-button-clean'
         }, children.default)
       ])

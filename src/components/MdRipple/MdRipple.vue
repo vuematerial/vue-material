@@ -14,6 +14,7 @@
 </template>
 
 <script>
+  import raf from 'raf'
   import MdComponent from 'core/MdComponent'
 
   export default new MdComponent({
@@ -70,7 +71,7 @@
         }, 100)
       },
       startRipple ($event) {
-        window.requestAnimationFrame(async () => {
+        raf(async () => {
           const { eventType, isDisabled, mdCentered } = this
 
           if (!isDisabled && (!eventType || eventType === $event.type)) {

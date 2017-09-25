@@ -40,6 +40,7 @@
   "dependencies": {
     "deepmerge": "^1.5.1",
     "popper.js": "^1.12.5",
+    "raf": "^3.3.2",
     "vue": "^2.4.3"
   },
   "devDependencies": {
