@@ -63,6 +63,32 @@
       }
     },
     methods: {
+      getTransitionDuration () {
+        const duration = window.getComputedStyle(this.$el).transitionDuration
+        const num = parseFloat(duration, 10)
+        let unit = duration.match(/m?s/)
+        let milliseconds = null
+
+        if (unit) {
+          unit = unit[0]
+        }
+
+        switch (unit) {
+          case 's':
+            milliseconds = num * 1000
+            break
+
+          case 'ms':
+            milliseconds = num
+            break
+
+          default:
+            milliseconds = 0
+            break
+        }
+
+        return milliseconds
+      },
       prepareSlotRender ($slots) {
         const slotNames = Object.keys($slots)
 
@@ -103,7 +129,7 @@
         this.$el.classList.add(this.leaveToClass)
 
         window.clearTimeout(this.leaveTimeout)
-        this.leaveTimeout = window.setTimeout(this.destroyElement, 400)
+        this.leaveTimeout = window.setTimeout(this.destroyElement, this.getTransitionDuration())
       } else {
         this.killGhostElement()
       }
