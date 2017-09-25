@@ -16,9 +16,6 @@ engines:
   git-legal:
     enabled: true
 
-  nodesecurity:
-    enabled: true
-
   duplication:
     enabled: true
     config:
