@@ -23,6 +23,7 @@
 
   .md-avatar {
     width: $md-avatar-size;
+    min-width: $md-avatar-size;
     height: $md-avatar-size;
     margin: auto;
     display: inline-flex;

@@ -2,6 +2,14 @@
   @include md-theme-component() {
     @include md-theme-property(background-color, background);
 
+    &.md-double-line .md-list-item-text :nth-child(2) {
+      @include md-theme-property(color, text-accent, background);
+    }
+
+    &.md-triple-line .md-list-item-text :nth-child(3) {
+      @include md-theme-property(color, text-accent, background);
+    }
+
     .md-list-item-container {
       @include md-theme-property(color, text-primary, background);
 

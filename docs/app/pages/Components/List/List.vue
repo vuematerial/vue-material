@@ -1,4 +1,6 @@
-<example src="./examples/RegularLists.vue" />
+<example src="./examples/SingleLine.vue" />
+<example src="./examples/DoubleLine.vue" />
+<example src="./examples/TripleLine.vue" />
 
 <template>
   <page-container centered :title="$t('pages.list.title')">
@@ -7,9 +9,11 @@
     </div>
 
     <div class="page-container-section">
-      <h2>Lists</h2>
+      <h2>Regular lists</h2>
 
-      <code-example title="Regular Lists" :component="examples['regular-lists']" />
+      <code-example title="Single Line" :component="examples['single-line']" />
+      <code-example title="Double Line" :component="examples['double-line']" />
+      <code-example title="Triple Line" :component="examples['triple-line']" />
 
       <api-item title="API - md-content">
         <p>This component do not have any extra option.</p>

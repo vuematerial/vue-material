@@ -23,7 +23,7 @@
 
       <md-divider class="md-inset"></md-divider>
 
-      <md-list-item class="md-inset">
+      <md-list-item>
         <md-avatar>
           <img src="https://placeimg.com/40/40/people/5" alt="People">
         </md-avatar>
@@ -35,7 +35,7 @@
         </md-button>
       </md-list-item>
 
-      <md-list-item class="md-inset">
+      <md-list-item>
         <md-avatar>
           <img src="https://placeimg.com/40/40/people/1" alt="People">
         </md-avatar>
@@ -47,7 +47,7 @@
         </md-button>
       </md-list-item>
 
-      <md-list-item class="md-inset">
+      <md-list-item>
         <md-avatar>
           <img src="https://placeimg.com/40/40/people/6" alt="People">
         </md-avatar>
@@ -83,7 +83,7 @@
 
       <md-divider class="md-inset"></md-divider>
 
-      <md-list-item class="md-inset">
+      <md-list-item>
         <md-avatar>
           <img src="https://placeimg.com/40/40/people/5" alt="People">
         </md-avatar>
@@ -95,7 +95,7 @@
         </md-button>
       </md-list-item>
 
-      <md-list-item class="md-inset">
+      <md-list-item>
         <md-avatar>
           <img src="https://placeimg.com/40/40/people/1" alt="People">
         </md-avatar>
@@ -107,7 +107,7 @@
         </md-button>
       </md-list-item>
 
-      <md-list-item class="md-inset">
+      <md-list-item>
         <md-avatar>
           <img src="https://placeimg.com/40/40/people/6" alt="People">
         </md-avatar>
@@ -124,7 +124,7 @@
 
 <script>
 export default {
-  name: 'RegularLists'
+  name: 'SingleLine'
 }
 </script>
 

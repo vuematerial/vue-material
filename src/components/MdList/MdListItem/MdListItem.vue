@@ -12,7 +12,7 @@
     components: {
       MdButton
     },
-    render (createElement, { data, parent, props, listeners, children }) {
+    render (createElement, { parent, props, listeners, children, data }) {
       const interactionEvents = [
         'click',
         'contextmenu',
@@ -21,6 +21,7 @@
         'mouseup'
       ]
       let listComponent = MdListItemDefault
+      let staticClass = 'md-list-item'
 
       if (parent && parent.$router && props.to) {
         listComponent = MdListItemRouter
@@ -40,9 +41,13 @@
         })
       }
 
+      if (data.staticClass) {
+        staticClass += ' ' + data.staticClass
+      }
+
       return createElement('li', {
-        on: listeners,
-        staticClass: 'md-list-item'
+        staticClass,
+        on: listeners
       }, [
         createElement(listComponent, {
           staticClass: 'md-list-item-container md-button-clean',
@@ -75,15 +80,8 @@
 
   .md-list-item-container {
     width: 100%;
-    display: flex;
-    font-size: 16px;
-    font-weight: 400;
     text-align: left;
     text-transform: none;
-
-    .md-list.md-dense & {
-      font-size: 13px;
-    }
 
     &:not(.md-list-item-default) {
       user-select: none;
@@ -100,9 +98,7 @@
     min-height: 48px;
     padding: 8px 16px;
     display: flex;
-    flex-flow: row nowrap;
     align-items: center;
-    flex: 1;
     transition: padding .4s $md-transition-stand-timing;
     will-change: padding;
 
@@ -113,12 +109,29 @@
 
       > .md-avatar {
         width: 36px;
+        min-width: 36px;
         height: 36px;
 
         &:first-child {
           margin-right: 20px;
         }
       }
+    }
+
+    .md-list.md-double-line & {
+      min-height: 72px;
+    }
+
+    .md-list.md-double-line.md-dense & {
+      min-height: 60px;
+    }
+
+    .md-list.md-triple-line & {
+      min-height: 88px;
+    }
+
+    .md-list.md-triple-line.md-dense & {
+      min-height: 76px;
     }
 
     > .md-icon:first-child {
@@ -134,11 +147,44 @@
 
       &:last-of-type {
         margin: 0 -10px 0 16px;
+
+        .md-list.md-triple-line & {
+          align-self: flex-start;
+        }
       }
     }
   }
 
   .md-list-item-text {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    overflow: hidden;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.25em;
+    white-space: nowrap;
+
+    .md-list.md-dense & {
+      font-size: 13px;
+    }
+
+    * {
+      width: 100%;
+      margin: 0;
+      overflow: hidden;
+      line-height: 1.25em;
+      text-overflow: ellipsis;
+    }
+
+    :nth-child(2),
+    :nth-child(3) {
+      font-size: 14px;
+    }
+
+    .md-list.md-dense & * {
+      font-size: 13px;
+    }
   }
 </style>
