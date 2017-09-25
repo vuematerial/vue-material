@@ -80,6 +80,8 @@
 
   .md-list-item-container {
     width: 100%;
+    font-size: 16px;
+    font-weight: 400;
     text-align: left;
     text-transform: none;
 
@@ -106,6 +108,7 @@
       min-height: 40px;
       padding-top: 4px;
       padding-bottom: 4px;
+      font-size: 13px;
 
       > .md-avatar {
         width: 36px;
@@ -161,8 +164,6 @@
     flex-direction: column;
     align-items: flex-start;
     overflow: hidden;
-    font-size: 16px;
-    font-weight: 400;
     line-height: 1.25em;
     white-space: nowrap;
 

@@ -115,7 +115,7 @@ export const routes = [
     component: () => import(/* webpackChunkName: "file" */ './pages/Components/File/File.vue')
   },
   {
-    path: '/components/list',
+    path: '/components/list/:test?',
     name: 'components/list',
     component: () => import(/* webpackChunkName: "list" */ './pages/Components/List/List.vue')
   },

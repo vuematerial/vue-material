@@ -17,5 +17,9 @@
         @include md-theme-property(background-color, divider, background);
       }
     }
+
+    .router-link-exact-active {
+      @include md-theme-property(color, primary, background);
+    }
   }
 }
