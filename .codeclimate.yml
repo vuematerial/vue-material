@@ -11,8 +11,7 @@ exclude_paths:
 
 engines:
   eslint:
-    enabled: true
-    channel: "eslint-4"
+    enabled: false
 
   git-legal:
     enabled: true
