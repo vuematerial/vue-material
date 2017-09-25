@@ -11,7 +11,8 @@ exclude_paths:
 
 engines:
   eslint:
-    enabled: false
+    enabled: true
+    channel: "eslint-4"
 
   duplication:
     enabled: true
