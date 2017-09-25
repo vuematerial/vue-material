@@ -13,9 +13,6 @@ engines:
   eslint:
     enabled: false
 
-  git-legal:
-    enabled: true
-
   duplication:
     enabled: true
     config:
