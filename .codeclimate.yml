@@ -14,6 +14,12 @@ engines:
     enabled: true
     channel: "eslint-4"
 
+  git-legal:
+    enabled: true
+
+  nodesecurity:
+    enabled: true
+
   duplication:
     enabled: true
     config:
@@ -23,9 +29,7 @@ engines:
             - "src/**/*.js"
             - "src/**/*.vue"
             - "build/**/*.js"
-            - "build/**/*.vue"
             - "test/**/*.js"
-            - "test/**/*.vue"
             - "!src/**/*.test.js"
 
   markdownlint:
