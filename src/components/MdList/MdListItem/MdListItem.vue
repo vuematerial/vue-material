@@ -173,6 +173,23 @@
       margin-right: 32px;
     }
 
+    > .md-checkbox,
+    > .md-radio {
+      margin: 0;
+
+      &:first-child {
+        margin-right: 36px;
+      }
+    }
+
+    > .md-switch {
+      margin: 0;
+
+      &:first-child {
+        margin-right: 22px;
+      }
+    }
+
     > .md-avatar {
       margin: 4px 0;
 

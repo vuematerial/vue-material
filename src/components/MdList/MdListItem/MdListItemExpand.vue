@@ -57,9 +57,6 @@
           this.showContent = !this.showContent
         })
       }
-    },
-    created () {
-      console.log(this.$slots)
     }
   }
 </script>
@@ -68,6 +65,11 @@
   @import "~components/MdAnimation/variables";
 
   .md-list-item-expand {
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    transition: border .4s $md-transition-stand-timing;
+    will-change: border;
+
     &.md-active {
       .md-list-expand-icon {
         perspective: 1000px;
@@ -76,7 +78,6 @@
       }
 
       .md-list-expand {
-        border-bottom: 1px solid;
         opacity: 1;
         transform: translate3D(0, 0, 0);
       }

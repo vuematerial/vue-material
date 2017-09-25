@@ -2,7 +2,8 @@
 <example src="./examples/DoubleLine.vue" />
 <example src="./examples/TripleLine.vue" />
 <example src="./examples/Types.vue" />
-<example src="./examples/Expand.vue" />
+<example src="./examples/Expansion.vue" />
+<example src="./examples/Controls.vue" />
 
 <template>
   <page-container centered :title="$t('pages.list.title')">
@@ -16,7 +17,8 @@
       <code-example title="Single Line" :component="examples['single-line']" />
       <code-example title="Double Line" :component="examples['double-line']" />
       <code-example title="Triple Line" :component="examples['triple-line']" />
-      <code-example title="Expand" :component="examples['expand']" />
+      <code-example title="Controls" :component="examples['controls']" />
+      <code-example title="Expansion" :component="examples['expansion']" />
 
       <api-item title="API - md-content">
         <p>This component do not have any extra option.</p>

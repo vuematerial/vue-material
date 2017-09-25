@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <md-list class="expansion-list">
+  <div class="full-control">
+    <md-list>
       <md-list-item md-expand>
         <md-icon>whatshot</md-icon>
         <span class="md-list-item-text">News</span>
@@ -44,13 +44,13 @@
 </template>
 
 <script>
-export default {
-  name: 'Expand'
-}
+  export default {
+    name: 'Expansion'
+  }
 </script>
 
 <style lang="scss" scoped>
-  .expansion-list {
+  .full-control > .md-list {
     width: 320px;
     max-width: 100%;
     height: 400px;

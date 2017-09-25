@@ -22,8 +22,8 @@
       @include md-theme-property(color, primary, background);
     }
 
-    .md-list-item-expand.md-active .md-list-expand {
-      @include md-theme-property(border-bottom-color, divider, background);
+    .md-list-item-expand.md-active {
+      @include md-theme-property(border-color, divider, background);
     }
   }
 }
