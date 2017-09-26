@@ -5,7 +5,7 @@
     <slot />
 
     <div class="api-item-navigation">
-      <md-button v-for="slot in slots" :key="slot" :class="{ 'md-primary': currentSlot === slot }" @click="currentSlot = slot">{{ slot | capitalize }}</md-button>
+      <md-button v-for="slot in slots" :key="slot" :class="{ 'md-primary': currentSlot === slot }" @click="currentSlot = slot">{{ slot | capitalize | dashToSpace }}</md-button>
     </div>
 
     <div class="api-item-content" v-for="slot in slots" :key="slot" v-if="currentSlot === slot">
@@ -37,6 +37,9 @@ export default {
   filters: {
     capitalize (input) {
       return input.replace(/(?:^|\s)\S/g, transformed => transformed.toUpperCase())
+    },
+    dashToSpace (input) {
+      return input.replace(/-/g, ' ')
     }
   },
   data: () => ({

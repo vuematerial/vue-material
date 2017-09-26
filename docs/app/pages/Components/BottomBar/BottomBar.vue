@@ -34,7 +34,8 @@
     <div class="page-container-section">
       <h2>Custom Template</h2>
 
-      <p>Maybe you want to show more informations inside a bottom bar item. With a simple and flexible template slot you can make anything you want. Look at this unread notification example:</p>
+      <p>Maybe you want to show more informations inside a bottom bar item. With a simple and flexible default slot, you can make anything you want. Look at this unread notification example:</p>
+      <note-block>If you pass anything inside the <code>&lt;md-bottom-bar-item&gt;</code>, the component will ignore the <code>md-label</code> and <code>md-icon</code>. Only use the content slot if you want to create a custom template.</note-block>
       <code-example title="Template Slot" :component="examples['custom-template']" />
 
       <api-item title="API - md-bottom-bar">
@@ -126,7 +127,7 @@ export default {
           {
             name: 'md-icon',
             type: 'String',
-            description: 'The bottom bar icon. Can be a icon name from Material Icons or the path of a valid svg. <code>Required</code>.',
+            description: 'The bottom bar icon. Can be a icon name from <a href="https://material.io/icons/" target="_blank">Material icons</a> or the path of a valid svg. <code>Required</code>.',
             defaults: 'null'
           },
           {
