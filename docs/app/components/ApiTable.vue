@@ -11,7 +11,7 @@
           <small class="prop-type" v-if="type">{{ type }}</small>
         </td>
 
-        <td>{{ description }}</td>
+        <td class="description" v-html="description"></td>
         <td v-if="defaults || value || example">
           <code v-html="defaults || value || example"></code>
         </td>
@@ -95,9 +95,17 @@ export default {
 
   code {
     color: md-get-palette-color(red, A200);
+    font-family: 'Roboto Mono', monospace;
 
     >>> span {
       color: md-get-palette-color(blue, A200);
+    }
+  }
+
+  .description {
+    >>> code {
+      color: md-get-palette-color(blue, A200);
+      font-family: 'Roboto Mono', monospace;
     }
   }
 </style>

@@ -14,6 +14,7 @@ import './components'
 for (let c in VueMaterial) {
   Vue.use(VueMaterial[c])
 }
+
 Vue.config.productionTip = false
 
 sync(store, router)
