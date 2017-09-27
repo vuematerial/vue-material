@@ -16,7 +16,7 @@
       <code-example title="Regular Toolbars" :component="examples['regular-toolbar']" />
 
       <api-item title="API - md-toolbar">
-        <p>The following options can be applied to all buttons, even the FAB ones:</p>
+        <p>The following options can be applied to all toolbars:</p>
 
         <api-table :headings="api.regular.classes.headings" :props="api.regular.classes.props" slot="classes" />
         <api-table :headings="api.regular.props.headings" :props="api.regular.props.props" slot="props" />

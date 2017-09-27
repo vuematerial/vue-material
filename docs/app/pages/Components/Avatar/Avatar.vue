@@ -21,7 +21,7 @@
     </div>
 
     <div class="page-container-section">
-      <h2>Letter as a placeholder</h2>
+      <h2>Initial letter as a placeholder</h2>
 
       <p>Let's assume that you want to show a list of contacts, but some of them do not have a picture in your database. You can use a initial letter of the contact name as a placeholder. It can even show 2 letters (for compound names) without problem:</p>
       <code-example title="Placeholder" :component="examples['placeholder']" />

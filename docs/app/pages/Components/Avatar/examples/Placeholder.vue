@@ -14,15 +14,15 @@
 
     <div class="separator">
       <md-avatar class="md-avatar-icon md-large">
-        <md-ripple>CA</md-ripple>
+        <md-ripple>MM</md-ripple>
       </md-avatar>
 
       <md-avatar class="md-avatar-icon md-large md-primary">
-        <md-ripple>CA</md-ripple>
+        <md-ripple>MM</md-ripple>
       </md-avatar>
 
       <md-avatar class="md-avatar-icon md-large md-accent">
-        <md-ripple>CA</md-ripple>
+        <md-ripple>MM</md-ripple>
       </md-avatar>
     </div>
   </div>

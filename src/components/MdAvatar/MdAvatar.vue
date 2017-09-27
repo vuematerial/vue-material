@@ -37,14 +37,14 @@
     transition-property: color, background-color;
     will-change: color, background-color;
     font-size: 24px;
-    letter-spacing: -.03em;
+    letter-spacing: -.05em;
     vertical-align: middle;
 
     &.md-large {
       min-width: $md-avatar-large-size;
       min-height: $md-avatar-large-size;
       border-radius: $md-avatar-large-size;
-      font-size: $md-avatar-large-icon;
+      font-size: $md-avatar-large-icon - 8px;
 
       .md-icon {
         font-size: $md-avatar-large-icon !important;
@@ -53,6 +53,7 @@
 
     &.md-small {
       width: $md-avatar-small-size;
+      min-width: $md-avatar-small-size;
       height: $md-avatar-small-size;
       border-radius: $md-avatar-small-size;
       font-size: $md-avatar-small-icon - 2px;
