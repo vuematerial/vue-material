@@ -91,6 +91,9 @@ export default {
     toolbar: {
       title: 'Toolbar'
     },
+    tooltip: {
+      title: 'Tooltip'
+    },
     layout: {
       title: 'Layout'
     },

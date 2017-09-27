@@ -6,8 +6,8 @@ import MdCard from './MdCard'
 import MdCheckbox from './MdCheckbox'
 import MdChips from './MdChips'
 import MdContent from './MdContent'
-import MdDialog from './MdDialog'
 import MdDatepicker from './MdDatepicker'
+import MdDialog from './MdDialog'
 import MdDivider from './MdDivider'
 import MdDrawer from './MdDrawer'
 import MdElevation from './MdElevation'
@@ -24,6 +24,7 @@ import MdSubheader from './MdSubheader'
 import MdSwitch from './MdSwitch'
 import MdTabs from './MdTabs'
 import MdToolbar from './MdToolbar'
+import MdTooltip from './MdTooltip'
 
 export {
   MdApp,
@@ -34,8 +35,8 @@ export {
   MdCheckbox,
   MdChips,
   MdContent,
-  MdDialog,
   MdDatepicker,
+  MdDialog,
   MdDivider,
   MdDrawer,
   MdElevation,
@@ -51,5 +52,6 @@ export {
   MdSubheader,
   MdSwitch,
   MdTabs,
-  MdToolbar
+  MdToolbar,
+  MdTooltip
 }

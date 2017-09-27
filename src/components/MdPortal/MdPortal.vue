@@ -24,18 +24,18 @@
     props: {
       mdIf: {
         type: null,
-        validator: (value) => validator('md-if', this, value === null || typeof value === 'boolean', 'You should pass a Boolean value')
+        validator: value => validator('md-if', this, value === null || typeof value === 'boolean', 'You should pass a Boolean value')
       },
       mdTransitionName: String,
       mdTransitionAppear: Boolean,
-      mdFollowEl: HTMLElement,
       mdTargetEl: {
         type: HTMLElement,
-        validator: (value) => validator('md-target-el', this, value && value instanceof HTMLElement, 'You should pass a valid HTMLElement')
+        validator: value => validator('md-target-el', this, value && value instanceof HTMLElement, 'You should pass a valid HTMLElement')
       }
     },
     data: () => ({
       leaveTimeout: null,
+      originalParentEl: null,
       targetEl: null
     }),
     computed: {
@@ -114,12 +114,17 @@
           this.$el.classList.remove(this.leaveClass)
           this.$el.classList.remove(this.leaveActiveClass)
           this.$el.classList.remove(this.leaveToClass)
+          this.$emit('md-destroy')
           this.killGhostElement()
         })
       }
     },
     created () {
+      this.originalParentEl = this.originalParentEl || this.$options._parentElm
       this.changeParentEl()
+    },
+    mounted () {
+      this.$emit('md-original-parent', this.originalParentEl)
     },
     async beforeDestroy () {
       if (this.$el.classList) {

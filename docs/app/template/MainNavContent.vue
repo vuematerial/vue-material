@@ -33,6 +33,7 @@
       <router-link to="/components/subheader">{{ $t('pages.subheader.title') }}</router-link>
       <router-link to="/components/tabs">{{ $t('pages.tabs.title') }}</router-link>
       <router-link to="/components/toolbar">{{ $t('pages.toolbar.title') }}</router-link>
+      <router-link to="/components/tooltip">{{ $t('pages.tooltip.title') }}</router-link>
     </div>
 
     <router-link to="/ui-elements">{{ $t('pages.uiElements.title') }}</router-link>

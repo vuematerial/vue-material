@@ -72,7 +72,8 @@ $md-color-levels: (
     icon-disabled: rgba(#000, .38),
     divider: rgba(#000, .12),
     scrollbar: #757575,
-    scrollbar-background: #E0E0E0
+    scrollbar-background: #E0E0E0,
+    tooltip: #616161
   ),
   dark: (
     background: #424242,
@@ -87,6 +88,7 @@ $md-color-levels: (
     icon-disabled: rgba(#fff, .5),
     divider: rgba(#fff, .12),
     scrollbar: #9E9E9E,
-    scrollbar-background: #616161
+    scrollbar-background: #616161,
+    tooltip: #fff
   )
 );

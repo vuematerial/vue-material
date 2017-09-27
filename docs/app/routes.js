@@ -5,6 +5,11 @@ Vue.use(VueRouter)
 
 export const routes = [
   {
+    path: '/components/tooltip',
+    name: 'components/tooltip',
+    component: () => import(/* webpackChunkName: "tooltip" */ './pages/Components/Tooltip/Tooltip.vue')
+  },
+  {
     path: '/components/dialog',
     name: 'components/dialog',
     component: () => import(/* webpackChunkName: "dialog" */ './pages/Components/Dialog/Dialog.vue')
