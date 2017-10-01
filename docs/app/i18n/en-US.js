@@ -76,6 +76,9 @@ export default {
     file: {
       title: 'File'
     },
+    menu: {
+      title: 'Menu'
+    },
     switch: {
       title: 'Switch'
     },

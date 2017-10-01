@@ -16,6 +16,7 @@ import MdIcon from './MdIcon'
 import MdImage from './MdImage'
 import MdLayout from './MdLayout'
 import MdList from './MdList'
+import MdMenu from './MdMenu'
 import MdRadio from './MdRadio'
 import MdRipple from './MdRipple'
 import MdSnackbar from './MdSnackbar'
@@ -45,6 +46,7 @@ export {
   MdImage,
   MdLayout,
   MdList,
+  MdMenu,
   MdRadio,
   MdRipple,
   MdSnackbar,

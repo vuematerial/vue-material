@@ -104,7 +104,7 @@ export default {
 
   .description {
     >>> code {
-      color: md-get-palette-color(blue, A200);
+      color: md-get-palette-color(red, A200);
       font-family: 'Roboto Mono', monospace;
     }
   }

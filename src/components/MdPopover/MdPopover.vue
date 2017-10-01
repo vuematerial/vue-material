@@ -1,9 +1,3 @@
-<template>
-  <md-portal class="md-popover" v-bind="$attrs" :class="popoverClasses" :md-if="shouldRender" @md-original-parent="setOriginalParent" @md-destroy="killPopper">
-    <slot />
-  </md-portal>
-</template>
-
 <script>
   import Popper from 'popper.js'
   import deepmerge from 'deepmerge'
@@ -16,6 +10,10 @@
     },
     props: {
       mdIf: Boolean,
+      mdTag: {
+        type: String,
+        default: 'div'
+      },
       mdSettings: {
         type: Object,
         default: () => ({})
@@ -48,7 +46,7 @@
       },
       mdSettings (settings) {
         if (this.popperInstance) {
-          this.popperInstance.options = deepmerge(this.getPopperOptions(), settings)
+          this.popperInstance.options = deepmerge(this.popperInstance.options, settings)
           this.popperInstance.scheduleUpdate()
         }
       }
@@ -59,7 +57,7 @@
           placement: 'bottom',
           modifiers: {
             preventOverflow: {
-              padding: 8
+              padding: 16
             },
             computeStyle: {
               gpuAcceleration: false
@@ -67,6 +65,7 @@
           },
           onCreate: () => {
             this.shouldActivate = true
+            this.$emit('md-active')
           }
         }
       },
@@ -93,6 +92,22 @@
     },
     beforeDestroy () {
       this.killPopper()
+    },
+    render (createElement) {
+      return createElement('md-portal', {
+        staticClass: 'md-popover',
+        class: this.popoverClasses,
+        props: {
+          ...this.$attrs,
+          mdTag: this.mdTag,
+          mdIf: this.shouldRender
+        },
+        on: {
+          ...this.$listeners,
+          'md-original-parent': this.setOriginalParent,
+          'md-destroy': this.killPopper
+        }
+      }, [this.$slots.default])
     }
   }
 </script>

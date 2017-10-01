@@ -1,4 +1,4 @@
-import { util } from 'vue'
+import Vue from 'vue'
 
 export default (name, options) => {
   return {
@@ -7,7 +7,7 @@ export default (name, options) => {
         return true
       }
 
-      util.warn(`The ${name} prop is invalid. Given value: ${value}. Available options: ${options.join(', ')}.`, this)
+      Vue.util.warn(`The ${name} prop is invalid. Given value: ${value}. Available options: ${options.join(', ')}.`, this)
 
       return false
     }

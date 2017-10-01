@@ -5,6 +5,11 @@ Vue.use(VueRouter)
 
 export const routes = [
   {
+    path: '/components/menu',
+    name: 'components/menu',
+    component: () => import(/* webpackChunkName: "menu" */ './pages/Components/Menu/Menu.vue')
+  },
+  {
     path: '/components/tooltip',
     name: 'components/tooltip',
     component: () => import(/* webpackChunkName: "tooltip" */ './pages/Components/Tooltip/Tooltip.vue')

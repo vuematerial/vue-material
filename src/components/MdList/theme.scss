@@ -13,7 +13,7 @@
     .md-list-item-container {
       @include md-theme-property(color, text-primary, background);
 
-      &:not(.md-list-item-default):active {
+      &:not(.md-list-item-default):hover {
         @include md-theme-property(background-color, divider, background);
       }
     }

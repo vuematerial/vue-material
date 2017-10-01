@@ -22,9 +22,9 @@
 
     <md-card>
       <md-card-header>
-        <!-- <md-avatar> -->
+        <md-avatar>
           <img src="assets/examples/avatar.png" alt="Avatar">
-        <!-- </md-avatar> -->
+        </md-avatar>
 
         <div class="md-title">Title goes here</div>
         <div class="md-subhead">Subtitle here</div>
@@ -141,9 +141,23 @@
           <div class="md-subhead">Subtitle here</div>
         </md-card-header-text>
 
-        <md-button class="md-icon-button">
-          <md-icon>more_vert</md-icon>
-        </md-button>
+        <md-menu md-size="big" md-direction="bottom-end">
+          <md-button class="md-icon-button" md-menu-trigger>
+            <md-icon>more_vert</md-icon>
+          </md-button>
+
+          <md-menu-content>
+            <md-menu-item @click="doACall">
+              <span>Call</span>
+              <md-icon>phone</md-icon>
+            </md-menu-item>
+
+            <md-menu-item @click="sendMessage">
+              <span>Send a message</span>
+              <md-icon>message</md-icon>
+            </md-menu-item>
+          </md-menu-content>
+        </md-menu>
       </md-card-header>
 
       <md-card-content>
@@ -157,6 +171,20 @@
     </md-card>
   </div>
 </template>
+
+<script>
+  export default {
+    name: 'Layouts',
+    methods: {
+      sendMessage () {
+        window.alert('Send a message...')
+      },
+      doACall () {
+        window.alert('Calling someone...')
+      }
+    }
+  }
+</script>
 
 <style lang="scss" scoped>
   .md-card {
@@ -203,9 +231,3 @@
     }
   }
 </style>
-
-<script>
-export default {
-  name: 'Layouts'
-}
-</script>

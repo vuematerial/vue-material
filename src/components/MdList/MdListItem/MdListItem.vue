@@ -1,4 +1,5 @@
 <script>
+  import MdInteractionEvents from 'core/utils/MdInteractionEvents'
   import MdRouterLinkProps from 'core/utils/MdRouterLinkProps'
   import MdListItemDefault from './MdListItemDefault'
   import MdListItemButton from './MdListItemButton'
@@ -28,13 +29,6 @@
       MdButton
     },
     render (createElement, { parent, props, listeners, data, slots }) {
-      const interactionEvents = [
-        'click',
-        'contextmenu',
-        'dblclick',
-        'mousedown',
-        'mouseup'
-      ]
       let children = slots()
       let listComponent = MdListItemDefault
       let staticClass = 'md-list-item'
@@ -53,7 +47,7 @@
         let listenerNames = Object.keys(listeners)
 
         listenerNames.forEach(listener => {
-          if (interactionEvents.includes(listener)) {
+          if (MdInteractionEvents.includes(listener)) {
             listComponent = MdListItemButton
           }
         })
@@ -171,6 +165,10 @@
 
     > .md-icon:first-child {
       margin-right: 32px;
+    }
+
+    > .md-icon:last-child {
+      margin-left: 16px;
     }
 
     > .md-checkbox,

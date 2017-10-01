@@ -1,11 +1,3 @@
-<template>
-  <transition :name="mdTransitionName" :appear="mdTransitionAppear">
-    <div :class="shouldRender" :style="shouldRender" v-if="shouldRender" v-on="$listeners">
-      <slot />
-    </div>
-  </transition>
-</template>
-
 <script>
   import Vue from 'vue'
 
@@ -25,6 +17,10 @@
       mdIf: {
         type: null,
         validator: value => validator('md-if', this, value === null || typeof value === 'boolean', 'You should pass a Boolean value')
+      },
+      mdTag: {
+        type: String,
+        default: 'div'
       },
       mdTransitionName: String,
       mdTransitionAppear: Boolean,
@@ -138,6 +134,24 @@
       } else {
         this.killGhostElement()
       }
+    },
+    render (createElement) {
+      let portalElement = null
+
+      if (this.shouldRender) {
+        portalElement = createElement(this.mdTag, {
+          class: this.shouldRender,
+          style: this.shouldRender,
+          on: this.$listeners
+        }, [this.$slots.default])
+      }
+
+      return createElement('transition', {
+        props: {
+          name: this.mdTransitionName,
+          appear: this.mdTransitionAppear
+        }
+      }, [portalElement])
     }
   }
 </script>
