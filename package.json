@@ -38,10 +38,10 @@
     "node": ">= 7.0"
   },
   "dependencies": {
-    "deepmerge": "^1.5.1",
+    "deepmerge": "^1.5.2",
     "popper.js": "^1.12.5",
     "raf": "^3.3.2",
-    "vue": "^2.4.3"
+    "vue": "^2.4.4"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.4",
