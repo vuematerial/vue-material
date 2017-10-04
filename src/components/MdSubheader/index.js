@@ -1,7 +1,7 @@
-import init from 'vue-material/material'
+import material from 'vue-material/material'
 import MdSubheader from './MdSubheader'
 
 export default Vue => {
-  init(Vue)
+  material(Vue)
   Vue.component(MdSubheader.name, MdSubheader)
 }

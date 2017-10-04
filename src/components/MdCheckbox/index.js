@@ -1,7 +1,7 @@
-import init from 'vue-material/material'
+import material from 'vue-material/material'
 import MdCheckbox from './MdCheckbox'
 
 export default Vue => {
-  init(Vue)
+  material(Vue)
   Vue.component(MdCheckbox.name, MdCheckbox)
 }

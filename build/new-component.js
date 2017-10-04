@@ -68,11 +68,11 @@ function getThemeFile (name) {
 }
 
 function getIndexFile (name) {
-  return `import init from 'vue-material/material'
+  return `import material from 'vue-material/material'
 import ${name} from './${name}'
 
 export default Vue => {
-  init(Vue)
+  material(Vue)
   Vue.component(${name}.name, ${name})
 }
 `.trim()

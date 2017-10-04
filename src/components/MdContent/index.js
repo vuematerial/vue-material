@@ -1,7 +1,7 @@
-import init from 'vue-material/material'
+import material from 'vue-material/material'
 import MdContent from './MdContent'
 
 export default Vue => {
-  init(Vue)
+  material(Vue)
   Vue.component(MdContent.name, MdContent)
 }

@@ -1,7 +1,7 @@
-import init from 'vue-material/material'
+import material from 'vue-material/material'
 import MdRipple from './MdRipple'
 
 export default Vue => {
-  init(Vue)
+  material(Vue)
   Vue.component(MdRipple.name, MdRipple)
 }

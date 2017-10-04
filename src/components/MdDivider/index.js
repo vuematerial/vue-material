@@ -1,7 +1,7 @@
-import init from 'vue-material/material'
+import material from 'vue-material/material'
 import MdDivider from './MdDivider'
 
 export default Vue => {
-  init(Vue)
+  material(Vue)
   Vue.component(MdDivider.name, MdDivider)
 }
