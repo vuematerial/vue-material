@@ -80,6 +80,25 @@ Vue.use(VueMaterial.MdSidenav)
 Vue.use(VueMaterial.MdToolbar)
 ```
 
+## Sponsors &amp; Backers
+<p>Vue Material do not run under the umbrella of any company or something like that. Is an independent project created by <a href="https://www.github.com/marcosmoura" target="_blank">Marcos Moura</a> on spare time that became one of the most used UI Libraries for Vue.js. The development is active and we are working hard to release great things for you.</p>
+<p>If you think that this project helped you or your company in some way, you can consider become a backer/sponsor on Patreon:</p>
+
+<p>
+  <a href="https://www.patreon.com/marcosmoura" target="_blank">
+    <img width="150" src="https://c5.patreon.com/external/logo/become_a_patron_button.png">
+  </a>
+</p>
+
+<hr>
+
+<h3>Sponsors</h3>
+
+Yatima Kagurazaka
+<p>
+  <img width="150" src="https://user-images.githubusercontent.com/1357885/30575587-406d25f6-9cd8-11e7-8c73-5d08e956e6f8.png">
+</p>
+
 ## Changelog
 <a href="https://vuematerial.github.io/#/changelog" target="_blank">Changelog</a>
 
@@ -111,9 +130,6 @@ You don't need to include any other library to work with vue-material. The focus
 * <a href="http://vuejs.org" target="_blank">vue</a>
 * <a href="http://www.jacklmoore.com/autosize/" target="_blank">autosize</a>
 * <a href="https://www.npmjs.com/package/element.scrollintoviewifneeded-polyfill" target="_blank">element.scrollintoviewifneeded-polyfill</a>
-
-## I want to pay you a Coffee
-I don't drink coffee, but I can easily turn this into a strong and bold IPA beer or a burger! If you think that this project helped you in some way, and you have extra pennies to give, just access this [Patreon](https://www.patreon.com/marcosmoura) page. You name you be at the backers page inside the project website.
 
 ## License 
 MIT

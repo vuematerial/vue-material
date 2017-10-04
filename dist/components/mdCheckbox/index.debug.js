@@ -11,41 +11,38 @@
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
-
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
-
+/******/
 /******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId])
+/******/ 		if(installedModules[moduleId]) {
 /******/ 			return installedModules[moduleId].exports;
-
+/******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = installedModules[moduleId] = {
 /******/ 			i: moduleId,
 /******/ 			l: false,
 /******/ 			exports: {}
 /******/ 		};
-
+/******/
 /******/ 		// Execute the module function
 /******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-
+/******/
 /******/ 		// Flag the module as loaded
 /******/ 		module.l = true;
-
+/******/
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-
-
+/******/
+/******/
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = modules;
-
+/******/
 /******/ 	// expose the module cache
 /******/ 	__webpack_require__.c = installedModules;
-
-/******/ 	// identity function for calling harmony imports with the correct context
-/******/ 	__webpack_require__.i = function(value) { return value; };
-
+/******/
 /******/ 	// define getter function for harmony exports
 /******/ 	__webpack_require__.d = function(exports, name, getter) {
 /******/ 		if(!__webpack_require__.o(exports, name)) {
@@ -56,7 +53,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 			});
 /******/ 		}
 /******/ 	};
-
+/******/
 /******/ 	// getDefaultExport function for compatibility with non-harmony modules
 /******/ 	__webpack_require__.n = function(module) {
 /******/ 		var getter = module && module.__esModule ?
@@ -65,15 +62,15 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 		__webpack_require__.d(getter, 'a', getter);
 /******/ 		return getter;
 /******/ 	};
-
+/******/
 /******/ 	// Object.prototype.hasOwnProperty.call
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
-
+/******/
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "/";
-
+/******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 453);
+/******/ 	return __webpack_require__(__webpack_require__.s = 455);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -230,7 +227,7 @@ module.exports = exports['default'];
 
 /***/ }),
 
-/***/ 142:
+/***/ 160:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -239,97 +236,40 @@ module.exports = exports['default'];
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.default = install;
 
-var _mixin = __webpack_require__(1);
+var _mdCheckbox = __webpack_require__(161);
 
-var _mixin2 = _interopRequireDefault(_mixin);
+var _mdCheckbox2 = _interopRequireDefault(_mdCheckbox);
+
+var _mdCheckbox3 = __webpack_require__(165);
+
+var _mdCheckbox4 = _interopRequireDefault(_mdCheckbox3);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = {
-  name: 'md-checkbox',
-  props: {
-    name: String,
-    value: [String, Boolean],
-    id: String,
-    disabled: Boolean
-  },
-  mixins: [_mixin2.default],
-  data: function data() {
-    return {
-      checked: this.value || false
-    };
-  },
+function install(Vue) {
+  Vue.component('md-checkbox', _mdCheckbox2.default);
 
-  computed: {
-    classes: function classes() {
-      return {
-        'md-checked': this.checked,
-        'md-disabled': this.disabled
-      };
-    }
-  },
-  watch: {
-    value: function value() {
-      this.checked = !!this.value;
-    }
-  },
-  methods: {
-    toggleCheck: function toggleCheck($event) {
-      if (!this.disabled) {
-        this.checked = !this.checked;
-        this.$emit('change', this.checked, $event);
-        this.$emit('input', this.checked, $event);
-      }
-    }
-  }
-}; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
+  Vue.material.styles.push(_mdCheckbox4.default);
+}
 module.exports = exports['default'];
 
 /***/ }),
 
-/***/ 257:
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ 271:
-/***/ (function(module, exports) {
-
-module.exports = ".THEME_NAME.md-checkbox.md-checked .md-checkbox-container {\n  background-color: ACCENT-COLOR;\n  border-color: ACCENT-COLOR; }\n  .THEME_NAME.md-checkbox.md-checked .md-checkbox-container:after {\n    border-color: ACCENT-CONTRAST; }\n\n.THEME_NAME.md-checkbox .md-ink-ripple {\n  color: ACCENT-COLOR; }\n\n.THEME_NAME.md-checkbox .md-ripple {\n  opacity: .26; }\n\n.THEME_NAME.md-checkbox.md-primary.md-checked .md-checkbox-container {\n  background-color: PRIMARY-COLOR;\n  border-color: PRIMARY-COLOR; }\n  .THEME_NAME.md-checkbox.md-primary.md-checked .md-checkbox-container:after {\n    border-color: PRIMARY-CONTRAST; }\n\n.THEME_NAME.md-checkbox.md-primary .md-ink-ripple {\n  color: PRIMARY-COLOR; }\n\n.THEME_NAME.md-checkbox.md-warn.md-checked .md-checkbox-container {\n  background-color: WARN-COLOR;\n  border-color: WARN-COLOR; }\n  .THEME_NAME.md-checkbox.md-warn.md-checked .md-checkbox-container:after {\n    border-color: WARN-CONTRAST; }\n\n.THEME_NAME.md-checkbox.md-warn .md-ink-ripple {\n  color: WARN-COLOR; }\n\n.THEME_NAME.md-checkbox.md-disabled.md-checked .md-checkbox-container {\n  background-color: rgba(0, 0, 0, 0.26);\n  border-color: transparent; }\n\n.THEME_NAME.md-checkbox.md-disabled:not(.md-checked) .md-checkbox-container {\n  border-color: rgba(0, 0, 0, 0.26); }\n"
-
-/***/ }),
-
-/***/ 312:
+/***/ 161:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(257)
+  __webpack_require__(162)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(142),
+  __webpack_require__(163),
   /* template */
-  __webpack_require__(436),
+  __webpack_require__(164),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -337,7 +277,7 @@ var Component = __webpack_require__(0)(
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "/Users/pablohpsilva/Code/vue-material/src/components/mdCheckbox/mdCheckbox.vue"
+Component.options.__file = "/Users/marcosmoura/Projects/github/vue-material/src/components/mdCheckbox/mdCheckbox.vue"
 if (Component.esModule && Object.keys(Component.esModule).some((function (key) {return key !== "default" && key.substr(0, 2) !== "__"}))) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] mdCheckbox.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -362,7 +302,107 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 436:
+/***/ 162:
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 163:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _mixin = __webpack_require__(1);
+
+var _mixin2 = _interopRequireDefault(_mixin);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = {
+  name: 'md-checkbox',
+  props: {
+    name: String,
+    value: [String, Boolean, Array],
+    id: String,
+    disabled: Boolean,
+    mdValue: [String]
+  },
+  mixins: [_mixin2.default],
+  data: function data() {
+    return {
+      checked: this.value || false
+    };
+  },
+
+  computed: {
+    classes: function classes() {
+      return {
+        'md-checked': this.isArray() ? this.value.indexOf(this.mdValue) >= 0 : this.checked,
+        'md-disabled': this.disabled
+      };
+    }
+  },
+  watch: {
+    value: function value() {
+      if (!this.isArray()) {
+        this.checked = !!this.value;
+      }
+    }
+  },
+  methods: {
+    toggleCheck: function toggleCheck($event) {
+
+      if (!this.disabled) {
+        if (this.isArray()) {
+          var index = this.value.indexOf(this.mdValue);
+
+          if (index >= 0) {
+            this.value.splice(index, 1);
+          } else {
+            this.value.push(this.mdValue);
+          }
+
+          this.$emit('change', this.value, $event);
+          this.$emit('input', this.value, $event);
+        } else {
+          this.checked = !this.checked;
+          this.$emit('change', this.checked, $event);
+          this.$emit('input', this.checked, $event);
+        }
+      }
+    },
+    isArray: function isArray() {
+      return Array.isArray(this.value);
+    }
+  }
+}; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+module.exports = exports['default'];
+
+/***/ }),
+
+/***/ 164:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -389,7 +429,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "tabindex": "-1"
     },
     domProps: {
-      "value": _vm.value,
+      "value": _vm.mdValue,
       "checked": _vm.checked
     }
   }), _vm._v(" "), _c('md-ink-ripple', {
@@ -419,41 +459,18 @@ if (false) {
 
 /***/ }),
 
-/***/ 453:
-/***/ (function(module, exports, __webpack_require__) {
+/***/ 165:
+/***/ (function(module, exports) {
 
-module.exports = __webpack_require__(86);
-
+module.exports = ".THEME_NAME.md-checkbox.md-checked .md-checkbox-container {\n  background-color: ACCENT-COLOR;\n  border-color: ACCENT-COLOR; }\n  .THEME_NAME.md-checkbox.md-checked .md-checkbox-container:after {\n    border-color: ACCENT-CONTRAST; }\n\n.THEME_NAME.md-checkbox .md-ink-ripple {\n  color: ACCENT-COLOR; }\n\n.THEME_NAME.md-checkbox .md-ripple {\n  opacity: .26; }\n\n.THEME_NAME.md-checkbox.md-primary.md-checked .md-checkbox-container {\n  background-color: PRIMARY-COLOR;\n  border-color: PRIMARY-COLOR; }\n  .THEME_NAME.md-checkbox.md-primary.md-checked .md-checkbox-container:after {\n    border-color: PRIMARY-CONTRAST; }\n\n.THEME_NAME.md-checkbox.md-primary .md-ink-ripple {\n  color: PRIMARY-COLOR; }\n\n.THEME_NAME.md-checkbox.md-warn.md-checked .md-checkbox-container {\n  background-color: WARN-COLOR;\n  border-color: WARN-COLOR; }\n  .THEME_NAME.md-checkbox.md-warn.md-checked .md-checkbox-container:after {\n    border-color: WARN-CONTRAST; }\n\n.THEME_NAME.md-checkbox.md-warn .md-ink-ripple {\n  color: WARN-COLOR; }\n\n.THEME_NAME.md-checkbox.md-disabled.md-checked .md-checkbox-container {\n  background-color: rgba(0, 0, 0, 0.26);\n  border-color: transparent; }\n\n.THEME_NAME.md-checkbox.md-disabled:not(.md-checked) .md-checkbox-container {\n  border-color: rgba(0, 0, 0, 0.26); }\n"
 
 /***/ }),
 
-/***/ 86:
+/***/ 455:
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
+module.exports = __webpack_require__(160);
 
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = install;
-
-var _mdCheckbox = __webpack_require__(312);
-
-var _mdCheckbox2 = _interopRequireDefault(_mdCheckbox);
-
-var _mdCheckbox3 = __webpack_require__(271);
-
-var _mdCheckbox4 = _interopRequireDefault(_mdCheckbox3);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function install(Vue) {
-  Vue.component('md-checkbox', _mdCheckbox2.default);
-
-  Vue.material.styles.push(_mdCheckbox4.default);
-}
-module.exports = exports['default'];
 
 /***/ })
 

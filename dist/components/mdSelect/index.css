@@ -44,6 +44,12 @@
             user-select: none;
     user-drag: none;
 }
+.md-select.md-disabled label,
+    .md-select.md-disabled span,
+    .md-select.md-disabled input,
+    .md-select.md-disabled textarea {
+      color: rgba(0, 0, 0, 0.38);
+}
 .md-select select {
     position: absolute;
     left: -999em;

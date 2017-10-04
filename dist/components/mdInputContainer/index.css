@@ -199,7 +199,6 @@
   transform: translate3d(0, 0, 0);
 }
 .md-input-container.md-input-required label:after {
-  position: absolute;
   top: 2px;
   right: 0;
   transform: translateX(calc(100% + 2px));
