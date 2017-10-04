@@ -36,6 +36,7 @@
       },
       applySolidColor (darkness) {
         let area = this.$el.querySelector('.md-card-area')
+
         if (area) {
           area.style.background = `rgba(0, 0, 0, ${darkness})`
         }
