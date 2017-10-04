@@ -7,7 +7,7 @@ import { config, resolvePath } from '../config'
 const componentExampleLoader = require.resolve('./loaders/component-example-loader')
 
 export default {
-  devtool: '#eval-source-map',
+  devtool: '#cheap-module-eval-source-map',
   entry: {
     docs: [
       './docs/app/index.js',
@@ -77,7 +77,6 @@ export default {
     }),
     new webpack.WatchIgnorePlugin([resolvePath('node_modules')]),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoEmitOnErrorsPlugin(),
     new webpack.NamedModulesPlugin(),
     new HtmlWebpackPlugin({
       filename: 'index.html',

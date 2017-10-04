@@ -54,7 +54,8 @@ export default entry => {
         'process.env': {
           NODE_ENV: JSON.stringify(entry.env || 'production')
         }
-      })
+      }),
+      new webpack.optimize.ModuleConcatenationPlugin()
     ]
   }
 
