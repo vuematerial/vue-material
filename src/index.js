@@ -1,9 +1,9 @@
 import 'regenerator-runtime/runtime'
-import setup from './material'
+import material from './material'
 import * as MdComponents from './components'
 
 let VueMaterial = Vue => {
-  setup(Vue)
+  material(Vue)
 
   Object.values(MdComponents).forEach((MdComponent) => {
     Vue.use(MdComponent)
