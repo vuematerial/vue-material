@@ -1,6 +1,7 @@
 <template>
   <textarea
     class="md-textarea"
+    :style="textareaStyles"
     v-bind="attributes"
     v-on="$listeners"
     v-model="content"
@@ -28,13 +29,18 @@
       },
       mdAutogrow: Boolean
     },
+    computed: {
+      textareaStyles () {
+        return {
+          height: this.textareaHeight
+        }
+      }
+    },
     methods: {
       applyStyles () {
         if (this.mdAutogrow) {
-          const textarea = this.$refs.textarea
-
-          textarea.style.height = '1px'
-          textarea.style.height = textarea.scrollHeight + 'px'
+          this.textareaHeight = '1px'
+          this.textareaHeight = this.$el.scrollHeight + 'px'
         }
       },
       setTextarea () {

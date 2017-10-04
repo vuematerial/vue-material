@@ -1,9 +1,9 @@
 <template>
   <div class="main-nav-container">
     <transition name="nav" appear>
-      <nav class="main-nav" v-if="!isSplash">
+      <md-content class="main-nav md-scrollbar" v-if="!isSplash">
         <main-nav-content />
-      </nav>
+      </md-content>
     </transition>
 
     <md-drawer md-fixed :md-visible.sync="menuVisible" @md-closed="hideMenu">
@@ -55,7 +55,7 @@ export default {
 
   .main-nav {
     width: 230px;
-    padding: 24px 16px 96px 16px;
+    padding: 24px 16px 112px 16px;
     display: flex;
     align-items: flex-start;
     flex-direction: column;

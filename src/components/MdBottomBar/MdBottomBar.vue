@@ -163,6 +163,10 @@
             padding-top: 6px;
           }
 
+          .md-bottom-bar-icon {
+            transform: translate3d(0, -2px, 0);
+          }
+
           .md-bottom-bar-label {
             transform: translate3D(0, 3px, 0);
           }

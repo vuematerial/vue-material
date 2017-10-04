@@ -1,5 +1,5 @@
 <template>
-  <div class="md-tabs" :class="[$mdActiveTheme, tabsClasses]">
+  <div class="md-tabs" :class="[tabsClasses, $mdActiveTheme]">
     <div class="md-tabs-navigation" :class="navigationClasses">
       <md-button
         v-for="({ label, props, icon, disabled, options, events }, index) in MdTabs.items"
@@ -286,6 +286,11 @@
 
     &.md-no-transition * {
       transition: none !important;
+    }
+
+    &.md-dynamic-height .md-tabs-content {
+      transition: height .3s $md-transition-default-timing;
+      will-change: height;
     }
 
     &.md-transparent .md-tabs-navigation {

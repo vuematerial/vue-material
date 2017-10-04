@@ -79,6 +79,9 @@ export default {
     menu: {
       title: 'Menu'
     },
+    steppers: {
+      title: 'Steppers'
+    },
     switch: {
       title: 'Switch'
     },

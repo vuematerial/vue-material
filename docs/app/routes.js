@@ -5,6 +5,11 @@ Vue.use(VueRouter)
 
 export const routes = [
   {
+    path: '/components/steppers/:test?',
+    name: 'components/steppers',
+    component: () => import(/* webpackChunkName: "steppers" */ './pages/Components/Steppers/Steppers.vue')
+  },
+  {
     path: '/components/menu',
     name: 'components/menu',
     component: () => import(/* webpackChunkName: "menu" */ './pages/Components/Menu/Menu.vue')

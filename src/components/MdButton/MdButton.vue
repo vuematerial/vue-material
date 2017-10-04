@@ -131,7 +131,7 @@
       &.md-focused {
         &:before {
           background-color: currentColor;
-          opacity: .15;
+          opacity: .12;
         }
       }
 

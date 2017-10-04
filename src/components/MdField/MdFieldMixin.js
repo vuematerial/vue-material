@@ -9,6 +9,7 @@ export default {
   },
   data () {
     return {
+      textareaHeight: false,
       content: this.value || null
     }
   },

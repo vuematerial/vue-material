@@ -17,11 +17,11 @@ function getVueComponent (name) {
 </template>
 
 <script>
-import MdComponent from 'core/MdComponent'
+  import MdComponent from 'core/MdComponent'
 
-export default new MdComponent({
-  name: '${name}'
-})
+  export default new MdComponent({
+    name: '${name}'
+  })
 </script>
 
 <style lang="scss">
@@ -30,7 +30,8 @@ export default new MdComponent({
   .${pascalToDash(name)} {
     transition: .3s $md-transition-default-timing;
   }
-</style>`.trim()
+</style>
+`.trim()
 }
 
 function getTestFile (name) {
@@ -54,7 +55,7 @@ test('should render the theme class', async () => {
 
   expect(wrapper.hasClass('md-theme-alt')).toBe(true)
 })
-  `.trim()
+`.trim()
 }
 
 function getThemeFile (name) {
@@ -62,7 +63,8 @@ function getThemeFile (name) {
   @include md-theme-component() {
 
   }
-}`.trim()
+}
+`.trim()
 }
 
 function getIndexFile (name) {
@@ -72,7 +74,8 @@ import ${name} from './${name}'
 export default Vue => {
   init(Vue)
   Vue.component(${name}.name, ${name})
-}`.trim()
+}
+`.trim()
 }
 
 function getDocsFile (name) {
@@ -105,7 +108,8 @@ function getDocsFile (name) {
     name: '${singleName}',
     mixins: [examples]
   }
-</script>`.trim()
+</script>
+`.trim()
 }
 
 function getExampleFile (name) {
@@ -127,7 +131,8 @@ function getExampleFile (name) {
   .${compName} {
 
   }
-</style>`.trim()
+</style>
+`.trim()
 }
 
 const writeToFile = (contents, file) => {
