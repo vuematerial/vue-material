@@ -11,9 +11,8 @@
       <router-link to="/components/button">{{ $t('pages.button.title') }}</router-link>
       <router-link to="/components/card">{{ $t('pages.card.title') }}</router-link>
       <router-link to="/components/chips">{{ $t('pages.chips.title') }}</router-link>
-      <router-link to="/components/dialog">{{ $t('pages.dialog.title') }}</router-link>
       <router-link to="/components/content">{{ $t('pages.content.title') }}</router-link>
-      <router-link to="/components/datepicker">{{ $t('pages.datepicker.title') }}</router-link>
+      <router-link to="/components/dialog">{{ $t('pages.dialog.title') }}</router-link>
       <router-link to="/components/divider">{{ $t('pages.divider.title') }}</router-link>
       <router-link to="/components/drawer">{{ $t('pages.drawer.title') }}</router-link>
 

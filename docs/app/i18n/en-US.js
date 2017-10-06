@@ -52,9 +52,6 @@ export default {
     divider: {
       title: 'Divider'
     },
-    datepicker: {
-      title: 'Datepicker'
-    },
     drawer: {
       title: 'Drawer'
     },
