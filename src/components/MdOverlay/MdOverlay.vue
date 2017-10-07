@@ -38,7 +38,7 @@
     z-index: 10;
     overflow: hidden;
     background: rgba(#000, .6);
-    transition: .4s $md-transition-default-timing;
+    transition: .35s $md-transition-default-timing;
     transition-property: opacity;
     will-change: opacity;
 

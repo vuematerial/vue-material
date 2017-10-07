@@ -1,19 +1,26 @@
 <template>
   <div class="container" :class="containerClass">
-    <main-header></main-header>
+    <main-header />
 
     <div class="container-wrapper md-layout-row" :class="containerClass">
-      <main-nav :is-splash="isSplash"></main-nav>
+      <main-nav :is-splash="isSplash" />
 
-      <router-view></router-view>
+      <keep-alive>
+        <router-view v-if="!loading" />
+      </keep-alive>
+
+      <div class="main-container" v-if="loading">
+        <code-loading />
+      </div>
     </div>
 
-    <main-footer></main-footer>
+    <main-footer />
   </div>
 </template>
 
 <script>
   import { mapState } from 'vuex'
+  import CodeLoading from './components/CodeLoading'
   import MainHeader from './template/MainHeader'
   import MainNav from './template/MainNav'
   import MainFooter from './template/MainFooter'
@@ -21,10 +28,14 @@
   export default {
     name: 'App',
     components: {
+      CodeLoading,
       MainHeader,
       MainNav,
       MainFooter
     },
+    data: () => ({
+      loading: false
+    }),
     computed: {
       ...mapState({
         isSplash: 'splashPage'
@@ -34,6 +45,19 @@
           splash: this.isSplash
         }
       }
+    },
+    methods: {
+      beforeRouteRender (to, from, next) {
+        this.loading = true
+        next()
+      },
+      afterRouteRender () {
+        this.loading = false
+      }
+    },
+    created () {
+      this.$router.beforeEach(this.beforeRouteRender)
+      this.$router.afterEach(this.afterRouteRender)
     }
   }
 </script>
@@ -91,5 +115,13 @@
     flex: 1;
     position: relative;
     z-index: 1;
+  }
+
+  .code-loading {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
   }
 </style>

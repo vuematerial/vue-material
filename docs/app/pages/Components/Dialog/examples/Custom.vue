@@ -1,6 +1,6 @@
 <template>
   <div>
-    <md-dialog :md-active.sync="showDialog" md-animate-from-source md-open-from="#custom" md-close-to="#custom">
+    <md-dialog :md-active.sync="showDialog">
       <md-dialog-title>Lorem ipsum dolor sit amet</md-dialog-title>
 
       <md-dialog-content>Nemo, nobis necessitatibus ut illo, ducimus ex.</md-dialog-content>

@@ -7,6 +7,9 @@ import MdCheckbox from './MdCheckbox'
 import MdChips from './MdChips'
 import MdContent from './MdContent'
 import MdDialog from './MdDialog'
+import MdDialogAlert from './MdDialog/MdDialogAlert'
+import MdDialogConfirm from './MdDialog/MdDialogConfirm'
+import MdDialogPrompt from './MdDialog/MdDialogPrompt'
 import MdDivider from './MdDivider'
 import MdDrawer from './MdDrawer'
 import MdElevation from './MdElevation'
@@ -37,6 +40,9 @@ export {
   MdChips,
   MdContent,
   MdDialog,
+  MdDialogAlert,
+  MdDialogConfirm,
+  MdDialogPrompt,
   MdDivider,
   MdDrawer,
   MdElevation,

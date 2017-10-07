@@ -6,7 +6,7 @@
       </md-content>
     </transition>
 
-    <md-drawer md-fixed :md-visible.sync="menuVisible" @md-closed="hideMenu">
+    <md-drawer md-fixed :md-visible.sync="isMenuVisible" @md-closed="hideMenu">
       <md-toolbar class="md-transparent" md-elevation="0">
         <logo-vue-material class="md-icon" animated :blending="false" />
         <span class="md-title">Vue material</span>
@@ -29,11 +29,19 @@ export default {
   components: {
     MainNavContent
   },
+  data: () => ({
+    isMenuVisible: false
+  }),
   computed: {
     ...mapState({
       isSplash: 'splashPage',
       menuVisible: 'menuVisible'
     })
+  },
+  watch: {
+    menuVisible (isMenuVisible) {
+      this.isMenuVisible = isMenuVisible
+    }
   },
   methods: {
     ...mapMutations({

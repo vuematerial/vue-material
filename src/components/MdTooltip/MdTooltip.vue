@@ -102,7 +102,6 @@
     transition: .15s $md-transition-enter-timing;
     transition-property: opacity, transform;
     will-change: opacity, transform, top, left !important;
-    font-family: 'Roboto', sans-serif;
     font-size: 10px;
     line-height: $md-tooltip-height;
     text-transform: none;

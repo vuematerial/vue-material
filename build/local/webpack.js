@@ -1,10 +1,12 @@
 import webpack from 'webpack'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import FriendlyErrorsPlugin from 'friendly-errors-webpack-plugin'
-import eslintFormatter from 'eslint-friendly-formatter'
 import { config, resolvePath } from '../config'
 
 const componentExampleLoader = require.resolve('./loaders/component-example-loader')
+const cssLoaders = 'vue-style-loader!css-loader'
+const scssLoaders = 'vue-style-loader!css-loader!sass-loader?outputStyle=compressed'
+const babelLoader = 'babel-loader?cacheDirectory=true'
 
 export default {
   devtool: '#cheap-module-eval-source-map',
@@ -27,37 +29,29 @@ export default {
   module: {
     rules: [
       {
-        test: /\.(js|vue)$/,
-        loader: 'eslint-loader',
-        enforce: 'pre',
-        options: {
-          fix: true,
-          formatter: eslintFormatter
-        }
-      },
-      {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: {
           loaders: {
-            css: 'vue-style-loader!css-loader',
-            scss: 'vue-style-loader!css-loader!sass-loader?outputStyle=compressed',
+            css: cssLoaders,
+            scss: scssLoaders,
+            js: babelLoader,
             example: componentExampleLoader
           }
         }
       },
       {
         test: /\.js$/,
-        loader: 'babel-loader',
+        loader: babelLoader,
         exclude: /node_modules/
       },
       {
         test: /\.css$/,
-        use: ['vue-style-loader', 'css-loader']
+        loader: cssLoaders
       },
       {
         test: /\.scss$/,
-        use: ['vue-style-loader', 'css-loader', 'sass-loader']
+        loader: scssLoaders
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
