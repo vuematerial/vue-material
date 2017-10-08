@@ -55,6 +55,13 @@
         window.setTimeout(() => {
           document.body.addEventListener('click', this.closeSpeedDial);
         }, 50);
+      },
+      openSpeedDial() {
+        this.active = true;
+
+        window.setTimeout(() => {
+          document.body.addEventListener('click', this.closeSpeedDial);
+        }, 50);
       }
     },
     mounted() {
@@ -64,6 +71,7 @@
         if (this.mdOpen === 'click') {
           this.fabTrigger.addEventListener('click', this.toggleSpeedDial);
         } else {
+          this.fabTrigger.addEventListener('mouseenter', this.openSpeedDial);
           this.$el.addEventListener('mouseenter', this.toggleSpeedDial);
           this.$el.addEventListener('mouseleave', this.closeSpeedDial);
         }
