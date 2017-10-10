@@ -1,4 +1,5 @@
 import MdApp from './MdApp'
+import MdDatepicker from './MdDatepicker'
 import MdAvatar from './MdAvatar'
 import MdBottomBar from './MdBottomBar'
 import MdButton from './MdButton'
@@ -31,6 +32,7 @@ import MdToolbar from './MdToolbar'
 import MdTooltip from './MdTooltip'
 
 export {
+  MdDatepicker,
   MdApp,
   MdAvatar,
   MdBottomBar,

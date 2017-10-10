@@ -7,9 +7,7 @@
     v-model="content"
     @focus="onFocus"
     @blur="onBlur"
-    @input="onInput"
-    @keydown.up="onInput"
-    @keydown.down="onInput">
+    @input="onInput">
   </textarea>
 </template>
 

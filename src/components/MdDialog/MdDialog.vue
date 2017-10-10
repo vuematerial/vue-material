@@ -6,7 +6,7 @@
       </div>
     </md-focus-trap>
 
-    <md-overlay md-fixed :md-visible="mdActive" @click="onClick" v-if="mdBackdrop" />
+    <md-overlay :class="mdBackdropClass" md-fixed :md-visible="mdActive" @click="onClick" v-if="mdBackdrop" />
   </md-portal>
 </template>
 
@@ -28,6 +28,10 @@
       mdBackdrop: {
         type: Boolean,
         default: true
+      },
+      mdBackdropClass: {
+        type: String,
+        default: 'md-dialog-overlay'
       },
       mdCloseOnEsc: {
         type: Boolean,
@@ -55,25 +59,6 @@
         await this.$nextTick()
 
         if (isActive) {
-          /* const target = document.activeElement
-          const container = this.$children[0].$el.querySelector('.md-dialog-container')
-          const targetRect = target.getBoundingClientRect()
-          const containerRect = container.getBoundingClientRect()
-
-          container.style.transition = `none`
-          container.style.position = `fixed`
-          container.style.top = `${targetRect.y}px`
-          container.style.left = `${targetRect.x}px`
-          container.style.transform = `scale(.1)`
-          container.style.transformOrigin = `top left`
-
-          await this.$nextTick()
-
-          container.style.transition = `.4s ease`
-          container.style.top = `50%`
-          container.style.left = `50%`
-          container.style.transform = 'translate3D(-50%, -50%, 0)' */
-
           this.$emit('md-opened')
         } else {
           this.$emit('md-closed')
@@ -133,7 +118,9 @@
                 transform .4s $md-transition-stand-timing;
     will-change: opacity, transform, left, top;
 
-    > * {
+    > .md-dialog-title,
+    > .md-dialog-content,
+    > .md-dialog-actions {
       transition: .4s $md-transition-default-timing;
       transition-property: opacity, transform;
       will-change: opacity, transform;
@@ -144,9 +131,11 @@
   .md-dialog-leave-active {
     .md-dialog-container {
       opacity: 0;
-      transform: scale(.9, .85);
+      transform: scale(.9);
 
-      > * {
+      > .md-dialog-title,
+      > .md-dialog-content,
+      > .md-dialog-actions {
         opacity: 0;
         transform: scale(.95) translate3D(0, 15%, 0);
       }

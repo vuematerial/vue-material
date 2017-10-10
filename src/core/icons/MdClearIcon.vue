@@ -8,7 +8,12 @@
 </template>
 
 <script>
+  import MdIcon from 'components/MdIcon/MdIcon'
+
   export default {
-    name: 'MdClearIcon'
+    name: 'MdClearIcon',
+    components: {
+      MdIcon
+    }
   }
 </script>

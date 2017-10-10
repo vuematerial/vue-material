@@ -120,6 +120,12 @@
       .md-error {
         @include md-theme-property-by-hue(color, red, A400, field, error);
       }
+
+      .md-date-icon,
+      .md-date-icon svg {
+        @include md-theme-property-by-hue(color, red, A400, field, error);
+        @include md-theme-property-by-hue(fill, red, A400, field, error);
+      }
     }
 
     &.md-focused {

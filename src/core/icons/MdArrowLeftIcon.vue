@@ -1,8 +1,8 @@
 <template>
   <md-icon class="md-icon-image" v-once>
     <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 0h24v24H0z" fill="none"/>
-      <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+      <path d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"/>
+      <path d="M0-.5h24v24H0z" fill="none"/>
     </svg>
   </md-icon>
 </template>
@@ -11,7 +11,7 @@
   import MdIcon from 'components/MdIcon/MdIcon'
 
   export default {
-    name: 'MdDoneIcon',
+    name: 'MdArrowLeftIcon',
     components: {
       MdIcon
     }

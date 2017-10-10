@@ -46,6 +46,13 @@ export default {
     content: {
       title: 'Content'
     },
+    pickers: {
+      title: 'Pickers'
+    },
+    datepicker: {
+      title: 'Datepicker',
+      nav: 'Date'
+    },
     dialog: {
       title: 'Dialog'
     },

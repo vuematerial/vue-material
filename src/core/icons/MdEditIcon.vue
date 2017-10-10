@@ -8,7 +8,12 @@
 </template>
 
 <script>
+  import MdIcon from 'components/MdIcon/MdIcon'
+
   export default {
-    name: 'MdEditIcon'
+    name: 'MdEditIcon',
+    components: {
+      MdIcon
+    }
   }
 </script>

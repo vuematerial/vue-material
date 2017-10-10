@@ -128,6 +128,7 @@
     padding-top: 16px;
     display: flex;
     position: relative;
+    font-family: inherit;
 
     &:before,
     &:after {
@@ -172,6 +173,10 @@
       font-family: inherit;
       font-size: 1px;
       line-height: $md-input-height;
+
+      &[type="date"] {
+        font-size: 16px;
+      }
 
       &:focus {
         outline: none;

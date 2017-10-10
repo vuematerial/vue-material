@@ -95,8 +95,6 @@
     border: 0;
     border-radius: 0;
     transition: $md-transition-default;
-    transition-property: opacity, box-shadow, color, background-color, font-size;
-    will-change: opacity, box-shadow, color, background-color, font-size;
     font-family: inherit;
     line-height: normal;
     text-transform: uppercase;

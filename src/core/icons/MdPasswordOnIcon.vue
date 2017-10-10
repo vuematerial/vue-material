@@ -8,7 +8,12 @@
 </template>
 
 <script>
+  import MdIcon from 'components/MdIcon/MdIcon'
+
   export default {
-    name: 'MdPasswordOnIcon'
+    name: 'MdPasswordOnIcon',
+    components: {
+      MdIcon
+    }
   }
 </script>
