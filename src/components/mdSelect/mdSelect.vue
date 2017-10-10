@@ -6,7 +6,8 @@
       :md-close-on-select="!multiple"
       @open="onOpen"
       @close="$emit('closed')"
-      v-bind="mdMenuOptions">
+      v-bind="mdMenuOptions"
+      :md-auto-width="menuFullWidth">
       <slot name="icon"></slot>
       <span
         class="md-select-value"
@@ -65,7 +66,8 @@
       disabled: Boolean,
       placeholder: String,
       mdMenuClass: String,
-      mdMenuOptions: Object
+      mdMenuOptions: Object,
+      menuFullWidth: Boolean
     },
     mixins: [theme],
     data() {
