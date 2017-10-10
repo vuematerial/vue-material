@@ -58,6 +58,11 @@
                 <md-table-cell><code>String</code></md-table-cell>
                 <md-table-cell>The css class to be applied on the opened select holder</md-table-cell>
               </md-table-row>
+              <md-table-row>
+                <md-table-cell>menu-full-width</md-table-cell>
+                <md-table-cell><code>Boolean</code></md-table-cell>
+                <md-table-cell>If true, the menu will be full width of the select input field</md-table-cell>
+              </md-table-row>
             </md-table-body>
           </md-table>
 
@@ -412,7 +417,7 @@
             </code-block>
           </div>
         </example-box>
-        
+
         <example-box card-title="Icon">
           <div slot="demo">
             <div class="field-group select-icon">
@@ -420,12 +425,12 @@
                 <md-button class="md-icon-button" md-menu-trigger slot="icon">
                   <md-icon>people</md-icon>
                 </md-button>
-                
+
                 <md-subheader>Managers</md-subheader>
                 <md-option value="jim_halpert">Jim Halpert</md-option>
                 <md-option value="dwight_schrute">Dwight Schrute</md-option>
                 <md-option value="michael_scott">Michael Scott</md-option>
-  
+
                 <md-subheader>Employees</md-subheader>
                 <md-option value="pam_beesly">Pam Beesly</md-option>
                 <md-option value="angela_martin">Angela Martin</md-option>
@@ -450,12 +455,12 @@
                 &lt;md-button class=&quot;md-icon-button&quot; md-menu-trigger slot=&quot;icon&quot;&gt;
                   &lt;md-icon&gt;people&lt;/md-icon&gt;
                 &lt;/md-button&gt;
-                
+
                 &lt;md-subheader&gt;Managers&lt;/md-subheader&gt;
                 &lt;md-option value=&quot;jim_halpert&quot;&gt;Jim Halpert&lt;/md-option&gt;
                 &lt;md-option value=&quot;dwight_schrute&quot;&gt;Dwight Schrute&lt;/md-option&gt;
                 &lt;md-option value=&quot;michael_scott&quot;&gt;Michael Scott&lt;/md-option&gt;
-  
+
                 &lt;md-subheader&gt;Employees&lt;/md-subheader&gt;
                 &lt;md-option value=&quot;pam_beesly&quot;&gt;Pam Beesly&lt;/md-option&gt;
                 &lt;md-option value=&quot;angela_martin&quot;&gt;Angela Martin&lt;/md-option&gt;
@@ -507,7 +512,7 @@
   .multiple {
     height: 150px;
   }
-  
+
   .select-icon {
     margin-bottom: 20px;
   }
