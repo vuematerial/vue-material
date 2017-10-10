@@ -699,6 +699,9 @@ button:focus {
 .md-button-toggle > .md-button .md-ink-ripple {
       border-radius: 2px;
 }
+.md-button-toggle.md-raised button:not([disabled]) {
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12);
+}
 /* Common */
 /* Responsive Breakpoints */
 /* Transitions - Based on Angular Material */
@@ -1595,7 +1598,6 @@ img.md-icon {
   transform: translate3d(0, 0, 0);
 }
 .md-input-container.md-input-required label:after {
-  position: absolute;
   top: 2px;
   right: 0;
   transform: translateX(calc(100% + 2px));
@@ -2994,7 +2996,7 @@ img.md-icon {
   }
 }
 
-@media (min-width: 1264px) {
+@media (min-width: 1265px) {
   .md-row-large-and-up {
     -ms-flex-direction: row;
     flex-direction: row;
@@ -3200,7 +3202,7 @@ img.md-icon {
   }
 }
 
-@media (min-width: 944px) {
+@media (min-width: 945px) {
   .md-row-medium-and-up {
     -ms-flex-direction: row;
     flex-direction: row;
@@ -3406,7 +3408,7 @@ img.md-icon {
   }
 }
 
-@media (min-width: 660px) {
+@media (min-width: 601px) {
   .md-row-small-and-up {
     -ms-flex-direction: row;
     flex-direction: row;
@@ -4524,6 +4526,12 @@ img.md-icon {
             user-select: none;
     user-drag: none;
 }
+.md-select.md-disabled label,
+    .md-select.md-disabled span,
+    .md-select.md-disabled input,
+    .md-select.md-disabled textarea {
+      color: rgba(0, 0, 0, 0.38);
+}
 .md-select select {
     position: absolute;
     left: -999em;
@@ -5064,6 +5072,18 @@ to {
               user-select: none;
       width: 24px;
 }
+.md-stepper .md-step-header .md-step-error {
+      margin-right: 8px;
+      min-width: 24px;
+      height: 24px;
+      width: 24px;
+      line-height: 24px;
+      pointer-events: none;
+      -webkit-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+              user-select: none;
+}
 .md-stepper .md-step-header .md-step-number {
       border-radius: 50%;
       display: inline-block;
@@ -5173,7 +5193,7 @@ to {
 .md-stepper .md-steps-vertical-container .md-step:not(:last-of-type) .md-step-content {
     border-left: 1px solid #BDBDBD;
 }
-@media (min-width: 660px) {
+@media (min-width: 601px) {
   .md-stepper .md-steps-navigation .md-steps-navigation-container {
     margin-bottom: -15px;
   }
@@ -5771,7 +5791,7 @@ to {
     left: 0;
     right: 0;
 }
-@media (min-width: 660px) {
+@media (min-width: 601px) {
   .md-tabs .md-tabs-navigation.md-has-navigation-scroll .md-tabs-navigation-container {
     margin-bottom: -15px;
   }
@@ -5913,6 +5933,7 @@ to {
   line-height: 20px;
   text-transform: none;
   white-space: nowrap;
+  letter-spacing: 0.1em;
 }
 .md-tooltip.md-active {
     opacity: 1;

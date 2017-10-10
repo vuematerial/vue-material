@@ -2,15 +2,9 @@
   <div class="release-version">
     <div v-if="availableDocs.length > 1">
       <span>Version:</span>
-      
-      <md-select
-        id="docs-select"
-        v-model="currentDocs"
-        @change="changeDocs">
-        <md-option
-          v-for="doc in availableDocs"
-          :key="doc"
-          :value="doc">
+
+      <md-select id="docs-select" v-model="currentDocs" @change="changeDocs">
+        <md-option v-for="doc in availableDocs" :key="doc" :value="doc">
           {{ doc }}
         </md-option>
       </md-select>
@@ -57,7 +51,7 @@
         const location = window.location;
         const latestUrl = location.origin + '/' + location.hash;
         const releaseUrl = location.origin + '/releases/v' + this.currentDocs + '/' + location.hash;
-  
+
         if (process.NODE_ENV === 'development') {
           return;
         }
@@ -76,6 +70,7 @@
           request.setRequestHeader('Content-Type', 'application/json');
           request.onload = function() {
             versions = JSON.parse(this.response);
+            versions.reverse();
             callback(versions);
           };
           request.send();
@@ -84,14 +79,9 @@
         }
       },
       setVersion(versions) {
-        // versions.sort((a, b) => a < b);
-        const auxVersion = Object.assign([], versions);
-  
-        auxVersion.sort().reverse();
-
-        this.latest = auxVersion[0];
-        this.currentDocs = auxVersion[0];
-        this.availableDocs = auxVersion;
+        this.latest = versions[0];
+        this.currentDocs = versions[0];
+        this.availableDocs = versions;
       },
       setCurrentByLocation() {
         let normalizedPathname = location.pathname.replace(/\/|releases\/v/g, '');

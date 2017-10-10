@@ -106,6 +106,29 @@
             </code-block>
           </div>
         </example-box>
+
+        <example-box card-title="Multiple checkboxes">
+          
+          <div slot="demo">
+            
+            <p>Multiple checkboxes, bound to the same Array</p>
+            <md-checkbox md-theme="orange"  id="my-test10" name="my-test10" md-value="orange" v-model="checkbox3" class="md-primary">Primary Orange</md-checkbox>
+            <md-checkbox md-theme="green"  id="my-test11" name="my-test11" md-value="green" v-model="checkbox3" class="md-primary">Primary Green</md-checkbox>
+            <md-checkbox md-theme="light-blue" id="my-test12" name="my-test12" md-value="light-blue" v-model="checkbox3" class="md-primary">Primary Light Blue</md-checkbox>
+            <div>
+              Value of Checkbox3: 
+              {{checkbox3}}
+            </div>
+          </div>
+
+          <div slot="code">
+            <code-block lang="xml">
+              &lt;md-checkbox md-theme=&quot;orange&quot;  id=&quot;my-test10&quot; name=&quot;my-test10&quot; md-value=&quot;orange&quot; v-model=&quot;checkbox3&quot; class=&quot;md-primary&quot;&gt;Primary Orange&lt;/md-checkbox&gt;
+              &lt;md-checkbox md-theme=&quot;green&quot;  id=&quot;my-test11&quot; name=&quot;my-test11&quot; md-value=&quot;green&quot; v-model=&quot;checkbox3&quot; class=&quot;md-primary&quot;&gt;Primary Green&lt;/md-checkbox&gt;
+              &lt;md-checkbox md-theme=&quot;light-blue&quot; id=&quot;my-test12&quot; name=&quot;my-test12&quot; md-value=&quot;light-blue&quot; v-model=&quot;checkbox3&quot; class=&quot;md-primary&quot;&gt;Primary Light Blue&lt;/md-checkbox&gt;
+            </code-block>
+          </div>
+        </example-box>
       </div>
     </docs-component>
   </page-content>
@@ -116,7 +139,8 @@
     data() {
       return {
         checkbox: true,
-        checkbox2: false
+        checkbox2: false,
+        checkbox3: []
       };
     }
   };

@@ -21,6 +21,7 @@
   line-height: 20px;
   text-transform: none;
   white-space: nowrap;
+  letter-spacing: 0.1em;
 }
 .md-tooltip.md-active {
     opacity: 1;
