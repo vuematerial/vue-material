@@ -14,6 +14,20 @@
       }
     }
 
+    &.md-checked.md-primary {
+      .md-switch-container {
+        @include md-theme-property(background-color, primary, null, .38);
+      }
+
+      .md-switch-thumb {
+        @include md-theme-property(background-color, primary);
+      }
+
+      .md-ripple {
+        @include md-theme-property(color, primary);
+      }
+    }
+
     @if md-get-theme-mode() == light {
       .md-switch-container {
         background-color: rgba(#000, .38);

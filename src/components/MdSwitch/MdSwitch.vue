@@ -25,9 +25,7 @@
     props: {
       id: {
         type: String,
-        default () {
-          return 'md-switch-' + MdUuid()
-        }
+        default: () => 'md-switch-' + MdUuid()
       }
     }
   })
