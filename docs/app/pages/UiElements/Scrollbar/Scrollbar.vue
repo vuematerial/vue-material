@@ -1,4 +1,4 @@
-<example src="./examples/Scrollbar.vue" />
+<example src="./examples/ScrollbarExample.vue" />
 
 <template>
   <page-container centered :title="$t('pages.scrollbar.title')">
@@ -10,16 +10,16 @@
     </div>
 
     <div class="page-container-section">
-      <code-example title="Scrollbar" :component="examples['scrollbar']" />
+      <code-example title="Scrollbar" :component="examples['scrollbar-example']" />
     </div>
   </page-container>
 </template>
 
 <script>
-import examples from 'docs-mixins/docsExample'
+  import examples from 'docs-mixins/docsExample'
 
-export default {
-  name: 'Scrollbar',
-  mixins: [examples]
-}
+  export default {
+    name: 'Scrollbar',
+    mixins: [examples]
+  }
 </script>

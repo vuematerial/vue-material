@@ -11,17 +11,17 @@
 </template>
 
 <script>
-export default {
-  name: 'CustomTemplate',
-  data: () => ({
-    currentProject: 'Vue Material',
-    projects: [
-      'Vue Material',
-      'Element UI',
-      'Quasar'
-    ]
-  })
-}
+  export default {
+    name: 'ChipCustomTemplate',
+    data: () => ({
+      currentProject: 'Vue Material',
+      projects: [
+        'Vue Material',
+        'Element UI',
+        'Quasar'
+      ]
+    })
+  }
 </script>
 
 <style lang="scss" scoped>

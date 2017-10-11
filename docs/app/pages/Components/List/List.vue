@@ -2,7 +2,7 @@
 <example src="./examples/DoubleLine.vue" />
 <example src="./examples/TripleLine.vue" />
 <example src="./examples/Types.vue" />
-<example src="./examples/Expansion.vue" />
+<example src="./examples/ListExpansion.vue" />
 <example src="./examples/Controls.vue" />
 
 <template>
@@ -18,7 +18,7 @@
       <code-example title="Double Line" :component="examples['double-line']" />
       <code-example title="Triple Line" :component="examples['triple-line']" />
       <code-example title="Controls" :component="examples['controls']" />
-      <code-example title="Expansion" :component="examples['expansion']" />
+      <code-example title="Expansion" :component="examples['list-expansion']" />
 
       <api-item title="API - md-content">
         <p>This component do not have any extra option.</p>

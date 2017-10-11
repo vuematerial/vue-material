@@ -45,7 +45,7 @@
 
 <script>
   export default {
-    name: 'Expansion'
+    name: 'ListExpansion'
   }
 </script>
 

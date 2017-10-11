@@ -7,7 +7,7 @@
 
 <script>
   export default {
-    name: 'HueColors',
+    name: 'RadioHueColors',
     data: () => ({
       radio: 'accent'
     })

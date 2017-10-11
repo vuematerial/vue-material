@@ -5,14 +5,14 @@
   </div>
 </template>
 
+<script>
+  export default {
+    name: 'SubheaderExample'
+  }
+</script>
+
 <style lang="scss" scoped>
   .md-subheader + .md-subheader {
     margin-top: 16px;
   }
 </style>
-
-<script>
-export default {
-  name: 'Subheader'
-}
-</script>

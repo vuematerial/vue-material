@@ -8,7 +8,7 @@
 </template>
 
 <script>
-export default {
-  name: 'RouterLink'
-}
+  export default {
+    name: 'ButtonRouter'
+  }
 </script>

@@ -1,4 +1,4 @@
-<example src="./examples/TextSelection.vue" />
+<example src="./examples/SelectionExample.vue" />
 
 <template>
   <page-container centered :title="$t('pages.textSelection.title')">
@@ -8,7 +8,7 @@
     </div>
 
     <div class="page-container-section">
-      <code-example title="Text Selection" :component="examples['text-selection']" />
+      <code-example title="Text Selection" :component="examples['selection-example']" />
     </div>
   </page-container>
 </template>

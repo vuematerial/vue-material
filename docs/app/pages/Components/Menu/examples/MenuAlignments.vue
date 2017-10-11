@@ -34,7 +34,7 @@
 
 <script>
   export default {
-    name: 'Alignments'
+    name: 'MenuAlignments'
   }
 </script>
 

@@ -19,9 +19,9 @@
 </template>
 
 <script>
-export default {
-  name: 'VueRouter'
-}
+  export default {
+    name: 'BarRouter'
+  }
 </script>
 
 <style lang="scss" scoped>

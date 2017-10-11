@@ -27,14 +27,14 @@
   </div>
 </template>
 
+<script>
+  export default {
+    name: 'FieldIcons'
+  }
+</script>
+
 <style lang="scss" scoped>
   .md-field:last-child {
     margin-bottom: 40px;
   }
 </style>
-
-<script>
-export default {
-  name: 'Icons'
-}
-</script>

@@ -1,4 +1,4 @@
-<example src="./examples/Subheader.vue" />
+<example src="./examples/SubheaderExample.vue" />
 
 <template>
   <page-container centered :title="$t('pages.subheader.title')">
@@ -10,7 +10,7 @@
     <div class="page-container-section">
       <h2>Subheader</h2>
 
-      <code-example title="Subheader" :component="examples['subheader']" />
+      <code-example title="Subheader" :component="examples['subheader-example']" />
 
       <api-item title="API - md-subheader">
         <p>This component do not have any extra option.</p>
@@ -20,10 +20,10 @@
 </template>
 
 <script>
-import examples from 'docs-mixins/docsExample'
+  import examples from 'docs-mixins/docsExample'
 
-export default {
-  name: 'Subheader',
-  mixins: [examples]
-}
+  export default {
+    name: 'Subheader',
+    mixins: [examples]
+  }
 </script>

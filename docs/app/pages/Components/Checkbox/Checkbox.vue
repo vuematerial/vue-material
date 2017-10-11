@@ -1,5 +1,5 @@
 <example src="./examples/RegularCheckboxes.vue" />
-<example src="./examples/HueColors.vue" />
+<example src="./examples/CheckboxHueColors.vue" />
 
 <template>
   <page-container centered :title="$t('pages.checkbox.title')">
@@ -11,7 +11,7 @@
       <h2>Checkbox</h2>
 
       <code-example title="Checkbox" :component="examples['regular-checkboxes']" />
-      <code-example title="Hue Colors" :component="examples['hue-colors']" />
+      <code-example title="Hue Colors" :component="examples['checkbox-hue-colors']" />
 
       <api-item title="API - md-checkbox">
         <p>The following options can be applied to all checkboxes:</p>

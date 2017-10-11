@@ -1,5 +1,5 @@
 <example src="./examples/RegularRadio.vue" />
-<example src="./examples/HueColors.vue" />
+<example src="./examples/RadioHueColors.vue" />
 
 <template>
   <page-container centered :title="$t('pages.radio.title')">
@@ -11,7 +11,7 @@
       <h2>Radio</h2>
 
       <code-example title="Radio" :component="examples['regular-radio']" />
-      <code-example title="Hue Colors" :component="examples['hue-colors']" />
+      <code-example title="Hue Colors" :component="examples['radio-hue-colors']" />
 
       <api-item title="API - md-radio">
         <p>The following options can be applied to all radios:</p>

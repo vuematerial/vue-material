@@ -9,9 +9,9 @@
 </template>
 
 <script>
-export default {
-  name: 'TextSelection'
-}
+  export default {
+    name: 'ScrollbarExample'
+  }
 </script>
 
 <style lang="scss" scoped>

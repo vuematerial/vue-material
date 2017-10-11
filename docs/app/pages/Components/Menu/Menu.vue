@@ -1,6 +1,6 @@
 <example src="./examples/Directions.vue" />
 <example src="./examples/Sizes.vue" />
-<example src="./examples/Alignments.vue" />
+<example src="./examples/MenuAlignments.vue" />
 <example src="./examples/MultipleContent.vue" />
 
 <template>
@@ -22,7 +22,7 @@
       <h2>Alignments</h2>
 
       <p>Sometimes the default position is not what we want. Maybe we need to show a menu in another location, and to achieve that you can use trigger alignment or custom offsets:</p>
-      <code-example title="Trigger alignment and Offsets" :component="examples['alignments']" />
+      <code-example title="Trigger alignment and Offsets" :component="examples['menu-alignments']" />
     </div>
 
     <div class="page-container-section">

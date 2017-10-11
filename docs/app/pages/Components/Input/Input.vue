@@ -1,7 +1,7 @@
 <example src="./examples/TextFields.vue" />
 <example src="./examples/ErrorsMessages.vue" />
 <example src="./examples/Counters.vue" />
-<example src="./examples/Icons.vue" />
+<example src="./examples/FieldIcons.vue" />
 <example src="./examples/InlineActions.vue" />
 
 <template>
@@ -31,7 +31,7 @@
     <div class="page-container-section">
       <h2>Icons</h2>
 
-      <code-example title="Outside and inline icons" :component="examples['icons']" />
+      <code-example title="Outside and inline icons" :component="examples['field-icons']" />
     </div>
 
     <div class="page-container-section">

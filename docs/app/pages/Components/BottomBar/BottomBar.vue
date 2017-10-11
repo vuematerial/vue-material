@@ -1,7 +1,7 @@
-<example src="./examples/VueRouter.vue" />
+<example src="./examples/BarRouter.vue" />
 <example src="./examples/Shift.vue" />
 <example src="./examples/ChangingThemes.vue" />
-<example src="./examples/CustomTemplate.vue" />
+<example src="./examples/BarCustomTemplate.vue" />
 
 <template>
   <page-container centered :title="$t('pages.bottomBar.title')">
@@ -13,7 +13,7 @@
       <h2>Seamless integration with Vue Router</h2>
 
       <p>The bottom bar is compatible with all options of Vue Router. Just pass the values as a parameter on <code>md-bottom-bar-item</code> component:</p>
-      <code-example title="With default fixed style" :component="examples['vue-router']" />
+      <code-example title="With default fixed style" :component="examples['bar-router']" />
       <note-block tip>Note: Try tro change the url manually to see the component selecting the correct item.</note-block>
     </div>
 
@@ -36,7 +36,7 @@
 
       <p>Maybe you want to show more informations inside a bottom bar item. With a simple and flexible default slot, you can make anything you want. Look at this unread notification example:</p>
       <note-block>If you pass anything inside the <code>&lt;md-bottom-bar-item&gt;</code>, the component will ignore the <code>md-label</code> and <code>md-icon</code>. Only use the content slot if you want to create a custom template.</note-block>
-      <code-example title="Template Slot" :component="examples['custom-template']" />
+      <code-example title="Template Slot" :component="examples['bar-custom-template']" />
 
       <api-item title="API - md-bottom-bar">
         <p>All the following options can be used on any bottom bar:</p>
@@ -53,92 +53,92 @@
 </template>
 
 <script>
-import examples from 'docs-mixins/docsExample'
+  import examples from 'docs-mixins/docsExample'
 
-export default {
-  name: 'BottomBar',
-  mixins: [examples],
-  data: () => ({
-    bar: {
-      props: {
-        headings: ['Name', 'Description', 'Default'],
-        props: [
-          {
-            name: 'md-type',
-            type: 'String',
-            description: 'Set the display mode. See below the detailed description of each type.',
-            defaults: 'fixed'
-          },
-          {
-            offset: true,
-            name: 'md-type="fixed"',
-            type: 'String',
-            description: 'Make the bar with fixed items. Good for a small amount of items.',
-            defaults: '-'
-          },
-          {
-            offset: true,
-            name: 'md-mode="shift"',
-            type: 'String',
-            description: 'Highlight the selected item and hide the label from the others. Good for a large amount of items. Up to 6.',
-            defaults: '-'
-          },
-          {
-            name: 'md-active-item',
-            type: 'Boolean',
-            description: 'Dynamically change the selected item. Works passing the ID of a bottom bar item.',
-            defaults: 'null'
-          },
-          {
-            name: 'md-sync-route',
-            type: 'Boolean',
-            description: 'Watches the current route if there is a Vue Router instance running on the page. This will automatically change the selected element based on the current URL.',
-            defaults: 'false'
-          }
-        ]
+  export default {
+    name: 'BottomBar',
+    mixins: [examples],
+    data: () => ({
+      bar: {
+        props: {
+          headings: ['Name', 'Description', 'Default'],
+          props: [
+            {
+              name: 'md-type',
+              type: 'String',
+              description: 'Set the display mode. See below the detailed description of each type.',
+              defaults: 'fixed'
+            },
+            {
+              offset: true,
+              name: 'md-type="fixed"',
+              type: 'String',
+              description: 'Make the bar with fixed items. Good for a small amount of items.',
+              defaults: '-'
+            },
+            {
+              offset: true,
+              name: 'md-mode="shift"',
+              type: 'String',
+              description: 'Highlight the selected item and hide the label from the others. Good for a large amount of items. Up to 6.',
+              defaults: '-'
+            },
+            {
+              name: 'md-active-item',
+              type: 'Boolean',
+              description: 'Dynamically change the selected item. Works passing the ID of a bottom bar item.',
+              defaults: 'null'
+            },
+            {
+              name: 'md-sync-route',
+              type: 'Boolean',
+              description: 'Watches the current route if there is a Vue Router instance running on the page. This will automatically change the selected element based on the current URL.',
+              defaults: 'false'
+            }
+          ]
+        },
+        events: {
+          headings: ['Name', 'Description', 'Value'],
+          props: [
+            {
+              name: 'md-changed',
+              description: 'Triggered when a selected item changes',
+              value: 'Selected item ID'
+            }
+          ]
+        }
       },
-      events: {
-        headings: ['Name', 'Description', 'Value'],
-        props: [
-          {
-            name: 'md-changed',
-            description: 'Triggered when a selected item changes',
-            value: 'Selected item ID'
-          }
-        ]
+      item: {
+        props: {
+          headings: ['Name', 'Description', 'Default'],
+          props: [
+            {
+              name: 'id',
+              type: 'String',
+              description: 'The item id. Used when changing the selected item dynamically',
+              defaults: 'a random string'
+            },
+            {
+              name: 'md-label',
+              type: 'String',
+              description: 'The bottom bar label. <code>Required</code>.',
+              defaults: 'null'
+            },
+            {
+              name: 'md-icon',
+              type: 'String',
+              description: 'The bottom bar icon. Can be a icon name from <a href="https://material.io/icons/" target="_blank">Material icons</a> or the path of a valid svg. <code>Required</code>.',
+              defaults: 'null'
+            },
+            {
+              name: 'md-disabled',
+              type: 'Boolean',
+              description: 'Disable the bottom bar prevent the click on it and all actions.',
+              defaults: 'false'
+            }
+          ]
+        }
       }
-    },
-    item: {
-      props: {
-        headings: ['Name', 'Description', 'Default'],
-        props: [
-          {
-            name: 'id',
-            type: 'String',
-            description: 'The item id. Used when changing the selected item dynamically',
-            defaults: 'a random string'
-          },
-          {
-            name: 'md-label',
-            type: 'String',
-            description: 'The bottom bar label. <code>Required</code>.',
-            defaults: 'null'
-          },
-          {
-            name: 'md-icon',
-            type: 'String',
-            description: 'The bottom bar icon. Can be a icon name from <a href="https://material.io/icons/" target="_blank">Material icons</a> or the path of a valid svg. <code>Required</code>.',
-            defaults: 'null'
-          },
-          {
-            name: 'md-disabled',
-            type: 'Boolean',
-            description: 'Disable the bottom bar prevent the click on it and all actions.',
-            defaults: 'false'
-          }
-        ]
-      }
-    }
-  })
-}
+    })
+  }
 </script>

@@ -35,9 +35,9 @@
 </template>
 
 <script>
-export default {
-  name: 'Example'
-}
+  export default {
+    name: 'TabAlignments'
+  }
 </script>
 
 <style lang="scss" scoped>

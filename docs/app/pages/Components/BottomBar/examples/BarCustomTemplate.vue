@@ -18,38 +18,38 @@
 </template>
 
 <script>
-export default {
-  name: 'CustomTemplate',
-  data: () => ({
-    newPosts: 0,
-    checkInterval: null
-  }),
-  methods: {
-    clearCheckPosts () {
-      window.clearInterval(this.checkInterval)
-      this.checkInterval = null
-    },
-    clearNewPosts () {
-      this.clearCheckPosts()
-      this.newPosts = 0
-    },
-    checkNewPosts (activeItem) {
-      if (activeItem !== 'item-posts' && !this.checkInterval) {
-        this.checkInterval = window.setInterval(() => {
-          if (this.newPosts === 99) {
-            this.newPosts = '99+'
-            this.clearCheckPosts()
-          } else {
-            this.newPosts++
-          }
-        }, 1000)
+  export default {
+    name: 'BarCustomTemplate',
+    data: () => ({
+      newPosts: 0,
+      checkInterval: null
+    }),
+    methods: {
+      clearCheckPosts () {
+        window.clearInterval(this.checkInterval)
+        this.checkInterval = null
+      },
+      clearNewPosts () {
+        this.clearCheckPosts()
+        this.newPosts = 0
+      },
+      checkNewPosts (activeItem) {
+        if (activeItem !== 'item-posts' && !this.checkInterval) {
+          this.checkInterval = window.setInterval(() => {
+            if (this.newPosts === 99) {
+              this.newPosts = '99+'
+              this.clearCheckPosts()
+            } else {
+              this.newPosts++
+            }
+          }, 1000)
+        }
       }
+    },
+    mounted () {
+      this.checkNewPosts()
     }
-  },
-  mounted () {
-    this.checkNewPosts()
   }
-}
 </script>
 
 <style lang="scss" scoped>

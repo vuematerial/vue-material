@@ -2,7 +2,7 @@
 <example src="./examples/IconButtons.vue" />
 <example src="./examples/FloatingButtons.vue" />
 <example src="./examples/ButtonVsLink.vue" />
-<example src="./examples/VueRouter.vue" />
+<example src="./examples/ButtonRouter.vue" />
 
 <template>
   <page-container centered :title="$t('pages.button.title')">
@@ -63,7 +63,7 @@
       <h2>Vue Router</h2>
       <p><code>md-button</code> also supports Vue Router by default. All <a href="https://router.vuejs.org/en/api/router-link.html" target="_blank">options</a> of <code>router-link</code> could be simply used here.</p>
 
-      <code-example title="router-link" :component="examples['vue-router']" />
+      <code-example title="router-link" :component="examples['button-router']" />
     </div>
   </page-container>
 </template>

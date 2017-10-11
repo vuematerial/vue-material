@@ -1,4 +1,4 @@
-<example src="./examples/Typography.vue" />
+<example src="./examples/TypographyExample.vue" />
 
 <template>
   <page-container centered :title="$t('pages.typography.title')">
@@ -18,7 +18,7 @@
     </div>
 
     <div class="page-container-section">
-      <code-example title="Typography" :component="examples['typography']" />
+      <code-example title="Typography" :component="examples['typography-example']" />
 
       <api-item title="API">
         <p>The following classes can be applied to any HTML element:</p>

@@ -16,9 +16,9 @@
 </template>
 
 <script>
-export default {
-  name: 'Typography'
-}
+  export default {
+    name: 'TypographyExample'
+  }
 </script>
 
 <style lang="scss" scoped>

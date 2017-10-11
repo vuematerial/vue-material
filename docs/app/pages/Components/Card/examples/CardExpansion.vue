@@ -34,6 +34,12 @@
   </div>
 </template>
 
+<script>
+  export default {
+    name: 'CardExpansion'
+  }
+</script>
+
 <style lang="scss" scoped>
   .card-expansion {
     height: 480px;
@@ -46,9 +52,3 @@
     vertical-align: top;
   }
 </style>
-
-<script>
-export default {
-  name: 'Expansion'
-}
-</script>

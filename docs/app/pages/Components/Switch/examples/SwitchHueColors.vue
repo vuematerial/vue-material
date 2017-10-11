@@ -7,7 +7,7 @@
 
 <script>
   export default {
-    name: 'HueColors',
+    name: 'SwitchHueColors',
     data: () => ({
       boolean: true
     })

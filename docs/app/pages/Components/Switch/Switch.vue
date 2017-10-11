@@ -1,5 +1,5 @@
 <example src="./examples/RegularSwitch.vue" />
-<example src="./examples/HueColors.vue" />
+<example src="./examples/SwitchHueColors.vue" />
 
 <template>
   <page-container centered :title="$t('pages.switch.title')">
@@ -11,7 +11,7 @@
       <h2>Switch</h2>
 
       <code-example title="Switch" :component="examples['regular-switch']" />
-      <code-example title="Hue Colors" :component="examples['hue-colors']" />
+      <code-example title="Hue Colors" :component="examples['switch-hue-colors']" />
 
       <api-item title="API - md-switch">
         <p>The following options can be applied to all switches:</p>

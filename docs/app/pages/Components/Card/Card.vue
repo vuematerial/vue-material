@@ -3,7 +3,7 @@
 <example src="./examples/Media.vue" />
 <example src="./examples/MediaCover.vue" />
 <example src="./examples/Layouts.vue" />
-<example src="./examples/Expansion.vue" />
+<example src="./examples/CardExpansion.vue" />
 
 <template>
   <page-container centered :title="$t('pages.card.title')">
@@ -19,7 +19,7 @@
       <code-example title="Media cover" :component="examples['media']" />
       <code-example title="Card background with Aspect Ratio" :component="examples['media-cover']" />
       <code-example title="Different layouts" :component="examples['layouts']" />
-      <code-example title="Expansion Control" :component="examples['expansion']" />
+      <code-example title="Expansion Control" :component="examples['card-expansion']" />
 
       <api-item title="API - md-card">
         <p>This component do not have any extra option.</p>
