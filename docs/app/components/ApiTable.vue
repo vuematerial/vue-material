@@ -83,10 +83,13 @@ export default {
     padding-left: 32px;
   }
 
-  .prop-name,
-  .prop-type {
+  .prop-name {
     display: block;
     text-transform: lowercase;
+  }
+
+  .prop-type {
+    text-transform: capitalize;
   }
 
   .prop-type {
