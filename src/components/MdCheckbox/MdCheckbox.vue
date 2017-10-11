@@ -23,7 +23,7 @@
     props: {
       id: {
         type: String,
-        defaul: () => 'md-checkbox-' + MdUuid()
+        default: () => 'md-checkbox-' + MdUuid()
       }
     }
   })
