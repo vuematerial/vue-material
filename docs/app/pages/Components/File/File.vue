@@ -11,13 +11,13 @@
 
       <code-example title="File Field" :component="examples['file-field']" />
 
-      <api-item title="API - md-toolbar">
+      <api-item title="API - md-file">
         <p>The following options can be applied to file component:</p>
 
         <api-table :headings="api.regular.events.headings" :props="api.regular.events.props" slot="events" />
       </api-item>
 
-      <note-block tip>All other <code>&lt;input type=&quot;file&quot;&gt;</code> attributes, such as multiple and accept, can be used on <code>md-field</code>.</note-block>
+      <note-block tip>All other <code>&lt;input type=&quot;file&quot;&gt;</code> attributes, such as <strong>multiple</strong> and <strong>accept</strong>, can be used on <code>md-field</code>.</note-block>
     </div>
   </page-container>
 </template>
@@ -32,12 +32,12 @@ export default {
     api: {
       regular: {
         events: {
-          headings: ['Name', 'Description', 'Type'],
+          headings: ['Name', 'Description', 'Value'],
           props: [
             {
               name: 'change',
               description: 'Emits a FileList. Triggered every time a file is selected.',
-              type: 'FileList'
+              value: 'FileList'
             }
           ]
         }
