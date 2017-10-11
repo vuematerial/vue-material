@@ -20,41 +20,41 @@
 </template>
 
 <script>
-import { mapState, mapMutations } from 'vuex'
-import * as types from 'store/mutation-types'
-import MainNavContent from './MainNavContent'
+  import { mapState, mapMutations } from 'vuex'
+  import * as types from 'store/mutation-types'
+  import MainNavContent from './MainNavContent'
 
-export default {
-  name: 'MainNav',
-  components: {
-    MainNavContent
-  },
-  data: () => ({
-    isMenuVisible: false
-  }),
-  computed: {
-    ...mapState({
-      isSplash: 'splashPage',
-      menuVisible: 'menuVisible'
-    })
-  },
-  watch: {
-    menuVisible (isMenuVisible) {
-      this.isMenuVisible = isMenuVisible
+  export default {
+    name: 'MainNav',
+    components: {
+      MainNavContent
+    },
+    data: () => ({
+      isMenuVisible: false
+    }),
+    computed: {
+      ...mapState({
+        isSplash: 'splashPage',
+        menuVisible: 'menuVisible'
+      })
+    },
+    watch: {
+      menuVisible (isMenuVisible) {
+        this.isMenuVisible = isMenuVisible
+      }
+    },
+    methods: {
+      ...mapMutations({
+        hideMenu: types.HIDE_MENU
+      })
+    },
+    created () {
+      this.$router.beforeEach((to, from, next) => {
+        this.hideMenu()
+        next()
+      })
     }
-  },
-  methods: {
-    ...mapMutations({
-      hideMenu: types.HIDE_MENU
-    })
-  },
-  created () {
-    this.$router.beforeEach((to, from, next) => {
-      this.hideMenu()
-      next()
-    })
   }
-}
 </script>
 
 <style lang="scss" scoped>
@@ -106,7 +106,8 @@ export default {
     display: none;
 
     @include md-layout-xsmall {
-      display: block;
+      display: flex;
+      flex-direction: column;
     }
   }
 
@@ -121,5 +122,8 @@ export default {
 
   .main-nav-drawer-content {
     padding: 16px;
+    flex: 1;
+    overflow: auto;
+    border-top: 1px solid rgba(#000, .12);
   }
 </style>

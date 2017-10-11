@@ -53,6 +53,33 @@
   </div>
 </template>
 
+<script>
+  export default {
+    name: 'MainNavContent',
+    watch: {
+      $router () {
+        this.scrollActiveItemIntoView()
+      }
+    },
+    methods: {
+      async scrollActiveItemIntoView () {
+        await this.$nextTick()
+
+        const activeEl = this.$el.querySelector('.router-link-exact-active')
+
+        if (activeEl) {
+          activeEl.scrollIntoView({
+            behavior: 'smooth'
+          })
+        }
+      }
+    },
+    mounted () {
+      window.setTimeout(this.scrollActiveItemIntoView, 500)
+    }
+  }
+</script>
+
 <style lang="scss" scoped>
   @import "~vue-material/theme/factory";
 
@@ -75,9 +102,3 @@
     margin-left: 16px;
   }
 </style>
-
-<script>
-export default {
-  name: 'MainNavContent'
-}
-</script>
