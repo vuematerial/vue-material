@@ -5,9 +5,7 @@
     <div class="container-wrapper md-layout-row" :class="containerClass">
       <main-nav :is-splash="isSplash" />
 
-      <keep-alive>
-        <router-view v-if="!loading" />
-      </keep-alive>
+      <router-view v-if="!loading" />
 
       <div class="main-container" v-if="loading">
         <code-loading />
