@@ -24,9 +24,9 @@
 
       <router-link to="/components/form">{{ $t('pages.form.title') }}</router-link>
       <div class="main-nav-level">
-        <router-link to="/components/input">{{ $t('pages.input.title') }}</router-link>
         <router-link to="/components/checkbox">{{ $t('pages.checkbox.title') }}</router-link>
         <router-link to="/components/file">{{ $t('pages.file.title') }}</router-link>
+        <router-link to="/components/input">{{ $t('pages.input.title') }}</router-link>
         <router-link to="/components/radio">{{ $t('pages.radio.title') }}</router-link>
         <router-link to="/components/switch">{{ $t('pages.switch.title') }}</router-link>
       </div>
