@@ -23,9 +23,7 @@
     props: {
       id: {
         type: String,
-        default () {
-          return 'md-checkbox-' + MdUuid()
-        }
+        defaul: () => 'md-checkbox-' + MdUuid()
       }
     }
   })

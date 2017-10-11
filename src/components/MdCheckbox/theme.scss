@@ -15,6 +15,17 @@
       }
     }
 
+    &.md-checked.md-primary {
+      .md-checkbox-container {
+        @include md-theme-property(background-color, primary);
+        @include md-theme-property(border-color, primary);
+      }
+
+      .md-ripple {
+        @include md-theme-property(color, primary);
+      }
+    }
+
     @if md-get-theme-mode() == light {
       .md-checkbox-container {
         border-color: rgba(#000, .54);
