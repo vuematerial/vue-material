@@ -3,9 +3,9 @@
     <md-switch v-model="array" value="1">Array</md-switch>
     <md-switch v-model="array" value="2">Array</md-switch>
     <md-switch v-model="boolean">Boolean</md-switch>
-    <md-switch v-model="string" required value="my-switch">String <small>(required)</small></md-switch>
+    <md-switch v-model="string" value="my-switch">String</md-switch>
     <md-switch v-model="novalue">No Value</md-switch>
-    <md-switch v-model="novalue" disabled>Disabled</md-switch>
+    <md-switch v-model="disabled" disabled>Disabled</md-switch>
 
     <table>
       <tr>
@@ -26,15 +26,16 @@
 </template>
 
 <script>
-export default {
-  name: 'RegularSwitch',
-  data: () => ({
-    array: [],
-    boolean: false,
-    string: null,
-    novalue: null
-  })
-}
+  export default {
+    name: 'RegularSwitch',
+    data: () => ({
+      array: [],
+      boolean: false,
+      string: null,
+      novalue: null,
+      disabled: true
+    })
+  }
 </script>
 
 <style lang="scss" scoped>
