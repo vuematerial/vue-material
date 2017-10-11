@@ -1,7 +1,7 @@
 # Roadmap for Vue Material beta!
 
 As I told a [couple months ago](https://github.com/vuematerial/vue-material/issues/921), I am developing a new Vue Material from scratch, with better support, an easy way to integrate and way more reliable. And this new version is just around the corner.
-I received a lot of issues and complains regarding support for SSR, validation, integration with 3rd party libs and many others. So I worked for more than 6 months on this bad boy!
+I received a lot of issues and complains regarding support for SSR, validation, integration with 3rd party libs and many others. So I after ~6 months on this bad boy, more than 500 files, ~28k loc and ~800 commits I now announce that the beta is coming!
 
 The release strategy will be like this:
 
@@ -16,7 +16,7 @@ The release strategy will be like this:
 ## 1.0.0 roadmap
 
 ### Core Stuff
-- [X] Themes
+- [X] Themes - `NEW API`
   - [X] Deprecated theme component
   - [X] Sass Based themes
   - [X] Multiple themes
@@ -26,8 +26,8 @@ The release strategy will be like this:
   - [X] Basic Support
 
 ### Components
-- [ ] MdAutocomplete
-- [X] MdApp
+- [ ] MdAutocomplete - `NEW API`
+- [X] MdApp - `NEW`
   - [X] Documentation
   - [X] Reusable App Shell component
   - [X] Integration with Toolbar, Drawer and Content
@@ -48,8 +48,8 @@ The release strategy will be like this:
 - [X] MdChips
   - [X] Editable
   - [X] Detelable
-- [X] MdContent - `New`
-- [ ] MdDatepicker - `New`
+- [X] MdContent - `NEW`
+- [ ] MdDatepicker - `NEW`
   - [ ] Documentation
   - [X] FINALLY!
   - [X] Month Selector
@@ -62,45 +62,46 @@ The release strategy will be like this:
   - [X] Prompt
   - [X] Custom
 - [X] MdDivider
-- [ ] MdDrawer - `New`
+- [ ] MdDrawer - `NEW API`
   - [ ] Documentation
-  - [X] Persistent - `New`
-  - [X] Permanent - `New`
-  - [X] Mini - `New`
-  - [X] Card - `New`
-  - [X] Clipped - `New`
+  - [ ] Deprecate md-sidenav
+  - [X] Persistent - `NEW`
+  - [X] Permanent  - `NEW`
+  - [X] Mini - `NEW`
+  - [X] Card - `NEW`
+  - [X] Clipped - `NEW`
   - [X] Left/Right
-- [X] MdElevation - `New API`
+- [X] MdElevation - `NEW API`
   - [X] Deprecate whiteframe component
   - [X] Elevation classes
-- [ ] MdField - `New`
+- [ ] MdField - `NEW API`
   - [ ] Documentation
   - [X] Change md-input-container to md-field
   - [X] Input/Textarea
   - [X] Checkbox
   - [X] Radio
   - [X] Switch
-  - [X] File
+  - [X] File - `NEW API`
   - [ ] Select
 - [X] MdIcon
-- [ ] MdLayout - `New API`
+- [ ] MdLayout - `NEW API`
   - [ ] Documentation
   - [X] Deprecate layout component
   - [X] New flexbox/responsive/class-based grid
-- [ ] MdList
+- [ ] MdList - `NEW API`
   - [ ] Documentation
   - [X] Router integration
   - [X] Expansion
   - [X] Input Controls
-- [X] MdMenu
-- [ ] MdProgress
+- [X] MdMenu - `NEW API`
+- [ ] MdProgress - `NEW API`
   - [ ] Documentation
   - [ ] Spinner
   - [ ] Bar
   - [ ] 0%/100% progress
   - [ ] Indeterminate state
 - [X] MdRadio
-- [ ] MdRipple - `New API`
+- [ ] MdRipple - `NEW API`
   - [ ] Documentation
   - [X] New ripple
   - [ ] Abstract component
@@ -108,16 +109,16 @@ The release strategy will be like this:
 - [ ] MdSnackbar
   - [ ] Documentation
   - [X] Themed Snackbar
-- [X] MdSpeedDial
+- [X] MdSpeedDial - `NEW API`
   - [X] Click Action
   - [X] Multiple Effects
-- [ ] MdSteppers - `New API`
+- [ ] MdSteppers - `NEW API`
   - [ ] Documentation
   - [X] Horizontal
   - [X] Vertical
 - [X] MdSubheader
 - [X] MdSwitch
-- [ ] MdTable - `New API`
+- [ ] MdTable - `NEW API`
   - [ ] Documentation
   - [X] Basic table
   - [X] Sort
@@ -131,7 +132,7 @@ The release strategy will be like this:
   - [ ] Documentation
   - [X] Router integration
   - [X] Symple way to trigger active tab
-- [X] MdToolbar
+- [X] MdToolbar - `NEW API`
 - [X] MdTooltip
 
 ### Docs pages
@@ -151,6 +152,11 @@ The release strategy will be like this:
   - [ ] Configuration
   - [ ] Dynamic Themes
 - [ ] UI Elements summary
+
+* Components/Features marked with a `NEW` label do not exists on the current version
+** Components/Features marked with a `NEW API` can introduce major breaking changes.
+
+I will point out those changes inside the migration guide.
 
 ## Post 1.1.0
 
