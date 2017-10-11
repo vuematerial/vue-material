@@ -1,6 +1,6 @@
 # Roadmap for Vue Material beta!
 
-As I told a [couple months ago](https://github.com/vuematerial/vue-material/issues/921), I am developing a new Vue Material from scratch, with better support, an easy way to integrate and way more reliable. And this new version is just around the corner.
+As I told [couple months ago](https://github.com/vuematerial/vue-material/issues/921), I am developing a new Vue Material from scratch, with better support, an easy way to integrate and way more reliable. And this new version is just around the corner.
 I received a lot of issues and complains regarding support for SSR, validation, integration with 3rd party libs and many others. So I after ~6 months on this bad boy, more than 500 files, ~28k loc and ~800 commits I now announce that the beta is coming!
 
 The release strategy will be like this:
@@ -13,6 +13,22 @@ The release strategy will be like this:
 - I will solve the issues after the stable release while I focus on the next 1.1.0 version, with the components the didn't entered on 1.0
 - Boilerplates, Nuxt template and further guides will be created
 
+## New features
+- Automatic constrast ratio - YES! The theme factory will calculate the contrast between the background and text to give the correct black or white color.
+- On demand themes! Create themes only for the components that you're really using
+- Pre made theme colors
+- Dynamic themes
+- Easy to toggle features, like ripple, theming, locale values and more
+- Better support for Vue Router, with autosync on navigation components
+- Highly extensible and easy to create 3rd-party components
+- Namespaced attributes
+- ~30% lighter than 0.7.5
+- New and Awesome on-demand components
+- SSR Support
+- Well-tested - WIP 100% coverage
+- Easy i18n
+- Minimalist and performant docs
+
 ## 1.0.0 roadmap
 
 ### Core Stuff
@@ -22,7 +38,7 @@ The release strategy will be like this:
   - [X] Multiple themes
   - [ ] CSS Variables
   - [ ] CSS-only themes
-- [ ] SSR Support
+- [ ] SSR Support - NEW
   - [X] Basic Support
 
 ### Components
@@ -33,16 +49,17 @@ The release strategy will be like this:
   - [X] Integration with Toolbar, Drawer and Content
 - [X] MdAvatar
 - [X] MdBottomBar
-  - [X] Router integration
+  - [X] Router integration - NEW
+  - [X] Router Sync - NEW
   - [X] Symple way to trigger active item
 - [X] MdButton
-  - [X] Router integration
+  - [X] Router integration - NEW
 - [ ] MdCard
   - [ ] Documentation
   - [X] Better image handle
   - [X] Expand action
 - [X] MdCheckbox
-  - [X] Array
+  - [X] Array - NEW
   - [X] Boolean
   - [X] String
 - [X] MdChips
@@ -130,7 +147,8 @@ The release strategy will be like this:
   - [ ] Alternate Header
 - [ ] MdTabs
   - [ ] Documentation
-  - [X] Router integration
+  - [X] Router integration - NEW
+  - [X] Router Sync - NEW
   - [X] Symple way to trigger active tab
 - [X] MdToolbar - `NEW API`
 - [X] MdTooltip
@@ -153,8 +171,9 @@ The release strategy will be like this:
   - [ ] Dynamic Themes
 - [ ] UI Elements summary
 
-* Components/Features marked with a `NEW` label do not exists on the current version
+** Components/Features marked with a `NEW` label do not exists on the current version
 ** Components/Features marked with a `NEW API` can introduce major breaking changes.
+** Mostly of unchecked components are only demanding a new docs page.
 
 I will point out those changes inside the migration guide.
 
@@ -179,7 +198,8 @@ I will point out those changes inside the migration guide.
 - Android vs iOS vs Web
 - Touch Events
 - Scrolling
-- Theme Colors
+- Optimized theme colors
+- Vuelidate and Vee Validate integration
 
 ### Components
 - Content Discovery
