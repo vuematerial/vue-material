@@ -30,9 +30,7 @@
       },
       id: {
         type: String,
-        default () {
-          return 'md-radio-' + MdUuid()
-        }
+        default: () => 'md-radio-' + MdUuid()
       },
       name: [String, Number],
       required: Boolean,
