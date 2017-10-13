@@ -6580,17 +6580,21 @@ vue-template-es2015-compiler@^1.5.3:
   version "1.5.3"
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.5.3.tgz#22787de4e37ebd9339b74223bc467d1adee30545"
 
-vue@^2.4.4:
-  version "2.4.4"
-  resolved "https://registry.yarnpkg.com/vue/-/vue-2.4.4.tgz#ea9550b96a71465fd2b8b17b61673b3561861789"
+vue@^2.5.1:
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/vue/-/vue-2.5.1.tgz#1d904b18a2bcbbfc68879f105e29d9a4dd715ff8"
 
-vuex-router-sync@^4.3.2:
-  version "4.3.2"
-  resolved "https://registry.yarnpkg.com/vuex-router-sync/-/vuex-router-sync-4.3.2.tgz#604b61a377daaa68b2ef6e8e0326b2cad26f359e"
+vuelidate@^0.6.1:
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/vuelidate/-/vuelidate-0.6.1.tgz#c52c9fd2b48f974613485e2cf51c182e84bcf747"
 
-vuex@^2.4.1:
-  version "2.4.1"
-  resolved "https://registry.yarnpkg.com/vuex/-/vuex-2.4.1.tgz#7890b650ba8565b70937b4e7670577082dfe8bc1"
+vuex-router-sync@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/vuex-router-sync/-/vuex-router-sync-5.0.0.tgz#1a225c17a1dd9e2f74af0a1b2c62072e9492b305"
+
+vuex@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/vuex/-/vuex-3.0.0.tgz#98b4b5c4954b1c1c1f5b29fa0476a23580315814"
 
 walker@~1.0.5:
   version "1.0.7"

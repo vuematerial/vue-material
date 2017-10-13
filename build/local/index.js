@@ -11,25 +11,20 @@ const app = express()
 const compiler = webpack(webpackConfig)
 const devMiddlewareInstance = devMiddleware(compiler, {
   publicPath: config.public,
-  index: config.index,
-  quiet: true,
-  historyApiFallback: true,
-  watchOptions: {
-    aggregateTimeout: 10,
-    poll: 10
-  }
+  quiet: true
 })
 
 const hotMiddlewareInstance = hotMiddleware(compiler, {
-  log: false
+  log: false,
+  heartbeat: 2000
 })
 
-compiler.plugin('compilation', (compilation) => {
+/* compiler.plugin('compilation', (compilation) => {
   compilation.plugin('html-webpack-plugin-after-emit', (data, done) => {
     hotMiddlewareInstance.publish({ action: 'reload' })
     done()
   })
-})
+}) */
 
 app.use(historyApiFallback())
 app.use(devMiddlewareInstance)

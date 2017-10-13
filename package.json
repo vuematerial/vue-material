@@ -42,7 +42,7 @@
     "deepmerge": "^1.5.2",
     "popper.js": "^1.12.5",
     "raf": "^3.4.0",
-    "vue": "^2.4.4"
+    "vue": "^2.5.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.4",
@@ -101,8 +101,9 @@
     "vue-router": "^2.7.0",
     "vue-style-loader": "^3.0.3",
     "vue-template-compiler": "^2.4.4",
-    "vuex": "^2.4.1",
-    "vuex-router-sync": "^4.3.2",
+    "vuelidate": "^0.6.1",
+    "vuex": "^3.0.0",
+    "vuex-router-sync": "^5.0.0",
     "webpack": "^3.6.0",
     "webpack-bundle-analyzer": "^2.9.0",
     "webpack-dev-middleware": "^1.12.0",
