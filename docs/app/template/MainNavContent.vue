@@ -74,8 +74,9 @@
         }
       }
     },
-    mounted () {
-      window.setTimeout(this.scrollActiveItemIntoView, 500)
+    async mounted () {
+      await this.$nextTick()
+      window.setTimeout(this.scrollActiveItemIntoView, 700)
     }
   }
 </script>
