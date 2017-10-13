@@ -97,7 +97,7 @@
     "sinon": "^4.0.1",
     "url-loader": "^0.6.2",
     "vue-i18n": "^7.3.1",
-    "vue-loader": "^13.0.5",
+    "vue-loader": "^13.3.0",
     "vue-router": "^2.7.0",
     "vue-style-loader": "^3.0.3",
     "vue-template-compiler": "^2.5.1",
