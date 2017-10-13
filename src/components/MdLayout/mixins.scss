@@ -73,15 +73,15 @@
   .md-gutter {
     &.md-layout-row#{$breakpoint} {
       > [class*="md-flex"] + [class*="md-flex"] {
-        padding-top: 0;
-        padding-left: $size;
+        margin-top: 0;
+        margin-left: $size;
       }
     }
 
     &.md-layout-column#{$breakpoint} {
       > [class*="md-flex"] + [class*="md-flex"] {
-        padding-top: $size;
-        padding-left: 0;
+        margin-top: $size;
+        margin-left: 0;
       }
     }
   }
@@ -98,24 +98,30 @@
     }
 
     .md-flex#{$size}-33 {
-      min-width: 33.33333%;
-      flex: 0 1 33.33333%;
+      min-width: 33.3333%;
+      flex: 0 1 33.3333%;
     }
 
     .md-flex#{$size}-66 {
-      min-width: 33.33333%;
-      flex: 0 1 66.66666%;
+      min-width: 66.6666%;
+      flex: 0 1 66.6666%;
+    }
+
+    .md-flex#{$size}-100 {
+      min-width: 100%;
+      margin: 0 !important;
+      flex: 1 1 100%;
     }
 
     .md-flex-offset#{$size}-33 {
-      margin-left: 33.33333%;
+      margin-left: 33.3333%;
     }
 
     .md-flex-offset#{$size}-66 {
-      margin-left: 66.66666%;
+      margin-left: 66.6666%;
     }
 
-    @for $i from 1 through 20 {
+    @for $i from 1 through 19 {
       $counter: $i * 5;
 
       .md-flex#{$size}-#{$counter} {

@@ -16,6 +16,10 @@
     margin: 0 auto;
   }
 
+  &.md-wrap {
+    flex-wrap: wrap;
+  }
+
   @include md-rows-and-md-columns();
   @include md-layout-align();
   @include md-flex();
