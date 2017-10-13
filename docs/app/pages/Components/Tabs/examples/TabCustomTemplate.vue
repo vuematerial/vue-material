@@ -1,13 +1,13 @@
 <template>
   <div>
     <md-tabs @md-changed="checkNewPosts">
-      <template slot="md-tab" scope="{ tab }">
-        {{ tab.label }} <i class="badge" v-if="tab.options.badge">{{ tab.options.badge }}</i>
+      <template slot="md-tab" slot-scope="{ tab }">
+        {{ tab.label }} <i class="badge" v-if="tab.data.badge">{{ tab.data.badge }}</i>
       </template>
 
       <md-tab id="tab-home" md-label="Home"></md-tab>
       <md-tab id="tab-pages" md-label="Pages"></md-tab>
-      <md-tab id="tab-posts" md-label="Posts" :md-template-options="{ badge: newPosts }" @click="clearNewPosts"></md-tab>
+      <md-tab id="tab-posts" md-label="Posts" :md-template-data="{ badge: newPosts }" @click="clearNewPosts"></md-tab>
       <md-tab id="tab-favorites" md-label="Favorites"></md-tab>
     </md-tabs>
   </div>

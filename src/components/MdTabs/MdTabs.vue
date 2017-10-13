@@ -2,7 +2,7 @@
   <div class="md-tabs" :class="[tabsClasses, $mdActiveTheme]">
     <div class="md-tabs-navigation" :class="navigationClasses">
       <md-button
-        v-for="({ label, props, icon, disabled, options, events }, index) in MdTabs.items"
+        v-for="({ label, props, icon, disabled, data, events }, index) in MdTabs.items"
         :key="index"
         :class="{
           'md-active': index === activeTab,
@@ -12,7 +12,7 @@
         v-bind="props"
         v-on="events"
         @click.native="setActiveTab(index)">
-        <slot name="md-tab" :tab="{ label, icon, options }" v-if="$scopedSlots['md-tab']"></slot>
+        <slot name="md-tab" :tab="{ label, icon, data }" v-if="$scopedSlots['md-tab']"></slot>
 
         <template v-else>
           <template v-if="!icon">{{ label }}</template>

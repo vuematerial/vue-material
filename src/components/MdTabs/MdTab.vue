@@ -15,7 +15,7 @@
       mdDisabled: Boolean,
       mdLabel: [String, Number],
       mdIcon: String,
-      mdTemplateOptions: {
+      mdTemplateData: {
         type: Object,
         default: () => ({})
       }
@@ -53,7 +53,7 @@
           label: this.mdLabel,
           icon: this.mdIcon,
           disabled: this.mdDisabled,
-          options: this.mdTemplateOptions,
+          data: this.mdTemplateData,
           props: this.getPropValues(),
           events: this.$listeners
         })
