@@ -6,7 +6,8 @@
     v-model="content"
     @focus="onFocus"
     @blur="onBlur"
-    @input="onInput">
+    @input="onInput"
+    @change="onInput">
 </template>
 
 <script>

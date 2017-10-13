@@ -450,6 +450,26 @@
     }
 
     &.md-invalid {
+      @keyframes md-invalid-shake {
+        10%, 90% {
+          transform: translate3d(-1px, 0, 0);
+        }
+
+        30%, 70% {
+          transform: translate3d(-4px, 0, 0);
+        }
+
+        40%, 60% {
+          transform: translate3d(4px, 0, 0);
+        }
+      }
+
+      &.md-has-value label:not(:focus) {
+        animation: md-invalid-shake .4s $md-transition-default-timing both;
+        backface-visibility: hidden;
+        perspective: 1000px;
+      }
+
       &.md-has-textarea:not(.md-autogrow) {
         &:before {
           border-width: 2px;

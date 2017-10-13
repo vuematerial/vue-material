@@ -31,8 +31,9 @@ export default {
     }
   },
   watch: {
-    value (val) {
-      this.content = val
+    value (value) {
+      this.content = value
+      this.setFieldValue()
     },
     clear (clear) {
       if (clear) {
@@ -57,7 +58,6 @@ export default {
       this.$el.value = ''
       this.content = ''
       this.setFieldValue()
-      this.$emit('input', '')
     },
     setLabelFor () {
       const label = this.$el.parentNode.querySelector('label')
@@ -93,7 +93,10 @@ export default {
       this.MdField.focused = false
     },
     onInput () {
-      this.setFieldValue()
+      const newValue = this.$el ? this.$el.value : this.content
+
+      this.$emit('input', newValue)
+      this.MdField.value = newValue
     }
   },
   created () {
