@@ -184,6 +184,7 @@
 .md-table .md-table-selection .md-checkbox-container {
       width: 18px;
       height: 18px;
+      min-width: auto;
       margin-top: 1px;
 }
 .md-table .md-table-selection .md-checkbox-container:after {

@@ -101,13 +101,16 @@
         }
 
         this.parentTable.emitSelection();
-        this.$emit(value ? 'selected' : 'deselected', value);
+        this.$emit(value ? 'selected' : 'deselected', this.mdItem);
       },
       autoSelect() {
-        if (this.mdAutoSelect && this.hasSelection) {
-          this.checkbox = !this.checkbox;
-          this.handleSingleSelection(this.checkbox);
-          this.parentTable.emitSelection();
+        if (this.mdAutoSelect) {
+          if (this.hasSelection) {
+			  this.checkbox = !this.checkbox;
+			  this.handleSingleSelection(this.checkbox);
+			  this.parentTable.emitSelection();
+          }
+          this.$emit(!this.hasSelection || this.checkbox ? 'selected' : 'deselected', this.mdItem);
         }
       },
       startTableRow() {
