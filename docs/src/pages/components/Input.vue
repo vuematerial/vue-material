@@ -108,6 +108,18 @@
               </md-table-row>
 
               <md-table-row>
+                <md-table-cell>max</md-table-cell>
+                <md-table-cell><code>Number</code></md-table-cell>
+                <md-table-cell>Set the maximum value that the field can have.</md-table-cell>
+              </md-table-row>
+
+              <md-table-row>
+                <md-table-cell>min</md-table-cell>
+                <md-table-cell><code>Number</code></md-table-cell>
+                <md-table-cell>Set the minimum value that the field can have.</md-table-cell>
+              </md-table-row>
+
+              <md-table-row>
                 <md-table-cell>readonly</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
                 <md-table-cell>Set the component to read only mode.</md-table-cell>
@@ -233,7 +245,7 @@
                 <md-table-cell><code>Number</code></md-table-cell>
                 <md-table-cell>Sets the maximum height of the selection menu in terms of the number of items which can be displayed at once. If set to <code>0</code>, the maximum height will be dependant on window height. <br>Default: <code>0</code></md-table-cell>
               </md-table-row>
-              
+
               <md-table-row>
                 <md-table-cell>max-res</md-table-cell>
                 <md-table-cell><code>Number</code></md-table-cell>
@@ -665,7 +677,7 @@
             <form novalidate @submit.stop.prevent="submit">
               <md-input-container md-theme="green">
                 <label>Choose a Colour</label>
-                <md-autocomplete v-model="colorValue" 
+                <md-autocomplete v-model="colorValue"
                                  :list="colorData"
                                  print-attribute="name"
                                  :filter-list="colorFilter"
@@ -685,7 +697,7 @@
               &lt;form novalidate @submit.stop.prevent=&quot;submit&quot;&gt;
                 &lt;md-input-container md-theme=&quot;green&quot;&gt;
                   &lt;label&gt;Choose a Colour&lt;/label&gt;
-                  &lt;md-autocomplete v-model=&quot;colorValue&quot; 
+                  &lt;md-autocomplete v-model=&quot;colorValue&quot;
                                       :list=&quot;colorData&quot;
                                       print-attribute=&quot;name&quot;
                                       :filter-list=&quot;colorFilter&quot;
@@ -695,7 +707,7 @@
                                       :debounce=&quot;500&quot;&gt;
                   &lt;/md-autocomplete&gt;
                 &lt;/md-input-container&gt;
-              
+
                 &lt;div class=&quot;color-box&quot; :style=&quot;{ backgroundColor: selectedColor }&quot;&gt;&lt;/div&gt;
               &lt;/form&gt;
             </code-block>
@@ -736,7 +748,7 @@
                       {name: "orange", color: "#ffa500"},
                       {name: "orangered", color: "#ff4500"},
                       {name: "palegoldenrod", color: "#eee8aa"},
-                      {name: "palegreen", color: "#98fb98"},         
+                      {name: "palegreen", color: "#98fb98"},
                       {name: "pink", color: "#ffc0cb"},
                       {name: "purple", color: "#800080"},
                       {name: "red", color: "#ff0000"},
@@ -749,7 +761,7 @@
                       {name: "teal", color: "#008080"},
                       {name: "turquoise", color: "#40e0d0"},
                       {name: "violet", color: "#ee82ee"},
-                      {name: "white", color: "#ffffff"},         
+                      {name: "white", color: "#ffffff"},
                       {name: "yellow", color: "#ffff00"},
                     ]
                   };
@@ -757,23 +769,23 @@
                 methods: {
                   colorFilter: function(list, query) {
                     var arr = [];
-            
+
                     for(var i = 0; i &lt; list.length; i++) {
                       if(list[i].name.indexOf(query) !== -1)
                         arr.push(list[i]);
-            
+
                       if(arr.length &gt; 5)
                         break;
                     }
-            
+
                     return arr;
                   },
-            
+
                   colorCallback: function(item) {
                     this.selectedColor = item.color;
                   }
                 }
-              }; 
+              };
             </code-block>
           </div>
         </example-box>

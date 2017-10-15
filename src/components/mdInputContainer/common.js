@@ -8,6 +8,8 @@ export default {
     disabled: Boolean,
     required: Boolean,
     maxlength: [Number, String],
+    max: [Number, String],
+    min: [Number, String],
     name: String,
     placeholder: String,
     readonly: Boolean
@@ -32,12 +34,24 @@ export default {
     },
     maxlength() {
       this.handleMaxLength();
+    },
+    max() {
+      this.handleMax();
+    },
+    min() {
+      this.handleMin();
     }
   },
   methods: {
     handleMaxLength() {
       this.parentContainer.enableCounter = this.maxlength > 0;
       this.parentContainer.counterLength = this.maxlength;
+    },
+    handleMin() {
+      this.parentContainer.min = this.min;
+    },
+    handleMax() {
+      this.parentContainer.min = this.max;
     },
     lazyEventEmitter() {
       if (this.timeout) {
