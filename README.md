@@ -99,6 +99,12 @@ Yatima Kagurazaka
   <img width="150" src="https://user-images.githubusercontent.com/1357885/30575587-406d25f6-9cd8-11e7-8c73-5d08e956e6f8.png">
 </p>
 
+<p>
+  <a target='_blank' rel='nofollow' href='https://app.codesponsor.io/link/265KRzahMKDQEQEzoo9BxRiH/vuematerial/vue-material'>
+    <img alt='Sponsor' width='888' height='68' src='https://app.codesponsor.io/embed/265KRzahMKDQEQEzoo9BxRiH/vuematerial/vue-material.svg' />
+  </a>
+</p>
+
 ## Changelog
 <a href="https://vuematerial.github.io/#/changelog" target="_blank">Changelog</a>
 
