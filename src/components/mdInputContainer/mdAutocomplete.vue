@@ -290,6 +290,7 @@
       }
     },
     mounted() {
+      this.query = this.value;
       this.$nextTick(() => {
         this.parentContainer = getClosestVueParent(this.$parent, 'md-input-container');
         this.menuContent = document.body.querySelector('.md-autocomplete-content');
