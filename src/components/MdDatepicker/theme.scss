@@ -29,6 +29,10 @@
       @include md-theme-property(color, text-accent, background);
     }
 
+    .md-datepicker-disabled {
+      @include md-theme-property(color, disabled, background);
+    }
+
     .md-datepicker-today {
       @include md-theme-property(color, primary, background);
     }

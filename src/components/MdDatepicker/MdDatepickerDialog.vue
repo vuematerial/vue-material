@@ -41,7 +41,8 @@
                         class="md-datepicker-day-button"
                         :class="{
                           'md-datepicker-selected': isSelectedDay(day),
-                          'md-datepicker-today': isToday(day)
+                          'md-datepicker-today': isToday(day),
+                          'md-datepicker-disabled': isDisabled(day)
                         }"
                         @click="selectDate(day)">{{ day }}</span>
                     </div>
@@ -87,16 +88,17 @@
 </template>
 
 <script>
-  import isEqual from 'date-fns/is_equal'
-  import isToday from 'date-fns/is_today'
+  import addMonths from 'date-fns/add_months'
+  import startOfMonth from 'date-fns/start_of_month'
+  import subMonths from 'date-fns/sub_months'
   import getDate from 'date-fns/get_date'
-  import getYear from 'date-fns/get_year'
-  import getMonth from 'date-fns/get_month'
   import getDay from 'date-fns/get_day'
   import getDaysInMonth from 'date-fns/get_days_in_month'
-  import addMonths from 'date-fns/add_months'
-  import subMonths from 'date-fns/sub_months'
-  import startOfMonth from 'date-fns/start_of_month'
+  import getMonth from 'date-fns/get_month'
+  import getYear from 'date-fns/get_year'
+  import isEqual from 'date-fns/is_equal'
+  import isSameDay from 'date-fns/is_same_day'
+  import isToday from 'date-fns/is_today'
   import setDate from 'date-fns/set_date'
   import setMonth from 'date-fns/set_month'
   import setYear from 'date-fns/set_year'
@@ -124,7 +126,8 @@
       MdDialog,
     },
     props: {
-      mdDate: Date
+      mdDate: Date,
+      mdDisabledDates: [Array, Function]
     },
     data: () => ({
       currentDate: null,
@@ -238,11 +241,25 @@
 
         this.availableYears = years
       },
+      handleDisabledDateByArray (date) {
+        return this.mdDisabledDates.some(disabledDate => isSameDay(disabledDate, date))
+      },
+      isDisabled (day) {
+        if (this.mdDisabledDates) {
+          const targetDate = setDate(this.currentDate, day)
+
+          if (Array.isArray(this.mdDisabledDates)) {
+            return this.handleDisabledDateByArray(targetDate)
+          } else if (typeof this.mdDisabledDates === 'function') {
+            return this.mdDisabledDates(targetDate)
+          }
+        }
+      },
       isSelectedDay (day) {
         return isEqual(this.selectedDate, setDate(this.currentDate, day))
       },
       isToday (day) {
-        return isToday(setDate(this.currentDate, day));
+        return isToday(setDate(this.currentDate, day))
       },
       previousMonth () {
         this.monthAction = 'previous'
@@ -566,6 +583,10 @@
 
     .md-datepicker-today {
       font-weight: 700;
+    }
+
+    .md-datepicker-disabled {
+      pointer-events: none;
     }
   }
 
