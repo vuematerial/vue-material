@@ -1,8 +1,8 @@
 <template>
   <div class="md-drawer" :class="[$mdActiveTheme, drawerClasses]">
     <slot />
-    <md-overlay :md-visible="mdVisible" @click="closeDrawer" v-if="mdFixed" />
-    <md-overlay :md-visible="mdVisible" @click="closeDrawer" md-attach-to-parent v-else />
+    <md-overlay :md-active="mdActive" @click="closeDrawer" v-if="mdFixed" />
+    <md-overlay :md-active="mdActive" @click="closeDrawer" md-attach-to-parent v-else />
   </div>
 </template>
 
@@ -34,11 +34,11 @@
           'full'
         ])
       },
-      mdVisible: Boolean,
+      mdActive: Boolean,
       mdFixed: Boolean
     },
     watch: {
-      mdVisible (visible) {
+      mdActive (visible) {
         if (visible) {
           this.$emit('md-opened')
         } else {
@@ -54,7 +54,7 @@
           'md-temporary': this.isTemporary,
           'md-persistent': this.mdPersistent,
           'md-permanent': this.mdPermanent,
-          'md-active': this.mdVisible,
+          'md-active': this.mdActive,
           'md-fixed': this.mdFixed
         }
 
@@ -94,7 +94,7 @@
     },
     methods: {
       closeDrawer () {
-        this.$emit('update:mdVisible', false)
+        this.$emit('update:mdActive', false)
       }
     }
   })

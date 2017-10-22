@@ -46,7 +46,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^7.1.5",
-    "avoriaz": "^6.0.0",
+    "avoriaz": "^6.0.1",
     "axios": "^0.16.2",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",

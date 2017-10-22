@@ -1,6 +1,6 @@
 export default {
   props: {
-    value: [String, Number, Date],
+    value: [String, Number, Date, Array],
     placeholder: String,
     maxlength: [String, Number],
     readonly: Boolean,
@@ -22,6 +22,7 @@ export default {
         ...this.$attrs,
         type: this.type,
         id: this.id,
+        name: this.name,
         disabled: this.disabled,
         required: this.required,
         placeholder: this.placeholder,
@@ -60,13 +61,15 @@ export default {
       this.setFieldValue()
     },
     setLabelFor () {
-      const label = this.$el.parentNode.querySelector('label')
+      if (this.$el.parentNode) {
+        const label = this.$el.parentNode.querySelector('label')
 
-      if (label) {
-        const forAttribute = label.getAttribute('for')
+        if (label) {
+          const forAttribute = label.getAttribute('for')
 
-        if (!forAttribute || forAttribute.indexOf('md-') >= 0) {
-          label.setAttribute('for', this.id)
+          if (!forAttribute || forAttribute.indexOf('md-') >= 0) {
+            label.setAttribute('for', this.id)
+          }
         }
       }
     },

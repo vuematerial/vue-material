@@ -58,6 +58,7 @@
       }
 
       return createElement('li', {
+        ...data,
         staticClass,
         on: listeners
       }, [
@@ -98,7 +99,7 @@
     text-align: left;
     text-transform: none;
 
-    &:not(.md-list-item-default) {
+    &:not(.md-list-item-default):not([disabled]) {
       user-select: none;
       cursor: pointer;
     }

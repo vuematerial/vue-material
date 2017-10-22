@@ -2,7 +2,7 @@ import mountTemplate from 'test/utils/mountTemplate'
 import MdOverlay from './MdOverlay.vue'
 
 test('should render the overlay', async () => {
-  const template = '<md-overlay></md-overlay>'
+  const template = '<md-overlay md-active></md-overlay>'
   const wrapper = await mountTemplate(MdOverlay, template)
 
   expect(wrapper.hasClass('md-overlay')).toBe(true)

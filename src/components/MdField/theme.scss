@@ -128,13 +128,10 @@
       }
     }
 
-    &.md-focused {
+    &.md-focused,
+    &.md-highlight {
       &:before {
         @include md-theme-property(background-color, primary);
-      }
-
-      label {
-        @include md-theme-property(color, primary);
       }
 
       .md-input,
@@ -151,6 +148,12 @@
         &:before {
           @include md-theme-property(border-color, primary);
         }
+      }
+    }
+
+    &.md-focused {
+      label {
+        @include md-theme-property(color, primary);
       }
     }
   }

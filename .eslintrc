@@ -17,6 +17,7 @@
   "rules": {
     "arrow-parens": 0,
     "generator-star-spacing": 0,
+    "vue/valid-v-on": 0,
     "max-depth": [
       "error",
       4

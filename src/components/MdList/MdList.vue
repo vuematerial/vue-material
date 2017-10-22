@@ -1,5 +1,5 @@
 <template>
-  <ul class="md-list" :class="[$mdActiveTheme]">
+  <ul class="md-list" :class="[$mdActiveTheme]" v-on="$listeners">
     <slot />
   </ul>
 </template>

@@ -1,5 +1,5 @@
 <template>
-  <div class="md-menu">
+  <div class="md-menu" v-on="$listeners">
     <slot />
   </div>
 </template>
@@ -44,6 +44,7 @@
       return {
         triggerEl: null,
         MdMenu: {
+          instance: this,
           active: this.mdActive,
           direction: this.mdDirection,
           size: this.mdSize,
@@ -66,8 +67,11 @@
       }
     },
     watch: {
-      mdActive (isActive) {
-        this.MdMenu.active = isActive
+      mdActive: {
+        immediate: true,
+        handler (isActive) {
+          this.MdMenu.active = isActive
+        }
       },
       mdDirection (direction) {
         this.MdMenu.direction = direction
@@ -86,6 +90,12 @@
       },
       isActive (isActive) {
         this.$emit('update:mdActive', isActive)
+
+        if (!isActive) {
+          this.$emit('md-closed')
+        } else {
+          this.$emit('md-opened')
+        }
       }
     },
     methods: {

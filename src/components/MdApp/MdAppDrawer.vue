@@ -10,14 +10,14 @@
     inject: ['MdApp'],
     data: () => ({
       drawerElement: {
-        mdVisible: null,
+        mdActive: null,
         mode: null,
         submode: null
       }
     }),
     computed: {
       visible () {
-        return this.drawerElement.mdVisible
+        return this.drawerElement.mdActive
       },
       mode () {
         return this.drawerElement.mode

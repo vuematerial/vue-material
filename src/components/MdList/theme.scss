@@ -1,6 +1,7 @@
 .md-list {
   @include md-theme-component() {
     @include md-theme-property(background-color, background);
+    @include md-theme-property(color, text-primary, background);
 
     &.md-double-line .md-list-item-text :nth-child(2) {
       @include md-theme-property(color, text-accent, background);
@@ -10,16 +11,27 @@
       @include md-theme-property(color, text-accent, background);
     }
 
+    .md-highlight .md-list-item-container {
+      @include md-theme-property(background-color, divider, background);
+    }
+
     .md-list-item-container {
       @include md-theme-property(color, text-primary, background);
 
-      &:not(.md-list-item-default):hover {
+      &:not(.md-list-item-default):not([disabled]):hover {
         @include md-theme-property(background-color, divider, background);
       }
     }
 
+    [disabled] {
+      @include md-theme-property(color, disabled, background);
+    }
+
+    .md-selected,
     .router-link-exact-active {
-      @include md-theme-property(color, primary, background);
+      .md-list-item-content {
+        @include md-theme-property(color, primary, background);
+      }
     }
 
     .md-list-item-expand.md-active {

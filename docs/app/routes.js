@@ -5,6 +5,11 @@ Vue.use(VueRouter)
 
 export const routes = [
   {
+    path: '/components/select',
+    name: 'components/select',
+    component: () => import(/* webpackChunkName: "select" */ './pages/Components/Select/Select.vue')
+  },
+  {
     path: '/components/datepicker',
     name: 'components/datepicker',
     component: () => import(/* webpackChunkName: "datepicker" */ './pages/Components/Datepicker/Datepicker.vue')

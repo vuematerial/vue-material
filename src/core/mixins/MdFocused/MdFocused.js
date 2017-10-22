@@ -15,7 +15,7 @@ function checkPassiveEventSupport () {
         supportsPassiveEvent = { passive: true }
       }
     })
-    window.addEventListener('test', null, opts)
+    window.addEventListener('ghost', null, opts)
   } catch (e) {}
 }
 

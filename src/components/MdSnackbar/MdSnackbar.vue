@@ -1,8 +1,12 @@
 <template>
-  <md-portal class="md-snackbar" :class="[snackbarClasses, $mdActiveTheme]"  md-transition-name="md-snackbar" :md-if="mdActive">
-    <div class="md-snackbar-content">
-      <slot />
-    </div>
+  <md-portal>
+    <transition name="md-snackbar">
+      <div class="md-snackbar" :class="[snackbarClasses, $mdActiveTheme]" v-if="mdActive">
+        <div class="md-snackbar-content">
+          <slot />
+        </div>
+      </div>
+    </transition>
   </md-portal>
 </template>
 

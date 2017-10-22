@@ -1,92 +1,88 @@
 <template>
-  <md-popover
-    class="md-datepicker-dialog"
-    :class="[$mdActiveTheme]"
-    md-transition-name="md-datepicker-dialog"
-    md-follow-el="original"
-    :md-settings="popperSettings"
-    :md-if="showDialog">
-    <div class="md-datepicker-header">
-      <span class="md-datepicker-year-select" :class="{ 'md-selected': currentView === 'year' }" @click="currentView = 'year'">{{ selectedYear }}</span>
-      <div class="md-datepicker-date-select" :class="{ 'md-selected': currentView !== 'year' }" @click="currentView = 'day'">
-        <strong class="md-datepicker-dayname">{{ shortDayName }}, </strong>
-        <strong class="md-datepicker-monthname">{{ shortMonthName }}</strong>
-        <strong class="md-datepicker-day">{{ currentDay }}</strong>
-      </div>
-    </div>
-
-    <div class="md-datepicker-body">
-      <transition name="md-datepicker-body-header">
-        <div class="md-datepicker-body-header" v-if="currentView === 'day'">
-          <md-button class="md-dense md-icon-button" @click="previousMonth">
-            <md-arrow-left-icon />
-          </md-button>
-
-          <md-button class="md-dense md-icon-button" @click="nextMonth">
-            <md-arrow-right-icon />
-          </md-button>
+  <md-popover :md-settings="popperSettings" md-active>
+    <transition name="md-datepicker-dialog" appear>
+      <div class="md-datepicker-dialog" :class="[$mdActiveTheme]">
+        <div class="md-datepicker-header">
+          <span class="md-datepicker-year-select" :class="{ 'md-selected': currentView === 'year' }" @click="currentView = 'year'">{{ selectedYear }}</span>
+          <div class="md-datepicker-date-select" :class="{ 'md-selected': currentView !== 'year' }" @click="currentView = 'day'">
+            <strong class="md-datepicker-dayname">{{ shortDayName }}, </strong>
+            <strong class="md-datepicker-monthname">{{ shortMonthName }}</strong>
+            <strong class="md-datepicker-day">{{ currentDay }}</strong>
+          </div>
         </div>
-      </transition>
 
-      <div class="md-datepicker-body-content" :style="contentStyles">
-        <transition name="md-datepicker-view">
-          <transition-group class="md-datepicker-panel md-datepicker-calendar" :class="calendarClasses" tag="div" name="md-datepicker-month" v-if="currentView === 'day'">
-            <div class="md-datepicker-panel md-datepicker-month" v-for="(month, index) in [currentDate]" :key="month.getMonth()">
-              <md-button class="md-dense md-datepicker-month-trigger" @click="currentView = 'month'">{{ currentMonthName }} {{ currentYear }}</md-button>
+        <div class="md-datepicker-body">
+          <transition name="md-datepicker-body-header">
+            <div class="md-datepicker-body-header" v-if="currentView === 'day'">
+              <md-button class="md-dense md-icon-button" @click="previousMonth">
+                <md-arrow-left-icon />
+              </md-button>
 
-              <div class="md-datepicker-week">
-                <span v-for="(day, index) in locale.shorterDays" :key="index">{{ day }}</span>
-              </div>
-
-              <div class="md-datepicker-days">
-                <span class="md-datepicker-empty" v-for="day in firstDayOfMonth" :key="day"></span>
-                <div class="md-datepicker-day" v-for="day in daysInMonth" :key="day">
-                  <span
-                    class="md-datepicker-day-button"
-                    :class="{
-                      'md-datepicker-selected': isSelectedDay(day),
-                      'md-datepicker-today': isToday(day)
-                    }"
-                    @click="selectDate(day)">{{ day }}</span>
-                </div>
-              </div>
+              <md-button class="md-dense md-icon-button" @click="nextMonth">
+                <md-arrow-right-icon />
+              </md-button>
             </div>
-          </transition-group>
+          </transition>
 
-          <div class="md-datepicker-panel md-datepicker-month-selector" v-else-if="currentView === 'month'">
-            <md-button class="md-datepicker-year-trigger" @click="currentView = 'year'">{{ currentYear }}</md-button>
-            <span
-              class="md-datepicker-month-button"
-              v-for="(month, index) in locale.months"
-              :class="{
-                'md-datepicker-selected': currentMonthName === month
-              }"
-              :key="month"
-              @click="switchMonth(index)">{{ month }}</span>
+          <div class="md-datepicker-body-content" :style="contentStyles">
+            <transition name="md-datepicker-view">
+              <transition-group class="md-datepicker-panel md-datepicker-calendar" :class="calendarClasses" tag="div" name="md-datepicker-month" v-if="currentView === 'day'">
+                <div class="md-datepicker-panel md-datepicker-month" v-for="(month, index) in [currentDate]" :key="month.getMonth()">
+                  <md-button class="md-dense md-datepicker-month-trigger" @click="currentView = 'month'">{{ currentMonthName }} {{ currentYear }}</md-button>
+
+                  <div class="md-datepicker-week">
+                    <span v-for="(day, index) in locale.shorterDays" :key="index">{{ day }}</span>
+                  </div>
+
+                  <div class="md-datepicker-days">
+                    <span class="md-datepicker-empty" v-for="day in firstDayOfMonth" :key="day"></span>
+                    <div class="md-datepicker-day" v-for="day in daysInMonth" :key="day">
+                      <span
+                        class="md-datepicker-day-button"
+                        :class="{
+                          'md-datepicker-selected': isSelectedDay(day),
+                          'md-datepicker-today': isToday(day)
+                        }"
+                        @click="selectDate(day)">{{ day }}</span>
+                    </div>
+                  </div>
+                </div>
+              </transition-group>
+
+              <div class="md-datepicker-panel md-datepicker-month-selector" v-else-if="currentView === 'month'">
+                <md-button class="md-datepicker-year-trigger" @click="currentView = 'year'">{{ currentYear }}</md-button>
+                <span
+                  class="md-datepicker-month-button"
+                  v-for="(month, index) in locale.months"
+                  :class="{
+                    'md-datepicker-selected': currentMonthName === month
+                  }"
+                  :key="month"
+                  @click="switchMonth(index)">{{ month }}</span>
+              </div>
+
+              <keep-alive v-else-if="currentView === 'year'">
+                <md-content class="md-datepicker-panel md-datepicker-year-selector md-scrollbar">
+                  <span
+                    class="md-datepicker-year-button"
+                    v-for="year in availableYears"
+                    :class="{
+                      'md-datepicker-selected': currentYear === year
+                    }"
+                    :key="year"
+                    @click="switchYear(year)">{{ year }}</span>
+                </md-content>
+              </keep-alive>
+            </transition>
           </div>
 
-          <keep-alive v-else-if="currentView === 'year'">
-            <md-content class="md-datepicker-panel md-datepicker-year-selector md-scrollbar">
-              <span
-                class="md-datepicker-year-button"
-                v-for="year in availableYears"
-                :class="{
-                  'md-datepicker-selected': currentYear === year
-                }"
-                :key="year"
-                @click="switchYear(year)">{{ year }}</span>
-            </md-content>
-          </keep-alive>
-        </transition>
+          <md-dialog-actions class="md-datepicker-body-footer">
+            <md-button class="md-primary" @click="onCancel">Cancel</md-button>
+            <md-button class="md-primary" @click="onConfirm">Ok</md-button>
+          </md-dialog-actions>
+        </div>
       </div>
-
-      <md-dialog-actions class="md-datepicker-body-footer">
-        <md-button class="md-primary" @click="onCancel">Cancel</md-button>
-        <md-button class="md-primary" @click="onConfirm">Ok</md-button>
-      </md-dialog-actions>
-    </div>
-
-    <md-overlay class="md-datepicker-overlay" md-fixed :md-visible="showDialog" @click="onCancel" />
+    </transition>
   </md-popover>
 </template>
 
@@ -107,7 +103,6 @@
 
   import MdComponent from 'core/MdComponent'
   import MdPopover from 'components/MdPopover/MdPopover'
-  import MdOverlay from 'components/MdOverlay/MdOverlay'
   import MdArrowRightIcon from 'core/icons/MdArrowRightIcon'
   import MdArrowLeftIcon from 'core/icons/MdArrowLeftIcon'
   import MdDialog from 'components/MdDialog/MdDialog'
@@ -124,13 +119,11 @@
     name: 'MdDatepickerDialog',
     components: {
       MdPopover,
-      MdOverlay,
       MdArrowRightIcon,
       MdArrowLeftIcon,
       MdDialog,
     },
     props: {
-      mdActive: Boolean,
       mdDate: Date
     },
     data: () => ({
@@ -195,14 +188,6 @@
       }
     },
     watch: {
-      mdActive () {
-        this.showDialog = this.mdActive
-        this.currentView = 'day'
-
-        window.setTimeout(() => {
-          this.setContentStyles()
-        }, 50)
-      },
       mdDate () {
         this.currentDate = this.mdDate || new Date()
         this.selectedDate = this.mdDate
@@ -280,7 +265,7 @@
         this.selectedDate = this.currentDate
       },
       closeDialog () {
-        this.$emit('update:mdActive', false)
+        this.$emit('md-closed')
       },
       onClose () {
         this.closeDialog()
@@ -295,10 +280,14 @@
     },
     created () {
       this.setAvailableYears()
-      this.showDialog = this.mdActive
       this.currentDate = this.mdDate || new Date()
       this.selectedDate = this.mdDate
-    }
+      this.currentView = 'day'
+
+      window.setTimeout(() => {
+        this.setContentStyles()
+      }, 50)
+    },
   })
 </script>
 
@@ -309,14 +298,6 @@
 
   $md-calendar-width: 320px;
   $md-calendar-mobile-width: 296px;
-
-  .md-datepicker-overlay {
-    opacity: 0;
-
-    @include md-layout-xsmall {
-      opacity: 1;
-    }
-  }
 
   .md-datepicker-dialog {
     @include md-elevation(24);
@@ -340,8 +321,11 @@
     }
   }
 
-  .md-datepicker-dialog-enter,
   .md-datepicker-dialog-leave-active {
+    opacity: 0;
+  }
+
+  .md-datepicker-dialog-enter {
     opacity: 0;
     transform: scale(.9);
 

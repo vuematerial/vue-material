@@ -1,6 +1,6 @@
 import { mount } from 'avoriaz'
 import mountTemplate from 'test/utils/mountTemplate'
-import MdPortal from './MdPortal.vue'
+import MdPortal from './MdPortal'
 
 test('should render the portal element inside body', async () => {
   const template = '<md-portal>Lorem ipsum</md-portal>'
@@ -31,13 +31,13 @@ test('should render on a custom target', async () => {
       </div>
     </div>
   `
-  const targetWrapper = await mountTemplate(MdPortal, targetTemplate, {
+  await mountTemplate(MdPortal, targetTemplate, {
     attachToDocument: true
   })
   const targetEl = document.querySelector('.target')
   const portalWrapper = mount(MdPortal, {
     propsData: {
-      mdTargetEl: targetEl
+      mdTarget: targetEl
     }
   })
   const portalEl = portalWrapper.vm.$el
@@ -56,7 +56,7 @@ test('should re render after target change', async () => {
       </div>
     </div>
   `
-  const targetWrapper = await mountTemplate(MdPortal, targetTemplate)
+  await mountTemplate(MdPortal, targetTemplate)
   const portalWrapper = mount(MdPortal, {
     attachToDocument: true
   })
@@ -66,7 +66,7 @@ test('should re render after target change', async () => {
   expect(document.body.childNodes).toContain(portalEl)
 
   portalWrapper.setProps({
-    mdTargetEl: targetEl
+    mdTarget: targetEl
   })
   portalWrapper.vm.$nextTick()
   expect(document.body.childNodes).not.toContain(portalEl)

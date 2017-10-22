@@ -7,8 +7,13 @@ Vue.config.devtools = false
 Vue.use(VueMaterial)
 
 Vue.component('transition', {
+  abstract: true,
   render (createElement) {
-    return createElement('div', this.$slots.default)
+    const defaultSlot = this.$slots.default
+
+    if (defaultSlot) {
+      return defaultSlot[0] && defaultSlot[0]
+    }
   }
 })
 

@@ -8,7 +8,7 @@
         <span class="md-title">My Title</span>
       </md-app-toolbar>
 
-      <md-app-drawer :md-visible.sync="menuVisible" md-persistent="mini">
+      <md-app-drawer :md-active.sync="menuVisible" md-persistent="mini">
         <md-toolbar class="md-transparent" md-elevation="0">
           <span>Navigation</span>
 

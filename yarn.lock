@@ -283,9 +283,9 @@ autoprefixer@^7.1.5:
     postcss "^6.0.13"
     postcss-value-parser "^3.2.3"
 
-avoriaz@^6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/avoriaz/-/avoriaz-6.0.0.tgz#5e994efe34961979b2161b183807d13f35eaba21"
+avoriaz@^6.0.1:
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/avoriaz/-/avoriaz-6.0.1.tgz#e35516172e780213afe3d024172bdf781c4cc7db"
   dependencies:
     lodash "^4.17.4"
     vue-add-globals "^2.0.0"
@@ -6638,6 +6638,12 @@ vue-template-compiler@^2.5.1:
 vue-template-es2015-compiler@^1.5.3, vue-template-es2015-compiler@^1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.6.0.tgz#dc42697133302ce3017524356a6c61b7b69b4a18"
+
+vue-test-utils@^1.0.0-beta.2:
+  version "1.0.0-beta.2"
+  resolved "https://registry.yarnpkg.com/vue-test-utils/-/vue-test-utils-1.0.0-beta.2.tgz#821733022ebc07ea93cefc53aedeea736ca85526"
+  dependencies:
+    lodash "^4.17.4"
 
 vue@^2.5.1:
   version "2.5.1"

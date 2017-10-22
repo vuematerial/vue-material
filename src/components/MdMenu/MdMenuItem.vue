@@ -1,5 +1,5 @@
 <template>
-  <md-list-item class="md-menu-item" v-on="listeners" v-bind="$attrs">
+  <md-list-item class="md-menu-item" v-bind="$attrs" :class="itemClasses" :disabled="disabled" :tabindex="highlighted && -1" v-on="listeners">
     <slot />
   </md-list-item>
 </template>
@@ -10,10 +10,21 @@
 
   export default {
     name: 'MdMenuItem',
+    props: {
+      disabled: Boolean
+    },
     inject: ['MdMenu'],
     data: () => ({
-      listeners: {}
+      listeners: {},
+      highlighted: false
     }),
+    computed: {
+      itemClasses () {
+        return {
+          'md-highlight': this.highlighted
+        }
+      }
+    },
     created () {
       if (this.MdMenu.closeOnSelect) {
         let listenerNames = Object.keys(this.$listeners)
@@ -21,16 +32,22 @@
 
         listenerNames.forEach(listener => {
           if (MdInteractionEvents.includes(listener)) {
-            this.listeners[listener] = ($event) => {
-              this.$listeners[listener]($event)
-              this.MdMenu.active = false
+            this.listeners[listener] = $event => {
+              if (!this.disabled) {
+                this.$listeners[listener]($event)
+                this.MdMenu.active = false
 
-              if (this.MdMenu.eventObserver) {
-                this.MdMenu.eventObserver.destroy()
+                if (this.MdMenu.eventObserver) {
+                  this.MdMenu.eventObserver.destroy()
+                }
               }
             }
+          } else {
+            this.listeners[listener] = this.$listeners[listener]
           }
         })
+      } else {
+        this.listeners = this.$listeners
       }
     }
   }

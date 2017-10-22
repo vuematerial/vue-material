@@ -1,12 +1,16 @@
 <template>
-  <md-portal class="md-dialog" :class="dialogClasses" md-transition-name="md-dialog" :md-if="mdActive">
-    <md-focus-trap>
-      <div class="md-dialog-container" :class="[$mdActiveTheme]" @keydown.esc="onEsc">
-        <slot />
-      </div>
-    </md-focus-trap>
+  <md-portal>
+    <transition name="md-dialog">
+      <div class="md-dialog" :class="dialogClasses" v-on="$listeners" v-if="mdActive">
+        <md-focus-trap>
+          <div class="md-dialog-container" :class="[$mdActiveTheme]" @keydown.esc="onEsc">
+            <slot />
+          </div>
+        </md-focus-trap>
 
-    <md-overlay :class="mdBackdropClass" md-fixed :md-visible="mdActive" @click="onClick" v-if="mdBackdrop" />
+        <md-overlay :class="mdBackdropClass" md-fixed :md-active="mdActive" @click="onClick" v-if="mdBackdrop" />
+      </div>
+    </transition>
   </md-portal>
 </template>
 
@@ -114,15 +118,15 @@
     backface-visibility: hidden;
     pointer-events: auto;
     transform-origin: center center;
-    transition: opacity .2s $md-transition-stand-timing,
-                transform .4s $md-transition-stand-timing;
+    transition: opacity .1s $md-transition-stand-timing,
+                transform .3s $md-transition-stand-timing;
     will-change: opacity, transform, left, top;
 
     > .md-dialog-title,
     > .md-dialog-content,
     > .md-dialog-actions {
-      transition: .4s $md-transition-default-timing;
-      transition-property: opacity, transform;
+      transition: opacity .3s $md-transition-default-timing,
+                  transform .25s $md-transition-default-timing;
       will-change: opacity, transform;
     }
   }
@@ -137,7 +141,7 @@
       > .md-dialog-content,
       > .md-dialog-actions {
         opacity: 0;
-        transform: scale(.95) translate3D(0, 15%, 0);
+        transform: scale(.95) translate3D(0, 10%, 0);
       }
     }
   }

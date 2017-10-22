@@ -77,6 +77,9 @@ export default {
     radio: {
       title: 'Radio'
     },
+    select: {
+      title: 'Select'
+    },
     file: {
       title: 'File'
     },

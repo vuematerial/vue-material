@@ -1,5 +1,5 @@
 <template>
-  <button type="button" class="md-list-item-button">
+  <button type="button" class="md-list-item-button" :disabled="disabled">
     <md-list-item-content :md-disabled="isDisabled">
       <slot />
     </md-list-item-content>
@@ -14,11 +14,3 @@
     mixins: [MdListItemMixin]
   }
 </script>
-
-<style lang="scss">
-  @import "~components/MdAnimation/variables";
-
-  .md-list-item-button {
-
-  }
-</style>

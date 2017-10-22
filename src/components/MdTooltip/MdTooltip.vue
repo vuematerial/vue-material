@@ -1,13 +1,10 @@
 <template>
-  <md-popover
-    class="md-tooltip"
-    :class="[tooltipClasses, $mdActiveTheme]"
-    :style="tooltipStyles"
-    md-transition-name="md-tooltip"
-    md-follow-el="original"
-    :md-settings="popperSettings"
-    :md-if="shouldRender">
-    <slot />
+  <md-popover :md-settings="popperSettings" :md-active="shouldRender">
+    <transition name="md-tooltip" v-if="shouldRender">
+      <div class="md-tooltip" :class="[tooltipClasses, $mdActiveTheme]" :style="tooltipStyles">
+        <slot />
+      </div>
+    </transition>
   </md-popover>
 </template>
 
@@ -73,13 +70,18 @@
       await this.$nextTick()
 
       this.shouldRender = this.mdActive
-      this.targetEl = this.$children[0].originalParentEl
-      this.targetEl.addEventListener('mouseenter', this.show, false)
-      this.targetEl.addEventListener('mouseleave', this.hide, false)
+      this.targetEl = this._vnode.componentInstance.originalParentEl
+
+      if (this.targetEl) {
+        this.targetEl.addEventListener('mouseenter', this.show, false)
+        this.targetEl.addEventListener('mouseleave', this.hide, false)
+      }
     },
     beforeDestroy () {
-      this.targetEl.removeEventListener('mouseenter', this.show)
-      this.targetEl.removeEventListener('mouseleave', this.hide)
+      if (this.targetEl) {
+        this.targetEl.removeEventListener('mouseenter', this.show)
+        this.targetEl.removeEventListener('mouseleave', this.hide)
+      }
     }
   })
 </script>
@@ -98,7 +100,6 @@
     z-index: 60;
     pointer-events: none;
     border-radius: 2px;
-    opacity: 0;
     transition: .15s $md-transition-enter-timing;
     transition-property: opacity, transform;
     will-change: opacity, transform, top, left !important;
@@ -113,26 +114,29 @@
       line-height: $md-tooltip-height-mobile;
     }
 
-    &.md-tooltip-top {
-      transform: translate3d(0, 3px, 0) scale(.95);
-    }
-
-    &.md-tooltip-right {
-      transform: translate3d(-3px, 0, 0) scale(.95);
-    }
-
-    &.md-tooltip-bottom {
-      transform: translate3d(0, -3px, 0) scale(.95);
-    }
-
-    &.md-tooltip-left {
-      transform: translate3d(3px, 0, 0) scale(.95);
-    }
-
-    &.md-active {
-      opacity: 1;
-      transform: translate3d(0, 0, 0);
+    &.md-tooltip-leave-active {
       transition-timing-function: $md-transition-leave-timing;
+    }
+
+    &.md-tooltip-enter,
+    &.md-tooltip-leave-active {
+      opacity: 0;
+
+      &.md-tooltip-top {
+        transform: translate3d(0, 4px, 0) scale(.95);
+      }
+
+      &.md-tooltip-right {
+        transform: translate3d(-4px, 0, 0) scale(.95);
+      }
+
+      &.md-tooltip-bottom {
+        transform: translate3d(0, -4px, 0) scale(.95);
+      }
+
+      &.md-tooltip-left {
+        transform: translate3d(4px, 0, 0) scale(.95);
+      }
     }
   }
 </style>

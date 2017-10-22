@@ -1,5 +1,5 @@
 <template>
-  <div class="md-field" :class="[$mdActiveTheme, fieldClasses]">
+  <div class="md-field" :class="[$mdActiveTheme, fieldClasses]" @blur="onBlur">
     <slot />
 
     <span class="md-count" v-if="hasCounter">{{ valueLength }} / {{ MdField.maxlength }}</span>
@@ -49,6 +49,7 @@
       MdField: {
         value: null,
         focused: false,
+        highlighted: false,
         disabled: false,
         required: false,
         placeholder: false,
@@ -91,6 +92,7 @@
           'md-inline': this.mdInline,
           'md-clearable': this.mdClearable,
           'md-focused': this.MdField.focused,
+          'md-highlight': this.MdField.highlighted,
           'md-disabled': this.MdField.disabled,
           'md-required': this.MdField.required,
           'md-has-value': this.hasValue,
@@ -111,6 +113,9 @@
       },
       async togglePassword () {
         this.MdField.togglePassword = !this.MdField.togglePassword
+      },
+      onBlur () {
+        this.MdField.highlighted = false
       }
     }
   })
@@ -337,7 +342,8 @@
       }
 
       &:hover,
-      &.md-focused {
+      &.md-focused,
+      &.md-highlight {
         &:before {
           border-width: 2px;
         }
@@ -368,14 +374,16 @@
     }
 
     &:hover,
-    &.md-focused {
+    &.md-focused,
+    &.md-highlight {
       &:after,
       &:before {
         height: 2px;
       }
     }
 
-    &.md-focused {
+    &.md-focused,
+    &.md-highlight {
       &:before {
         transform: scaleX(1);
       }

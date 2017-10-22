@@ -12,7 +12,7 @@
         </div>
       </md-app-toolbar>
 
-      <md-app-drawer :md-visible.sync="showNavigation">
+      <md-app-drawer :md-active.sync="showNavigation">
         <md-toolbar class="md-transparent" md-elevation="0">
           <span class="md-title">My App name</span>
         </md-toolbar>
@@ -40,7 +40,7 @@
         </md-list>
       </md-app-drawer>
 
-      <md-app-drawer class="md-right" :md-visible.sync="showSidepanel">
+      <md-app-drawer class="md-right" :md-active.sync="showSidepanel">
         <md-toolbar class="md-transparent" md-elevation="0">
           <span class="md-title">Favorites</span>
         </md-toolbar>

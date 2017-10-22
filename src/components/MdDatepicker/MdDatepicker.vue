@@ -6,8 +6,10 @@
     <slot />
 
     <keep-alive>
-      <md-datepicker-dialog :md-date.sync="selectedDate" :md-active.sync="showDialog" />
+      <md-datepicker-dialog :md-date.sync="selectedDate" v-if="showDialog" @md-closed="toggleDialog" />
     </keep-alive>
+
+    <md-overlay class="md-datepicker-overlay" md-fixed :md-active="showDialog" @click="toggleDialog" />
   </md-field>
 </template>
 
@@ -17,6 +19,7 @@
   import format from 'date-fns/format'
   import parse from 'date-fns/parse'
   import isValid from 'date-fns/is_valid'
+  import MdOverlay from 'components/MdOverlay/MdOverlay'
   import MdDatepickerDialog from './MdDatepickerDialog'
   import MdDateIcon from 'core/icons/MdDateIcon'
   import MdField from 'components/MdField/MdField'
@@ -25,6 +28,7 @@
   export default {
     name: 'MdDatepicker',
     components: {
+      MdOverlay,
       MdDateIcon,
       MdField,
       MdInput,
@@ -94,6 +98,15 @@
 
 <style lang="scss">
   @import "~components/MdAnimation/variables";
+  @import "~components/MdLayout/mixins";
+
+  .md-datepicker-overlay {
+    opacity: 0;
+
+    @include md-layout-xsmall {
+      opacity: 1;
+    }
+  }
 
   .md-datepicker {
     transition: .3s $md-transition-default-timing;

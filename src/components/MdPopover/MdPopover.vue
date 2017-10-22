@@ -5,15 +5,12 @@
 
   export default {
     name: 'MdPopover',
+    abstract: true,
     components: {
       MdPortal
     },
     props: {
-      mdIf: Boolean,
-      mdTag: {
-        type: String,
-        default: 'div'
-      },
+      mdActive: Boolean,
       mdSettings: {
         type: Object,
         default: () => ({})
@@ -35,19 +32,21 @@
       }
     },
     watch: {
-      mdIf (shouldRender) {
-        this.shouldRender = shouldRender
+      mdActive: {
+        immediate: true,
+        handler (shouldRender) {
+          this.shouldRender = shouldRender
 
-        if (shouldRender) {
-          this.bindPopper()
-        } else {
-          this.shouldActivate = false
+          if (shouldRender) {
+            this.bindPopper()
+          } else {
+            this.shouldActivate = false
+          }
         }
       },
-      mdSettings (settings) {
+      mdSettings () {
         if (this.popperInstance) {
-          this.popperInstance.options = deepmerge(this.popperInstance.options, settings)
-          this.popperInstance.scheduleUpdate()
+          this.createPopper()
         }
       }
     },
@@ -57,6 +56,7 @@
           placement: 'bottom',
           modifiers: {
             preventOverflow: {
+              boundariesElement: 'viewport',
               padding: 16
             },
             computeStyle: {
@@ -70,7 +70,9 @@
         }
       },
       setOriginalParent (el) {
-        this.originalParentEl = el
+        if (!this.originalParentEl) {
+          this.originalParentEl = el
+        }
       },
       killPopper () {
         if (this.popperInstance) {
@@ -81,33 +83,43 @@
       async bindPopper () {
         await this.$nextTick()
 
-        const el = this.$children[0].$el
-
         if (this.originalParentEl) {
+          this.createPopper()
+        }
+      },
+      async createPopper () {
+        if (this.mdSettings) {
           const options = deepmerge(this.getPopperOptions(), this.mdSettings)
 
-          this.popperInstance = new Popper(this.originalParentEl, el, options)
+          if (this.$el.constructor.name.toLowerCase() !== 'comment') {
+            this.popperInstance = new Popper(this.originalParentEl, this.$el, options)
+          }
+        }
+      },
+      resetPopper () {
+        if (this.popperInstance) {
+          this.killPopper()
+          this.createPopper()
         }
       }
     },
     beforeDestroy () {
       this.killPopper()
     },
+    mounted () {
+      this.resetPopper()
+    },
     render (createElement) {
-      return createElement('md-portal', {
-        staticClass: 'md-popover',
-        class: this.popoverClasses,
+      return createElement(MdPortal, {
         props: {
-          ...this.$attrs,
-          mdTag: this.mdTag,
-          mdIf: this.shouldRender
+          ...this.$attrs
         },
         on: {
           ...this.$listeners,
-          'md-original-parent': this.setOriginalParent,
+          'md-initial-parent': this.setOriginalParent,
           'md-destroy': this.killPopper
         }
-      }, [this.$slots.default])
+      }, this.$slots.default)
     }
   }
 </script>
@@ -116,6 +128,7 @@
   .md-popover {
     &.md-rendering {
       opacity: 0;
+      transition: none !important;
     }
   }
 </style>

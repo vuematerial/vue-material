@@ -28,6 +28,7 @@
         <router-link to="/components/file">{{ $t('pages.file.title') }}</router-link>
         <router-link to="/components/input">{{ $t('pages.input.title') }}</router-link>
         <router-link to="/components/radio">{{ $t('pages.radio.title') }}</router-link>
+        <router-link to="/components/select">{{ $t('pages.select.title') }}</router-link>
         <router-link to="/components/switch">{{ $t('pages.switch.title') }}</router-link>
       </div>
 
