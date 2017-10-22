@@ -1,3 +1,4 @@
+import raf from 'raf'
 import MdPropValidator from 'core/utils/MdPropValidator'
 
 const mdAppModes = [
@@ -23,6 +24,7 @@ export default {
   data: () => ({
     revealTimer: null,
     revealLastPos: 0,
+    manualTick: false,
     MdApp: {
       options: {
         mode: null,
@@ -242,7 +244,7 @@ export default {
     },
     handleScroll ($event) {
       if (this.MdApp.toolbar.element) {
-        window.requestAnimationFrame(() => {
+        raf(() => {
           if (this.mdWaterfall) {
             this.handleWaterfallScroll($event)
           }

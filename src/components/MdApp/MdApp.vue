@@ -87,7 +87,7 @@
       transform: translate3d(0, 0, 0);
 
       .md-app-toolbar {
-        position: fixed;
+        position: absolute;
         top: 0;
       }
     }
