@@ -154,7 +154,9 @@
         }
       },
       onFocus () {
-        this.applyHighlight()
+        if (this.didMount) {
+          this.applyHighlight()
+        }
       },
       removeHighlight () {
         this.MdField.highlighted = false
@@ -218,10 +220,12 @@
         }
       }
     },
-    mounted () {
+    async mounted () {
       this.showSelect = false
-      this.didMount = true
       this.setFieldContent()
+
+      await this.$nextTick()
+      this.didMount = true
     }
   }
 </script>
