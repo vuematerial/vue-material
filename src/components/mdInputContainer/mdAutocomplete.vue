@@ -137,7 +137,7 @@
             }
           });
       },
-      onFocus() {
+      onFocus(event) {
         this.isItemSelected = 0;
 
         if (this.parentContainer) {
@@ -146,10 +146,12 @@
 
         this.$refs.input.focus();
 
-        if (this.query.length >= this.minChars) {
+        if (this.query && this.query.length >= this.minChars) {
           this.renderFilteredList();
           this.openMenu();
         }
+        
+        this.$emit('focus', this.$el.value, event);
       },
       onInput() {
         this.updateValues();
