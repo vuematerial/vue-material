@@ -3,8 +3,8 @@
     <md-card>
       <md-card-header>
         <md-card-header-text>
-          <div class="md-title">Title goes here</div>
-          <div class="md-subhead">Subtitle here</div>
+          <div class="md-title">Media card</div>
+          <div class="md-subhead">Normal size</div>
         </md-card-header-text>
 
         <md-card-media>
@@ -21,8 +21,8 @@
     <md-card>
       <md-card-header>
         <md-card-header-text>
-          <div class="md-title">Title goes here</div>
-          <div class="md-subhead">Subtitle here</div>
+          <div class="md-title">Media card</div>
+          <div class="md-subhead">Medium size</div>
         </md-card-header-text>
 
         <md-card-media md-medium>
@@ -39,8 +39,8 @@
     <md-card>
       <md-card-header>
         <md-card-header-text>
-          <div class="md-title">Title goes</div>
-          <div class="md-subhead">Subtitle here</div>
+          <div class="md-title">Media card</div>
+          <div class="md-subhead">Big size</div>
         </md-card-header-text>
 
         <md-card-media md-big>

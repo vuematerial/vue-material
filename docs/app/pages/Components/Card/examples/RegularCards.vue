@@ -2,15 +2,12 @@
   <div>
     <md-card>
       <md-card-header>
-        <md-card-header-text>
-          <div class="md-title">Title goes here</div>
-          <div class="md-subhead">Subtitle here</div>
-        </md-card-header-text>
-
-        <md-card-media>
-          <img src="assets/examples/avatar-2.jpg" alt="Avatar">
-        </md-card-media>
+        <div class="md-title">Card without hover effect</div>
       </md-card-header>
+
+      <md-card-content>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non.
+      </md-card-content>
 
       <md-card-actions>
         <md-button>Action</md-button>
