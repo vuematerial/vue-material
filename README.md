@@ -26,6 +26,12 @@ It aims to deliver a collection of reusable components and a series of UI Elemen
 
 Build powerful and well-designed web apps that can fit on every screen. You can generate and use themes dynamically, use components on demand, take advantage of UI Elements and Components with an ease-to-use API.
 
+<p>
+  <a target='_blank' rel='nofollow' href='https://app.codesponsor.io/link/265KRzahMKDQEQEzoo9BxRiH/vuematerial/vue-material'>
+    <img alt='Sponsor' width='888' height='68' src='https://app.codesponsor.io/embed/265KRzahMKDQEQEzoo9BxRiH/vuematerial/vue-material.svg' />
+  </a>
+</p>
+
 ## Demo and Documentation
 <a href="https://vuematerial.github.io/" target="_blank">Demo</a>
 
