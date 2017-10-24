@@ -1,5 +1,11 @@
 <template>
   <div class="page-content">
+    <md-whiteframe md-tag="md-toolbar" class="md-accent md-dense main-banner" v-if="!$root.closeBanner">
+      <span>Exciting news about the future of Vue Material!</span>
+      <md-button class="md-raised" href="https://github.com/vuematerial/vue-material/issues/1081">Check it out!</md-button>
+      <button class="close" @click="$root.closeBanner = true">Close</button>
+    </md-whiteframe>
+
     <md-whiteframe md-tag="md-toolbar" md-elevation="1" class="main-header">
       <md-button class="md-icon-button nav-trigger" @click="toggleSidenav">
         <md-icon>menu</md-icon>
@@ -25,6 +31,29 @@
     flex: 1;
     display: flex;
     flex-flow: column
+  }
+
+  .main-banner {
+    padding-left: 16px;
+    justify-content: center;
+
+    .md-button {
+      margin: 0 0 0 24px;
+      box-shadow: none;
+    }
+
+    .close {
+      width: 64px;
+      height: 36px;
+      margin: 0;
+      padding: 0;
+      cursor: pointer;
+      position: absolute;
+      right: 0;
+      border: none;
+      background: none;
+      color: rgba(#fff, .87);
+    }
   }
 
   .main-header {

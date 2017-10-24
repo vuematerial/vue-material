@@ -396,7 +396,8 @@
     data: () => ({
       toolbar: true,
       theme: 'default',
-      pageTitle: ''
+      pageTitle: '',
+      closeBanner: false
     }),
     computed: {
       logo() {

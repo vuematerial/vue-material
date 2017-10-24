@@ -150,7 +150,7 @@
           this.renderFilteredList();
           this.openMenu();
         }
-        
+  
         this.$emit('focus', this.$el.value, event);
       },
       onInput() {
