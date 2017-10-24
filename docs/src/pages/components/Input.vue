@@ -807,6 +807,7 @@
       return {
         autocompleteValue: '',
         colorValue: '',
+        selectedColor: '',
         initialValue: 'My initial value',
         listAutocomplete: [
           {name: 'oi'},
