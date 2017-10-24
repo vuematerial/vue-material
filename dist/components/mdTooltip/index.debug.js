@@ -871,7 +871,7 @@ exports.default = {
   },
   methods: {
     removeTooltips: function removeTooltips() {
-      if (this.tooltipElement.parentNode) {
+      if (this.tooltipElement && this.tooltipElement.parentNode) {
         this.tooltipElement.removeEventListener(_transitionEndEventName2.default, this.removeTooltips);
         this.tooltipElement.parentNode.removeChild(this.tooltipElement);
       }

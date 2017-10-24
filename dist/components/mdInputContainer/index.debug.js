@@ -798,6 +798,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
 
 exports.default = {
   name: 'md-input',
@@ -846,6 +848,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": _vm.required,
       "placeholder": _vm.placeholder,
       "maxlength": _vm.maxlength,
+      "min": _vm.min,
+      "max": _vm.max,
       "readonly": _vm.readonly
     },
     domProps: {
@@ -1045,7 +1049,7 @@ exports.default = {
         }
       }));
     },
-    onFocus: function onFocus() {
+    onFocus: function onFocus(event) {
       this.isItemSelected = 0;
 
       if (this.parentContainer) {
@@ -1054,10 +1058,12 @@ exports.default = {
 
       this.$refs.input.focus();
 
-      if (this.query.length >= this.minChars) {
+      if (this.query && this.query.length >= this.minChars) {
         this.renderFilteredList();
         this.openMenu();
       }
+
+      this.$emit('focus', this.$el.value, event);
     },
     onInput: function onInput() {
       this.updateValues();
@@ -1197,6 +1203,7 @@ exports.default = {
   mounted: function mounted() {
     var _this3 = this;
 
+    this.query = this.value;
     this.$nextTick((function () {
       _this3.parentContainer = (0, _getClosestVueParent2.default)(_this3.$parent, 'md-input-container');
       _this3.menuContent = document.body.querySelector('.md-autocomplete-content');
@@ -1625,6 +1632,7 @@ exports.default = {
 //
 //
 //
+//
 
 module.exports = exports['default'];
 
@@ -1947,6 +1955,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   return _c('textarea', {
     staticClass: "md-input",
     attrs: {
+      "name": _vm.name,
       "disabled": _vm.disabled,
       "required": _vm.required,
       "placeholder": _vm.placeholder,
@@ -2288,6 +2297,8 @@ exports.default = {
     disabled: Boolean,
     required: Boolean,
     maxlength: [Number, String],
+    max: [Number, String],
+    min: [Number, String],
     name: String,
     placeholder: String,
     readonly: Boolean
@@ -2313,12 +2324,24 @@ exports.default = {
     },
     maxlength: function maxlength() {
       this.handleMaxLength();
+    },
+    max: function max() {
+      this.handleMax();
+    },
+    min: function min() {
+      this.handleMin();
     }
   },
   methods: {
     handleMaxLength: function handleMaxLength() {
       this.parentContainer.enableCounter = this.maxlength > 0;
       this.parentContainer.counterLength = this.maxlength;
+    },
+    handleMin: function handleMin() {
+      this.parentContainer.min = this.min;
+    },
+    handleMax: function handleMax() {
+      this.parentContainer.min = this.max;
     },
     lazyEventEmitter: function lazyEventEmitter() {
       var _this = this;
