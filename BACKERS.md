@@ -22,3 +22,5 @@ Yatima Kagurazaka
 
 * Ivo Benner
 * Nathanael Björkgård
+* Anthony Villena
+* William Chong
