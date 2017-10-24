@@ -50,7 +50,7 @@
               <md-table-row>
                 <md-table-cell>md-elevation</md-table-cell>
                 <md-table-cell><code>Number</code></md-table-cell>
-                <md-table-cell>Add a shadow on the navigation with an whiteframe. <br>Default: <code>0</code></md-table-cell>
+                <md-table-cell>Add a shadow on the navigation with a whiteframe. <br>Default: <code>0</code></md-table-cell>
               </md-table-row>
 
               <md-table-row>
