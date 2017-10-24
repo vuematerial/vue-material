@@ -7,7 +7,7 @@
         color: #{'BACKGROUND-CONTRAST-0.54'};
 
         &.md-active,
-        &:focus {
+        &:active {
           color: #{'PRIMARY-COLOR'};
         }
 
@@ -29,7 +29,7 @@
           color: #{'PRIMARY-CONTRAST-0.54'};
 
           &.md-active,
-          &:focus {
+          &:active {
             color: #{'PRIMARY-CONTRAST'};
           }
 
@@ -52,7 +52,7 @@
           color: #{'PRIMARY-CONTRAST-0.54'};
 
           &.md-active,
-          &:focus {
+          &:active {
             color: #{'PRIMARY-CONTRAST'};
           }
 
@@ -75,7 +75,7 @@
           color: #{'ACCENT-CONTRAST-0.54'};
 
           &.md-active,
-          &:focus {
+          &:active {
             color: #{'ACCENT-CONTRAST'};
           }
 
@@ -98,7 +98,7 @@
           color: #{'WARN-CONTRAST-0.54'};
 
           &.md-active,
-          &:focus {
+          &:active {
             color: #{'WARN-CONTRAST'};
           }
 
