@@ -7,7 +7,7 @@
 Appears under "Components" header, pencil subheader:
 
 ```
-component(MdPencil): add 'graphiteWidth' option
+comp(MdPencil): add 'graphiteWidth' option
 ```
 
 Appears under "UI Elements" header, pencil subheader:
