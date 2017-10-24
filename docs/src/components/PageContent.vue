@@ -135,6 +135,14 @@
       font-size: 12px;
     }
   }
+
+  .code-sponsor-widget {
+    margin-top: 64px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    background: #f5f5f5;
+  }
 </style>
 
 <script>
@@ -180,17 +188,39 @@
           }
         }, 50);
       },
+      appendCodeSponsor() {
+        const interval = window.setInterval(() => {
+          const carbonAds = document.getElementById('code-sponsor-widget');
+          const mainContent = this.$el.querySelector('.main-content');
+          const usageContent = this.$el.querySelector('.usage-content');
+
+          if (carbonAds && mainContent) {
+            if (usageContent) {
+              usageContent.appendChild(carbonAds);
+            } else {
+              mainContent.appendChild(carbonAds);
+            }
+
+            window.clearInterval(interval);
+          }
+        }, 50);
+      },
       moveCarbonAdsToBody() {
         document.body.appendChild(document.getElementById('carbonads'));
+      },
+      moveCodeSponsorToBody() {
+        document.body.appendChild(document.getElementById('code-sponsor-widget'));
       }
     },
     mounted() {
       document.title = this.pageTitle + ' - Vue Material';
       this.appendCarbonAds();
+      this.appendCodeSponsor();
       this.checkMainContentScroll();
     },
     beforeDestroy() {
       this.moveCarbonAdsToBody();
+      this.moveCodeSponsorToBody();
     }
   };
 </script>
