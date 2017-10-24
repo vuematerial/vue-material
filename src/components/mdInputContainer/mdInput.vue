@@ -8,6 +8,8 @@
     :required="required"
     :placeholder="placeholder"
     :maxlength="maxlength"
+    :min="min"
+    :max="max"
     :readonly="readonly"
     @focus="onFocus"
     @blur="onBlur"
