@@ -1,5 +1,5 @@
 <template>
-  <splash-container splash :title="$t('pages.components.title')">
+  <splash-container splash centered :title="$t('pages.components.title')">
     <grid-layout>
       <grid-layout-item
         v-for="{ key, name } in components"

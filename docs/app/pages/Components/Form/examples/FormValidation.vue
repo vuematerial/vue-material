@@ -7,7 +7,7 @@
         </md-card-header>
 
         <md-card-content>
-          <div class="md-layout-row md-gutter md-wrap">
+          <div class="md-layout-row md-layout-wrap md-gutter">
             <div class="md-flex md-flex-small-100">
               <md-field :class="getValidationClass('firstName')">
                 <label>First Name</label>
@@ -27,7 +27,7 @@
             </div>
           </div>
 
-          <div class="md-layout-row md-gutter md-wrap">
+          <div class="md-layout-row md-gutter md-layout-wrap">
             <div class="md-flex md-flex-small-100">
               <md-field :class="getValidationClass('gender')">
                 <label>Gender</label>

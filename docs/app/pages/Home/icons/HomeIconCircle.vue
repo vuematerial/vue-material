@@ -1,5 +1,5 @@
 <template>
-  <home-icon class="home-icon-circle" v-once>
+  <home-icon class="home-icon-circle">
     <div class="circle"></div>
     <div class="circle"></div>
     <div class="circle">
@@ -7,6 +7,17 @@
     </div>
   </home-icon>
 </template>
+
+<script>
+  import HomeIcon from './HomeIcon'
+
+  export default {
+    name: 'HomeIconCircle',
+    components: {
+      HomeIcon
+    }
+  }
+</script>
 
 <style lang="scss" scoped>
   @import "~vue-material/components/MdAnimation/variables";
@@ -67,14 +78,3 @@
     }
   }
 </style>
-
-<script>
-import HomeIcon from './HomeIcon'
-
-export default {
-  name: 'HomeIconCircle',
-  components: {
-    HomeIcon
-  }
-}
-</script>

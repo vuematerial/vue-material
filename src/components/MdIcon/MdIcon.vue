@@ -27,7 +27,7 @@
   $icon-size: 24px;
 
   .md-icon {
-    @include md-icon-size();
+    @include md-icon-size($icon-size);
     margin: auto;
     display: inline-flex;
     user-select: none;

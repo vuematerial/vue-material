@@ -1,14 +1,22 @@
-<template>
-  <div class="md-content" :class="[$mdActiveTheme]">
-    <slot />
-  </div>
-</template>
-
 <script>
   import MdComponent from 'core/MdComponent'
 
   export default new MdComponent({
-    name: 'MdContent'
+    name: 'MdContent',
+    props: {
+      mdTag: {
+        type: String,
+        default: 'div'
+      }
+    },
+    render (createElement) {
+      return createElement(this.mdTag, {
+        staticClass: 'md-content',
+        class: [this.$mdActiveTheme],
+        attrs: this.$attrs,
+        on: this.$listeners
+      }, this.$slots.default)
+    }
   })
 </script>
 

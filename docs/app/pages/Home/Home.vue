@@ -1,66 +1,48 @@
 <template>
   <splash-container splash class="home-page">
-    <header class="home-header">
-      <div class="home-logo">
-        <logo-vue-material animated />
-      </div>
-
-      <div class="home-call">
-        <h1 class="home-name">Vue Material</h1>
-
-        <p>{{ $t('pages.home.slogan') }}</p>
-
-        <div class="home-actions">
-          <md-button class="md-button-spaced md-primary md-raised" @click="$router.push('/getting-started')">{{ $t('pages.gettingStarted.title') }}</md-button>
-          <md-button class="md-button-spaced md-primary md-raised" @click="$router.push('/components')">{{ $t('pages.components.title') }}</md-button>
-        </div>
-      </div>
-    </header>
-
-    <div class="home-features md-layout-row md-layout-column-xsmall md-gutter">
-      <div class="home-feature md-flex">
-        <home-icon-square />
-        <h2 class="md-title">{{ $t('pages.home.material') }}</h2>
-        <p>{{ $t('pages.home.materialContent') }}</p>
-      </div>
-
-      <div class="home-feature md-flex">
-        <home-icon-devices />
-        <h2 class="md-title">{{ $t('pages.home.compatible') }}</h2>
-        <p>{{ $t('pages.home.compatibleContent') }}</p>
-      </div>
-
-      <div class="home-feature md-flex">
-        <home-icon-circle />
-        <h2 class="md-title">{{ $t('pages.home.featured') }}</h2>
-        <p>{{ $t('pages.home.featuredContent') }}</p>
-      </div>
+    <div class="home-splash">
+      <home-header />
+      <home-features />
+      <md-icon class="home-icon-indicator" @click.native="scrollDown">keyboard_arrow_down</md-icon>
     </div>
+
+    <home-repositories />
   </splash-container>
 </template>
 
 <script>
-import HomeIconSquare from './HomeIconSquare'
-import HomeIconCircle from './HomeIconCircle'
-import HomeIconDevices from './HomeIconDevices'
+  import HomeHeader from './HomeHeader'
+  import HomeFeatures from './HomeFeatures'
+  import HomeRepositories from './HomeRepositories'
 
-export default {
-  name: 'Home',
-  components: {
-    HomeIconSquare,
-    HomeIconCircle,
-    HomeIconDevices
+  export default {
+    name: 'Home',
+    components: {
+      HomeHeader,
+      HomeFeatures,
+      HomeRepositories
+    },
+    methods: {
+      scrollDown () {
+        const ecosystemEl = document.querySelector('.home-repositories')
+
+        window.scroll({
+          top: ecosystemEl.offsetTop,
+          left: 0,
+          behavior: 'smooth'
+        })
+      }
+    }
   }
-}
 </script>
 
 <style lang="scss" scoped>
   @import "~vue-material/components/MdAnimation/variables";
+  @import "~vue-material/components/MdIcon/mixins";
   @import "~vue-material/components/MdLayout/mixins";
 
   .home-page  {
     width: 100%;
-    min-height: calc(100vh - 64px);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -69,67 +51,32 @@ export default {
     line-height: 1.7em;
   }
 
-  .home-header {
-    text-align: center;
-  }
-
-  .home-logo {
-    max-width: 192px;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
+  .home-splash {
+    max-width: 1312px;
+    min-height: calc(100vh - 80px);
+    padding-top: 24px;
     position: relative;
   }
 
-  .logo-vue-material {
-    width: 100%;
-  }
+  @keyframes home-icon-indicator {
+    50% {
+      opacity: 1;
+    }
 
-  .home-call {
-    margin-top: 24px;
-    flex: 0 0 50%;
-    font-size: 18px;
-    line-height: 1.6em;
-  }
-
-  .home-name {
-    margin: 0;
-    font-size: 50px;
-    font-weight: 500;
-    line-height: 1em;
-
-    @include md-layout-xsmall {
-      font-size: 36px;
+    to {
+      transform: translate3D(-50%, 80%, 0);
+      opacity: 0;
     }
   }
 
-  .home-actions {
-    margin-top: 24px;
-    display: flex;
-    justify-content: center;
-
-    .md-button {
-      margin-left: 0;
-    }
-  }
-
-  .home-features {
-    margin-top: 120px;
-    flex: none;
-
-    @include md-layout-xsmall {
-      margin-top: 60px;
-    }
-  }
-
-  .home-feature {
-    @include md-layout-xsmall {
-      text-align: center;
-    }
-
-    h2 {
-      font-size: 22px;
-      font-weight: 500;
-    }
+  .home-icon-indicator {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: home-icon-indicator 2s infinite $md-transition-stand-timing;
   }
 </style>

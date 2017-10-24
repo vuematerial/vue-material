@@ -1,10 +1,21 @@
 <template>
-  <home-icon class="home-icon-devices" v-once>
+  <home-icon class="home-icon-devices">
     <div class="device"></div>
     <div class="device"></div>
     <div class="device"></div>
   </home-icon>
 </template>
+
+<script>
+  import HomeIcon from './HomeIcon'
+
+  export default {
+    name: 'HomeIcondevices',
+    components: {
+      HomeIcon
+    }
+  }
+</script>
 
 <style lang="scss" scoped>
   @import "~vue-material/components/MdAnimation/variables";
@@ -88,14 +99,3 @@
     }
   }
 </style>
-
-<script>
-import HomeIcon from './HomeIcon'
-
-export default {
-  name: 'HomeIcondevices',
-  components: {
-    HomeIcon
-  }
-}
-</script>

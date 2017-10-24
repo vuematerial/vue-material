@@ -1,8 +1,14 @@
 <template>
-  <i class="home-icon" v-once>
+  <i class="home-icon">
     <slot />
   </i>
 </template>
+
+<script>
+  export default {
+    name: 'HomeIcon'
+  }
+</script>
 
 <style lang="scss" scoped>
   @import "~vue-material/components/MdLayout/mixins";
@@ -27,9 +33,3 @@
     }
   }
 </style>
-
-<script>
-export default {
-  name: 'HomeIcon'
-}
-</script>
