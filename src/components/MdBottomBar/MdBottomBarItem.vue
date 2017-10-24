@@ -19,6 +19,7 @@
 </template>
 
 <script>
+  import MdAssetIcon from 'core/mixins/MdAssetIcon/MdAssetIcon'
   import MdUuid from 'core/utils/MdUuid'
   import MdRouterLinkProps from 'core/utils/MdRouterLinkProps'
 
@@ -26,6 +27,7 @@
 
   export default {
     name: 'MdBottomBarItem',
+    mixins: [MdAssetIcon],
     props: {
       id: {
         type: String,
@@ -59,9 +61,6 @@
       }
     },
     methods: {
-      isAssetIcon (icon) {
-        return /\w+[/\\.]\w+/.test(icon)
-      },
       getPropValues () {
         const propNames = Object.keys(this.$options.props)
         let values = {}

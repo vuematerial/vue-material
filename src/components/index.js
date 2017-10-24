@@ -14,6 +14,7 @@ import MdDialogPrompt from './MdDialog/MdDialogPrompt'
 import MdDivider from './MdDivider'
 import MdDrawer from './MdDrawer'
 import MdElevation from './MdElevation'
+import MdEmptyState from './MdEmptyState'
 import MdField from './MdField'
 import MdIcon from './MdIcon'
 import MdImage from './MdImage'
@@ -48,6 +49,7 @@ export {
   MdDivider,
   MdDrawer,
   MdElevation,
+  MdEmptyState,
   MdField,
   MdIcon,
   MdImage,

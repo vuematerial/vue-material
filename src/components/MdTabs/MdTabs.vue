@@ -36,12 +36,14 @@
 
 <script>
   import MdComponent from 'core/MdComponent'
+  import MdAssetIcon from 'core/mixins/MdAssetIcon/MdAssetIcon'
   import MdPropValidator from 'core/utils/MdPropValidator'
   import MdObserveElement from 'core/utils/MdObserveElement'
   import MdContent from 'components/MdContent/MdContent'
 
   export default new MdComponent({
     name: 'MdTabs',
+    mixins: [MdAssetIcon],
     components: {
       MdContent
     },
@@ -115,9 +117,6 @@
       }
     },
     methods: {
-      isAssetIcon (icon) {
-        return /\w+[/\\.]\w+/.test(icon)
-      },
       hasActiveTab () {
         return this.activeTab || this.mdActiveTab
       },

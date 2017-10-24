@@ -22,38 +22,33 @@
 
 <style lang="scss">
   @import "~components/MdAnimation/variables";
+  @import "./mixins";
 
   $icon-size: 24px;
 
-  @mixin icon-size($size: $icon-size) {
-    width: $size;
-    min-width: $size;
-    height: $size;
-    font-size: $size !important;
-  }
-
   .md-icon {
-    @include icon-size();
+    @include md-icon-size();
     margin: auto;
     display: inline-flex;
+    user-select: none;
     align-items: center;
     justify-content: center;
     vertical-align: middle;
 
     &.md-size-2x {
-      @include icon-size($icon-size * 2);
+      @include md-icon-size($icon-size * 2);
     }
 
     &.md-size-3x {
-      @include icon-size($icon-size * 3);
+      @include md-icon-size($icon-size * 3);
     }
 
     &.md-size-4x {
-      @include icon-size($icon-size * 4);
+      @include md-icon-size($icon-size * 4);
     }
 
     &.md-size-5x {
-      @include icon-size($icon-size * 5);
+      @include md-icon-size($icon-size * 5);
     }
   }
 

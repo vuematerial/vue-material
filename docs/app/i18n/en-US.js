@@ -46,6 +46,9 @@ export default {
     content: {
       title: 'Content'
     },
+    emptyState: {
+      title: 'Empty State'
+    },
     pickers: {
       title: 'Pickers'
     },

@@ -15,14 +15,10 @@
 
       <router-link to="/components/datepicker">{{ $t('pages.datepicker.title') }}</router-link>
 
-      <!-- <router-link to="/components/pickers">{{ $t('pages.pickers.title') }}</router-link>
-      <div class="main-nav-level">
-        <router-link to="/components/datepicker">{{ $t('pages.datepicker.nav') }}</router-link>
-      </div> -->
-
       <router-link to="/components/dialog">{{ $t('pages.dialog.title') }}</router-link>
       <router-link to="/components/divider">{{ $t('pages.divider.title') }}</router-link>
       <router-link to="/components/drawer">{{ $t('pages.drawer.title') }}</router-link>
+      <router-link to="/components/empty-state">{{ $t('pages.emptyState.title') }}</router-link>
 
       <router-link to="/components/form">{{ $t('pages.form.title') }}</router-link>
       <div class="main-nav-level">
@@ -37,6 +33,12 @@
       <router-link to="/components/icon">{{ $t('pages.icon.title') }}</router-link>
       <router-link to="/components/list">{{ $t('pages.list.title') }}</router-link>
       <router-link to="/components/menu">{{ $t('pages.menu.title') }}</router-link>
+
+      <!-- <router-link to="/components/pickers">{{ $t('pages.pickers.title') }}</router-link>
+      <div class="main-nav-level">
+        <router-link to="/components/datepicker">{{ $t('pages.datepicker.nav') }}</router-link>
+      </div> -->
+
       <router-link to="/components/snackbar">{{ $t('pages.snackbar.title') }}</router-link>
       <router-link to="/components/speed-dial">{{ $t('pages.speedDial.title') }}</router-link>
       <router-link to="/components/steppers">{{ $t('pages.steppers.title') }}</router-link>

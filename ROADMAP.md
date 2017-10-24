@@ -13,7 +13,7 @@ The release strategy will be like this:
 - I will solve the issues after the stable release while I focus on the next 1.1.0 version, with the components the didn't entered on 1.0
 - Boilerplates, Nuxt template and further guides will be created
 
-## New features
+## Key Features
 - Automatic constrast ratio - YES! The theme factory will calculate the contrast between the background and text to give the correct black or white color.
 - On demand themes! Create themes only for the components that you're really using
 - Pre made theme colors
@@ -38,7 +38,7 @@ The release strategy will be like this:
   - [X] Multiple themes
   - [ ] CSS Variables
   - [ ] CSS-only themes
-- [ ] SSR Support - NEW
+- [ ] SSR Support - `NEW`
   - [X] Basic Support
 
 ### Components
@@ -49,17 +49,17 @@ The release strategy will be like this:
   - [X] Integration with Toolbar, Drawer and Content
 - [X] MdAvatar
 - [X] MdBottomBar
-  - [X] Router integration - NEW
-  - [X] Router Sync - NEW
+  - [X] Router integration - `NEW`
+  - [X] Router Sync - `NEW`
   - [X] Symple way to trigger active item
 - [X] MdButton
-  - [X] Router integration - NEW
+  - [X] Router integration - `NEW`
 - [ ] MdCard
   - [ ] Documentation
   - [X] Better image handle
   - [X] Expand action
 - [X] MdCheckbox
-  - [X] Array - NEW
+  - [X] Array - `NEW`
   - [X] Boolean
   - [X] String
 - [X] MdChips
@@ -71,7 +71,7 @@ The release strategy will be like this:
   - [X] FINALLY!
   - [X] Month Selector
   - [X] Year Selector
-  - [ ] Disable Dates
+  - [x] Disable Dates
   - [ ] Locale aware
 - [X] MdDialog
   - [X] Alert
@@ -81,7 +81,7 @@ The release strategy will be like this:
 - [X] MdDivider
 - [ ] MdDrawer - `NEW API`
   - [ ] Documentation
-  - [ ] Deprecate md-sidenav
+  - [x] Deprecate md-sidenav
   - [X] Persistent - `NEW`
   - [X] Permanent  - `NEW`
   - [X] Mini - `NEW`
@@ -91,6 +91,7 @@ The release strategy will be like this:
 - [X] MdElevation - `NEW API`
   - [X] Deprecate whiteframe component
   - [X] Elevation classes
+- [X] MdEmptyState - `NEW`
 - [ ] MdField - `NEW API`
   - [ ] Documentation
   - [X] Change md-input-container to md-field
@@ -147,8 +148,8 @@ The release strategy will be like this:
   - [ ] Alternate Header
 - [ ] MdTabs
   - [ ] Documentation
-  - [X] Router integration - NEW
-  - [X] Router Sync - NEW
+  - [X] Router integration - `NEW`
+  - [X] Router Sync - `NEW`
   - [X] Symple way to trigger active tab
 - [X] MdToolbar - `NEW API`
 - [X] MdTooltip
@@ -177,7 +178,7 @@ The release strategy will be like this:
 
 I will point out those changes inside the migration guide.
 
-## Post 1.1.0
+## Post 1.0.0
 
 ### Projects
 - Official Boilerplate
@@ -204,6 +205,8 @@ I will point out those changes inside the migration guide.
 ### Components
 - Content Discovery
 - Content Slider
+- Timepicker
+- Range picker
 - Expansion Panels
 - Grid
 - Image
