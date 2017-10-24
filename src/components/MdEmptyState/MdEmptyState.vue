@@ -17,21 +17,13 @@
 
 <script>
   import MdComponent from 'core/MdComponent'
+  import MdEmptyStateProps from './MdEmptyStateProps'
   import MdAssetIcon from 'core/mixins/MdAssetIcon/MdAssetIcon'
 
   export default new MdComponent({
     name: 'MdEmptyState',
     mixins: [MdAssetIcon],
-    props: {
-      mdRounded: Boolean,
-      mdSize: {
-        type: Number,
-        default: 420
-      },
-      mdIcon: String,
-      mdLabel: String,
-      mdDescription: String
-    },
+    props: MdEmptyStateProps,
     computed: {
       emptyStateClasses () {
         return {
@@ -67,7 +59,7 @@
   .md-empty-state {
     @include md-empty-state-base;
     max-width: 420px;
-    padding: 40px;
+    padding: 36px;
     margin: 0 auto;
     position: relative;
     transition: opacity .15s $md-transition-enter-timing,

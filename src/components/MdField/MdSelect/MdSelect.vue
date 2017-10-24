@@ -12,6 +12,8 @@
       class="md-input md-select-value"
       v-model="MdSelect.label"
       readonly
+      :disabled="disabled"
+      :required="required"
       v-on="$listeners"
       @focus.prevent="onFocus"
       @click="openSelect"
@@ -27,7 +29,7 @@
     </keep-alive>
 
     <md-input class="md-input-fake" v-model="content" :disabled="disabled" readonly />
-    <select readonly v-model="content" v-bind="attributes" :required="required"></select>
+    <select readonly v-model="content" v-bind="attributes"></select>
   </md-menu>
 </template>
 

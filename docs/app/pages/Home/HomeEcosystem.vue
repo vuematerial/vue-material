@@ -1,16 +1,20 @@
 <template>
-  <md-content md-tag="section" md-theme="default" class="home-repositories">
-    <h2 class="home-repositories-title md-display-2">Ecosystem</h2>
+  <md-content md-tag="section" md-theme="default" class="home-ecosystem">
+    <h2 class="home-ecosystem-title md-display-1">Ecosystem</h2>
 
     <div class="home-repo-list md-layout-column">
-      <div class="home-repo md-layout-row md-layout-column-xsmall" v-for="(item, index) in 2" :key="index" :class="{ reverse: (index + 1) % 2 === 0 }">
+      <div
+        class="home-repo md-layout-row md-layout-column-xsmall"
+        v-for="(item, index) in 2"
+        :key="index"
+        :class="{ reverse: (index + 1) % 2 === 0 }">
         <div class="home-repo-content md-layout-column md-flex-55 md-flex-xsmall-100 md-align-start-start">
           <h3 class="home-repo-title md-headline">Official Boilerplate</h3>
           <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam qui enim harum excepturi nemo itaque quidem dolore unde asperiores, recusandae reiciendis perferendis laboriosam cum obcaecati quos assumenda libero labore! Expedita.</p>
           <md-button class="md-primary md-raised">View project</md-button>
         </div>
 
-        <img class="md-flex-45 md-flex-xsmall-100" src="https://placeimg.com/656/300/tech/grayscale">
+        <img src="https://placeimg.com/656/300/tech/grayscale" class="md-flex-45">
       </div>
     </div>
   </md-content>
@@ -18,7 +22,7 @@
 
 <script>
   export default {
-    name: 'HomeRepositories'
+    name: 'HomeEcosystem'
   }
 </script>
 
@@ -26,19 +30,19 @@
   @import "~vue-material/components/MdAnimation/variables";
   @import "~vue-material/components/MdLayout/mixins";
 
-  .home-repositories {
+  .home-ecosystem {
     width: calc(100% + 32px);
     padding: 56px 16px;
     margin: 0 -16px -16px;
   }
 
-  .home-repo-list,
-  .home-repositories-title {
+  .home-repo,
+  .home-ecosystem-title {
     max-width: 1312px;
     margin: 0 auto;
   }
 
-  .home-repositories-title {
+  .home-ecosystem-title {
     margin-bottom: 24px;
     color: rgba(#000, .87);
   }

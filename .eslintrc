@@ -51,6 +51,7 @@
     "vue/name-property-casing": [
       "error",
       "PascalCase"
-    ]
+    ],
+    "vue/require-v-for-key": 0
   }
 }

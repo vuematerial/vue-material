@@ -1,0 +1,37 @@
+.md-table {
+  @include md-theme-component() {
+    .md-table-content {
+      @include md-theme-property(background-color, background);
+    }
+
+    .md-table-row {
+      td {
+        @include md-theme-property(border-top-color, divider, background);
+      }
+
+      &:hover:not(.md-header-row) .md-table-cell {
+        @include md-theme-property(background-color, highlight, background, .08);
+      }
+    }
+
+    .md-table-head {
+      @include md-theme-property(color, text-accent, background);
+    }
+
+    .md-table-fixed-header-active {
+      @include md-theme-property(border-bottom-color, divider, background);
+    }
+
+    .md-sortable {
+      &:hover,
+      &.md-sorted {
+        @include md-theme-property(color, text-primary, background);
+
+        svg {
+          @include md-theme-property(color, text-primary, background);
+          @include md-theme-property(fill, text-primary, background);
+        }
+      }
+    }
+  }
+}

@@ -137,20 +137,27 @@
 
     &:before,
     &:after {
-      height: 1px;
       position: absolute;
       bottom: 0;
       right: 0;
       left: 0;
       z-index: 1;
-      transition: $md-transition-stand;
-      transition-property: background-color, transform, height, border;
+      transition: border .3s $md-transition-default-timing,
+                  opacity .3s $md-transition-default-timing,
+                  transform 0s .3s $md-transition-default-timing;
+      will-change: border, opacity, transform;
       content: " ";
     }
 
+    &:after {
+      height: 1px;
+    }
+
     &:before {
+      height: 2px;
       z-index: 2;
-      transform: scaleX(.54);
+      opacity: 0;
+      transform: scaleX(.12);
     }
 
     label {
@@ -181,6 +188,10 @@
 
       &[type="date"] {
         font-size: 16px;
+      }
+
+      &[disabled] {
+        cursor: default;
       }
 
       &:focus {
@@ -299,19 +310,20 @@
     }
 
     &.md-has-textarea:not(.md-autogrow) {
+      &:before,
       &:after {
-        display: none;
-      }
-
-      &:before {
         height: auto;
+        pointer-events: none;
         top: 0;
         bottom: 0;
         transform: none;
         background: none !important;
         border: 1px solid transparent;
         border-radius: 3px;
-        pointer-events: none;
+      }
+
+      &:before {
+        border-width: 2px;
       }
 
       label {
@@ -341,14 +353,6 @@
         right: 6px;
       }
 
-      &:hover,
-      &.md-focused,
-      &.md-highlight {
-        &:before {
-          border-width: 2px;
-        }
-      }
-
       &.md-focused,
       &.md-has-value {
         label {
@@ -373,19 +377,13 @@
       }
     }
 
-    &:hover,
-    &.md-focused,
-    &.md-highlight {
-      &:after,
-      &:before {
-        height: 2px;
-      }
-    }
-
     &.md-focused,
     &.md-highlight {
       &:before {
+        opacity: 1;
         transform: scaleX(1);
+        transition: .3s $md-transition-default-timing;
+        transition-property: border, opacity, transform;
       }
     }
 

@@ -28,6 +28,7 @@ import MdSpeedDial from './MdSpeedDial'
 import MdSteppers from './MdSteppers'
 import MdSubheader from './MdSubheader'
 import MdSwitch from './MdSwitch'
+import MdTable from './MdTable'
 import MdTabs from './MdTabs'
 import MdToolbar from './MdToolbar'
 import MdTooltip from './MdTooltip'
@@ -63,6 +64,7 @@ export {
   MdSteppers,
   MdSubheader,
   MdSwitch,
+  MdTable,
   MdTabs,
   MdToolbar,
   MdTooltip

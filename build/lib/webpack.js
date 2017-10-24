@@ -6,7 +6,7 @@ import cssnano from 'cssnano'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 import OptimizeJsPlugin from 'optimize-js-plugin'
 import OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin'
-// import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import { config, resolvePath, pack } from '../config'
 import banner from './banner'
 
@@ -16,6 +16,18 @@ function toUpperCase (_, c) {
 
 function classify (str) {
   return str.replace(/(?:^|[-_/])(\w)/g, toUpperCase)
+}
+
+function getRandomInt (min, max) {
+  const minNotAlowed = 8080
+  const maxNotAlowed = 8090
+  const generated = Math.floor(Math.random() * (max - min + 1)) + min
+
+  if (generated >= minNotAlowed && generated <= maxNotAlowed) {
+    return getRandomInt(min, max)
+  }
+
+  return generated
 }
 
 const moduleName = classify(pack.name)
@@ -168,12 +180,15 @@ export default entry => {
         entryOnly: true
       }),
       new webpack.optimize.OccurrenceOrderPlugin(),
-      new webpack.IgnorePlugin(/^vue/)/* ,
-      new BundleAnalyzerPlugin({
-        analyzerPort: entry.port
-      }) */
+      new webpack.IgnorePlugin(/^vue/)
     ]
   }, webpackConfig)
+
+  if (entry.analyze && process.argv.includes('--analyze')) {
+    webpackConfig.plugins.push(new BundleAnalyzerPlugin({
+      analyzerPort: getRandomInt(8000, 8999)
+    }))
+  }
 
   return webpackConfig
 }

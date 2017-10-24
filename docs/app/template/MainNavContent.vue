@@ -43,6 +43,7 @@
       <router-link to="/components/speed-dial">{{ $t('pages.speedDial.title') }}</router-link>
       <router-link to="/components/steppers">{{ $t('pages.steppers.title') }}</router-link>
       <router-link to="/components/subheader">{{ $t('pages.subheader.title') }}</router-link>
+      <router-link to="/components/table">{{ $t('pages.table.title') }}</router-link>
       <router-link to="/components/tabs">{{ $t('pages.tabs.title') }}</router-link>
       <router-link to="/components/toolbar">{{ $t('pages.toolbar.title') }}</router-link>
       <router-link to="/components/tooltip">{{ $t('pages.tooltip.title') }}</router-link>

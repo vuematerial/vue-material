@@ -8,6 +8,10 @@
 a:not(.md-button) {
   @include md-theme-component-relative() {
     @include md-theme-property(color, accent, background);
+
+    &:hover {
+      @include md-theme-property(color, accent, background, .8);
+    }
   }
 }
 

@@ -5,6 +5,11 @@ Vue.use(VueRouter)
 
 export const routes = [
   {
+    path: '/components/table',
+    name: 'components/table',
+    component: () => import(/* webpackChunkName: "table" */ './pages/Components/Table/Table.vue')
+  },
+  {
     path: '/components/empty-state',
     name: 'components/empty-state',
     component: () => import(/* webpackChunkName: "empty-state" */ './pages/Components/EmptyState/EmptyState.vue')

@@ -6,25 +6,28 @@
       <md-icon class="home-icon-indicator" @click.native="scrollDown">keyboard_arrow_down</md-icon>
     </div>
 
-    <home-repositories />
+    <home-ecosystem />
+    <home-sponsors />
   </splash-container>
 </template>
 
 <script>
   import HomeHeader from './HomeHeader'
   import HomeFeatures from './HomeFeatures'
-  import HomeRepositories from './HomeRepositories'
+  import HomeEcosystem from './HomeEcosystem'
+  import HomeSponsors from './HomeSponsors'
 
   export default {
     name: 'Home',
     components: {
       HomeHeader,
       HomeFeatures,
-      HomeRepositories
+      HomeEcosystem,
+      HomeSponsors
     },
     methods: {
       scrollDown () {
-        const ecosystemEl = document.querySelector('.home-repositories')
+        const ecosystemEl = document.querySelector('.home-ecosystem')
 
         window.scroll({
           top: ecosystemEl.offsetTop,
@@ -48,6 +51,7 @@
     justify-content: center;
     align-items: center;
     letter-spacing: normal;
+    font-size: 15px;
     line-height: 1.7em;
   }
 

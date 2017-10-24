@@ -92,10 +92,12 @@
       padding-top: 56px;
     }
 
-    &.splash .main-header {
-      max-width: 1312px;
-      transition: .3s $md-transition-default-timing;
-      transition-property: max-width;
+    &.splash >>> {
+      .main-header .md-toolbar-row,
+      .main-footer-container {
+        max-width: 1312px;
+        margin: 0 auto;
+      }
     }
   }
 

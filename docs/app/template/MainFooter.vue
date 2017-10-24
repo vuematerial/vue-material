@@ -1,27 +1,29 @@
 <template>
   <footer class="main-footer">
-    <div class="main-footer-section">
-      <router-link to="/about">About Vue Material</router-link>
-      <a href="https://github.com/vuematerial/vue-material-experiments/blob/master/LICENSE" target="_blank">License</a>
-    </div>
+    <div class="main-footer-container">
+      <div class="main-footer-section">
+        <router-link to="/about">About Vue Material</router-link>
+        <a href="https://github.com/vuematerial/vue-material-experiments/blob/master/LICENSE" target="_blank">License</a>
+      </div>
 
-    <div class="main-footer-section">
-      <a href="https://github.com/marcosmoura" target="_blank">Made with <span class="red">❤</span> by Marcos Moura</a>
+      <div class="main-footer-section">
+        <a href="https://github.com/marcosmoura" target="_blank">Made with <span class="red">❤</span> by Marcos Moura</a>
+      </div>
     </div>
   </footer>
 </template>
 
 <script>
-import { mapState } from 'vuex'
+  import { mapState } from 'vuex'
 
-export default {
-  name: 'MainFooter',
-  computed: {
-    ...mapState({
-      isSplash: 'splashPage'
-    })
+  export default {
+    name: 'MainFooter',
+    computed: {
+      ...mapState({
+        isSplash: 'splashPage'
+      })
+    }
   }
-}
 </script>
 
 <style lang="scss" scoped>
@@ -30,20 +32,27 @@ export default {
   @import "~vue-material/theme/factory";
 
   .main-footer {
-    min-height: 96px;
+    height: 96px;
     padding: 0 16px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     position: relative;
     z-index: 4;
     background-color: md-get-palette-color(grey, 200);
 
     @include md-layout-xsmall {
-      min-height: 128px;
+      height: 128px;
       flex-direction: column;
       justify-content: space-around;
     }
+  }
+
+  div.main-footer-container {
+    max-width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: .3s $md-transition-default-timing;
+    transition-property: max-width;
 
     a {
       color: #000;

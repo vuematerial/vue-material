@@ -10,34 +10,27 @@ const spinner = ora({
 
 spinner.start()
 
-function getRandomInt (min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min
-}
-
 const entries = [
   webpackConfig({
     filename: `${pack.name}.min.js`,
     libraryTarget: 'umd',
     env: 'production',
     css: true,
-    port: getRandomInt(8000, 8999)
+    analyze: true
   }),
   webpackConfig({
     filename: `${pack.name}.js`,
     libraryTarget: 'umd',
     env: 'development',
-    css: true,
-    port: getRandomInt(8000, 8999)
+    css: true
   }),
   webpackConfig({
     libraryTarget: 'commonjs2',
-    filename: `${pack.name}.common.js`,
-    port: getRandomInt(8000, 8999)
+    filename: `${pack.name}.common.js`
   }),
   webpackConfig({
     libraryTarget: 'commonjs-module',
-    filename: `${pack.name}.esm.js`,
-    port: getRandomInt(8000, 8999)
+    filename: `${pack.name}.esm.js`
   })
 ]
 

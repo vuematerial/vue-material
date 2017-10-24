@@ -5,6 +5,10 @@
         background-color: rgba(#000, .42);
       }
 
+      &:before {
+        @include md-theme-property(background-color, primary);
+      }
+
       .md-helper-text,
       .md-count,
       label {
@@ -31,8 +35,12 @@
       }
 
       &.md-has-textarea:not(.md-autogrow) {
-        &:before {
+        &:after {
           border-color: rgba(#000, .42);
+        }
+
+        &:before {
+          @include md-theme-property(border-color, primary);
         }
       }
 
@@ -50,6 +58,10 @@
     } @else {
       &:after {
         background-color: rgba(#fff, .7);
+      }
+
+      &:before {
+        @include md-theme-property(background-color, primary);
       }
 
       .md-helper-text,
@@ -78,8 +90,12 @@
       }
 
       &.md-has-textarea:not(.md-autogrow) {
-        &:before {
+        &:after {
           border-color: #fff;
+        }
+
+        &:before {
+          @include md-theme-property(border-color, primary);
         }
       }
 
@@ -130,10 +146,6 @@
 
     &.md-focused,
     &.md-highlight {
-      &:before {
-        @include md-theme-property(background-color, primary);
-      }
-
       .md-input,
       .md-textarea {
         @include md-theme-property(color, primary);
@@ -142,12 +154,6 @@
       > .md-icon {
         @include md-theme-property(color, primary);
         @include md-theme-property(fill, primary);
-      }
-
-      &.md-has-textarea:not(.md-autogrow) {
-        &:before {
-          @include md-theme-property(border-color, primary);
-        }
       }
     }
 

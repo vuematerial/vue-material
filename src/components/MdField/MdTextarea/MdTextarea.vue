@@ -2,13 +2,12 @@
   <textarea
     class="md-textarea"
     :style="textareaStyles"
+    v-model="content"
     v-bind="attributes"
     v-on="$listeners"
-    v-model="content"
     @focus="onFocus"
     @blur="onBlur"
-    @input="onInput"
-    @change="onInput">
+    @input="onInput">
   </textarea>
 </template>
 
@@ -16,6 +15,26 @@
   import MdComponent from 'core/MdComponent'
   import MdUuid from 'core/utils/MdUuid'
   import MdFieldMixin from '../MdFieldMixin'
+
+  function calculateContentHeight (el, lineHeight) {
+    const origHeight = el.style.height
+    const height = el.offsetHeight
+    const scrollHeight = el.scrollHeight
+
+    el.style.overflow = 'hidden'
+
+    if (height >= scrollHeight) {
+      el.style.height = (height + lineHeight) + 'px'
+
+      if (scrollHeight < el.scrollHeight) {
+        el.style.height = origHeight
+
+        return height
+      }
+    }
+
+    return scrollHeight
+  }
 
   export default new MdComponent({
     name: 'MdTextarea',
@@ -36,10 +55,30 @@
       }
     },
     methods: {
-      applyStyles () {
+      getTextAreaLineSize () {
+        const style = window.getComputedStyle(this.$el)
+
+        return parseInt(style.lineHeight, 10)
+      },
+      setTextAreaSize (height) {
+        let newHeight = height
+
+        if (!height) {
+          const size = this.getTextAreaLineSize()
+
+          newHeight = calculateContentHeight(this.$el, size)
+        }
+
+        this.textareaHeight = newHeight + 'px'
+      },
+      async applyStyles () {
         if (this.mdAutogrow) {
-          this.textareaHeight = '1px'
-          this.textareaHeight = this.$el.scrollHeight + 'px'
+          this.setTextAreaSize(32)
+          await this.$nextTick()
+          this.setTextAreaSize()
+          window.setTimeout(() => {
+            this.$el.style.overflow = 'auto'
+          }, 10)
         }
       },
       setTextarea () {

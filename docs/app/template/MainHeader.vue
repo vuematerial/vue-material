@@ -1,23 +1,25 @@
 <template>
   <md-toolbar class="main-header" :class="mainHeaderClasses" :md-elevation="mainHeaderElevation">
-    <md-button to="/" class="md-icon-button logo">
-      <logo-vue-material :animated="isHome" />
-    </md-button>
+    <div class="md-toolbar-row">
+      <md-button to="/" class="md-icon-button logo">
+        <logo-vue-material :animated="isHome" />
+      </md-button>
 
-    <md-button class="md-icon-button menu" @click="showMenu">
-      <md-icon>menu</md-icon>
-    </md-button>
+      <md-button class="md-icon-button menu" @click="showMenu">
+        <md-icon>menu</md-icon>
+      </md-button>
 
-    <div class="md-title">
-      <span class="md-hide-xsmall">Vue Material</span>
-      <span class="md-hide-xsmall" v-if="pageTitle"> - </span>
-      <span v-if="isHome">{{ pageTitle }}</span>
-      <h1 class="md-title" v-else>{{ pageTitle }}</h1>
+      <div class="md-title">
+        <span class="md-hide-xsmall">Vue Material</span>
+        <span class="md-hide-xsmall" v-if="pageTitle"> - </span>
+        <span v-if="isHome">{{ pageTitle }}</span>
+        <h1 class="md-title" v-else>{{ pageTitle }}</h1>
+      </div>
+
+      <md-button href="http://github.com/vuematerial/vue-material-experiments" target="_blank" class="md-icon-button">
+        <md-icon md-src="assets/icon-github.svg" class="icon-github" />
+      </md-button>
     </div>
-
-    <md-button href="http://github.com/vuematerial/vue-material-experiments" target="_blank" class="md-icon-button">
-      <md-icon md-src="assets/icon-github.svg" class="icon-github" />
-    </md-button>
   </md-toolbar>
 </template>
 
@@ -95,6 +97,12 @@ export default {
     h1 {
       display: inline-block;
     }
+  }
+
+  div.md-toolbar-row {
+    max-width: 100%;
+    transition: .3s $md-transition-default-timing;
+    transition-property: max-width;
   }
 
   .logo {

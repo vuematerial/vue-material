@@ -6,6 +6,28 @@
   </transition>
 </template>
 
+<script>
+  import * as types from 'store/mutation-types'
+  import { mapActions } from 'vuex'
+
+  export default {
+    name: 'PageContainer',
+    props: {
+      title: String,
+      centered: Boolean
+    },
+    methods: {
+      ...mapActions({
+        setPageTitle: types.SET_PAGE_TITLE
+      })
+    },
+    created () {
+      this.$material.theming.theme = 'default'
+      this.setPageTitle(this.title)
+    }
+  }
+</script>
+
 <style lang="scss" scoped>
   @import "~vue-material/components/MdAnimation/variables";
   @import "~vue-material/theme/factory";
@@ -55,25 +77,3 @@
     }
   }
 </style>
-
-<script>
-import * as types from 'store/mutation-types'
-import { mapActions } from 'vuex'
-
-export default {
-  name: 'PageContainer',
-  props: {
-    title: String,
-    centered: Boolean
-  },
-  methods: {
-    ...mapActions({
-      setPageTitle: types.SET_PAGE_TITLE
-    })
-  },
-  created () {
-    this.$material.theming.theme = 'default'
-    this.setPageTitle(this.title)
-  }
-}
-</script>
