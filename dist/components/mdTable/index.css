@@ -162,7 +162,7 @@
         min-width: 18px;
         height: 18px;
         min-height: 18px;
-        color: rgba(0, 0, 0, 0.54);
+        color: inherit;
         font-size: 18px;
 }
 .md-table .md-table-selection {

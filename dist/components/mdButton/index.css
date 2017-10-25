@@ -140,14 +140,10 @@
     background-clip: padding-box;
     overflow: hidden;
 }
-.md-button.md-icon-button,
-.md-button.md-fab {
-  color: rgba(0, 0, 0, 0.54);
-}
 .md-button.md-icon-button .md-icon,
-  .md-button.md-fab .md-icon {
-    color: inherit;
-    display: block;
+.md-button.md-fab .md-icon {
+  color: inherit;
+  display: block;
 }
 .md-fab.md-fab-top-left, .md-fab.md-fab-top-center, .md-fab.md-fab-top-right, .md-fab.md-fab-bottom-left, .md-fab.md-fab-bottom-center, .md-fab.md-fab-bottom-right,
 .md-speed-dial.md-fab-top-left,
