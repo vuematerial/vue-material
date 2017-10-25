@@ -16,7 +16,8 @@ before_install:
   - yarn -v
   - npm i -g npm
 install:
-  - yarn
+  - yarn add --dev --ignore-scripts babel-cli
+  - yarn --ignore-scripts
 before_script:
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
