@@ -165,7 +165,9 @@ const webpackConfig = {
     }),
     new PrerenderSpaPlugin(path.join(__dirname, '..', '..', config.dist), mapRoutes(), {
       captureAfterElementExists: '.main-container',
-      captureAfterTime: 7000
+      captureAfterTime: 7000,
+      navigationLocked: true,
+      ignoreJSErrors: true
     }),
     new OfflinePlugin({
       autoUpdate: +cacheUpdateTime * 60 * 1000
