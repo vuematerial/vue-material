@@ -67,7 +67,15 @@
       mdSortFn: {
         type: Function,
         default (value) {
-          return orderBy(value, [this.MdTable.sort], [this.MdTable.sortOrder])
+          return value.sort((a, b) => {
+            const sortBy = this.MdTable.sort
+
+            if (this.MdTable.sortOrder === 'desc') {
+              return a[sortBy].localeCompare(b[sortBy])
+            }
+
+            return b[sortBy].localeCompare(a[sortBy])
+          })
         }
       }
     },

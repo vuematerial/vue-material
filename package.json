@@ -24,9 +24,7 @@
   "scripts": {
     "dev": "babel-node build/local",
     "build": "babel-node build/lib",
-    "build-analyze": "babel-node build/lib --analyze",
     "docs": "babel-node build/docs",
-    "docs-analyze": "babel-node build/docs --analyze",
     "lint": "eslint --ext .js,.vue docs src build test",
     "test": "jest",
     "coverage": "yarn test --coverage",
@@ -43,7 +41,6 @@
   "dependencies": {
     "date-fns": "^1.29.0",
     "deepmerge": "^2.0.0",
-    "lodash": "^4.17.4",
     "popper.js": "^1.12.5",
     "raf": "^3.4.0",
     "vue": "^2.5.2"
