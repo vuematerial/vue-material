@@ -7,6 +7,18 @@ export const resolvePath = (...args) => {
   return join.apply(null, path)
 }
 
+export const getRandomInt = (min, max) => {
+  const minNotAlowed = 8080
+  const maxNotAlowed = 8090
+  const generated = Math.floor(Math.random() * (max - min + 1)) + min
+
+  if (generated >= minNotAlowed && generated <= maxNotAlowed) {
+    return getRandomInt(min, max)
+  }
+
+  return generated
+}
+
 export const config = {
   dist: 'dist',
   public: '/',

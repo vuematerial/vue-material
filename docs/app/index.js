@@ -6,8 +6,7 @@ import VueMaterial from 'vue-material'
 
 /* App */
 import App from './App'
-import router from './routes'
-import { i18n } from './config'
+import { i18n, router } from './config'
 import store from './store'
 import './components'
 

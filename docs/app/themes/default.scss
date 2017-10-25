@@ -2,7 +2,7 @@
 
 @include md-register-theme("default", (
   primary: md-get-palette-color(blue, A200),
-  accent: md-get-palette-color(pink, 700)
+  accent: md-get-palette-color(blue, A200)
 ));
 
 @import "~vue-material/base/theme";

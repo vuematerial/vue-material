@@ -6,7 +6,7 @@
       <p>Vue Material do not run under the umbrella of any company or something like that. Is an independent project created by <a href="https://www.github.com/marcosmoura" target="_blank">Marcos Moura</a> on spare time that became one of the most used UI Libraries for Vue.js. The development is active and we are working hard to release great things for you.</p>
       <p>If you think that this project helped you or your company in some way, you can consider become a backer/sponsor on Patreon:</p>
       <a href="https://www.patreon.com/bePatron?u=4832202" target="_blank" class="home-sponsors-patreon">
-        <img src="assets/sponsors/patreon.png">
+        <img src="/assets/sponsors/patreon.png">
       </a>
     </div>
 
@@ -16,13 +16,13 @@
       <div class="home-sponsor-list md-layout-row">
         <a class="home-sponsor" href="">
           <md-ripple>
-            <img src="assets/sponsors/yatima.png">
+            <img src="/assets/sponsors/yatima.png">
           </md-ripple>
         </a>
 
         <a class="home-sponsor" href="https://www.browserstack.com/accounts/subscriptions" target="_blank">
           <md-ripple>
-            <img src="assets/sponsors/browserstack.png">
+            <img src="/assets/sponsors/browserstack.png">
           </md-ripple>
         </a>
       </div>

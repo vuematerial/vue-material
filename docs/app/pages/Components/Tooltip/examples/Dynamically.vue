@@ -1,7 +1,7 @@
 <template>
   <div>
     <md-avatar>
-      <img src="assets/examples/avatar.png" alt="Avatar">
+      <img src="/assets/examples/avatar.png" alt="Avatar">
       <md-tooltip :md-active.sync="tooltipActive">Top</md-tooltip>
     </md-avatar>
 

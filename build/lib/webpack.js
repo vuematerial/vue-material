@@ -7,7 +7,7 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin'
 import OptimizeJsPlugin from 'optimize-js-plugin'
 import OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
-import { config, resolvePath, pack } from '../config'
+import { config, resolvePath, getRandomInt, pack } from '../config'
 import banner from './banner'
 
 function toUpperCase (_, c) {
@@ -16,18 +16,6 @@ function toUpperCase (_, c) {
 
 function classify (str) {
   return str.replace(/(?:^|[-_/])(\w)/g, toUpperCase)
-}
-
-function getRandomInt (min, max) {
-  const minNotAlowed = 8080
-  const maxNotAlowed = 8090
-  const generated = Math.floor(Math.random() * (max - min + 1)) + min
-
-  if (generated >= minNotAlowed && generated <= maxNotAlowed) {
-    return getRandomInt(min, max)
-  }
-
-  return generated
 }
 
 const moduleName = classify(pack.name)
@@ -98,6 +86,19 @@ export default entry => {
   }
 
   if (entry.css) {
+
+    const cssLoader = ExtractTextPlugin.extract({
+      allChunks: true,
+      use: 'css-loader',
+      fallback: 'vue-style-loader'
+    })
+
+    const scssLoader = ExtractTextPlugin.extract({
+      allChunks: true,
+      use: 'css-loader!sass-loader',
+      fallback: 'vue-style-loader'
+    })
+
     webpackConfig = merge({
       plugins: [
         new ExtractTextPlugin('[name].min.css'),
@@ -112,14 +113,8 @@ export default entry => {
             loader: 'vue-loader',
             options: {
               loaders: {
-                css: ExtractTextPlugin.extract({
-                  use: 'css-loader',
-                  fallback: 'vue-style-loader'
-                }),
-                scss: ExtractTextPlugin.extract({
-                  use: 'css-loader!sass-loader',
-                  fallback: 'vue-style-loader'
-                })
+                css: cssLoader,
+                scss: scssLoader
               },
               postcss: [
                 autoprefixer(),
@@ -130,17 +125,11 @@ export default entry => {
           },
           {
             test: /\.css$/,
-            loader: ExtractTextPlugin.extract({
-              use: 'css-loader',
-              fallback: 'vue-style-loader'
-            })
+            loader: cssLoader
           },
           {
             test: /\.scss$/,
-            loader: ExtractTextPlugin.extract({
-              use: 'css-loader!sass-loader',
-              fallback: 'vue-style-loader'
-            })
+            loader: scssLoader
           }
         ]
       }

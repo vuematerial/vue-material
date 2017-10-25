@@ -1,5 +1,5 @@
 <template>
-  <div class="container" :class="containerClass">
+  <div id="docs" class="container" :class="containerClass">
     <main-header />
 
     <div class="container-wrapper md-layout-row" :class="containerClass">

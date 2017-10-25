@@ -4,7 +4,7 @@ import webpackConfig from './webpack'
 import { pack } from '../config'
 
 const spinner = ora({
-  text: 'Building...',
+  text: 'Building lib...',
   color: 'green'
 })
 

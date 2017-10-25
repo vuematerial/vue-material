@@ -3,7 +3,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin'
 import FriendlyErrorsPlugin from 'friendly-errors-webpack-plugin'
 import { config, resolvePath } from '../config'
 
-const componentExampleLoader = require.resolve('./loaders/component-example-loader')
+const componentExampleLoader = require.resolve('../loaders/component-example-loader')
 const cssLoaders = 'vue-style-loader!css-loader'
 const scssLoaders = 'vue-style-loader!css-loader!sass-loader?outputStyle=compressed'
 const babelLoader = 'babel-loader?cacheDirectory=true'
@@ -43,7 +43,10 @@ export default {
       {
         test: /\.js$/,
         loader: babelLoader,
-        exclude: /node_modules/
+        exclude: /node_modules/,
+        options: {
+          'cacheDirectory': true
+        }
       },
       {
         test: /\.css$/,

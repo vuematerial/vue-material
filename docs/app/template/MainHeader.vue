@@ -17,7 +17,7 @@
       </div>
 
       <md-button href="http://github.com/vuematerial/vue-material-experiments" target="_blank" class="md-icon-button">
-        <md-icon md-src="assets/icon-github.svg" class="icon-github" />
+        <md-icon md-src="/assets/icon-github.svg" class="icon-github" />
       </md-button>
     </div>
   </md-toolbar>

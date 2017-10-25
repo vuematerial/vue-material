@@ -6,7 +6,7 @@
         <md-bottom-bar-item md-label="Pages" md-icon="pages"></md-bottom-bar-item>
 
         <md-bottom-bar-item id="item-posts" @click="clearNewPosts">
-          <md-icon class="md-bottom-bar-icon" md-src="assets/icon-whatshot.svg"></md-icon>
+          <md-icon class="md-bottom-bar-icon" md-src="/assets/icon-whatshot.svg"></md-icon>
           <span class="md-bottom-bar-label">Posts</span>
           <i class="badge" v-if="newPosts">{{ newPosts }}</i>
         </md-bottom-bar-item>

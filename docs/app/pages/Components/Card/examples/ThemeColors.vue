@@ -8,7 +8,7 @@
         </md-card-header-text>
 
         <md-card-media>
-          <img src="assets/examples/avatar-2.jpg" alt="Avatar">
+          <img src="/assets/examples/avatar-2.jpg" alt="Avatar">
         </md-card-media>
       </md-card-header>
 
@@ -44,7 +44,7 @@
         </md-card-header-text>
 
         <md-card-media>
-          <img src="assets/examples/avatar-2.jpg" alt="Avatar">
+          <img src="/assets/examples/avatar-2.jpg" alt="Avatar">
         </md-card-media>
       </md-card-header>
     </md-card>
@@ -70,7 +70,7 @@
         </md-card-header-text>
 
         <md-card-media>
-          <img src="assets/examples/avatar-2.jpg" alt="Avatar">
+          <img src="/assets/examples/avatar-2.jpg" alt="Avatar">
         </md-card-media>
       </md-card-header>
     </md-card>

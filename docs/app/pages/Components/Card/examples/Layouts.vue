@@ -2,7 +2,7 @@
   <div>
     <md-card>
       <md-card-media>
-        <img src="assets/examples/card-image-1.jpg" alt="People">
+        <img src="/assets/examples/card-image-1.jpg" alt="People">
       </md-card-media>
 
       <md-card-header>
@@ -23,7 +23,7 @@
     <md-card>
       <md-card-header>
         <md-avatar>
-          <img src="assets/examples/avatar.png" alt="Avatar">
+          <img src="/assets/examples/avatar.png" alt="Avatar">
         </md-avatar>
 
         <div class="md-title">Title goes here</div>
@@ -31,7 +31,7 @@
       </md-card-header>
 
       <md-card-media>
-        <img src="assets/examples/card-image-1.jpg" alt="People">
+        <img src="/assets/examples/card-image-1.jpg" alt="People">
       </md-card-media>
 
       <md-card-content>
@@ -47,7 +47,7 @@
     <md-card class="md-card-example">
       <md-card-area md-inset>
         <md-card-media md-ratio="16:9">
-          <img src="assets/examples/card-example.jpg" alt="Coffee House">
+          <img src="/assets/examples/card-example.jpg" alt="Coffee House">
         </md-card-media>
 
         <md-card-header>
@@ -83,7 +83,7 @@
     <md-card>
       <md-card-area>
         <md-card-media>
-          <img src="assets/examples/card-image-1.jpg" alt="People">
+          <img src="/assets/examples/card-image-1.jpg" alt="People">
         </md-card-media>
 
         <md-card-header>
@@ -105,7 +105,7 @@
     <md-card>
       <md-card-media>
         <md-ripple>
-          <img src="assets/examples/card-image-1.jpg" alt="People">
+          <img src="/assets/examples/card-image-1.jpg" alt="People">
         </md-ripple>
       </md-card-media>
 
@@ -126,7 +126,7 @@
 
     <md-card>
       <md-card-media>
-        <img src="assets/examples/card-image-2.jpg" alt="People">
+        <img src="/assets/examples/card-image-2.jpg" alt="People">
       </md-card-media>
 
       <md-card-content>
