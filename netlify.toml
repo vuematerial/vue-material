@@ -1,9 +1,10 @@
 [build]
-  base    = "master"
+  base    = ""
   publish = "dist"
-  command = "npm run docs"
+  command = "yarn docs"
 
 [context.production]
-  command = "npm run docs"
+  command = "yarn docs"
   [context.production.environment]
-    NODE_VERSION = "8.8.0"
+    YARN_VERSION = "1.2.1"
+    NODE_VERSION = "8.7.0"
