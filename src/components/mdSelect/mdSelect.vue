@@ -67,7 +67,7 @@
       placeholder: String,
       mdMenuClass: String,
       mdMenuOptions: Object,
-      menuFullWidth: Boolean
+      mdMenuFullWidth: Boolean
     },
     mixins: [theme],
     data() {
