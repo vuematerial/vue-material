@@ -140,7 +140,7 @@
     ],
     "transform": {
       "^.+\\.js?$": "babel-jest",
-      ".*\\.(vue)$": "jest-vue",
+      "^.+\\.vue?$": "jest-vue",
       ".*": "jest-css-modules"
     },
     "mapCoverage": true,
