@@ -16,7 +16,6 @@ before_install:
   - yarn -v
   - npm i -g npm
 install:
-  - yarn add --dev babel-cli
   - yarn
 before_script:
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
