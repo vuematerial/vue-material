@@ -2,7 +2,6 @@ import webpack from 'webpack'
 import merge from 'webpack-merge'
 import autoprefixer from 'autoprefixer'
 import mediaPacker from 'css-mqpacker'
-import cssnano from 'cssnano'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 import OptimizeJsPlugin from 'optimize-js-plugin'
 import OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin'
@@ -118,8 +117,7 @@ export default entry => {
               },
               postcss: [
                 autoprefixer(),
-                mediaPacker(),
-                cssnano()
+                mediaPacker()
               ]
             }
           },

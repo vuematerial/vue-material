@@ -67,7 +67,6 @@
     "copy-webpack-plugin": "^4.2.0",
     "css-loader": "^0.28.7",
     "css-mqpacker": "^6.0.1",
-    "cssnano": "^3.10.0",
     "cz-conventional-changelog": "^2.0.0",
     "eslint": "^4.9.0",
     "eslint-config-standard": "^10.2.1",
