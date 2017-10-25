@@ -1,10 +1,8 @@
 [build]
-  base    = ""
   publish = "dist"
-  command = "yarn docs"
 
 [context.production]
-  command = "yarn docs"
+  command = "yarn add --dev babel-cli; yarn docs"
   [context.production.environment]
     YARN_VERSION = "1.2.1"
     NODE_VERSION = "8.7.0"
