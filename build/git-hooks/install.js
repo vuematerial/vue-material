@@ -1,4 +1,4 @@
-import { test, ln, chmod } from 'shelljs'
+const { test, ln, chmod } = require('shelljs')
 
 if (test('-e', '.git/hooks')) {
   ln('-sf', '../../build/git-hooks/pre-commit', '.git/hooks/pre-commit')

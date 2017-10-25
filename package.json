@@ -28,7 +28,7 @@
     "lint": "eslint --ext .js,.vue docs src build test",
     "test": "jest",
     "coverage": "yarn test --coverage",
-    "postinstall": "babel-node build/git-hooks/install.js",
+    "postinstall": "build/git-hooks/install.js",
     "changelog": "babel-node build/generate-changelog.js",
     "release": "sh build/release.sh",
     "new-component": "babel-node build/new-component.js",
