@@ -150,7 +150,7 @@
           this.renderFilteredList();
           this.openMenu();
         }
-        
+  
         this.$emit('focus', this.$el.value, event);
       },
       onInput() {
@@ -295,6 +295,7 @@
       this.query = this.value;
       this.$nextTick(() => {
         this.parentContainer = getClosestVueParent(this.$parent, 'md-input-container');
+        this.parentContainer.inputInstance = this;
         this.menuContent = document.body.querySelector('.md-autocomplete-content');
 
         if (!this.listIsEmpty) {
