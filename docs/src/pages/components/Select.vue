@@ -59,7 +59,7 @@
                 <md-table-cell>The css class to be applied on the opened select holder</md-table-cell>
               </md-table-row>
               <md-table-row>
-                <md-table-cell>menu-full-width</md-table-cell>
+                <md-table-cell>md-menu-full-width</md-table-cell>
                 <md-table-cell><code>Boolean</code></md-table-cell>
                 <md-table-cell>If true, the menu will be full width of the select input field</md-table-cell>
               </md-table-row>
