@@ -32,7 +32,10 @@ export default entry => {
     },
     resolve: {
       extensions: config.resolve,
-      alias: config.alias
+      alias: {
+        ...config.alias,
+        'vue$': 'vue/dist/vue.common.js'
+      }
     },
     module: {
       rules: [
@@ -51,14 +54,14 @@ export default entry => {
     plugins: [
       new webpack.DefinePlugin({
         'process.env': {
-          NODE_ENV: JSON.stringify(entry.env || 'production')
+          NODE_ENV: '"production"'
         }
       }),
       new webpack.optimize.ModuleConcatenationPlugin()
     ]
   }
 
-  if (entry.env === 'production') {
+  if (entry.compress) {
     webpackConfig = merge({
       plugins: [
         new webpack.LoaderOptionsPlugin({
@@ -166,8 +169,7 @@ export default entry => {
         raw: true,
         entryOnly: true
       }),
-      new webpack.optimize.OccurrenceOrderPlugin(),
-      new webpack.IgnorePlugin(/^vue/)
+      new webpack.optimize.OccurrenceOrderPlugin()
     ]
   }, webpackConfig)
 

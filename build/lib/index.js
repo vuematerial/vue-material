@@ -14,14 +14,13 @@ const entries = [
   webpackConfig({
     filename: `${pack.name}.min.js`,
     libraryTarget: 'umd',
-    env: 'production',
+    compress: true,
     css: true,
     analyze: true
   }),
   webpackConfig({
     filename: `${pack.name}.js`,
     libraryTarget: 'umd',
-    env: 'development',
     css: true
   }),
   webpackConfig({

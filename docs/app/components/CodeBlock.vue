@@ -40,10 +40,10 @@
       right: 16px;
       transition: $md-transition-stand;
       color: rgba(#fff, .38);
+      content: attr(data-lang);
       font-size: 11px;
       line-height: 1em;
       text-transform: uppercase;
-      content: attr(data-lang);
     }
 
     pre {
@@ -101,7 +101,7 @@
     color: md-get-palette-color(grey, 200);
     font-family: "Roboto Mono", monospace;
     font-size: 15px;
-    font-weight: 500;
+    font-weight: 400;
     letter-spacing: normal;
     line-height: 1.5em;
   }
@@ -179,7 +179,7 @@
   }
 
   .hljs-strong {
-    font-weight: bold;
+    font-weight: 500;
   }
 
   .scss,

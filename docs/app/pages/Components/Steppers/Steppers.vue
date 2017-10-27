@@ -1,6 +1,8 @@
 <example src="./examples/StepperHorizontal.vue" />
+<example src="./examples/StepperAlternative.vue" />
+<example src="./examples/StepperLinear.vue" />
+<example src="./examples/StepperNonEditable.vue" />
 <example src="./examples/StepperVertical.vue" />
-<example src="./examples/Example.vue" />
 
 <template>
   <page-container centered :title="$t('pages.steppers.title')">
@@ -12,8 +14,10 @@
       <h2>Steppers</h2>
 
       <code-example title="Horizontal" :component="examples['stepper-horizontal']" />
+      <code-example title="Alternative Layout" :component="examples['stepper-alternative']" />
+      <code-example title="Linear with error handler" :component="examples['stepper-linear']" />
+      <code-example title="Disable Edit" :component="examples['stepper-non-editable']" />
       <code-example title="Vertical" :component="examples['stepper-vertical']" />
-      <code-example title="Example" :component="examples['example']" />
 
       <api-item title="API - md-steppers">
         <p>This component do not have any extra option.</p>
