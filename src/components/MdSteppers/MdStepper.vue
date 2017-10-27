@@ -126,7 +126,7 @@
 <style lang="scss">
   @import "~components/MdAnimation/variables";
 
-  .md-stepper-content {
+  .md-steppers.md-vertical .md-stepper-content {
     padding: 0 24px 0 60px;
     height: 0;
     overflow: hidden;

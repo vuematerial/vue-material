@@ -56,6 +56,7 @@
         return {
           'md-no-transition': this.noTransition,
           'md-alternative': this.mdAlternative,
+          'md-horizontal': !this.mdVertical,
           'md-vertical': this.mdVertical,
           'md-dynamic-height': this.mdDynamicHeight
         }
@@ -261,7 +262,7 @@
       will-change: height;
     }
 
-    &:not(.md-vertical).md-alternative {
+    &.md-horizontal.md-alternative {
       .md-stepper-header {
         height: 104px;
 
@@ -340,6 +341,10 @@
         }
       }
 
+      .md-steppers-container {
+        flex-direction: column;
+      }
+
       .md-button-content {
         &:before,
         &:after {
@@ -351,30 +356,26 @@
       .md-stepper-number {
         margin-right: 12px;
       }
-    }
 
-    .md-steppers-container {
-      flex-direction: column;
-    }
+      .md-stepper {
+        padding: 0;
+        position: relative;
 
-    .md-stepper {
-      padding: 0;
-      position: relative;
+        &:last-of-type:after {
+          content: none;
+        }
 
-      &:last-of-type:after {
-        content: none;
-      }
-
-      &:after {
-        width: 1px;
-        position: absolute;
-        top: 48px;
-        bottom: -8px;
-        left: 36px;
-        z-index: 2;
-        transition: background-color .3s $md-transition-default-timing;
-        will-change: background-color;
-        content: " ";
+        &:after {
+          width: 1px;
+          position: absolute;
+          top: 48px;
+          bottom: -8px;
+          left: 36px;
+          z-index: 2;
+          transition: background-color .3s $md-transition-default-timing;
+          will-change: background-color;
+          content: " ";
+        }
       }
     }
   }

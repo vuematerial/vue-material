@@ -1,3 +1,5 @@
+<example src="./examples/StepperHorizontal.vue" />
+<example src="./examples/StepperVertical.vue" />
 <example src="./examples/Example.vue" />
 
 <template>
@@ -9,6 +11,8 @@
     <div class="page-container-section">
       <h2>Steppers</h2>
 
+      <code-example title="Horizontal" :component="examples['stepper-horizontal']" />
+      <code-example title="Vertical" :component="examples['stepper-vertical']" />
       <code-example title="Example" :component="examples['example']" />
 
       <api-item title="API - md-steppers">
