@@ -36,7 +36,7 @@ The release strategy will be like this:
   - [X] Deprecated theme component
   - [X] Sass Based themes
   - [X] Multiple themes
-  - [ ] CSS Variables
+  - [x] CSS Variables
   - [ ] CSS-only themes
 - [ ] SSR Support - `NEW`
   - [X] Basic Support
@@ -54,8 +54,8 @@ The release strategy will be like this:
   - [X] Symple way to trigger active item
 - [X] MdButton
   - [X] Router integration - `NEW`
-- [ ] MdCard
-  - [ ] Documentation
+- [x] MdCard
+  - [x] Documentation
   - [X] Better image handle
   - [X] Expand action
 - [X] MdCheckbox
@@ -100,7 +100,7 @@ The release strategy will be like this:
   - [X] Radio
   - [X] Switch
   - [X] File - `NEW API`
-  - [ ] Select
+  - [x] Select
 - [X] MdIcon
 - [ ] MdLayout - `NEW API`
   - [ ] Documentation
@@ -143,9 +143,9 @@ The release strategy will be like this:
   - [X] Fixed Header
   - [ ] Inline Edit
   - [ ] Dialog Edit
-  - [ ] Selection
+  - [x] Selection
   - [ ] Pagination
-  - [ ] Alternate Header
+  - [x] Alternate Header
 - [ ] MdTabs
   - [ ] Documentation
   - [X] Router integration - `NEW`
