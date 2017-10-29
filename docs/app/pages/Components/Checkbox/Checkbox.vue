@@ -44,7 +44,7 @@
           {
             name: 'v-model',
             type: 'String|Number|Boolean|Array',
-            description: 'The model variable to bind the selection value. If array, it will toggle values inside of it. If no value is assigned, then it will use the same behaviour of a regular input[type="checkbox"].',
+            description: 'The model variable to bind the selection value. If it is an array, it will toggle values inside of it. If no value is assigned, then it will use the same behaviour of a regular input[type="checkbox"].',
             defaults: 'null'
           },
           {

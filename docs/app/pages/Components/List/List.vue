@@ -21,7 +21,7 @@
       <code-example title="Expansion" :component="examples['list-expansion']" />
 
       <api-item title="API - md-content">
-        <p>This component do not have any extra option.</p>
+        <p>This component does not have any extra option.</p>
       </api-item>
     </div>
   </page-container>

@@ -3,7 +3,7 @@
 <template>
   <page-container centered :title="$t('pages.content.title')">
     <div class="page-container-section">
-      <p>The content surfaces that comprise applications are referred to in this spec as material, or sheets of material. The content component is commonly used to resemble a piece of paper. It'll be useful to theme a arbitrary content.</p>
+      <p>The Content surfaces that comprise applications are referred to in this spec as material, or sheets of material. The content component is commonly used to resemble a piece of paper. It'll be useful to theme an arbitrary content.</p>
     </div>
 
     <div class="page-container-section">
@@ -12,7 +12,7 @@
       <code-example title="Paper Content" :component="examples['paper-content']" />
 
       <api-item title="API - md-content">
-        <p>This component do not have any extra option.</p>
+        <p>This component does not have any extra option.</p>
       </api-item>
     </div>
   </page-container>

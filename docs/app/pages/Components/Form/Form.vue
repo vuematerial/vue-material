@@ -3,7 +3,7 @@
 <template>
   <page-container centered :title="$t('pages.input.title')">
     <div class="page-container-section">
-      <p>Text fields allow users to input, edit, and select text, typically residing in forms but can appear in other places, like dialog boxes and search.</p>
+      <p>Text fields allows users to input, edit, and select text, typically inside forms but they can appear in other places, like dialog boxes and search.</p>
     </div>
 
     <div class="page-container-section">

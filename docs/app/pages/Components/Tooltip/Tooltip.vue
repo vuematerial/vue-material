@@ -12,7 +12,7 @@
     <div class="page-container-section">
       <h2>Direction</h2>
 
-      <p>You can set tooltip direction using the four available values - <code>top</code>, <code>right</code>, <code>bottom</code> and <code>left</code>:</p>
+      <p>You can set the tooltip direction using the four available values - <code>top</code>, <code>right</code>, <code>bottom</code> and <code>left</code>:</p>
       <code-example title="Text position" :component="examples['direction']" />
     </div>
 
@@ -50,41 +50,41 @@
           {
             name: 'md-direction',
             type: 'String',
-            description: 'Specify where the tooltip will appear based on the parent element.',
+            description: 'Specifies where the tooltip will appear based on the parent element.',
             defaults: 'bottom'
           },
           {
             offset: true,
             name: 'md-direction="top"',
             type: 'String',
-            description: 'Show the tooltip above the parent element.',
+            description: 'Shows the tooltip above the parent element.',
             defaults: '-'
           },
           {
             offset: true,
             name: 'md-direction="right"',
             type: 'String',
-            description: 'Show the tooltip after the parent element.',
+            description: 'Shows the tooltip after the parent element.',
             defaults: '-'
           },
           {
             offset: true,
             name: 'md-direction="bottom"',
             type: 'String',
-            description: 'Show the tooltip below the parent element.',
+            description: 'Shows the tooltip below the parent element.',
             defaults: '-'
           },
           {
             offset: true,
             name: 'md-direction="left"',
             type: 'String',
-            description: 'Show the tooltip before the parent element.',
+            description: 'Shows the tooltip before the parent element.',
             defaults: '-'
           },
           {
             name: 'md-delay',
             type: 'Number',
-            description: 'Postpone the exhibition of a tooltip. In milliseconds.',
+            description: 'Postpones the exhibition of a tooltip. In milliseconds.',
             defaults: '0'
           },
           {

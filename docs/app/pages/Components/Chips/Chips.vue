@@ -34,14 +34,14 @@
     <div class="page-container-section">
       <h2>Readonly</h2>
 
-      <p>Let's thinking in a entity that have tags. Sometimes you may need to show all of them in a single row, but not enable the user to edit them. You can achieve that using the <code>md-chips</code> component, with a static option:</p>
+      <p>Let's think in a entity that have tags. Sometimes you might need to show all of them in a single row, but not enable the user to edit them. You can achieve that using the <code>md-chips</code> component, with a static option:</p>
       <code-example title="Static" :component="examples['static']" />
     </div>
 
     <div class="page-container-section">
       <h2>Custom Template</h2>
 
-      <p>Sometimes we need to show more information about a chip, so we want to have a custom HTML structure for the chip itself. To create that scenario we can use the scoped template here. In this case all you have to do is to create a slot with your custom template and you're good to go. Take a loot at this example:</p>
+      <p>Sometimes we need to show more information about a chip, so we want to have a custom HTML structure for the chip itself. To create that scenario we can use the template scope. In this case all you have to do is to create a slot with your custom template and you're good to go. Take a loot at this example:</p>
       <code-example title="Scoped Slot" :component="examples['chip-custom-template']" />
     </div>
 
@@ -75,19 +75,19 @@ export default {
           {
             name: 'md-clickable',
             type: 'Boolean',
-            description: 'Enable/Disable the click action in the chip.',
+            description: 'Enables/Disables the click action in the chip.',
             defaults: 'false'
           },
           {
             name: 'md-deletable',
             type: 'Boolean',
-            description: 'Create a chip that can hold a delete action. Useful when editing a chip series, like tags or categories.',
+            description: 'Creates a chip that can hold a delete action. Useful when editing a chip series, like tags or categories.',
             defaults: 'false'
           },
           {
             name: 'md-disabled',
             type: 'Boolean',
-            description: 'Enable/Disable the chip to be clickable of deletable.',
+            description: 'Enables/Disables the chip to be clickable of deletable.',
             defaults: 'false'
           }
         ]
@@ -134,13 +134,13 @@ export default {
           {
             name: 'md-static',
             type: 'Boolean',
-            description: 'Create a non-editable chips. Useful to show inside a details page.',
+            description: 'Creates a non-editable chips. Useful to show inside a details page.',
             defaults: 'false'
           },
           {
             name: 'md-limit',
             type: 'Number',
-            description: 'Block the chips to create items above the limit.',
+            description: 'Blocks the chips to create items above the limit.',
             defaults: 'false'
           }
         ]

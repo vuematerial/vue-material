@@ -14,7 +14,7 @@
       <code-example title="Rounded" :component="examples['rounded-empty-state']" />
 
       <api-item title="API - md-empty-state">
-        <p>This component do not have any extra option.</p>
+        <p>This component does not have any extra option.</p>
       </api-item>
     </div>
   </page-container>

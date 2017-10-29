@@ -5,7 +5,7 @@
 <template>
   <page-container centered :title="$t('pages.icon.title')">
     <div class="page-container-section">
-      <p>Material icons use geometric shapes to visually represent core ideas, capabilities, or topics. They are generally used along with the <a href="https://material.io/icons/" target="_blank">Material icons</a>, but not restricted to. Icons can use icon fonts or external SVGs. Also, can accept some size dimensions, like <strong>2x</strong>, <strong>3x</strong>, <strong>4x</strong> and <strong>5x</strong>.</p>
+      <p>Material icons uses geometric shapes to visually represent core ideas, capabilities, or topics. They are generally used along with the <a href="https://material.io/icons/" target="_blank">Material icons</a>, but not restricted to. Icons can use icon fonts or external SVGs. Also, can accept some size dimensions, like <strong>2x</strong>, <strong>3x</strong>, <strong>4x</strong> and <strong>5x</strong>.</p>
     </div>
 
     <div class="page-container-section">
@@ -31,7 +31,7 @@
 
     <div class="page-container-section">
       <h2>SVG Source</h2>
-      <p>When loading an icon font, you will be able to use ALL of it's icons. This may hurts the performance of your application. Instead, you can use only the icons that you really needs, loading them using svg.</p>
+      <p>When loading an icon font, you will be able to use ALL of it's icons. This may hurts the performance of your application. Instead, you can use only the icons that you really need, loading them using svg.</p>
 
       <code-example title="SVG Assets" :component="examples['svg-assets']" />
 
@@ -58,7 +58,7 @@ export default {
           props: [
             {
               name: 'md-size-[dimension]',
-              description: 'Increase the size of the icon. It accepts 2x, 3x, 4x or 5x',
+              description: 'Increases the size of the icon. It accepts 2x, 3x, 4x or 5x',
               example: 'md-size-3x'
             }
           ]

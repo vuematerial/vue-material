@@ -20,7 +20,7 @@
       <code-example title="Vertical" :component="examples['stepper-vertical']" />
 
       <api-item title="API - md-steppers">
-        <p>This component do not have any extra option.</p>
+        <p>This component does not have any extra option.</p>
       </api-item>
     </div>
   </page-container>

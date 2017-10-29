@@ -3,7 +3,7 @@
 <template>
   <page-container centered :title="$t('pages.file.title')">
     <div class="page-container-section">
-      <p>File inputs allow the user to pick one or multiple files. It can also filter the file type just like a normal input file or select multiple files.</p>
+      <p>File inputs allows the user to pick one or multiple files. It can also filter the file type just like a normal input file or select multiple files.</p>
     </div>
 
     <div class="page-container-section">

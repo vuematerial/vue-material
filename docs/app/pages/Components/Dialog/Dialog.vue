@@ -4,7 +4,7 @@
 <template>
   <page-container centered :title="$t('pages.dialog.title')">
     <div class="page-container-section">
-      <p>Dialogs inform users about a specific task and may contain critical information, require decisions, or involve multiple tasks. The dialog component works with any plain html content. You can have tabs, all form components and more.</p>
+      <p>Dialogs informs users about a specific task and may contain critical information, require decisions, or involve multiple tasks. The dialog component works with any plain html content. You can have tabs, all form components and more.</p>
       <p>The component can be used with a custom markup, using the auxiliary components, or with presets by Vue Material. Those presets emulates the default Dialogs from Javascript, like confirm, alert and prompt.</p>
     </div>
 
@@ -14,7 +14,7 @@
       <code-example title="Custom Dialog Markup" :component="examples['custom']" />
 
       <api-item title="API - md-dialog">
-        <p>This component do not have any extra option.</p>
+        <p>This component does not have any extra option.</p>
       </api-item>
     </div>
 
@@ -24,7 +24,7 @@
       <code-example title="Alert, Confirm and Prompt" :component="examples['presets']" />
 
       <api-item title="API - md-dialog">
-        <p>This component do not have any extra option.</p>
+        <p>This component does not have any extra option.</p>
       </api-item>
     </div>
   </page-container>

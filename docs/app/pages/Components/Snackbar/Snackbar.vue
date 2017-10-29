@@ -12,7 +12,7 @@
       <code-example title="Dynamic values" :component="examples['duration']" />
 
       <api-item title="API - md-snackbar">
-        <p>This component do not have any extra option.</p>
+        <p>This component does not have any extra option.</p>
       </api-item>
     </div>
   </page-container>

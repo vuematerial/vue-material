@@ -18,7 +18,7 @@
       <code-example title="Example" :component="examples['example']" />
 
       <api-item title="API - md-table">
-        <p>This component do not have any extra option.</p>
+        <p>This component does not have any extra option.</p>
       </api-item>
     </div>
   </page-container>

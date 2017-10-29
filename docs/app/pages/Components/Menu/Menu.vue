@@ -88,87 +88,87 @@
             offset: true,
             name: 'md-direction="bottom-start"',
             type: 'String',
-            description: 'Align the menu on the bottom left of the trigger',
+            description: 'Aligns the menu on the bottom left of the trigger',
             defaults: '-'
           },
           {
             offset: true,
             name: 'md-direction="bottom-end"',
             type: 'String',
-            description: 'Align the menu on the bottom right of the trigger',
+            description: 'Aligns the menu on the bottom right of the trigger',
             defaults: '-'
           },
           {
             offset: true,
             name: 'md-direction="top-start"',
             type: 'String',
-            description: 'Align the menu on the top left of the trigger',
+            description: 'Aligns the menu on the top left of the trigger',
             defaults: '-'
           },
           {
             offset: true,
             name: 'md-direction="top-start"',
             type: 'String',
-            description: 'Align the menu on the top right of the trigger',
+            description: 'Aligns the menu on the top right of the trigger',
             defaults: '-'
           },
           {
             name: 'md-align-trigger',
             type: 'Boolean',
-            description: 'Align the content above the trigger. Also works in combination with <code>md-direction</code> values',
+            description: 'Aligns the content above the trigger. Also works in combination with <code>md-direction</code> values',
             defaults: 'false'
           },
           {
             name: 'md-offset-x',
             type: 'Number',
-            description: 'Set a custom offset in X axis',
+            description: 'Sets a custom offset in X axis',
             defaults: '0'
           },
           {
             name: 'md-offset-y',
             type: 'Number',
-            description: 'Set a custom offset in Y axis',
+            description: 'Sets a custom offset in Y axis',
             defaults: '0'
           },
           {
             name: 'md-size',
             type: 'String',
-            description: 'Set the size of a menu. See below the detailed description of each size.',
+            description: 'Sets the size of a menu. See below the detailed description of each size.',
             defaults: 'small'
           },
           {
             offset: true,
             name: 'md-size="small"',
             type: 'String',
-            description: 'Set a menu with a small size (112px)',
+            description: 'Sets a menu with a small size (112px)',
             defaults: '-'
           },
           {
             offset: true,
             name: 'md-size="medium"',
             type: 'String',
-            description: 'Set a menu with a medium size (168px)',
+            description: 'Sets a menu with a medium size (168px)',
             defaults: '-'
           },
           {
             offset: true,
             name: 'md-size="big"',
             type: 'String',
-            description: 'Set a menu with a big size (224px)',
+            description: 'Sets a menu with a big size (224px)',
             defaults: '-'
           },
           {
             offset: true,
             name: 'md-size="huge"',
             type: 'String',
-            description: 'Set a menu with a huge size (280px)',
+            description: 'Sets a menu with a huge size (280px)',
             defaults: '-'
           },
           {
             offset: true,
             name: 'md-size="auto"',
             type: 'String',
-            description: 'Set a menu with a auto size',
+            description: 'Sets a menu with a auto size',
             defaults: '-'
           }
         ]

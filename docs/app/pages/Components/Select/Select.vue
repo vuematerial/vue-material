@@ -20,7 +20,7 @@
       <code-example title="Dense" :component="examples['dense-select']" />
 
       <api-item title="API - md-select">
-        <p>This component do not have any extra option.</p>
+        <p>This component does not have any extra option.</p>
       </api-item>
     </div>
   </page-container>

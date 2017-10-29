@@ -7,7 +7,7 @@
 <template>
   <page-container centered :title="$t('pages.button.title')">
     <div class="page-container-section">
-      <p>Buttons communicate the action that will occur when the user touches them. They can be <strong>Flat</strong>, <strong>Raised</strong> or <strong>Floating</strong>. Flat and raised buttons accepts only text (by default) but with an special class the button can place an icon. Floating Buttons only accept icons. They also can be smaller than the usual with a <strong>Dense</strong> class.</p>
+      <p>Buttons communicate the action that will occur when the user touches them. They can be <strong>Flat</strong>, <strong>Raised</strong> or <strong>Floating</strong>. Flat and raised buttons accepts only text (by default) but with an special class the button can place an icon. Floating Buttons only accept icons. They can also be smaller than usual with a <strong>Dense</strong> class.</p>
     </div>
 
     <div class="page-container-section">
@@ -17,7 +17,7 @@
       <code-example title="Regular Button" :component="examples['regular-buttons']" />
 
       <api-item title="API - md-button">
-        <p>The following options can be applied to all buttons, even the FAB ones:</p>
+        <p>The following options can be applied to all buttons, even FAB ones:</p>
 
         <api-table :headings="api.regular.props.headings" :props="api.regular.props.props" slot="props" />
         <api-table :headings="api.regular.classes.headings" :props="api.regular.classes.props" slot="classes" />
@@ -27,7 +27,7 @@
 
     <div class="page-container-section">
       <h2>Icons</h2>
-      <p>To show icons inside buttons you only need to add a class and you're good to go. And you can also combine it with the raised class.</p>
+      <p>To display icons inside buttons you only need to add a class and you're good to go. And you can also combine it with the raised class.</p>
 
       <code-example title="Buttons with Icons" :component="examples['icon-buttons']" />
 
@@ -40,7 +40,7 @@
 
     <div class="page-container-section">
       <h2>Floating Action Buttons</h2>
-      <p>A floating action button represents the primary action in an application and is used for a promoted action. FAB buttons can have it regular size or mini, with an accent color by default. This type of buttons can only have icons, so it should be used along with <code>&lt;md-icon&gt;</code>.</p>
+      <p>A Floating Action Button represents the primary action in an application and is used for a promoted action. FAB buttons can be regular sized or mini, with an accent color by default. This type of buttons can only have icons, so it should be used along with <code>&lt;md-icon&gt;</code>.</p>
       <note-block tip>Use only one FAB per page and only if the purpose of the button is to fire the main action of the screen. Otherwise use <code>md-icon-button</code>.</note-block>
 
       <code-example title="FAB" :component="examples['floating-buttons']" />
@@ -54,7 +54,7 @@
 
     <div class="page-container-section">
       <h2>Link Vs Buttons</h2>
-      <p>All buttons by default will output a <code>button</code> tag. If you want to change it to a <code>a</code> tag, just pass a href to it:</p>
+      <p>All buttons by default will output a <code>button</code> tag. If you want to change it to a <code>a</code> tag, just pass it a href:</p>
 
       <code-example title="Links and Buttons" :component="examples['button-vs-link']" />
     </div>
@@ -83,25 +83,25 @@ export default {
             {
               name: 'href',
               type: 'String',
-              description: 'Create a anchor on the button. In this case the generated tag will be <a>.',
+              description: 'Creates a anchor on the button. In this case the generated tag will be <a>.',
               defaults: 'null'
             },
             {
               name: 'type',
               type: 'String',
-              description: 'Apply a type to button - Don\'t affect links.',
+              description: 'Applies a type to button - It doesn\'t affects links.',
               defaults: 'button'
             },
             {
               name: 'disabled',
               type: 'Boolean',
-              description: 'Disable the button and prevent his actions.',
+              description: 'Disables the button and prevents its actions.',
               defaults: 'false'
             },
             {
               name: 'md-ripple',
               type: 'Boolean',
-              description: 'Enable/Disable the ripple effect.',
+              description: 'Enables/Disables the ripple effect.',
               defaults: 'true'
             }
           ]
@@ -121,7 +121,7 @@ export default {
           props: [
             {
               name: 'md-raised',
-              description: 'Create raised buttons with elevation'
+              description: 'Creates raised buttons with elevation'
             },
             {
               name: 'md-dense',
@@ -136,7 +136,7 @@ export default {
           props: [
             {
               name: 'md-icon-button',
-              description: 'Enable the rounded-shape icon button'
+              description: 'Enables the rounded-shape icon button'
             }
           ]
         }
@@ -147,15 +147,15 @@ export default {
           props: [
             {
               name: 'md-fab',
-              description: 'Turn a button into a FAB'
+              description: 'Turns a button into a FAB'
             },
             {
               name: 'md-plain',
-              description: 'Make the button white'
+              description: 'Makes the button white'
             },
             {
               name: 'md-mini',
-              description: 'Create a smaller FAB'
+              description: 'Creates a smaller FAB'
             },
             {
               name: 'md-dense',
@@ -163,27 +163,27 @@ export default {
             },
             {
               name: 'md-fab-top-right',
-              description: 'Position the FAB on the top right of the nearest relative parent'
+              description: 'Positions the FAB on the top right of the nearest relative parent'
             },
             {
               name: 'md-fab-top-center',
-              description: 'Position the FAB on the top center of the nearest relative parent'
+              description: 'Positions the FAB on the top center of the nearest relative parent'
             },
             {
               name: 'md-fab-top-left',
-              description: 'Position the FAB on the top left of the nearest relative parent'
+              description: 'Positions the FAB on the top left of the nearest relative parent'
             },
             {
               name: 'md-fab-bottom-right',
-              description: 'Position the FAB on the bottom right of the nearest relative parent'
+              description: 'Positions the FAB on the bottom right of the nearest relative parent'
             },
             {
               name: 'md-fab-bottom-center',
-              description: 'Position the FAB on the bottom center of the nearest relative parent'
+              description: 'Positions the FAB on the bottom center of the nearest relative parent'
             },
             {
               name: 'md-fab-bottom-left',
-              description: 'Position the FAB on the bottom left of the nearest relative parent'
+              description: 'Positions the FAB on the bottom left of the nearest relative parent'
             },
             {
               name: 'md-fixed',

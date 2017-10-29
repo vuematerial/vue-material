@@ -9,13 +9,13 @@
   <page-container centered :title="$t('pages.card.title')">
     <div class="page-container-section">
       <p>Cards may contain a photo, text, and a link about a single subject. They may display content containing elements of varying size, such as photos with captions of variable length.</p>
-      <p>The card components are very granular. Every single part of a card is a component. You can combine them in any order that you want, following the same logic of the examples.</p>
+      <p>The cards components are very granular. Every single part of a card is a component. You can combine them in any order that you'd like, following the same logic of the examples.</p>
     </div>
 
     <div class="page-container-section">
       <h2>Regular Cards</h2>
 
-      <p>The simplest card structure has a header, content area and action buttons, defined by <code>md-card-header</code>, <code>md-card-content</code> and <code>md-card-actions</code>, respectively. The header may contain title and subtitle <code>div</code> or <code>span</code> with classes <code>.md-title</code> and <code>.md-subhead</code>. In the content area, you may use any kind of text elements and for the actions, use at most two <code>md-buttons</code>.</p>
+      <p>The simplest card structure has a header, content area and action buttons, defined by <code>md-card-header</code>, <code>md-card-content</code> and <code>md-card-actions</code>, respectively. The header may contain a title and a subtitle <code>div</code> or <code>span</code> with classes <code>.md-title</code> and <code>.md-subhead</code>. In the content area, you may use any kind of text elements and for the actions, use at most two <code>md-buttons</code>.</p>
 
       <p>If you want to elevate the card as the user hovers over it, add the <code>md-with-hover</code> property. You can also add a ripple effect in combination with the elevation behavior. For doing so, wrap the <code>md-card</code>'s content in a <code>md-ripple</code> tag.</p>
 
@@ -109,13 +109,13 @@ export default {
             {
               name: 'md-with-hover',
               type: 'Boolean',
-              description: 'Enable full hover elevation in card.',
+              description: 'Enables full hover elevation in card.',
               defaults: 'false'
             },
             {
               name: 'md-theme',
               type: 'String',
-              description: 'Speficy a custom theme for the card. Works only if a theme class like <code>primary</code> or <code>accent</code> is applied to the card.',
+              description: 'Speficies a custom theme for the card. Works only if a theme class like <code>primary</code> or <code>accent</code> is applied to the card.',
               defaults: '-'
             }
           ]
@@ -141,7 +141,7 @@ export default {
             {
               name: 'md-inset',
               type: 'Boolean',
-              description: 'Apply a inset border.',
+              description: 'Applies a inset border.',
               defaults: 'false'
             }
           ]
@@ -154,7 +154,7 @@ export default {
             {
               name: 'md-ratio',
               type: 'String',
-              description: 'Resize or clip the image automatically based on the following options: 1:1 or 1/1, 4:3 or 4/3 and 16:9 or 16/9.',
+              description: 'Resizes or clip the image automatically based on the following options: 1:1 or 1/1, 4:3 or 4/3 and 16:9 or 16/9.',
               defaults: 'null'
             },
             {
@@ -179,7 +179,7 @@ export default {
             {
               name: 'md-text-scrim',
               type: 'Boolean',
-              description: 'Apply a gradient background based on the image. This option increases the legibility of the text, applying background colors by extracting the amount of lightness on the image. If the image is dark the background of the text will be lighter. If it\'s not dark then the background will be darker. This will be calculated automatically.',
+              description: 'Applies a gradient background based on the image. This option increases the legibility of the text, applying background colors by extracting the amount of lightness on the image. If the image is dark the background of the text will be lighter. If it\'s not dark then the background will be darker. This will be calculated automatically.',
               defaults: 'false'
             },
             {

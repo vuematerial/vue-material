@@ -12,7 +12,7 @@
     <div class="page-container-section">
       <h2>Seamless integration with Vue Router</h2>
 
-      <p>The bottom bar is compatible with all options of Vue Router. Just pass the values as a parameter on <code>md-bottom-bar-item</code> component:</p>
+      <p>The bottom bar is compatible with all Vue Router options. Just pass the values as parameters on <code>md-bottom-bar-item</code> component:</p>
       <code-example title="With default fixed style" :component="examples['bar-router']" />
       <note-block tip>Note: Try tro change the url manually to see the component selecting the correct item.</note-block>
     </div>
@@ -27,7 +27,7 @@
     <div class="page-container-section">
       <h2>Dynamic Themes</h2>
 
-      <p>Sometimes each part of your application have it's own color theme, like in a social media app. You can change the theme dynamically to morph states creating a immersive experience:</p>
+      <p>Sometimes each part of your application have it's own color theme, like in a social media app. You can change the theme dynamically to morph states creating an immersive experience:</p>
       <code-example title="Morphing States" :component="examples['changing-themes']" />
     </div>
 
@@ -66,27 +66,27 @@
             {
               name: 'md-type',
               type: 'String',
-              description: 'Set the display mode. See below the detailed description of each type.',
+              description: 'Sets the display mode. See below the detailed description of each type.',
               defaults: 'fixed'
             },
             {
               offset: true,
               name: 'md-type="fixed"',
               type: 'String',
-              description: 'Make the bar with fixed items. Good for a small amount of items.',
+              description: 'Makes the bar with fixed items. Good for a small amount of items.',
               defaults: '-'
             },
             {
               offset: true,
               name: 'md-mode="shift"',
               type: 'String',
-              description: 'Highlight the selected item and hide the label from the others. Good for a large amount of items. Up to 6.',
+              description: 'Highlights the selected item and hide the label from the others. Good for a large amount of items. Up to 6.',
               defaults: '-'
             },
             {
               name: 'md-active-item',
               type: 'Boolean',
-              description: 'Dynamically change the selected item. Works passing the ID of a bottom bar item.',
+              description: 'Dynamically changes the selected item. Works passing the ID of a bottom bar item.',
               defaults: 'null'
             },
             {
@@ -127,13 +127,13 @@
             {
               name: 'md-icon',
               type: 'String',
-              description: 'The bottom bar icon. Can be a icon name from <a href="https://material.io/icons/" target="_blank">Material icons</a> or the path of a valid svg. <code>Required</code>.',
+              description: 'The bottom bar icon. Can be an icon name from <a href="https://material.io/icons/" target="_blank">Material icons</a> or the path of a valid svg. <code>Required</code>.',
               defaults: 'null'
             },
             {
               name: 'md-disabled',
               type: 'Boolean',
-              description: 'Disable the bottom bar prevent the click on it and all actions.',
+              description: 'Disable the bottom bar preventing the click on it and all actions.',
               defaults: 'false'
             }
           ]

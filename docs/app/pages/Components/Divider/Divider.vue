@@ -3,7 +3,7 @@
 <template>
   <page-container centered :title="$t('pages.divider.title')">
     <div class="page-container-section">
-      <p>A divider is a thin, lightweight rule that groups content in lists and page layouts and help organize page content and hierarchy into individual tiles.</p>
+      <p>A divider is a thin, lightweight rule that groups content in lists and page layouts and helps to organize page content and hierarchy into individual tiles.</p>
       <p>The dividers can be used in lists and to separate content. They fit well in navigation panels and menus.</p>
     </div>
 
@@ -33,7 +33,7 @@ export default {
       props: [
         {
           name: 'md-inset',
-          description: 'Create a inset divider, which is commonly used to separate related content.'
+          description: 'Creates a inset divider, which is commonly used to separate related content.'
         }
       ]
     }

@@ -40,7 +40,7 @@
       <code-example title="Template Slot" :component="examples['tab-custom-template']" />
 
       <api-item title="API - md-tabs">
-        <p>This component do not have any extra option.</p>
+        <p>This component does not have any extra option.</p>
       </api-item>
     </div>
   </page-container>
