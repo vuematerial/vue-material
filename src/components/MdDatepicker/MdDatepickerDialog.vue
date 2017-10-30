@@ -181,13 +181,25 @@
         return getYear(this.currentDate)
       },
       selectedYear () {
-        return getYear(this.selectedDate)
+        if (this.selectedDate) {
+          return getYear(this.selectedDate)
+        }
+
+        return getYear(this.currentDate)
       },
       shortDayName () {
-        return this.locale.shortDays[getDay(this.selectedDate)]
+        if (this.selectedDate) {
+          return this.locale.shortDays[getDay(this.selectedDate)]
+        }
+
+        return this.locale.shortDays[getDay(this.currentDate)]
       },
       shortMonthName () {
-        return this.locale.shortMonths[getMonth(this.selectedDate)]
+        if (this.selectedDate) {
+          return this.locale.shortMonths[getMonth(this.selectedDate)]
+        }
+
+        return this.locale.shortMonths[getMonth(this.currentDate)]
       }
     },
     watch: {

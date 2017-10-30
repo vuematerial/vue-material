@@ -1,18 +1,35 @@
-<example src="./examples/Example.vue" />
+<example src="./examples/BasicDatepicker.vue" />
+<example src="./examples/CancelOpenDatepicker.vue" />
+<example src="./examples/DisabledDatesDatepicker.vue" />
 
 <template>
   <page-container centered :title="$t('pages.datepicker.title')">
     <div class="page-container-section">
-      <p>Lorem ipsum</p>
+      <p>Datepickers use a dialog window and provide a simple way to select a single value from a pre-determined set. The component can have disabled dates and it's really easy to use.</p>
+      <note-block alert>The datepicker dialog is disabled in Firefox, because it have a built-in Datepicker on desktop.</note-block>
     </div>
 
     <div class="page-container-section">
       <h2>Datepicker</h2>
 
-      <code-example title="Example" :component="examples['example']" />
+      <code-example title="Basic Example" :component="examples['basic-datepicker']" />
+    </div>
+
+    <div class="page-container-section">
+      <h2>Cancel open on focus</h2>
+      <p>By default Datepicker component open on focus on it's input. This will make the input useless and the user will not be able to type de date manually. You can disable this behavior:</p>
+      <code-example title="With initial date selected" :component="examples['cancel-open-datepicker']" />
+    </div>
+
+    <div class="page-container-section">
+      <h2>Disabled dates</h2>
+      <p>Sometimes you may need to disable certain dates from being selected. Let's suppose that you only want to let user to select work days:</p>
+      <code-example title="No weekends available" :component="examples['disabled-dates-datepicker']" />
 
       <api-item title="API - md-datepicker">
-        <p>This component does not have any extra option.</p>
+        <p>All the following options can be applied to the md-datepicker component:</p>
+
+        <api-table :headings="props.headings" :props="props.props" slot="props" />
       </api-item>
     </div>
   </page-container>
@@ -23,6 +40,31 @@
 
   export default {
     name: 'Datepicker',
-    mixins: [examples]
+    mixins: [examples],
+    data: () => ({
+      props: {
+        headings: ['Name', 'Description', 'Default'],
+        props: [
+          {
+            name: 'v-model',
+            type: 'Date',
+            description: 'The model variable to bind the selected date',
+            defaults: 'null'
+          },
+          {
+            name: 'md-disabled-dates',
+            type: 'Array|Function',
+            description: 'The optional disabled dates. Can be either Array or Function. <br>- If <code>Array</code>, the Datepicker will disable all days inside. <br>- If <code>Function</code>, the Datepicker will pass the current day as a parameter of this function. If the return false, then the date will be disabled.',
+            defaults: 'null'
+          },
+          {
+            name: 'md-open-on-focus',
+            type: 'Boolean',
+            description: 'The input type. Cannot be \'file\'',
+            defaults: 'true'
+          }
+        ]
+      }
+    })
   }
 </script>

@@ -1,7 +1,7 @@
 <template>
   <md-field class="md-datepicker">
     <md-date-icon class="md-date-icon" @click.native="toggleDialog" />
-    <md-input type="date" ref="input" v-model="modelDate" @focus="onFocus" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" />
+    <md-input type="date" ref="input" v-model="modelDate" @focus.native="onFocus" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" />
 
     <slot />
 
@@ -48,12 +48,16 @@
       selectedDate: null
     }),
     watch: {
-      selectedDate () {
-        this.modelDate = this.dateToHTMLString(this.selectedDate)
-        this.$emit('input', this.selectedDate)
+      selectedDate (selectedDate) {
+        if (selectedDate) {
+          this.modelDate = this.dateToHTMLString(selectedDate)
+          this.$emit('input', selectedDate)
+        }
       },
       value () {
-        this.modelDate = this.dateToHTMLString(this.value)
+        if (this.value) {
+          this.modelDate = this.dateToHTMLString(this.value)
+        }
       },
       modelDate (value) {
         if (value) {
@@ -79,15 +83,17 @@
         }
       },
       dateToHTMLString (date) {
-        let formattedDate = null
+        if (date) {
+          let formattedDate = null
 
-        try {
-          formattedDate = format(date, 'YYYY-MM-DD')
-        } catch (error) {
-          Vue.util.warn(`The datepicker value is not a valid date. Given value: ${date}.`, this)
+          try {
+            formattedDate = format(date, 'YYYY-MM-DD')
+          } catch (error) {
+            Vue.util.warn(`The datepicker value is not a valid date. Given value: ${date}.`, this)
+          }
+
+          return formattedDate
         }
-
-        return formattedDate
       }
     },
     created () {
