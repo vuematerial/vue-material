@@ -228,37 +228,37 @@
         }
       }
     }
-  }
 
-  .md-bottom-bar-item {
-    height: 56px;
-    margin: 0;
-    flex: 1;
-    cursor: pointer;
-    border-radius: 0;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1em;
-    text-transform: none;
+    .md-bottom-bar-item {
+      height: 56px;
+      margin: 0;
+      flex: 1;
+      cursor: pointer;
+      border-radius: 0;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1em;
+      text-transform: none;
 
-    .md-ripple {
-      padding: 8px 12px 10px;
-      transition: padding .3s $md-transition-stand-timing;
-      will-change: padding;
-    }
+      .md-ripple {
+        padding: 8px 12px 10px;
+        transition: padding .3s $md-transition-stand-timing;
+        will-change: padding;
+      }
 
-    .md-button-content {
-      position: static;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+      .md-button-content {
+        position: static;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
 
-    .md-bottom-bar-icon,
-    .md-bottom-bar-label {
-      transition: .3s $md-transition-default-timing;
-      transition-property: transform, opacity;
-      will-change: transform, opacity;
+      .md-bottom-bar-icon,
+      .md-bottom-bar-label {
+        transition: .3s $md-transition-default-timing;
+        transition-property: transform, opacity;
+        will-change: transform, opacity;
+      }
     }
   }
 </style>
