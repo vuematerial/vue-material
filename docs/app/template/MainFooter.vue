@@ -2,12 +2,12 @@
   <footer class="main-footer">
     <div class="main-footer-container">
       <div class="main-footer-section">
-        <router-link to="/about">About Vue Material</router-link>
-        <a href="https://github.com/vuematerial/vue-material-experiments/blob/master/LICENSE" target="_blank">License</a>
+        <router-link to="/about">{{ $t('aboutMaterial') }}</router-link>
+        <a href="https://github.com/vuematerial/vue-material-experiments/blob/master/LICENSE" target="_blank">{{ $t('license') }}</a>
       </div>
 
       <div class="main-footer-section">
-        <a href="https://github.com/marcosmoura" target="_blank">Made with <span class="red">❤</span> by Marcos Moura</a>
+        <a href="https://github.com/marcosmoura" target="_blank">{{ $t('madeWith') }} <span class="red">❤</span> {{ $t('by') }} Marcos Moura</a>
       </div>
     </div>
   </footer>

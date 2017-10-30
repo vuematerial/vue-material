@@ -5,7 +5,7 @@
     <div class="page-container-section">
       <h2 class="md-headline">{{ $t('pages.gettingStarted.installation') }}</h2>
 
-      <code-example title="NPM or Yarn" label="Shell" lang="shell">
+      <code-example :title="$t('pages.gettingStarted.npmOrYarn')" label="Shell" lang="shell">
         $ npm install vue-material --save
         $ yarn add vue-material
       </code-example>

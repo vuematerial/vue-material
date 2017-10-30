@@ -1,6 +1,6 @@
 <template>
   <md-content md-tag="section" md-theme="default" class="home-ecosystem">
-    <h2 class="home-ecosystem-title md-display-1">Ecosystem</h2>
+    <h2 class="home-ecosystem-title md-display-1">{{ $t('pages.home.ecosystem') }}</h2>
 
     <div class="home-repo-list md-layout-column">
       <div
@@ -11,7 +11,7 @@
         <div class="home-repo-content md-layout-column md-flex-55 md-flex-xsmall-100 md-align-start-start">
           <h3 class="home-repo-title md-headline">Official Boilerplate</h3>
           <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam qui enim harum excepturi nemo itaque quidem dolore unde asperiores, recusandae reiciendis perferendis laboriosam cum obcaecati quos assumenda libero labore! Expedita.</p>
-          <md-button class="md-primary md-raised md-button-spaced">View project</md-button>
+          <md-button class="md-primary md-raised md-button-spaced">{{ $t('pages.home.viewProject') }}</md-button>
         </div>
 
         <img src="https://placeimg.com/656/300/tech/grayscale" class="md-flex-45">

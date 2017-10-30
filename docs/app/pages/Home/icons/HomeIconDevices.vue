@@ -23,6 +23,20 @@
 
   .home-icon-devices {
     width: 160px;
+
+    &:hover .device {
+      &:nth-child(2) {
+        top: -30%;
+        right: -45%;
+        bottom: 65%;
+        left: 85%;
+      }
+
+      &:nth-child(3) {
+        right: -10%;
+        left: 85%;
+      }
+    }
   }
 
   div.device {
@@ -31,11 +45,6 @@
     position: absolute;
     transition: $md-transition-default;
     will-change: z-index, transform;
-
-    &:hover {
-      z-index: 4 !important;
-      transform: scale(1.11);
-    }
 
     &:after,
     &:before {
@@ -73,15 +82,15 @@
     }
 
     &:nth-child(2) {
-      top: 33%;
+      top: 35%;
       right: 10%;
       bottom: 0;
       left: 30%;
       z-index: 2;
-      background: md-get-palette-color(grey, 50);
+      background: md-get-palette-color(cyan, 400);
 
       &:before {
-        background: md-get-palette-color(grey, 200);
+        background: md-get-palette-color(cyan, 600);
       }
     }
 
@@ -91,10 +100,10 @@
       bottom: -10%;
       left: 75%;
       z-index: 3;
-      background: md-get-palette-color(cyan, 400);
+      background: md-get-palette-color(grey, 50);
 
       &:before {
-        background: md-get-palette-color(cyan, 600);
+        background: md-get-palette-color(grey, 200);
       }
     }
   }

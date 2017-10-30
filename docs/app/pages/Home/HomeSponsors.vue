@@ -1,17 +1,19 @@
 <template>
   <section class="home-sponsors">
-    <h2 class="home-sponsors-title md-display-1">Sponsors &amp; Backers</h2>
+    <h2 class="home-sponsors-title md-display-1">{{ $t('pages.home.sponsors') }} & {{ $t('pages.home.backers') }}</h2>
 
     <div class="home-sponsors-description">
-      <p>Vue Material does not run under the umbrella of any company or something like that. Is an independent project created by <a href="https://www.github.com/marcosmoura" target="_blank">Marcos Moura</a> on his spare time, which became one of the most used UI Libraries for Vue.js. The development is active and we are working hard to release great things for you.</p>
-      <p>If you think that this project helped you or your company in any way, you can consider become a backer/sponsor on Patreon:</p>
+      <i18n path="pages.home.sponsorsDescription" tag="p">
+        <a href="https://www.github.com/marcosmoura" target="_blank">Marcos Moura</a>
+      </i18n>
+      <p>{{ $t('pages.home.beAPatron') }}:</p>
       <a href="https://www.patreon.com/bePatron?u=4832202" target="_blank" class="home-sponsors-patreon">
         <img src="/assets/sponsors/patreon.png">
       </a>
     </div>
 
     <div class="home-sponsors-backers">
-      <h3 class="md-title">Sponsors</h3>
+      <h3 class="md-title">{{ $t('pages.home.sponsors') }}</h3>
 
       <div class="home-sponsor-list md-layout-row">
         <a class="home-sponsor" href="">
@@ -27,7 +29,7 @@
         </a>
       </div>
 
-      <h4 class="md-subheading">Backers</h4>
+      <h4 class="md-subheading">{{ $t('pages.home.backers') }}</h4>
 
       <ul>
         <li>Ivo Benner</li>
