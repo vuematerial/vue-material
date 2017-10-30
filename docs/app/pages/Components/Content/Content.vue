@@ -12,7 +12,9 @@
       <code-example title="Paper Content" :component="examples['paper-content']" />
 
       <api-item title="API - md-content">
-        <p>This component does not have any extra option.</p>
+        <p>The following option can be applied to md-content component:</p>
+
+        <api-table :headings="props.headings" :props="props.props" slot="props" />
       </api-item>
     </div>
   </page-container>
@@ -25,7 +27,17 @@ export default {
   name: 'Content',
   mixins: [examples],
   data: () => ({
-
+    props: {
+      headings: ['Name', 'Description', 'Default'],
+      props: [
+        {
+          name: 'md-tag',
+          type: 'String',
+          description: 'The outpug tag. Useful when you want to create a section instead of div, for example.',
+          defaults: 'div'
+        }
+      ]
+    }
   })
 }
 </script>
