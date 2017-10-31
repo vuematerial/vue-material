@@ -17,9 +17,10 @@
       <code-example title="Custom Dialog Markup" :component="examples['dialog-custom']" />
 
       <api-item title="API - md-dialog">
-        <p>The following can be applied to any dialog, even on presets:</p>
+        <p>The following options can be applied to any dialog, even on presets:</p>
 
         <api-table :headings="dialog.props.headings" :props="dialog.props.props" slot="props" />
+        <api-table :headings="dialog.events.headings" :props="dialog.events.props" slot="events" />
       </api-item>
     </div>
 
@@ -29,7 +30,7 @@
       <code-example title="Accepts custom HTML too!" :component="examples['dialog-alert']" />
 
       <api-item title="API - md-dialog-alert">
-        <p>The following can be applied to alerts:</p>
+        <p>The following props can be applied to alerts:</p>
 
         <api-table :headings="alert.props.headings" :props="alert.props.props" slot="props" />
       </api-item>
@@ -41,9 +42,10 @@
       <code-example title="Accepts custom HTML too!" :component="examples['dialog-confirm']" />
 
       <api-item title="API - md-dialog-confirm">
-        <p>The following can be applied to confirms:</p>
+        <p>The following options can be applied to confirms:</p>
 
         <api-table :headings="confirm.props.headings" :props="confirm.props.props" slot="props" />
+        <api-table :headings="confirm.events.headings" :props="confirm.events.props" slot="events" />
       </api-item>
     </div>
 
@@ -53,9 +55,10 @@
       <code-example title="Look at the character count!" :component="examples['dialog-prompt']" />
 
       <api-item title="API - md-dialog-prompt">
-        <p>The following can be applied to prompts:</p>
+        <p>The following options can be applied to prompts:</p>
 
         <api-table :headings="prompt.props.headings" :props="prompt.props.props" slot="props" />
+        <api-table :headings="prompt.events.headings" :props="prompt.events.props" slot="events" />
       </api-item>
     </div>
   </page-container>
@@ -102,6 +105,21 @@
                 type: 'Boolean',
                 description: 'The dialog will become fullscreen on mobile screens. This option can disable this behavior.',
                 defaults: 'true'
+              }
+            ]
+          },
+          events: {
+            headings: ['Name', 'Description', 'Value'],
+            props: [
+              {
+                name: 'md-opened',
+                description: 'Triggered when a dialog opens',
+                value: 'null'
+              },
+              {
+                name: 'md-closed',
+                description: 'Triggered when a dialog closes',
+                value: 'null'
               }
             ]
           }
@@ -158,6 +176,21 @@
                 type: 'String',
                 description: 'The text inside cancel button',
                 defaults: 'Cancel'
+              }
+            ]
+          },
+          events: {
+            headings: ['Name', 'Description', 'Value'],
+            props: [
+              {
+                name: 'md-confirm',
+                description: 'Triggered when the confirm button receives a click',
+                value: 'null'
+              },
+              {
+                name: 'md-cancel',
+                description: 'Triggered when the user dismiss the dialog',
+                value: 'null'
               }
             ]
           }
@@ -219,6 +252,21 @@
                 type: 'String',
                 description: 'The text inside cancel button',
                 defaults: 'Cancel'
+              }
+            ]
+          },
+          events: {
+            headings: ['Name', 'Description', 'Value'],
+            props: [
+              {
+                name: 'md-confirm',
+                description: 'Triggered when the confirm button receives a click',
+                value: 'Input Value'
+              },
+              {
+                name: 'md-cancel',
+                description: 'Triggered when the user dismiss the dialog',
+                value: 'null'
               }
             ]
           }
