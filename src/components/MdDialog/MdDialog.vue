@@ -1,14 +1,14 @@
 <template>
   <md-portal>
     <transition name="md-dialog">
-      <div class="md-dialog" :class="dialogClasses" v-on="$listeners" v-if="mdActive">
+      <div class="md-dialog" :class="[dialogClasses, $mdActiveTheme]" v-on="$listeners" @keydown.esc="onEsc" v-if="mdActive">
         <md-focus-trap>
-          <div class="md-dialog-container" :class="[$mdActiveTheme]" @keydown.esc="onEsc">
+          <div class="md-dialog-container">
             <slot />
+
+            <md-overlay :class="mdBackdropClass" md-fixed :md-active="mdActive" @click="onClick" v-if="mdBackdrop" />
           </div>
         </md-focus-trap>
-
-        <md-overlay :class="mdBackdropClass" md-fixed :md-active="mdActive" @click="onClick" v-if="mdBackdrop" />
       </div>
     </transition>
   </md-portal>
@@ -93,35 +93,29 @@
   @import "~components/MdElevation/mixins";
 
   .md-dialog {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 110;
-    transition: .4s;
-    pointer-events: none;
-  }
-
-  .md-dialog-container {
     @include md-elevation(24);
     min-width: 280px;
     max-width: 80%;
     max-height: 80%;
+    margin: auto;
     display: flex;
     flex-flow: column;
     overflow: hidden;
+    position: fixed;
+    top: 50%;
+    right: 0;
+    left: 0;
+    z-index: 110;
     border-radius: 2px;
     backface-visibility: hidden;
     pointer-events: auto;
+    transform: translateY(-50%);
     transform-origin: center center;
-    transition: opacity .1s $md-transition-stand-timing,
-                transform .3s $md-transition-stand-timing;
+    transition: opacity .15s $md-transition-stand-timing,
+                transform .2s $md-transition-stand-timing;
     will-change: opacity, transform, left, top;
 
+    > .md-dialog-tabs,
     > .md-dialog-title,
     > .md-dialog-content,
     > .md-dialog-actions {
@@ -131,46 +125,60 @@
     }
   }
 
-  .md-dialog-enter,
+  .md-dialog-enter-active,
   .md-dialog-leave-active {
-    .md-dialog-container {
-      opacity: 0;
-      transform: scale(.9);
+    opacity: 0;
+    transform: translateY(-50%) scale(.9);
 
-      > .md-dialog-title,
-      > .md-dialog-content,
-      > .md-dialog-actions {
-        opacity: 0;
-        transform: scale(.95) translate3D(0, 10%, 0);
+    > .md-dialog-tabs,
+    > .md-dialog-title,
+    > .md-dialog-content,
+    > .md-dialog-actions {
+      opacity: 0;
+      transform: scale(.95) translate3D(0, 10%, 0);
+    }
+  }
+
+  .md-dialog-container {
+    display: flex;
+    flex-flow: column;
+    flex: 1;
+
+    .md-tabs {
+      flex: 1;
+    }
+
+    .md-tabs-navigation {
+      padding: 0 12px;
+    }
+
+    .md-tab {
+      @include md-layout-xsmall {
+        padding: 12px;
       }
     }
   }
 
   .md-dialog-fullscreen {
     @include md-layout-xsmall {
+      max-width: 100%;
+      max-height: 100%;
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      border-radius: 0;
+      transform: none;
+
       &.md-dialog-enter {
-        .md-dialog-container {
-          opacity: 0;
-          transform: translate3D(0, 30%, 0);
-        }
+        opacity: 0;
+        transform: translate3D(0, 30%, 0);
       }
 
       &.md-dialog-leave-active {
-        .md-dialog-container {
-          opacity: 0;
-          transform: translate3D(0, 0, 0);
-        }
-      }
-
-      .md-dialog-container {
-        max-width: 100%;
-        max-height: 100%;
-        position: fixed;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        border-radius: 0;
+        opacity: 0;
+        transform: translate3D(0, 0, 0);
       }
     }
   }

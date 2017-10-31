@@ -27,42 +27,42 @@
 </template>
 
 <script>
-export default {
-  name: 'CodeExample',
-  props: {
-    component: {
-      type: Object,
-      default: () => ({})
+  export default {
+    name: 'CodeExample',
+    props: {
+      component: {
+        type: Object,
+        default: () => ({})
+      },
+      title: String,
+      label: {
+        type: String,
+        default: 'Vue'
+      },
+      lang: String
     },
-    title: String,
-    label: {
-      type: String,
-      default: 'Vue'
-    },
-    lang: String
-  },
-  data: () => ({
-    showCode: false,
-    darkTheme: false
-  }),
-  computed: {
-    theme () {
-      if (this.darkTheme) {
-        return 'demo-dark'
-      }
+    data: () => ({
+      showCode: false,
+      darkTheme: false
+    }),
+    computed: {
+      theme () {
+        if (this.darkTheme) {
+          return 'demo-dark'
+        }
 
-      return 'demo-light'
-    }
-  },
-  methods: {
-    toggleCode () {
-      this.showCode = !this.showCode
+        return 'demo-light'
+      }
     },
-    toggleTheme () {
-      this.darkTheme = !this.darkTheme
+    methods: {
+      toggleCode () {
+        this.showCode = !this.showCode
+      },
+      toggleTheme () {
+        this.darkTheme = !this.darkTheme
+      }
     }
   }
-}
 </script>
 
 <style lang="scss" scoped>
@@ -101,6 +101,14 @@ export default {
     position: relative;
     border: 1px solid $color;
     border-top: 0;
+
+    &.md-theme-demo-light {
+      background-color: md-get-palette-color(grey, 50);
+    }
+
+    &.md-theme-demo-dark {
+      background-color: md-get-palette-color(grey, 900);
+    }
   }
 
   .demo-content {

@@ -18,7 +18,17 @@ export default {
   },
   render () {
     try {
-      return this.$slots.default[0]
+      const defaultSlot = this.$slots.default
+
+      if (!defaultSlot) {
+        return null
+      }
+
+      if (defaultSlot.length > 1) {
+        throw new Error()
+      }
+
+      return defaultSlot[0]
     } catch (e) {
       Vue.util.warn('MdFocusTrap can only render one, and exactly one child component.', this)
     }
