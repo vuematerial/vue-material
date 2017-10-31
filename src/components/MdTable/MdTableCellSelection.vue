@@ -1,7 +1,7 @@
 <template>
   <td class="md-table-cell md-table-cell-selection" v-if="mdSelectable">
     <div class="md-table-cell-container">
-      <md-checkbox v-model="isSelected" :disabled="!mdSelectable" @change="onChange" />
+      <md-checkbox v-model="isSelected" :disabled="!mdSelectable || mdDisabled" @change="onChange" />
     </div>
   </td>
 </template>
@@ -12,7 +12,8 @@
     props: {
       value: Boolean,
       mdRowId: [Number, String],
-      mdSelectable: Boolean
+      mdSelectable: Boolean,
+      mdDisabled: Boolean
     },
     inject: ['MdTable'],
     data: () => ({
@@ -47,11 +48,15 @@
       }
     }
 
-    .md-table-cell-container {
-      padding-right: 24px;
+    .md-table-head-container,
+    .md-table-cell-container,
+    .md-table-head-label,
+    .md-table-cell-label {
+      padding: 0;
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
+      overflow: visible;
     }
 
     .md-checkbox {
@@ -65,7 +70,6 @@
         &:after {
           top: -1px;
           left: 4px;
-          transform: rotate(45deg) scale3D(.1, .1, 1);
         }
       }
     }

@@ -4,7 +4,7 @@
       <transition name="md-menu-content" :css="didMount">
         <div
           class="md-scrollbar"
-          :class="[menuClasses, $mdActiveTheme]"
+          :class="[menuClasses, mdContentClass, $mdActiveTheme]"
           @keydown.arrow-down.prevent="setHighlight('down')"
           @keydown.arrow-up.prevent="setHighlight('up')"
           @keydown.space.prevent="setSelection"
@@ -34,7 +34,8 @@
       MdList
     },
     props: {
-      mdListClass: [String, Boolean]
+      mdListClass: [String, Boolean],
+      mdContentClass: [String, Boolean]
     },
     inject: ['MdMenu'],
     data: () => ({

@@ -1,26 +1,28 @@
 <template>
   <div>
-    <md-table v-model="people" md-card>
+    <md-table v-model="users" md-card>
       <md-table-toolbar>
-        <h1 class="md-title">Default color</h1>
+        <h1 class="md-title">Users</h1>
       </md-table-toolbar>
 
-      <md-table-row slot="md-table-row" slot-scope="{ item }" md-selectable="single">
+      <md-table-row slot="md-table-row" slot-scope="{ item }">
         <md-table-cell md-label="ID" md-numeric>{{ item.id }}</md-table-cell>
         <md-table-cell md-label="Name">{{ item.name }}</md-table-cell>
         <md-table-cell md-label="Email">{{ item.email }}</md-table-cell>
         <md-table-cell md-label="Gender">{{ item.gender }}</md-table-cell>
         <md-table-cell md-label="Job Title">{{ item.title }}</md-table-cell>
       </md-table-row>
+
+      <md-table-pagination />
     </md-table>
   </div>
 </template>
 
 <script>
   export default {
-    name: 'Example',
+    name: 'TablePagination',
     data: () => ({
-      people: [
+      users: [
         {
           id: 1,
           name: "Shawna Dubbin",

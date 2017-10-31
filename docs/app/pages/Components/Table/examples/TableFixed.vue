@@ -43,7 +43,7 @@
   }
 
   export default {
-    name: 'Example',
+    name: 'TableFixed',
     data: () => ({
       search: null,
       searched: [],

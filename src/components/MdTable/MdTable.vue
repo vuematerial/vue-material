@@ -2,18 +2,32 @@
   <md-tag-switcher :md-tag="contentTag" class="md-table">
     <slot name="md-table-toolbar" />
 
-    <div class="md-table-fixed-header" :class="headerClasses" :style="headerStyles">
+    <keep-alive>
+      <md-table-alternate-header v-if="$scopedSlots['md-table-alternate-header'] && selectedCount">
+        <slot name="md-table-alternate-header" :count="selectedCount" />
+      </md-table-alternate-header>
+    </keep-alive>
+
+    <div class="md-table-fixed-header" :class="headerClasses" :style="headerStyles" v-if="mdFixedHeader">
       <table>
-        <md-table-thead v-if="mdFixedHeader" />
+        <md-table-thead />
       </table>
     </div>
 
     <md-content class="md-table-content md-scrollbar" :style="contentStyles" @scroll="setScroll">
       <table>
-        <md-table-thead :class="headerClasses" v-if="!mdFixedHeader" />
+        <md-table-thead :class="headerClasses" v-if="!mdFixedHeader && $scopedSlots['md-table-row']" />
 
-        <tbody v-if="value.length">
-          <md-table-row-ghost v-for="(item, index) in value" :key="index" :md-index="index">
+        <tbody v-if="!$scopedSlots['md-table-row']">
+          <slot />
+        </tbody>
+
+        <tbody v-else-if="value.length">
+          <md-table-row-ghost
+            v-for="(item, index) in value"
+            :key="getRowId(item[mdModelId])"
+            :md-id="getRowId(item[mdModelId])"
+            :md-index="index">
             <slot name="md-table-row" :item="item" />
           </md-table-row-ghost>
         </tbody>
@@ -26,17 +40,22 @@
           </tr>
         </tbody>
       </table>
+
+      <slot name="md-table-pagination" />
     </md-content>
+
+    <slot v-if="value" />
   </md-tag-switcher>
 </template>
 
 <script>
-  import orderBy from 'lodash/orderBy'
   import raf from 'raf'
 
   import MdTagSwitcher from 'components/MdTagSwitcher/MdTagSwitcher'
+  import MdUuid from 'core/utils/MdUuid'
   import MdPropValidator from 'core/utils/MdPropValidator'
   import MdTableThead from './MdTableThead'
+  import MdTableAlternateHeader from './MdTableAlternateHeader'
   import MdTableRow from './MdTableRow'
   import MdTableRowGhost from './MdTableRowGhost'
   import MdTableCellSelection from './MdTableCellSelection'
@@ -45,6 +64,7 @@
     name: 'MdTable',
     components: {
       MdTagSwitcher,
+      MdTableAlternateHeader,
       MdTableThead,
       MdTableRow,
       MdTableRowGhost,
@@ -52,6 +72,10 @@
     },
     props: {
       value: [Array, Object],
+      mdModelId: {
+        type: String,
+        default: 'id'
+      },
       mdCard: Boolean,
       mdFixedHeader: Boolean,
       mdHeight: {
@@ -86,7 +110,9 @@
         items: {},
         sort: null,
         sortOrder: null,
-        selectable: [],
+        singleSelection: null,
+        selectedItems: {},
+        selectable: {},
         fixedHeader: null,
         contentPadding: null,
         contentEl: null
@@ -103,13 +129,19 @@
       headerCount () {
         return Object.keys(this.MdTable.items).length
       },
+      selectedCount () {
+        return Object.keys(this.MdTable.selectedItems).length
+      },
       headerStyles () {
         if (this.mdFixedHeader) {
           return `padding-right: ${this.fixedHeaderPadding}px`
         }
       },
+      hasValue () {
+        return this.value && this.value.length !== 0
+      },
       headerClasses () {
-        if ((this.mdFixedHeader && this.hasContentScroll) || this.value.length === 0) {
+        if ((this.mdFixedHeader && this.hasContentScroll) || !this.hasValue) {
           return 'md-table-fixed-header-active'
         }
       },
@@ -124,6 +156,10 @@
 
       MdTable.emitEvent = this.emitEvent
       MdTable.sortTable = this.sortTable
+      MdTable.hasValue = this.hasValue
+      MdTable.manageItemSelection = this.manageItemSelection
+      MdTable.getModel = this.getModel
+      MdTable.getModelItem = this.getModelItem
 
       return { MdTable }
     },
@@ -151,6 +187,13 @@
       emitEvent (eventName, value) {
         this.$emit(eventName, value)
       },
+      getRowId (id) {
+        if (id) {
+          return id
+        }
+
+        return 'md-row-' + MdUuid()
+      },
       setScroll ($event) {
         raf(() => {
           this.hasContentScroll = $event.target.scrollTop > 0
@@ -169,6 +212,24 @@
         const tableEl = contentEl.childNodes[0]
 
         this.fixedHeaderPadding = contentEl.offsetWidth - tableEl.offsetWidth
+      },
+      getModel () {
+        return this.value
+      },
+      getModelItem (index) {
+        return this.value[index]
+      },
+      manageItemSelection (index) {
+        if (this.MdTable.selectedItems[index]) {
+          this.$delete(this.MdTable.selectedItems, index)
+        } else {
+          this.$set(this.MdTable.selectedItems, index, this.value[index])
+        }
+
+        this.sendSelectionEvent()
+      },
+      sendSelectionEvent () {
+        this.$emit('md-selected', Object.values(this.MdTable.selectedItems))
       },
       sortTable () {
         if (Array.isArray(this.value)) {

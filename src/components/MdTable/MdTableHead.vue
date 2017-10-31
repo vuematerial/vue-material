@@ -1,6 +1,11 @@
 <template>
   <th class="md-table-head" :class="headClasses" :style="headStyles" @click="changeSort">
-    <slot v-if="$slots.default" />
+    <div class="md-table-head-container" v-if="$slots.default">
+      <div class="md-table-head-label">
+        <slot />
+      </div>
+    </div>
+
     <md-ripple class="md-table-head-container" :md-disabled="!hasSort" v-else>
       <div class="md-table-head-label">
         <md-upward-icon class="md-table-sortable-icon" v-if="hasSort">arrow_upward</md-upward-icon>
@@ -22,8 +27,9 @@
       MdUpwardIcon
     },
     props: {
-      label: String,
+      mdNumeric: Boolean,
       numeric: Boolean,
+      label: String,
       tooltip: String,
       sortBy: String
     },
@@ -53,7 +59,7 @@
       },
       headClasses () {
         return {
-          'md-numeric': this.numeric,
+          'md-numeric': this.numeric || this.mdNumeric,
           'md-sortable': this.hasSort,
           'md-sorted': this.isSorted,
           'md-sorted-desc': this.isDescSorted

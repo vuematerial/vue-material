@@ -1,7 +1,7 @@
 import MdTable from './MdTable'
 
 function processChildren (children, createElement) {
-  const slotNames = ['md-table-toolbar', 'md-table-empty-state']
+  const slotNames = ['md-table-toolbar', 'md-table-empty-state', 'md-table-pagination']
   let nodes = Array.from(children)
   let namedSlots = {}
 

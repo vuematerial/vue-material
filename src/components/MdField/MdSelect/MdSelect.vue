@@ -23,7 +23,7 @@
     <md-drop-down-icon ref="icon" @blur.native="removeHighlight" @click.native="openSelect" />
 
     <keep-alive>
-      <md-menu-content ref="menu" class="md-select-menu" :md-list-class="mdDense && 'md-dense'" :style="menuStyles" :id="uniqueId">
+      <md-menu-content ref="menu" class="md-select-menu" :md-content-class="mdClass" :md-list-class="mdDense && 'md-dense'" :style="menuStyles" :id="uniqueId">
         <slot />
       </md-menu-content>
     </keep-alive>
@@ -59,6 +59,7 @@
     mixins: [MdFieldMixin],
     props: {
       mdDense: Boolean,
+      mdClass: String,
       multiple: Boolean,
       id: String,
       name: String
