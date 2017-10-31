@@ -36,7 +36,7 @@
 
 <script>
   export default {
-    name: 'Example',
+    name: 'DialogCustom',
     data: () => ({
       showDialog: false
     })

@@ -6,7 +6,9 @@
           <div class="md-dialog-container">
             <slot />
 
-            <md-overlay :class="mdBackdropClass" md-fixed :md-active="mdActive" @click="onClick" v-if="mdBackdrop" />
+            <keep-alive>
+              <md-overlay :class="mdBackdropClass" md-fixed :md-active="mdActive" @click="onClick" v-if="mdBackdrop" />
+            </keep-alive>
           </div>
         </md-focus-trap>
       </div>
@@ -103,13 +105,12 @@
     overflow: hidden;
     position: fixed;
     top: 50%;
-    right: 0;
-    left: 0;
+    left: 50%;
     z-index: 110;
     border-radius: 2px;
     backface-visibility: hidden;
     pointer-events: auto;
-    transform: translateY(-50%);
+    transform: translate(-50%, -50%);
     transform-origin: center center;
     transition: opacity .15s $md-transition-stand-timing,
                 transform .2s $md-transition-stand-timing;
@@ -125,10 +126,10 @@
     }
   }
 
-  .md-dialog-enter-active,
+.md-dialog-enter-active,
   .md-dialog-leave-active {
     opacity: 0;
-    transform: translateY(-50%) scale(.9);
+    transform: translate(-50%, -50%) scale(.9);
 
     > .md-dialog-tabs,
     > .md-dialog-title,

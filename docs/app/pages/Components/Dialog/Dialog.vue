@@ -1,5 +1,7 @@
-<example src="./examples/Custom.vue" />
-<example src="./examples/Presets.vue" />
+<example src="./examples/DialogCustom.vue" />
+<example src="./examples/DialogAlert.vue" />
+<example src="./examples/DialogConfirm.vue" />
+<example src="./examples/DialogPrompt.vue" />
 
 <template>
   <page-container centered :title="$t('pages.dialog.title')">
@@ -12,20 +14,48 @@
       <h2>Dialog</h2>
 
       <p>The Dialog component can have any HTML markup inside. This allows you to create rich dialog content, like the details of a table row, for example:</p>
-      <code-example title="Custom Dialog Markup" :component="examples['custom']" />
+      <code-example title="Custom Dialog Markup" :component="examples['dialog-custom']" />
 
       <api-item title="API - md-dialog">
-        <p>This component does not have any extra option.</p>
+        <p>The following can be applied to any dialog, even on presets:</p>
+
+        <api-table :headings="dialog.props.headings" :props="dialog.props.props" slot="props" />
       </api-item>
     </div>
 
     <div class="page-container-section">
-      <h2>Presets</h2>
+      <h2>Alerts</h2>
 
-      <code-example title="Alert, Confirm and Prompt" :component="examples['presets']" />
+      <code-example title="Accepts custom HTML too!" :component="examples['dialog-alert']" />
 
-      <api-item title="API - md-dialog">
-        <p>This component does not have any extra option.</p>
+      <api-item title="API - md-dialog-alert">
+        <p>The following can be applied to alerts:</p>
+
+        <api-table :headings="alert.props.headings" :props="alert.props.props" slot="props" />
+      </api-item>
+    </div>
+
+    <div class="page-container-section">
+      <h2>Confirms</h2>
+
+      <code-example title="Accepts custom HTML too!" :component="examples['dialog-confirm']" />
+
+      <api-item title="API - md-dialog-confirm">
+        <p>The following can be applied to confirms:</p>
+
+        <api-table :headings="confirm.props.headings" :props="confirm.props.props" slot="props" />
+      </api-item>
+    </div>
+
+    <div class="page-container-section">
+      <h2>Prompts</h2>
+
+      <code-example title="Look at the character count!" :component="examples['dialog-prompt']" />
+
+      <api-item title="API - md-dialog-prompt">
+        <p>The following can be applied to prompts:</p>
+
+        <api-table :headings="prompt.props.headings" :props="prompt.props.props" slot="props" />
       </api-item>
     </div>
   </page-container>
@@ -36,6 +66,164 @@
 
   export default {
     name: 'Dialog',
-    mixins: [examples]
+    mixins: [examples],
+    data () {
+      return {
+        dialog: {
+          props: {
+            headings: ['Name', 'Description', 'Default'],
+            props: [
+              {
+                name: 'md-active',
+                type: 'Boolean',
+                description: 'The prop to show/hide the dialog. Should be used with the <code>.sync</code> modifier.',
+                defaults: 'false'
+              },
+              {
+                name: 'md-backdrop',
+                type: 'Boolean',
+                description: 'Enable/disable the dialog overlay',
+                defaults: 'true'
+              },
+              {
+                name: 'md-close-on-esc',
+                type: 'Boolean',
+                description: 'By the default the dialog will close when pressing esc. To disabled that, just set this prop as false',
+                defaults: 'true'
+              },
+              {
+                name: 'md-click-outside-to-close',
+                type: 'Boolean',
+                description: 'By the default the dialog will close when clicking outsite. To disabled that, just set this prop as false',
+                defaults: 'true'
+              },
+              {
+                name: 'md-fullscreen',
+                type: 'Boolean',
+                description: 'The dialog will become fullscreen on mobile screens. This option can disable this behavior.',
+                defaults: 'true'
+              }
+            ]
+          }
+        },
+        alert: {
+          props: {
+            headings: ['Name', 'Description', 'Default'],
+            props: [
+              {
+                name: 'md-title',
+                type: 'String',
+                description: 'The alert title. Optional.',
+                defaults: 'null'
+              },
+              {
+                name: 'md-content',
+                type: 'String',
+                description: 'The alert content. Accepts HTML. Optional.',
+                defaults: 'null'
+              },
+              {
+                name: 'md-confirm-text',
+                type: 'String',
+                description: 'The text inside confirm button',
+                defaults: 'Ok'
+              }
+            ]
+          }
+        },
+        confirm: {
+          props: {
+            headings: ['Name', 'Description', 'Default'],
+            props: [
+              {
+                name: 'md-title',
+                type: 'String',
+                description: 'The alert title. Optional.',
+                defaults: 'null'
+              },
+              {
+                name: 'md-content',
+                type: 'String',
+                description: 'The alert content. Accepts HTML. Optional.',
+                defaults: 'null'
+              },
+              {
+                name: 'md-confirm-text',
+                type: 'String',
+                description: 'The text inside confirm button',
+                defaults: 'Ok'
+              },
+              {
+                name: 'md-cancel-text',
+                type: 'String',
+                description: 'The text inside cancel button',
+                defaults: 'Cancel'
+              }
+            ]
+          }
+        },
+        prompt: {
+          props: {
+            headings: ['Name', 'Description', 'Default'],
+            props: [
+              {
+                name: 'v-model',
+                type: 'String|Number',
+                description: 'The model variable to bind the input prompt value',
+                defaults: 'null'
+              },
+              {
+                name: 'md-input-name',
+                type: 'String',
+                description: 'The input name attribute',
+                defaults: 'null'
+              },
+              {
+                name: 'md-input-id',
+                type: 'String',
+                description: 'The input id attribute',
+                defaults: 'null'
+              },
+              {
+                name: 'md-input-max-length',
+                type: 'Number',
+                description: 'Enables the character count, based on the given value.',
+                defaults: 'null'
+              },
+              {
+                name: 'md-input-placeholder',
+                type: 'Number',
+                description: 'Sets a optional placeholder on input.',
+                defaults: 'null'
+              },
+              {
+                name: 'md-title',
+                type: 'String',
+                description: 'The alert title. Optional.',
+                defaults: 'null'
+              },
+              {
+                name: 'md-content',
+                type: 'String',
+                description: 'The alert content. Accepts HTML. Optional.',
+                defaults: 'null'
+              },
+              {
+                name: 'md-confirm-text',
+                type: 'String',
+                description: 'The text inside confirm button',
+                defaults: 'Ok'
+              },
+              {
+                name: 'md-cancel-text',
+                type: 'String',
+                description: 'The text inside cancel button',
+                defaults: 'Cancel'
+              }
+            ]
+          }
+        }
+      }
+    }
   }
 </script>
