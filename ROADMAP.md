@@ -66,8 +66,8 @@ The release strategy will be like this:
   - [X] Editable
   - [X] Detelable
 - [X] MdContent - `NEW`
-- [ ] MdDatepicker - `NEW`
-  - [ ] Documentation
+- [x] MdDatepicker - `NEW`
+  - [x] Documentation
   - [X] FINALLY!
   - [X] Month Selector
   - [X] Year Selector
