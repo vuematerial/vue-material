@@ -31,11 +31,11 @@
             <div class="md-flex md-flex-small-100">
               <md-field :class="getValidationClass('gender')">
                 <label>Gender</label>
-                <select v-model="gender">
-                  <option></option>
-                  <option value="M">M</option>
-                  <option value="F">F</option>
-                </select>
+                <md-select md-dense v-model="gender">
+                  <md-option></md-option>
+                  <md-option value="M">M</md-option>
+                  <md-option value="F">F</md-option>
+                </md-select>
                 <span class="md-error">The gender is required</span>
               </md-field>
             </div>
