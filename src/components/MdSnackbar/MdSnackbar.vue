@@ -1,5 +1,5 @@
 <template>
-  <md-portal v-if="mdDuration !== Infinity">
+  <md-portal v-if="mdPersistent && mdDuration !== Infinity">
     <keep-alive>
       <transition name="md-snackbar">
         <div class="md-snackbar" :class="[snackbarClasses, $mdActiveTheme]" v-if="mdActive">
@@ -33,6 +33,7 @@
     },
     props: {
       mdActive: Boolean,
+      mdPersistent: Boolean,
       mdDuration: {
         type: Number,
         default: 4000
