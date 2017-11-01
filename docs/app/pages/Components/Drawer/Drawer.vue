@@ -52,7 +52,7 @@
     </div>
 
     <api-item title="API - md-drawer">
-      <p>The following options can be applied to any dialog, even on presets:</p>
+      <p>The following options can be applied to any drawer:</p>
 
       <api-table :headings="drawer.props.headings" :props="drawer.props.props" slot="props" />
       <api-table :headings="drawer.events.headings" :props="drawer.events.props" slot="events" />

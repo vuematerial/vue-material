@@ -1,7 +1,6 @@
 <template>
   <div>
     <md-empty-state
-      class="md-primary"
       md-icon="devices_other"
       md-label="Create your first project"
       md-description="Creating project, you'll be able to upload your design and collaborate with people.">
@@ -12,6 +11,6 @@
 
 <script>
   export default {
-    name: 'BasicEmptyState'
+    name: 'EmptyStateBasic'
   }
 </script>

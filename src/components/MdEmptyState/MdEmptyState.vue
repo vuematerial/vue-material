@@ -31,9 +31,9 @@
         }
       },
       emptyStateStyles () {
-        const size = this.mdSize + 'px'
-
         if (this.mdRounded) {
+          const size = this.mdSize + 'px'
+
           return {
             width: size,
             height: size
