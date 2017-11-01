@@ -21,7 +21,7 @@
       mdRight: Boolean,
       mdPermanent: {
         type: String,
-        ...MdPropValidator('md-alignment', [
+        ...MdPropValidator('md-permanent', [
           'full',
           'clipped',
           'card'
