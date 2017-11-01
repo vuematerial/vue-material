@@ -1,5 +1,5 @@
 <template>
-  <md-dialog v-bind="$attrs" v-on="$listeners" :md-fullscreen="false" @md-opened="setInputFocus">
+  <md-dialog v-bind="$attrs" :md-fullscreen="false" @md-opened="setInputFocus">
     <md-dialog-title v-if="mdTitle">{{ mdTitle }}</md-dialog-title>
     <md-dialog-content v-if="mdContent" v-html="mdContent" />
 
@@ -27,7 +27,7 @@
   export default {
     name: 'MdDialogPrompt',
     props: {
-      value: [String, Number],
+      value: {},
       mdTitle: String,
       mdInputName: String,
       mdInputId: String,
