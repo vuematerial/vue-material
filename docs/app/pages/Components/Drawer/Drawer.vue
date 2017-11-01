@@ -8,7 +8,9 @@
 <template>
   <page-container centered :title="$t('pages.drawer.title')">
     <div class="page-container-section">
-      <p>The navigation drawer slides in from the left and contains the navigation destinations for your app.</p>
+      <p>The navigation drawer slides in from the left or right and contains the navigation destinations for your app. It is commonly used with lists inside, although can accept any type of content.</p>
+      <p>Drawers have 4 types: Permanent, Persistent, Mini variant and Temporary.</p>
+      <note-block>In some examples of this demo we are using drawers along with the <router-link to="/components/app">App</router-link> component, but you can totally use it alone.</note-block>
     </div>
 
     <div class="page-container-section">

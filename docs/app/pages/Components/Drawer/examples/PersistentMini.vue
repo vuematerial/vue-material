@@ -49,9 +49,23 @@
   </div>
 </template>
 
+<script>
+  export default {
+    name: 'PersistentMini',
+    data: () => ({
+      menuVisible: false
+    }),
+    methods: {
+      toggleMenu () {
+        this.menuVisible = !this.menuVisible
+      }
+    }
+  }
+</script>
+
 <style lang="scss" scoped>
   .md-app {
-    min-height: 300px;
+    min-height: 350px;
     border: 1px solid rgba(#000, .12);
   }
 
@@ -61,17 +75,3 @@
     max-width: calc(100vw - 125px);
   }
 </style>
-
-<script>
-export default {
-  name: 'PersistentMini',
-  data: () => ({
-    menuVisible: false
-  }),
-  methods: {
-    toggleMenu () {
-      this.menuVisible = !this.menuVisible
-    }
-  }
-}
-</script>

@@ -36,8 +36,15 @@
   </div>
 </template>
 
+<script>
+  export default {
+    name: 'PermanentCard'
+  }
+</script>
+
 <style lang="scss" scoped>
   .md-app {
+    min-height: 350px;
     border: 1px solid rgba(#000, .12);
   }
 
@@ -47,9 +54,3 @@
     max-width: calc(100vw - 125px);
   }
 </style>
-
-<script>
-export default {
-  name: 'PermanentCard'
-}
-</script>
