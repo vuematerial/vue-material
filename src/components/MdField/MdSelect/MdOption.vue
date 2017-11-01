@@ -61,7 +61,9 @@
           return this.$el.textContent.trim()
         }
 
-        return this.$slots.default[0].text.trim()
+        const slot = this.$slots.default
+
+        return slot ? slot[0].text.trim() : ''
       },
       setIsSelected () {
         this.isSelected = this.inputLabel === this.getTextContent()

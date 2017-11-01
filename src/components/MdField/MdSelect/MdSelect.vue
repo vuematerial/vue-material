@@ -8,28 +8,36 @@
     :md-offset-y="offset.y"
     @md-opened="onOpen"
     @md-closed="onClose">
-    <input
+    <md-input
       class="md-input md-select-value"
       v-model="MdSelect.label"
+      ref="input"
       readonly
       :disabled="disabled"
       :required="required"
       v-on="$listeners"
       @focus.prevent="onFocus"
+      @blur.prevent="removeHighlight"
       @click="openSelect"
       @keydown.down="openSelect"
       @keydown.enter="openSelect"
       @keydown.space="openSelect"  />
-    <md-drop-down-icon ref="icon" @blur.native="removeHighlight" @click.native="openSelect" />
+    <md-drop-down-icon @click.native="openSelect" />
 
     <keep-alive>
-      <md-menu-content ref="menu" class="md-select-menu" :md-content-class="mdClass" :md-list-class="mdDense && 'md-dense'" :style="menuStyles" :id="uniqueId">
+      <md-menu-content
+        ref="menu"
+        class="md-select-menu"
+        :md-content-class="mdClass"
+        :md-list-class="mdDense && 'md-dense'"
+        :style="menuStyles"
+        :id="uniqueId">
         <slot />
       </md-menu-content>
     </keep-alive>
 
-    <md-input class="md-input-fake" v-model="content" :disabled="disabled" readonly />
-    <select readonly v-model="content" v-bind="attributes"></select>
+    <input class="md-input-fake" v-model="model" :disabled="disabled" readonly tabindex="-1" />
+    <select readonly v-model="model" v-bind="attributes" tabindex="-1"></select>
   </md-menu>
 </template>
 
@@ -88,7 +96,7 @@
       MdSelect.setContent = this.setContent
       MdSelect.setMultipleValue = this.setMultipleValue
       MdSelect.setMultipleContent = this.setMultipleContent
-      MdSelect.modelValue = this.content
+      MdSelect.modelValue = this.model
 
       return { MdSelect }
     },
@@ -148,11 +156,10 @@
       applyHighlight () {
         this.MdField.focused = false
         this.MdField.highlighted = true
-        this.$refs.icon.$el.focus()
+        this.$refs.input.$el.focus()
       },
       onClose () {
         if (this.didMount) {
-          this.$refs.icon.$el.setAttribute('tabindex', 1)
           this.applyHighlight()
         }
       },
@@ -163,7 +170,6 @@
       },
       removeHighlight () {
         this.MdField.highlighted = false
-        this.$refs.icon.$el.removeAttribute('tabindex')
       },
       openSelect () {
         if (!this.disabled) {
@@ -180,7 +186,7 @@
         }
       },
       setValue (newValue) {
-        this.content = newValue
+        this.model = newValue
         this.setFieldValue()
         this.showSelect = false
       },
@@ -199,7 +205,7 @@
       setMultipleValue (value) {
         const newValue = value
 
-        this.toggleArrayValue(this.content, newValue)
+        this.toggleArrayValue(this.model, newValue)
         this.setFieldValue()
       },
       setMultipleContentByValue () {
