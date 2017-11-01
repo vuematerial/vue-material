@@ -2,12 +2,11 @@
   <textarea
     class="md-textarea"
     :style="textareaStyles"
-    v-model="content"
+    v-model="model"
     v-bind="attributes"
     v-on="$listeners"
     @focus="onFocus"
-    @blur="onBlur"
-    @input="onInput">
+    @blur="onBlur">
   </textarea>
 </template>
 

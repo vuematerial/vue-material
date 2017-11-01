@@ -7,28 +7,28 @@
 
     <md-field>
       <label>Password toggle</label>
-      <md-input type="password" v-model="password"></md-input>
+      <md-input v-model="password" type="password"></md-input>
     </md-field>
 
     <md-field :md-toggle-password="false">
       <label>Password field without toggle</label>
-      <md-input type="password" v-model="password"></md-input>
+      <md-input v-model="password" type="password"></md-input>
     </md-field>
   </div>
 </template>
+
+<script>
+  export default {
+    name: 'Icons',
+    data: () => ({
+      initial: 'Initial Value',
+      password: 'mysecurepassword'
+    })
+  }
+</script>
 
 <style lang="scss" scoped>
   .md-field:last-child {
     margin-bottom: 40px;
   }
 </style>
-
-<script>
-export default {
-  name: 'Icons',
-  data: () => ({
-    initial: 'Initial Value',
-    password: 'mysecurepassword'
-  })
-}
-</script>

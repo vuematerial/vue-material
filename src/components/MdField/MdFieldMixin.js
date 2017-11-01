@@ -1,19 +1,28 @@
 export default {
   props: {
-    value: [String, Number, Date, Array],
+    value: {
+      required: true
+    },
     placeholder: String,
     maxlength: [String, Number],
     readonly: Boolean,
     required: Boolean,
     disabled: Boolean
   },
-  data () {
-    return {
-      textareaHeight: false,
-      content: this.value || null
-    }
-  },
+  data: () => ({
+    textareaHeight: false
+  }),
   computed: {
+    model: {
+      get () {
+        return this.value
+      },
+      set (val) {
+        this.$nextTick(() => {
+          this.$emit('input', val)
+        })
+      }
+    },
     clear () {
       return this.MdField.clear
     },
@@ -32,8 +41,7 @@ export default {
     }
   },
   watch: {
-    value (value) {
-      this.content = value
+    model () {
       this.setFieldValue()
     },
     clear (clear) {
@@ -57,7 +65,7 @@ export default {
   methods: {
     clearField () {
       this.$el.value = ''
-      this.content = ''
+      this.model = ''
       this.setFieldValue()
     },
     setLabelFor () {
@@ -73,9 +81,8 @@ export default {
         }
       }
     },
-    setFieldValue () {
-      this.$emit('input', this.content)
-      this.MdField.value = this.content
+    setFieldValue (value) {
+      this.MdField.value = this.model
     },
     setPlaceholder () {
       this.MdField.placeholder = Boolean(this.placeholder)
@@ -94,12 +101,6 @@ export default {
     },
     onBlur () {
       this.MdField.focused = false
-    },
-    onInput () {
-      const newValue = this.$el ? this.$el.value : this.content
-
-      this.$emit('input', newValue)
-      this.MdField.value = newValue
     }
   },
   created () {

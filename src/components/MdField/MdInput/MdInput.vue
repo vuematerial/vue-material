@@ -1,22 +1,11 @@
 <template>
   <input
     class="md-input"
-    v-model="content"
-    v-bind="attributes"
-    @focus="onFocus"
-    @blur="onBlur"
-    @input="onInput"
-    @change="onInput">
-
-  <!-- <input
-    class="md-input"
-    v-model="content"
+    v-model="model"
     v-bind="attributes"
     v-on="$listeners"
     @focus="onFocus"
-    @blur="onBlur"
-    @input="onInput"
-    @change="onInput"> -->
+    @blur="onBlur">
 </template>
 
 <script>
