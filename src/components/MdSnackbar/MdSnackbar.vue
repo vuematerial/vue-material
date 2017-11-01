@@ -1,12 +1,20 @@
 <template>
-  <md-portal>
-    <transition name="md-snackbar">
-      <div class="md-snackbar" :class="[snackbarClasses, $mdActiveTheme]" v-if="mdActive">
-        <div class="md-snackbar-content">
-          <slot />
+  <md-portal v-if="mdDuration !== Infinity">
+    <keep-alive>
+      <transition name="md-snackbar">
+        <div class="md-snackbar" :class="[snackbarClasses, $mdActiveTheme]" v-if="mdActive">
+          <div class="md-snackbar-content">
+            <slot />
+          </div>
         </div>
-      </div>
-    </transition>
+      </transition>
+    </keep-alive>
+  </md-portal>
+
+  <md-portal v-else>
+    <md-snackbar-content>
+      <slot />
+    </md-snackbar-content>
   </md-portal>
 </template>
 
@@ -14,12 +22,14 @@
   import MdComponent from 'core/MdComponent'
   import MdPropValidator from 'core/utils/MdPropValidator'
   import MdPortal from 'components/MdPortal/MdPortal'
+  import MdSnackbarContent from './MdSnackbarContent'
   import { createSnackbar, destroySnackbar } from './MdSnackbarQueue'
 
   export default new MdComponent({
     name: 'MdSnackbar',
     components: {
-      MdPortal
+      MdPortal,
+      MdSnackbarContent
     },
     props: {
       mdActive: Boolean,
@@ -43,7 +53,7 @@
     watch: {
       async mdActive (isActive) {
         if (isActive) {
-          await createSnackbar(this.mdDuration)
+          await createSnackbar(this.mdDuration, this)
 
           this.$emit('update:mdActive', false)
         } else {
@@ -113,7 +123,7 @@
 
     .md-button {
       min-width: 0;
-      margin: 0 -12px 0 12px;
+      margin: 0 -6px 0 48px;
     }
   }
 </style>

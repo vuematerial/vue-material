@@ -31,6 +31,12 @@ export default {
 
         if (transition) {
           return transition.name
+        } else {
+          const transition = childrenComponent.componentOptions.propsData.name
+
+          if (transition) {
+            return transition
+          }
         }
       }
 
@@ -56,8 +62,8 @@ export default {
     }
   },
   methods: {
-    getTransitionDuration () {
-      const duration = window.getComputedStyle(this.$el).transitionDuration
+    getTransitionDuration (el) {
+      const duration = window.getComputedStyle(el).transitionDuration
       const num = parseFloat(duration, 10)
       let unit = duration.match(/m?s/)
       let milliseconds = null
@@ -82,20 +88,37 @@ export default {
 
       return milliseconds
     },
-    killGhostElement () {
-      if (this.$el.parentNode) {
+    killGhostElement (el) {
+      if (el.parentNode) {
         this.changeParentEl(this.originalParentEl)
         this.$options._parentElm = this.originalParentEl
-        this.$el.parentNode.removeChild(this.$el)
+        el.parentNode.removeChild(el)
       }
     },
-    destroyElement () {
+    async initDestroy (manualCall) {
+      let el = this.$el
+
+      if (manualCall && this.$el.constructor.name.toLowerCase() === 'comment') {
+        el = this.$vnode.elm
+      }
+
+      el.classList.add(this.leaveClass)
+      el.classList.add(this.leaveActiveClass)
+      await this.$nextTick()
+      el.classList.add(this.leaveToClass)
+
+      window.clearTimeout(this.leaveTimeout)
+      this.leaveTimeout = window.setTimeout(() => {
+        this.destroyElement(el)
+      }, this.getTransitionDuration(el))
+    },
+    destroyElement (el) {
       window.requestAnimationFrame(() => {
-        this.$el.classList.remove(this.leaveClass)
-        this.$el.classList.remove(this.leaveActiveClass)
-        this.$el.classList.remove(this.leaveToClass)
+        el.classList.remove(this.leaveClass)
+        el.classList.remove(this.leaveActiveClass)
+        el.classList.remove(this.leaveToClass)
         this.$emit('md-destroy')
-        this.killGhostElement()
+        this.killGhostElement(el)
       })
     },
     changeParentEl (newTarget) {
@@ -114,17 +137,11 @@ export default {
       this.changeParentEl(this.mdTarget || document.body)
     }
   },
-  async beforeDestroy () {
+  beforeDestroy () {
     if (this.$el.classList) {
-      this.$el.classList.add(this.leaveClass)
-      this.$el.classList.add(this.leaveActiveClass)
-      await this.$nextTick()
-      this.$el.classList.add(this.leaveToClass)
-
-      window.clearTimeout(this.leaveTimeout)
-      this.leaveTimeout = window.setTimeout(this.destroyElement, this.getTransitionDuration())
+      this.initDestroy()
     } else {
-      this.killGhostElement()
+      this.killGhostElement(this.$el)
     }
   },
   render (createElement) {

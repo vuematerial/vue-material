@@ -1,7 +1,7 @@
 let currentSnackbar = null
 let timeout = null
 
-function createPromise (duration) {
+function createPromise (duration, context) {
   return new Promise(resolve => {
     currentSnackbar = {
       destroy: () => {
@@ -11,7 +11,10 @@ function createPromise (duration) {
     }
 
     if (duration !== Infinity) {
-      timeout = window.setTimeout(destroySnackbar, duration)
+      timeout = window.setTimeout(() => {
+        destroySnackbar()
+        context._vnode.componentInstance.initDestroy(true)
+      }, duration)
     }
   })
 }
@@ -28,12 +31,12 @@ export const destroySnackbar = () => {
   })
 }
 
-export const createSnackbar = async duration => {
+export const createSnackbar = async (duration, context) => {
   if (currentSnackbar) {
     await destroySnackbar()
 
-    return createPromise(duration)
+    return createPromise(duration, context)
   }
 
-  return createPromise(duration)
+  return createPromise(duration, context)
 }

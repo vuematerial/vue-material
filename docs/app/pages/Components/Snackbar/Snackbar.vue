@@ -3,7 +3,8 @@
 <template>
   <page-container centered :title="$t('pages.snackbar.title')">
     <div class="page-container-section">
-      <p>Lorem ipsum</p>
+      <p>Snackbars provide brief feedback about an operation through a message at the bottom of the screen.</p>
+      <!-- <p>Vue Material snackbars</p> -->
     </div>
 
     <div class="page-container-section">
@@ -19,10 +20,10 @@
 </template>
 
 <script>
-import examples from 'docs-mixins/docsExample'
+  import examples from 'docs-mixins/docsExample'
 
-export default {
-  name: 'Snackbar',
-  mixins: [examples]
-}
+  export default {
+    name: 'Snackbar',
+    mixins: [examples]
+  }
 </script>
