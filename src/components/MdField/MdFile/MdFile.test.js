@@ -1,9 +1,7 @@
 import Vue from 'vue'
-import { mount } from 'avoriaz'
 import mountTemplate from 'test/utils/mountTemplate'
 import MdFieldModule from 'components/MdField'
 import MdField from '../MdField.vue'
-import MdFile from './MdFile.vue'
 
 Vue.use(MdFieldModule)
 

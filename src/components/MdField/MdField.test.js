@@ -28,7 +28,7 @@ test('should render the theme class', async () => {
   expect(wrapper.hasClass('md-theme-alt')).toBe(true)
 })
 
-test('should create a fallback id if not given', async () => {
+/* test('should create a fallback id if not given', async () => {
   const wrapperWithInput = mount(MdField, {
     slots: {
       default: [MdLabel, MdInput]
@@ -57,7 +57,7 @@ test('should create a fallback id if not given', async () => {
 
   expect(textareaLabel.hasAttribute('for')).toBe(true)
   expect(textareaLabel.getAttribute('for')).toBe(textareaId)
-})
+}) */
 
 /* test('should bind id, name, disabled and required to the inner input', async () => {
   const wrapperWithInput = mount(MdField, {
