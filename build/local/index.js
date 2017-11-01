@@ -29,7 +29,7 @@ const hotMiddlewareInstance = hotMiddleware(compiler, {
 app.use(historyApiFallback())
 app.use(devMiddlewareInstance)
 app.use(hotMiddlewareInstance)
-app.use('/', express.static(resolvePath(config.docsRoot)))
+app.use('/', express.static(resolvePath(config.docs)))
 app.use('/assets', express.static(resolvePath(config.assets)))
 
 devMiddlewareInstance.waitUntilValid(() => {

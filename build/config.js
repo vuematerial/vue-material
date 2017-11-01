@@ -24,7 +24,7 @@ export const config = {
   public: '/',
   index: 'docs/index.html',
   assets: 'docs/assets',
-  docsRoot: 'docs',
+  docs: 'docs',
   server: {
     port: process.env.PORT || '8080'
   },
