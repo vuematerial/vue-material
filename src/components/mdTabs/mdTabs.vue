@@ -51,271 +51,263 @@
 <style lang="scss" src="./mdTabs.scss"></style>
 
 <script>
-import theme from '../../core/components/mdTheme/mixin';
-import throttle from '../../core/utils/throttle';
+  import theme from '../../core/components/mdTheme/mixin';
+  import throttle from '../../core/utils/throttle';
 
-export default {
-  name: 'md-tabs',
-  props: {
-    mdFixed: Boolean,
-    mdCentered: Boolean,
-    mdRight: Boolean,
-    mdNavigation: {
-      type: Boolean,
-      default: true
-    },
-    mdDynamicHeight: {
-      type: Boolean,
-      default: true
-    },
-    mdElevation: {
-      type: [String, Number],
-      default: 0
-    }
-  },
-  mixins: [theme],
-  data: () => ({
-    tabList: {},
-    activeTab: null,
-    activeTabNumber: 0,
-    hasIcons: false,
-    hasLabel: false,
-    hasNavigationScroll: false,
-    isNavigationOnStart: true,
-    isNavigationOnEnd: false,
-    transitionControl: null,
-    transitionOff: false,
-    contentHeight: '0px',
-    contentWidth: '0px'
-  }),
-  computed: {
-    tabClasses() {
-      return {
-        'md-transition-off': this.transitionOff
-      };
-    },
-    navigationClasses() {
-      return {
-        'md-has-icon': this.hasIcons,
-        'md-has-label': this.hasLabel,
-        'md-fixed': this.mdFixed,
-        'md-right': !this.mdCentered && this.mdRight,
-        'md-centered': this.mdCentered || this.mdFixed,
-        'md-has-navigation-scroll': this.hasNavigationScroll
-      };
-    },
-    indicatorClasses() {
-      let toLeft = this.lastIndicatorNumber > this.activeTabNumber;
-
-      this.lastIndicatorNumber = this.activeTabNumber;
-
-      return {
-        'md-transition-off': this.transitionOff,
-        'md-to-right': !toLeft,
-        'md-to-left': toLeft
-      };
-    },
-    navigationLeftButtonClasses() {
-      return {
-        'md-disabled': this.isNavigationOnStart
-      };
-    },
-    navigationRightButtonClasses() {
-      return {
-        'md-disabled': this.isNavigationOnEnd
-      };
-    }
-  },
-  methods: {
-    getHeaderClass(header) {
-      return {
-        'md-active': this.activeTab === header.id,
-        'md-disabled': header.disabled
-      };
-    },
-    registerTab(tabData) {
-      let hasActive = false;
-
-      for (let tab of Object.keys(this.tabList)) {
-        if (this.tabList[tab].active) {
-          hasActive = true;
-          break;
-        }
-      }
-
-      this.$set(this.tabList, tabData.id, tabData);
-
-      if (!hasActive && !tabData.disabled) {
-        this.tabList[tabData.id].active = true;
+  export default {
+    name: 'md-tabs',
+    props: {
+      mdFixed: Boolean,
+      mdCentered: Boolean,
+      mdRight: Boolean,
+      mdNavigation: {
+        type: Boolean,
+        default: true
+      },
+      mdDynamicHeight: {
+        type: Boolean,
+        default: true
+      },
+      mdElevation: {
+        type: [String, Number],
+        default: 0
       }
     },
-    unregisterTab(tabData) {
-      this.$delete(this.tabList, tabData.id);
+    mixins: [theme],
+    data: () => ({
+      tabList: {},
+      activeTab: null,
+      activeTabNumber: 0,
+      hasIcons: false,
+      hasLabel: false,
+      hasNavigationScroll: false,
+      isNavigationOnStart: true,
+      isNavigationOnEnd: false,
+      transitionControl: null,
+      transitionOff: false,
+      contentHeight: '0px',
+      contentWidth: '0px'
+    }),
+    computed: {
+      tabClasses() {
+        return {
+          'md-transition-off': this.transitionOff
+        };
+      },
+      navigationClasses() {
+        return {
+          'md-has-icon': this.hasIcons,
+          'md-has-label': this.hasLabel,
+          'md-fixed': this.mdFixed,
+          'md-right': !this.mdCentered && this.mdRight,
+          'md-centered': this.mdCentered || this.mdFixed,
+          'md-has-navigation-scroll': this.hasNavigationScroll
+        };
+      },
+      indicatorClasses() {
+        let toLeft = this.lastIndicatorNumber > this.activeTabNumber;
+
+        this.lastIndicatorNumber = this.activeTabNumber;
+
+        return {
+          'md-transition-off': this.transitionOff,
+          'md-to-right': !toLeft,
+          'md-to-left': toLeft
+        };
+      },
+      navigationLeftButtonClasses() {
+        return {
+          'md-disabled': this.isNavigationOnStart
+        };
+      },
+      navigationRightButtonClasses() {
+        return {
+          'md-disabled': this.isNavigationOnEnd
+        };
+      }
     },
-    updateTab(tabData) {
-      this.registerTab(tabData);
+    methods: {
+      getHeaderClass(header) {
+        return {
+          'md-active': this.activeTab === header.id,
+          'md-disabled': header.disabled
+        };
+      },
+      registerTab(tabData) {
+        let hasActive = false;
 
-      if (tabData.active) {
-        if (!tabData.disabled) {
-          this.setActiveTab(tabData);
-        } else if (Object.keys(this.tabList).length) {
-          let tabsIds = Object.keys(this.tabList);
-          let targetIndex = tabsIds.indexOf(tabData.id) + 1;
-          let target = tabsIds[targetIndex];
-
-          if (target) {
-            this.setActiveTab(this.tabList[target]);
-          } else {
-            this.setActiveTab(this.tabList[0]);
+        for (let tab of Object.keys(this.tabList)) {
+          if (this.tabList[tab].active) {
+            hasActive = true;
+            break;
           }
         }
-      }
-    },
-    observeElementChanges() {
-      this.parentObserver = new MutationObserver(
-        throttle(this.calculateOnWatch, 50)
-      );
-      this.parentObserver.observe(this.$refs.tabContent, {
-        childList: true,
-        attributes: true,
-        subtree: true
-      });
-    },
-    getTabIndex(id) {
-      const idList = Object.keys(this.tabList);
 
-      return idList.indexOf(id);
-    },
-    calculateIndicatorPos() {
-      if (this.$refs.tabHeader && this.$refs.tabHeader[this.activeTabNumber]) {
-        const tabsWidth = this.$el.offsetWidth;
-        const activeTab = this.$refs.tabHeader[this.activeTabNumber];
-        const left = activeTab.offsetLeft - this.$refs.tabsContainer.scrollLeft;
-        const right = tabsWidth - left - activeTab.offsetWidth;
+        this.$set(this.tabList, tabData.id, tabData);
 
-        this.$refs.indicator.style.left = left + 'px';
-        this.$refs.indicator.style.right = right + 'px';
-      }
-    },
-    calculateTabsWidthAndPosition() {
-      const width = this.$el.offsetWidth;
-      let index = 0;
-
-      this.contentWidth = width * this.activeTabNumber + 'px';
-
-      for (const tabId in this.tabList) {
-        const tab = this.tabList[tabId];
-
-        tab.ref.width = width + 'px';
-        tab.ref.left = width * index + 'px';
-        index++;
-      }
-    },
-    calculateContentHeight() {
-      this.$nextTick(() => {
-        if (this.mdDynamicHeight && Object.keys(this.tabList).length) {
-          let height = this.tabList[this.activeTab].ref.$el.offsetHeight;
-
-          this.contentHeight = height + 'px';
+        if (!hasActive && !tabData.disabled) {
+          this.tabList[tabData.id].active = true;
         }
-      });
-    },
-    calculatePosition() {
-      window.requestAnimationFrame(() => {
-        if (this._destroyed) {
-          return;
-        }
+      },
+      unregisterTab(tabData) {
+        this.$delete(this.tabList, tabData.id);
+      },
+      updateTab(tabData) {
+        this.registerTab(tabData);
 
-        this.calculateIndicatorPos();
-        this.calculateTabsWidthAndPosition();
-        this.calculateContentHeight();
-        this.checkNavigationScroll();
-      });
-    },
-    debounceTransition() {
-      window.clearTimeout(this.transitionControl);
-      this.transitionControl = window.setTimeout(() => {
+        if (tabData.active) {
+          if (!tabData.disabled) {
+            this.setActiveTab(tabData);
+          } else if (Object.keys(this.tabList).length) {
+            let tabsIds = Object.keys(this.tabList);
+            let targetIndex = tabsIds.indexOf(tabData.id) + 1;
+            let target = tabsIds[targetIndex];
+
+            if (target) {
+              this.setActiveTab(this.tabList[target]);
+            } else {
+              this.setActiveTab(this.tabList[0]);
+            }
+          }
+        }
+      },
+      observeElementChanges() {
+        this.parentObserver = new MutationObserver(throttle(this.calculateOnWatch, 50));
+        this.parentObserver.observe(this.$refs.tabContent, {
+          childList: true,
+          attributes: true,
+          subtree: true
+        });
+      },
+      getTabIndex(id) {
+        const idList = Object.keys(this.tabList);
+
+        return idList.indexOf(id);
+      },
+      calculateIndicatorPos() {
+        if (this.$refs.tabHeader && this.$refs.tabHeader[this.activeTabNumber]) {
+          const tabsWidth = this.$el.offsetWidth;
+          const activeTab = this.$refs.tabHeader[this.activeTabNumber];
+          const left = activeTab.offsetLeft - this.$refs.tabsContainer.scrollLeft;
+          const right = tabsWidth - left - activeTab.offsetWidth;
+
+          this.$refs.indicator.style.left = left + 'px';
+          this.$refs.indicator.style.right = right + 'px';
+        }
+      },
+      calculateTabsWidthAndPosition() {
+        const width = this.$el.offsetWidth;
+        let index = 0;
+
+        this.contentWidth = width * this.activeTabNumber + 'px';
+
+        for (const tabId in this.tabList) {
+          const tab = this.tabList[tabId];
+
+          tab.ref.width = width + 'px';
+          tab.ref.left = width * index + 'px';
+          index++;
+        }
+      },
+      calculateContentHeight() {
+        this.$nextTick(() => {
+          if (this.mdDynamicHeight && Object.keys(this.tabList).length) {
+            let height = this.tabList[this.activeTab].ref.$el.offsetHeight;
+
+            this.contentHeight = height + 'px';
+          }
+        });
+      },
+      calculatePosition() {
+        window.requestAnimationFrame(() => {
+          if (this._destroyed) {
+            return;
+          }
+  
+          this.calculateIndicatorPos();
+          this.calculateTabsWidthAndPosition();
+          this.calculateContentHeight();
+          this.checkNavigationScroll();
+        });
+      },
+      debounceTransition() {
+        window.clearTimeout(this.transitionControl);
+        this.transitionControl = window.setTimeout(() => {
+          this.calculatePosition();
+          this.transitionOff = false;
+        }, 200);
+      },
+      calculateOnWatch() {
         this.calculatePosition();
-        this.transitionOff = false;
-      }, 200);
-    },
-    calculateOnWatch() {
-      this.calculatePosition();
-      this.debounceTransition();
-    },
-    calculateOnResize() {
-      this.transitionOff = true;
-      this.calculateOnWatch();
-    },
-    calculateScrollPos() {
-      const { scrollLeft, scrollWidth, clientWidth } = this.$refs.tabsContainer;
+        this.debounceTransition();
+      },
+      calculateOnResize() {
+        this.transitionOff = true;
+        this.calculateOnWatch();
+      },
+      calculateScrollPos() {
+        const { scrollLeft, scrollWidth, clientWidth } = this.$refs.tabsContainer;
 
-      this.isNavigationOnStart = scrollLeft < 32;
-      this.isNavigationOnEnd = scrollWidth - scrollLeft - 32 < clientWidth;
+        this.isNavigationOnStart = scrollLeft < 32;
+        this.isNavigationOnEnd = scrollWidth - scrollLeft - 32 < clientWidth;
+      },
+      handleNavigationScroll() {
+        window.requestAnimationFrame(() => {
+          if (this._destroyed) {
+            return;
+          }
+
+          this.calculateIndicatorPos();
+          this.calculateScrollPos();
+        });
+      },
+      checkNavigationScroll() {
+        const { scrollWidth, clientWidth } = this.$refs.tabsContainer;
+
+        this.hasNavigationScroll = scrollWidth > clientWidth;
+      },
+      setActiveTab(tabData) {
+        this.hasIcons = !!tabData.icon || !!tabData.iconset || !!tabData.iconSrc;
+        this.hasLabel = !!tabData.label;
+        this.activeTab = tabData.id;
+        this.activeTabNumber = this.getTabIndex(this.activeTab);
+        this.calculatePosition();
+        this.$emit('change', this.activeTabNumber);
+      },
+      navigationScrollLeft() {
+        const { scrollLeft, clientWidth } = this.$refs.tabsContainer;
+
+        this.$refs.tabsContainer.scrollLeft = Math.max(0, scrollLeft - clientWidth);
+      },
+      navigationScrollRight() {
+        const { scrollLeft, clientWidth, scrollWidth } = this.$refs.tabsContainer;
+
+        this.$refs.tabsContainer.scrollLeft = Math.min(scrollWidth, scrollLeft + clientWidth);
+      }
     },
-    handleNavigationScroll() {
-      window.requestAnimationFrame(() => {
-        if (this._destroyed) {
-          return;
+    activated() {
+      this.calculateOnResize();
+    },
+    mounted() {
+      this.$nextTick(() => {
+        this.observeElementChanges();
+        window.addEventListener('resize', this.calculateOnResize);
+
+        if (Object.keys(this.tabList).length && !this.activeTab) {
+          let firstTab = Object.keys(this.tabList)[0];
+
+          this.setActiveTab(this.tabList[firstTab]);
         }
-
-        this.calculateIndicatorPos();
-        this.calculateScrollPos();
       });
     },
-    checkNavigationScroll() {
-      const { scrollWidth, clientWidth } = this.$refs.tabsContainer;
-
-      this.hasNavigationScroll = scrollWidth > clientWidth;
-    },
-    setActiveTab(tabData) {
-      this.hasIcons = !!tabData.icon || !!tabData.iconset || !!tabData.iconSrc;
-      this.hasLabel = !!tabData.label;
-      this.activeTab = tabData.id;
-      this.activeTabNumber = this.getTabIndex(this.activeTab);
-      this.calculatePosition();
-      this.$emit('change', this.activeTabNumber);
-    },
-    navigationScrollLeft() {
-      const { scrollLeft, clientWidth } = this.$refs.tabsContainer;
-
-      this.$refs.tabsContainer.scrollLeft = Math.max(
-        0,
-        scrollLeft - clientWidth
-      );
-    },
-    navigationScrollRight() {
-      const { scrollLeft, clientWidth, scrollWidth } = this.$refs.tabsContainer;
-
-      this.$refs.tabsContainer.scrollLeft = Math.min(
-        scrollWidth,
-        scrollLeft + clientWidth
-      );
-    }
-  },
-  activated() {
-    this.calculateOnResize();
-  },
-  mounted() {
-    this.$nextTick(() => {
-      this.observeElementChanges();
-      window.addEventListener('resize', this.calculateOnResize);
-
-      if (Object.keys(this.tabList).length && !this.activeTab) {
-        let firstTab = Object.keys(this.tabList)[0];
-
-        this.setActiveTab(this.tabList[firstTab]);
+    beforeDestroy() {
+      if (this.parentObserver) {
+        this.parentObserver.disconnect();
       }
-    });
-  },
-  beforeDestroy() {
-    if (this.parentObserver) {
-      this.parentObserver.disconnect();
+
+      window.removeEventListener('resize', this.calculateOnResize);
+
+      this._destroyed = true;
     }
-
-    window.removeEventListener('resize', this.calculateOnResize);
-
-    this._destroyed = true;
-  }
-};
+  };
 </script>
