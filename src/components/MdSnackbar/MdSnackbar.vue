@@ -46,8 +46,10 @@
           await createSnackbar(this.mdDuration)
 
           this.$emit('update:mdActive', false)
+          this.$emit('md-opened')
         } else {
           destroySnackbar()
+          this.$emit('md-closed')
         }
       }
     }
