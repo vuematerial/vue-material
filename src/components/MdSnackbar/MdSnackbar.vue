@@ -56,6 +56,7 @@
 
 <style lang="scss">
   @import "~components/MdAnimation/variables";
+  @import "~components/MdLayout/mixins";
   @import "~components/MdElevation/mixins";
 
   .md-snackbar {
@@ -64,7 +65,7 @@
     max-width: 568px;
     min-height: 48px;
     max-height: 80px;
-    padding: 0 24px;
+    padding: 14px 24px;
     display: flex;
     align-items: center;
     position: fixed;
@@ -74,13 +75,14 @@
     will-change: background-color, color, opacity, transform;
 
     &.md-position-center {
+      margin: 0 auto;
+      right: 0;
       bottom: 0;
-      left: 50%;
-      transform: translate3D(-50%, 0, 0);
+      left: 0;
 
       &.md-snackbar-enter,
       &.md-snackbar-leave-active {
-        transform: translate3D(-50%, calc(100% + 8px), 0);
+        transform: translate3D(0, calc(100% + 8px), 0);
       }
     }
 
@@ -92,6 +94,12 @@
       &.md-snackbar-leave-active {
         transform: translate3D(0, calc(100% + 32px), 0);
       }
+    }
+
+    @include md-layout-xsmall {
+      left: 0;
+      transform: none;
+      border-radius: 0;
     }
   }
 
@@ -113,7 +121,11 @@
 
     .md-button {
       min-width: 0;
-      margin: 0 -12px 0 12px;
+      margin: -8px -8px -8px 36px;
+
+      @include md-layout-xsmall {
+        margin-left: 12px;
+      }
     }
   }
 </style>

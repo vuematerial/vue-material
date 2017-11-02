@@ -28,7 +28,7 @@
 
 <script>
 export default {
-  name: 'Duration',
+  name: 'SnackbarExample',
   data: () => ({
     showSnackbar: false,
     position: 'center',
