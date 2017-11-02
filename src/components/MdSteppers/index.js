@@ -1,9 +1,9 @@
 import material from 'vue-material/material'
 import MdSteppers from './MdSteppers'
-import MdStepper from './MdStepper'
+import MdStep from './MdStep'
 
 export default Vue => {
   material(Vue)
   Vue.component(MdSteppers.name, MdSteppers)
-  Vue.component(MdStepper.name, MdStepper)
+  Vue.component(MdStep.name, MdStep)
 }
