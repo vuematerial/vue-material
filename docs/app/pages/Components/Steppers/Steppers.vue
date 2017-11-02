@@ -8,8 +8,7 @@
 <template>
   <page-container centered :title="$t('pages.steppers.title')">
     <div class="page-container-section">
-      <p>Steppers display progress through a sequence of logical and numbered steps. They may also be used for navigation.</p>
-      <p>Steppers have two main types: Horizontal or Vertical. The horizontal type can have an alternative layout.</p>
+      <p>Steppers display progress through a sequence of logical and numbered steps. They may also be used for navigation and have two main types: Horizontal or Vertical. The horizontal type can have an alternative layout.</p>
       <p>Individual steps are editable and optional by default, but you can change that.</p>
     </div>
 
