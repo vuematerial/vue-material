@@ -2,6 +2,7 @@
   <form class="jsfiddle-edit" method="post" :action="apiUrl" target="check">
     <md-button type="submit" class="md-icon-button md-dense">
       <md-icon>launch</md-icon>
+      <md-tooltip md-theme="default">Open on JSFiddle</md-tooltip>
     </md-button>
 
     <div class="form-data">

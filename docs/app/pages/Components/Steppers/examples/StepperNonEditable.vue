@@ -1,27 +1,27 @@
 <template>
   <div>
-    <md-steppers :md-active-stepper.sync="active" md-linear>
-      <md-stepper id="first" md-label="First Step" md-description="Optional" :md-editable="false" :md-done.sync="first">
+    <md-steppers :md-active-step.sync="active" md-vertical md-linear>
+      <md-step id="first" md-label="First Step" md-description="Optional" :md-editable="false" :md-done.sync="first">
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias doloribus eveniet quaerat modi cumque quos sed, temporibus nemo eius amet aliquid, illo minus blanditiis tempore, dolores voluptas dolore placeat nulla.</p>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias doloribus eveniet quaerat modi cumque quos sed, temporibus nemo eius amet aliquid, illo minus blanditiis tempore, dolores voluptas dolore placeat nulla.</p>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias doloribus eveniet quaerat modi cumque quos sed, temporibus nemo eius amet aliquid, illo minus blanditiis tempore, dolores voluptas dolore placeat nulla.</p>
-        <md-button class="md-raised md-primary" @click="setDone('first', 'second')">Done!</md-button>
-      </md-stepper>
+        <md-button class="md-raised md-primary" @click="setDone('first', 'second')">Continue</md-button>
+      </md-step>
 
-      <md-stepper id="second" md-label="Second Step" :md-error="secondStepError" :md-editable="false" :md-done.sync="second">
+      <md-step id="second" md-label="Second Step" :md-error="secondStepError" :md-editable="false" :md-done.sync="second">
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias doloribus eveniet quaerat modi cumque quos sed, temporibus nemo eius amet aliquid, illo minus blanditiis tempore, dolores voluptas dolore placeat nulla.</p>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias doloribus eveniet quaerat modi cumque quos sed, temporibus nemo eius amet aliquid, illo minus blanditiis tempore, dolores voluptas dolore placeat nulla.</p>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias doloribus eveniet quaerat modi cumque quos sed, temporibus nemo eius amet aliquid, illo minus blanditiis tempore, dolores voluptas dolore placeat nulla.</p>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias doloribus eveniet quaerat modi cumque quos sed, temporibus nemo eius amet aliquid, illo minus blanditiis tempore, dolores voluptas dolore placeat nulla.</p>
-        <md-button class="md-raised md-primary" @click="setDone('second', 'third')">Done!</md-button>
+        <md-button class="md-raised md-primary" @click="setDone('second', 'third')">Continue</md-button>
         <md-button class="md-raised md-primary" @click="setError()">Set error!</md-button>
-      </md-stepper>
+      </md-step>
 
-      <md-stepper id="third" md-label="Third Step" :md-editable="false" :md-done.sync="third">
+      <md-step id="third" md-label="Third Step" :md-editable="false" :md-done.sync="third">
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias doloribus eveniet quaerat modi cumque quos sed, temporibus nemo eius amet aliquid, illo minus blanditiis tempore, dolores voluptas dolore placeat nulla.</p>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias doloribus eveniet quaerat modi cumque quos sed, temporibus nemo eius amet aliquid, illo minus blanditiis tempore, dolores voluptas dolore placeat nulla.</p>
-        <md-button class="md-raised md-primary" @click="setDone('third')">Done!</md-button>
-      </md-stepper>
+        <md-button class="md-raised md-primary" @click="setDone('third')">Done</md-button>
+      </md-step>
     </md-steppers>
   </div>
 </template>

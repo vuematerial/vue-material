@@ -1,7 +1,7 @@
 <template>
   <div class="md-steppers" :class="[steppersClasses, $mdActiveTheme]">
     <div class="md-steppers-navigation" v-if="!mdVertical">
-      <md-stepper-header v-for="(_, index) in MdSteppers.items" :key="index" :index="index" />
+      <md-step-header v-for="(_, index) in MdSteppers.items" :key="index" :index="index" />
     </div>
 
     <div class="md-steppers-wrapper" :style="contentStyles">
@@ -15,12 +15,12 @@
 <script>
   import MdComponent from 'core/MdComponent'
   import MdObserveElement from 'core/utils/MdObserveElement'
-  import MdStepperHeader from './MdStepperHeader'
+  import MdStepHeader from './MdStepHeader'
 
   export default new MdComponent({
     name: 'MdSteppers',
     components: {
-      MdStepperHeader
+      MdStepHeader
     },
     props: {
       mdSyncRoute: Boolean,
@@ -28,15 +28,15 @@
       mdVertical: Boolean,
       mdLinear: Boolean,
       mdAlternative: Boolean,
-      mdActiveStepper: [String, Number]
+      mdActiveStep: [String, Number]
     },
     data: () => ({
-      activeStepperIndex: 0,
+      activeStepIndex: 0,
       noTransition: true,
       containerStyles: {},
       contentStyles: {},
       MdSteppers: {
-        activeStepper: 0,
+        activeStep: 0,
         isLinear: false,
         isVertical: false,
         items: {}
@@ -46,7 +46,7 @@
       let MdSteppers = this.MdSteppers
 
       MdSteppers.getStepperNumber = this.getStepperNumber
-      MdSteppers.setActiveStepper = this.setActiveStepper
+      MdSteppers.setActiveStep = this.setActiveStep
       MdSteppers.isPreviousStepperDone = this.isPreviousStepperDone
 
       return { MdSteppers }
@@ -62,12 +62,12 @@
         }
       },
       activeIndex () {
-        return this.MdSteppers.activeStepper
+        return this.MdSteppers.activeStep
       }
     },
     watch: {
-      mdActiveStepper (stepper) {
-        this.MdSteppers.activeStepper = stepper
+      mdActiveStep (stepper) {
+        this.MdSteppers.activeStep = stepper
         this.$emit('md-changed', stepper)
       },
       mdLinear (isLinear) {
@@ -78,13 +78,13 @@
       },
       async activeIndex () {
         await this.$nextTick()
-        this.setActiveStepperIndex()
+        this.setActiveStepIndex()
         this.calculateStepperPos()
       }
     },
     methods: {
-      hasActiveStepper () {
-        return this.MdSteppers.activeStepper || this.mdActiveStepper
+      hasActiveStep () {
+        return this.MdSteppers.activeStep || this.mdActiveStep
       },
       getItemsAndKeys () {
         const items = this.MdSteppers.items
@@ -117,42 +117,45 @@
       isStepperEditable (id) {
         return this.MdSteppers.items[id].editable
       },
+      setStepperAsDone (id) {
+        this.MdSteppers.items[id].done = true
+      },
       setPreviousStepperAsDone (newId) {
-        const activeIndex = this.getStepperNumber(this.MdSteppers.activeStepper)
+        const activeIndex = this.getStepperNumber(this.MdSteppers.activeStep)
         const newIndex = this.getStepperNumber(newId)
 
         if (newIndex > activeIndex) {
-          this.MdSteppers.items[this.MdSteppers.activeStepper].done = true
+          this.setStepperAsDone(this.MdSteppers.activeStep)
         }
       },
-      setActiveStepper (id) {
+      setActiveStep (id) {
         if (this.mdLinear && !this.isPreviousStepperDone(id)) {
           return false
         }
 
-        if (id !== this.MdSteppers.activeStepper && (this.isStepperEditable(id) || !this.isStepperDone(id))) {
+        if (id !== this.MdSteppers.activeStep && (this.isStepperEditable(id) || !this.isStepperDone(id))) {
           this.setPreviousStepperAsDone(id)
-          this.MdSteppers.activeStepper = id
+          this.MdSteppers.activeStep = id
           this.$emit('md-changed', id)
-          this.$emit('update:mdActiveStepper', id)
+          this.$emit('update:mdActiveStep', id)
           this.MdSteppers.items[id].error = null
         }
       },
-      setActiveStepperIndex () {
+      setActiveStepIndex () {
         const activeButton = this.$el.querySelector('.md-button.md-active')
 
         if (activeButton) {
-          this.activeStepperIndex = [].indexOf.call(activeButton.parentNode.childNodes, activeButton)
+          this.activeStepIndex = [].indexOf.call(activeButton.parentNode.childNodes, activeButton)
         }
       },
-      setActiveStepperByIndex (index) {
+      setActiveStepByIndex (index) {
         const { keys } = this.getItemsAndKeys()
 
-        if (!this.hasActiveStepper()) {
-          this.MdSteppers.activeStepper = keys[index]
+        if (!this.hasActiveStep()) {
+          this.MdSteppers.activeStep = keys[index]
         }
       },
-      setActiveStepperByRoute () {
+      setActiveStepByRoute () {
         const { items, keys } = this.getItemsAndKeys()
         let stepperIndex = null
 
@@ -167,10 +170,14 @@
           })
         }
 
-        if (!this.hasActiveStepper() && !stepperIndex) {
-          this.MdSteppers.activeStepper = keys[0]
+        if (!this.hasActiveStep() && !stepperIndex) {
+          this.MdSteppers.activeStep = keys[0]
         } else {
-          this.MdSteppers.activeStepper = keys[stepperIndex]
+          this.MdSteppers.activeStep = keys[stepperIndex]
+
+          for (let i = 0; i < stepperIndex; i++) {
+            this.setStepperAsDone(keys[i])
+          }
         }
       },
       setupObservers () {
@@ -191,14 +198,14 @@
       },
       calculateStepperPos () {
         if (!this.mdVertical) {
-          const stepperElement = this.$el.querySelector(`.md-stepper:nth-child(${this.activeStepperIndex + 1})`)
+          const stepperElement = this.$el.querySelector(`.md-stepper:nth-child(${this.activeStepIndex + 1})`)
 
           this.contentStyles = {
             height: `${stepperElement.offsetHeight}px`
           }
 
           this.containerStyles = {
-            transform: `translate3D(${-this.activeStepperIndex * 100}%, 0, 0)`
+            transform: `translate3D(${-this.activeStepIndex * 100}%, 0, 0)`
           }
         }
       },
@@ -207,14 +214,14 @@
           this.$watch('$route', {
             deep: true,
             handler () {
-              this.setActiveStepperByRoute()
+              this.setActiveStepByRoute()
             }
           })
         }
       }
     },
     created () {
-      this.MdSteppers.activeStepper = this.mdActiveStepper
+      this.MdSteppers.activeStep = this.mdActiveStep
       this.MdSteppers.isLinear = this.mdLinear
       this.MdSteppers.isVertical = this.mdVertical
     },
@@ -222,14 +229,14 @@
       await this.$nextTick()
 
       if (this.mdSyncRoute) {
-        this.setActiveStepperByRoute()
+        this.setActiveStepByRoute()
       } else {
-        this.setActiveStepperByIndex(0)
+        this.setActiveStepByIndex(0)
       }
 
       await this.$nextTick()
 
-      this.setActiveStepperIndex()
+      this.setActiveStepIndex()
       this.calculateStepperPos()
 
       window.setTimeout(() => {

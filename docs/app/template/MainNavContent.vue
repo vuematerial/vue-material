@@ -1,9 +1,9 @@
 <template>
   <div class="main-nav-content">
-    <router-link to="/">{{ $t('pages.home.title') }}</router-link>
+    <router-link to="/" exact>{{ $t('pages.home.title') }}</router-link>
     <router-link to="/getting-started">{{ $t('pages.gettingStarted.title') }}</router-link>
 
-    <router-link to="/components">{{ $t('pages.components.title') }}</router-link>
+    <router-link to="/components" exact>{{ $t('pages.components.title') }}</router-link>
     <div class="main-nav-level">
       <router-link to="/components/app">{{ $t('pages.app.title') }}</router-link>
       <router-link to="/components/avatar">{{ $t('pages.avatar.title') }}</router-link>
@@ -20,7 +20,7 @@
       <router-link to="/components/drawer">{{ $t('pages.drawer.title') }}</router-link>
       <router-link to="/components/empty-state">{{ $t('pages.emptyState.title') }}</router-link>
 
-      <router-link to="/components/form">{{ $t('pages.form.title') }}</router-link>
+      <router-link to="/components/form" exact>{{ $t('pages.form.title') }}</router-link>
       <div class="main-nav-level">
         <router-link to="/components/checkbox">{{ $t('pages.checkbox.title') }}</router-link>
         <router-link to="/components/file">{{ $t('pages.file.title') }}</router-link>
@@ -49,8 +49,9 @@
       <router-link to="/components/tooltip">{{ $t('pages.tooltip.title') }}</router-link>
     </div>
 
-    <router-link to="/ui-elements">{{ $t('pages.uiElements.title') }}</router-link>
+    <router-link to="/ui-elements" exact>{{ $t('pages.uiElements.title') }}</router-link>
     <div class="main-nav-level">
+      <router-link to="/ui-elements/elevation">{{ $t('pages.elevation.title') }}</router-link>
       <router-link to="/ui-elements/layout">{{ $t('pages.layout.title') }}</router-link>
       <router-link to="/ui-elements/scrollbar">{{ $t('pages.scrollbar.title') }}</router-link>
       <router-link to="/ui-elements/text-selection">{{ $t('pages.textSelection.title') }}</router-link>
@@ -98,7 +99,7 @@
       line-height: 2em;
     }
 
-    .router-link-exact-active {
+    .router-link-active {
       color: md-get-palette-color(blue, A200);
       font-weight: 500;
     }

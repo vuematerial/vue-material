@@ -27,13 +27,13 @@
 </template>
 
 <script>
-  export default {
-    name: 'Duration',
-    data: () => ({
-      showSnackbar: false,
-      position: 'center',
-      duration: 4000,
-      isInfinity: false
-    })
-  }
+export default {
+  name: 'SnackbarExample',
+  data: () => ({
+    showSnackbar: false,
+    position: 'center',
+    duration: 4000,
+    isInfinity: false
+  })
+}
 </script>

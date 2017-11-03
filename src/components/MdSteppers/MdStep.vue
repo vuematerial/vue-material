@@ -1,8 +1,8 @@
 <template>
   <div class="md-stepper">
-    <md-stepper-header v-if="MdSteppers.isVertical" :index="id" />
+    <md-step-header v-if="MdSteppers.isVertical" :index="id" />
 
-    <div class="md-stepper-content" :class="{ 'md-active': id === MdSteppers.activeStepper }">
+    <div class="md-stepper-content" :class="{ 'md-active': id === MdSteppers.activeStep }">
       <slot />
     </div>
   </div>
@@ -10,12 +10,12 @@
 
 <script>
   import MdUuid from 'core/utils/MdUuid'
-  import MdStepperHeader from './MdStepperHeader'
+  import MdStepHeader from './MdStepHeader'
 
   export default {
-    name: 'MdStepper',
+    name: 'MdStep',
     components: {
-      MdStepperHeader
+      MdStepHeader
     },
     props: {
       id: {
