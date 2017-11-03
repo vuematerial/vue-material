@@ -4,6 +4,7 @@
       <span class="md-title">{{ title }}</span>
       <md-button class="md-icon-button md-dense" @click="toggleCode" v-if="component.name">
         <md-icon>code</md-icon>
+        <md-tooltip md-theme="default">Code</md-tooltip>
       </md-button>
       <jsfiddle-edit :component="component" v-if="component.name"></jsfiddle-edit>
     </md-toolbar>
@@ -15,11 +16,12 @@
 
       <md-content class="demo" :md-theme="theme" v-else>
         <div class="demo-content">
-          <component :is="component.name"></component>
+          <component :is="component.name" />
         </div>
 
         <md-button class="button-theme md-icon-button md-dense md-raised md-primary" @click="toggleTheme" v-if="component.name">
           <md-icon>invert_colors</md-icon>
+          <md-tooltip md-direction="top">Invert Colors</md-tooltip>
         </md-button>
       </md-content>
     </transition>
