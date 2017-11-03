@@ -170,6 +170,11 @@ export const routes = [
     page: 'UiElements.vue'
   },
   {
+    path: '/ui-elements/elevation',
+    name: 'ui-elements/elevation',
+    page: 'UiElements/Elevation/Elevation.vue'
+  },
+  {
     path: '/ui-elements/layout',
     name: 'ui-elements/layout',
     page: 'UiElements/Layout/Layout.vue'

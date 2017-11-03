@@ -32,6 +32,9 @@ export default {
     uiElements: {
       title: 'UI Elements'
     },
+    elevation: {
+      title: 'Elevation'
+    },
     button: {
       title: 'Button',
       description: 'Buttons communicate the action that will occur when the user touches them.'
