@@ -11,9 +11,9 @@
     <img src="https://travis-ci.org/vuematerial/vue-material-experiments.svg?branch=master" alt="Build Status">
   </a>
 
-  <a href="https://codeclimate.com/github/vuematerial/vue-material-experiments/coverage">
+  <!--a href="https://codeclimate.com/github/vuematerial/vue-material-experiments/coverage">
     <img src="https://codeclimate.com/github/vuematerial/vue-material-experiments/badges/coverage.svg">
-  </a>
+  </a-->
 
   <a href="https://www.npmjs.com/package/vue-material">
     <img src="https://img.shields.io/npm/dt/vue-material.svg" alt="Downloads">
