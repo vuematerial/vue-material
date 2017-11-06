@@ -164,10 +164,10 @@
       <div slot="example">
         <example-box card-title="Responsive">
           <div class="layout-demo grid" slot="demo">
-            <md-layout class="color" md-gutter>
+            <md-layout class="color" :md-gutter="true">
               <md-layout class="color-red" md-flex-xsmall="100" md-flex-small="50" md-flex-medium="33">
                 <div class="grid-content">
-                  md-flex-xsmall <br>
+                  md-flex-xsmall="100" <br>
                   md-flex-small="50" <br>
                   md-flex-medium="33"
                 </div>
@@ -175,7 +175,7 @@
 
               <md-layout class="color-blue" md-flex-xsmall="100" md-flex-small="50" md-flex-medium="33">
                 <div class="grid-content">
-                  md-flex-xsmall <br>
+                  md-flex-xsmall="100" <br>
                   md-flex-small="50" <br>
                   md-flex-medium="33"
                 </div>
@@ -183,7 +183,7 @@
 
               <md-layout class="color-pink" md-flex-xsmall="100" md-flex-small="50" md-flex-medium="33">
                 <div class="grid-content">
-                  md-flex-xsmall <br>
+                  md-flex-xsmall="100" <br>
                   md-flex-small="50" <br>
                   md-flex-medium="33"
                 </div>
@@ -191,7 +191,7 @@
 
               <md-layout class="color-teal" md-flex-xsmall="100" md-flex-small="50" md-flex-medium="33">
                 <div class="grid-content">
-                  md-flex-xsmall <br>
+                  md-flex-xsmall="100" <br>
                   md-flex-small="50" <br>
                   md-flex-medium="33"
                 </div>
@@ -199,6 +199,7 @@
 
               <md-layout class="color-green" md-flex-small="100" md-flex-medium="33" md-hide-xsmall>
                 <div class="grid-content">
+                  md-flex-small="100" <br>
                   md-flex-medium="33" <br>
                   md-hide-xsmall
                 </div>
@@ -215,32 +216,33 @@
 
           <div slot="code">
             <code-block lang="xml">
-              &lt;md-layout md-gutter&gt;
+              &lt;md-layout :md-gutter=&quot;true&quot;&gt;
                 &lt;md-layout md-flex-xsmall=&quot;100&quot; md-flex-small=&quot;50&quot; md-flex-medium=&quot;33&quot;&gt;
-                  md-flex-xsmall &lt;br&gt;
+                  md-flex-xsmall=&quot;100&quot; &lt;br&gt;
                   md-flex-small=&quot;50&quot; &lt;br&gt;
                   md-flex-medium=&quot;33&quot;
                 &lt;/md-layout&gt;
 
                 &lt;md-layout md-flex-xsmall=&quot;100&quot; md-flex-small=&quot;50&quot; md-flex-medium=&quot;33&quot;&gt;
-                  md-flex-xsmall &lt;br&gt;
+                  md-flex-xsmall=&quot;100&quot; &lt;br&gt;
                   md-flex-small=&quot;50&quot; &lt;br&gt;
                   md-flex-medium=&quot;33&quot;
                 &lt;/md-layout&gt;
 
                 &lt;md-layout md-flex-xsmall=&quot;100&quot; md-flex-small=&quot;50&quot; md-flex-medium=&quot;33&quot;&gt;
-                  md-flex-xsmall &lt;br&gt;
+                  md-flex-xsmall=&quot;100&quot; &lt;br&gt;
                   md-flex-small=&quot;50&quot; &lt;br&gt;
                   md-flex-medium=&quot;33&quot;
                 &lt;/md-layout&gt;
 
                 &lt;md-layout md-flex-xsmall=&quot;100&quot; md-flex-small=&quot;50&quot; md-flex-medium=&quot;33&quot;&gt;
-                  md-flex-xsmall &lt;br&gt;
+                  md-flex-xsmall=&quot;100&quot; &lt;br&gt;
                   md-flex-small=&quot;50&quot; &lt;br&gt;
                   md-flex-medium=&quot;33&quot;
                 &lt;/md-layout&gt;
 
                 &lt;md-layout md-flex-small=&quot;100&quot; md-flex-medium=&quot;33&quot; md-hide-xsmall&gt;
+                  md-flex-small=&quot;100&quot; <br>
                   md-flex-medium=&quot;33&quot; &lt;br&gt;
                   md-hide-xsmall
                 &lt;/md-layout&gt;
@@ -292,35 +294,35 @@
 
           <div slot="code">
             <code-block lang="xml">
-              &lt;md-layout md-gutter&gt;
+              &lt;md-layout :md-gutter=&quot;true&quot;&gt;
                 &lt;md-layout md-flex=&quot;50&quot;&gt;&lt;/md-layout&gt;
                 &lt;md-layout&gt;&lt;/md-layout&gt;
                 &lt;md-layout&gt;&lt;/md-layout&gt;
                 &lt;md-layout&gt;&lt;/md-layout&gt;
               &lt;/md-layout&gt;
 
-              &lt;md-layout md-gutter&gt;
+              &lt;md-layout :md-gutter=&quot;true&quot;&gt;
                 &lt;md-layout md-flex=&quot;33&quot;&gt;&lt;/md-layout&gt;
                 &lt;md-layout&gt;&lt;/md-layout&gt;
               &lt;/md-layout&gt;
 
-              &lt;md-layout md-gutter&gt;
+              &lt;md-layout :md-gutter=&quot;true&quot;&gt;
                 &lt;md-layout&gt;&lt;/md-layout&gt;
                 &lt;md-layout md-flex=&quot;33&quot; md-flex-offset=&quot;33&quot;&gt;&lt;/md-layout&gt;
               &lt;/md-layout&gt;
 
-              &lt;md-layout md-gutter&gt;
+              &lt;md-layout :md-gutter=&quot;true&quot;&gt;
                 &lt;md-layout md-flex=&quot;75&quot;&gt;&lt;/md-layout&gt;
                 &lt;md-layout&gt;&lt;/md-layout&gt;
               &lt;/md-layout&gt;
 
-              &lt;md-layout md-gutter&gt;
+              &lt;md-layout :md-gutter=&quot;true&quot;&gt;
                 &lt;md-layout md-flex=&quot;50&quot;&gt;&lt;/md-layout&gt;
                 &lt;md-layout&gt;&lt;/md-layout&gt;
                 &lt;md-layout&gt;&lt;/md-layout&gt;
               &lt;/md-layout&gt;
 
-              &lt;md-layout md-gutter&gt;
+              &lt;md-layout :md-gutter=&quot;true&quot;&gt;
                 &lt;md-layout md-flex=&quot;25&quot; md-flex-offset=&quot;25&quot;&gt;&lt;/md-layout&gt;
                 &lt;md-layout md-flex=&quot;25&quot;&gt;&lt;/md-layout&gt;
               &lt;/md-layout&gt;
@@ -347,12 +349,12 @@
           <div slot="code">
             <code-block lang="xml">
               &lt;md-layout md-gutter&gt;
-                &lt;md-layout md-column md-gutter&gt;
+                &lt;md-layout md-column md-gutter=&quot;16&quot;&gt;
                   &lt;md-layout md-flex=&quot;20&quot;&gt;&lt;/md-layout&gt;
                   &lt;md-layout&gt;&lt;/md-layout&gt;
                 &lt;/md-layout&gt;
 
-                &lt;md-layout md-column md-gutter&gt;
+                &lt;md-layout md-column md-gutter=&quot;16&quot;&gt;
                   &lt;md-layout md-flex=&quot;50&quot;&gt;&lt;/md-layout&gt;
                   &lt;md-layout&gt;&lt;/md-layout&gt;
                   &lt;md-layout&gt;&lt;/md-layout&gt;
@@ -455,6 +457,32 @@
 
                 &lt;md-layout md-flex=&quot;35&quot;&gt;
                   &lt;span&gt;center&lt;/span&gt;
+                &lt;/md-layout&gt;
+              &lt;/md-layout&gt;
+
+              &lt;md-layout&gt;
+                &lt;md-layout md-vertical-align=&quot;center&quot; md-gutter=&quot;16&quot; :style=&quot;{ height: '100px' }&quot;&gt;
+                  &lt;md-layout&gt;
+                    &lt;span&gt;vertical center&lt;/span&gt;
+                  &lt;/md-layout&gt;
+                &lt;/md-layout&gt;
+
+                &lt;md-layout md-vertical-align=&quot;start&quot; md-gutter=&quot;16&quot; :style=&quot;{ height: '100px' }&quot;&gt;
+                  &lt;md-layout&gt;
+                    &lt;span&gt;vertical start&lt;/span&gt;
+                  &lt;/md-layout&gt;
+                &lt;/md-layout&gt;
+
+                &lt;md-layout md-vertical-align=&quot;end&quot; md-gutter=&quot;16&quot; :style=&quot;{ height: '100px' }&quot;&gt;
+                  &lt;md-layout&gt;
+                    &lt;span&gt;vertical end&lt;/span&gt;
+                  &lt;/md-layout&gt;
+                &lt;/md-layout&gt;
+
+                &lt;md-layout md-vertical-align=&quot;stretch&quot; md-gutter=&quot;16&quot; :style=&quot;{ height: '100px' }&quot;&gt;
+                  &lt;md-layout&gt;
+                    &lt;span&gt;vertical stretch (default)&lt;/span&gt;
+                  &lt;/md-layout&gt;
                 &lt;/md-layout&gt;
               &lt;/md-layout&gt;
             </code-block>
@@ -646,7 +674,7 @@
                 &lt;/md-layout&gt;
               &lt;/md-layout&gt;
 
-              &lt;md-layout md-gutter&gt;
+              &lt;md-layout :md-gutter=&quot;true&quot;&gt;
                 &lt;md-layout&gt;
                   &lt;span&gt;Automatic&lt;/span&gt;
                 &lt;/md-layout&gt;
