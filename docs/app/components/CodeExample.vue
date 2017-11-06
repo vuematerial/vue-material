@@ -74,7 +74,7 @@
   $color: md-get-palette-color(grey, 700);
 
   .code-example {
-    margin: 24px 0;
+    margin: 36px 0;
   }
 
   .md-toolbar.md-primary {

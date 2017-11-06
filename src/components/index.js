@@ -1,4 +1,5 @@
 import MdApp from './MdApp'
+import MdProgress from './MdProgress'
 import MdAvatar from './MdAvatar'
 import MdBottomBar from './MdBottomBar'
 import MdButton from './MdButton'
@@ -34,6 +35,7 @@ import MdToolbar from './MdToolbar'
 import MdTooltip from './MdTooltip'
 
 export {
+  MdProgress,
   MdApp,
   MdAvatar,
   MdBottomBar,

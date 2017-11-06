@@ -75,5 +75,9 @@
         line-height: 1.45em;
       }
     }
+
+    p + .code-example {
+      margin-top: 1em;
+    }
   }
 </style>

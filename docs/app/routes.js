@@ -1,5 +1,19 @@
 export const routes = [
   {
+    path: '/components/progress',
+    redirect: '/components/progress-bar'
+  },
+  {
+    path: '/components/progress-bar',
+    name: 'components/progress-bar',
+    page: 'Components/ProgressBar/ProgressBar.vue'
+  },
+  {
+    path: '/components/progress-spinner',
+    name: 'components/progress-spinner',
+    page: 'Components/ProgressSpinner/ProgressSpinner.vue'
+  },
+  {
     path: '/components/table',
     name: 'components/table',
     page: 'Components/Table/Table.vue'

@@ -39,6 +39,11 @@
         <router-link to="/components/datepicker">{{ $t('pages.datepicker.nav') }}</router-link>
       </div> -->
 
+      <router-link to="/components/progress">{{ $t('pages.progress.title') }}</router-link>
+      <div class="main-nav-level">
+        <router-link to="/components/progress-bar">{{ $t('pages.progressBar.nav') }}</router-link>
+        <router-link to="/components/progress-spinner">{{ $t('pages.progressSpinner.nav') }}</router-link>
+      </div>
       <router-link to="/components/snackbar">{{ $t('pages.snackbar.title') }}</router-link>
       <router-link to="/components/speed-dial">{{ $t('pages.speedDial.title') }}</router-link>
       <router-link to="/components/steppers">{{ $t('pages.steppers.title') }}</router-link>
