@@ -188,12 +188,12 @@ if (!test('-e', docsPath)) {
   writeToFile(getExampleFile(name), 'Example.vue')
 
   cd(rootDir)
-  sed('-i', 'export const routes = \\[', `export const routes = [
+  sed("-i", "export const routes = \\[", `export const routes = [
   {
     path: '/components/${compName}',
     name: 'components/${compName}',
-    component: () => import(/* webpackChunkName: "${compName}" */ './pages/Components/${singleName}/${singleName}.vue')
-  },`, docsRoutePath)
+    page: 'Components/singleName/singleName.vue'
+  },`, docsRoutePath);
 
   sed('-i', '<router-link to="/components/app">', `<router-link to="/components/${compName}">{{ $t('pages.${camelCasedName}.title') }}</router-link>\n      <router-link to="/components/app">`, navPath)
 } else {

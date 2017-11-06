@@ -133,6 +133,17 @@ export default {
     pickers: {
       title: 'Pickers'
     },
+    progress: {
+      title: 'Progress'
+    },
+    progressBar: {
+      title: 'Progress Bar',
+      nav: 'Bar'
+    },
+    progressSpinner: {
+      title: 'Progress Spinner',
+      nav: 'Spinner'
+    },
     datepicker: {
       title: 'Datepicker',
       nav: 'Date'
