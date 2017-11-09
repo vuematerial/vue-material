@@ -18,8 +18,7 @@
 
       <div class="md-flex">
         <md-field>
-          <label for="country">Country</label>
-          <md-select v-model="country" name="country" id="country">
+          <md-select v-model="country" name="country" id="country" placeholder="Country">
             <md-option value="australia">Australia</md-option>
             <md-option value="brazil">Brazil</md-option>
             <md-option value="japan">Japan</md-option>

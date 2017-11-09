@@ -4,7 +4,7 @@
 <template>
   <page-container centered :title="$t('pages.switch.title')">
     <div class="page-container-section">
-      <p>On/off switches toggle the state of a single settings option. The option that the switch controls, as well as the state it’s in, should be made clear from the corresponding inline label.</p>
+      <p>On/off switches toggle the state of a single settings option. The option that the switch controls, as well as the state it’s in, should be made clear from the corresponding inline label. Vue material switches can work with multiple <code>v-model</code> types: <code>String</code>, <code>Number</code>, <code>Boolean</code> and <code>Array</code>.</p>
     </div>
 
     <div class="page-container-section">

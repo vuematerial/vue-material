@@ -79,6 +79,7 @@
     "eventsource-polyfill": "^0.9.6",
     "express": "^4.16.2",
     "extract-text-webpack-plugin": "^3.0.2",
+    "fast-deep-equal": "^1.0.0",
     "file-loader": "^1.1.5",
     "friendly-errors-webpack-plugin": "^1.6.1",
     "github-release-cli": "^0.3.0",

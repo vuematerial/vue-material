@@ -148,18 +148,24 @@
     &.md-highlight {
       .md-input,
       .md-textarea {
-        @include md-theme-property(color, primary);
+        @include md-theme-property(color, primary, background);
       }
 
       > .md-icon {
-        @include md-theme-property(color, primary);
-        @include md-theme-property(fill, primary);
+        @include md-theme-property(color, primary, background);
+        @include md-theme-property(fill, primary, background);
       }
     }
 
     &.md-focused {
       label {
-        @include md-theme-property(color, primary);
+        @include md-theme-property(color, primary, background);
+      }
+    }
+
+    &.md-disabled {
+      .md-icon svg {
+        @include md-theme-property(fill, disabled, background);
       }
     }
   }

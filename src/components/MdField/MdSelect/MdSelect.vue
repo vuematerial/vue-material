@@ -15,7 +15,9 @@
       readonly
       :disabled="disabled"
       :required="required"
+      :placeholder="placeholder"
       v-on="$listeners"
+      v-bind="$attrs"
       @focus.prevent="onFocus"
       @blur.prevent="removeHighlight"
       @click="openSelect"

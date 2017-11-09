@@ -4,7 +4,7 @@
 <template>
   <page-container centered :title="$t('pages.checkbox.title')">
     <div class="page-container-section">
-      <p>Checkboxes allow the user to select multiple options from a set.</p>
+      <p>Checkboxes allow the user to select multiple options from a set. Vue material checkboxes can work with multiple <code>v-model</code> types: <code>String</code>, <code>Number</code>, <code>Boolean</code> and <code>Array</code>.</p>
     </div>
 
     <div class="page-container-section">
@@ -36,16 +36,16 @@
         headings: ['Name', 'Description', 'Default'],
         props: [
           {
-            name: 'value',
-            type: 'String|Number|Boolean',
-            description: 'The value of the checkbox',
-            defaults: 'on'
-          },
-          {
             name: 'v-model',
             type: 'String|Number|Boolean|Array',
             description: 'The model variable to bind the selection value. If it is an array, it will toggle values inside of it. If no value is assigned, then it will use the same behaviour of a regular input[type="checkbox"].',
             defaults: 'null'
+          },
+          {
+            name: 'value',
+            type: 'String|Number|Boolean',
+            description: 'The value of the checkbox',
+            defaults: 'on'
           },
           {
             name: 'id',

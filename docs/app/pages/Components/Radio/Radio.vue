@@ -4,7 +4,7 @@
 <template>
   <page-container centered :title="$t('pages.radio.title')">
     <div class="page-container-section">
-      <p>Radio buttons allow the user to select one option from a set. Use radio buttons for exclusive selection if you think that the user needs to see all available options side-by-side.</p>
+      <p>Radio buttons allow the user to select one option from a set. Use radio buttons for exclusive selection if you think that the user needs to see all available options side-by-side. Vue material radio can work with multiple <code>v-model</code> types: <code>String</code>, <code>Number</code> and <code>Boolean</code>.</p>
     </div>
 
     <div class="page-container-section">
