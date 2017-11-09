@@ -26,7 +26,7 @@
       <p>Selects can have groups to make easy to distinguish different data sets:</p>
       <code-example title="Groups" :component="examples['optgroup-select']" />
 
-      <p>It is really easy to disable a select and prevent an option from being selected. Just pass a <code>disabled</code> prop to it:</p>
+      <p>It is really easy to disable a select, option and even an optgroup. This will prevent them from being selected. Just pass a <code>disabled</code> prop to the desired component:</p>
       <code-example title="Disabled" :component="examples['disabled-select']" />
 
       <api-item title="API - md-select">
