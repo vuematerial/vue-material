@@ -1,7 +1,7 @@
 <template>
   <div>
     <form novalidate class="md-layout-row md-gutter" @submit.prevent="validateUser">
-      <md-card class="md-flex-50">
+      <md-card class="md-flex-50 md-flex-small-100">
         <md-card-header>
           <div class="md-title">Users</div>
         </md-card-header>
@@ -10,19 +10,19 @@
           <div class="md-layout-row md-layout-wrap md-gutter">
             <div class="md-flex md-flex-small-100">
               <md-field :class="getValidationClass('firstName')">
-                <label>First Name</label>
-                <md-input name="first-name" v-model="firstName" />
-                <span class="md-error" v-if="!$v.firstName.required">The first name is required</span>
-                <span class="md-error" v-else-if="!$v.firstName.minlength">Invalid first name</span>
+                <label for="first-name">First Name</label>
+                <md-input name="first-name" id="first-name" autocomplete="given-name" v-model="form.firstName" :disabled="sending" />
+                <span class="md-error" v-if="!$v.form.firstName.required">The first name is required</span>
+                <span class="md-error" v-else-if="!$v.form.firstName.minlength">Invalid first name</span>
               </md-field>
             </div>
 
             <div class="md-flex md-flex-small-100">
               <md-field :class="getValidationClass('lastName')">
-                <label>Last Name</label>
-                <md-input name="last-name" v-model="lastName" />
-                <span class="md-error" v-if="!$v.lastName.required">The last name is required</span>
-                <span class="md-error" v-else-if="!$v.lastName.minlength">Invalid last name</span>
+                <label for="last-name">Last Name</label>
+                <md-input name="last-name" id="last-name" autocomplete="family-name" v-model="form.lastName" :disabled="sending" />
+                <span class="md-error" v-if="!$v.form.lastName.required">The last name is required</span>
+                <span class="md-error" v-else-if="!$v.form.lastName.minlength">Invalid last name</span>
               </md-field>
             </div>
           </div>
@@ -30,8 +30,8 @@
           <div class="md-layout-row md-gutter md-layout-wrap">
             <div class="md-flex md-flex-small-100">
               <md-field :class="getValidationClass('gender')">
-                <label>Gender</label>
-                <md-select md-dense v-model="gender">
+                <label for="gender">Gender</label>
+                <md-select name="gender" id="gender" v-model="form.gender" md-dense :disabled="sending">
                   <md-option></md-option>
                   <md-option value="M">M</md-option>
                   <md-option value="F">F</md-option>
@@ -42,24 +42,26 @@
 
             <div class="md-flex md-flex-small-100">
               <md-field :class="getValidationClass('age')">
-                <label>Age</label>
-                <md-input type="number" name="age" v-model="age" />
-                <span class="md-error" v-if="!$v.age.required">The age is required</span>
-                <span class="md-error" v-else-if="!$v.age.maxlength">Invalid age</span>
+                <label for="age">Age</label>
+                <md-input type="number" id="age" name="age" autocomplete="age" v-model="form.age" :disabled="sending" />
+                <span class="md-error" v-if="!$v.form.age.required">The age is required</span>
+                <span class="md-error" v-else-if="!$v.form.age.maxlength">Invalid age</span>
               </md-field>
             </div>
           </div>
 
           <md-field :class="getValidationClass('email')">
-            <label>Email</label>
-            <md-input type="email" name="email" v-model="email" />
-            <span class="md-error" v-if="!$v.email.required">The email is required</span>
-            <span class="md-error" v-else-if="!$v.email.email">Invalid email</span>
+            <label for="email">Email</label>
+            <md-input type="email" name="email" id="email" autocomplete="email" v-model="form.email" :disabled="sending" />
+            <span class="md-error" v-if="!$v.form.email.required">The email is required</span>
+            <span class="md-error" v-else-if="!$v.form.email.email">Invalid email</span>
           </md-field>
         </md-card-content>
 
+        <md-progress-bar md-mode="indeterminate" v-if="sending" />
+
         <md-card-actions>
-          <md-button type="submit" class="md-primary">Create user</md-button>
+          <md-button type="submit" class="md-primary" :disabled="sending">Create user</md-button>
         </md-card-actions>
       </md-card>
 
@@ -82,60 +84,85 @@
     name: 'FormValidation',
     mixins: [validationMixin],
     data: () => ({
-      firstName: null,
-      lastName: null,
-      gender: null,
-      age: null,
-      email: null,
+      form: {
+        firstName: null,
+        lastName: null,
+        gender: null,
+        age: null,
+        email: null,
+      },
       userSaved: false,
+      sending: false,
       lastUser: null
     }),
     validations: {
-      firstName: {
-        required,
-        minLength: minLength(3)
-      },
-      lastName: {
-        required,
-        minLength: minLength(3)
-      },
-      age: {
-        required,
-        maxLength: maxLength(3)
-      },
-      gender: {
-        required
-      },
-      email: {
-        required,
-        email
+      form: {
+        firstName: {
+          required,
+          minLength: minLength(3)
+        },
+        lastName: {
+          required,
+          minLength: minLength(3)
+        },
+        age: {
+          required,
+          maxLength: maxLength(3)
+        },
+        gender: {
+          required
+        },
+        email: {
+          required,
+          email
+        }
       }
     },
     methods: {
-      getValidationClass (field) {
-        if (this.$v[field]) {
+      getValidationClass (fieldName) {
+        const field = this.$v.form[fieldName]
+
+        if (field) {
           return {
-            'md-invalid': this.$v[field].$invalid && this.$v[field].$dirty
+            'md-invalid': field.$invalid && field.$dirty
           }
         }
       },
       clearForm () {
         this.$v.$reset()
-        this.firstName = null
-        this.lastName = null
-        this.age = null
-        this.gender = null
-        this.email = null
+        this.form.firstName = null
+        this.form.lastName = null
+        this.form.age = null
+        this.form.gender = null
+        this.form.email = null
+      },
+      saveUser () {
+        this.sending = true
+
+        // Instead of this timeout, here you can call your API
+        window.setTimeout(() => {
+          this.lastUser = `${this.form.firstName} ${this.form.lastName}`
+          this.userSaved = true
+          this.sending = false
+          this.clearForm()
+        }, 1500)
       },
       validateUser () {
         this.$v.$touch()
 
         if (!this.$v.$invalid) {
-          this.lastUser = `${this.firstName} ${this.lastName}`
-          this.userSaved = true
-          this.clearForm()
+          this.saveUser()
         }
       }
     }
   }
 </script>
+
+<style lang="scss" scoped>
+  .md-progress-bar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+  }
+</style>

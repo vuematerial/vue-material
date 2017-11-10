@@ -1,9 +1,10 @@
 <example src="./examples/FormValidation.vue" />
 
 <template>
-  <page-container centered :title="$t('pages.input.title')">
+  <page-container centered :title="$t('pages.form.title')">
     <div class="page-container-section">
-      <p>Text fields allows users to input, edit, and select text, typically inside forms but they can appear in other places, like dialog boxes and search.</p>
+      <p>In web applications it is very common for pages to have forms, with the most diverse types of fields. Vue Material introduces several components that help in building an application. With this you have fill flows, validation and submission forms.</p>
+      <p>Here you can find some examples on how to use Vue Material to build forms.</p>
     </div>
 
     <div class="page-container-section">

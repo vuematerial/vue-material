@@ -10,32 +10,27 @@
 
 .md-button {
   @include md-theme-component() {
-    @include md-theme-property(color, text-primary, background);
+    @include md-theme-property(color, text-primary, background)
 
-    &[disabled] {
-      @include md-theme-property(color, disabled, background);
-      @include md-icon-on-buttons(icon-disabled, background);
+    &.md-primary {
+      @include md-theme-property(color, primary, background);
+      @include md-icon-on-buttons(primary, background);
     }
 
-    &:not(.md-raised):not(.md-fab) {
-      &.md-primary {
-        @include md-theme-property(color, primary, background);
-        @include md-icon-on-buttons(primary, background);
-      }
-
-      &.md-accent {
-        @include md-theme-property(color, accent, background);
-        @include md-icon-on-buttons(accent, background);
-      }
+    &.md-accent {
+      @include md-theme-property(color, accent, background);
+      @include md-icon-on-buttons(accent, background);
     }
 
     &.md-raised {
       &[disabled] {
         @include md-theme-property(background-color, disabled-background, background);
+        @include md-theme-property(color, disabled);
       }
 
       &:not([disabled]) {
         @include md-theme-property(background-color, background);
+        @include md-theme-property(color, text-primary, background);
 
         &.md-primary {
           @include md-theme-property(color, text-primary, primary);
@@ -57,16 +52,19 @@
       }
 
       &:not([disabled]) {
-        @include md-theme-property(color, text-primary, accent);
         @include md-theme-property(background-color, accent);
         @include md-icon-on-buttons(text-primary, accent);
 
         &.md-primary {
-          @include md-theme-property(color, text-primary, primary);
           @include md-theme-property(background-color, primary);
           @include md-icon-on-buttons(text-primary, primary);
         }
       }
+    }
+
+    &[disabled] {
+      @include md-theme-property(color, disabled, background);
+      @include md-icon-on-buttons(icon-disabled, background);
     }
   }
 }

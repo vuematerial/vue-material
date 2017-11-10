@@ -158,7 +158,7 @@ export default {
       title: 'Drawer'
     },
     form: {
-      title: 'Form'
+      title: 'Forms'
     },
     icon: {
       title: 'Icon'
