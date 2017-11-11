@@ -1,8 +1,13 @@
 <template>
   <div>
     <md-field>
-      <label>Regular Field</label>
-      <md-input v-model="regular" maxlength="30"></md-input>
+      <label>Counter</label>
+      <md-input v-model="regular" md-counter="30"></md-input>
+    </md-field>
+
+    <md-field>
+      <label>Max Length</label>
+      <md-input v-model="maxLength" maxlength="30"></md-input>
     </md-field>
 
     <md-field :md-counter="false">
@@ -12,12 +17,12 @@
 
     <md-field>
       <label>Autogrow</label>
-      <md-textarea v-model="autogrow" md-autogrow maxlength="200"></md-textarea>
+      <md-textarea v-model="autogrow" md-autogrow md-counter="200"></md-textarea>
     </md-field>
 
     <md-field>
       <label>Textarea</label>
-      <md-textarea v-model="textarea" maxlength="80"></md-textarea>
+      <md-textarea v-model="textarea" md-counter="80"></md-textarea>
     </md-field>
   </div>
 </template>
@@ -27,6 +32,7 @@
     name: 'Counters',
     data: () => ({
       regular: null,
+      maxLength: null,
       disabled: null,
       autogrow: null,
       textarea: null

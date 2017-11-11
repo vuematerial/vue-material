@@ -2,7 +2,7 @@
   <div class="md-field" :class="[$mdActiveTheme, fieldClasses]" @blur="onBlur">
     <slot />
 
-    <span class="md-count" v-if="hasCounter">{{ valueLength }} / {{ MdField.maxlength }}</span>
+    <span class="md-count" v-if="hasCounter">{{ valueLength }} / {{ MdField.maxlength || MdField.counter }}</span>
 
     <transition name="md-input-action" appear>
       <md-button tabindex="-1" class="md-icon-button md-dense md-input-action md-clear" @click="clearInput" v-if="hasValue && mdClearable">
@@ -56,6 +56,7 @@
         textarea: false,
         autogrow: false,
         maxlength: null,
+        counter: null,
         password: null,
         togglePassword: false,
         clear: false,
@@ -72,7 +73,7 @@
         return this.MdField.value && this.MdField.value.toString()
       },
       hasCounter () {
-        return this.mdCounter && this.MdField.maxlength
+        return this.mdCounter && (this.MdField.maxlength || this.MdField.counter)
       },
       hasPasswordToggle () {
         return this.mdTogglePassword && this.MdField.password
@@ -334,6 +335,7 @@
       .md-textarea {
         min-height: 100px;
         padding: 0 16px;
+        resize: vertical;
       }
 
       > .md-icon {

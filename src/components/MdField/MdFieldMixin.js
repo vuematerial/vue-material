@@ -7,7 +7,8 @@ export default {
     maxlength: [String, Number],
     readonly: Boolean,
     required: Boolean,
-    disabled: Boolean
+    disabled: Boolean,
+    mdCounter: [String, Number]
   },
   data: () => ({
     textareaHeight: false
@@ -60,6 +61,9 @@ export default {
     },
     maxlength () {
       this.setMaxlength()
+    },
+    mdCounter () {
+      this.setMaxlength()
     }
   },
   methods: {
@@ -94,7 +98,11 @@ export default {
       this.MdField.required = Boolean(this.required)
     },
     setMaxlength () {
-      this.MdField.maxlength = parseInt(this.maxlength, 10)
+      if (this.mdCounter) {
+        this.MdField.counter = parseInt(this.mdCounter, 10)
+      } else {
+        this.MdField.maxlength = parseInt(this.maxlength, 10)
+      }
     },
     onFocus () {
       this.MdField.focused = true
