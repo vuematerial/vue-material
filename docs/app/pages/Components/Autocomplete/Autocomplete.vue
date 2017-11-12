@@ -1,4 +1,6 @@
 <example src="./examples/AutocompleteStatic.vue" />
+<example src="./examples/AutocompleteTrigger.vue" />
+<example src="./examples/AutocompleteSearch.vue" />
 <example src="./examples/AutocompleteBox.vue" />
 <example src="./examples/AutocompleteTemplate.vue" />
 <example src="./examples/AutocompleteAsync.vue" />
@@ -13,6 +15,18 @@
       <h2>Static Data</h2>
 
       <code-example title="Normal and Dense" :component="examples['autocomplete-static']" />
+    </div>
+
+    <div class="page-container-section">
+      <h2>Trigger</h2>
+
+      <code-example title="Focus vs Input" :component="examples['autocomplete-trigger']" />
+    </div>
+
+    <div class="page-container-section">
+      <h2>Search Algorithms</h2>
+
+      <code-example title="Fuzzy or Normal" :component="examples['autocomplete-search']" />
     </div>
 
     <div class="page-container-section">

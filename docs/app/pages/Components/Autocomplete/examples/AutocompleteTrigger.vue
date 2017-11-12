@@ -1,10 +1,10 @@
 <template>
   <div>
-    <md-autocomplete v-model="selectedCountry" :md-options="countries" :md-fuzzy-search="false">
+    <md-autocomplete v-model="selectedCountry" :md-options="countries">
       <label>Country</label>
     </md-autocomplete>
 
-    <md-autocomplete v-model="selectedEmployee" :md-options="employees" md-dense>
+    <md-autocomplete v-model="selectedEmployee" :md-options="employees" :md-open-on-focus="false">
       <label>Employees</label>
     </md-autocomplete>
   </div>

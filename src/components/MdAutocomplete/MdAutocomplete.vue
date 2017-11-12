@@ -4,6 +4,7 @@
       <md-input
         v-model="searchTerm"
         @focus.stop="openOnFocus"
+        @blur="hideOptions"
         @input="onInput"
         @click.stop.prevent="openOnFocus" />
 
