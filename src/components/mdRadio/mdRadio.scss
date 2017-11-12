@@ -18,7 +18,7 @@ $radio-touch-size: 48px;
   }
 
   .md-radio-container {
-    width: $radio-size;
+    min-width: $radio-size;
     height: $radio-size;
     position: relative;
     border-radius: 50%;
