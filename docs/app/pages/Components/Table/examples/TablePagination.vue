@@ -1,6 +1,6 @@
 <template>
   <div>
-    <md-table v-model="users" md-card>
+    <!-- <md-table v-model="users" md-card>
       <md-table-toolbar>
         <h1 class="md-title">Users</h1>
       </md-table-toolbar>
@@ -14,7 +14,8 @@
       </md-table-row>
 
       <md-table-pagination />
-    </md-table>
+    </md-table> -->
+    Coming Soon...
   </div>
 </template>
 

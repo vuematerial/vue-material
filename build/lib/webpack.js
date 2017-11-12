@@ -88,22 +88,22 @@ export default entry => {
   }
 
   if (entry.css) {
-
     const cssLoader = ExtractTextPlugin.extract({
-      allChunks: true,
       use: 'css-loader',
       fallback: 'vue-style-loader'
     })
 
     const scssLoader = ExtractTextPlugin.extract({
-      allChunks: true,
       use: 'css-loader!sass-loader',
       fallback: 'vue-style-loader'
     })
 
     webpackConfig = merge({
       plugins: [
-        new ExtractTextPlugin('[name].min.css'),
+        new ExtractTextPlugin({
+          allChunks: true,
+          filename: '[name].min.css'
+        }),
         new OptimizeCssAssetsPlugin({
           canPrint: false
         })

@@ -3,8 +3,7 @@
 <example src="./examples/TableFixed.vue" />
 <example src="./examples/TableSingle.vue" />
 <example src="./examples/TableMultiple.vue" />
-<example src="./examples/TablePagination.vue" />
-<example src="./examples/Example.vue" />
+<example src="./examples/TablePaginationSoon.vue" />
 
 <template>
   <page-container centered :title="$t('pages.table.title')">
@@ -20,8 +19,7 @@
       <code-example title="Fixed headers and empty state" :component="examples['table-fixed']" />
       <code-example title="Single Selection" :component="examples['table-single']" />
       <code-example title="Multiple Selection" :component="examples['table-multiple']" />
-      <code-example title="Pagination" :component="examples['table-pagination']" />
-      <code-example title="Example" :component="examples['example']" />
+      <code-example title="Pagination" :component="examples['table-pagination-soon']" />
 
       <api-item title="API - md-table">
         <p>This component does not have any extra option.</p>

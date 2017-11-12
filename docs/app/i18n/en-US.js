@@ -5,7 +5,7 @@ export default {
   license: 'License',
   pages: {
     home: {
-      title: 'Introduction',
+      title: 'Home',
       slogan: 'Build beautiful apps with Material Design and Vue.js',
       material: 'Material Design',
       materialContent: 'Simple, lightweight and built exactly according to the Google Material Design specs.',

@@ -60,7 +60,7 @@
       },
       getPropValues () {
         const propNames = Object.keys(this.$options.props)
-        const ignoredProps = ['id', 'mdLabel', 'mdDisabled']
+        const ignoredProps = ['id', 'mdLabel', 'mdDisabled', 'mdTemplateData']
         let values = {}
 
         propNames.forEach(prop => {
