@@ -6,7 +6,7 @@
       <md-icon class="home-icon-indicator" @click.native="scrollDown">keyboard_arrow_down</md-icon>
     </div>
 
-    <home-ecosystem />
+    <!-- <home-ecosystem /> -->
     <home-sponsors />
   </splash-container>
 </template>
@@ -27,13 +27,15 @@
     },
     methods: {
       scrollDown () {
-        const ecosystemEl = document.querySelector('.home-ecosystem')
+        const targetEl = document.querySelector('.home-ecosystem, .home-sponsors')
 
-        window.scroll({
-          top: ecosystemEl.offsetTop,
-          left: 0,
-          behavior: 'smooth'
-        })
+        if (targetEl) {
+          window.scroll({
+            top: targetEl.offsetTop,
+            left: 0,
+            behavior: 'smooth'
+          })
+        }
       }
     }
   }
