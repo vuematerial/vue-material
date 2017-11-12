@@ -1,18 +1,15 @@
 <template>
   <md-portal v-if="mdPersistent && mdDuration !== Infinity">
     <keep-alive>
-      <transition name="md-snackbar">
-        <div class="md-snackbar" :class="[snackbarClasses, $mdActiveTheme]" v-if="mdActive">
-          <div class="md-snackbar-content">
-            <slot />
-          </div>
-        </div>
-      </transition>
+      <md-snackbar-content :md-classes="[snackbarClasses, $mdActiveTheme]" v-if="mdActive">
+        <slot />
+        OLAR
+      </md-snackbar-content>
     </keep-alive>
   </md-portal>
 
   <md-portal v-else>
-    <md-snackbar-content>
+    <md-snackbar-content :md-classes="[snackbarClasses, $mdActiveTheme]" v-if="mdActive">
       <slot />
     </md-snackbar-content>
   </md-portal>

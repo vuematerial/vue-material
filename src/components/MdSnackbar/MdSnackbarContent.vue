@@ -1,12 +1,10 @@
 <template functional>
   <transition name="md-snackbar" appear>
-    <keep-alive>
-      <div class="md-snackbar" :class="props.mdClasses">
-        <div class="md-snackbar-content">
-          <slot />
-        </div>
+    <div class="md-snackbar" :class="props.mdClasses">
+      <div class="md-snackbar-content">
+        <slot />
       </div>
-    </keep-alive>
+    </div>
   </transition>
 </template>
 

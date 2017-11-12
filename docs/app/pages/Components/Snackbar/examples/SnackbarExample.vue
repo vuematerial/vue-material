@@ -19,7 +19,7 @@
 
     <md-button type="submit" class="md-primary md-raised">Open Snackbar</md-button>
 
-    <md-snackbar :md-position="position" :md-duration="isInfinity ? Infinity : duration" :md-active.sync="showSnackbar">
+    <md-snackbar :md-position="position" :md-duration="isInfinity ? Infinity : duration" :md-active.sync="showSnackbar" md-persistent>
       <span>Connection timeout. Showing limited messages!</span>
       <md-button class="md-primary" @click="showSnackbar = false">Retry</md-button>
     </md-snackbar>
