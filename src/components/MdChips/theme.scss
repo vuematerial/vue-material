@@ -98,6 +98,14 @@
 
 .md-chips {
   @include md-theme-component() {
-
+    @if md-get-theme-mode() == light {
+      .md-clear  {
+        background-color: rgba(#000, .2);
+      }
+    } @else {
+      .md-clear  {
+        background-color: rgba(#fff, .2);
+      }
+    }
   }
 }

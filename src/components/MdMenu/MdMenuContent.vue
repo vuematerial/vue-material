@@ -1,20 +1,20 @@
 <template>
   <md-popover :md-settings="popperSettings" :md-active="shouldRender">
-    <md-focus-trap v-if="shouldRender">
-      <transition name="md-menu-content" :css="didMount">
-        <div
-          class="md-scrollbar"
-          :class="[menuClasses, mdContentClass, $mdActiveTheme]"
-          @keydown.arrow-down.prevent="setHighlight('down')"
-          @keydown.arrow-up.prevent="setHighlight('up')"
-          @keydown.space.prevent="setSelection"
-          @keydown.enter.prevent="setSelection">
-          <md-list :class="mdListClass" v-bind="$attrs" @keydown.esc="onEsc">
+    <transition name="md-menu-content" :css="didMount" v-if="shouldRender">
+      <div
+        :class="[menuClasses, mdContentClass, $mdActiveTheme]"
+        :style="menuStyles"
+        @keydown.arrow-down.prevent="setHighlight('down')"
+        @keydown.arrow-up.prevent="setHighlight('up')"
+        @keydown.space.prevent="setSelection"
+        @keydown.enter.prevent="setSelection">
+        <div class="md-menu-content-container md-scrollbar" :class="$mdActiveTheme">
+          <md-list :class="listClasses" v-bind="$attrs" @keydown.esc="onEsc">
             <slot />
           </md-list>
         </div>
-      </transition>
-    </md-focus-trap>
+      </div>
+    </transition>
   </md-popover>
 </template>
 
@@ -22,6 +22,7 @@
   import MdComponent from 'core/MdComponent'
   import MdPropValidator from 'core/utils/MdPropValidator'
   import MdObserveEvent from 'core/utils/MdObserveEvent'
+  import MdResizeObserver from 'core/utils/MdResizeObserver'
   import MdPopover from 'components/MdPopover/MdPopover'
   import MdFocusTrap from 'components/MdFocusTrap/MdFocusTrap'
   import MdList from 'components/MdList/MdList'
@@ -42,7 +43,8 @@
       highlightIndex: -1,
       didMount: false,
       highlightItems: [],
-      popperSettings: null
+      popperSettings: null,
+      menuStyles: ''
     }),
     computed: {
       highlightedItem () {
@@ -60,17 +62,22 @@
           'md-menu-content': this.didMount,
           'md-shallow': !this.didMount
         }
+      },
+      listClasses () {
+        return {
+          'md-dense': this.MdMenu.dense,
+          ...this.mdListClass
+        }
       }
     },
     watch: {
-      shouldRender (shouldRender) {
+      async shouldRender (shouldRender) {
         if (shouldRender) {
           this.setPopperSettings()
-
-          window.setTimeout(() => {
-            this.setInitialHighlightIndex()
-            this.createClickEventObserver()
-          }, 20)
+          await this.$nextTick()
+          this.setInitialHighlightIndex()
+          this.createClickEventObserver()
+          this.createResizeObserver()
         }
       }
     },
@@ -117,7 +124,9 @@
       },
       setHighlightItems () {
         if (this.$el.querySelectorAll) {
-          this.highlightItems = Array.from(this.$el.querySelectorAll('.md-list-item-container:not(.md-list-item-default):not([disabled])'))
+          const items = this.$el.querySelectorAll('.md-list-item-container:not(.md-list-item-default):not([disabled])')
+
+          this.highlightItems = Array.from(items)
         }
       },
       setHighlight (direction) {
@@ -175,29 +184,48 @@
         return Boolean(alignTrigger || offsetY || offsetX)
       },
       createClickEventObserver () {
-        this.MdMenu.eventObserver = new MdObserveEvent(document.body, 'click', $event => {
+        this.MdMenu.bodyClickObserver = new MdObserveEvent(document.body, 'click', $event => {
+          $event.stopPropagation()
+
           if (!this.$el.contains($event.target)) {
             this.MdMenu.active = false
-            this.MdMenu.eventObserver.destroy()
+            this.MdMenu.bodyClickObserver.destroy()
+            this.MdMenu.windowResizeObserver.destroy()
           }
         })
+      },
+      createResizeObserver () {
+        this.MdMenu.windowResizeObserver = new MdResizeObserver(window, this.setStyles)
       },
       setupWatchers () {
         this.$watch('MdMenu.direction', this.setPopperSettings)
         this.$watch('MdMenu.alignTrigger', this.setPopperSettings)
         this.$watch('MdMenu.offsetX', this.setPopperSettings)
         this.$watch('MdMenu.offsetY', this.setPopperSettings)
+      },
+      setStyles () {
+        if (this.MdMenu.fullWidth) {
+          this.menuStyles = `
+            width: ${this.MdMenu.instance.$el.offsetWidth}px;
+            max-width: ${this.MdMenu.instance.$el.offsetWidth}px
+          `
+        }
       }
     },
     async mounted () {
       await this.$nextTick()
       this.setHighlightItems()
       this.setupWatchers()
+      this.setStyles()
       this.didMount = true
     },
     beforeDestroy () {
-      if (this.MdMenu.eventObserver) {
-        this.MdMenu.eventObserver.destroy()
+      if (this.MdMenu.bodyClickObserver) {
+        this.MdMenu.bodyClickObserver.destroy()
+      }
+
+      if (this.MdMenu.windowResizeObserver) {
+        this.MdMenu.windowResizeObserver.destroy()
       }
     }
   })
@@ -214,10 +242,11 @@
     @include md-elevation(8);
     min-width: $md-menu-base-width * 2;
     max-width: $md-menu-base-width * 5;
-    max-height: 50vh;
+    max-height: 35vh;
+    display: flex;
+    flex-direction: column;
     position: absolute;
     z-index: 60;
-    overflow: auto;
     border-radius: 2px;
     transition: transform .2s $md-transition-stand-timing,
                 opacity .3s $md-transition-stand-timing;
@@ -297,6 +326,11 @@
     &.md-menu-content-huge {
       min-width: $md-menu-base-width * 5;
     }
+  }
+
+  .md-menu-content-container {
+    flex: 1;
+    overflow: auto;
 
     .md-list {
       transition: opacity .3s $md-transition-stand-timing;

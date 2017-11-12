@@ -1,5 +1,5 @@
 import MdApp from './MdApp'
-import MdProgress from './MdProgress'
+import MdAutocomplete from './MdAutocomplete'
 import MdAvatar from './MdAvatar'
 import MdBottomBar from './MdBottomBar'
 import MdButton from './MdButton'
@@ -17,11 +17,13 @@ import MdDrawer from './MdDrawer'
 import MdElevation from './MdElevation'
 import MdEmptyState from './MdEmptyState'
 import MdField from './MdField'
+import MdHighlightText from './MdHighlightText'
 import MdIcon from './MdIcon'
 import MdImage from './MdImage'
 import MdLayout from './MdLayout'
 import MdList from './MdList'
 import MdMenu from './MdMenu'
+import MdProgress from './MdProgress'
 import MdRadio from './MdRadio'
 import MdRipple from './MdRipple'
 import MdSnackbar from './MdSnackbar'
@@ -35,8 +37,8 @@ import MdToolbar from './MdToolbar'
 import MdTooltip from './MdTooltip'
 
 export {
-  MdProgress,
   MdApp,
+  MdAutocomplete,
   MdAvatar,
   MdBottomBar,
   MdButton,
@@ -54,11 +56,13 @@ export {
   MdElevation,
   MdEmptyState,
   MdField,
+  MdHighlightText,
   MdIcon,
   MdImage,
   MdLayout,
   MdList,
   MdMenu,
+  MdProgress,
   MdRadio,
   MdRipple,
   MdSnackbar,

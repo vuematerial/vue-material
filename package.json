@@ -41,6 +41,8 @@
   "dependencies": {
     "date-fns": "^1.29.0",
     "deepmerge": "^2.0.1",
+    "fuzzysearch": "^1.0.3",
+    "is-promise": "^2.1.0",
     "popper.js": "^1.12.6",
     "raf": "^3.4.0",
     "vue": "^2.5.3"

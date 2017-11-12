@@ -18,10 +18,12 @@ export default {
       get () {
         return this.value
       },
-      set (val) {
-        this.$nextTick(() => {
-          this.$emit('input', val)
-        })
+      set (value) {
+        if (value.constructor.name.toLowerCase() !== 'inputevent') {
+          this.$nextTick(() => {
+            this.$emit('input', value)
+          })
+        }
       }
     },
     clear () {

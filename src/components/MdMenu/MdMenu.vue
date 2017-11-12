@@ -14,6 +14,8 @@
       mdAlignTrigger: Boolean,
       mdOffsetX: Number,
       mdOffsetY: Number,
+      mdFullWidth: Boolean,
+      mdDense: Boolean,
       mdDirection: {
         type: String,
         default: 'bottom-start',
@@ -51,8 +53,11 @@
           alignTrigger: this.mdAlignTrigger,
           offsetX: this.mdOffsetX,
           offsetY: this.mdOffsetY,
+          fullWidth: this.mdFullWidth,
+          dense: this.mdDense,
           closeOnSelect: this.mdCloseOnSelect,
-          eventObserver: null
+          bodyClickObserver: null,
+          windowResizeObserver: null
         }
       }
     },
@@ -99,7 +104,8 @@
       }
     },
     methods: {
-      toggleContent () {
+      toggleContent ($event) {
+        $event.stopPropagation()
         this.MdMenu.active = !this.MdMenu.active
       }
     },
@@ -114,7 +120,7 @@
     },
     beforeDestroy () {
       if (this.triggerEl) {
-        this.triggerEl.removeEventListener('click', this.toggle)
+        this.triggerEl.removeEventListener('click', this.toggleContent)
       }
     }
   }

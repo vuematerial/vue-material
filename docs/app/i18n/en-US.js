@@ -144,6 +144,9 @@ export default {
       title: 'Progress Spinner',
       nav: 'Spinner'
     },
+    autocomplete: {
+      title: 'Autocomplete'
+    },
     datepicker: {
       title: 'Datepicker',
       nav: 'Date'

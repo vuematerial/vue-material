@@ -22,10 +22,6 @@
         }
       }
 
-      .md-clear  {
-        background-color: rgba(#000, .2);
-      }
-
       &.md-focused,
       &.md-has-value {
         .md-input,
@@ -75,10 +71,6 @@
         &::-webkit-input-placeholder {
           color: rgba(#fff, .7);
         }
-      }
-
-      .md-clear  {
-        background-color: rgba(#fff, .2);
       }
 
       &.md-focused,

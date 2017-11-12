@@ -238,12 +238,12 @@
     }
 
     .md-input-action {
-      width: 24px;
-      min-width: 24px;
-      height: 24px;
+      width: 32px;
+      min-width: 32px;
+      height: 32px;
       margin: 0;
       position: absolute;
-      top: 20px;
+      top: 16px;
       right: 0;
       transition: $md-transition-default;
 
@@ -447,13 +447,6 @@
     &.md-clearable {
       .md-input {
         padding-right: 30px;
-      }
-
-      .md-clear {
-        svg {
-          width: 17px;
-          height: 17px;
-        }
       }
     }
 

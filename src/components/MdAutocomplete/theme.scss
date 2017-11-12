@@ -1,0 +1,30 @@
+.md-list {
+  @include md-theme-component() {
+    .md-autocomplete-items {
+      .md-highlight-text-match {
+        @include md-theme-property(color, primary, background);
+      }
+    }
+
+    .md-autocomplete-loading {
+      @include md-theme-property(background-color, background, "", .54);
+    }
+  }
+}
+
+.md-autocomplete {
+  @include md-theme-component() {
+    &.md-autocomplete-box {
+      @include md-theme-property(background-color, background);
+    }
+  }
+}
+
+.md-autocomplete-box-content {
+  @include md-theme-component() {
+    &:after {
+      @include md-theme-property(background-color, background);
+      @include md-theme-property(border-bottom-color, divider);
+    }
+  }
+}

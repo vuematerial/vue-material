@@ -4,9 +4,7 @@ import MdObserveEvent from './MdObserveEvent'
 export default (el = window, observerFn) => {
   const observer = MdObserveEvent(el, 'resize', () => {
     raf(observerFn)
-  }, {
-    passive: true
-  })
+  }, { passive: true })
 
   return {
     destroy: () => observer.destroy
