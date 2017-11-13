@@ -1,6 +1,6 @@
 <template>
   <div class="code-example">
-    <md-toolbar class="md-primary md-dense" md-theme="dark" md-elevation="0">
+    <md-toolbar class="md-primary md-dense" md-theme="dark" md-elevation="0" v-if="title">
       <span class="md-title">{{ title }}</span>
       <md-button class="md-icon-button md-dense" @click="toggleCode" v-if="component.name">
         <md-icon>code</md-icon>

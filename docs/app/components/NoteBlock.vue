@@ -1,5 +1,5 @@
 <template>
-  <div class="note-block" :class="{ alert, tip }">
+  <div class="note-block" :class="{ alert, tip, warning }">
     <slot />
   </div>
 </template>
@@ -9,6 +9,7 @@ export default {
   name: 'NoteBlock',
   props: {
     alert: Boolean,
+    warning: Boolean,
     tip: Boolean
   }
 }
@@ -21,7 +22,9 @@ export default {
   $note-background: md-get-palette-color(grey, 200);
   $note-border: md-get-palette-color(orange, A200);
   $alert-border: md-get-palette-color(red, A200);
-  $tip-border: md-get-palette-color(green, 300);
+  $warning-bg: md-get-palette-color(red, 100);
+  $warning-border: md-get-palette-color(red, A200);
+  $tip-border: md-get-palette-color(green, 500);
 
   .note-block {
     margin: 1.5em 0;
@@ -35,6 +38,12 @@ export default {
 
     &.tip {
       border-left-color: $tip-border;
+    }
+
+    &.warning {
+      background-color: $warning-bg;
+      border-left-color: $warning-border;
+      font-size: 15px;
     }
   }
 </style>
