@@ -1,6 +1,7 @@
 /* Third Party */
 import 'regenerator-runtime/runtime'
 import Vue from 'vue'
+import ga from 'vue-ga'
 import { sync } from 'vuex-router-sync'
 import VueMaterial from 'vue-material'
 
@@ -13,6 +14,7 @@ import './components'
 Vue.config.productionTip = false
 Vue.use(VueMaterial)
 
+ga(router, 'UA-85823257-1')
 sync(store, router)
 
 const app = new Vue({

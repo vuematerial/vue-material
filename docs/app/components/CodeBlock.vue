@@ -1,6 +1,6 @@
 <template>
-  <div class="code-block md-theme-dark" :data-label="label">
-    <div class="code-block-wrapper md-scrollbar" :style="{ 'max-height': height }">
+  <div class="code-block" :data-label="label">
+    <div class="code-block-wrapper md-scrollbar md-theme-dark" :style="{ 'max-height': height }">
       <pre><code ref="block" :class="lang"><slot v-pre /></code></pre>
 
       <span class="copy-message" :class="{ 'active': showMessage }">{{ $t('components.code.copyMessage') }}</span>
@@ -15,6 +15,7 @@
   @import "~vue-material/theme/factory";
 
   .code-block {
+    max-width: 100%;
     overflow: hidden;
     position: relative;
     background-color: md-get-palette-color(grey, 900);
@@ -47,8 +48,9 @@
     }
 
     pre {
+      max-width: 100%;
       margin: 0;
-      white-space: pre;
+      white-space: pre-line;
     }
 
     code {

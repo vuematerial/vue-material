@@ -39,7 +39,7 @@
     background-color: md-get-palette-color(grey, 200);
 
     @include md-layout-xsmall {
-      height: 128px;
+      height: 152px;
       flex-direction: column;
       justify-content: space-around;
     }
@@ -53,6 +53,11 @@
     justify-content: space-between;
     transition: .3s $md-transition-default-timing;
     transition-property: max-width;
+
+    @include md-layout-xsmall {
+      flex-direction: column;
+      justify-content: space-around;
+    }
 
     a {
       color: #000;
@@ -76,9 +81,23 @@
   .main-footer-section {
     position: relative;
 
-    @include md-layout-xsmall {
-      + .main-footer-section a {
-        color: md-get-palette-color(grey, 800);
+    + .main-footer-section {
+      &:after {
+        width: 60px;
+        height: 1px;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        z-index: 1;
+        transform: translate(-50%, -30px);
+        background-color: md-get-palette-color(grey, 400);
+        content: " ";
+      }
+
+      a {
+        @include md-layout-xsmall {
+          color: md-get-palette-color(grey, 800);
+        }
       }
     }
   }

@@ -5,14 +5,14 @@
 </template>
 
 <script>
-export default {
-  name: 'NoteBlock',
-  props: {
-    alert: Boolean,
-    warning: Boolean,
-    tip: Boolean
+  export default {
+    name: 'NoteBlock',
+    props: {
+      alert: Boolean,
+      warning: Boolean,
+      tip: Boolean
+    }
   }
-}
 </script>
 
 <style lang="scss" scoped>
@@ -29,6 +29,7 @@ export default {
   .note-block {
     margin: 1.5em 0;
     padding: 8px 16px;
+    overflow: hidden;
     background-color: $note-background;
     border-left: 4px solid $note-border;
 

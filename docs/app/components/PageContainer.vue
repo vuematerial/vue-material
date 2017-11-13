@@ -1,7 +1,9 @@
 <template>
-  <transition name="page" appear>
+  <transition name="page-container" appear>
     <div class="page-container main-container" :class="{ centered }">
       <slot />
+
+      <ad-manager />
     </div>
   </transition>
 </template>
@@ -9,9 +11,13 @@
 <script>
   import * as types from 'store/mutation-types'
   import { mapActions } from 'vuex'
+  import AdManager from './AdManager'
 
   export default {
     name: 'PageContainer',
+    components: {
+      AdManager
+    },
     props: {
       title: String,
       centered: Boolean
@@ -38,11 +44,11 @@
     padding: 16px;
   }
 
-  .page-leave-active {
+  .page-container-leave-active {
     display: none;
   }
 
-  .page-enter-active {
+  .page-container-enter-active {
     opacity: 0;
     transform: translate3d(0, 150px, 0);
     transition: .4s $md-transition-default-timing;
@@ -50,7 +56,7 @@
     will-change: opacity, transform;
   }
 
-  .page-enter-to {
+  .page-container-enter-to {
     opacity: 1;
     transform: translate3d(0, 0, 0);
   }

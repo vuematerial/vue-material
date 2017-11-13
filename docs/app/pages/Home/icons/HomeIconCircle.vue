@@ -1,10 +1,11 @@
 <template>
   <home-icon class="home-icon-circle">
-    <div class="circle"></div>
-    <div class="circle"></div>
     <div class="circle">
       <md-ripple md-centered />
     </div>
+
+    <div class="circle"></div>
+    <div class="circle"></div>
   </home-icon>
 </template>
 
@@ -28,10 +29,18 @@
     &:hover .circle {
       &:nth-child(2) {
         transform: scale(.66) translate3D(0, -75%, 0);
+
+        @include md-layout-xsmall {
+          transform: scale(.66) translate3D(-75%, -75%, 0);
+        }
       }
 
       &:nth-child(3) {
         transform: scale(.33) translate3D(0, -150%, 0);
+
+        @include md-layout-xsmall {
+          transform: scale(.33) translate3D(-150%, -150%, 0);
+        }
       }
     }
   }

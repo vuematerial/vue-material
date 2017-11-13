@@ -45,7 +45,8 @@
     "is-promise": "^2.1.0",
     "popper.js": "^1.12.6",
     "raf": "^3.4.0",
-    "vue": "^2.5.3"
+    "vue": "^2.5.3",
+    "vue-ga": "^1.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.6",

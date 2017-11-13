@@ -16,12 +16,10 @@ import { mapRoutes } from '../../docs/app/routes'
 
 const cacheUpdateTime = process.env.CACHE_UPDATE_MINUTES || 10
 const cssLoader = ExtractTextPlugin.extract({
-  allChunks: true,
   use: 'css-loader',
   fallback: 'vue-style-loader'
 })
 const scssLoader = ExtractTextPlugin.extract({
-  allChunks: true,
   use: 'css-loader!sass-loader',
   fallback: 'vue-style-loader'
 })
@@ -107,7 +105,10 @@ const webpackConfig = {
     new OptimizeJsPlugin({
       sourceMap: false
     }),
-    new ExtractTextPlugin('[name].[contenthash:8].css'),
+    new ExtractTextPlugin({
+      allChunks: true,
+      filename: '[name].[contenthash:8].css'
+    }),
     new webpack.BannerPlugin({
       banner,
       raw: true,

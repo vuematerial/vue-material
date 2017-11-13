@@ -63,7 +63,7 @@
 
   .main-nav {
     width: 230px;
-    padding: 24px 16px 112px 16px;
+    padding: 24px 16px 112px;
     display: flex;
     align-items: flex-start;
     flex-direction: column;

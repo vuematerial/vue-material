@@ -3,13 +3,13 @@
     <main-header />
 
     <div class="container-wrapper md-layout-row" :class="containerClass">
-      <main-nav :is-splash="isSplash" />
-
-      <router-view v-if="!loading" />
+      <main-nav />
 
       <div class="main-container" v-if="loading">
-        <code-loading />
+        <code-loading>Loading page...</code-loading>
       </div>
+
+      <router-view v-else />
     </div>
 
     <main-footer />

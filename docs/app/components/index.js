@@ -3,6 +3,7 @@ import Vue from 'vue'
 import PageContainer from './PageContainer'
 import SplashContainer from './SplashContainer'
 import LogoVueMaterial from './LogoVueMaterial'
+import CodeLoading from './CodeLoading'
 import CodeBlock from './CodeBlock'
 import CodeExample from './CodeExample'
 import JsfiddleEdit from './JsfiddleEdit'
@@ -15,6 +16,7 @@ import NoteBlock from './NoteBlock'
 Vue.component(PageContainer.name, PageContainer)
 Vue.component(SplashContainer.name, SplashContainer)
 Vue.component(LogoVueMaterial.name, LogoVueMaterial)
+Vue.component(CodeLoading.name, CodeLoading)
 Vue.component(CodeBlock.name, CodeBlock)
 Vue.component(CodeExample.name, CodeExample)
 Vue.component(JsfiddleEdit.name, JsfiddleEdit)

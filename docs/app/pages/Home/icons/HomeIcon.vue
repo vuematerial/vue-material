@@ -24,7 +24,7 @@
     position: relative;
 
     @include md-layout-xsmall {
-      margin: 0 auto;
+      margin: 0 auto 32px;
     }
 
     > div {

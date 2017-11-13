@@ -1,15 +1,23 @@
 <template>
-  <div class="splash-container main-container" :class="{ centered }">
-    <slot />
-  </div>
+  <transition name="splash-container" appear>
+    <div class="splash-container main-container" :class="{ centered }">
+      <slot />
+
+      <ad-manager />
+    </div>
+  </transition>
 </template>
 
 <script>
   import * as types from 'store/mutation-types'
   import { mapActions, mapMutations, mapState } from 'vuex'
+  import AdManager from './AdManager'
 
   export default {
     name: 'SplashContainer',
+    components: {
+      AdManager
+    },
     props: {
       title: String,
       centered: Boolean
@@ -37,9 +45,21 @@
 </script>
 
 <style lang="scss" scoped>
+  @import "~vue-material/components/MdAnimation/variables";
+
   .splash-container {
     margin: auto;
     padding: 16px;
+    transition: opacity .45s $md-transition-default-timing;
+    will-change: opacity;
+  }
+
+  .splash-container-leave-active {
+    display: none;
+  }
+
+  .splash-container-enter {
+    opacity: 0;
   }
 
   .centered {

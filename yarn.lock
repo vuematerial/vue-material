@@ -7113,6 +7113,10 @@ vue-eslint-parser@^2.0.1-beta.1:
     esquery "^1.0.0"
     lodash "^4.17.4"
 
+vue-ga@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/vue-ga/-/vue-ga-1.0.0.tgz#c890fc529970af10abef2c42c81ea38cfb00cef1"
+
 vue-hot-reload-api@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.2.0.tgz#9a21b35ced3634434a43ee80efb7350ea8fb206d"

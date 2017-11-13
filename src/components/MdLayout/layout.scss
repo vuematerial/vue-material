@@ -63,18 +63,6 @@
 
 @include md-gutter($md-gutter-large);
 
-@include md-layout-medium {
-  @include md-gutter($md-gutter-medium);
-}
-
-@include md-layout-small {
-  @include md-gutter($md-gutter-small);
-}
-
-@include md-layout-xsmall {
-  @include md-gutter($md-gutter-xsmall);
-}
-
 @include md-layout-large {
   @include md-gutter($md-gutter-large, large);
 }
