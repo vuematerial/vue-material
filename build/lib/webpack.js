@@ -1,4 +1,6 @@
 import webpack from 'webpack'
+import { readdirSync, statSync, existsSync } from 'fs'
+import { join } from 'path'
 import merge from 'webpack-merge'
 import autoprefixer from 'autoprefixer'
 import mediaPacker from 'css-mqpacker'
@@ -17,19 +19,61 @@ function classify (str) {
   return str.replace(/(?:^|[-_/])(\w)/g, toUpperCase)
 }
 
+function getDirectories (src) {
+  return readdirSync(src).filter(file => {
+    return statSync(join(src, file)).isDirectory()
+  })
+}
+
+function setComponentsConfig (entries, output) {
+  entries = {
+    'components/index': [`./${componentsPath}`]
+  }
+
+  output.filename = '[name].js'
+
+  delete output.library
+
+  componentList.forEach(component => {
+    const isSharable = existsSync(resolvePath(componentsPath, component, 'index.js'))
+
+    if (isSharable) {
+      entries[join('components', component, 'index')] = [`./${join(componentsPath, component)}/index`]
+    }
+  })
+}
+
+function getExtractedCSSName ({ filename }) {
+  if (filename) {
+    return filename.replace('js', 'css')
+  }
+
+  return '[name].css'
+}
+
 const moduleName = classify(pack.name)
+const componentsPath = 'src/components'
+const componentList = getDirectories(resolvePath(componentsPath))
 
 export default entry => {
+  let entries = {
+    [pack.name]: './src/index'
+  }
+
+  let output = {
+    filename: entry.filename,
+    path: resolvePath(config.dist),
+    library: moduleName,
+    libraryTarget: entry.libraryTarget
+  }
+
+  if (entry.components) {
+    setComponentsConfig(entries, output)
+  }
+
   let webpackConfig = {
-    entry: {
-      [pack.name]: './src/index'
-    },
-    output: {
-      filename: entry.filename,
-      path: resolvePath(config.dist),
-      library: moduleName,
-      libraryTarget: entry.libraryTarget
-    },
+    output,
+    entry: entries,
     resolve: {
       extensions: config.resolve,
       alias: {
@@ -102,7 +146,7 @@ export default entry => {
       plugins: [
         new ExtractTextPlugin({
           allChunks: true,
-          filename: '[name].min.css'
+          filename: getExtractedCSSName(entry)
         }),
         new OptimizeCssAssetsPlugin({
           canPrint: false

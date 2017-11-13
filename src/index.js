@@ -12,8 +12,4 @@ let VueMaterial = Vue => {
 
 VueMaterial.version = '__VERSION__'
 
-if (typeof window !== 'undefined' && window.Vue) {
-  window.Vue.use(VueMaterial)
-}
-
 export default VueMaterial
