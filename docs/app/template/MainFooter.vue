@@ -82,16 +82,18 @@
     position: relative;
 
     + .main-footer-section {
-      &:after {
-        width: 60px;
-        height: 1px;
-        position: absolute;
-        top: 0;
-        left: 50%;
-        z-index: 1;
-        transform: translate(-50%, -30px);
-        background-color: md-get-palette-color(grey, 400);
-        content: " ";
+      @include md-layout-xsmall {
+        &:after {
+          width: 60px;
+          height: 1px;
+          position: absolute;
+          top: 0;
+          left: 50%;
+          z-index: 1;
+          transform: translate(-50%, -30px);
+          background-color: md-get-palette-color(grey, 400);
+          content: " ";
+        }
       }
 
       a {
