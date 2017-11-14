@@ -12,23 +12,19 @@ spinner.start()
 
 const entries = [
   webpackConfig({
-    libraryTarget: 'window',
+    libraryTarget: 'umd',
     filename: `${pack.name}.min.js`,
     compress: true,
     css: true,
     analyze: true
   }),
   webpackConfig({
-    libraryTarget: 'commonjs2',
-    filename: `${pack.name}.common.js`
-  }),
-  webpackConfig({
-    libraryTarget: 'commonjs-module',
-    filename: `${pack.name}.esm.js`
+    libraryTarget: 'umd',
+    filename: `${pack.name}.js`
   }),
   webpackConfig({
     components: true,
-    libraryTarget: 'commonjs2',
+    libraryTarget: 'umd',
     compress: true,
     css: true
   })

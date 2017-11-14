@@ -27,8 +27,8 @@
 
       <code-example title="Individual components">
         import Vue from 'vue'
-        import { MdButton, MdContent, MdTabs } from 'vue-material/components'
-        import 'vue-material/vue-material.min.css'
+        import { MdButton, MdContent, MdTabs } from 'vue-material/dist/components'
+        import 'vue-material/dist/vue-material.min.css'
 
         Vue.use(MdButton)
         Vue.use(MdContent)
@@ -39,7 +39,7 @@
       <code-example title="Full Bundle">
         import Vue from 'vue'
         import VueMaterial from 'vue-material'
-        import 'vue-material/vue-material.min.css'
+        import 'vue-material/dist/vue-material.min.css'
 
         Vue.use(VueMaterial)
       </code-example>

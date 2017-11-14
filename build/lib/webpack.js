@@ -115,7 +115,16 @@ export default entry => {
         'vue$': 'vue/dist/vue.common.js'
       }
     },
+    externals: {
+      vue: {
+        root: 'Vue',
+        commonjs2: 'vue',
+        amd: 'vue',
+        commonjs: 'vue'
+      }
+    },
     module: {
+      noParse: /es6-promise\.js$/,
       rules: [
         {
           test: /\.js$/,
@@ -123,11 +132,6 @@ export default entry => {
           exclude: /node_modules/
         }
       ]
-    },
-    externals: {
-      vue: {
-        [entry.libraryTarget]: 'vue'
-      }
     },
     plugins: [
       new webpack.DefinePlugin({
@@ -200,15 +204,18 @@ export default entry => {
                 autoprefixer(),
                 mediaPacker()
               ]
-            }
+            },
+            exclude: /node_modules/
           },
           {
             test: /\.css$/,
-            loader: cssLoader
+            loader: cssLoader,
+            exclude: /node_modules/
           },
           {
             test: /\.scss$/,
-            loader: scssLoader
+            loader: scssLoader,
+            exclude: /node_modules/
           }
         ]
       }
@@ -225,15 +232,18 @@ export default entry => {
                 css: 'vue-style-loader!css-loader',
                 scss: 'vue-style-loader!css-loader!sass-loader?outputStyle=compressed'
               }
-            }
+            },
+            exclude: /node_modules/
           },
           {
             test: /\.css$/,
-            use: ['vue-style-loader', 'css-loader']
+            use: ['vue-style-loader', 'css-loader'],
+            exclude: /node_modules/
           },
           {
             test: /\.scss$/,
-            use: ['vue-style-loader', 'css-loader', 'sass-loader']
+            use: ['vue-style-loader', 'css-loader', 'sass-loader'],
+            exclude: /node_modules/
           }
         ]
       }

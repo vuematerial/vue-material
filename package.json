@@ -18,9 +18,9 @@
     "dist",
     "src"
   ],
-  "main": "dist/vue-material.common.js",
-  "module": "dist/vue-material.esm.js",
-  "unpkg": "dist/vue-material.js",
+  "main": "dist/vue-material.js",
+  "module": "dist/vue-material.js",
+  "unpkg": "dist/vue-material.min.js",
   "scripts": {
     "dev": "babel-node build/local",
     "build": "babel-node build/lib",
