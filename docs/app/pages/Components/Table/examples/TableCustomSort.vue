@@ -1,6 +1,6 @@
 <template>
   <div>
-    <md-table v-model="users" md-sort="name" md-sort-order="asc" md-card>
+    <md-table v-model="users" :md-sort.sync="currentSort" :md-sort-order.sync="currentSortOrder" :md-sort-fn="customSort" md-card>
       <md-table-toolbar>
         <h1 class="md-title">Users</h1>
       </md-table-toolbar>
@@ -18,8 +18,10 @@
 
 <script>
   export default {
-    name: 'TableSort',
+    name: 'TableCustomSort',
     data: () => ({
+      currentSort: 'name',
+      currentSortOrder: 'asc',
       users: [
         {
           id: 1,
@@ -57,6 +59,19 @@
           title: 'Paralegal'
         }
       ]
-    })
+    }),
+    methods: {
+      customSort (value) {
+        return value.sort((a, b) => {
+          const sortBy = this.currentSort
+
+          if (this.currentSortOrder === 'desc') {
+            return a[sortBy].localeCompare(b[sortBy])
+          }
+
+          return b[sortBy].localeCompare(a[sortBy])
+        })
+      }
+    }
   }
 </script>

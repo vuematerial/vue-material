@@ -37,6 +37,7 @@
     <div class="page-container-section">
       <h2>Custom Template</h2>
 
+      <note-block alert>This section will assume that you have knowledge of <a href="https://vuejs.org/v2/guide/components.html#Scoped-Slots" target="_blank">Vue Scoped Slots</a>. This will allow you to customize the option list.</note-block>
       <p>Autocomplete also accepts a custom template, flexible to accept any HTML element and with an 'empty state' built in. You can also highlight the search term inside the matches, to give a feedback on why that item has been in the results. Awesome:</p>
       <code-example title="With highlight text" :component="examples['autocomplete-template']" />
       <note-block tip>Although the <code>md-highlight-text</code> component is most used with autocomplete, you can use it anywhere.</note-block>

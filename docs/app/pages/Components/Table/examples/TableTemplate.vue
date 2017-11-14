@@ -1,12 +1,12 @@
 <template>
   <div>
-    <md-table v-model="users" md-sort="name" md-sort-order="asc" md-card>
+    <md-table v-model="users" md-card>
       <md-table-toolbar>
         <h1 class="md-title">Users</h1>
       </md-table-toolbar>
 
       <md-table-row slot="md-table-row" slot-scope="{ item }">
-        <md-table-cell md-label="ID" md-numeric>{{ item.id }}</md-table-cell>
+        <md-table-cell md-label="ID" md-sort-by="id" md-numeric>{{ item.id }}</md-table-cell>
         <md-table-cell md-label="Name" md-sort-by="name">{{ item.name }}</md-table-cell>
         <md-table-cell md-label="Email" md-sort-by="email">{{ item.email }}</md-table-cell>
         <md-table-cell md-label="Gender" md-sort-by="gender">{{ item.gender }}</md-table-cell>
@@ -18,7 +18,7 @@
 
 <script>
   export default {
-    name: 'TableSort',
+    name: 'TableTemplate',
     data: () => ({
       users: [
         {

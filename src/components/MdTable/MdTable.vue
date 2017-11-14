@@ -14,7 +14,7 @@
       </table>
     </div>
 
-    <md-content class="md-table-content md-scrollbar" :style="contentStyles" @scroll="setScroll">
+    <md-content class="md-table-content md-scrollbar" :class="contentClasses" :style="contentStyles" @scroll="setScroll">
       <table>
         <md-table-thead :class="headerClasses" v-if="!mdFixedHeader && $scopedSlots['md-table-row']" />
 
@@ -149,6 +149,11 @@
         if (this.mdFixedHeader) {
           return `height: ${this.mdHeight}px`
         }
+      },
+      contentClasses () {
+        if (this.mdFixedHeader && this.value.length === 0) {
+          return `md-table-empty`
+        }
       }
     },
     provide () {
@@ -267,6 +272,12 @@
       flex: 1;
       overflow-x: auto;
       transition: height .3s $md-transition-default-timing;
+    }
+
+    .md-table-empty {
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     table {
