@@ -92,6 +92,7 @@
       <api-item title="API - md-autocomplete">
         <p>All the following options can be used on any autocomplete:</p>
         <api-table :headings="autocomplete.props.headings" :props="autocomplete.props.props" slot="props" />
+        <api-table :headings="autocomplete.slots.headings" :props="autocomplete.slots.props" slot="scoped-slots" />
         <api-table :headings="autocomplete.events.headings" :props="autocomplete.events.props" slot="events" />
       </api-item>
 
@@ -111,6 +112,37 @@
     mixins: [examples],
     data: () => ({
       autocomplete: {
+        slots: {
+          headings: ['Name', 'Description', 'Values'],
+          props: [
+            {
+              name: 'md-autocomplete-item',
+              description: 'Creates a custom autocomplete result item',
+              options: [
+                {
+                  name: 'item',
+                  description: 'Will receive each item of the matched options.'
+                },
+                {
+                  name: 'term',
+                  description: 'The current input search term.'
+                }
+              ],
+              usage: '<template slot="md-autocomplete-item" slot-scope="{ item, term }"> ... </template>'
+            },
+            {
+              name: 'md-autocomplete-empty',
+              description: 'Creates a empty state in case of zero matches',
+              options: [
+                {
+                  name: 'term',
+                  description: 'The current input search term.'
+                }
+              ],
+              usage: '<template slot="md-autocomplete-empty" slot-scope="{ term }"> ... </template>'
+            }
+          ]
+        },
         props: {
           headings: ['Name', 'Description', 'Default'],
           props: [

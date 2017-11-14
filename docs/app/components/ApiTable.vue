@@ -5,13 +5,24 @@
         <th v-for="heading in headings" :key="heading">{{ heading }}</th>
       </tr>
 
-      <tr v-for="{ offset, name, type, description, defaults, value, example } in props" :key="name">
+      <tr v-for="{ offset, name, type, options, usage, description, defaults, value, example } in props" :key="name">
         <td :class="{ offset }">
           <span class="prop-name">{{ name }}</span>
           <small class="prop-type" v-if="type">{{ type }}</small>
         </td>
 
         <td class="description" v-html="description"></td>
+        <td class="slot-options" v-if="options">
+          <p class="option" v-for="({ name, description }, index) in options" :key="index">
+            <code>{{ name }}: </code>
+            <span v-html="description"></span>
+          </p>
+
+          <div class="usage" v-if="usage">
+            <strong>Usage: </strong>
+            <p><code>{{ usage }}</code></p>
+          </div>
+        </td>
         <td v-if="defaults || value || example">
           <code v-html="defaults || value || example"></code>
         </td>
@@ -94,6 +105,10 @@ export default {
 
   .prop-type {
     color: md-get-palette-color(grey, 600);
+  }
+
+  .slot-options {
+    width: 40%;
   }
 
   code {
