@@ -60,7 +60,7 @@
           {
             name: 'md-open-on-focus',
             type: 'Boolean',
-            description: 'The input type. Cannot be \'file\'',
+            description: 'Disable the on focus event. Will open only if the user clicks on the icon.',
             defaults: 'true'
           }
         ]

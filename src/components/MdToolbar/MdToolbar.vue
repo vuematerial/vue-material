@@ -155,11 +155,11 @@
 
   .md-toolbar-section-start {
     justify-content: flex-start;
-    order: 1;
+    order: 0;
   }
 
   .md-toolbar-section-end {
     justify-content: flex-end;
-    order: 2;
+    order: 10;
   }
 </style>

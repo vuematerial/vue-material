@@ -3,6 +3,11 @@
     <md-menu md-direction="bottom-start" :md-dense="mdDense" md-align-trigger md-full-width :md-active.sync="showMenu">
       <md-input
         v-model="searchTerm"
+        v-bind="$attrs"
+        :id="mdInputId"
+        :name="mdInputName"
+        :maxlength="mdInputMaxlength"
+        :placeholder="mdInputPlaceholder"
         @focus.stop="openOnFocus"
         @blur="hideOptions"
         @input="onInput"
@@ -64,28 +69,18 @@
       mdOptions: {
         type: [Array, Promise],
         required: true
-      }
+      },
+      mdInputName: String,
+      mdInputId: String,
+      mdInputMaxlength: [String, Number],
+      mdInputPlaceholder: [String, Number]
     },
     data: () => ({
       searchTerm: null,
       showMenu: false,
       triggerPopover: false,
       isPromisePending: false,
-      filteredAsyncOptions: [],
-      popperSettings: {
-        placement: 'bottom-start',
-        modifiers: {
-          keepTogether: {
-            enabled: true
-          },
-          flip: {
-            enabled: false
-          },
-          offset: {
-            offset: `0, 0`
-          }
-        }
-      }
+      filteredAsyncOptions: []
     }),
     computed: {
       isBoxLayout () {
@@ -206,6 +201,7 @@
 
         this.searchTerm = content
         this.$emit('input', item)
+        this.$emit('md-selected', item)
         this.hideOptions()
       }
     }
@@ -240,7 +236,6 @@
 
   .md-field.md-inline.md-autocomplete-box {
     @include md-elevation(2);
-    height: 48px;
     padding-top: 2px;
     border-radius: 2px;
 
@@ -253,6 +248,13 @@
       display: none;
     }
 
+    .md-toolbar & {
+      min-height: 40px;
+      height: 40px;
+      margin: 0;
+      box-shadow: none;
+    }
+
     .md-menu {
       align-items: center;
     }
@@ -261,14 +263,20 @@
       padding-left: 16px;
     }
 
+    &.md-focused label,
+    label,
     .md-input-action {
-      top: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .md-input-action {
       right: 8px;
     }
 
     &.md-focused label,
     label {
-      top: 16px;
+      margin-top: 2px;
       left: 16px;
     }
   }

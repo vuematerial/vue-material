@@ -1,6 +1,6 @@
 <template>
   <div>
-    <md-autocomplete v-model="selectedCountry" :md-options="countries" :md-fuzzy-search="false">
+    <md-autocomplete v-model="selectedCountry" :md-options="countries">
       <label>Country</label>
     </md-autocomplete>
 

@@ -2,7 +2,17 @@
   import Vue from 'vue'
   import MdComponent from 'core/MdComponent'
 
-  function highlight (text, term) {
+  function getHTMLOutput (str) {
+    let text = str
+
+    if (!text) {
+      text = '$&'
+    }
+
+    return `<span class="md-highlight-text-match">${text}</span>`
+  }
+
+  function fuzzyHighlight (text, term) {
     if (term.length === 0) {
       return text
     }
@@ -23,15 +33,25 @@
     }
 
     let before = text.slice(0, offset)
-    let match = `<span class="md-highlight-text-match">${text.slice(offset, offset + last + 1)}</span>`
-    let after = highlight(text.slice(offset + last + 1), term.slice(last + 1))
+    let match = getHTMLOutput(text.slice(offset, offset + last + 1))
+    let after = fuzzyHighlight(text.slice(offset + last + 1), term.slice(last + 1))
 
     return before + match + after
   }
 
-  function generateHighlight ({ text }, term) {
+  function normalHighlight (text, term) {
+    const matches = new RegExp(term + '(?!([^<]+)?<)', 'gi')
+
+    return text.replace(matches, getHTMLOutput())
+  }
+
+  function generateHighlight ({ text }, term, isFuzzy) {
     if (text && term && term[0]) {
-      return highlight(text, term) || text
+      if (isFuzzy) {
+        return fuzzyHighlight(text, term) || text
+      }
+
+      return normalHighlight(text, term)
     }
 
     return text
@@ -41,7 +61,11 @@
     name: 'MdHighlightText',
     abstract: true,
     props: {
-      mdTerm: String
+      mdTerm: String,
+      mdFuzzySearch: {
+        type: Boolean,
+        default: true
+      }
     },
     render (createElement) {
       try {
@@ -55,7 +79,7 @@
           throw new Error()
         }
 
-        const HTMLContent = generateHighlight(defaultSlot[0], this.mdTerm)
+        const HTMLContent = generateHighlight(defaultSlot[0], this.mdTerm, this.mdFuzzySearch)
 
         return createElement('div', {
           staticClass: 'md-highlight-text',

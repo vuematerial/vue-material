@@ -82,8 +82,11 @@
       }
     }
 
-    p + .code-example {
-      margin-top: 1em;
+    p,
+    .md-layout-row {
+      + .code-example {
+        margin-top: 1em;
+      }
     }
   }
 </style>
