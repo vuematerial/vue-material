@@ -15,8 +15,8 @@
 
       <p>You can install Vue Material through NPM or Yarn:</p>
       <code-example :title="$t('pages.gettingStarted.npmOrYarn')" label="Shell" lang="shell">
-        $ npm install vue-material --save
-        $ yarn add vue-material
+        $ npm install vue-material@beta --save
+        $ yarn add vue-material@beta
       </code-example>
     </div>
 
