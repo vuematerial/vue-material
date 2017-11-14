@@ -51,6 +51,11 @@ function setComponentsConfig (entries, output) {
 function getCopyPaths () {
   let copyPaths = [
     {
+      context: resolvePath(basePath),
+      from: '**/theme.scss',
+      to: resolvePath('dist/base')
+    },
+    {
       context: resolvePath(themePath),
       from: '**/*.scss',
       to: resolvePath('dist/theme')
@@ -84,6 +89,7 @@ function getExtractedCSSName ({ filename }) {
 const moduleName = classify(pack.name)
 const componentsPath = 'src/components'
 const themePath = 'src/theme'
+const basePath = 'src/base'
 const componentList = getDirectories(resolvePath(componentsPath))
 
 export default entry => {
