@@ -6,6 +6,7 @@ export const routes = [
   },
   {
     path: '/components/progress',
+    name: 'components/progress',
     redirect: '/components/progress-bar'
   },
   {
@@ -101,7 +102,8 @@ export const routes = [
   {
     path: '/components',
     name: 'components',
-    page: 'Components.vue'
+    redirect: '/components/app'
+    // page: 'Components.vue'
   },
   {
     path: '/components/button',
@@ -186,7 +188,8 @@ export const routes = [
   {
     path: '/ui-elements',
     name: 'ui-elements',
-    page: 'UiElements.vue'
+    redirect: '/ui-elements/elevation'
+    // page: 'UiElements.vue'
   },
   {
     path: '/ui-elements/elevation',
