@@ -17,7 +17,7 @@
 
 <style lang="scss" scoped>
   @import "~vue-material/components/MdAnimation/variables";
-  @import "~vue-material/theme/factory";
+  @import "~vue-material/theme/engine";
 
   $note-background: md-get-palette-color(grey, 200);
   $note-border: md-get-palette-color(orange, A200);

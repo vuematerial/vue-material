@@ -100,6 +100,27 @@ export const routes = [
     page: 'GettingStarted.vue'
   },
   {
+    path: '/themes',
+    name: 'themes',
+    redirect: '/themes/concepts'
+    // page: 'Themes/Themes.vue'
+  },
+  {
+    path: '/themes/concepts',
+    name: 'themes/concepts',
+    page: 'Themes/Concepts.vue'
+  },
+  {
+    path: '/themes/configuration',
+    name: 'themes/configuration',
+    page: 'Themes/Configuration.vue'
+  },
+  {
+    path: '/themes/advanced',
+    name: 'themes/advanced',
+    page: 'Themes/Advanced.vue'
+  },
+  {
     path: '/components',
     name: 'components',
     redirect: '/components/app'

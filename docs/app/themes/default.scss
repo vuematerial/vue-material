@@ -1,4 +1,4 @@
-@import "~vue-material/theme/factory";
+@import "~vue-material/theme/engine";
 
 @include md-register-theme("default", (
   primary: md-get-palette-color(blue, A200),

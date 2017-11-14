@@ -1,15 +1,16 @@
 <template>
   <page-container centered :title="$t('pages.layout.title')">
-    <div class="page-container-section">
+    <!-- <div class="page-container-section">
       <p>Responsive layouts in material design adapt to any possible screen size. This UI guidance includes a flexible grid that ensures consistency across layouts, breakpoint details about how content reflows on different screens, and a description of how an app can scale from small to extra-large screens.</p>
       <p>By default you can create gutter-free layouts or make the grid system calculate the best margin size for each screen size. If you want the automatic calculation the engine will set <code>16px</code> for small screens, <code>24px</code> for medium and <code>40px</code> large.</p>
-      <p>The layout system use the concept of rows and columns. You can create size columns or leave the system to make your layout fluid. You'll be able to set the size for each breakpoint, even using nested columns.</p>
-      <p>This system makes use of flexbox to be flexible enough and give the best experience with a great and easy API. There are some breakpoints:</p>
+      <p>The layout system use the concept of rows and columns. You can create sized columns or leave the system to make your layout fluid. You'll be able to set the size for each breakpoint, even on nested columns.</p>
+      <p>This system makes use of flexbox to be flexible enough and give the best experience with a great and easy API. There are the breakpoints:</p>
     </div>
 
     <div class="page-container-section">
       <api-table :headings="breakpoints.props.headings" :props="breakpoints.props.props" slot="props" />
-    </div>
+    </div> -->
+    Coming soon
   </page-container>
 </template>
 

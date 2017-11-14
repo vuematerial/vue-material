@@ -2,6 +2,12 @@
   <div class="main-nav-content">
     <router-link to="/" exact>{{ $t('pages.home.title') }}</router-link>
     <router-link to="/getting-started">{{ $t('pages.gettingStarted.title') }}</router-link>
+    <router-link to="/themes">{{ $t('pages.themes.title') }}</router-link>
+    <div class="main-nav-level">
+      <router-link to="/themes/concepts">{{ $t('pages.themeConcepts.title') }}</router-link>
+      <router-link to="/themes/configuration">{{ $t('pages.themeConfiguration.title') }}</router-link>
+      <router-link to="/themes/advanced">{{ $t('pages.themeAdvanced.title') }}</router-link>
+    </div>
 
     <router-link to="/components" exact>{{ $t('pages.components.title') }}</router-link>
     <div class="main-nav-level">
@@ -94,7 +100,7 @@
 </script>
 
 <style lang="scss" scoped>
-  @import "~vue-material/theme/factory";
+  @import "~vue-material/theme/engine";
 
   .main-nav-content {
     a {

@@ -63,7 +63,7 @@
 </script>
 
 <style lang="scss">
-  @import "~vue-material/theme/factory";
+  @import "~vue-material/theme/engine";
 
   $ad-responsive-big: 1670px;
   $ad-responsive-small: 600px;

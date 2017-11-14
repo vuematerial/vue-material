@@ -43,7 +43,7 @@ export default {
 
 <style lang="scss" scoped>
   @import "~vue-material/components/MdAnimation/variables";
-  @import "~vue-material/theme/factory";
+  @import "~vue-material/theme/engine";
 
   $bg-color: md-get-palette-color(grey, 200);
   $border-color: darken($bg-color, 3%);

@@ -73,7 +73,7 @@
 <style lang="scss" scoped>
   @import "~vue-material/components/MdAnimation/variables";
   @import "~vue-material/components/MdLayout/mixins";
-  @import "~vue-material/theme/factory";
+  @import "~vue-material/theme/engine";
 
   .container {
     min-height: 100%;

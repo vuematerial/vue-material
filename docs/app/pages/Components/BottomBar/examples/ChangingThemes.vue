@@ -21,7 +21,7 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~vue-material/theme/factory";
+  @import "~vue-material/theme/engine";
 
   @include md-register-theme("bottom-bar-teal", (
     primary: md-get-palette-color(teal, A200)

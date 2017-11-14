@@ -1,4 +1,4 @@
-@import "~vue-material/theme/factory";
+@import "~vue-material/theme/engine";
 
 @include md-register-theme("dark", (
   primary: md-get-palette-color(white, 500),

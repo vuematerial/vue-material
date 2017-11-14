@@ -56,6 +56,6 @@
 
 <script>
   export default {
-    name: 'Components'
+    name: 'GettingStarted'
   }
 </script>

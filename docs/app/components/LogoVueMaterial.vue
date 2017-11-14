@@ -4,7 +4,7 @@
 
 <style lang="scss">
   @import "~vue-material/components/MdAnimation/variables";
-  @import "~vue-material/theme/factory";
+  @import "~vue-material/theme/engine";
 
   .logo-vue-material {
     $hue1: blue, red, pink, green, indigo, amber;

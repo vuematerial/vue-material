@@ -26,6 +26,18 @@ export default {
       installation: 'Installation',
       npmOrYarn: 'NPM or Yarn'
     },
+    themes: {
+      title: 'Themes'
+    },
+    themeConcepts: {
+      title: 'Concepts'
+    },
+    themeConfiguration: {
+      title: 'Configuration'
+    },
+    themeAdvanced: {
+      title: 'Advanced'
+    },
     components: {
       title: 'Components'
     },
