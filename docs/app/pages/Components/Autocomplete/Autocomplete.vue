@@ -192,7 +192,7 @@
             {
               name: 'md-layout',
               type: 'String',
-              description: 'Sets the input layout. The floating variant is the default',
+              description: 'Sets the input layout. The floating variant is the default. See below the detailed description of each layout.',
               defaults: 'floating'
             },
             {

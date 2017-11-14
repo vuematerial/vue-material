@@ -15,9 +15,3 @@
     name: 'TabRouter'
   }
 </script>
-
-<style lang="scss" scoped>
-  .md-tabs + .md-tabs {
-    margin-top: 24px;
-  }
-</style>
