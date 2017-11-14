@@ -90,6 +90,11 @@ export const routes = [
     page: 'Components/SpeedDial/SpeedDial.vue'
   },
   {
+    path: '/about',
+    name: 'about',
+    page: 'About.vue'
+  },
+  {
     path: '/',
     name: 'home',
     page: 'Home/Home.vue'

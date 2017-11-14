@@ -20,6 +20,9 @@ export default {
       sponsorsDescription: 'Vue Material does not run under the umbrella of any company or something like that. Is an independent project created by {0} on his spare time, which became one of the most used UI Libraries for Vue.js. The development is active and we are working hard to release great things for you.',
       beAPatron: 'If you think that this project helped you or your company in any way, you can consider become a backer/sponsor on Patreon'
     },
+    about: {
+      title: 'About'
+    },
     gettingStarted: {
       title: 'Getting Started',
       introduction: 'Vue Material is the best integration between Vue.js and Material Design specs! You can easily configure it to suit all your needs. All you have to do is choose an installation method that fits you better and follow it\'s instructions. Let\'s start!',

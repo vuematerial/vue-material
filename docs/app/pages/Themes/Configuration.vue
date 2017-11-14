@@ -59,6 +59,22 @@
         @import "~vue-material/theme/all"; // Apply the theme
       </code-example>
 
+      <h3 class="md-title">Theme individual components</h3>
+      <p>You can theme individual components withou effort, by calling the components one by one:</p>
+      <code-example label="SCSS" lang="scss">
+        @import "~vue-material/theme/engine"; // Import the theme engine
+
+        @include md-register-theme("default", (
+          primary: md-get-palette-color(blue, A200), // The primary color of your application
+          accent: md-get-palette-color(red, A200) // The accent and secondary color
+          theme: dark // This can be dark or light
+        ));
+
+        @import "~vue-material/theme/MdButton"; // Apply the theme
+        @import "~vue-material/theme/MdContent"; // Apply the theme
+        @import "~vue-material/theme/MdToolbar"; // Apply the theme
+      </code-example>
+
       <h3 class="md-title">Available colors</h3>
       <p>All of those colors can be passed as an argument of <code>md-get-palette-color</code>.</p>
       <ul>
