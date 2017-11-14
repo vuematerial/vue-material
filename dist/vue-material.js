@@ -1,10 +1,19 @@
 /*!
- * vue-material v1.0.0
+ * vue-material v1.0.0-beta-2
  * Made with <3 by marcosmoura 2017
  * Released under the MIT License.
  */
-module.exports =
-/******/ (function(modules) { // webpackBootstrap
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory(require("vue"));
+	else if(typeof define === 'function' && define.amd)
+		define(["vue"], factory);
+	else if(typeof exports === 'object')
+		exports["VueMaterial"] = factory(require("vue"));
+	else
+		root["VueMaterial"] = factory(root["Vue"]);
+})(this, function(__WEBPACK_EXTERNAL_MODULE_9__) {
+return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 /******/
@@ -1073,7 +1082,7 @@ exports.default = MdUuid;
 /* 9 */
 /***/ (function(module, exports) {
 
-module.exports = require("vue");
+module.exports = __WEBPACK_EXTERNAL_MODULE_9__;
 
 /***/ }),
 /* 10 */
@@ -32857,3 +32866,4 @@ exports.default = new _MdComponent2.default({
 
 /***/ })
 /******/ ]);
+});
