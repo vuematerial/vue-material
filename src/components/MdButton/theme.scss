@@ -10,7 +10,7 @@
 
 .md-button {
   @include md-theme-component() {
-    @include md-theme-property(color, text-primary, background)
+    @include md-theme-property(color, text-primary, background);
 
     &.md-primary {
       @include md-theme-property(color, primary, background);

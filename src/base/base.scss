@@ -37,7 +37,7 @@ body {
 
 a:not(.md-button) {
   transition: .3s $md-transition-stand-timing;
-  transition-property: color, opacity;
+  transition-property: color, background-color, opacity;
 }
 
 

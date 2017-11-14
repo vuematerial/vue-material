@@ -20,6 +20,7 @@
 
       &:not(.md-list-item-default):not([disabled]):hover {
         @include md-theme-property(background-color, divider, background);
+        @include md-theme-property(color, text-primary, background);
       }
     }
 

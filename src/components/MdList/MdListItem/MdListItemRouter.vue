@@ -19,11 +19,3 @@
     }
   }
 </script>
-
-<style lang="scss">
-  @import "~components/MdAnimation/variables";
-
-  .md-list-item-router {
-
-  }
-</style>

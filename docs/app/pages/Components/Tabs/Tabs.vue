@@ -55,7 +55,7 @@
       </api-item>
 
       <api-item title="API - md-tab">
-        <p>The following options can be applied to any tab:</p>
+        <p>The following options can be applied to any tab.  All <a href="https://router.vuejs.org/en/api/router-link.html" target="_blank">options</a> of <code>router-link</code> can be simply used here:</p>
 
         <api-table :headings="tab.headings" :props="tab.props" slot="props" />
       </api-item>
