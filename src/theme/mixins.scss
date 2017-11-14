@@ -1,3 +1,5 @@
+@import '../base/theme.scss';
+
 /**
  * Override extending the default palette giving new values. It will extend
  * the default values of the palette if has a property missing.
@@ -50,6 +52,8 @@
   }
 
   $md-themes: $theme !global;
+
+  @include md-base-theme;
 }
 
 

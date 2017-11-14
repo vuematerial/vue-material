@@ -50,7 +50,7 @@
     pre {
       max-width: 100%;
       margin: 0;
-      white-space: pre-line;
+      white-space: pre-wrap;
     }
 
     code {
