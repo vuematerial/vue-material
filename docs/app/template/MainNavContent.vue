@@ -9,7 +9,7 @@
       <router-link to="/themes/advanced">{{ $t('pages.themeAdvanced.title') }}</router-link>
     </div>
 
-    <router-link to="/components" exact>{{ $t('pages.components.title') }}</router-link>
+    <router-link to="/components">{{ $t('pages.components.title') }}</router-link>
     <div class="main-nav-level">
       <router-link to="/components/app">{{ $t('pages.app.title') }}</router-link>
       <router-link to="/components/avatar">{{ $t('pages.avatar.title') }}</router-link>
@@ -24,7 +24,7 @@
       <router-link to="/components/drawer">{{ $t('pages.drawer.title') }}</router-link>
       <router-link to="/components/empty-state">{{ $t('pages.emptyState.title') }}</router-link>
 
-      <router-link to="/components/form" exact>{{ $t('pages.form.title') }}</router-link>
+      <router-link to="/components/form">{{ $t('pages.form.title') }}</router-link>
       <div class="main-nav-level">
         <router-link to="/components/autocomplete">{{ $t('pages.autocomplete.title') }}</router-link>
         <router-link to="/components/checkbox">{{ $t('pages.checkbox.title') }}</router-link>
@@ -60,7 +60,7 @@
       <router-link to="/components/tooltip">{{ $t('pages.tooltip.title') }}</router-link>
     </div>
 
-    <router-link to="/ui-elements" exact>{{ $t('pages.uiElements.title') }}</router-link>
+    <router-link to="/ui-elements">{{ $t('pages.uiElements.title') }}</router-link>
     <div class="main-nav-level">
       <router-link to="/ui-elements/elevation">{{ $t('pages.elevation.title') }}</router-link>
       <router-link to="/ui-elements/layout">{{ $t('pages.layout.title') }}</router-link>

@@ -10,7 +10,7 @@
     <div class="page-container-section">
       <api-table :headings="breakpoints.props.headings" :props="breakpoints.props.props" slot="props" />
     </div> -->
-    Coming soon
+    Coming soon...
   </page-container>
 </template>
 
