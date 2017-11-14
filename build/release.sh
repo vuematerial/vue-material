@@ -41,12 +41,12 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   echo "\n${YELLOW}Commiting... ${NC}"
   git add -A
   git commit -m "build: $VERSION"
-  # npm version $VERSION --message "build: release $version"
+  npm version $VERSION --message "build: release $version"
   git push
 
 
   echo "\n${YELLOW}Publishing a new release... ${NC}"
-  # npm publish --tag beta
+  npm publish
 
 
   echo "\n${GREEN}BUILD FINISHED WITH SUCCESS!${NC}"
