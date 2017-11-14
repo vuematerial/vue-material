@@ -36,6 +36,8 @@ Build well-designed apps that can fit on every screen with support to all modern
 
 <a href="https://vuematerial.io/" target="_blank">Demo</a>
 
+If you are trying to find the documentation for previous versions, please go to <a href="https://vue-material-old.netlify.com">old website</a>.
+
 ## Installation and Usage
 
 Install Vue Material through npm or yarn
