@@ -50,7 +50,7 @@
   .splash-container {
     margin: auto;
     padding: 16px;
-    transition: opacity .45s $md-transition-default-timing;
+    transition: opacity .05s $md-transition-default-timing;
     will-change: opacity;
   }
 
