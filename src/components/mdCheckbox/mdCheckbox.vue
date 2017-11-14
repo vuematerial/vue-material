@@ -23,7 +23,7 @@
       value: [String, Boolean, Array],
       id: String,
       disabled: Boolean,
-      mdValue: [String]
+      mdValue: [String, Number]
     },
     mixins: [theme],
     data() {
