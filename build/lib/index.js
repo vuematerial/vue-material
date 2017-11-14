@@ -27,7 +27,8 @@ const entries = [
     filename: `${pack.name}.esm.js`
   }),
   webpackConfig({
-    libraryTarget: 'umd',
+    components: true,
+    libraryTarget: 'commonjs2',
     compress: true,
     css: true
   })

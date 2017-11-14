@@ -70,9 +70,9 @@
           theme: dark // This can be dark or light
         ));
 
-        @import "~vue-material/theme/MdButton"; // Apply the theme
-        @import "~vue-material/theme/MdContent"; // Apply the theme
-        @import "~vue-material/theme/MdToolbar"; // Apply the theme
+        @import "~vue-material/components/MdButton/theme"; // Apply the theme
+        @import "~vue-material/components/MdContent/theme"; // Apply the theme
+        @import "~vue-material/components/MdToolbar/theme"; // Apply the theme
       </code-example>
 
       <h3 class="md-title">Available colors</h3>

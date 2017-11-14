@@ -1,3 +1,5 @@
+/* eslint-disable complexity */
+
 import webpack from 'webpack'
 import { readdirSync, statSync, existsSync } from 'fs'
 import { join } from 'path'
@@ -5,6 +7,7 @@ import merge from 'webpack-merge'
 import autoprefixer from 'autoprefixer'
 import mediaPacker from 'css-mqpacker'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
+import CopyWebpackPlugin from 'copy-webpack-plugin'
 import OptimizeJsPlugin from 'optimize-js-plugin'
 import OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
@@ -41,6 +44,33 @@ function setComponentsConfig (entries, output) {
       entries[join('components', component, 'index')] = [`./${join(componentsPath, component)}/index`]
     }
   })
+
+  return { entries, output }
+}
+
+function getCopyPaths () {
+  let copyPaths = [
+    {
+      context: resolvePath(themePath),
+      from: '**/*.scss',
+      to: resolvePath('dist/theme')
+    }
+  ]
+
+  componentList.forEach(component => {
+    const isSharable = existsSync(resolvePath(componentsPath, component, 'index.js'))
+
+    if (isSharable) {
+      copyPaths.push({
+        context: resolvePath(componentsPath, component),
+        from: '**/theme.scss',
+        to: resolvePath(`dist/components/${component}/theme.scss`),
+        toType: 'file'
+      })
+    }
+  })
+
+  return copyPaths
 }
 
 function getExtractedCSSName ({ filename }) {
@@ -53,6 +83,7 @@ function getExtractedCSSName ({ filename }) {
 
 const moduleName = classify(pack.name)
 const componentsPath = 'src/components'
+const themePath = 'src/theme'
 const componentList = getDirectories(resolvePath(componentsPath))
 
 export default entry => {
@@ -68,7 +99,10 @@ export default entry => {
   }
 
   if (entry.components) {
-    setComponentsConfig(entries, output)
+    const config = setComponentsConfig(entries, output)
+
+    entries = config.entries
+    output = config.output
   }
 
   let webpackConfig = {
@@ -221,6 +255,9 @@ export default entry => {
     webpackConfig.plugins.push(new BundleAnalyzerPlugin({
       analyzerPort: getRandomInt(8000, 8999)
     }))
+  }
+  if (entry.components) {
+    webpackConfig.plugins.push(new CopyWebpackPlugin(getCopyPaths()))
   }
 
   return webpackConfig
