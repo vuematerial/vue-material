@@ -9,10 +9,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vuematerial/vue-material-experiments.git"
+    "url": "git+https://github.com/vuematerial/vue-material.git"
   },
   "bugs": {
-    "url": "https://github.com/vuematerial/vue-material-experiments/issues"
+    "url": "https://github.com/vuematerial/vue-material/issues"
   },
   "files": [
     "dist",
