@@ -28,8 +28,8 @@ Vue Material is Simple, lightweight and built exactly according to the Google <a
 
 Build well-designed apps that can fit on every screen with support to all modern Web Browsers with dynamic themes, components on demand and all with an ease-to-use API
 
-<a target='_blank' rel='nofollow' href='https://app.codesponsor.io/link/265KRzahMKDQEQEzoo9BxRiH/vuematerial/vue-material-experiments'>
-  <img alt='Sponsor' width='888' height='68' src='https://app.codesponsor.io/embed/265KRzahMKDQEQEzoo9BxRiH/vuematerial/vue-material-experiments.svg' />
+<a target='_blank' rel='nofollow' href='https://app.codesponsor.io/link/265KRzahMKDQEQEzoo9BxRiH/vuematerial/vue-material'>
+  <img alt='Sponsor' width='888' height='68' src='https://app.codesponsor.io/embed/265KRzahMKDQEQEzoo9BxRiH/vuematerial/vue-material.svg' />
 </a>
 
 ## Demo and Documentation
@@ -101,7 +101,7 @@ Vue Material supports all [modern browsers](http://browserl.ist/?q=%3E%3D+1%25).
 
 <small>May work in other browsers but it's untested.</small>
 
-## Credits and Thanks
+## Thanks
 
 * <a href="https://github.com/elviskang" target="_blank">elviskang</a> for donating the npm package name!
 * <a href="https://github.com/brunocastro" target="_blank">Bruno Castro</a> for the awesome Vue Material Logo.
