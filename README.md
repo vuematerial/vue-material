@@ -101,7 +101,7 @@ Vue Material supports all [modern browsers](http://browserl.ist/?q=%3E%3D+1%25).
 
 <small>May work in other browsers but it's untested.</small>
 
-## Thanks
+## Credits and Thanks
 
 * <a href="https://github.com/elviskang" target="_blank">elviskang</a> for donating the npm package name!
 * <a href="https://github.com/brunocastro" target="_blank">Bruno Castro</a> for the awesome Vue Material Logo.
