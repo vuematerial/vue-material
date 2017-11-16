@@ -103,21 +103,31 @@
         }
       }
     },
-    data: () => ({
-      fixedHeaderPadding: 0,
-      hasContentScroll: false,
-      MdTable: {
-        items: {},
-        sort: null,
-        sortOrder: null,
-        singleSelection: null,
-        selectedItems: {},
-        selectable: {},
-        fixedHeader: null,
-        contentPadding: null,
-        contentEl: null
+    data () {
+      return {
+        fixedHeaderPadding: 0,
+        hasContentScroll: false,
+        MdTable: {
+          items: {},
+          sort: null,
+          sortOrder: null,
+          singleSelection: null,
+          selectedItems: {},
+          selectable: {},
+          fixedHeader: null,
+          contentPadding: null,
+          contentEl: null,
+          // computed
+          hasValue: this.hasValue,
+          // methods
+          emitEvent: this.emitEvent,
+          sortTable: this.sortTable,
+          manageItemSelection: this.manageItemSelection,
+          getModel: this.getModel,
+          getModelItem: this.getModelItem
+        }
       }
-    }),
+    },
     computed: {
       contentTag () {
         if (this.mdCard) {
@@ -159,13 +169,6 @@
     provide () {
       const MdTable = this.MdTable
 
-      MdTable.emitEvent = this.emitEvent
-      MdTable.sortTable = this.sortTable
-      MdTable.hasValue = this.hasValue
-      MdTable.manageItemSelection = this.manageItemSelection
-      MdTable.getModel = this.getModel
-      MdTable.getModelItem = this.getModelItem
-
       return { MdTable }
     },
     watch: {
@@ -185,6 +188,12 @@
         immediate: true,
         handler () {
           this.MdTable.fixedHeader = this.mdFixedHeader
+        }
+      },
+      hasValue: {
+        immediate: true,
+        handler () {
+          this.MdTable.hasValue = this.hasValue
         }
       }
     },
