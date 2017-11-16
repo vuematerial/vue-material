@@ -16,7 +16,7 @@
         <h1 class="md-title" v-else>{{ pageTitle }}</h1>
       </div>
 
-      <md-button href="http://github.com/vuematerial/vue-material-experiments" target="_blank" class="md-icon-button">
+      <md-button href="http://github.com/vuematerial/vue-material" target="_blank" class="md-icon-button">
         <md-icon md-src="/assets/icon-github.svg" class="icon-github" />
       </md-button>
     </div>
