@@ -62,17 +62,18 @@
         return {
           'md-has-value': this.value && this.value.length
         }
+      },
+
+      modelRespectLimit () {
+        return !this.mdLimit || this.value.length < this.mdLimit
       }
     },
     methods: {
-      modelRespectLimit () {
-        return !this.mdLimit || this.value.length < this.mdLimit
-      },
       insertChip ({ target }) {
         if (
           !this.inputValue ||
           this.value.includes(this.inputValue) ||
-          !this.modelRespectLimit()
+          !this.modelRespectLimit
         ) {
           return
         }
