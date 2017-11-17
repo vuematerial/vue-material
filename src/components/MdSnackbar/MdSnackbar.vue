@@ -3,7 +3,6 @@
     <keep-alive>
       <md-snackbar-content :md-classes="[snackbarClasses, $mdActiveTheme]" v-if="mdActive">
         <slot />
-        OLAR
       </md-snackbar-content>
     </keep-alive>
   </md-portal>
