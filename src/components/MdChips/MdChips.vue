@@ -66,7 +66,7 @@
     },
     methods: {
       modelRespectLimit () {
-        return !this.mdLimit || this.value.length < +this.mdLimit
+        return !this.mdLimit || this.value.length < this.mdLimit
       },
       insertChip ({ target }) {
         if (!this.value.includes(this.inputValue) && this.modelRespectLimit()) {
