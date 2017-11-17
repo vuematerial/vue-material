@@ -69,12 +69,17 @@
         return !this.mdLimit || this.value.length < this.mdLimit
       },
       insertChip ({ target }) {
-        if (!this.value.includes(this.inputValue) && this.modelRespectLimit()) {
-          this.value.push(this.inputValue)
-          this.$emit('input', this.value)
-          this.$emit('md-insert', this.inputValue)
-          this.inputValue = ''
+        if (
+          !this.inputValue ||
+          this.value.includes(this.inputValue) ||
+          !this.modelRespectLimit()
+        ) {
+          return
         }
+        this.value.push(this.inputValue)
+        this.$emit('input', this.value)
+        this.$emit('md-insert', this.inputValue)
+        this.inputValue = ''
       },
       removeChip (chip) {
         const index = this.value.indexOf(chip)
