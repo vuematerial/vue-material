@@ -55,7 +55,7 @@
       mdLimit: Number
     },
     data: () => ({
-      inputValue: null
+      inputValue: ''
     }),
     computed: {
       chipsClasses () {
