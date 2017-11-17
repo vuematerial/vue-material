@@ -17,7 +17,7 @@
     <md-input
       ref="input"
       v-model.trim="inputValue"
-      v-if="!mdStatic"
+      v-if="!mdStatic && modelRespectLimit"
       :type="mdInputType"
       :id="id"
       :placeholder="mdPlaceholder"
@@ -88,7 +88,7 @@
         this.value.splice(index, 1)
         this.$emit('input', this.value)
         this.$emit('md-delete', chip, index)
-        this.$refs.input.$el.focus()
+        this.$nextTick(() => this.$refs.input.$el.focus())
       },
       handleBackRemove () {
         if (!this.inputValue) {
