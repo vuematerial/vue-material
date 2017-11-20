@@ -42,6 +42,7 @@
     max-width: 1100px;
     margin: 0 auto;
     padding: 16px;
+    transition: .4s $md-transition-default-timing;
   }
 
   .page-container-leave-active {
@@ -51,7 +52,6 @@
   .page-container-enter-active {
     opacity: 0;
     transform: translate3d(0, 150px, 0);
-    transition: .4s $md-transition-default-timing;
     transition-property: opacity, transform;
     will-change: opacity, transform;
   }

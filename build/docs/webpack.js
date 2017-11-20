@@ -1,18 +1,25 @@
 import webpack from 'webpack'
 import path from 'path'
+import fs from 'fs'
 import autoprefixer from 'autoprefixer'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 import CopyWebpackPlugin from 'copy-webpack-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import OptimizeJsPlugin from 'optimize-js-plugin'
-// import PrerenderSpaPlugin from 'prerender-spa-plugin'
+import PrerenderSpaPlugin from 'prerender-spa-plugin'
 import OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import mediaPacker from 'css-mqpacker'
 import OfflinePlugin from 'offline-plugin'
 import { config, resolvePath, getRandomInt } from '../config'
 import banner from '../lib/banner'
-// import { mapRoutes } from '../../docs/app/routes'
+import { mapRoutes } from '../../docs/app/routes'
+
+function postProcessHtml (context) {
+  const adsHTML = fs.readFileSync(resolvePath('docs/ads.html'))
+
+  return context.html.replace('<!-- AD OUTLET -->', adsHTML.toString())
+}
 
 const cacheUpdateTime = process.env.CACHE_UPDATE_MINUTES || 10
 const cssLoader = ExtractTextPlugin.extract({
@@ -126,7 +133,7 @@ const webpackConfig = {
       filename: 'index.html',
       template: 'docs/index.html',
       chunksSortMode: 'dependency',
-      inject: true,
+      inject: 'head',
       minify: {
         caseSensitive: true,
         collapseBooleanAttributes: true,
@@ -135,8 +142,6 @@ const webpackConfig = {
         minifyJS: true,
         preventAttributesEscaping: true,
         removeAttributeQuotes: true,
-        removeComments: true,
-        removeCommentsFromCDATA: true,
         removeEmptyAttributes: true,
         removeOptionalTags: true,
         removeRedundantAttributes: true,
@@ -164,12 +169,13 @@ const webpackConfig = {
     new OptimizeCssAssetsPlugin({
       canPrint: false
     }),
-    /* new PrerenderSpaPlugin(path.join(__dirname, '..', '..', config.dist), mapRoutes(), {
+    new PrerenderSpaPlugin(path.join(__dirname, '..', '..', config.dist), mapRoutes(), {
       captureAfterElementExists: '.main-container',
       captureAfterTime: 7000,
       navigationLocked: true,
-      ignoreJSErrors: true
-    }), */
+      ignoreJSErrors: true,
+      postProcessHtml
+    }),
     new OfflinePlugin({
       autoUpdate: +cacheUpdateTime * 60 * 1000
     })

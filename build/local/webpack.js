@@ -9,7 +9,7 @@ const scssLoaders = 'vue-style-loader!css-loader!sass-loader?outputStyle=compres
 const babelLoader = 'babel-loader?cacheDirectory=true'
 
 export default {
-  devtool: '#cheap-module-eval-source-map',
+  devtool: '#source-map',
   entry: {
     docs: [
       './docs/app/index.js',

@@ -1,6 +1,6 @@
 <template>
-  <transition name="splash-container" appear>
-    <div class="splash-container main-container" :class="{ centered }">
+  <transition name="splash-container">
+    <div class="splash-container main-container" :class="{ centered }" v-if="isRendered">
       <slot />
 
       <ad-manager />
@@ -22,6 +22,9 @@
       title: String,
       centered: Boolean
     },
+    data: () => ({
+      isRendered: false
+    }),
     computed: {
       ...mapState(['splashPage'])
     },
@@ -33,10 +36,13 @@
         setSplashMode: types.SET_SPLASH_MODE
       })
     },
-    mounted () {
+    async mounted () {
       this.$material.theming.theme = 'dark'
       this.setPageTitle(this.title)
       this.setSplashMode(true)
+
+      await this.$nextTick()
+      this.isRendered = true
     },
     beforeDestroy () {
       this.setSplashMode(false)
@@ -50,8 +56,9 @@
   .splash-container {
     margin: auto;
     padding: 16px;
-    transition: opacity .01s $md-transition-default-timing;
-    will-change: opacity;
+    transition: .3s $md-transition-default-timing;
+    transition-property: transform;
+    will-change: transform;
   }
 
   .splash-container-leave-active {
@@ -59,7 +66,7 @@
   }
 
   .splash-container-enter {
-    opacity: 0;
+    transform: translate3D(0, 50px, 0);
   }
 
   .centered {
