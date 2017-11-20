@@ -3820,10 +3820,6 @@ is-path-inside@^1.0.0:
   dependencies:
     path-is-inside "^1.0.1"
 
-is-phantom@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/is-phantom/-/is-phantom-1.0.1.tgz#4a4b1586903be304a0c91a3c977f8a5382ac43a2"
-
 is-plain-obj@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/is-plain-obj/-/is-plain-obj-1.1.0.tgz#71a50c8429dfca773c92a390a4a03b39fcd51d3e"
@@ -5716,6 +5712,12 @@ postcss@^6.0.14:
     chalk "^2.3.0"
     source-map "^0.6.1"
     supports-color "^4.4.0"
+
+preload-webpack-plugin@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/preload-webpack-plugin/-/preload-webpack-plugin-2.0.0.tgz#a355614548400e29b75d5aa7a114cd63cd99c92d"
+  dependencies:
+    object-assign "^4.1.1"
 
 prelude-ls@~1.1.2:
   version "1.1.2"

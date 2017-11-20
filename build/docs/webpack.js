@@ -7,6 +7,7 @@ import CopyWebpackPlugin from 'copy-webpack-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import OptimizeJsPlugin from 'optimize-js-plugin'
 import PrerenderSpaPlugin from 'prerender-spa-plugin'
+import PreloadWebpackPlugin from 'preload-webpack-plugin'
 import OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import mediaPacker from 'css-mqpacker'
@@ -98,11 +99,27 @@ const webpackConfig = {
       debug: false
     }),
     new webpack.optimize.UglifyJsPlugin({
+      minimize: true,
       compress: {
-        warnings: false,
         screw_ie8: true,
+        warnings: false,
+        sequences: true,
+        properties: true,
+        dead_code: true,
+        drop_debugger: true,
+        unsafe: true,
+        conditionals: true,
+        comparisons: true,
+        evaluate: true,
+        booleans: true,
+        loops: true,
         unused: true,
-        dead_code: true
+        hoist_funs: true,
+        hoist_vars: true,
+        if_return: true,
+        join_vars: true,
+        cascade: true,
+        side_effects: true
       },
       output: {
         comments: false
@@ -135,21 +152,26 @@ const webpackConfig = {
       chunksSortMode: 'dependency',
       inject: 'head',
       minify: {
-        caseSensitive: true,
-        collapseBooleanAttributes: true,
-        collapseWhitespace: true,
+        html5: true,
+        useShortDoctype: true,
+        decodeEntities: true,
+        removeTagWhitespace: true,
+        removeStyleLinkTypeAttributes: true,
+        removeScriptTypeAttributes: true,
         minifyCSS: true,
         minifyJS: true,
-        preventAttributesEscaping: true,
-        removeAttributeQuotes: true,
-        removeEmptyAttributes: true,
-        removeOptionalTags: true,
+        removeComments: true,
+        collapseWhitespace: true,
+        collapseBooleanAttributes: true,
+        removeAttributeQuotes: false,
         removeRedundantAttributes: true,
-        removeScriptTypeAttributes: true,
-        removeStyleLinkTypeAttributes: true,
-        useShortDoctype: true
+        removeEmptyAttributes: true,
+        preserveLineBreaks: false,
+        sortAttributes: true,
+        sortClassName: true
       }
     }),
+    new PreloadWebpackPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       minChunks (module) {
