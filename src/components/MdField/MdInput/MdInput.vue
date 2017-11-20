@@ -30,11 +30,14 @@
     computed: {
       toggleType () {
         return this.MdField.togglePassword
+      },
+      isPassword () {
+        return this.type === 'password'
       }
     },
     watch: {
       type (type) {
-        this.setPassword()
+        this.setPassword(this.isPassword)
       },
       toggleType (toggle) {
         if (toggle) {
@@ -47,24 +50,17 @@
     methods: {
       setPassword (state) {
         this.MdField.password = state
+        this.MdField.togglePassword = false
       },
-      methods: {
-        setPassword () {
-          this.MdField.password = this.type === 'password'
-        },
-        setTypePassword () {
-          this.$el.type = 'password'
-        },
-        setTypeText () {
-          this.$el.type = 'text'
-        }
+      setTypePassword () {
+        this.$el.type = 'password'
       },
-      created () {
-        this.setPassword()
+      setTypeText () {
+        this.$el.type = 'text'
       }
     },
     created () {
-      this.setPassword(this.type === 'password')
+      this.setPassword(this.isPassword)
     },
     beforeDestroy () {
       this.setPassword(false)
