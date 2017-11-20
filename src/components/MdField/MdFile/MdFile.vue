@@ -62,7 +62,6 @@
       },
       onChange ($event) {
         this.onFileSelected($event)
-        this.onInput()
       },
       onFileSelected ({ target, dataTransfer }) {
         const files = target.files || dataTransfer.files
