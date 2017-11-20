@@ -30,11 +30,14 @@
     computed: {
       toggleType () {
         return this.MdField.togglePassword
+      },
+      isPassword () {
+        return this.type === 'password'
       }
     },
     watch: {
       type (type) {
-        this.setPassword(this.type === 'password')
+        this.setPassword(this.isPassword)
       },
       toggleType (toggle) {
         if (toggle) {
@@ -56,7 +59,7 @@
       }
     },
     created () {
-      this.setPassword(this.type === 'password')
+      this.setPassword(this.isPassword)
     },
     beforeDestroy () {
       this.setPassword(false)
