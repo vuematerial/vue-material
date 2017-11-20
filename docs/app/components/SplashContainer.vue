@@ -50,9 +50,7 @@
   .splash-container {
     margin: auto;
     padding: 16px;
-    transition: .3s $md-transition-default-timing;
-    transition-property: transform;
-    will-change: transform;
+    transition: transform .3s $md-transition-default-timing;
   }
 
   .splash-container-leave-active {
