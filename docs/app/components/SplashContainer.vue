@@ -1,5 +1,5 @@
 <template>
-  <transition name="splash-container" appear>
+  <transition name="splash-container">
     <div class="splash-container main-container" :class="{ centered }" v-if="isRendered">
       <slot />
 
