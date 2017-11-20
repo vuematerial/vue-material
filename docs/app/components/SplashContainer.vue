@@ -1,11 +1,9 @@
 <template>
-  <transition name="splash-container" appear>
     <div class="splash-container main-container" :class="{ centered }">
       <slot />
 
       <ad-manager />
     </div>
-  </transition>
 </template>
 
 <script>

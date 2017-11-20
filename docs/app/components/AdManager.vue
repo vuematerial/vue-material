@@ -2,10 +2,18 @@
   export default {
     name: 'AdManager',
     abstract: true,
+    data: () => ({
+      carbonEl: null,
+      codeSponsorEl: null
+    }),
     render () {
       return null
     },
     methods: {
+      saveAdsElements () {
+        this.carbonEl = document.getElementById('carbonads')
+        this.codeSponsorEl = document.querySelector('.code-sponsor-widget')
+      },
       appendCarbonAds() {
         const interval = window.setInterval(() => {
           const carbonAds = document.getElementById('carbonads')
@@ -45,13 +53,14 @@
         }, 50)
       },
       moveCarbonAdsToBody() {
-        document.body.appendChild(document.getElementById('carbonads'))
+        document.body.appendChild(this.carbonEl)
       },
       moveCodeSponsorToBody() {
-        document.body.appendChild(document.querySelector('.code-sponsor-widget'))
+        document.body.appendChild(this.codeSponsorEl)
       }
     },
     mounted () {
+      this.saveAdsElements()
       this.appendCarbonAds()
       this.appendCodeSponsor()
     },
