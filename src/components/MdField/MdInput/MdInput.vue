@@ -34,7 +34,7 @@
     },
     watch: {
       type (type) {
-        this.setPassword()
+        this.setPassword(this.type === 'password')
       },
       toggleType (toggle) {
         if (toggle) {
@@ -48,19 +48,11 @@
       setPassword (state) {
         this.MdField.password = state
       },
-      methods: {
-        setPassword () {
-          this.MdField.password = this.type === 'password'
-        },
-        setTypePassword () {
-          this.$el.type = 'password'
-        },
-        setTypeText () {
-          this.$el.type = 'text'
-        }
+      setTypePassword () {
+        this.$el.type = 'password'
       },
-      created () {
-        this.setPassword()
+      setTypeText () {
+        this.$el.type = 'text'
       }
     },
     created () {
