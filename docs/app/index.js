@@ -17,14 +17,16 @@ Vue.use(VueMaterial)
 ga(router, 'UA-85823257-1')
 sync(store, router)
 
-const app = new Vue({
-  name: 'Root',
-  router,
-  store,
-  i18n,
-  render: mount => mount(App)
-})
+document.addEventListener('DOMContentLoaded', () => {
+  const app = new Vue({
+    name: 'Root',
+    router,
+    store,
+    i18n,
+    render: mount => mount(App)
+  })
 
-router.onReady(() => {
-  app.$mount('#docs')
+  router.onReady(() => {
+    app.$mount('#docs')
+  })
 })

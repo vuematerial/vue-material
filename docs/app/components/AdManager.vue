@@ -13,6 +13,10 @@
       saveAdsElements () {
         this.carbonEl = document.getElementById('carbonads')
         this.codeSponsorEl = document.querySelector('.code-sponsor-widget')
+
+        if (!this.carbonEl || !this.codeSponsorEl) {
+          this.$destroy()
+        }
       },
       appendCarbonAds() {
         const interval = window.setInterval(() => {
@@ -53,10 +57,14 @@
         }, 50)
       },
       moveCarbonAdsToBody() {
-        document.body.appendChild(this.carbonEl)
+        if (this.carbonEl) {
+          document.body.appendChild(this.carbonEl)
+        }
       },
       moveCodeSponsorToBody() {
-        document.body.appendChild(this.codeSponsorEl)
+        if (this.codeSponsorEl) {
+          document.body.appendChild(this.codeSponsorEl)
+        }
       }
     },
     mounted () {
