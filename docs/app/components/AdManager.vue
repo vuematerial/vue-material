@@ -1,6 +1,4 @@
 <script>
-  import isPhantom from 'is-phantom'
-
   export default {
     name: 'AdManager',
     abstract: true,
@@ -15,6 +13,10 @@
       saveAdsElements () {
         this.carbonEl = document.getElementById('carbonads')
         this.codeSponsorEl = document.querySelector('.code-sponsor-widget')
+
+        if (!this.carbonEl || !this.codeSponsorEl) {
+          this.$destroy()
+        }
       },
       appendCarbonAds() {
         const interval = window.setInterval(() => {
@@ -62,11 +64,6 @@
       }
     },
     mounted () {
-      if (isPhantom()) {
-        this.$destroy()
-      }
-
-      this.saveAdsElements()
       this.appendCarbonAds()
       this.appendCodeSponsor()
     },

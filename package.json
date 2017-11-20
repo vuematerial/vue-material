@@ -89,7 +89,6 @@
     "highlight.js": "^9.12.0",
     "html-webpack-plugin": "^2.30.1",
     "is-firefox": "^1.0.3",
-    "is-phantom": "^1.0.1",
     "jest": "^21.2.1",
     "jest-css-modules": "^1.1.0",
     "jest-vue": "^0.8.2",
