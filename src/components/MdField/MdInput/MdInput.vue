@@ -50,6 +50,7 @@
     methods: {
       setPassword (state) {
         this.MdField.password = state
+        this.MdField.togglePassword = false
       },
       setTypePassword () {
         this.$el.type = 'password'
