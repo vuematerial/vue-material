@@ -57,10 +57,14 @@
         }, 50)
       },
       moveCarbonAdsToBody() {
-        document.body.appendChild(this.carbonEl)
+        if (this.carbonEl) {
+          document.body.appendChild(this.carbonEl)
+        }
       },
       moveCodeSponsorToBody() {
-        document.body.appendChild(this.codeSponsorEl)
+        if (this.codeSponsorEl) {
+          document.body.appendChild(this.codeSponsorEl)
+        }
       }
     },
     mounted () {
