@@ -11,13 +11,13 @@ import { i18n, router } from './config'
 import store from './store'
 import './components'
 
-Vue.config.productionTip = false
-Vue.use(VueMaterial)
-
-ga(router, 'UA-85823257-1')
-sync(store, router)
-
 document.addEventListener('DOMContentLoaded', () => {
+  Vue.config.productionTip = false
+  Vue.use(VueMaterial)
+
+  ga(router, 'UA-85823257-1')
+  sync(store, router)
+
   const app = new Vue({
     name: 'Root',
     router,
