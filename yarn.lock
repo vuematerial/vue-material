@@ -5713,6 +5713,12 @@ postcss@^6.0.14:
     source-map "^0.6.1"
     supports-color "^4.4.0"
 
+preload-webpack-plugin@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/preload-webpack-plugin/-/preload-webpack-plugin-2.0.0.tgz#a355614548400e29b75d5aa7a114cd63cd99c92d"
+  dependencies:
+    object-assign "^4.1.1"
+
 prelude-ls@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.1.2.tgz#21932a549f5e52ffd9a827f570e04be62a97da54"

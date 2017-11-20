@@ -1,18 +1,26 @@
 import webpack from 'webpack'
 import path from 'path'
+import fs from 'fs'
 import autoprefixer from 'autoprefixer'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 import CopyWebpackPlugin from 'copy-webpack-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import OptimizeJsPlugin from 'optimize-js-plugin'
-// import PrerenderSpaPlugin from 'prerender-spa-plugin'
+import PrerenderSpaPlugin from 'prerender-spa-plugin'
+import PreloadWebpackPlugin from 'preload-webpack-plugin'
 import OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import mediaPacker from 'css-mqpacker'
 import OfflinePlugin from 'offline-plugin'
 import { config, resolvePath, getRandomInt } from '../config'
 import banner from '../lib/banner'
-// import { mapRoutes } from '../../docs/app/routes'
+import { mapRoutes } from '../../docs/app/routes'
+
+function postProcessHtml (context) {
+  const adsHTML = fs.readFileSync(resolvePath('docs/ads.html'))
+
+  return context.html.replace('<!-- AD OUTLET -->', adsHTML.toString())
+}
 
 const cacheUpdateTime = process.env.CACHE_UPDATE_MINUTES || 10
 const cssLoader = ExtractTextPlugin.extract({
@@ -91,11 +99,27 @@ const webpackConfig = {
       debug: false
     }),
     new webpack.optimize.UglifyJsPlugin({
+      minimize: true,
       compress: {
-        warnings: false,
         screw_ie8: true,
+        warnings: false,
+        sequences: true,
+        properties: true,
+        dead_code: true,
+        drop_debugger: true,
+        unsafe: true,
+        conditionals: true,
+        comparisons: true,
+        evaluate: true,
+        booleans: true,
+        loops: true,
         unused: true,
-        dead_code: true
+        hoist_funs: true,
+        hoist_vars: true,
+        if_return: true,
+        join_vars: true,
+        cascade: true,
+        side_effects: true
       },
       output: {
         comments: false
@@ -126,25 +150,28 @@ const webpackConfig = {
       filename: 'index.html',
       template: 'docs/index.html',
       chunksSortMode: 'dependency',
-      inject: true,
+      inject: 'head',
       minify: {
-        caseSensitive: true,
-        collapseBooleanAttributes: true,
-        collapseWhitespace: true,
+        html5: true,
+        useShortDoctype: true,
+        decodeEntities: true,
+        removeTagWhitespace: true,
+        removeStyleLinkTypeAttributes: true,
+        removeScriptTypeAttributes: true,
         minifyCSS: true,
         minifyJS: true,
-        preventAttributesEscaping: true,
-        removeAttributeQuotes: true,
         removeComments: true,
-        removeCommentsFromCDATA: true,
-        removeEmptyAttributes: true,
-        removeOptionalTags: true,
+        collapseWhitespace: true,
+        collapseBooleanAttributes: true,
+        removeAttributeQuotes: false,
         removeRedundantAttributes: true,
-        removeScriptTypeAttributes: true,
-        removeStyleLinkTypeAttributes: true,
-        useShortDoctype: true
+        removeEmptyAttributes: true,
+        preserveLineBreaks: false,
+        sortAttributes: true,
+        sortClassName: true
       }
     }),
+    new PreloadWebpackPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       minChunks (module) {
@@ -164,12 +191,13 @@ const webpackConfig = {
     new OptimizeCssAssetsPlugin({
       canPrint: false
     }),
-    /* new PrerenderSpaPlugin(path.join(__dirname, '..', '..', config.dist), mapRoutes(), {
+    new PrerenderSpaPlugin(path.join(__dirname, '..', '..', config.dist), mapRoutes(), {
       captureAfterElementExists: '.main-container',
       captureAfterTime: 7000,
       navigationLocked: true,
-      ignoreJSErrors: true
-    }), */
+      ignoreJSErrors: true,
+      postProcessHtml
+    }),
     new OfflinePlugin({
       autoUpdate: +cacheUpdateTime * 60 * 1000
     })
