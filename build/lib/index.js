@@ -11,23 +11,24 @@ const spinner = ora({
 spinner.start()
 
 const entries = [
-  webpackConfig({
+/*   webpackConfig({
     libraryTarget: 'umd',
     filename: `${pack.name}.min.js`,
     compress: true,
     css: true,
     analyze: true
-  }),
+  }), */
   webpackConfig({
     libraryTarget: 'umd',
-    filename: `${pack.name}.js`
-  }),
+    filename: `${pack.name}.js`,
+    css: true
+  })/* ,
   webpackConfig({
     components: true,
     libraryTarget: 'umd',
     compress: true,
     css: true
-  })
+  }) */
 ]
 
 webpack(entries, (error, stats) => {

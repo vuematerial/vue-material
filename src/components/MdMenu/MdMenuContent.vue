@@ -184,15 +184,17 @@
         return Boolean(alignTrigger || offsetY || offsetX)
       },
       createClickEventObserver () {
-        this.MdMenu.bodyClickObserver = new MdObserveEvent(document.body, 'click', $event => {
-          $event.stopPropagation()
+        if (document) {
+          this.MdMenu.bodyClickObserver = new MdObserveEvent(document.body, 'click', $event => {
+            $event.stopPropagation()
 
-          if (!this.$el.contains($event.target)) {
-            this.MdMenu.active = false
-            this.MdMenu.bodyClickObserver.destroy()
-            this.MdMenu.windowResizeObserver.destroy()
-          }
-        })
+            if (!this.$el.contains($event.target)) {
+              this.MdMenu.active = false
+              this.MdMenu.bodyClickObserver.destroy()
+              this.MdMenu.windowResizeObserver.destroy()
+            }
+          })
+        }
       },
       createResizeObserver () {
         this.MdMenu.windowResizeObserver = new MdResizeObserver(window, this.setStyles)
