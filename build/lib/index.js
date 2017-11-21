@@ -20,7 +20,8 @@ const entries = [
   }),
   webpackConfig({
     libraryTarget: 'umd',
-    filename: `${pack.name}.js`
+    filename: `${pack.name}.js`,
+    css: true
   }),
   webpackConfig({
     components: true,

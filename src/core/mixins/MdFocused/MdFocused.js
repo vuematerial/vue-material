@@ -1,5 +1,6 @@
 import MdReactive from 'core/utils/MdReactive'
 
+let hasEvents = false
 let eventTarget = null
 let supportsPassiveEvent = false
 let MdFocused = new MdReactive({
@@ -57,11 +58,14 @@ function bindEvents () {
   createKeyboardEvents()
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  eventTarget = document.body
-  checkPassiveEventSupport()
-  bindEvents()
-})
+function createEvents () {
+  if (!hasEvents) {
+    eventTarget = document.body
+    checkPassiveEventSupport()
+    bindEvents()
+    hasEvents = true
+  }
+}
 
 export default {
   data: () => ({
@@ -76,5 +80,8 @@ export default {
     focusedElement (el) {
       this.mdHasFocus = el === this.$el
     }
+  },
+  mounted () {
+    createEvents()
   }
 }

@@ -6,9 +6,9 @@ export default {
   props: {
     mdAttachToParent: Boolean,
     mdTarget: {
-      type: window.HTMLElement,
+      type: null,
       validator (value) {
-        if (value && value instanceof window.HTMLElement) {
+        if (HTMLElement && value && value instanceof HTMLElement) {
           return true
         }
 
@@ -63,7 +63,7 @@ export default {
   },
   methods: {
     getTransitionDuration (el) {
-      const duration = window.getComputedStyle(el).transitionDuration
+      const duration = getComputedStyle(el).transitionDuration
       const num = parseFloat(duration, 10)
       let unit = duration.match(/m?s/)
       let milliseconds = null
@@ -107,13 +107,13 @@ export default {
       await this.$nextTick()
       el.classList.add(this.leaveToClass)
 
-      window.clearTimeout(this.leaveTimeout)
-      this.leaveTimeout = window.setTimeout(() => {
+      clearTimeout(this.leaveTimeout)
+      this.leaveTimeout = setTimeout(() => {
         this.destroyElement(el)
       }, this.getTransitionDuration(el))
     },
     destroyElement (el) {
-      window.requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
         el.classList.remove(this.leaveClass)
         el.classList.remove(this.leaveActiveClass)
         el.classList.remove(this.leaveToClass)
@@ -133,7 +133,7 @@ export default {
 
     if (this.mdAttachToParent && this.$el.parentNode.parentNode) {
       this.changeParentEl(this.$el.parentNode.parentNode)
-    } else {
+    } else if (document) {
       this.changeParentEl(this.mdTarget || document.body)
     }
   },
