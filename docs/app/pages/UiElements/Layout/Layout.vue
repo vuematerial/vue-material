@@ -1,6 +1,7 @@
 <example src="./examples/LayoutHorizontalColumns.vue" />
 <example src="./examples/LayoutHorizontalSizes.vue" />
 <example src="./examples/LayoutHorizontalAlignment.vue" />
+<example src="./examples/LayoutHorizontalGutter.vue" />
 <example src="./examples/LayoutHorizontalResponsive.vue" />
 <example src="./examples/LayoutHorizontalHide.vue" />
 
@@ -23,6 +24,7 @@
       <code-example title="Columns" :component="examples['layout-horizontal-columns']" />
       <code-example title="Size" :component="examples['layout-horizontal-sizes']" />
       <code-example title="Alignments" :component="examples['layout-horizontal-alignment']" />
+      <code-example title="Gutter-free" :component="examples['layout-horizontal-gutter']" />
       <code-example title="Responsive" :component="examples['layout-horizontal-responsive']" />
       <code-example title="Hide Elements" :component="examples['layout-horizontal-hide']" />
     </div>
