@@ -140,10 +140,9 @@ export default entry => {
       ]
     },
     plugins: [
-      new webpack.DefinePlugin({
-        'process.env': {
-          NODE_ENV: '"production"'
-        }
+      new webpack.EnvironmentPlugin({
+        NODE_ENV: 'production',
+        DEBUG: false
       }),
       new webpack.optimize.ModuleConcatenationPlugin()
     ]
@@ -217,6 +216,7 @@ export default entry => {
             test: /\.vue$/,
             loader: 'vue-loader',
             options: {
+              extractCSS: true,
               loaders: {
                 css: cssLoader,
                 scss: scssLoader

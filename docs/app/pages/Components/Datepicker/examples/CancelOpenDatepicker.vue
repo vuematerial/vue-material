@@ -8,7 +8,7 @@
   export default {
     name: 'CancelOpenDatepicker',
     data: () => ({
-      selectedDate: new Date('2018-03-26')
+      selectedDate: new Date('2018/03/26')
     })
   }
 </script>

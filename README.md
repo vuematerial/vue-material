@@ -43,8 +43,8 @@ If you are trying to find the documentation for previous versions, please go to 
 Install Vue Material through npm or yarn
 
 ``` bash
-npm install --save vue-material
-yarn add vue-material
+npm install vue-material@beta --save
+yarn add vue-material@beta
 ```
 
 <small>* Others package managers like JSPM and Bower are not supported yet.</small>
@@ -54,7 +54,7 @@ Import or require Vue and Vue Material in your code:
 ``` javascript
 import Vue from 'vue'
 import VueMaterial from 'vue-material'
-import 'vue-material/dist/vue-material.css'
+import 'vue-material/dist/vue-material.min.css'
 
 Vue.use(VueMaterial)
 ```
@@ -62,12 +62,13 @@ Vue.use(VueMaterial)
 Or use individual components:
 
 ``` javascript
-import { MdButton, MdIcon, MdSidenav, MdToolbar } from 'vue-material/components'
+import Vue from 'vue'
+import { MdButton, MdContent, MdTabs } from 'vue-material/dist/components'
+import 'vue-material/dist/vue-material.min.css'
 
 Vue.use(MdButton)
-Vue.use(MdIcon)
-Vue.use(MdSidenav)
-Vue.use(MdToolbar)
+Vue.use(MdContent)
+Vue.use(MdTabs)
 ```
 
 Alternativelly you can <a href="https://github.com/vuematerial/vue-material/archive/master.zip" target="_blank" rel="noopener">download</a> and reference the script and the stylesheet in your HTML:
@@ -81,6 +82,7 @@ Optionally import Roboto font from Google CDN:
 
 ``` html
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+<link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
 ```
 
 ## Changelog
@@ -89,7 +91,7 @@ Optionally import Roboto font from Google CDN:
 
 ## Questions
 
-The issue list is exclusively for bugs and feature requests. Use the [Slack Channel](https://vue-material.slack.com) instead.
+The issue list is exclusively for bugs and feature requests. Use the [Slack Channel](https://vue-material.slack.com) instead. Follow this [invitation link](https://join.slack.com/t/vuematerial/shared_invite/MTgzMzU2NDQ5ODkwLTE0OTQ4MDI3MDAtNWYyZjhkNzEzMA).
 
 ## Contributing
 

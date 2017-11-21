@@ -17,7 +17,7 @@
     <md-input
       ref="input"
       v-model.trim="inputValue"
-      v-if="!mdStatic"
+      v-if="!mdStatic && modelRespectLimit"
       :type="mdInputType"
       :id="id"
       :placeholder="mdPlaceholder"
@@ -55,26 +55,32 @@
       mdLimit: Number
     },
     data: () => ({
-      inputValue: null
+      inputValue: ''
     }),
     computed: {
       chipsClasses () {
         return {
           'md-has-value': this.value && this.value.length
         }
+      },
+
+      modelRespectLimit () {
+        return !this.mdLimit || this.value.length < this.mdLimit
       }
     },
     methods: {
-      modelRespectLimit () {
-        return !this.mdLimit || this.value.length < +this.mdLimit
-      },
       insertChip ({ target }) {
-        if (!this.value.includes(this.inputValue) && this.modelRespectLimit()) {
-          this.value.push(this.inputValue)
-          this.$emit('input', this.value)
-          this.$emit('md-insert', this.inputValue)
-          this.inputValue = ''
+        if (
+          !this.inputValue ||
+          this.value.includes(this.inputValue) ||
+          !this.modelRespectLimit
+        ) {
+          return
         }
+        this.value.push(this.inputValue)
+        this.$emit('input', this.value)
+        this.$emit('md-insert', this.inputValue)
+        this.inputValue = ''
       },
       removeChip (chip) {
         const index = this.value.indexOf(chip)
@@ -82,7 +88,7 @@
         this.value.splice(index, 1)
         this.$emit('input', this.value)
         this.$emit('md-delete', chip, index)
-        this.$refs.input.$el.focus()
+        this.$nextTick(() => this.$refs.input.$el.focus())
       },
       handleBackRemove () {
         if (!this.inputValue) {

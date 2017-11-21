@@ -1,18 +1,24 @@
 import Vue from 'vue'
 
-const msColor = document.querySelector('[name="msapplication-TileColor"]')
-const themeColor = document.querySelector('[name="theme-color"]')
-const maskIcon = document.querySelector('[rel="mask-icon"]')
+let msColor = null
+let themeColor = null
+let maskIcon = null
 
 export default new Vue({
   data: () => ({
     prefix: 'md-theme-',
     theme: 'default',
     enabled: true,
-    metaColors: false,
-    themeTarget: document.documentElement
+    metaColors: false
   }),
   computed: {
+    themeTarget () {
+      if (!this.$isServer) {
+        return document.documentElement
+      }
+
+      return false
+    },
     fullThemeName () {
       return this.getThemeName()
     }
@@ -23,12 +29,14 @@ export default new Vue({
       handler () {
         const { fullThemeName, themeTarget, enabled } = this
 
-        if (enabled) {
-          themeTarget.classList.add(fullThemeName)
-          this.metaColors && this.setHtmlMetaColors(fullThemeName)
-        } else {
-          themeTarget.classList.remove(fullThemeName)
-          this.metaColors && this.setHtmlMetaColors()
+        if (themeTarget) {
+          if (enabled) {
+            themeTarget.classList.add(fullThemeName)
+            this.metaColors && this.setHtmlMetaColors(fullThemeName)
+          } else {
+            themeTarget.classList.remove(fullThemeName)
+            this.metaColors && this.setHtmlMetaColors()
+          }
         }
       }
     },
@@ -111,7 +119,11 @@ export default new Vue({
       }
     }
   },
-  created () {
+  mounted () {
+    msColor = document.querySelector('[name="msapplication-TileColor"]')
+    themeColor = document.querySelector('[name="theme-color"]')
+    maskIcon = document.querySelector('[rel="mask-icon"]')
+
     if (this.enabled && this.metaColors) {
       window.addEventListener('load', () => {
         this.setHtmlMetaColors(this.fullThemeName)
