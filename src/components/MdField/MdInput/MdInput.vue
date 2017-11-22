@@ -3,7 +3,7 @@
     class="md-input"
     v-model="model"
     v-bind="attributes"
-    v-on="$listeners"
+    v-on="listeners"
     @focus="onFocus"
     @blur="onBlur">
 </template>
@@ -33,6 +33,12 @@
       },
       isPassword () {
         return this.type === 'password'
+      },
+      listeners () {
+        return {
+          ...this.$listeners,
+          input: event => $emit('input', event.target.value)
+        }
       }
     },
     watch: {
