@@ -281,7 +281,6 @@
   .md-tabs {
     display: flex;
     flex-direction: column;
-    transition: .3s $md-transition-default-timing;
 
     &.md-no-transition * {
       transition: none !important;

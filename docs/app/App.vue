@@ -62,6 +62,9 @@
 
 <style lang="scss">
   @import "./themes/default";
+  @import "./themes/default-dark";
+  @import "./themes/light-teal";
+  @import "./themes/dark-green";
   @import "./themes/dark";
   @import "./themes/demo";
 

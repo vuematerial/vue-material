@@ -10,7 +10,7 @@
 
 <script>
   import * as types from 'store/mutation-types'
-  import { mapActions } from 'vuex'
+  import { mapState, mapActions } from 'vuex'
   import AdManager from './AdManager'
 
   export default {
@@ -22,13 +22,18 @@
       title: String,
       centered: Boolean
     },
+    computed: {
+      ...mapState({
+        currentTheme: 'theme'
+      })
+    },
     methods: {
       ...mapActions({
         setPageTitle: types.SET_PAGE_TITLE
       })
     },
     created () {
-      this.$material.theming.theme = 'default'
+      this.$material.theming.theme = this.currentTheme
       this.setPageTitle(this.title)
     }
   }
@@ -76,7 +81,7 @@
         padding: 0 4px;
         display: inline-block;
         color: md-get-palette-color(red, A200);
-        background: darken(md-get-palette-color(red, 50), 1%);
+        background: rgba(#000, .07);
         border-radius: 2px;
         line-height: 1.45em;
       }

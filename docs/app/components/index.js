@@ -10,8 +10,8 @@ import CodepenEdit from './CodepenEdit'
 import GridLayout from './GridLayout'
 import GridLayoutItem from './GridLayoutItem'
 import ApiItem from './ApiItem'
-import ApiTable from './ApiTable'
-import NoteBlock from './NoteBlock'
+import ApiTable from './ApiTable/ApiTable'
+import NoteBlock from './NoteBlock/NoteBlock'
 
 Vue.component(PageContainer.name, PageContainer)
 Vue.component(SplashContainer.name, SplashContainer)

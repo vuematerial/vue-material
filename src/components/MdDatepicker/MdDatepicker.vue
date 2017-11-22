@@ -116,8 +116,6 @@
   }
 
   .md-datepicker {
-    transition: .3s $md-transition-default-timing;
-
     .md-date-icon {
       cursor: pointer;
     }

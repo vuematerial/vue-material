@@ -1,0 +1,41 @@
+.api-table {
+  @include md-theme-component() {
+    @if md-get-theme-mode() == light {
+      table {
+        background-color: md-get-palette-color(grey, 50);
+      }
+
+      tr:first-child {
+        background-color: md-get-palette-color(grey, 200);
+      }
+
+      td,
+      th {
+        border-color: md-get-palette-color(grey, 300);
+        color: md-get-palette-color(grey, 800);
+      }
+
+      th {
+        color: md-get-palette-color(grey, 700);
+      }
+    } @else {
+      table {
+        background-color: md-get-palette-color(grey, 900);
+      }
+
+      tr:first-child {
+        background-color: md-get-palette-color(grey, 800);
+      }
+
+      td,
+      th {
+        border-color: md-get-palette-color(grey, 800);
+        color: md-get-palette-color(grey, 50);
+      }
+
+      th {
+        color: md-get-palette-color(grey, 100);
+      }
+    }
+  }
+}

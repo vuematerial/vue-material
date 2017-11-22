@@ -1,0 +1,19 @@
+.note-block {
+  @include md-theme-component() {
+    @if md-get-theme-mode() == light {
+      @include md-theme-property-by-hue(background-color, grey, 200, note-block, background);
+
+      &.warning {
+        @include md-theme-property-by-hue(background-color, red, 100, note-block-warning, background);
+        @include md-theme-property-by-hue(border-left-color, red, A200, note-block-warning-border, background);
+      }
+    } @else {
+      @include md-theme-property-by-hue(background-color, grey, 800, note-block, background);
+
+      &.warning {
+        @include md-theme-property-by-hue(background-color, red, 400, note-block-warning, background);
+        @include md-theme-property-by-hue(border-left-color, red, 800, note-block-warning-border, background);
+      }
+    }
+  }
+}

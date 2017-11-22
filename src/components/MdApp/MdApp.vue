@@ -72,7 +72,6 @@
   .md-app {
     overflow: hidden;
     position: relative;
-    transition: .3s $md-transition-default-timing;
 
     &.md-fixed {
       .md-app-scroller {

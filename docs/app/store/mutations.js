@@ -14,5 +14,8 @@ export default {
   },
   [types.HIDE_MENU] (state) {
     state.menuVisible = false
+  },
+  [types.CHANGE_THEME] (state, theme) {
+    state.theme = theme
   }
 }

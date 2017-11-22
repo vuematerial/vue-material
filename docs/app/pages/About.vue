@@ -81,7 +81,7 @@
 
 <style lang="scss" scoped>
   .author-card {
-    display: flex;
+    display: inline-flex;
     align-items: center;
 
     .md-avatar {

@@ -1,0 +1,19 @@
+@mixin md-menu-item-spec ($color) {
+  .md-list-item-link,
+  .md-list-item-router,
+  .md-list-item-button {
+    @include md-theme-property(color, $color, background);
+  }
+}
+
+.md-menu-item {
+  @include md-theme-component() {
+    &.md-primary {
+      @include md-menu-item-spec(primary);
+    }
+
+    &.md-accent {
+      @include md-menu-item-spec(accent);
+    }
+  }
+}

@@ -1,14 +1,15 @@
 <template>
-  <md-list-item class="md-menu-item" v-bind="$attrs" :class="itemClasses" :disabled="disabled" :tabindex="highlighted && -1" v-on="listeners">
+  <md-list-item class="md-menu-item" v-bind="$attrs" :class="[itemClasses, $mdActiveTheme]" :disabled="disabled" :tabindex="highlighted && -1" v-on="listeners">
     <slot />
   </md-list-item>
 </template>
 
 <script>
+  import MdComponent from 'core/MdComponent'
   import MdInteractionEvents from 'core/utils/MdInteractionEvents'
   import MdListItem from 'components/MdList/MdListItem/MdListItem'
 
-  export default {
+  export default new MdComponent({
     name: 'MdMenuItem',
     props: {
       disabled: Boolean
@@ -50,12 +51,5 @@
         this.listeners = this.$listeners
       }
     }
-  }
+  })
 </script>
-
-<style lang="scss">
-  @import "~components/MdAnimation/variables";
-  @import "~components/MdLayout/mixins";
-
-
-</style>

@@ -19,11 +19,3 @@
     }
   })
 </script>
-
-<style lang="scss">
-  @import "~components/MdAnimation/variables";
-
-  .md-content {
-    transition: .3s $md-transition-default-timing;
-  }
-</style>

@@ -214,8 +214,6 @@
   @import "~components/MdLayout/mixins";
 
   .md-autocomplete {
-    transition: .3s $md-transition-default-timing;
-
     .md-menu {
       width: 100%;
       display: flex;

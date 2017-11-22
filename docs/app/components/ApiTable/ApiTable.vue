@@ -1,5 +1,5 @@
 <template>
-  <div class="api-table">
+  <div class="api-table" :class="$mdActiveTheme">
     <table>
       <tr>
         <th v-for="heading in headings" :key="heading">{{ heading }}</th>
@@ -32,13 +32,15 @@
 </template>
 
 <script>
-export default {
-  name: 'ApiTable',
-  props: {
-    props: Array,
-    headings: Array
-  }
-}
+  import MdComponent from 'vue-material/core/MdComponent'
+
+  export default MdComponent({
+    name: 'ApiTable',
+    props: {
+      props: Array,
+      headings: Array
+    }
+  })
 </script>
 
 <style lang="scss" scoped>
@@ -57,28 +59,24 @@ export default {
     table-layout: auto;
     border-collapse: collapse;
     border-spacing: 0;
-    background-color: #fff;
     font-size: 13px;
     line-height: 18px;
   }
 
   tr:first-child {
-    background-color: $bg-color;
     font-weight: 500;
   }
 
   td,
   th {
     padding: 8px 16px;
-    border: 1px solid $border-color;
-    color: md-get-palette-color(grey, 800);
+    border: 1px solid;
     text-align: left;
     vertical-align: middle;
   }
 
   th {
     height: 40px;
-    color: md-get-palette-color(grey, 700);
     line-height: 23px;
 
     &:first-child {
