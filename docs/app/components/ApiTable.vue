@@ -11,7 +11,7 @@
           <small class="prop-type" v-if="type">{{ type }}</small>
         </td>
 
-        <td class="description" v-html="description"></td>
+        <td class="description" v-if="description" v-html="description"></td>
         <td class="slot-options" v-if="options">
           <p class="option" v-for="({ name, description }, index) in options" :key="index">
             <code>{{ name }}: </code>

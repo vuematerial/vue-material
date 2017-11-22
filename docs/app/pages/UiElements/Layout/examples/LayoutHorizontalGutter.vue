@@ -1,5 +1,5 @@
 <template>
-  <div class="md-layout">
+  <div class="md-layout md-gutter">
     <div class="md-layout-item"></div>
     <div class="md-layout-item"></div>
     <div class="md-layout-item"></div>
@@ -22,19 +22,8 @@
       width: 100%;
       height: 100%;
       display: block;
-      content: " ";
-    }
-
-    &:nth-child(1) {
       background: md-get-palette-color(red, 200);
-    }
-
-    &:nth-child(2) {
-      background: md-get-palette-color(green, 200);
-    }
-
-    &:nth-child(3) {
-      background: md-get-palette-color(blue, 200);
+      content: " ";
     }
   }
 </style>
