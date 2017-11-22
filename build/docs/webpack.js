@@ -144,6 +144,11 @@ const webpackConfig = {
         context: config.assets,
         from: '**/*',
         to: 'assets'
+      },
+      {
+        context: config.docs,
+        from: '_redirects',
+        to: ''
       }
     ]),
     new HtmlWebpackPlugin({
