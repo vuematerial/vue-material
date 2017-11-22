@@ -124,11 +124,14 @@
       font-size: 13px;
 
       > .md-avatar {
-        width: 36px;
-        min-width: 36px;
-        height: 36px;
         margin-top: 0;
         margin-bottom: 0;
+
+        &:not(.md-small) {
+          width: 36px;
+          min-width: 36px;
+          height: 36px;
+        }
 
         &:first-child {
           margin-right: 20px;

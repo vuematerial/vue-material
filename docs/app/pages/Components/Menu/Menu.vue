@@ -7,7 +7,7 @@
   <page-container centered :title="$t('pages.menu.title')">
     <div class="page-container-section">
       <p>Menus appear upon interaction with a button, action, or other control. They usually display a list of choices, with one choice per line, but can also show a rich content.</p>
-      <p>The <code>md-menu</code> component consists of a parent (<code>md-menu</code>), a trigger (<code>md-menu-trigger</code>), a content holder (<code>md-menu-content</code>) and optional items (<code>md-menu-item</code>).</p>
+      <p>The <code>md-menu</code> component consists of a parent <code>md-menu</code>, a trigger <code>md-menu-trigger</code>, a content holder <code>md-menu-content</code> and optional items <code>md-menu-item</code>.</p>
     </div>
 
     <div class="page-container-section">

@@ -1,7 +1,10 @@
 @mixin md-toolbar-icon($primary, $secondary) {
   .md-icon {
-    @include md-theme-property(fill, $primary, $secondary);
     @include md-theme-property(color, $primary, $secondary);
+
+    svg {
+      @include md-theme-property(fill, $primary, $secondary);
+    }
   }
 }
 

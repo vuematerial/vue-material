@@ -108,13 +108,15 @@
   .main-nav-content {
     a {
       display: block;
-      color: inherit;
       font-size: 14px;
       line-height: 2em;
+
+      &:not(.router-link-active) {
+        color: inherit;
+      }
     }
 
     .router-link-active {
-      color: md-get-palette-color(blue, A200);
       font-weight: 500;
     }
   }

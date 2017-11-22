@@ -22,7 +22,6 @@
     flex-flow: column nowrap;
     position: relative;
     list-style: none;
-    transition: .3s $md-transition-default-timing;
 
     &.md-dense {
       padding: 4px 0;

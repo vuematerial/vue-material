@@ -153,6 +153,19 @@
       }
     }
 
+    &.md-plain.md-button:not([disabled]) {
+      color: rgba(#000, .87);
+      background-color: #fff;
+
+      .md-icon-font {
+        color: rgba(#000, .87);
+      }
+
+      .md-icon-image {
+        fill: rgba(#000, .87);
+      }
+    }
+
     &::-moz-focus-inner {
       padding: 0;
       border: 0;
@@ -255,19 +268,6 @@
 
     &:active {
       @include md-elevation(12);
-    }
-
-    &.md-plain.md-button:not([disabled]) {
-      color: rgba(#000, .87);
-      background-color: #fff;
-
-      .md-icon-font {
-        color: rgba(#000, .87);
-      }
-
-      .md-icon-image {
-        fill: rgba(#000, .87);
-      }
     }
 
     &.md-mini,

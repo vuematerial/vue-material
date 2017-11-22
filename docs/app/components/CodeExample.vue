@@ -19,7 +19,7 @@
           <component :is="component.name" />
         </div>
 
-        <md-button class="button-theme md-icon-button md-dense md-raised md-primary" @click="toggleTheme" v-if="component.name">
+        <md-button class="button-theme md-icon-button md-dense md-raised md-accent" @click="toggleTheme" v-if="component.name">
           <md-icon>invert_colors</md-icon>
           <md-tooltip md-direction="top">Invert Colors</md-tooltip>
         </md-button>
@@ -29,6 +29,8 @@
 </template>
 
 <script>
+  import { mapState } from 'vuex'
+
   export default {
     name: 'CodeExample',
     props: {
@@ -45,23 +47,34 @@
     },
     data: () => ({
       showCode: false,
-      darkTheme: false
+      isThemeDark: false
     }),
     computed: {
+      ...mapState({
+        currentTheme: 'theme'
+      }),
       theme () {
-        if (this.darkTheme) {
-          return 'demo-dark'
+        if (this.isThemeDark) {
+          return this.getThemeName('dark')
         }
 
-        return 'demo-light'
+        return this.getThemeName('light')
+      }
+    },
+    watch: {
+      currentTheme (theme) {
+        this.isThemeDark = this.currentTheme.includes('dark')
       }
     },
     methods: {
+      getThemeName (baseName) {
+        return `demo-${baseName}`
+      },
       toggleCode () {
         this.showCode = !this.showCode
       },
       toggleTheme () {
-        this.darkTheme = !this.darkTheme
+        this.isThemeDark = !this.isThemeDark
       }
     }
   }

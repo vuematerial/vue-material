@@ -6,7 +6,7 @@
       <span class="copy-message" :class="{ 'active': showMessage }">{{ $t('components.code.copyMessage') }}</span>
     </div>
 
-    <md-button class="md-raised md-primary md-dense" ref="copy">{{ $t('components.code.copy') }}</md-button>
+    <md-button class="md-raised md-accent md-dense" ref="copy">{{ $t('components.code.copy') }}</md-button>
   </div>
 </template>
 

@@ -1,8 +1,8 @@
 <template>
   <md-ripple :md-disabled="!mdRipple || disabled">
-    <span class="md-button-content">
+    <div class="md-button-content">
       <slot />
-    </span>
+    </div>
   </md-ripple>
 </template>
 

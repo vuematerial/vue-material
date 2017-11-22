@@ -105,7 +105,6 @@
   .md-chips.md-field {
     padding-top: 12px;
     flex-wrap: wrap;
-    transition: .3s $md-transition-default-timing;
 
     &.md-has-value {
       label {

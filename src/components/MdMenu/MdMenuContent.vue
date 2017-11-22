@@ -109,7 +109,7 @@
               enabled: false
             },
             offset: {
-              offset: `${offsetX}, ${offsetY + 1}`
+              offset: `${offsetX}, ${offsetY}`
             }
           }
         }

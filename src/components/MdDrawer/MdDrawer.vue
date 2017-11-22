@@ -183,7 +183,6 @@
 
     &.md-permanent-full {
       @include md-layout-small-and-up {
-        height: 100%;
         z-index: 3;
 
         .md-list {
@@ -259,6 +258,7 @@
 
     .md-list-item-container {
       font-size: 14px;
+      text-transform: none;
     }
   }
 </style>

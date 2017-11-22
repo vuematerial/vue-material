@@ -25,7 +25,8 @@
     padding: 0;
     display: block;
     border: 0;
-    transition: .3s $md-transition-default-timing;
+    transition: margin-left .3s $md-transition-default-timing;
+    will-change: margin-left;
 
     &.md-inset {
       margin-left: 72px;
