@@ -153,7 +153,7 @@
       }
     }
 
-    &.md-plain.md-button:not([disabled]) {
+    &.md-plain.md-button.md-raised:not([disabled]) {
       color: rgba(#000, .87);
       background-color: #fff;
 
