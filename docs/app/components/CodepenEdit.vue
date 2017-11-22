@@ -24,7 +24,7 @@
     computed: {
       /* eslint-disable */
       styles () {
-        return this.component.style
+        return this.component.style ? this.component.style : ''
       },
       html () {
         return `
