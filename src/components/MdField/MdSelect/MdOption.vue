@@ -39,7 +39,8 @@
         return this.MdOptgroup.disabled || this.disabled
       },
       key () {
-        return this.value || this.uniqueId
+        let isSet = (this.value || this.value === 0)
+        return isSet ? this.value : this.uniqueId
       },
       inputLabel () {
         return this.MdSelect.label
