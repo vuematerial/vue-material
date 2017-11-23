@@ -16,7 +16,7 @@
 
     <md-input
       ref="input"
-      v-model.trim="inputValue"
+      v-model="inputValue"
       v-if="!mdStatic && modelRespectLimit"
       :type="mdInputType"
       :id="id"
@@ -69,17 +69,18 @@
       }
     },
     methods: {
-      insertChip ({ target }) {
+      insertChip () {
+        let value = this.inputValue.trim()
         if (
-          !this.inputValue ||
-          this.value.includes(this.inputValue) ||
+          !value ||
+          this.value.includes(value) ||
           !this.modelRespectLimit
         ) {
           return
         }
-        this.value.push(this.inputValue)
+        this.value.push(value)
         this.$emit('input', this.value)
-        this.$emit('md-insert', this.inputValue)
+        this.$emit('md-insert', value)
         this.inputValue = ''
       },
       removeChip (chip) {
