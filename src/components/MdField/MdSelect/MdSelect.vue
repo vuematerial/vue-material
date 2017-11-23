@@ -192,14 +192,19 @@
           this.showSelect = true
         }
       },
-      toggleArrayValue (array, value) {
-        if (array.includes(value)) {
-          const index = array.indexOf(value)
-
-          array.splice(index, 1)
-        } else {
-          array.push(value)
+      arrayAccessorRemove (arr, index) {
+        let before = arr.slice(0, index)
+        let after = arr.slice(index + 1, arr.length)
+        return before.concat(after)
+      },
+      toggleArrayValue (value) {
+        let index = this.localValue.indexOf(value)
+        let includes = index > -1
+        if (!includes) {
+          this.localValue = this.localValue.concat([value])
+          return
         }
+        this.localValue = this.arrayAccessorRemove(this.localValue, index)
       },
       setValue (newValue) {
         this.model = newValue
@@ -221,7 +226,7 @@
       setMultipleValue (value) {
         const newValue = value
 
-        this.toggleArrayValue(this.model, newValue)
+        this.toggleArrayValue(newValue)
         this.setFieldValue()
       },
       setMultipleContentByValue () {
@@ -248,7 +253,8 @@
       initialLocalValueByDefault () {
         let isArray = Array.isArray(this.localValue)
         if (this.multiple && !isArray) {
-          this.localValue = [this.localValue]
+          let isSet = this.localValue !== undefined && this.localValue !== null
+          this.localValue = isSet ? [this.localValue] : []
           return
         }
         if (!this.multiple && isArray) {
