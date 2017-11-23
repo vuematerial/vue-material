@@ -5,7 +5,6 @@ import autoprefixer from 'autoprefixer'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 import CopyWebpackPlugin from 'copy-webpack-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
-import ScriptExtHtmlWebpackPlugin from 'script-ext-html-webpack-plugin'
 import OptimizeJsPlugin from 'optimize-js-plugin'
 import PrerenderSpaPlugin from 'prerender-spa-plugin'
 import PreloadWebpackPlugin from 'preload-webpack-plugin'
@@ -192,9 +191,6 @@ const webpackConfig = {
         sortClassName: true,
         useShortDoctype: true
       }
-    }),
-    new ScriptExtHtmlWebpackPlugin({
-      defaultAttribute: 'async'
     }),
     new PreloadWebpackPlugin(),
     new OptimizeCssAssetsPlugin({
