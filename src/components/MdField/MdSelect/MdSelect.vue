@@ -16,7 +16,7 @@
       :disabled="disabled"
       :required="required"
       :placeholder="placeholder"
-      v-on="$listeners"
+      v-on="inputListeners"
       v-bind="$attrs"
       @focus.prevent="onFocus"
       @blur.prevent="removeHighlight"
@@ -102,8 +102,16 @@
 
       return { MdSelect }
     },
+    computed: {
+      inputListeners () {
+        return {
+          ...this.$listeners,
+          input: undefined
+        }
+      }
+    },
     watch: {
-      value: {
+      localValue: {
         immediate: true,
         handler () {
           this.setFieldContent()
@@ -113,6 +121,7 @@
         immediate: true,
         handler (isMultiple) {
           this.MdSelect.multiple = isMultiple
+          this.$nextTick(() => this.initialLocalValueByDefault())
         }
       },
       model () {
@@ -201,7 +210,7 @@
         this.MdSelect.label = newLabel
       },
       setContentByValue () {
-        const textContent = this.MdSelect.items[this.value]
+        const textContent = this.MdSelect.items[this.localValue]
 
         if (textContent) {
           this.setContent(textContent)
@@ -216,9 +225,10 @@
         this.setFieldValue()
       },
       setMultipleContentByValue () {
+        if (!this.localValue) this.initialLocalValueByDefault()
         let content = []
 
-        this.value.forEach(item => {
+        this.localValue.forEach(item => {
           const textContent = this.MdSelect.items[item]
 
           if (textContent) {
@@ -233,6 +243,16 @@
           this.setMultipleContentByValue()
         } else {
           this.setContentByValue()
+        }
+      },
+      initialLocalValueByDefault () {
+        let isArray = Array.isArray(this.localValue)
+        if (this.multiple && !isArray) {
+          this.localValue = [this.localValue]
+          return
+        }
+        if (!this.multiple && isArray) {
+          this.localValue = this.localValue[0]
         }
       }
     },

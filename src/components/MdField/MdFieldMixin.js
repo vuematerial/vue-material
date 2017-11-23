@@ -1,8 +1,6 @@
 export default {
   props: {
-    value: {
-      required: true
-    },
+    value: {},
     placeholder: String,
     maxlength: [String, Number],
     readonly: Boolean,
@@ -10,18 +8,21 @@ export default {
     disabled: Boolean,
     mdCounter: [String, Number]
   },
-  data: () => ({
-    textareaHeight: false
-  }),
+  data () {
+    return {
+      localValue: this.value,
+      textareaHeight: false
+    }
+  },
   computed: {
     model: {
       get () {
-        return this.value
+        return this.localValue
       },
       set (value) {
         if (value.constructor.name.toLowerCase() !== 'inputevent') {
           this.$nextTick(() => {
-            this.$emit('input', value)
+            this.localValue = value
           })
         }
       }
@@ -66,6 +67,12 @@ export default {
     },
     mdCounter () {
       this.setMaxlength()
+    },
+    localValue (val) {
+      this.$emit('input', val)
+    },
+    value (val) {
+      this.localValue = val
     }
   },
   methods: {
@@ -87,7 +94,7 @@ export default {
         }
       }
     },
-    setFieldValue (value) {
+    setFieldValue () {
       this.MdField.value = this.model
     },
     setPlaceholder () {
