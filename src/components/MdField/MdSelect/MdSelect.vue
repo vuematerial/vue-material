@@ -258,7 +258,7 @@
           return
         }
         if (!this.multiple && isArray) {
-          this.localValue = this.localValue[0]
+          this.localValue = this.localValue.length > 0 ? this.localValue[0] : null
         }
       }
     },
