@@ -75,30 +75,30 @@
       name: String
     },
     inject: ['MdField'],
-    data: () => ({
-      uniqueId: 'md-select-menu-' + MdUuid(),
-      menuStyles: {},
-      offset: {
-        x: defaultOffset.x,
-        y: 0
-      },
-      showSelect: true,
-      didMount: false,
-      MdSelect: {
-        items: {},
-        label: null,
-        multiple: false,
-        modelValue: null
+    data () {
+      return {
+        uniqueId: 'md-select-menu-' + MdUuid(),
+        menuStyles: {},
+        offset: {
+          x: defaultOffset.x,
+          y: 0
+        },
+        showSelect: true,
+        didMount: false,
+        MdSelect: {
+          items: {},
+          label: null,
+          multiple: false,
+          modelValue: this.model,
+          setValue: this.setValue,
+          setContent: this.setContent,
+          setMultipleValue: this.setMultipleValue,
+          setMultipleContent: this.setMultipleContent
+        }
       }
-    }),
+    },
     provide () {
       const MdSelect = this.MdSelect
-
-      MdSelect.setValue = this.setValue
-      MdSelect.setContent = this.setContent
-      MdSelect.setMultipleValue = this.setMultipleValue
-      MdSelect.setMultipleContent = this.setMultipleContent
-      MdSelect.modelValue = this.model
 
       return { MdSelect }
     },
@@ -114,6 +114,9 @@
         handler (isMultiple) {
           this.MdSelect.multiple = isMultiple
         }
+      },
+      model () {
+        this.MdSelect.modelValue = this.model
       }
     },
     methods: {
