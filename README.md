@@ -28,6 +28,10 @@ Vue Material is Simple, lightweight and built exactly according to the Google <a
 
 Build well-designed apps that can fit on every screen with support to all modern Web Browsers with dynamic themes, components on demand and all with an ease-to-use API
 
+<a target='_blank' rel='nofollow' href='https://app.codesponsor.io/link/265KRzahMKDQEQEzoo9BxRiH/vuematerial/vue-material'>	
+  <img alt='Sponsor' width='888' height='68' src='https://app.codesponsor.io/embed/265KRzahMKDQEQEzoo9BxRiH/vuematerial/vue-material.svg' />	
+</a>
+
 ## Demo and Documentation
 
 <a href="https://vuematerial.io/" target="_blank">Demo</a>
