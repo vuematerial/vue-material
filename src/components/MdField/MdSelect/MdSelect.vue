@@ -230,7 +230,9 @@
         this.setFieldValue()
       },
       setMultipleContentByValue () {
-        if (!this.localValue) this.initialLocalValueByDefault()
+        if (!this.localValue) {
+          this.initialLocalValueByDefault()
+        }
         let content = []
 
         this.localValue.forEach(item => {
