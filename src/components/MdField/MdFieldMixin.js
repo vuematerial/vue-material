@@ -1,8 +1,6 @@
 export default {
   props: {
-    value: {
-      default: null
-    },
+    value: {},
     placeholder: String,
     maxlength: [String, Number],
     readonly: Boolean,
