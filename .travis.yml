@@ -33,12 +33,12 @@ after_success:
   - PACKAGE_VERSION=$(grep '"version":' package.json | cut -d\" -f4)
   - yarn github-release -- delete \
       --owner=vuematerial \
-      --repo=vue-material-experiments \
+      --repo=vue-material \
       --tag="v${PACKAGE_VERSION}" \
       --name="v${PACKAGE_VERSION}"
   - yarn github-release -- upload \
       --owner=vuematerial \
-      --repo=vue-material-experiments \
+      --repo=vue-material \
       --tag="${PACKAGE_VERSION}" \
       --name="v${PACKAGE_VERSION}" \
       --body="v${RELEASE_NOTES}"
