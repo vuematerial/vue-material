@@ -1,20 +1,18 @@
+<template>
+  <div class="carbon-ads-widget"></div>
+</template>
+
 <script>
   export default {
     name: 'AdManager',
-    abstract: true,
     data: () => ({
-      carbonEl: null,
-      codeSponsorEl: null
+      carbonEl: null
     }),
-    render () {
-      return null
-    },
     methods: {
       saveAdsElements () {
         this.carbonEl = document.getElementById('carbonads')
-        this.codeSponsorEl = document.querySelector('.code-sponsor-widget')
 
-        if (!this.carbonEl || !this.codeSponsorEl) {
+        if (!this.carbonEl) {
           this.$destroy()
         }
       },
@@ -24,11 +22,11 @@
           const container = document.querySelector('.container')
           const mainContainer = document.querySelector('.main-container')
           const splashContainer = document.querySelector('.splash-container')
-          const carbonAdsContainer = document.querySelector('.code-sponsor-widget')
+          const adsContainer = document.querySelector('.carbon-ads-widget')
 
           if (carbonAds && container) {
             if (splashContainer) {
-              carbonAdsContainer.appendChild(carbonAds)
+              adsContainer.appendChild(carbonAds)
             } else if (mainContainer) {
               mainContainer.insertBefore(carbonAds, mainContainer.firstChild)
             } else {
@@ -39,42 +37,18 @@
           }
         }, 50)
       },
-      appendCodeSponsor() {
-        const interval = window.setInterval(() => {
-          const carbonAds = document.querySelector('.code-sponsor-widget')
-          const container = document.querySelector('.container')
-          const mainContainer = document.querySelector('.main-container')
-
-          if (carbonAds && mainContainer) {
-            if (mainContainer) {
-              mainContainer.appendChild(carbonAds)
-            } else {
-              container.appendChild(carbonAds)
-            }
-
-            window.clearInterval(interval)
-          }
-        }, 50)
-      },
       moveCarbonAdsToBody() {
         if (this.carbonEl) {
           document.body.appendChild(this.carbonEl)
-        }
-      },
-      moveCodeSponsorToBody() {
-        if (this.codeSponsorEl) {
-          document.body.appendChild(this.codeSponsorEl)
         }
       }
     },
     mounted () {
       this.saveAdsElements()
       this.appendCarbonAds()
-      this.appendCodeSponsor()
     },
     beforeDestroy() {
       this.moveCarbonAdsToBody()
-      this.moveCodeSponsorToBody()
     }
   }
 </script>
@@ -86,8 +60,7 @@
   $ad-responsive-small: 600px;
 
   @mixin ad-theme ($hue, $color) {
-    #carbonads,
-    .code-sponsor-widget {
+    #carbonads {
       background: md-get-palette-color(grey, $hue);
     }
 
@@ -212,26 +185,8 @@
     }
   }
 
-  .code-sponsor-widget {
-    margin-top: 64px;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-
-    @media (max-width: $ad-responsive-small) {
-      align-items: center;
-      flex-direction: column;
-    }
-
-    .splash-container & {
-      width: calc(100% + 32px);
-      margin: 0 -16px -16px;
-      background: #fff;
-    }
-
+  .carbon-ads-widget {
     #carbonads {
-      margin-left: 16px;
-
       @media (max-width: $ad-responsive-small) {
         margin-top: 16px;
         margin-left: 0;

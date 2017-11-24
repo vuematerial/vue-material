@@ -133,6 +133,22 @@ const webpackConfig = {
       allChunks: true,
       filename: '[name].[contenthash:8].css'
     }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      minChunks (module) {
+        let resource = module.resource
+
+        if (resource && (/\.js$/).test(resource)) {
+          return resource.indexOf(config.nodePath) >= 0
+        }
+
+        return false
+      }
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'manifest',
+      chunks: ['vendor']
+    }),
     new webpack.BannerPlugin({
       banner,
       raw: true,
@@ -177,22 +193,6 @@ const webpackConfig = {
       }
     }),
     new PreloadWebpackPlugin(),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      minChunks (module) {
-        let resource = module.resource
-
-        if (resource && (/\.js$/).test(resource)) {
-          return resource.indexOf(config.nodePath) >= 0
-        }
-
-        return false
-      }
-    }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'manifest',
-      chunks: ['vendor']
-    }),
     new OptimizeCssAssetsPlugin({
       canPrint: false
     }),
