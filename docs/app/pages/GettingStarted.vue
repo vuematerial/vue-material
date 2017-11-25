@@ -47,8 +47,35 @@
       <p>It's optional, but to have the best experience possible, use Roboto and Google Icons from Google CDN:</p>
 
       <code-example title="Roboto Font and Icons" label="HTML" lang="html">
-        &lt;link rel=&quot;stylesheet&quot; href=&quot;//fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic&quot;&gt;
-        &lt;link rel=&quot;stylesheet&quot; href=&quot;//fonts.googleapis.com/icon?family=Material+Icons&quot;&gt;
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;//fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic|Material+Icons&quot;&gt;
+      </code-example>
+
+      <p>For fast prototyping without installing templates from <strong>vue-cli</strong> use CDNs:</p>
+
+      <code-example title="CDN" label="HTML" lang="html">
+        &#x3C;!doctype html&#x3E;
+        &#x3C;html&#x3E;
+          &#x3C;head&#x3E;
+            &#x3C;meta charset=&#x22;utf-8&#x22;&#x3E;
+            &#x3C;link rel=&#x22;stylesheet&#x22; href=&#x22;//fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic|Material+Icons&#x22;&#x3E;
+          &#x9;&#x3C;link type=&#x22;text/css&#x22; rel=&#x22;stylesheet&#x22; href=&#x22;https://unpkg.com/vue-material@beta/dist/vue-material.min.css&#x22;&#x3E;
+            &#x3C;meta content=&#x22;width=device-width,initial-scale=1,minimal-ui&#x22; name=&#x22;viewport&#x22;&#x3E;
+          &#x3C;/head&#x3E;
+          &#x3C;body&#x3E;
+            &#x3C;div id=&#x22;app&#x22;&#x3E;
+              &#x3C;!-- Your code here --&#x3E;
+            &#x3C;/div&#x3E;
+            &#x3C;script type=&#x22;text/javascript&#x22; src=&#x22;https://unpkg.com/vue&#x22;&#x3E;&#x3C;/script&#x3E;
+            &#x3C;script type=&#x22;text/javascript&#x22; src=&#x22;https://unpkg.com/vue-material@beta&#x22;&#x3E;&#x3C;/script&#x3E;
+            &#x3C;script&#x3E;
+              Vue.use(VueMaterial.default);
+
+              new Vue({
+                el: &#x27;#app&#x27;
+              });
+            &#x3C;/script&#x3E;
+          &#x3C;/body&#x3E;
+        &#x3C;/html&#x3E;
       </code-example>
     </div>
   </page-container>
