@@ -4,6 +4,11 @@
       <h2 class="md-headline">Creating themes</h2>
 
       <p>The simplest markup to create a theme in Vue Material is:</p>
+
+      <note-block>
+        If you want to use custom themes you need SCSS/SASS support in your project. Read more about <a href="https://vue-loader.vuejs.org/en/configurations/pre-processors.html">Pre-Processors</a>.
+      </note-block>
+
       <code-example label="SCSS" lang="scss">
         @import "~vue-material/dist/theme/engine"; // Import the theme engine
 
