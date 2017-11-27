@@ -129,6 +129,9 @@
       }
     },
     methods: {
+      selected (value) {
+        this.$emit('md-selected', value)
+      },
       elHasScroll (el) {
         return el.scrollHeight > el.offsetHeight
       },
@@ -202,12 +205,15 @@
         let includes = index > -1
         if (!includes) {
           this.localValue = this.localValue.concat([value])
+          this.emitSelected(this.localValue)
           return
         }
         this.localValue = this.arrayAccessorRemove(this.localValue, index)
+        this.emitSelected(this.localValue)
       },
       setValue (newValue) {
         this.model = newValue
+        this.emitSelected(newValue)
         this.setFieldValue()
         this.showSelect = false
       },
@@ -225,7 +231,6 @@
       },
       setMultipleValue (value) {
         const newValue = value
-
         this.toggleArrayValue(newValue)
         this.setFieldValue()
       },
@@ -262,6 +267,10 @@
         if (!this.multiple && isArray) {
           this.localValue = this.localValue.length > 0 ? this.localValue[0] : null
         }
+      },
+      emitSelected (value) {
+        console.log(value)
+        this.$emit('md-selected', value)
       }
     },
     async mounted () {
