@@ -16,7 +16,7 @@
       :disabled="disabled"
       :required="required"
       :placeholder="placeholder"
-      v-on="$listeners"
+      v-on="inputListeners"
       v-bind="$attrs"
       @focus.prevent="onFocus"
       @blur.prevent="removeHighlight"
@@ -75,35 +75,43 @@
       name: String
     },
     inject: ['MdField'],
-    data: () => ({
-      uniqueId: 'md-select-menu-' + MdUuid(),
-      menuStyles: {},
-      offset: {
-        x: defaultOffset.x,
-        y: 0
-      },
-      showSelect: true,
-      didMount: false,
-      MdSelect: {
-        items: {},
-        label: null,
-        multiple: false,
-        modelValue: null
+    data () {
+      return {
+        uniqueId: 'md-select-menu-' + MdUuid(),
+        menuStyles: {},
+        offset: {
+          x: defaultOffset.x,
+          y: 0
+        },
+        showSelect: true,
+        didMount: false,
+        MdSelect: {
+          items: {},
+          label: null,
+          multiple: false,
+          modelValue: this.model,
+          setValue: this.setValue,
+          setContent: this.setContent,
+          setMultipleValue: this.setMultipleValue,
+          setMultipleContent: this.setMultipleContent
+        }
       }
-    }),
+    },
     provide () {
       const MdSelect = this.MdSelect
 
-      MdSelect.setValue = this.setValue
-      MdSelect.setContent = this.setContent
-      MdSelect.setMultipleValue = this.setMultipleValue
-      MdSelect.setMultipleContent = this.setMultipleContent
-      MdSelect.modelValue = this.model
-
       return { MdSelect }
     },
+    computed: {
+      inputListeners () {
+        return {
+          ...this.$listeners,
+          input: undefined
+        }
+      }
+    },
     watch: {
-      value: {
+      localValue: {
         immediate: true,
         handler () {
           this.setFieldContent()
@@ -113,7 +121,11 @@
         immediate: true,
         handler (isMultiple) {
           this.MdSelect.multiple = isMultiple
+          this.$nextTick(() => this.initialLocalValueByDefault())
         }
+      },
+      model () {
+        this.MdSelect.modelValue = this.model
       }
     },
     methods: {
@@ -180,14 +192,19 @@
           this.showSelect = true
         }
       },
-      toggleArrayValue (array, value) {
-        if (array.includes(value)) {
-          const index = array.indexOf(value)
-
-          array.splice(index, 1)
-        } else {
-          array.push(value)
+      arrayAccessorRemove (arr, index) {
+        let before = arr.slice(0, index)
+        let after = arr.slice(index + 1, arr.length)
+        return before.concat(after)
+      },
+      toggleArrayValue (value) {
+        let index = this.localValue.indexOf(value)
+        let includes = index > -1
+        if (!includes) {
+          this.localValue = this.localValue.concat([value])
+          return
         }
+        this.localValue = this.arrayAccessorRemove(this.localValue, index)
       },
       setValue (newValue) {
         this.model = newValue
@@ -198,7 +215,7 @@
         this.MdSelect.label = newLabel
       },
       setContentByValue () {
-        const textContent = this.MdSelect.items[this.value]
+        const textContent = this.MdSelect.items[this.localValue]
 
         if (textContent) {
           this.setContent(textContent)
@@ -209,13 +226,16 @@
       setMultipleValue (value) {
         const newValue = value
 
-        this.toggleArrayValue(this.model, newValue)
+        this.toggleArrayValue(newValue)
         this.setFieldValue()
       },
       setMultipleContentByValue () {
+        if (!this.localValue) {
+          this.initialLocalValueByDefault()
+        }
         let content = []
 
-        this.value.forEach(item => {
+        this.localValue.forEach(item => {
           const textContent = this.MdSelect.items[item]
 
           if (textContent) {
@@ -230,6 +250,17 @@
           this.setMultipleContentByValue()
         } else {
           this.setContentByValue()
+        }
+      },
+      initialLocalValueByDefault () {
+        let isArray = Array.isArray(this.localValue)
+        if (this.multiple && !isArray) {
+          let isSet = this.localValue !== undefined && this.localValue !== null
+          this.localValue = isSet ? [this.localValue] : []
+          return
+        }
+        if (!this.multiple && isArray) {
+          this.localValue = this.localValue.length > 0 ? this.localValue[0] : null
         }
       }
     },
