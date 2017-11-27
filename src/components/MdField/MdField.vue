@@ -184,7 +184,7 @@
       transition: $md-transition-stand;
       transition-property: font-size, padding-top, color;
       font-family: inherit;
-      font-size: 1px;
+      font-size: 16px;
       line-height: $md-input-height;
 
       &[type="date"] {
