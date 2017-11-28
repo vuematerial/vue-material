@@ -129,9 +129,6 @@
       }
     },
     methods: {
-      selected (value) {
-        this.$emit('md-selected', value)
-      },
       elHasScroll (el) {
         return el.scrollHeight > el.offsetHeight
       },
