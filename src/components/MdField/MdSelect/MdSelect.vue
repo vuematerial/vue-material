@@ -269,7 +269,6 @@
         }
       },
       emitSelected (value) {
-        console.log(value)
         this.$emit('md-selected', value)
       }
     },
