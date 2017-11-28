@@ -5,8 +5,8 @@
 
       <p>The simplest markup to create a theme in Vue Material is:</p>
 
-      <note-block>
-        If you want to use custom themes you need SCSS/SASS support in your project. Read more about <a href="https://vue-loader.vuejs.org/en/configurations/pre-processors.html">Pre-Processors</a>.
+      <note-block warning>
+        To use themes you'll need SCSS/SASS support in your project. Read more about <a href="https://vue-loader.vuejs.org/en/configurations/pre-processors.html">Pre-Processors</a>. In the near future you'll be able to use themes with Plain CSS and Stylus too. 
       </note-block>
 
       <code-example label="SCSS" lang="scss">
