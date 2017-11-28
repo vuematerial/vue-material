@@ -36,7 +36,7 @@ export default {
           headings: ['Name', 'Description', 'Value'],
           props: [
             {
-              name: 'change',
+              name: 'md-change',
               description: 'Emits a FileList. Triggered every time a file is selected.',
               value: 'FileList'
             }

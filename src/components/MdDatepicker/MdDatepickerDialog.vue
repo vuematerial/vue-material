@@ -169,7 +169,11 @@
         return getDaysInMonth(this.currentDate)
       },
       currentDay () {
-        return getDate(this.selectedDate)
+        if (this.selectedDate) {
+          return getDate(this.selectedDate)
+        }
+
+        return getDate(this.currentDate)
       },
       currentMonth () {
         return getMonth(this.currentDate)

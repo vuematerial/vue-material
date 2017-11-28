@@ -7,7 +7,7 @@
         focusable="false"
         :viewBox="`0 0 ${mdDiameter} ${mdDiameter}`"
         :style="svgStyles">
-        <circle class="md-progress-spinner-circle" cx="50%" cy="50%" :style="circleStyles"></circle>
+        <circle class="md-progress-spinner-circle" cx="50%" cy="50%" :r="circleRadius" :style="circleStyles"></circle>
       </svg>
     </div>
   </transition>
@@ -79,7 +79,6 @@
       },
       circleStyles () {
         return {
-          r: this.circleRadius,
           'stroke-dashoffset': this.circleStrokeDashOffset,
           'stroke-dasharray': this.circleStrokeDashArray,
           'stroke-width': this.circleStrokeWidth,
