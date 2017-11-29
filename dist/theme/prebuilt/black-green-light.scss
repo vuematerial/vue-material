@@ -1,0 +1,8 @@
+@import "../engine";
+
+@include md-register-theme("default", (
+  primary: md-get-palette-color(grey, 900),
+  accent: md-get-palette-color(lightgreen, A700)
+));
+
+@import "../all";

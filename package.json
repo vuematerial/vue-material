@@ -1,7 +1,7 @@
 {
   "name": "vue-material",
   "description": "Material Design for Vue.js",
-  "version": "1.0.0-beta-4",
+  "version": "1.0.0-beta-6",
   "license": "MIT",
   "author": {
     "name": "marcosmoura",
@@ -23,7 +23,7 @@
   "unpkg": "dist/vue-material.min.js",
   "scripts": {
     "dev": "babel-node build/local",
-    "build": "babel-node build/lib",
+    "build": "rm -rf dist/; babel-node build/lib",
     "docs": "babel-node build/docs",
     "lint": "eslint --ext .js,.vue docs src build test",
     "test": "jest",

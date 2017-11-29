@@ -58,7 +58,7 @@ new Vue({
           `https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic`,
           `https://fonts.googleapis.com/icon?family=Material+Icons`,
           `${vueMaterialUrl}/dist/vue-material.min.css`,
-          'https://cdn.rawgit.com/vuematerial/vue-material/master/dist/default-theme.css'
+          'https://unpkg.com/vue-material@beta/dist/theme/default.css'
         ].join(';')
       },
       apiJson () {
