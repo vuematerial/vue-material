@@ -1,10 +1,10 @@
 <template>
-  <page-container centered :title="$t('pages.themes.title')">
+  <page-container centered :title="$t('pages.themeConfiguration.title')">
     <h2 class="md-headline">Creating themes</h2>
 
     <div class="page-container-section">
       <note-block warning>
-        To use themes you'll need SCSS/SASS support in your project. Read more about <a href="https://vue-loader.vuejs.org/en/configurations/pre-processors.html">Pre-Processors</a>. In the near future you'll be able to use themes with Plain CSS and Stylus too.
+        To use custom themes you'll need SCSS/SASS support in your project. Read more about <a href="https://vue-loader.vuejs.org/en/configurations/pre-processors.html">Pre-Processors</a>. In the near future you'll be able to use themes with Plain CSS and Stylus too.
       </note-block>
 
       <p>The simplest markup to create a theme in Vue Material is:</p>

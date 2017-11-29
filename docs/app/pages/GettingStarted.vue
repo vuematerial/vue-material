@@ -53,29 +53,32 @@
       <note-block tip>For better integration with Vue Material, use <a href="https://github.com/vuejs-templates/webpack" target="_blank">vue-cli</a>.</note-block>
 
       <code-example title="CDN" label="HTML" lang="html">
-        &#x3C;!doctype html&#x3E;
-        &#x3C;html&#x3E;
-          &#x3C;head&#x3E;
-            &#x3C;meta charset=&#x22;utf-8&#x22;&#x3E;
-            &#x3C;meta content=&#x22;width=device-width,initial-scale=1,minimal-ui&#x22; name=&#x22;viewport&#x22;&#x3E;
-            &#x3C;link rel=&#x22;stylesheet&#x22; href=&#x22;https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic|Material+Icons&#x22;&#x3E;
-          &#x9;&#x3C;link rel=&#x22;stylesheet&#x22; href=&#x22;https://unpkg.com/vue-material@beta/dist/vue-material.min.css&#x22;&#x3E;
-          &#x3C;/head&#x3E;
-          &#x3C;body&#x3E;
-            &#x3C;div id=&#x22;app&#x22;&#x3E;
-              &#x3C;!-- Your code here --&#x3E;
-            &#x3C;/div&#x3E;
-            &#x3C;script src=&#x22;https://unpkg.com/vue&#x22;&#x3E;&#x3C;/script&#x3E;
-            &#x3C;script src=&#x22;https://unpkg.com/vue-material@beta&#x22;&#x3E;&#x3C;/script&#x3E;
-            &#x3C;script&#x3E;
-              Vue.use(VueMaterial.default);
+        &lt;!doctype html&gt;
+        &lt;html&gt;
+          &lt;head&gt;
+            &lt;meta charset="utf-8"&gt;
+            &lt;meta content="width=device-width,initial-scale=1,minimal-ui" name="viewport"&gt;
+            &lt;link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic|Material+Icons"&gt;
+          	&lt;link rel="stylesheet" href="https://unpkg.com/vue-material@beta/dist/vue-material.min.css"&gt;
+          	&lt;link rel="stylesheet" href="https://unpkg.com/vue-material@beta/dist/theme/default.css"&gt;
+          &lt;/head&gt;
+
+          &lt;body&gt;
+            &lt;div id="app"&gt;
+              &lt;!-- Your code here --&gt;
+            &lt;/div&gt;
+
+            &lt;script src="https://unpkg.com/vue"&gt;&lt;/script&gt;
+            &lt;script src="https://unpkg.com/vue-material@beta"&gt;&lt;/script&gt;
+            &lt;script&gt;
+              Vue.use(VueMaterial.default)
 
               new Vue({
-                el: &#x27;#app&#x27;
-              });
-            &#x3C;/script&#x3E;
-          &#x3C;/body&#x3E;
-        &#x3C;/html&#x3E;
+                el: '#app'
+              })
+            &lt;/script&gt;
+          &lt;/body&gt;
+        &lt;/html&gt;
       </code-example>
     </div>
   </page-container>

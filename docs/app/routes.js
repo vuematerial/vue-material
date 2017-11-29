@@ -116,6 +116,11 @@ export const routes = [
     page: 'Themes/Concepts.vue'
   },
   {
+    path: '/themes/prebuilt',
+    name: 'themes/prebuilt',
+    page: 'Themes/Prebuilt.vue'
+  },
+  {
     path: '/themes/configuration',
     name: 'themes/configuration',
     page: 'Themes/Configuration.vue'

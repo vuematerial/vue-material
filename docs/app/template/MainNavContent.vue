@@ -14,9 +14,10 @@
 
     <router-link to="/themes">{{ $t('pages.themes.title') }}</router-link>
     <div class="main-nav-level">
-      <router-link to="/themes/concepts">{{ $t('pages.themeConcepts.title') }}</router-link>
-      <router-link to="/themes/configuration">{{ $t('pages.themeConfiguration.title') }}</router-link>
-      <router-link to="/themes/advanced">{{ $t('pages.themeAdvanced.title') }}</router-link>
+      <router-link to="/themes/concepts">{{ $t('pages.themeConcepts.nav') }}</router-link>
+      <router-link to="/themes/prebuilt">{{ $t('pages.themePrebuilt.nav') }}</router-link>
+      <router-link to="/themes/configuration">{{ $t('pages.themeConfiguration.nav') }}</router-link>
+      <router-link to="/themes/advanced">{{ $t('pages.themeAdvanced.nav') }}</router-link>
     </div>
 
     <router-link to="/components">{{ $t('pages.components.title') }}</router-link>
@@ -71,6 +72,7 @@
     </div>
 
     <router-link to="/about">{{ $t('pages.about.title') }}</router-link>
+    <a href="https://vue-material-old.netlify.com/" target="_blank">Old Version (0.8.1)</a>
   </div>
 </template>
 

@@ -35,8 +35,8 @@
                   <md-avatar md-theme="default-dark" class="md-small md-primary"></md-avatar> Dark
                 </md-list-item>
 
-                <md-list-item :class="getPrimaryClass('light-teal')" @click="setTheme('light-teal')">
-                  <md-avatar md-theme="light-teal" class="md-small md-primary"></md-avatar> Light Teal
+                <md-list-item :class="getPrimaryClass('light-green')" @click="setTheme('light-green')">
+                  <md-avatar md-theme="light-green" class="md-small md-primary"></md-avatar> Light Green
                 </md-list-item>
 
                 <md-list-item :class="getPrimaryClass('dark-green')" @click="setTheme('dark-green')">
@@ -59,7 +59,7 @@
             <md-menu-content class="fixed-theme-selector-items">
               <md-menu-item :class="getPrimaryClass('default')" @click="setTheme('default')">Light</md-menu-item>
               <md-menu-item :class="getPrimaryClass('default-dark')" @click="setTheme('default-dark')">Dark</md-menu-item>
-              <md-menu-item :class="getPrimaryClass('light-teal')" @click="setTheme('light-teal')">Light Teal</md-menu-item>
+              <md-menu-item :class="getPrimaryClass('light-green')" @click="setTheme('light-green')">Light Teal</md-menu-item>
               <md-menu-item :class="getPrimaryClass('dark-green')" @click="setTheme('dark-green')">Dark Green</md-menu-item>
             </md-menu-content>
           </md-menu>

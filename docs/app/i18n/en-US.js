@@ -33,13 +33,20 @@ export default {
       title: 'Themes'
     },
     themeConcepts: {
-      title: 'Concepts'
+      title: 'Themes - Concepts',
+      nav: 'Concepts'
+    },
+    themePrebuilt: {
+      title: 'Themes - Prebuilt',
+      nav: 'Prebuilt'
     },
     themeConfiguration: {
-      title: 'Configuration'
+      title: 'Themes - Configuration',
+      nav: 'Configuration'
     },
     themeAdvanced: {
-      title: 'Advanced'
+      title: 'Themes - Advanced',
+      nav: 'Advanced'
     },
     components: {
       title: 'Components'
