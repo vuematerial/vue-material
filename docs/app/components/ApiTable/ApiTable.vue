@@ -6,8 +6,8 @@
       </tr>
 
       <tr v-for="{ offset, name, type, options, usage, description, defaults, value, example } in props" :key="name">
-        <td :class="{ offset }">
-          <span class="prop-name">{{ name }}</span>
+        <td class="prop" :class="{ offset }">
+          <span class="prop-name" v-html="name"></span>
           <small class="prop-type" v-if="type">{{ type }}</small>
         </td>
 
@@ -92,17 +92,18 @@
     padding-left: 32px;
   }
 
+  .prop {
+    vertical-align: top;
+  }
+
   .prop-name {
     display: block;
     text-transform: lowercase;
   }
 
   .prop-type {
-    text-transform: capitalize;
-  }
-
-  .prop-type {
     color: md-get-palette-color(grey, 600);
+    text-transform: capitalize;
   }
 
   .slot-options {
@@ -118,7 +119,8 @@
     }
   }
 
-  .description {
+  .description,
+  .prop-name {
     >>> code {
       color: md-get-palette-color(red, A200);
       font-family: 'Roboto Mono', monospace;

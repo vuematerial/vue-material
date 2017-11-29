@@ -16,7 +16,7 @@
 
     <div class="page-container-section">
       <h2>Breakpoints</h2>
-      <p>Vue Material layout uses some breakpoints:</p>
+      <p>Vue Material layout uses some breakpoints for responsiveness:</p>
       <api-table :headings="breakpoints.props.headings" :props="breakpoints.props.props" slot="props" />
     </div>
 
@@ -36,7 +36,12 @@
     </div>
 
     <div class="page-container-section">
-      <p>In the last two examples the layout system calculated the size based on the amount of items. But if you want to set sizes for each item? You can simply set a <code>md-size-[amount]</code> in the item that you want, e.g. <code>md-size-30</code>. The sizes, that are always in %, can be values multiple of 5 and also accepts the values 33 and 66.</p>
+      <p>You can use layouts for almost anything on your app, even for small parts. To help you with that you can have differents alignments per <code>md-layout</code>, combining horizontal and vertical alignments, using the <code>md-alignment-[horizontal]-[vertical]</code> class, e.g. <code>md-alignment-top-center</code>. The alignment works on the parent element and will affect the position of all children items:</p>
+      <code-example title="Alignments" :component="examples['layout-horizontal-alignment']" />
+    </div>
+
+    <div class="page-container-section">
+      <p>In the last examples the layout system did the calculation of the children sizes based on the amount of items. But if you want to set sizes for each item? You can simply set a <code>md-size-[amount]</code> in the item that you want, e.g. <code>md-size-30</code>. The sizes, that are always in %, can be values multiple of 5 and also accepts the values 33 and 66.</p>
       <p>You don't even need to set the size for all elements, as the flexbox model will calculate the size for the remaining items. Cool, uh?</p>
       <code-example title="Size" :component="examples['layout-horizontal-sizes']" />
     </div>
@@ -47,14 +52,27 @@
     </div>
 
     <div class="page-container-section">
-      <p>You can use layouts for almost anything on your app, even on the small parts. To help you with that you can have differents alignments per <code>md-layout</code>, combining horizontal and vertical alignments, using the <code>md-alignment-[horizontal]-[vertical]</code> class, e.g. <code>md-alignment-top-center</code>. The alignment works on the parent element and will affect its items positions:</p>
-      <code-example title="Alignments" :component="examples['layout-horizontal-alignment']" />
-    </div>
-
-    <div class="page-container-section">
       <p>Although is not the best option, is quite common the need of hiding elements on smaller screen. You can do that using the <code>md-[breakpoint]-hide</code> classes:</p>
       <code-example title="Hide Elements" :component="examples['layout-horizontal-hide']" />
     </div>
+
+    <api-item title="API - md-layout">
+      <p>The following classes can be applied to any HTML Element:</p>
+
+      <api-table :headings="layout.headings" :props="layout.props" slot="classes" />
+    </api-item>
+
+    <api-item title="API - md-layout-item">
+      <p>The following classes can be applied to any HTML Element direct children of <code>md-layout</code>:</p>
+
+      <api-table :headings="item.headings" :props="item.props" slot="classes" />
+    </api-item>
+
+    <api-item title="API - md-hide">
+      <p>The following classes can be applied to any HTML Element:</p>
+
+      <api-table :headings="hide.headings" :props="hide.props" slot="classes" />
+    </api-item>
   </page-container>
 </template>
 
@@ -65,29 +83,6 @@
     name: 'Content',
     mixins: [examples],
     data: () => ({
-      gutter: {
-        props: {
-          headings: ['Screen Size', 'Amount'],
-          props: [
-            {
-              name: 'xsmall',
-              value: '8px'
-            },
-            {
-              name: 'small',
-              value: '16px'
-            },
-            {
-              name: 'medium',
-              value: '24px'
-            },
-            {
-              name: 'large',
-              value: '48px'
-            }
-          ]
-        }
-      },
       breakpoints: {
         props: {
           headings: ['Name', 'Size', 'Description'],
@@ -119,6 +114,92 @@
             }
           ]
         }
+      },
+      gutter: {
+        props: {
+          headings: ['Screen Size', 'Amount'],
+          props: [
+            {
+              name: 'xsmall',
+              value: '8px'
+            },
+            {
+              name: 'small',
+              value: '16px'
+            },
+            {
+              name: 'medium',
+              value: '24px'
+            },
+            {
+              name: 'large',
+              value: '48px'
+            }
+          ]
+        }
+      },
+      layout: {
+        headings: ['Name', 'Description'],
+        props: [
+          {
+            name: 'md-gutter',
+            description: 'Enable the automatic gutter space between layout items.'
+          },
+          {
+            name: 'md-layout-nowrap',
+            description: 'By default the layout items will be always wrapper under the parent layout. Use this class if you want to disable this behaviour, but the responsiveness will not work.'
+          },
+          {
+            name: 'md-alignment-<code>[x]</code>-<code>[y]</code>',
+            description: `Sets the alignment of all children based on a value per coordinate. The alignment only works if both x and y is present e.g. <code>md-alignment-top-center</code>. The possible values are: <br>
+              <ul>
+                <li>top</li>
+                <li>center</li>
+                <li>left</li>
+                <li>space-around</li>
+                <li>space-between</li>
+              </ul>
+            `
+          }
+        ]
+      },
+      item: {
+        headings: ['Name', 'Description'],
+        props: [
+          {
+            name: 'md-size-<code>[amount]</code>',
+            description: 'Sets a size to a particular item. The amount can be multiple of five, e.g. <code>md-size-25</code>. Also accepts 33, 66 and 100 for easy prototyping.'
+          },
+          {
+            name: 'md-<code>[breakpoint]</code>-size-<code>[amount]</code>',
+            description: `Sets a size to a particular item on a particular breakpoint. The breakpoints follow the <a href="https://material.io/guidelines/layout/responsive-ui.html#responsive-ui-breakpoints" target="_blank">Material Design guidelines</a> for layout. The possible values are:
+              <ul>
+                <li>xsmall</li>
+                <li>small</li>
+                <li>medium</li>
+                <li>large</li>
+                <li>xlarge</li>
+              </ul>
+            `
+          }
+        ]
+      },
+      hide: {
+        headings: ['Name', 'Description'],
+        props: [
+          {
+            name: 'md-<code>[breakpoint]</code>-hide',
+            description: `Hides a particular element on a particular breakpoint. The breakpoints follow the <a href="https://material.io/guidelines/layout/responsive-ui.html#responsive-ui-breakpoints" target="_blank">Material Design guidelines</a> for layout. The possible values are:
+              <ul>
+                <li>xsmall</li>
+                <li>small</li>
+                <li>medium</li>
+                <li>large</li>
+                <li>xlarge</li>
+              </ul>
+            `
+          }
+        ]
       }
     })
   }

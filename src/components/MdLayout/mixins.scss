@@ -166,6 +166,56 @@
     justify-content: space-between;
     align-items: flex-end;
   }
+
+  &.md-alignment-space-around-left {
+    justify-content: flex-start;
+    align-items: space-around;
+  }
+
+  &.md-alignment-space-around-center {
+    justify-content: center;
+    align-items: space-around;
+  }
+
+  &.md-alignment-space-around-right {
+    justify-content: flex-end;
+    align-items: space-around;
+  }
+
+  &.md-alignment-space-around-space-around {
+    justify-content: space-around;
+    align-items: space-around;
+  }
+
+  &.md-alignment-space-around-space-between {
+    justify-content: space-between;
+    align-items: space-around;
+  }
+
+  &.md-alignment-space-between-left {
+    justify-content: flex-start;
+    align-items: space-between;
+  }
+
+  &.md-alignment-space-between-center {
+    justify-content: center;
+    align-items: space-between;
+  }
+
+  &.md-alignment-space-between-right {
+    justify-content: flex-end;
+    align-items: space-between;
+  }
+
+  &.md-alignment-space-between-space-around {
+    justify-content: space-around;
+    align-items: space-between;
+  }
+
+  &.md-alignment-space-between-space-between {
+    justify-content: space-between;
+    align-items: space-between;
+  }
 }
 
 
