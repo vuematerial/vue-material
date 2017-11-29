@@ -23,6 +23,9 @@ export default {
     about: {
       title: 'About'
     },
+    license: {
+      title: 'License'
+    },
     gettingStarted: {
       title: 'Getting Started',
       introduction: 'Vue Material is the best integration between Vue.js and Material Design specs! You can easily configure it to suit all your needs. All you have to do is choose an installation method that fits you better and follow it\'s instructions. Let\'s start!',

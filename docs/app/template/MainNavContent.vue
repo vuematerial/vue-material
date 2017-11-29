@@ -72,6 +72,7 @@
     </div>
 
     <router-link to="/about">{{ $t('pages.about.title') }}</router-link>
+    <router-link to="/license">{{ $t('pages.license.title') }}</router-link>
     <a href="https://vue-material-old.netlify.com/" target="_blank">Old Version (0.8.1)</a>
   </div>
 </template>

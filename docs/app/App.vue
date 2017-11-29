@@ -17,7 +17,7 @@
     <md-snackbar class="version-message" md-theme="default" :md-active.sync="message" :md-duration="Infinity">
       <span>This site is for the Vue Material 1.0 beta.</span>
       <div>
-        <md-button href="https://vue-material-old.netlify.com/">Visit old docs</md-button>
+        <md-button href="https://vue-material-old.netlify.com/" target="_blank">Visit old docs</md-button>
         <md-button class="md-accent" @click="closeMessage">Dismiss</md-button>
       </div>
     </md-snackbar>

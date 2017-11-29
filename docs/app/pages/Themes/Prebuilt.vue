@@ -40,6 +40,6 @@
 
 <script>
   export default {
-    name: 'Concepts'
+    name: 'Prebuilt'
   }
 </script>
