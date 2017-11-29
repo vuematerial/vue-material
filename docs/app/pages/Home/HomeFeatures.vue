@@ -1,18 +1,18 @@
 <template>
-  <section class="home-features md-layout-row md-layout-column-xsmall md-gutter">
-    <div class="home-feature md-flex">
+  <section class="home-features md-layout md-gutter md-layout-wrap">
+    <div class="home-feature md-layout-item md-small-size-100">
       <home-icon-square />
       <h2 class="md-title">{{ $t('pages.home.material') }}</h2>
       <p>{{ $t('pages.home.materialContent') }}</p>
     </div>
 
-    <div class="home-feature md-flex">
+    <div class="home-feature md-layout-item md-small-size-100">
       <home-icon-devices />
       <h2 class="md-title">{{ $t('pages.home.compatible') }}</h2>
       <p>{{ $t('pages.home.compatibleContent') }}</p>
     </div>
 
-    <div class="home-feature md-flex">
+    <div class="home-feature md-layout-item md-small-size-100">
       <home-icon-circle />
       <h2 class="md-title">{{ $t('pages.home.featured') }}</h2>
       <p>{{ $t('pages.home.featuredContent') }}</p>
@@ -50,6 +50,8 @@
   }
 
   .home-feature {
+    margin-bottom: 16px;
+
     @include md-layout-xsmall {
       text-align: center;
     }

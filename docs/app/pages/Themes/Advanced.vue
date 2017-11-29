@@ -1,5 +1,5 @@
 <template>
-  <page-container centered :title="$t('pages.themes.title')">
+  <page-container centered :title="$t('pages.themeAdvanced.title')">
     Coming Soon...
   </page-container>
 </template>

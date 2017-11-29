@@ -16,7 +16,7 @@
       <div class="home-sponsors-backers">
         <h3 class="md-title">{{ $t('pages.home.sponsors') }}</h3>
 
-        <div class="home-sponsor-list md-layout-row md-layout-wrap">
+        <div class="home-sponsor-list md-layout md-layout-wrap">
           <a class="home-sponsor" href="">
             <md-ripple>
               <img src="/assets/sponsors/yatima.png">

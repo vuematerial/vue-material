@@ -1,14 +1,14 @@
+import Ora from 'ora'
 import webpack from 'webpack'
-import ora from 'ora'
 import webpackConfig from './webpack'
 import { pack } from '../config'
+import generateThemes from './themes'
 
-const spinner = ora({
-  text: 'Building lib...',
-  color: 'green'
+const spinner = new Ora({
+  text: 'Building lib',
+  color: 'green',
+  spinner: 'simpleDots'
 })
-
-spinner.start()
 
 const entries = [
   webpackConfig({
@@ -31,10 +31,18 @@ const entries = [
   })
 ]
 
+spinner.start()
+
 webpack(entries, (error, stats) => {
   if (error) {
+    spinner.fail('ERRORED! Too bad! :(')
     throw error
   }
+
+	spinner.color = 'yellow';
+	spinner.text = 'Generating themes';
+
+  generateThemes()
 
   process.stdout.write('\n\n' + stats.toString({
     colors: true,
@@ -44,5 +52,5 @@ webpack(entries, (error, stats) => {
     chunkModules: false
   }) + '\n\n')
 
-  spinner.stop()
+  spinner.succeed('Vue Material generated with success! \\o/')
 })

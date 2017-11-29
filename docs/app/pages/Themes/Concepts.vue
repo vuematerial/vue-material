@@ -1,5 +1,5 @@
 <template>
-  <page-container centered :title="$t('pages.themes.title')">
+  <page-container centered :title="$t('pages.themeConcepts.title')">
     <div class="page-container-section">
       <h2 class="md-headline">Theme Engine</h2>
 

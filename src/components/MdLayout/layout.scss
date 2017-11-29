@@ -3,94 +3,89 @@
 
 
 /**
- * Rows and Columns
+ * Layout Base
  */
 
-[class*="md-layout"] {
-  display: flex;
-  flex: 1;
+.md-layout {
+  @include md-layout-base;
+  flex-wrap: wrap;
 
   &.md-centered {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
   }
+}
 
-  &.md-layout-wrap {
-    flex-wrap: wrap;
-  }
 
-  @include md-rows-and-md-columns();
-  @include md-layout-align();
-  @include md-flex();
+/**
+ * Gutter sizes
+ */
 
-  @include md-layout-xlarge {
-    @include md-breakpoint-layout(xlarge);
-  }
-
-  @include md-layout-large {
-    @include md-breakpoint-layout(large);
-  }
+.md-layout {
+  @include md-layout-gutter($md-gutter-large);
 
   @include md-layout-medium {
-    @include md-breakpoint-layout(medium);
+    @include md-layout-gutter($md-gutter-medium);
   }
 
   @include md-layout-small {
-    @include md-breakpoint-layout(small);
+    @include md-layout-gutter($md-gutter-small);
   }
 
   @include md-layout-xsmall {
-    @include md-breakpoint-layout(xsmall);
-  }
-
-  @include md-layout-large-and-up {
-    @include md-breakpoint-layout(large-and-up);
-  }
-
-  @include md-layout-medium-and-up {
-    @include md-breakpoint-layout(medium-and-up);
-  }
-
-  @include md-layout-small-and-up {
-    @include md-breakpoint-layout(small-and-up);
-  }
-
-  @include md-layout-xsmall-and-up {
-    @include md-breakpoint-layout(xsmall-and-up);
+    @include md-layout-gutter($md-gutter-xsmall);
   }
 }
 
-@include md-gutter($md-gutter-large);
 
-@include md-layout-large {
-  @include md-gutter($md-gutter-large, large);
+/**
+ * Alignments
+ */
+
+.md-layout {
+  @include md-layout-alignment;
 }
+
+
+
+/**
+ * Layout item
+ */
+
+.md-layout-item {
+  flex: 1 1;
+
+  @include md-layout-item;
+
+  @include md-layout-medium {
+    @include md-layout-item(medium);
+  }
+
+  @include md-layout-small {
+    @include md-layout-item(small);
+  }
+
+  @include md-layout-xsmall {
+    @include md-layout-item(xsmall);
+  }
+}
+
+
+/**
+ * Hide Element
+ */
+
+@include md-hide;
 
 @include md-layout-medium {
-  @include md-gutter($md-gutter-medium, medium);
+  @include md-hide(medium);
 }
 
 @include md-layout-small {
-  @include md-gutter($md-gutter-small, small);
+  @include md-hide(small);
 }
 
 @include md-layout-xsmall {
-  @include md-gutter($md-gutter-xsmall, xsmall);
-}
-
-@include md-layout-large {
-  @include md-hide(large)
-}
-
-@include md-layout-medium {
-  @include md-hide(medium)
-}
-
-@include md-layout-small {
-  @include md-hide(small)
-}
-
-@include md-layout-xsmall {
-  @include md-hide(xsmall)
+  @include md-hide(xsmall);
 }
