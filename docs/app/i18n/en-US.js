@@ -2,7 +2,6 @@ export default {
   aboutMaterial: 'About Vue Material',
   madeWith: 'Made with',
   by: 'by',
-  license: 'License',
   pages: {
     home: {
       title: 'Home',

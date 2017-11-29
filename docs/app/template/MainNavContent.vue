@@ -3,6 +3,14 @@
     <router-link to="/" exact>{{ $t('pages.home.title') }}</router-link>
     <router-link to="/getting-started">{{ $t('pages.gettingStarted.title') }}</router-link>
 
+    <router-link to="/themes">{{ $t('pages.themes.title') }}</router-link>
+    <div class="main-nav-level">
+      <router-link to="/themes/concepts">{{ $t('pages.themeConcepts.nav') }}</router-link>
+      <router-link to="/themes/prebuilt">{{ $t('pages.themePrebuilt.nav') }}</router-link>
+      <router-link to="/themes/configuration">{{ $t('pages.themeConfiguration.nav') }}</router-link>
+      <router-link to="/themes/advanced">{{ $t('pages.themeAdvanced.nav') }}</router-link>
+    </div>
+
     <router-link to="/ui-elements">{{ $t('pages.uiElements.title') }}</router-link>
     <div class="main-nav-level">
       <router-link to="/ui-elements/elevation">{{ $t('pages.elevation.title') }}</router-link>
@@ -10,14 +18,6 @@
       <router-link to="/ui-elements/scrollbar">{{ $t('pages.scrollbar.title') }}</router-link>
       <router-link to="/ui-elements/text-selection">{{ $t('pages.textSelection.title') }}</router-link>
       <router-link to="/ui-elements/typography">{{ $t('pages.typography.title') }}</router-link>
-    </div>
-
-    <router-link to="/themes">{{ $t('pages.themes.title') }}</router-link>
-    <div class="main-nav-level">
-      <router-link to="/themes/concepts">{{ $t('pages.themeConcepts.nav') }}</router-link>
-      <router-link to="/themes/prebuilt">{{ $t('pages.themePrebuilt.nav') }}</router-link>
-      <router-link to="/themes/configuration">{{ $t('pages.themeConfiguration.nav') }}</router-link>
-      <router-link to="/themes/advanced">{{ $t('pages.themeAdvanced.nav') }}</router-link>
     </div>
 
     <router-link to="/components">{{ $t('pages.components.title') }}</router-link>

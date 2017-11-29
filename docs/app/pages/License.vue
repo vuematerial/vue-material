@@ -1,5 +1,5 @@
 <template>
-  <page-container centered :title="$t('pages.about.title')">
+  <page-container centered :title="$t('pages.license.title')">
     <section class="page-container-section">
       <h2 class="md-title">The MIT License (MIT)</h2>
 
