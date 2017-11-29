@@ -12,13 +12,13 @@
 
       <p>The available themes, for now, are:</p>
       <ul>
-        <li>black-green-dark</li>
-        <li>black-green-light</li>
-        <li>default-dark</li>
-        <li>default</li>
+        <li><code>black-green-dark</code></li>
+        <li><code>black-green-light</code></li>
+        <li><code>default-dark</code></li>
+        <li><code>default</code></li>
       </ul>
 
-      <p>Import your css file along with Vue Material styles</p>
+      <p>Import your css file along with Vue Material styles:</p>
       <code-example title="Importing the theme">
         import Vue from 'vue'
         import VueMaterial from 'vue-material'
