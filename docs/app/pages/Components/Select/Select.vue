@@ -32,7 +32,8 @@
       <api-item title="API - md-select">
         <p>The following options can be applied to any select:</p>
 
-        <api-table :headings="select.headings" :props="select.props" slot="props" />
+        <api-table :headings="select.props.headings" :props="select.props.props" slot="props" />
+        <api-table :headings="select.events.headings" :props="select.events.props" slot="events" />
       </api-item>
 
       <api-item title="API - md-option">
@@ -58,57 +59,74 @@
     mixins: [examples],
     data: () => ({
       select: {
-        headings: ['Name', 'Description', 'Default'],
-        props: [
-          {
-            name: 'v-model',
-            type: 'String|Number|Boolean|Array',
-            description: 'The model variable to bind the select value',
-            defaults: 'null'
-          },
-          {
-            name: 'placeholder',
-            type: 'String',
-            description: 'The select placeholder. Similar to HTML5 placeholder attribute.',
-            defaults: 'null'
-          },
-          {
-            name: 'required',
-            type: 'String',
-            description: 'The select required. Similar to HTML5 required attribute.',
-            defaults: 'null'
-          },
-          {
-            name: 'id',
-            type: 'String',
-            description: 'The select id. Similar to HTML5 id attribute.',
-            defaults: 'null'
-          },
-          {
-            name: 'name',
-            type: 'String',
-            description: 'The select name. Similar to HTML5 name attribute.',
-            defaults: 'null'
-          },
-          {
-            name: 'disabled',
-            type: 'Boolean',
-            description: 'Disable the select and prevent it selection.',
-            defaults: 'false'
-          },
-          {
-            name: 'multiple',
-            type: 'Boolean',
-            description: 'Create a multi selection with checkboxes inside. Only works with a <code>v-model</code> with an <code>Array</code>',
-            defaults: 'false'
-          },
-          {
-            name: 'md-dense',
-            type: 'Boolean',
-            description: 'Enable the dense layout',
-            defaults: 'false'
-          }
-        ]
+        props: {
+          headings: ['Name', 'Description', 'Default'],
+          props: [
+            {
+              name: 'v-model',
+              type: 'String|Number|Boolean|Array',
+              description: 'The model variable to bind the select value',
+              defaults: 'null'
+            },
+            {
+              name: 'placeholder',
+              type: 'String',
+              description: 'The select placeholder. Similar to HTML5 placeholder attribute.',
+              defaults: 'null'
+            },
+            {
+              name: 'required',
+              type: 'String',
+              description: 'The select required. Similar to HTML5 required attribute.',
+              defaults: 'null'
+            },
+            {
+              name: 'id',
+              type: 'String',
+              description: 'The select id. Similar to HTML5 id attribute.',
+              defaults: 'null'
+            },
+            {
+              name: 'name',
+              type: 'String',
+              description: 'The select name. Similar to HTML5 name attribute.',
+              defaults: 'null'
+            },
+            {
+              name: 'disabled',
+              type: 'Boolean',
+              description: 'Disable the select and prevent it selection.',
+              defaults: 'false'
+            },
+            {
+              name: 'multiple',
+              type: 'Boolean',
+              description: 'Create a multi selection with checkboxes inside. Only works with a <code>v-model</code> with an <code>Array</code>',
+              defaults: 'false'
+            },
+            {
+              name: 'md-dense',
+              type: 'Boolean',
+              description: 'Enable the dense layout',
+              defaults: 'false'
+            }
+          ],
+        },
+        events: {
+          headings: ['Name', 'Description', 'Value'],
+          props: [
+            {
+              name: 'md-opened',
+              description: 'Triggered when the select is opened.',
+              value: 'none'
+            },
+            {
+              name: 'md-closed',
+              description: 'Triggered when the select is closed.',
+              value: 'none'
+            }
+          ]
+        }
       },
       option: {
         headings: ['Name', 'Description', 'Default'],
