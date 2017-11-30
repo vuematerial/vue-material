@@ -1,5 +1,5 @@
 <template>
-  <div class="md-app md-app-internal-drawer md-layout-column" :class="appClasses">
+  <div class="md-app md-app-internal-drawer md-layout-column" :class="[appClasses, $mdActiveTheme]">
     <slot name="md-app-toolbar"></slot>
 
     <main class="md-app-container md-flex md-layout-row" :style="[containerStyles, contentStyles]" :class="[$mdActiveTheme, scrollerClasses]">
@@ -25,6 +25,8 @@
   @import "~components/MdAnimation/variables";
 
   .md-app-internal-drawer {
+    flex-direction: column;
+
     .md-app-scroller {
       overflow: auto;
     }

@@ -22,43 +22,27 @@
       component: Object
     },
     computed: {
-      /* eslint-disable */
       styles () {
         return this.component.style ? this.component.style : ''
       },
       html () {
-        return `
-<div id="app">
-  ${this.component.template}
-</div>
-`
+        return this.component.template
       },
       script () {
-        return `
-Vue.use(VueMaterial.default)
-
-const example = ${this.component.script}
-
-new Vue({
-  name: 'root',
-  el: '#app',
-  ...example
-})
-`
+        return this.component.script
       },
       externalScripts () {
         return [
-          'https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.6.15/browser.js',
-          'https://unpkg.com/vue',
+          'https://unpkg.com/babel-standalone/babel.min.js',
+          'https://unpkg.com/vue/dist/vue.min.js',
           `${vueMaterialUrl}`
         ].join(';')
       },
       externalStyles () {
         return [
-          `https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic`,
-          `https://fonts.googleapis.com/icon?family=Material+Icons`,
+          'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic|Material+Icons',
           `${vueMaterialUrl}/dist/vue-material.min.css`,
-          'https://cdn.rawgit.com/vuematerial/vue-material/master/dist/default-theme.css'
+          `${vueMaterialUrl}/dist/theme/default.css`
         ].join(';')
       },
       apiJson () {
@@ -72,11 +56,9 @@ new Vue({
           html: `${this.html}`,
           html_pre_processor: 'none',
           css: `${this.styles}`,
-          css_pre_processor: 'scss',
           css_starter: 'neither',
           css_prefix: 'autoprefixer',
           js: `${this.script}`,
-          js_pre_processor: 'babel',
           html_classes: '',
           head: '<meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">',
           css_external: `${this.externalStyles}`,
@@ -87,7 +69,6 @@ new Vue({
       apiContent () {
         return JSON.stringify(this.apiJson).replace(/"/g, '&​quot;').replace(/'/g, '&apos;');
       }
-      /* eslint-enable */
     }
   }
 </script>

@@ -117,8 +117,18 @@
           props: [
             {
               name: 'md-selected',
-              description: 'Triggered when the model changes.',
-              value: 'Receives the value of the model'
+              description: 'Triggered when model changes.',
+              value: 'Value of v-model'
+            },
+            {
+              name: 'md-opened',
+              description: 'Triggered when select is opened.',
+              value: 'none'
+            },
+            {
+              name: 'md-closed',
+              description: 'Triggered when select is closed.',
+              value: 'none'
             }
           ]
         }

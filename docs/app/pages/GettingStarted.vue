@@ -18,13 +18,18 @@
         $ npm install vue-material@beta --save
         $ yarn add vue-material@beta
       </code-example>
+
+      <p>It's optional, but to have the best experience possible, use Roboto and Google Icons from Google CDN:</p>
+      <code-example title="Roboto Font and Icons" label="HTML" lang="html">
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;//fonts.googleapis.com/css?family=Roboto:400,500,700,400italic|Material+Icons&quot;&gt;
+      </code-example>
+
     </div>
 
     <div class="page-container-section">
       <h2 class="md-headline">Usage</h2>
 
       <p>To use Vue Material in your application, you can import only the components that you're really using. This will allow you to make your build way more compact than installing a full bundle.</p>
-
       <code-example title="Individual components">
         import Vue from 'vue'
         import { MdButton, MdContent, MdTabs } from 'vue-material/dist/components'
@@ -35,7 +40,7 @@
         Vue.use(MdTabs)
       </code-example>
 
-      <note-block alert>Although is not recommended you can use the full bundle of Vue Material. This will import <strong>ALL</strong> components and UI Elements:</note-block>
+      <note-block alert>Although is not recommended you can use the full bundle of Vue Material. This will import <strong>ALL</strong> components and UI Elements, and will hurt performance:</note-block>
       <code-example title="Full Bundle">
         import Vue from 'vue'
         import VueMaterial from 'vue-material'
@@ -44,11 +49,36 @@
         Vue.use(VueMaterial)
       </code-example>
 
-      <p>It's optional, but to have the best experience possible, use Roboto and Google Icons from Google CDN:</p>
+      <p>Although is not the recommended approach, you can always use CDNs for fast prototyping:</p>
+      <note-block tip>For better integration with Vue Material, use <a href="https://github.com/vuejs-templates/webpack" target="_blank">vue-cli</a>.</note-block>
 
-      <code-example title="Roboto Font and Icons" label="HTML" lang="html">
-        &lt;link rel=&quot;stylesheet&quot; href=&quot;//fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic&quot;&gt;
-        &lt;link rel=&quot;stylesheet&quot; href=&quot;//fonts.googleapis.com/icon?family=Material+Icons&quot;&gt;
+      <code-example title="CDN" label="HTML" lang="html">
+        &lt;!doctype html&gt;
+        &lt;html&gt;
+          &lt;head&gt;
+            &lt;meta charset="utf-8"&gt;
+            &lt;meta content="width=device-width,initial-scale=1,minimal-ui" name="viewport"&gt;
+            &lt;link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic|Material+Icons"&gt;
+          	&lt;link rel="stylesheet" href="https://unpkg.com/vue-material@beta/dist/vue-material.min.css"&gt;
+          	&lt;link rel="stylesheet" href="https://unpkg.com/vue-material@beta/dist/theme/default.css"&gt;
+          &lt;/head&gt;
+
+          &lt;body&gt;
+            &lt;div id="app"&gt;
+              &lt;!-- Your code here --&gt;
+            &lt;/div&gt;
+
+            &lt;script src="https://unpkg.com/vue"&gt;&lt;/script&gt;
+            &lt;script src="https://unpkg.com/vue-material@beta"&gt;&lt;/script&gt;
+            &lt;script&gt;
+              Vue.use(VueMaterial.default)
+
+              new Vue({
+                el: '#app'
+              })
+            &lt;/script&gt;
+          &lt;/body&gt;
+        &lt;/html&gt;
       </code-example>
     </div>
   </page-container>

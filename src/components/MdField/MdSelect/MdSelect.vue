@@ -162,6 +162,7 @@
         }
       },
       onOpen () {
+        this.$emit('md-opened')
         if (this.didMount) {
           this.setOffsets()
           window.setTimeout(() => {
@@ -175,6 +176,7 @@
         this.$refs.input.$el.focus()
       },
       onClose () {
+        this.$emit('md-closed')
         if (this.didMount) {
           this.applyHighlight()
         }

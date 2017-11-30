@@ -3,7 +3,7 @@
     <div class="main-footer-container">
       <div class="main-footer-section">
         <router-link to="/about">{{ $t('aboutMaterial') }}</router-link>
-        <a href="https://github.com/vuematerial/vue-material/blob/master/LICENSE" target="_blank">{{ $t('license') }}</a>
+        <router-link to="/license">{{ $t('pages.license.title') }}</router-link>
       </div>
 
       <div class="main-footer-section">

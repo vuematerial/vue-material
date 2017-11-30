@@ -1,7 +1,7 @@
 {
   "name": "vue-material",
   "description": "Material Design for Vue.js",
-  "version": "1.0.0-beta-4",
+  "version": "1.0.0-beta-6",
   "license": "MIT",
   "author": {
     "name": "marcosmoura",
@@ -23,7 +23,7 @@
   "unpkg": "dist/vue-material.min.js",
   "scripts": {
     "dev": "babel-node build/local",
-    "build": "babel-node build/lib",
+    "build": "rm -rf dist/; babel-node build/lib",
     "docs": "babel-node build/docs",
     "lint": "eslint --ext .js,.vue docs src build test",
     "test": "jest",
@@ -92,7 +92,7 @@
     "jest": "^21.2.1",
     "jest-css-modules": "^1.1.0",
     "jest-vue": "^0.8.2",
-    "node-sass": "^4.6.0",
+    "node-sass": "^4.7.2",
     "offline-plugin": "^4.8.4",
     "optimize-css-assets-webpack-plugin": "^3.2.0",
     "optimize-js-plugin": "^0.0.4",
@@ -100,6 +100,8 @@
     "postcss": "^6.0.14",
     "preload-webpack-plugin": "^2.0.0",
     "prerender-spa-plugin": "^2.1.0",
+    "prettier": "^1.8.2",
+    "pretty": "^2.0.0",
     "sass-loader": "^6.0.6",
     "sinon": "^4.1.1",
     "url-loader": "^0.6.2",

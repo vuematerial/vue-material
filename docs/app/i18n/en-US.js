@@ -2,7 +2,6 @@ export default {
   aboutMaterial: 'About Vue Material',
   madeWith: 'Made with',
   by: 'by',
-  license: 'License',
   pages: {
     home: {
       title: 'Home',
@@ -23,6 +22,9 @@ export default {
     about: {
       title: 'About'
     },
+    license: {
+      title: 'License'
+    },
     gettingStarted: {
       title: 'Getting Started',
       introduction: 'Vue Material is the best integration between Vue.js and Material Design specs! You can easily configure it to suit all your needs. All you have to do is choose an installation method that fits you better and follow it\'s instructions. Let\'s start!',
@@ -33,13 +35,20 @@ export default {
       title: 'Themes'
     },
     themeConcepts: {
-      title: 'Concepts'
+      title: 'Themes - Concepts',
+      nav: 'Concepts'
+    },
+    themePrebuilt: {
+      title: 'Themes - Prebuilt',
+      nav: 'Prebuilt'
     },
     themeConfiguration: {
-      title: 'Configuration'
+      title: 'Themes - Configuration',
+      nav: 'Configuration'
     },
     themeAdvanced: {
-      title: 'Advanced'
+      title: 'Themes - Advanced',
+      nav: 'Advanced'
     },
     components: {
       title: 'Components'

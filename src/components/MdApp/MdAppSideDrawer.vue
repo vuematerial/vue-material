@@ -1,5 +1,5 @@
 <template>
-  <div class="md-app md-app-side-drawer md-layout-row" :class="appClasses">
+  <div class="md-app md-app-side-drawer md-layout-row" :class="[appClasses, $mdActiveTheme]">
     <slot name="md-app-drawer"></slot>
 
     <main class="md-app-container md-flex md-layout-column" :class="[$mdActiveTheme, scrollerClasses]" :style="contentStyles" @scroll.passive="handleScroll">
@@ -20,3 +20,13 @@
     mixins: [MdAppMixin]
   })
 </script>
+
+<style lang="scss">
+  @import "~components/MdAnimation/variables";
+
+  .md-app-side-drawer {
+    .md-app-container {
+      flex-direction: column;
+    }
+  }
+</style>

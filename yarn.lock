@@ -1628,6 +1628,14 @@ concat@^1.0.3:
   dependencies:
     commander "^2.9.0"
 
+condense-newlines@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/condense-newlines/-/condense-newlines-0.2.1.tgz#3de985553139475d32502c83b02f60684d24c55f"
+  dependencies:
+    extend-shallow "^2.0.1"
+    is-whitespace "^0.3.0"
+    kind-of "^3.0.2"
+
 config-chain@~1.1.5:
   version "1.1.11"
   resolved "https://registry.yarnpkg.com/config-chain/-/config-chain-1.1.11.tgz#aba09747dfbe4c3e70e766a6e41586e1859fc6f2"
@@ -2705,6 +2713,12 @@ express@^4.15.2, express@^4.16.2:
     utils-merge "1.0.1"
     vary "~1.1.2"
 
+extend-shallow@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/extend-shallow/-/extend-shallow-2.0.1.tgz#51af7d614ad9a9f610ea1bafbb989d6b1c56890f"
+  dependencies:
+    is-extendable "^0.1.0"
+
 extend@3, extend@^3.0.0, extend@~3.0.0, extend@~3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/extend/-/extend-3.0.1.tgz#a755ea7bc1adfcc5a31ce7e762dbaadc5e636444"
@@ -3193,6 +3207,16 @@ glob@7.1.1:
     inflight "^1.0.4"
     inherits "2"
     minimatch "^3.0.2"
+    once "^1.3.0"
+    path-is-absolute "^1.0.0"
+
+glob@^6.0.4:
+  version "6.0.4"
+  resolved "https://registry.yarnpkg.com/glob/-/glob-6.0.4.tgz#0f08860f6a155127b2fadd4f9ce24b1aab6e4d22"
+  dependencies:
+    inflight "^1.0.4"
+    inherits "2"
+    minimatch "2 || 3"
     once "^1.3.0"
     path-is-absolute "^1.0.0"
 
@@ -3735,7 +3759,7 @@ is-equal-shallow@^0.1.3:
   dependencies:
     is-primitive "^2.0.0"
 
-is-extendable@^0.1.1:
+is-extendable@^0.1.0, is-extendable@^0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/is-extendable/-/is-extendable-0.1.1.tgz#62b110e289a471418e3ec36a617d472e301dfc89"
 
@@ -3879,6 +3903,10 @@ is-typedarray@~1.0.0:
 is-utf8@^0.2.0:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/is-utf8/-/is-utf8-0.2.1.tgz#4b0da1442104d1b336340e80797e865cf39f7d72"
+
+is-whitespace@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/is-whitespace/-/is-whitespace-0.3.0.tgz#1639ecb1be036aec69a54cbb401cfbed7114ab7f"
 
 is-windows@^0.2.0:
   version "0.2.0"
@@ -4277,7 +4305,7 @@ js-base64@^2.1.8, js-base64@^2.1.9:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-2.3.2.tgz#a79a923666372b580f8e27f51845c6f7e8fbfbaf"
 
-js-beautify@^1.6.14:
+js-beautify@^1.6.12, js-beautify@^1.6.14:
   version "1.7.4"
   resolved "https://registry.yarnpkg.com/js-beautify/-/js-beautify-1.7.4.tgz#fa0dfa8fef594d6a6253755fe26af5d0a22cbd90"
   dependencies:
@@ -4776,7 +4804,7 @@ minimalistic-crypto-utils@^1.0.0, minimalistic-crypto-utils@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/minimalistic-crypto-utils/-/minimalistic-crypto-utils-1.0.1.tgz#f6c00c1c0b082246e5c4d99dfb8c7c083b2b582a"
 
-minimatch@^3.0.0, minimatch@^3.0.2, minimatch@^3.0.3, minimatch@^3.0.4, minimatch@~3.0.2:
+"minimatch@2 || 3", minimatch@^3.0.0, minimatch@^3.0.2, minimatch@^3.0.3, minimatch@^3.0.4, minimatch@~3.0.2:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-3.0.4.tgz#5166e286457f03306064be5497e8dbb0c3d32083"
   dependencies:
@@ -4965,9 +4993,9 @@ node-pre-gyp@^0.6.36:
     tar "^2.2.1"
     tar-pack "^3.4.0"
 
-node-sass@^4.6.0:
-  version "4.6.0"
-  resolved "https://registry.yarnpkg.com/node-sass/-/node-sass-4.6.0.tgz#1a54f5f4502e3cde310a26d6346266fd667271d9"
+node-sass@^4.7.2:
+  version "4.7.2"
+  resolved "https://registry.yarnpkg.com/node-sass/-/node-sass-4.7.2.tgz#9366778ba1469eb01438a9e8592f4262bcb6794e"
   dependencies:
     async-foreach "^0.1.3"
     chalk "^1.1.1"
@@ -4984,9 +5012,10 @@ node-sass@^4.6.0:
     nan "^2.3.2"
     node-gyp "^3.3.1"
     npmlog "^4.0.0"
-    request "^2.79.0"
+    request "~2.79.0"
     sass-graph "^2.2.4"
     stdout-stream "^1.4.0"
+    "true-case-path" "^1.0.2"
 
 node-uuid@~1.4.7:
   version "1.4.8"
@@ -5747,6 +5776,10 @@ prettier@^1.7.0:
   version "1.7.4"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.7.4.tgz#5e8624ae9363c80f95ec644584ecdf55d74f93fa"
 
+prettier@^1.8.2:
+  version "1.8.2"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.8.2.tgz#bff83e7fd573933c607875e5ba3abbdffb96aeb8"
+
 pretty-error@^2.0.2:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/pretty-error/-/pretty-error-2.1.1.tgz#5f4f87c8f91e5ae3f3ba87ab4cf5e03b1a17f1a3"
@@ -5760,6 +5793,14 @@ pretty-format@^21.2.1:
   dependencies:
     ansi-regex "^3.0.0"
     ansi-styles "^3.2.0"
+
+pretty@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/pretty/-/pretty-2.0.0.tgz#adbc7960b7bbfe289a557dc5f737619a220d06a5"
+  dependencies:
+    condense-newlines "^0.2.1"
+    extend-shallow "^2.0.1"
+    js-beautify "^1.6.12"
 
 private@^0.1.6, private@^0.1.7:
   version "0.1.8"
@@ -5829,6 +5870,10 @@ qs@6.5.1, qs@~6.5.1:
 qs@~6.2.0:
   version "6.2.3"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.2.3.tgz#1cfcb25c10a9b2b483053ff39f5dfc9233908cfe"
+
+qs@~6.3.0:
+  version "6.3.2"
+  resolved "https://registry.yarnpkg.com/qs/-/qs-6.3.2.tgz#e75bd5f6e268122a2a0e0bda630b2550c166502c"
 
 qs@~6.4.0:
   version "6.4.0"
@@ -6158,6 +6203,31 @@ request@~2.74.0:
     tough-cookie "~2.3.0"
     tunnel-agent "~0.4.1"
 
+request@~2.79.0:
+  version "2.79.0"
+  resolved "https://registry.yarnpkg.com/request/-/request-2.79.0.tgz#4dfe5bf6be8b8cdc37fcf93e04b65577722710de"
+  dependencies:
+    aws-sign2 "~0.6.0"
+    aws4 "^1.2.1"
+    caseless "~0.11.0"
+    combined-stream "~1.0.5"
+    extend "~3.0.0"
+    forever-agent "~0.6.1"
+    form-data "~2.1.1"
+    har-validator "~2.0.6"
+    hawk "~3.1.3"
+    http-signature "~1.1.0"
+    is-typedarray "~1.0.0"
+    isstream "~0.1.2"
+    json-stringify-safe "~5.0.1"
+    mime-types "~2.1.7"
+    oauth-sign "~0.8.1"
+    qs "~6.3.0"
+    stringstream "~0.0.4"
+    tough-cookie "~2.3.0"
+    tunnel-agent "~0.4.1"
+    uuid "^3.0.0"
+
 require-directory@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/require-directory/-/require-directory-2.1.1.tgz#8c64ad5fd30dab1c976e2344ffe7f792a6a6df42"
@@ -6313,12 +6383,6 @@ schema-utils@^0.3.0:
   resolved "https://registry.yarnpkg.com/schema-utils/-/schema-utils-0.3.0.tgz#f5877222ce3e931edae039f17eb3716e7137f8cf"
   dependencies:
     ajv "^5.0.0"
-
-script-ext-html-webpack-plugin@^1.8.8:
-  version "1.8.8"
-  resolved "https://registry.yarnpkg.com/script-ext-html-webpack-plugin/-/script-ext-html-webpack-plugin-1.8.8.tgz#faa888a286ce746fcd06a5e0a9e39ed7b9d24f66"
-  dependencies:
-    debug "^3.1.0"
 
 scss-tokenizer@^0.2.3:
   version "0.2.3"
@@ -6906,6 +6970,12 @@ trim-off-newlines@^1.0.0:
 trim-right@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/trim-right/-/trim-right-1.0.1.tgz#cb2e1203067e0c8de1f614094b9fe45704ea6003"
+
+"true-case-path@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/true-case-path/-/true-case-path-1.0.2.tgz#7ec91130924766c7f573be3020c34f8fdfd00d62"
+  dependencies:
+    glob "^6.0.4"
 
 tryit@^1.0.1:
   version "1.0.3"

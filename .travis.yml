@@ -23,6 +23,7 @@ before_script:
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
 script:
+  - npm rebuild node-sass
   - yarn lint
   - yarn coverage
   - yarn build

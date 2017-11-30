@@ -95,6 +95,11 @@ export const routes = [
     page: 'About.vue'
   },
   {
+    path: '/license',
+    name: 'license',
+    page: 'License.vue'
+  },
+  {
     path: '/',
     name: 'home',
     page: 'Home/Home.vue'
@@ -114,6 +119,11 @@ export const routes = [
     path: '/themes/concepts',
     name: 'themes/concepts',
     page: 'Themes/Concepts.vue'
+  },
+  {
+    path: '/themes/prebuilt',
+    name: 'themes/prebuilt',
+    page: 'Themes/Prebuilt.vue'
   },
   {
     path: '/themes/configuration',
