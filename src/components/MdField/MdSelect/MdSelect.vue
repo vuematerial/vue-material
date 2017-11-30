@@ -202,10 +202,9 @@
         let includes = index > -1
         if (!includes) {
           this.localValue = this.localValue.concat([value])
-          this.emitSelected(this.localValue)
-          return
+        } else {
+          this.localValue = this.arrayAccessorRemove(this.localValue, index)
         }
-        this.localValue = this.arrayAccessorRemove(this.localValue, index)
         this.emitSelected(this.localValue)
       },
       setValue (newValue) {
