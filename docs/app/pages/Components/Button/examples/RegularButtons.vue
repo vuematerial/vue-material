@@ -33,7 +33,7 @@
 </style>
 
 <script>
-export default {
-  name: 'RegularButtons'
-}
+  export default {
+    name: 'RegularButtons'
+  }
 </script>
