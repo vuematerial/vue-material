@@ -21,9 +21,13 @@
 </script>
 
 <style lang="scss">
-  .md-app-content.md-card {
-    margin-right: 16px;
-    margin-left: 16px;
-    overflow: visible;
+  .md-app-content {
+    height: 100%;
+
+    .md-card {
+      margin-right: 16px;
+      margin-left: 16px;
+      overflow: visible;
+    }
   }
 </style>
