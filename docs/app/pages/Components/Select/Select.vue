@@ -116,13 +116,18 @@
           headings: ['Name', 'Description', 'Value'],
           props: [
             {
+              name: 'md-selected',
+              description: 'Triggered when model changes.',
+              value: 'Value of v-model'
+            },
+            {
               name: 'md-opened',
-              description: 'Triggered when the select is opened.',
+              description: 'Triggered when select is opened.',
               value: 'none'
             },
             {
               name: 'md-closed',
-              description: 'Triggered when the select is closed.',
+              description: 'Triggered when select is closed.',
               value: 'none'
             }
           ]
