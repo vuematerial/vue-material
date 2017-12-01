@@ -30,7 +30,7 @@ Build well-designed apps that can fit on every screen with support to all modern
 
 ## Sponsorship
 
-Redux-form is proudly sponsored by [Rollbar](https://cs.berry.sh/c/c0597778-f465-4788-abe3-8711cc087774
+Vue Material is proudly sponsored by [Rollbar](https://cs.berry.sh/c/c0597778-f465-4788-abe3-8711cc087774
 ). They provide real-time error monitoring, alerting, and analytics for developers.
 
 You can try Rollbar for free at [https://rollbar.com](https://cs.berry.sh/c/c0597778-f465-4788-abe3-8711cc087774
