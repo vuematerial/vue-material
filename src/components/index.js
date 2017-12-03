@@ -16,6 +16,7 @@ import MdDivider from './MdDivider'
 import MdDrawer from './MdDrawer'
 import MdElevation from './MdElevation'
 import MdEmptyState from './MdEmptyState'
+import MdExtractColor from './MdExtractColor'
 import MdField from './MdField'
 import MdHighlightText from './MdHighlightText'
 import MdIcon from './MdIcon'
@@ -55,6 +56,7 @@ export {
   MdDrawer,
   MdElevation,
   MdEmptyState,
+  MdExtractColor,
   MdField,
   MdHighlightText,
   MdIcon,
