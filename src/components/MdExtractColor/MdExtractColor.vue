@@ -88,8 +88,6 @@ export default {
           return color.join()
         })
 
-        console.log(colors)
-
         onLoad(colors)
       }
 
