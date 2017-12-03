@@ -83,6 +83,7 @@
         <p>{{ $t('pages.app.apiApp.propsDesc') }}:</p>
 
         <api-table :headings="api.props.headings" :props="api.props.props" slot="props" />
+        <api-table :headings="api.classes.headings" :props="api.classes.props" slot="classes" />
       </api-item>
     </div>
 
@@ -180,6 +181,15 @@ export default {
               description: this.$t('pages.app.props.mdScrollbar'),
               defaults: 'true'
             }
+          ]
+        },
+        classes: {
+          headings: ['Name', 'Description'],
+          props: [
+            {
+              name: 'md-full-height',
+              description: 'Sets md-app to full height of window.'
+            },
           ]
         }
       }
