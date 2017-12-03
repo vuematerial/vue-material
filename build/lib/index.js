@@ -39,8 +39,8 @@ webpack(entries, (error, stats) => {
     throw error
   }
 
-	spinner.color = 'yellow';
-	spinner.text = 'Generating themes';
+  spinner.color = 'yellow'
+  spinner.text = 'Generating themes'
 
   generateThemes()
 

@@ -1,16 +1,18 @@
 import webpack from 'webpack'
-import ora from 'ora'
+import Ora from 'ora'
 import webpackConfig from './webpack'
 
-const spinner = ora({
-  text: 'Building documentation...',
-  color: 'green'
+const spinner = new Ora({
+  text: 'Building documentation',
+  color: 'green',
+  spinner: 'simpleDots'
 })
 
 spinner.start()
 
 webpack(webpackConfig, (error, stats) => {
   if (error) {
+    spinner.fail('ERRORED! Too bad! :(')
     throw error
   }
 
@@ -22,5 +24,5 @@ webpack(webpackConfig, (error, stats) => {
     chunkModules: false
   }) + '\n\n')
 
-  spinner.stop()
+  spinner.succeed('Vue Material documentation generated with success! \\o/')
 })
