@@ -56,6 +56,10 @@
 .md-layout-item {
   flex: 1 1;
 
+  &.md-layout {
+    margin: 0;
+  }
+
   @include md-layout-item;
 
   @include md-layout-medium {

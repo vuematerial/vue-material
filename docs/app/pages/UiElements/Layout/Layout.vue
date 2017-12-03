@@ -4,7 +4,7 @@
 <example src="./examples/LayoutHorizontalAlignment.vue" />
 <example src="./examples/LayoutHorizontalResponsive.vue" />
 <example src="./examples/LayoutHorizontalHide.vue" />
-<example src="./examples/LayoutHorizontalReal.vue" />
+<example src="./examples/LayoutHorizontalNested.vue" />
 
 <template>
   <page-container centered :title="$t('pages.layout.title')">
@@ -33,6 +33,12 @@
       <api-table :headings="gutter.props.headings" :props="gutter.props.props" slot="props" />
       <p>Look at this pice of code and resize you browser to see the changes:</p>
       <code-example title="Gutter" :component="examples['layout-horizontal-gutter']" />
+    </div>
+
+    <div class="page-container-section">
+      <p>By default layout items do not have space between each other. This can be kind of bad for regular layouts, like a list of card, for example. You can set Vue Material to calculate automatically the space between elements and those spaces are based on the screen width, using the same breakpoints:</p>
+      <api-table :headings="gutter.props.headings" :props="gutter.props.props" slot="props" />
+      <code-example title="Nested columns" :component="examples['layout-horizontal-nested']" />
     </div>
 
     <div class="page-container-section">
