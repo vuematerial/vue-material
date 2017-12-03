@@ -1,9 +1,9 @@
 <template>
   <transition name="page-container" appear>
     <div class="page-container main-container" :class="{ centered }">
-      <slot />
-
       <ad-manager />
+
+      <slot />
     </div>
   </transition>
 </template>
