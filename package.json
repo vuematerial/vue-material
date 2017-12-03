@@ -100,6 +100,8 @@
     "postcss": "^6.0.14",
     "preload-webpack-plugin": "^2.0.0",
     "prerender-spa-plugin": "^2.1.0",
+    "prettier": "^1.8.2",
+    "pretty": "^2.0.0",
     "sass-loader": "^6.0.6",
     "sinon": "^4.1.1",
     "url-loader": "^0.6.2",

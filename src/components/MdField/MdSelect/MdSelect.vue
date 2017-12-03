@@ -162,6 +162,7 @@
         }
       },
       onOpen () {
+        this.$emit('md-opened')
         if (this.didMount) {
           this.setOffsets()
           window.setTimeout(() => {
@@ -175,6 +176,7 @@
         this.$refs.input.$el.focus()
       },
       onClose () {
+        this.$emit('md-closed')
         if (this.didMount) {
           this.applyHighlight()
         }
@@ -202,12 +204,14 @@
         let includes = index > -1
         if (!includes) {
           this.localValue = this.localValue.concat([value])
-          return
+        } else {
+          this.localValue = this.arrayAccessorRemove(this.localValue, index)
         }
-        this.localValue = this.arrayAccessorRemove(this.localValue, index)
+        this.emitSelected(this.localValue)
       },
       setValue (newValue) {
         this.model = newValue
+        this.emitSelected(newValue)
         this.setFieldValue()
         this.showSelect = false
       },
@@ -225,7 +229,6 @@
       },
       setMultipleValue (value) {
         const newValue = value
-
         this.toggleArrayValue(newValue)
         this.setFieldValue()
       },
@@ -262,6 +265,9 @@
         if (!this.multiple && isArray) {
           this.localValue = this.localValue.length > 0 ? this.localValue[0] : null
         }
+      },
+      emitSelected (value) {
+        this.$emit('md-selected', value)
       }
     },
     async mounted () {

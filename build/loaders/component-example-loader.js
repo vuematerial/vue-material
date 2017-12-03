@@ -1,9 +1,34 @@
+const sass = require('node-sass')
+const pretty = require('pretty')
+const prettier = require('prettier')
 const path = require('path')
 const compiler = require('vue-template-compiler')
 const transpile = require('vue-template-es2015-compiler')
+const { resolvePath } = require('../config')
+const { getIndentedSource } = require('../../docs/app/mixins/codeSource')
 
 function camelCaseToDash (str) {
   return str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase()
+}
+
+function getComponentScript (script) {
+  return getIndentedSource(`
+    Vue.use(VueMaterial.default)
+
+    ${script}
+
+    const app = new Vue(example)
+
+    app.$mount('#app')
+  `)
+}
+
+function getComponentTemplate (template) {
+  return pretty(`
+    <div id="app">
+      ${template}
+    </div>
+  `)
 }
 
 module.exports = function (source) {
@@ -31,8 +56,36 @@ module.exports = function (source) {
 
   let { script, template, style } = parsedTags
 
+  if (style) {
+    style = style.replace(/~vue-material/g, '.')
+
+    const { css } = sass.renderSync({
+      data: style,
+      includePaths: [resolvePath('src')],
+      outputStyle: 'expanded'
+    })
+
+    style = css.toString('utf8')
+  }
+
+  if (template) {
+    template = template.replace(/src="\/assets/g, 'src="https://vuematerial.io/assets')
+    template = getComponentTemplate(template)
+  }
+
   if (script) {
-    script = script.replace('export default ', '')
+    let newScript = null
+
+    script = script.replace('export default ', 'const example = ')
+    script = getComponentScript(script)
+
+    try {
+      newScript = transpile(script)
+    } catch (e) {
+      newScript = script
+    }
+
+    script = prettier.format(newScript, { semi: false })
   }
 
   const code = `

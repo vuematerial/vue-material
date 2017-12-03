@@ -71,7 +71,6 @@
 </template>
 
 <script>
-  import Vue from 'vue'
   import { validationMixin } from 'vuelidate'
   import {
     required,

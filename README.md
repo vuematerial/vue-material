@@ -28,9 +28,13 @@ Vue Material is Simple, lightweight and built exactly according to the Google <a
 
 Build well-designed apps that can fit on every screen with support to all modern Web Browsers with dynamic themes, components on demand and all with an ease-to-use API
 
-<a target='_blank' rel='nofollow' href='https://app.codesponsor.io/link/265KRzahMKDQEQEzoo9BxRiH/vuematerial/vue-material'>	
-  <img alt='Sponsor' width='888' height='68' src='https://app.codesponsor.io/embed/265KRzahMKDQEQEzoo9BxRiH/vuematerial/vue-material.svg' />	
-</a>
+## Sponsorship
+
+Vue Material is proudly sponsored by [Rollbar](https://cs.berry.sh/c/c0597778-f465-4788-abe3-8711cc087774
+). They provide real-time error monitoring, alerting, and analytics for developers.
+
+You can try Rollbar for free at [https://rollbar.com](https://cs.berry.sh/c/c0597778-f465-4788-abe3-8711cc087774
+) <img src="https://cs.berry.sh/l/c0597778-f465-4788-abe3-8711cc087774/pixel.png" />
 
 ## Demo and Documentation
 
