@@ -108,7 +108,7 @@
       <api-item title="API - md-app-content">
         <i18n path="pages.app.apiContent.desc" tag="p">
           <code>md-content</code>
-          <router-link to="/components/drawer">{{ $t('pages.app.apiContent.page') }}</router-link>
+          <router-link to="/components/content">{{ $t('pages.app.apiContent.page') }}</router-link>
         </i18n>
       </api-item>
     </div>
