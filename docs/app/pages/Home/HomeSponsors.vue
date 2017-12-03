@@ -84,6 +84,8 @@
   }
 
   .home-sponsor {
+    color: #000 !important;
+
     + .home-sponsor {
       margin-left: 16px;
     }
@@ -98,9 +100,11 @@
     }
 
     img,
-    svg {
+    >>> svg,
+    .md-svg-loader {
       max-width: 256px;
       max-height: 96px;
+      display: block;
     }
   }
 
