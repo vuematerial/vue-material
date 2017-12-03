@@ -36,8 +36,7 @@
     </div>
 
     <div class="page-container-section">
-      <p>By default layout items do not have space between each other. This can be kind of bad for regular layouts, like a list of card, for example. You can set Vue Material to calculate automatically the space between elements and those spaces are based on the screen width, using the same breakpoints:</p>
-      <api-table :headings="gutter.props.headings" :props="gutter.props.props" slot="props" />
+      <p>Layout columns also work with nested layouts:</p>
       <code-example title="Nested columns" :component="examples['layout-horizontal-nested']" />
     </div>
 
