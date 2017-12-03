@@ -23,9 +23,9 @@
             </md-ripple>
           </a>
 
-          <a class="home-sponsor" href="https://www.browserstack.com/accounts/subscriptions" target="_blank">
+          <a class="home-sponsor" href="https://cs.berry.sh/c/bb9dade0-0207-4ab0-8c86-d00502d952f5" target="_blank">
             <md-ripple>
-              <img src="/assets/sponsors/browserstack.png">
+              <md-svg-loader md-src="/assets/sponsors/rollbar.svg" />
             </md-ripple>
           </a>
         </div>
@@ -44,8 +44,13 @@
 </template>
 
 <script>
+  import MdSvgLoader from 'vue-material/components/MdSvgLoader/MdSvgLoader'
+
   export default {
-    name: 'HomeSponsors'
+    name: 'HomeSponsors',
+    components: {
+      MdSvgLoader
+    }
   }
 </script>
 
@@ -92,7 +97,8 @@
       border-radius: 2px;
     }
 
-    img {
+    img,
+    svg {
       max-width: 256px;
       max-height: 96px;
     }
