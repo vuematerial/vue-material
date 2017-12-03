@@ -74,6 +74,10 @@
     overflow: hidden;
     position: relative;
 
+    &.md-full-height {
+      height: 100vh;
+    }
+
     &.md-fixed {
       .md-app-scroller {
         overflow: auto;
