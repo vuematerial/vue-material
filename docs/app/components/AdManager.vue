@@ -35,6 +35,7 @@
 </script>
 
 <style lang="scss" scoped>
+  @import "~vue-material/components/MdAnimation/variables";
   @import "~vue-material/theme/engine";
 
   $ad-responsive-big: 1690px;
@@ -76,14 +77,15 @@
     float: right;
     position: relative;
     z-index: 10;
+    transition: .3s $md-transition-default-timing;
     font-size: 12px;
     line-height: 1.5em;
 
     @media (min-width: $ad-responsive-big) {
       margin: 0;
       position: fixed;
+      top: 80px;
       right: 16px;
-      bottom: 16px;
     }
 
     @media (max-width: $ad-responsive-small) {
@@ -92,7 +94,20 @@
       float: none;
     }
 
+    .splash-container-enter &,
+    .page-container-enter & {
+      display: none;
+    }
+
     .splash-container & {
+      @media (min-width: $ad-responsive-big) {
+        margin: 0;
+        position: fixed;
+        top: auto;
+        right: 16px;
+        bottom: 16px;
+      }
+
       @media (max-width: $ad-responsive-big) {
         max-width: 530px;
         min-height: 100px;

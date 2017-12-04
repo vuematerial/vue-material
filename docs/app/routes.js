@@ -95,6 +95,11 @@ export const routes = [
     page: 'About.vue'
   },
   {
+    path: '/migration-guide',
+    name: 'migration-guide',
+    page: 'MigrationGuide.vue'
+  },
+  {
     path: '/license',
     name: 'license',
     page: 'License.vue'

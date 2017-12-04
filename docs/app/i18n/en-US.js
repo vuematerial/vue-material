@@ -22,6 +22,9 @@ export default {
     about: {
       title: 'About'
     },
+    migrationGuide: {
+      title: 'Migration Guide'
+    },
     license: {
       title: 'License'
     },
