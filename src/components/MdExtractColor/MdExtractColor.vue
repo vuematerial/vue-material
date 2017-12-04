@@ -17,8 +17,7 @@ export default {
     let image = this.$el
 
     this.getDominantColor(image, (colors) => {
-      const color = this.mdMoreColors ? colors : colors[0]
-      this.$emit('md-color', color)
+      this.$emit('update:mdColor', colors)
     })
   },
   methods: {
@@ -68,12 +67,7 @@ export default {
         }
 
         // convert the keys to rgb
-        const colors = this.convertColors(maxKey, prevKey, pprevKey)
-
-        // join colors with commas
-        const colorsWithCommas = colors.map((color) => {
-          return color.join()
-        })
+        const colorsWithCommas = this.convertColors(maxKey, prevKey, pprevKey)
 
         onLoad(colorsWithCommas)
       }
@@ -81,20 +75,29 @@ export default {
       image.onerror = onError
     },
     convertToRGB (key) {
-      if (key) {
-        return [(key & 0x000000ff),
-                (key & 0x0000ff00) >> 8,
-                (key & 0x00ff0000) >> 16]
+      if (!key) {
+        return
       }
-      return
+      return [(key & 0x000000ff),
+              (key & 0x0000ff00) >> 8,
+              (key & 0x00ff0000) >> 16]
     },
     convertColors (maxKey, prevKey, pprevKey) {
-      let colors = [
-        this.convertToRGB(maxKey),
-        this.convertToRGB(prevKey),
-        this.convertToRGB(pprevKey)
-      ]
-      return colors
+      if (this.mdMoreColors) {
+        const colors = []
+
+        colors.push(this.convertToRGB(maxKey))
+        if (prevKey) {
+          colors.push(this.convertToRGB(prevKey))
+          if (pprevKey) {
+            colors.push(this.convertToRGB(pprevKey))
+          }
+        }
+
+        return colors.map((color) => color.join())
+      } else {
+        return this.convertToRGB(maxKey).join()
+      }
     }
   }
 }
