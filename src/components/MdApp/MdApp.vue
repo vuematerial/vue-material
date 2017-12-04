@@ -46,7 +46,7 @@
   export default {
     name: 'MdApp',
     functional: true,
-    render (createElement, { children, props }) {
+    render (createElement, { children, props, data }) {
       let appComponent = MdAppSideDrawer
       const { context, functionalContext, componentOptions } = createElement(appComponent)
       const slots = buildSlots(children, context, functionalContext, componentOptions)
@@ -58,8 +58,18 @@
         }
       })
 
+      const staticClass = {}
+      if (data.staticClass) {
+        data.staticClass.split(/\s+/).forEach(name => {
+          if (name.length === 0) return
+          staticClass[name] = true
+        })
+      }
+
       return createElement(appComponent, {
-        attrs: props
+        attrs: props,
+        class: {...staticClass, ...data.class},
+        style: {...data.staticStyle, ...data.style},
       }, slots)
     }
   }
