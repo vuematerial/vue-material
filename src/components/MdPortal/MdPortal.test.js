@@ -1,6 +1,6 @@
 import { mount } from 'avoriaz'
 import mountTemplate from 'test/utils/mountTemplate'
-import MdPortal from './MdPortalNew'
+import MdPortal from './MdPortal'
 
 test('should render the portal element inside body', async () => {
   const template = '<md-portal>Lorem ipsum</md-portal>'

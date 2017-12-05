@@ -1,5 +1,5 @@
 import mountTemplate from 'test/utils/mountTemplate'
-import MdPopover from './MdPopover.vue'
+import MdPopover from './MdPopover'
 
 test('should render the popover', async () => {
   const template = '<md-popover></md-popover>'
