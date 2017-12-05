@@ -97,7 +97,6 @@
     transition: $md-transition-default;
     font-family: inherit;
     line-height: normal;
-    text-transform: uppercase;
     text-decoration: none;
     vertical-align: top;
     white-space: nowrap;
@@ -112,6 +111,7 @@
     border-radius: $md-button-radius;
     font-size: $md-button-font-size;
     font-weight: 500;
+    text-transform: uppercase;
 
     &:active {
       outline: none;

@@ -1,13 +1,14 @@
 <template>
-  <md-popover :md-settings="popperSettings" :md-active="shouldRender">
-    <transition name="md-menu-content" :css="didMount" v-if="shouldRender">
+  <md-popover :md-settings="popperSettings">
+    <transition name="md-menu-content" :css="didMount">
       <div
         :class="[menuClasses, mdContentClass, $mdActiveTheme]"
         :style="menuStyles"
         @keydown.arrow-down.prevent="setHighlight('down')"
         @keydown.arrow-up.prevent="setHighlight('up')"
         @keydown.space.prevent="setSelection"
-        @keydown.enter.prevent="setSelection">
+        @keydown.enter.prevent="setSelection"
+        v-if="shouldRender">
         <div class="md-menu-content-container md-scrollbar" :class="$mdActiveTheme">
           <md-list :class="listClasses" v-bind="$attrs" @keydown.esc="onEsc">
             <slot />
@@ -83,7 +84,7 @@
     },
     methods: {
       setPopperSettings () {
-        const { direction, alignTrigger } = this.MdMenu
+        const { direction } = this.MdMenu
 
         let { offsetX, offsetY } = this.getOffsets()
 

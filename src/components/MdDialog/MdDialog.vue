@@ -5,12 +5,12 @@
         <md-focus-trap>
           <div class="md-dialog-container">
             <slot />
-
-            <keep-alive>
-              <md-overlay :class="mdBackdropClass" md-fixed :md-active="mdActive" @click="onClick" v-if="mdBackdrop" />
-            </keep-alive>
           </div>
         </md-focus-trap>
+
+        <keep-alive>
+          <md-overlay :class="mdBackdropClass" md-fixed :md-active="mdActive" @click="onClick" v-if="mdBackdrop" />
+        </keep-alive>
       </div>
     </transition>
   </md-portal>
@@ -171,10 +171,17 @@
       left: 0;
       border-radius: 0;
       transform: none;
+      transition: opacity .35s $md-transition-stand-timing,
+                  transform .35s $md-transition-stand-timing;
 
-      &.md-dialog-enter {
+      &.md-dialog-enter-active {
         opacity: 0;
         transform: translate3D(0, 30%, 0);
+      }
+
+      &.md-dialog-enter-to {
+        opacity: 1;
+        transform: translate3D(0, 0, 0);
       }
 
       &.md-dialog-leave-active {

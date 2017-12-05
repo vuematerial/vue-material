@@ -1,7 +1,7 @@
 <template>
-  <md-popover :md-settings="popperSettings" md-active>
-    <transition name="md-datepicker-dialog" appear>
-      <div class="md-datepicker-dialog" :class="[$mdActiveTheme]">
+  <md-popover :md-settings="popperSettings">
+    <transition name="md-datepicker-dialog" appear @enter="setContentStyles">
+      <div class="md-datepicker-dialog" :class="[$mdActiveTheme]" v-if="mdActive">
         <div class="md-datepicker-header">
           <span class="md-datepicker-year-select" :class="{ 'md-selected': currentView === 'year' }" @click="currentView = 'year'">{{ selectedYear }}</span>
           <div class="md-datepicker-date-select" :class="{ 'md-selected': currentView !== 'year' }" @click="currentView = 'day'">
@@ -110,7 +110,7 @@
   import MdDialog from 'components/MdDialog/MdDialog'
 
   const getElements = (el, selector) => {
-    if (el && el.querySelector) {
+    if (el && el.querySelectorAll) {
       return el.querySelectorAll(selector)
     }
 
@@ -126,6 +126,7 @@
       MdDialog,
     },
     props: {
+      mdActive: Boolean,
       mdDate: Date,
       mdDisabledDates: [Array, Function]
     },
@@ -235,7 +236,11 @@
       }
     },
     methods: {
-      setContentStyles () {
+      async setContentStyles () {
+        this.$forceUpdate()
+
+        await this.$nextTick()
+
         const months = getElements(this.$el, '.md-datepicker-month')
 
         if (months.length) {
@@ -298,7 +303,7 @@
         this.selectedDate = this.currentDate
       },
       closeDialog () {
-        this.$emit('md-closed')
+        this.$emit('update:mdActive', false)
       },
       onClose () {
         this.closeDialog()
@@ -311,16 +316,12 @@
         this.$emit('update:mdDate', this.selectedDate)
       }
     },
-    created () {
+    mounted () {
       this.setAvailableYears()
       this.currentDate = this.mdDate || new Date()
       this.selectedDate = this.mdDate
       this.currentView = 'day'
-
-      window.setTimeout(() => {
-        this.setContentStyles()
-      }, 50)
-    },
+    }
   })
 </script>
 

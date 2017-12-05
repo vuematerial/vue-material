@@ -1,7 +1,7 @@
 <template>
-  <md-popover :md-settings="popperSettings" :md-active="shouldRender">
-    <transition name="md-tooltip" v-if="shouldRender">
-      <div class="md-tooltip" :class="[tooltipClasses, $mdActiveTheme]" :style="tooltipStyles">
+  <md-popover :md-settings="popperSettings">
+    <transition name="md-tooltip">
+      <div class="md-tooltip" :class="[tooltipClasses, $mdActiveTheme]" :style="tooltipStyles" v-if="shouldRender">
         <slot />
       </div>
     </transition>
@@ -46,7 +46,7 @@
           placement: this.mdDirection,
           modifiers: {
             offset: {
-              offset: '0, 16'
+              offset: '0, 12'
             }
           }
         }
@@ -70,7 +70,7 @@
       await this.$nextTick()
 
       this.shouldRender = this.mdActive
-      this.targetEl = this._vnode.componentInstance.originalParentEl
+      this.targetEl = this._vnode.componentInstance.MdPopover.originalParent
 
       if (this.targetEl) {
         this.targetEl.addEventListener('mouseenter', this.show, false)
