@@ -2,7 +2,7 @@ import Popper from 'popper.js'
 import deepmerge from 'deepmerge'
 
 export default {
-  name: 'MdPopoverNew',
+  name: 'MdPopoverPortal',
   abstract: true,
   inject: ['MdPortal'],
   props: {

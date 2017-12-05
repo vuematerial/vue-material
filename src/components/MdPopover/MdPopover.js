@@ -2,7 +2,7 @@ import MdPortal from '../MdPortal/MdPortal'
 import MdPopoverPortal from './MdPopoverPortal'
 
 export default {
-  name: 'MdPopoverPortal',
+  name: 'MdPopover',
   abstract: true,
   props: {
     mdSettings: {

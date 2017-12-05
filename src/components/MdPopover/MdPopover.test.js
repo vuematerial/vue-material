@@ -5,5 +5,5 @@ test('should render the popover', async () => {
   const template = '<md-popover></md-popover>'
   const wrapper = await mountTemplate(MdPopover, template)
 
-  // expect(wrapper.hasClass('md-popover')).toBe(true)
+  expect(wrapper.is(MdPopover)).toBe(true)
 })
