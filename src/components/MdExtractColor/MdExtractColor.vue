@@ -17,7 +17,7 @@ export default {
     let image = this.$el
 
     this.getDominantColor(image, (colors) => {
-      this.$emit('update:mdColor', colors)
+      this.$emit('mdColor', colors)
     })
   },
   methods: {
