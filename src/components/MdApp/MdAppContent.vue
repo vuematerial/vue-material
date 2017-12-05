@@ -1,9 +1,9 @@
 <template>
-  <md-card class="md-app-content md-flex" v-bind="$attrs" v-on="$listeners" v-if="showCard">
+  <md-card class="md-app-content" v-bind="$attrs" v-on="$listeners" v-if="showCard">
     <slot />
   </md-card>
 
-  <md-content class="md-app-content md-flex" v-bind="$attrs" v-on="$listeners" v-else>
+  <md-content class="md-app-content" v-bind="$attrs" v-on="$listeners" v-else>
     <slot />
   </md-content>
 </template>
@@ -22,7 +22,7 @@
 
 <style lang="scss">
   .md-app-content {
-    height: 100%;
+    min-height: 100%;
 
     .md-card {
       margin-right: 16px;
