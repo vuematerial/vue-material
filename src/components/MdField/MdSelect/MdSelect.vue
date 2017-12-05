@@ -311,7 +311,9 @@
       border: 0;
     }
   }
-
+  .md-menu-content {
+    z-index: 111;
+  }
   .md-menu-content.md-select-menu {
     width: 100%;
 
