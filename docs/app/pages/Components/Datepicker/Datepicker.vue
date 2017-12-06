@@ -62,6 +62,12 @@
             type: 'Boolean',
             description: 'Disable the on focus event. Will open only if the user clicks on the icon.',
             defaults: 'true'
+          },
+          {
+            name: 'md-override-native',
+            type: 'Boolean',
+            description: 'Override native browser pickers by changing type of input to text.',
+            defaults: 'true'
           }
         ]
       }
