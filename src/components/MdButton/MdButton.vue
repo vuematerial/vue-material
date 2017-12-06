@@ -220,6 +220,7 @@
   .md-icon-button,
   .md-fab {
     border-radius: 50%;
+    z-index: 10;
 
     &:before {
       border-radius: 50%;
