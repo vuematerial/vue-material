@@ -7,6 +7,7 @@ $md-card-radius: 2px;
   @include md-elevation(2);
   overflow: auto;
   position: relative;
+  z-index: 1;
   border-radius: $md-card-radius;
   transition: .3s $md-transition-default-timing;
   transition-property: color, background-color;
