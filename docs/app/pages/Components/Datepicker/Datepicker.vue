@@ -1,4 +1,5 @@
 <example src="./examples/BasicDatepicker.vue" />
+<example src="./examples/LabeledDatepicker.vue" />
 <example src="./examples/CancelOpenDatepicker.vue" />
 <example src="./examples/DisabledDatesDatepicker.vue" />
 
@@ -13,6 +14,8 @@
       <h2>Datepicker</h2>
 
       <code-example title="Basic Example" :component="examples['basic-datepicker']" />
+
+      <code-example title="Labeled Example" :component="examples['labeled-datepicker']" />
     </div>
 
     <div class="page-container-section">

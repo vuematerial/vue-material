@@ -116,6 +116,9 @@
   }
 
   .md-datepicker {
+    label {
+      top: 0 !important;
+    }
     .md-date-icon {
       cursor: pointer;
     }
