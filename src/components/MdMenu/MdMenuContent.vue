@@ -187,8 +187,8 @@
         if (document) {
           this.MdMenu.bodyClickObserver = new MdObserveEvent(document.body, 'click', $event => {
             $event.stopPropagation()
-
-            if (!this.$el.contains($event.target)) {
+            let isMdMenu = this.MdMenu.$el ? this.MdMenu.$el.contains($event.target) : false
+            if (!this.$el.contains($event.target) && !isMdMenu) {
               this.MdMenu.active = false
               this.MdMenu.bodyClickObserver.destroy()
               this.MdMenu.windowResizeObserver.destroy()
