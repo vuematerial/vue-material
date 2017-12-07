@@ -82,14 +82,10 @@
     },
     methods: {
       toggleDialog () {
-        if (this.mdOverrideNative) {
+        if (!isFirefox || this.mdOverrideNative) {
           this.showDialog = !this.showDialog
         } else {
-          if (!isFirefox) {
-            this.showDialog = !this.showDialog
-          } else {
-            this.$refs.input.$el.click()
-          }
+          this.$refs.input.$el.click()
         }
       },
       onFocus () {
