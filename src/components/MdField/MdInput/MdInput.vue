@@ -35,10 +35,9 @@
         return this.type === 'password'
       },
       listeners () {
-        return {
-          ...this.$listeners,
-          input: event => this.$emit('input', event.target.value)
-        }
+        var l = Object.assign({}, this.$listeners)
+        delete l.input
+        return l
       }
     },
     watch: {
