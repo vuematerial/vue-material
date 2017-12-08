@@ -2,6 +2,7 @@
 <example src="./examples/Static.vue" />
 <example src="./examples/Editable.vue" />
 <example src="./examples/ChipCustomTemplate.vue" />
+<example src="./examples/DuplicatedFeedback.vue" />
 <example src="./examples/Themed.vue" />
 
 <template>
@@ -43,6 +44,13 @@
 
       <p>Sometimes we need to show more information about a chip, so we want to have a custom HTML structure for the chip itself. To create that scenario we can use the template scope. In this case all you have to do is to create a slot with your custom template and you're good to go. Take a loot at this example:</p>
       <code-example title="Scoped Slot" :component="examples['chip-custom-template']" />
+    </div>
+
+    <div class="page-container-section">
+      <h2>Duplicated Chip</h2>
+
+      <p>Chips would reject insertion while a chip was duplicated. You could customize feedback style of the duplicated chip:</p>
+      <code-example title="Duplicated Feedback" :component="examples['duplicated-feedback']" />
     </div>
 
     <div class="page-container-section">
@@ -141,6 +149,12 @@ export default {
             name: 'md-limit',
             type: 'Number',
             description: 'Blocks the chips to create items above the limit.',
+            defaults: 'false'
+          },
+          {
+            name: 'md-always-check-duplicated',
+            type: 'Boolean',
+            description: 'Always check if there is a duplicated chip while changing the input value, or check it only on insertion',
             defaults: 'false'
           }
         ]
