@@ -4,7 +4,7 @@
 
     <md-chip
       v-for="(chip, key) in value"
-      :key="key"
+      :key="chip"
       :md-deletable="!mdStatic"
       :md-clickable="!mdStatic"
       :md-duplicated="duplicatedChip === chip"
