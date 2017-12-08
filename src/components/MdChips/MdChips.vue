@@ -112,6 +112,8 @@
       handleInput () {
         if (this.mdAlwaysCheckDuplicated) {
           this.checkDuplicated()
+        } else {
+          this.duplicatedChip = null
         }
       },
       checkDuplicated () {
