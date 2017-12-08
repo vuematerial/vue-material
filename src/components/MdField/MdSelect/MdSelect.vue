@@ -113,8 +113,9 @@
     watch: {
       localValue: {
         immediate: true,
-        handler () {
+        handler (val) {
           this.setFieldContent()
+          this.emitSelected(val)
         }
       },
       multiple: {
@@ -207,11 +208,9 @@
         } else {
           this.localValue = this.arrayAccessorRemove(this.localValue, index)
         }
-        this.emitSelected(this.localValue)
       },
       setValue (newValue) {
         this.model = newValue
-        this.emitSelected(newValue)
         this.setFieldValue()
         this.showSelect = false
       },
