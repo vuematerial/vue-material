@@ -55,7 +55,7 @@
       mdPlaceholder: [String, Number],
       mdStatic: Boolean,
       mdLimit: Number,
-      mdCheckDuplicatedOnChange: {
+      mdAlwaysCheckDuplicated: {
         type: Boolean,
         default: false
       }
@@ -110,7 +110,7 @@
         }
       },
       handleInput () {
-        if (this.mdCheckDuplicatedOnChange) {
+        if (this.mdAlwaysCheckDuplicated) {
           this.checkDuplicated()
         }
       },
@@ -119,7 +119,7 @@
           this.duplicatedChip = null
           return
         }
-        if (!this.mdCheckDuplicatedOnChange) return
+        if (!this.mdAlwaysCheckDuplicated) return
         this.duplicatedChip = this.inputValue
       }
     },
