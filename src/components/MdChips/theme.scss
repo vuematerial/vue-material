@@ -62,7 +62,7 @@
       }
     }
 
-    &.md-accent {
+    &.md-accent, &.md-duplicated {
       @include md-theme-property(background-color, accent);
       @include md-theme-property(color, text-primary, accent);
 
