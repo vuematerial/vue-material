@@ -184,11 +184,11 @@ export default {
   },
   dialog: {
     title: 'Dialog',
-    description: 'Dialogs informs users about a specific task and may contain critical information, require decisions, or involve multiple tasks.'
+    description: 'Dialogs informs users about a specific task and may contain critical information.'
   },
   divider: {
     title: 'Divider',
-    description: 'A divider is a thin, lightweight rule that groups content in lists and page layouts and helps to organize page content and hierarchy into individual tiles.'
+    description: 'A divider is a thin, lightweight rule that helps to organize page content and hierarchy into individual tiles.'
   },
   drawer: {
     title: 'Drawer',
@@ -199,10 +199,11 @@ export default {
   },
   icon: {
     title: 'Icon',
-    description: ''
+    description: 'Material icons uses geometric shapes to visually represent core ideas, capabilities, or topics.'
   },
   input: {
-    title: 'Input & Textarea'
+    title: 'Input & Textarea',
+    description: 'Text fields allows users to input, edit, and select text.'
   },
   list: {
     title: 'List',
@@ -273,7 +274,7 @@ export default {
   },
   tabs: {
     title: 'Tabs',
-    description: 'Tabs make it easy to explore, switch between different views and enable content organization at a high level, such as different data sets or functional aspects of an app.'
+    description: 'Tabs make it easy to explore, switch between different views and enable content organization at a high level.'
   },
   error: {
     title: 'Not Found'
