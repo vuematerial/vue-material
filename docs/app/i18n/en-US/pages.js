@@ -179,79 +179,101 @@ export default {
   },
   datepicker: {
     title: 'Datepicker',
-    nav: 'Date'
+    nav: 'Date',
+    description: 'Datepickers use a dialog window and provide a simple way to select a single value from a pre-determined set.'
   },
   dialog: {
-    title: 'Dialog'
+    title: 'Dialog',
+    description: 'Dialogs informs users about a specific task and may contain critical information, require decisions, or involve multiple tasks.'
   },
   divider: {
-    title: 'Divider'
+    title: 'Divider',
+    description: 'A divider is a thin, lightweight rule that groups content in lists and page layouts and helps to organize page content and hierarchy into individual tiles.'
   },
   drawer: {
-    title: 'Drawer'
+    title: 'Drawer',
+    description: 'The navigation drawer slides in from the left or right and contains the navigation destinations for your app.'
   },
   form: {
     title: 'Forms'
   },
   icon: {
-    title: 'Icon'
+    title: 'Icon',
+    description: ''
   },
   input: {
     title: 'Input & Textarea'
   },
   list: {
-    title: 'List'
+    title: 'List',
+    description: 'Lists present multiple line items vertically as a single continuous element and are best suited for similar data types.'
   },
   radio: {
-    title: 'Radio'
+    title: 'Radio',
+    description: 'Radio buttons allow the user to select one option from a set.'
   },
   select: {
-    title: 'Select'
+    title: 'Select',
+    description: 'A select picks between multiple options.'
   },
   file: {
-    title: 'File'
+    title: 'File',
+    description: 'File inputs allows the user to pick one or multiple files.'
   },
   table: {
-    title: 'Table'
+    title: 'Table',
+    description: 'Data tables display sets of raw data. They usually appear in desktop enterprise products.'
   },
   menu: {
-    title: 'Menu'
+    title: 'Menu',
+    description: 'Menus appear upon interaction with a button, action, or other control.'
   },
   steppers: {
-    title: 'Steppers'
+    title: 'Steppers',
+    description: 'Steppers display progress through a sequence of logical and numbered steps.'
   },
   switch: {
-    title: 'Switch'
+    title: 'Switch',
+    description: 'On/off switches toggle the state of a single settings option.'
   },
   speedDial: {
-    title: 'Speed Dial'
+    title: 'Speed Dial',
+    description: 'Floating Action Buttons can show related actions upon hovering or pressing.'
   },
   snackbar: {
-    title: 'Snackbar'
+    title: 'Snackbar',
+    description: 'Snackbars provide brief feedback about an operation through a message at the bottom of the screen.'
   },
   subheader: {
-    title: 'Subheader'
+    title: 'Subheader',
+    description: 'Subheaders are list tiles that delineate sections of a list or grid list.'
   },
   toolbar: {
-    title: 'Toolbar'
+    title: 'Toolbar',
+    description: 'Toolbar actions appear above the view affected by their actions.'
   },
   tooltip: {
-    title: 'Tooltip'
+    title: 'Tooltip',
+    description: 'Tooltips identify an element when they are activated.'
   },
   layout: {
-    title: 'Layout'
+    title: 'Layout',
+    description: 'Responsive layouts in material design adapt to any possible screen size.'
   },
   scrollbar: {
-    title: 'Scrollbar'
+    title: 'Scrollbar',
+    description: 'Scrollbars show the track on how much a content has been reviewed.'
   },
   textSelection: {
-    title: 'Text Selection'
+    title: 'Text Selection',
+    description: 'Text selection is indicated by highlighting a contiguous segment of text.'
   },
   typography: {
     title: 'Typography'
   },
   tabs: {
-    title: 'Tabs'
+    title: 'Tabs',
+    description: 'Tabs make it easy to explore, switch between different views and enable content organization at a high level, such as different data sets or functional aspects of an app.'
   },
   error: {
     title: 'Not Found'

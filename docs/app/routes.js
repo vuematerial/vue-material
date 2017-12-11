@@ -138,8 +138,7 @@ export const routes = [
   {
     path: '/components',
     name: 'components',
-    redirect: '/components/app'
-    // page: 'Components.vue'
+    page: 'Components.vue'
   },
   {
     path: '/components/button',
