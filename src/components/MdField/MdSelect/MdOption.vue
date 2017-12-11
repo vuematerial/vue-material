@@ -1,6 +1,6 @@
 <template>
   <md-menu-item :class="optionClasses" :disabled="isDisabled" @click="setSelection">
-    <md-checkbox class="md-primary" v-model="isChecked" v-if="MdSelect.multiple" />
+    <md-checkbox class="md-primary" v-model="isChecked" v-if="MdSelect.multiple" :disabled="isDisabled" />
 
     <span class="md-list-item-text" ref="text">
       <slot />
@@ -77,7 +77,7 @@
         this.MdSelect.setMultipleValue(this.value)
       },
       setSelection () {
-        if (!this.disabled) {
+        if (!this.isDisabled) {
           if (this.isMultiple) {
             this.setMultipleSelection()
           } else {
