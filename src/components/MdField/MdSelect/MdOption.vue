@@ -55,14 +55,12 @@
       selectValue () {
         this.setIsSelected()
       },
-
       isChecked (val) {
         if (val === this.isSelected) {
           return
         }
         this.setSelection()
       },
-
       isSelected (val) {
         this.isChecked = val
       }
