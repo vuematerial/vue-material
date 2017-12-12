@@ -62,7 +62,8 @@
 
   .home-sponsors {
     width: calc(100% + 32px);
-    margin: 0 -16px;
+    margin: 0 -16px -16px;
+    padding-bottom: 28px;
   }
 
   .home-sponsors-patreon {
