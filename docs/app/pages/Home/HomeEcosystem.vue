@@ -6,7 +6,7 @@
     </h2>
     <div class="page-wrapper">
       <div class="md-layout md-gutter">
-        <div class="md-layout-item">
+        <div class="md-layout-item md-small-size-100">
           <md-content class="md-elevation-2 full-height">
             <div class="content">
               <div class="md-title">Advanced Webpack SPA</div>
@@ -17,7 +17,7 @@
             </div>
           </md-content>
         </div>
-        <div class="md-layout-item">
+        <div class="md-layout-item md-small-size-100">
           <md-content class="md-elevation-2 full-height">
             <div class="content">
               <div class="md-title">NuxtJs Universal</div>
@@ -28,7 +28,7 @@
             </div>
           </md-content>
         </div>
-        <div class="md-layout-item md-size-35">
+        <div class="md-layout-item md-small-size-100">
           <md-content class="md-elevation-2 flying">
             <div class="content">
               <div class="md-title">Single HTML file</div>
@@ -64,6 +64,11 @@
     padding-bottom: 28px;
     margin: 0 -16px;
     background: #f5f5f5;
+    .md-layout-item {
+      @include md-layout-small {
+        margin-top: 16px;
+      }
+    }
     .md-content {
       padding: 16px;
       display: flex;

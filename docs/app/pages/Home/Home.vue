@@ -88,6 +88,10 @@
 </style>
 
 <style lang="scss">
+  @import "~vue-material/components/MdAnimation/variables";
+  @import "~vue-material/components/MdIcon/mixins";
+  @import "~vue-material/components/MdLayout/mixins";
+
   .page-wrapper {
     max-width: 1344px;
     margin: 0 auto;
@@ -100,6 +104,9 @@
     color: rgba(#000, .87);
     position: relative;
     padding: 16px 0;
+    @include md-layout-medium {
+      padding: 16px;
+    }
     .md-icon {
       position: absolute;
       top: 2px;
