@@ -63,7 +63,7 @@
   const getObjectAttribute = (object, key) => {
     let value = object
 
-    for (const attribute of name.split('.')) {
+    for (const attribute of key.split('.')) {
       value = value[attribute]
     }
 
