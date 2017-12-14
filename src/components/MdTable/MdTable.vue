@@ -60,6 +60,16 @@
   import MdTableRowGhost from './MdTableRowGhost'
   import MdTableCellSelection from './MdTableCellSelection'
 
+  const getObjectAttribute = (object, key) => {
+    let value = object
+
+    for (const attribute of name.split('.')) {
+      value = value[attribute]
+    }
+
+    return value
+  }
+          
   export default {
     name: 'MdTable',
     components: {
@@ -91,14 +101,16 @@
       mdSortFn: {
         type: Function,
         default (value) {
+          
+
           return value.sort((a, b) => {
             const sortBy = this.MdTable.sort
 
             if (this.MdTable.sortOrder === 'desc') {
-              return a[sortBy].localeCompare(b[sortBy])
+              return getObjectAttribute(a, sortBy).localeCompare(getObjectAttribute(b, sortBy))
             }
 
-            return b[sortBy].localeCompare(a[sortBy])
+            return getObjectAttribute(b, sortBy).localeCompare(getObjectAttribute(a, sortBy))
           })
         }
       }
