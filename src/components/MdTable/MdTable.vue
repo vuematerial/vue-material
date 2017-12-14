@@ -101,8 +101,6 @@
       mdSortFn: {
         type: Function,
         default (value) {
-          
-
           return value.sort((a, b) => {
             const sortBy = this.MdTable.sort
 
