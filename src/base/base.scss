@@ -113,13 +113,13 @@ iframe {
 
 // support rtl in fields
 .md-rtl-support-field {
-  text-align: right;
   direction: rtl;
+  text-align: right;
 }
 
 // support rtl in icon with field
 //.md-rtl-icon-input {
-.md-rtl-support-direction-datepicker  {
+.md-rtl-support-direction-datepicker {
   i {
     margin-left: 2%;
     width: 37px;
