@@ -99,6 +99,12 @@ iframe {
 .md-rtl-support-direction-datepicker {
   direction: rtl;
 
+  // support rtl in icon with field
+  i {
+    margin-left: 2%;
+    width: 37px;
+  }
+
   label {
     right: 6%;
     text-align: right;
@@ -117,14 +123,6 @@ iframe {
   text-align: right;
 }
 
-// support rtl in icon with field
-//.md-rtl-icon-input {
-.md-rtl-support-direction-datepicker {
-  i {
-    margin-left: 2%;
-    width: 37px;
-  }
-}
 
 // support rtl label in auto complete
 .md-rtl-support-auto-complete {
