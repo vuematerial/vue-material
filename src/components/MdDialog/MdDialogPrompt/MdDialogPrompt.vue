@@ -1,7 +1,7 @@
 <template>
   <md-dialog v-bind="$attrs" :md-fullscreen="false" @md-opened="setInputFocus">
-    <md-dialog-title v-if="mdTitle">{{ mdTitle }}</md-dialog-title>
-    <md-dialog-content v-if="mdContent" v-html="mdContent" />
+    <md-dialog-title v-if="mdTitle" :class="{'md-rtl-support' : mdRtl}">{{ mdTitle }}</md-dialog-title>
+    <md-dialog-content v-if="mdContent" v-html="mdContent" :class="{'md-rtl-support' : mdRtl}"/>
 
     <md-dialog-content>
       <md-field>
@@ -12,11 +12,12 @@
           :name="mdInputName"
           :maxlength="mdInputMaxlength"
           :placeholder="mdInputPlaceholder"
+          :md-rtl="mdRtl"
           @keydown.enter.native="onConfirm" />
       </md-field>
     </md-dialog-content>
 
-    <md-dialog-actions>
+    <md-dialog-actions :class="{'md-rtl-support-direction' : mdRtl}">
       <md-button class="md-primary" @click="onCancel">{{ mdCancelText }}</md-button>
       <md-button class="md-primary" @click="onConfirm">{{ mdConfirmText }}</md-button>
     </md-dialog-actions>
@@ -41,6 +42,10 @@
       mdCancelText: {
         type: String,
         default: 'Cancel'
+      },
+      mdRtl:{
+        type: Boolean,
+        default: false
       }
     },
     data: () => ({

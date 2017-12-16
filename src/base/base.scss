@@ -73,3 +73,60 @@ iframe {
 [tabindex="-1"]:focus {
   outline: none !important;
 }
+
+
+/**
+ * Support right to left languages
+ * This prevents an new supported languages like Arbic and Hebrew
+ * General classes to work with rtl language support
+/*
+   ========================================================================== */
+
+
+// general support for rtl languages
+.md-rtl-support{
+  @extend .md-rtl-support-direction;
+  text-align: right;
+  float:right;
+}
+
+// rtl support direction
+.md-rtl-support-direction{
+  direction: rtl;
+}
+
+// support rtl in date picker
+.md-rtl-support-direction-datepicker{
+  @extend .md-rtl-support-direction;
+  label {
+    right: 6%;
+    text-align: right;
+  }
+
+}
+
+// rtl support in action button on cards
+.md-rtl-support-action-buttons{
+  float:left;
+}
+
+// support rtl in fields
+.md-rtl-support-field{
+  text-align: right;
+  @extend .md-rtl-support-direction;
+}
+
+// support rtl in icon with field
+.md-rtl-icon-input{
+  margin-left: 2%;
+  width:36px !important
+}
+
+// support rtl label in auto complete
+.md-rtl-support-auto-complete{
+  label {
+    right: 2%;
+    text-align: right;
+  }
+}
+

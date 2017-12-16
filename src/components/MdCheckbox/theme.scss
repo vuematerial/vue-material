@@ -1,5 +1,13 @@
 .md-checkbox {
   @include md-theme-component() {
+
+    &.md-rtl-support-direction{
+      .md-checkbox-label {
+        padding-right: 2.5%;
+      }
+    }
+
+
     &.md-checked {
       .md-checkbox-container {
         @include md-theme-property(background-color, accent);

@@ -145,6 +145,12 @@
                 type: 'String',
                 description: 'The text inside confirm button',
                 defaults: 'Ok'
+              },
+              {
+                name: 'md-rtl',
+                type: 'Boolean',
+                description: 'Support right to left language with <code>true</code> value',
+                defaults: 'false'
               }
             ]
           }
@@ -176,6 +182,12 @@
                 type: 'String',
                 description: 'The text inside cancel button',
                 defaults: 'Cancel'
+              },
+              {
+                name: 'md-rtl',
+                type: 'Boolean',
+                description: 'Support right to left language with <code>true</code> value',
+                defaults: 'false'
               }
             ]
           },
@@ -252,6 +264,12 @@
                 type: 'String',
                 description: 'The text inside cancel button',
                 defaults: 'Cancel'
+              },
+              {
+                name: 'md-rtl',
+                type: 'Boolean',
+                description: 'Support right to left language with <code>true</code> value',
+                defaults: 'false'
               }
             ]
           },

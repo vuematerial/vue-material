@@ -7,7 +7,7 @@
       md-confirm-text="Agree"
       md-cancel-text="Disagree"
       @md-cancel="onCancel"
-      @md-confirm="onConfirm" />
+      @md-confirm="onConfirm"/>
 
     <md-button class="md-primary md-raised" @click="active = true">Confirm</md-button>
     <span v-if="value">Value: {{ value }}</span>

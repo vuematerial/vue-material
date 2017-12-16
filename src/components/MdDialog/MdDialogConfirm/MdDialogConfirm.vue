@@ -1,9 +1,9 @@
 <template>
   <md-dialog v-bind="$attrs" v-on="$listeners" :md-fullscreen="false">
-    <md-dialog-title v-if="mdTitle">{{ mdTitle }}</md-dialog-title>
-    <md-dialog-content v-if="mdContent" v-html="mdContent" />
+    <md-dialog-title v-if="mdTitle" :class="{'md-rtl-support' : mdRtl}">{{ mdTitle }}</md-dialog-title>
+    <md-dialog-content v-if="mdContent" v-html="mdContent"/>
 
-    <md-dialog-actions>
+    <md-dialog-actions :class="{'md-rtl-support-direction' : mdRtl}">
       <md-button class="md-primary" @click="onCancel">{{ mdCancelText }}</md-button>
       <md-button class="md-primary" @click="onConfirm">{{ mdConfirmText }}</md-button>
     </md-dialog-actions>
@@ -23,6 +23,10 @@
       mdCancelText: {
         type: String,
         default: 'Cancel'
+      },
+      mdRtl:{
+        type: Boolean,
+        default: false
       }
     },
     methods: {

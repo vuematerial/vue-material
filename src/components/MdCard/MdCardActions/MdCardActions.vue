@@ -1,5 +1,5 @@
 <template>
-  <div class="md-card-actions" :class="`md-alignment-${mdAlignment}`">
+  <div class="md-card-actions" :class="setClassName" >
     <slot />
   </div>
 </template>
@@ -16,6 +16,19 @@
         type: String,
         default: 'right',
         ...MdPropValidator('md-alignment', alignments)
+      },
+      mdRtl:{
+        type: Boolean,
+        default: false
+      }
+    },
+    computed:{
+      setClassName() /* string */{
+        let classesName = `md-alignment-${this.mdAlignment}`;
+        if (this.mdRtl) {
+          classesName += ' md-rtl-support-action-buttons'
+        }
+        return classesName;
       }
     }
   }

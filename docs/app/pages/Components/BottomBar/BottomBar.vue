@@ -135,6 +135,12 @@
               type: 'Boolean',
               description: 'Disable the bottom bar preventing the click on it and all actions.',
               defaults: 'false'
+            },
+            {
+              name: 'md-rtl',
+              type: 'Boolean',
+              description: 'Support right to left language with <code>true</code> value',
+              defaults: 'false'
             }
           ]
         }

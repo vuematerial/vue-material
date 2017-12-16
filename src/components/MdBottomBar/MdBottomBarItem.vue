@@ -13,7 +13,7 @@
     <template v-else>
       <md-icon class="md-bottom-bar-icon" v-if="isAssetIcon(mdIcon)" :md-src="mdIcon"></md-icon>
       <md-icon class="md-bottom-bar-icon" v-else>{{ mdIcon }}</md-icon>
-      <span class="md-bottom-bar-label">{{ mdLabel }}</span>
+      <span class="md-bottom-bar-label" :class="{'md-rtl-support': mdRtl}">{{ mdLabel }}</span>
     </template>
   </md-button>
 </template>
@@ -36,7 +36,11 @@
       to: null,
       mdLabel: String,
       mdIcon: String,
-      mdDisabled: Boolean
+      mdDisabled: Boolean,
+      mdRtl: {
+        type: Boolean,
+        default: false
+      }
     },
     inject: ['MdBottomBar'],
     watch: {

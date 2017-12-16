@@ -4,6 +4,7 @@
       <md-input
         v-model="searchTerm"
         v-bind="$attrs"
+        :md-rtl="mdRtl"
         :id="mdInputId"
         :name="mdInputName"
         :maxlength="mdInputMaxlength"
@@ -73,7 +74,8 @@
       mdInputName: String,
       mdInputId: String,
       mdInputMaxlength: [String, Number],
-      mdInputPlaceholder: [String, Number]
+      mdInputPlaceholder: [String, Number],
+      mdRtl: Boolean
     },
     data () {
       return {
@@ -89,9 +91,14 @@
         return this.mdLayout === 'box'
       },
       fieldClasses () {
+        let className = '';
         if (this.isBoxLayout) {
-          return 'md-autocomplete-box'
+          className += 'md-autocomplete-box'
         }
+        if(this.mdRtl){
+          className +=' md-rtl-support-auto-complete'
+        }
+        return className;
       },
       contentClasses () {
         if (this.isBoxLayout) {
