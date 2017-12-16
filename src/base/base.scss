@@ -118,9 +118,11 @@ iframe {
 
 // support rtl in icon with field
 //.md-rtl-icon-input {
-.md-rtl-support-direction-datepicker > i {
-  margin-left: 2%;
-  width: 37px;
+.md-rtl-support-direction-datepicker  {
+  i {
+    margin-left: 2%;
+    width: 37px;
+  }
 }
 
 // support rtl label in auto complete
