@@ -3,7 +3,7 @@
     <md-autocomplete v-model="value" :md-options="countries" @md-changed="getCountries" @md-opened="getCountries">
       <label>Country</label>
 
-      <template slot="md-autocomplete-item" slot-scope="{ item }">{{ item.name }}</span></template>
+      <template slot="md-autocomplete-item" slot-scope="{ item }">{{ item.name }}</template>
     </md-autocomplete>
   </div>
 </template>
