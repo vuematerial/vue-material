@@ -1,7 +1,7 @@
 .md-checkbox {
   @include md-theme-component() {
 
-    &.md-rtl-support-direction{
+    &.md-rtl-support-direction {
       .md-checkbox-label {
         padding-right: 2.5%;
       }

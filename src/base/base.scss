@@ -85,9 +85,9 @@ iframe {
 
 // general support for rtl languages
 .md-rtl-support {
-  @extend .md-rtl-support-direction;
-  text-align: right;
+  direction: rtl;
   float: right;
+  text-align: right;
 }
 
 // rtl support direction
@@ -97,7 +97,8 @@ iframe {
 
 // support rtl in date picker
 .md-rtl-support-direction-datepicker {
-  @extend .md-rtl-support-direction;
+  direction: rtl;
+
   label {
     right: 6%;
     text-align: right;
@@ -113,7 +114,7 @@ iframe {
 // support rtl in fields
 .md-rtl-support-field {
   text-align: right;
-  @extend .md-rtl-support-direction;
+  direction: rtl;
 }
 
 // support rtl in icon with field
