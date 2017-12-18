@@ -24,15 +24,11 @@
       id: {
         type: String,
         default: () => 'md-checkbox-' + MdUuid()
-      },
-      mdRtl:{
-        type: Boolean,
-        default: false
       }
     },
     computed:{
       getRtlClass() /* string */{
-        return (this.mdRtl) ? 'md-rtl-support-direction' : '';
+        return (this.$material.theming.rtlSupport) ? 'md-rtl-support-direction' : '';
       }
     }
   })

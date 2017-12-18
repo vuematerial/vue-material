@@ -52,12 +52,6 @@
             type: 'String',
             description: 'The checkbox unique id.',
             defaults: 'a random string'
-          },
-          {
-            name: 'md-rtl',
-            type: 'Boolean',
-            description: 'Support right to left language with <code>true</code> value',
-            defaults: 'false'
           }
         ]
       },

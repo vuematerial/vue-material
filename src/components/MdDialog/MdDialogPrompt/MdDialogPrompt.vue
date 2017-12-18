@@ -12,7 +12,6 @@
           :name="mdInputName"
           :maxlength="mdInputMaxlength"
           :placeholder="mdInputPlaceholder"
-          :md-rtl="mdRtl"
           @keydown.enter.native="onConfirm" />
       </md-field>
     </md-dialog-content>
@@ -42,14 +41,11 @@
       mdCancelText: {
         type: String,
         default: 'Cancel'
-      },
-      mdRtl:{
-        type: Boolean,
-        default: false
       }
     },
     data: () => ({
-      inputValue: null
+      inputValue: null,
+      mdRtl : false
     }),
     watch: {
       value () {
@@ -74,6 +70,7 @@
     },
     created () {
       this.inputValue = this.value
+      this.mdRtl = this.$material.theming.rtlSupport;
     }
   }
 </script>

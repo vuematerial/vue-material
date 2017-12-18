@@ -7,7 +7,6 @@
       v-model="modelDate"
       @focus.native="onFocus"
       pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
-      :md-rtl="mdRtl"
     />
 
     <slot/>
@@ -17,7 +16,6 @@
         :md-date.sync="selectedDate"
         :md-disabled-dates="mdDisabledDates"
         v-if="showDialog"
-        :md-rtl="mdRtl"
         @md-closed="toggleDialog" />
     </keep-alive>
 
@@ -52,16 +50,13 @@
       mdOpenOnFocus: {
         type: Boolean,
         default: true
-      },
-      mdRtl: {
-        type: Boolean,
-        default: false
       }
     },
     data: () => ({
       showDialog: false,
       modelDate: null,
-      selectedDate: null
+      selectedDate: null,
+      mdRtl: false
     }),
     watch: {
       selectedDate (selectedDate) {
@@ -115,6 +110,7 @@
     created () {
       this.modelDate = this.dateToHTMLString(this.value)
       this.selectedDate = this.value
+      this.mdRtl = this.$material.theming.rtlSupport;
     }
   }
 </script>

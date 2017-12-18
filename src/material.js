@@ -37,6 +37,12 @@ const init = () => {
       set (enabled) {
         MdTheme.enabled = enabled
       }
+    },
+    rtlSupport:{
+      get: ()=> (MdTheme.rtlSupport),
+      set(value){
+        MdTheme.rtlSupport = value
+      }
     }
   })
 

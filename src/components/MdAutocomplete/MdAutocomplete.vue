@@ -4,7 +4,6 @@
       <md-input
         v-model="searchTerm"
         v-bind="$attrs"
-        :md-rtl="mdRtl"
         :id="mdInputId"
         :name="mdInputName"
         :maxlength="mdInputMaxlength"
@@ -74,8 +73,7 @@
       mdInputName: String,
       mdInputId: String,
       mdInputMaxlength: [String, Number],
-      mdInputPlaceholder: [String, Number],
-      mdRtl: Boolean
+      mdInputPlaceholder: [String, Number]
     },
     data () {
       return {
@@ -95,7 +93,7 @@
         if (this.isBoxLayout) {
           className += 'md-autocomplete-box'
         }
-        if(this.mdRtl){
+        if(this.$material.theming.rtlSupport){
           className +=' md-rtl-support-auto-complete'
         }
         return className;

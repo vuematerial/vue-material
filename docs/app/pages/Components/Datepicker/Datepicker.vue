@@ -65,12 +65,6 @@
             type: 'Boolean',
             description: 'Disable the on focus event. Will open only if the user clicks on the icon.',
             defaults: 'true'
-          },
-          {
-            name: 'md-rtl',
-            type: 'Boolean',
-            description: 'Support right to left language with <code>true</code> value',
-            defaults: 'false'
           }
         ]
       }

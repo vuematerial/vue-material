@@ -220,12 +220,6 @@
               type: 'Boolean',
               description: 'Disable/enable the fuzzy search algorithm. If <code>false</code>, the search will match the whole search term. This option do not take any effects if the <code>md-options</code> is a Promise',
               defaults: 'true'
-            },
-            {
-              name: 'md-rtl',
-              type: 'Boolean',
-              description: 'Support right to left language with <code>true</code> value',
-              defaults: 'false'
             }
           ]
         },

@@ -127,11 +127,7 @@
     },
     props: {
       mdDate: Date,
-      mdDisabledDates: [Array, Function],
-      mdRtl:{
-        type: Boolean,
-        default: false
-      }
+      mdDisabledDates: [Array, Function]
     },
     data: () => ({
       currentDate: null,
@@ -148,7 +144,7 @@
       },
       popperSettings () {
         return {
-          placement: (!this.mdRtl) ? 'bottom-start' : 'bottom-end',
+          placement: (!this.$material.theming.rtlSupport) ? 'bottom-start' : 'bottom-end',
           modifiers: {
             keepTogether: {
               enabled: true

@@ -7,7 +7,6 @@
       :key="key"
       :md-deletable="!mdStatic"
       :md-clickable="!mdStatic"
-      :md-rtl="mdRtl"
       @keydown.enter="$emit('md-click', chip, key)"
       @click.native="$emit('md-click', chip, key)"
       @md-delete.stop="removeChip(chip)">
@@ -53,11 +52,7 @@
       },
       mdPlaceholder: [String, Number],
       mdStatic: Boolean,
-      mdLimit: Number,
-      mdRtl:{
-        type: Boolean,
-        default: false
-      }
+      mdLimit: Number
     },
     data: () => ({
       inputValue: ''

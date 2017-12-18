@@ -89,12 +89,6 @@ export default {
             type: 'Boolean',
             description: 'Enables/Disables the chip to be clickable of deletable.',
             defaults: 'false'
-          },
-          {
-            name: 'md-rtl',
-            type: 'Boolean',
-            description: 'Support right to left language with <code>true</code> value',
-            defaults: 'false'
           }
         ]
       },

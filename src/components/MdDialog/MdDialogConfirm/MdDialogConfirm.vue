@@ -23,12 +23,11 @@
       mdCancelText: {
         type: String,
         default: 'Cancel'
-      },
-      mdRtl:{
-        type: Boolean,
-        default: false
       }
     },
+    data:()=>({
+      mdRtl: false
+    }),
     methods: {
       onCancel () {
         this.$emit('md-cancel')
@@ -38,6 +37,9 @@
         this.$emit('md-confirm')
         this.$emit('update:mdActive', false)
       }
+    },
+    created(){
+      this.mdRtl = this.$material.theming.rtlSupport;
     }
   }
 </script>

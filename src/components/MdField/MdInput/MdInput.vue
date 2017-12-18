@@ -1,7 +1,7 @@
 <template>
   <input
     class="md-input"
-    :class="{'md-rtl-support-field' : mdRtl}"
+    :class="{'md-rtl-support-field' : $material.theming.rtlSupport}"
     v-model="model"
     v-bind="attributes"
     v-on="listeners"
@@ -26,10 +26,6 @@
       type: {
         type: String,
         default: 'text'
-      },
-      mdRtl:{
-        type: Boolean,
-        default: false
       }
     },
     computed: {

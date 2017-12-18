@@ -22,11 +22,13 @@
       mdConfirmText: {
         type: String,
         default: 'Ok'
-      },
-      mdRtl: {
-        type: Boolean,
-        default: false
       }
+    },
+    data: () => ({
+      mdRtl: false
+    }),
+    created(){
+      this.mdRtl = this.$material.theming.rtlSupport;
     }
   }
 </script>

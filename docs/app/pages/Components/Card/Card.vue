@@ -130,12 +130,6 @@ export default {
               type: 'String',
               description: 'Alignment of action buttons.',
               defaults: 'right'
-            },
-            {
-              name: 'md-rtl',
-              type: 'Boolean',
-              description: 'Support right to left language with <code>true</code> value',
-              defaults: 'false'
             }
           ]
         }

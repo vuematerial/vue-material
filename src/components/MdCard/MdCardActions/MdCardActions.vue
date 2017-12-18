@@ -16,16 +16,12 @@
         type: String,
         default: 'right',
         ...MdPropValidator('md-alignment', alignments)
-      },
-      mdRtl:{
-        type: Boolean,
-        default: false
       }
     },
     computed:{
       setClassName() /* string */{
         let classesName = `md-alignment-${this.mdAlignment}`;
-        if (this.mdRtl) {
+        if (this.$material.theming.rtlSupport) {
           classesName += ' md-rtl-support-action-buttons'
         }
         return classesName;
