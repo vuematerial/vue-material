@@ -7,7 +7,6 @@
   <page-container centered :title="$t('pages.datepicker.title')">
     <div class="page-container-section">
       <p>Datepickers use a dialog window and provide a simple way to select a single value from a pre-determined set. The component can have disabled dates and it's really easy to use.</p>
-      <note-block alert>The datepicker dialog is disabled in Firefox, because it have a built-in Datepicker on desktop.</note-block>
     </div>
 
     <div class="page-container-section">
@@ -64,6 +63,12 @@
             name: 'md-open-on-focus',
             type: 'Boolean',
             description: 'Disable the on focus event. Will open only if the user clicks on the icon.',
+            defaults: 'true'
+          },
+          {
+            name: 'md-override-native',
+            type: 'Boolean',
+            description: 'Override native browser pickers by changing type of input to text.',
             defaults: 'true'
           }
         ]
