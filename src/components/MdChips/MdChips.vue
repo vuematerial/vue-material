@@ -110,7 +110,7 @@
         }
       },
       handleInput () {
-        if (this.mdAlwaysCheckDuplicated) {
+        if (this.mdCheckDuplicated) {
           this.checkDuplicated()
         } else {
           this.duplicatedChip = null
@@ -121,7 +121,7 @@
           this.duplicatedChip = null
           return
         }
-        if (!this.mdAlwaysCheckDuplicated) return
+        if (!this.mdCheckDuplicated) return
         this.duplicatedChip = this.inputValue
       }
     },
