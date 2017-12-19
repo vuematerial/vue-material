@@ -1,6 +1,6 @@
 <template>
   <md-menu-item :class="optionClasses" :disabled="isDisabled" @click="setSelection">
-    <md-checkbox class="md-primary" v-model="isChecked" v-if="MdSelect.multiple" />
+    <md-checkbox class="md-primary pointer-events-disabled" v-model="isChecked" v-if="MdSelect.multiple" />
 
     <span class="md-list-item-text" ref="text">
       <slot />
@@ -104,5 +104,7 @@
 </script>
 
 <style lang="scss">
-
+  .md-checkbox.pointer-events-disabled {
+    pointer-events: none;
+  }
 </style>
