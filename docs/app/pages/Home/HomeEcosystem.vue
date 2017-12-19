@@ -7,7 +7,7 @@
     <div class="page-wrapper">
       <div class="md-layout md-gutter">
         <div class="md-layout-item md-small-size-100">
-          <md-content class="md-elevation-2 full-height">
+          <md-card md-with-hover class="md-elevation-2 full-height">
             <div class="content">
               <div class="md-title">Advanced Webpack SPA</div>
               <p>A full-featured Webpack + Vue Material setup with hot-reload, lint-on-save, unit testing & css extraction.</p>
@@ -15,10 +15,10 @@
             <div class="image">
               <img src="/assets/boilerplates/webpack-advanced.png" alt="webpack">
             </div>
-          </md-content>
+          </md-card>
         </div>
         <div class="md-layout-item md-small-size-100">
-          <md-content class="md-elevation-2 full-height">
+          <md-card md-with-hover class="md-elevation-2 full-height">
             <div class="content">
               <div class="md-title">NuxtJs Universal</div>
               <p>Nuxt.js is a framework for creating Universal Vue.js Applications. All the configuration needed to make your development of a Vue.js Application Server Rendered more enjoyable.</p>
@@ -26,23 +26,23 @@
             <div class="image">
               <img src="/assets/boilerplates/nuxt.png" alt="nuxtjs">
             </div>
-          </md-content>
+          </md-card>
         </div>
         <div class="md-layout-item md-small-size-100">
-          <md-content class="md-elevation-2 flying">
+          <md-card md-with-hover class="md-elevation-2 flying">
             <div class="content">
               <div class="md-title">Single HTML file</div>
               <p>The simplest possible Vue Material setup in a single HTML file. But without SCSS or ES7.</p>
             </div>
             <img src="/assets/boilerplates/html.png" alt="">
-          </md-content>
-          <md-content class="md-elevation-2 flying">
+          </md-card>
+          <md-card md-with-hover class="md-elevation-2 flying">
             <div class="content">
               <div class="md-title">Codepen for prototyping</div>
               <p>For fast prototyping, examples or issues reports is best to use codepen.</p>
             </div>
             <img src="/assets/boilerplates/codepen.svg" alt="">
-          </md-content>
+          </md-card>
         </div>
       </div>
     </div>
@@ -69,13 +69,14 @@
         margin-top: 16px;
       }
     }
-    .md-content {
+    .md-card {
       padding: 16px;
       display: flex;
       margin-bottom: 16px;
       flex-direction: column;
       position: relative;
       overflow: hidden;
+      background: #fff;
       &.full-height {
         height: 100%;
       }
@@ -97,8 +98,8 @@
       &.flying {
         img {
           position: absolute;
-          bottom: -30px;
-          right: -30px;
+          bottom: -40px;
+          right: -40px;
           max-height: 160px;
           z-index: 0;
         }
