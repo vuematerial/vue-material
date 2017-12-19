@@ -152,7 +152,7 @@ export default {
             defaults: 'false'
           },
           {
-            name: 'md-always-check-duplicated',
+            name: 'md-check-duplicated',
             type: 'Boolean',
             description: 'Always check if there is a duplicated chip while changing the input value, or check it only on insertion',
             defaults: 'false'
