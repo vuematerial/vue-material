@@ -77,12 +77,10 @@
     },
     methods: {
       insertChip ({ target }) {
-        if (
-          !this.inputValue ||
-          !this.modelRespectLimit
-        ) {
+        if (!this.inputValue || !this.modelRespectLimit) {
           return
         }
+        
         if (this.value.includes(this.inputValue)) {
           this.duplicatedChip = null
           // to trigger animate
@@ -91,6 +89,7 @@
           })
           return
         }
+        
         this.value.push(this.inputValue)
         this.$emit('input', this.value)
         this.$emit('md-insert', this.inputValue)
