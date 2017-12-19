@@ -10,9 +10,9 @@
           <md-card md-with-hover class="md-elevation-2 full-height">
             <div class="content">
               <div class="md-title">Advanced Webpack SPA</div>
-              <p>A full-featured Webpack + Vue Material setup with hot-reload, lint-on-save, unit testing & css extraction.</p>
+              <p>A full-featured Webpack + Vue Material setup with hot-reload, lint-on-save, unit testing, scss preprocessing & css extraction.</p>
             </div>
-            <div class="image">
+            <div class="image webpack">
               <img src="/assets/boilerplates/webpack-advanced.png" alt="webpack">
             </div>
           </md-card>
@@ -23,7 +23,7 @@
               <div class="md-title">NuxtJs Universal</div>
               <p>Nuxt.js is a framework for creating Universal Vue.js Applications. All the configuration needed to make your development of a Vue.js Application Server Rendered more enjoyable.</p>
             </div>
-            <div class="image">
+            <div class="image nuxt">
               <img src="/assets/boilerplates/nuxt.png" alt="nuxtjs">
             </div>
           </md-card>
@@ -89,10 +89,15 @@
         margin: 16px -16px -16px -16px;
         max-height: 200px;
         overflow: hidden;
-        background: #f8f8f8;
         text-align: center;
         img {
           max-height: 180px;
+        }
+        &.nuxt {
+          background: #64D1A1;
+        }
+        &.webpack {
+          background: #8ED6FB;
         }
       }
       &.flying {
