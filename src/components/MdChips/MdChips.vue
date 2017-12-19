@@ -55,7 +55,7 @@
       mdPlaceholder: [String, Number],
       mdStatic: Boolean,
       mdLimit: Number,
-      mdAlwaysCheckDuplicated: {
+      mdCheckDuplicated: {
         type: Boolean,
         default: false
       }
