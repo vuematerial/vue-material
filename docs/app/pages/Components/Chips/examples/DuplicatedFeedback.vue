@@ -6,7 +6,7 @@
     <md-chips class="md-primary shake-on-error" v-model="chips" md-placeholder="Add genre...">
       <div class="md-helper-text">Shake duplicated chip on insertion</div>
     </md-chips>
-    <md-chips class="md-primary pulse-on-error" v-model="chips" md-placeholder="Add genre..." :md-always-check-duplicated="true">
+    <md-chips class="md-primary pulse-on-error" v-model="chips" md-placeholder="Add genre..." md-check-duplicated>
       <div class="md-helper-text">Always pulse duplicated chip</div>
     </md-chips>
   </div>
