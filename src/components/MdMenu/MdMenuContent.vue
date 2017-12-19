@@ -7,7 +7,8 @@
         @keydown.arrow-down.prevent="setHighlight('down')"
         @keydown.arrow-up.prevent="setHighlight('up')"
         @keydown.space.prevent="setSelection"
-        @keydown.enter.prevent="setSelection">
+        @keydown.enter.prevent="setSelection"
+        ref="menu">
         <div class="md-menu-content-container md-scrollbar" :class="$mdActiveTheme">
           <md-list :class="listClasses" v-bind="$attrs" @keydown.esc="onEsc">
             <slot />
@@ -188,7 +189,8 @@
           this.MdMenu.bodyClickObserver = new MdObserveEvent(document.body, 'click', $event => {
             $event.stopPropagation()
             let isMdMenu = this.MdMenu.$el ? this.MdMenu.$el.contains($event.target) : false
-            if (!this.$el.contains($event.target) && !isMdMenu) {
+            let isMenuContentEl = this.$refs.menu ? this.$refs.menu.contains($event.target) : false
+            if (!this.$el.contains($event.target) && !isMdMenu && !isMenuContentEl) {
               this.MdMenu.active = false
               this.MdMenu.bodyClickObserver.destroy()
               this.MdMenu.windowResizeObserver.destroy()
