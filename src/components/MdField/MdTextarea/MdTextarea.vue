@@ -48,7 +48,7 @@
     },
     computed: {
       listeners () {
-        var l = Object.assign({}, this.$listeners)
+        var l =  {...this.$listeners}
         delete l.input
         return l
       },
