@@ -103,12 +103,14 @@
         default (value) {
           return value.sort((a, b) => {
             const sortBy = this.MdTable.sort
+            const aAttr = getObjectAttribute(a, sortBy)
+            const bAttr = getObjectAttribute(b, sortBy)
 
             if (this.MdTable.sortOrder === 'desc') {
-              return getObjectAttribute(a, sortBy).localeCompare(getObjectAttribute(b, sortBy))
+              return aAttr.localeCompare(bAttr)
             }
 
-            return getObjectAttribute(b, sortBy).localeCompare(getObjectAttribute(a, sortBy))
+            return bAttr.localeCompare(aAttr)
           })
         }
       }
