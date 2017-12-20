@@ -121,12 +121,6 @@
         padding: 16px;
         height: 100%;
       }
-      &.row {
-        flex-direction: row;
-      }
-      &.column {
-        flex-direction: column;
-      }
       .content {
         z-index: 1;
         flex-grow: 1;
