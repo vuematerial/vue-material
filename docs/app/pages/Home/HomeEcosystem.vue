@@ -97,6 +97,11 @@
     padding-bottom: 28px;
     margin: 0 -16px;
     background: #f5f5f5;
+    .md-layout-item {
+      @include md-layout-small {
+        margin-top: 16px;
+      }
+    }
     .md-card {
       position: relative;
       overflow: hidden;
