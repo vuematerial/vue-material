@@ -5,9 +5,9 @@
       {{ $t('pages.home.ecosystem') }}
     </h2>
     <div class="page-wrapper">
-      <div class="md-layout md-alignment-top-center">
-        <div class="md-layout-item md-small-size-100 md-size-50">
-          <md-card md-with-hover class="md-elevation-2 md-primary" md-theme="blue-card" @click.native="openLink('https://github.com/vuematerial/webpack')">
+      <div class="md-layout md-gutter">
+        <div class="md-layout-item md-small-size-100">
+          <md-card md-with-hover class="md-elevation-2 md-primary full-height" md-theme="blue-card" @click.native="openLink('https://github.com/vuematerial/webpack')">
             <md-ripple>
               <md-card-content>
                 <div class="content">
@@ -16,6 +16,21 @@
                 </div>
                 <div class="image">
                   <img src="/assets/boilerplates/webpack-advanced.png" alt="webpack">
+                </div>
+              </md-card-content>
+            </md-ripple>
+          </md-card>
+        </div>
+        <div class="md-layout-item md-small-size-100">
+          <md-card md-with-hover class="md-elevation-2 md-primary full-height" md-theme="green-card" @click.native="openLink('https://github.com/vuematerial/nuxtjs')">
+            <md-ripple>
+              <md-card-content>
+                <div class="content">
+                  <div class="md-title">Nuxt.js Universal</div>
+                  <p>Nuxt.js is a framework for creating Universal Vue.js Applications. All the configuration needed to make your development of a Vue.js Application Server Rendered more enjoyable.</p>
+                </div>
+                <div class="image">
+                  <img src="/assets/boilerplates/nuxt.png" alt="nuxtjs">
                 </div>
               </md-card-content>
             </md-ripple>
@@ -33,8 +48,6 @@
               </md-card-content>
             </md-ripple>
           </md-card>
-        </div>
-        <div class="md-layout-item md-small-size-100 md-size-30">
           <md-card md-with-hover class="md-elevation-2 flying" @click.native="openLink('CODEPEN')">
             <md-ripple>
               <md-card-content>
@@ -43,21 +56,6 @@
                   <p>For fast prototyping, examples or issues reports is best to use codepen.</p>
                 </div>
                 <img src="/assets/boilerplates/codepen.svg" alt="codepen">
-              </md-card-content>
-            </md-ripple>
-          </md-card>
-        </div>
-        <div class="md-layout-item md-small-size-100 md-size-50">
-          <md-card md-with-hover class="md-elevation-2 md-primary" md-theme="green-card" @click.native="openLink('https://github.com/vuematerial/nuxtjs')">
-            <md-ripple>
-              <md-card-content>
-                <div class="content">
-                  <div class="md-title">Nuxt.js Universal</div>
-                  <p>Nuxt.js is a framework for creating Universal Vue.js Applications. All the configuration needed to make your development of a Vue.js Application Server Rendered more enjoyable.</p>
-                </div>
-                <div class="image">
-                  <img src="/assets/boilerplates/nuxt.png" alt="nuxtjs">
-                </div>
               </md-card-content>
             </md-ripple>
           </md-card>
@@ -99,26 +97,17 @@
     padding-bottom: 28px;
     margin: 0 -16px;
     background: #f5f5f5;
-    .md-layout {
-      align-items: stretch;
-      padding: 32px 0;
-      margin-right: -8px;
-      margin-left: -8px;
-      .md-layout-item {
-        padding-right: 8px;
-        padding-left: 8px;
-        margin-bottom: 16px;
-      }
-    }
     .md-card {
       position: relative;
       overflow: hidden;
       background: #fff;
-      min-height: 270px;
-      height: 100%;
+      margin-bottom: 16px;
       .md-card-content {
         display: flex;
         padding: 16px;
+        height: 100%;
+      }
+      &.full-height {
         height: 100%;
       }
       .content {
