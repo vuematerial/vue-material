@@ -1,6 +1,6 @@
 <template>
   <md-menu-item :class="optionClasses" :disabled="isDisabled" @click="setSelection">
-    <md-checkbox class="md-primary" v-model="isChecked" v-if="MdSelect.multiple" />
+    <md-checkbox class="md-primary" v-model="isChecked" v-if="MdSelect.multiple" :disabled="isDisabled" />
 
     <span class="md-list-item-text" ref="text">
       <slot />
@@ -52,8 +52,17 @@
       }
     },
     watch: {
-      inputLabel () {
+      selectValue () {
         this.setIsSelected()
+      },
+      isChecked (val) {
+        if (val === this.isSelected) {
+          return
+        }
+        this.setSelection()
+      },
+      isSelected (val) {
+        this.isChecked = val
       }
     },
     methods: {
@@ -67,17 +76,24 @@
         return slot ? slot[0].text.trim() : ''
       },
       setIsSelected () {
-        this.isSelected = this.inputLabel === this.getTextContent()
+        if (!this.isMultiple) {
+          this.isSelected = this.selectValue === this.value
+          return
+        }
+        if (this.selectValue === undefined) {
+          this.isSelected = false
+          return
+        }
+        this.isSelected = this.selectValue.includes(this.value)
       },
       setSingleSelection () {
         this.MdSelect.setValue(this.value)
       },
       setMultipleSelection () {
-        this.isChecked = !this.isChecked
         this.MdSelect.setMultipleValue(this.value)
       },
       setSelection () {
-        if (!this.disabled) {
+        if (!this.isDisabled) {
           if (this.isMultiple) {
             this.setMultipleSelection()
           } else {
@@ -95,10 +111,6 @@
     created () {
       this.setItem()
       this.setIsSelected()
-
-      if (this.isMultiple && this.selectValue && this.selectValue.length) {
-        this.isChecked = this.selectValue.includes(this.value)
-      }
     }
   }
 </script>

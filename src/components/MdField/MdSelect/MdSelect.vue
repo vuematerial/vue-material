@@ -89,7 +89,7 @@
           items: {},
           label: null,
           multiple: false,
-          modelValue: this.model,
+          modelValue: this.localValue,
           setValue: this.setValue,
           setContent: this.setContent,
           setMultipleValue: this.setMultipleValue,
@@ -115,6 +115,7 @@
         immediate: true,
         handler (val) {
           this.setFieldContent()
+          this.MdSelect.modelValue = this.localValue
           this.emitSelected(val)
         }
       },
@@ -124,9 +125,6 @@
           this.MdSelect.multiple = isMultiple
           this.$nextTick(() => this.initialLocalValueByDefault())
         }
-      },
-      model () {
-        this.MdSelect.modelValue = this.model
       }
     },
     methods: {
