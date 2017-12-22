@@ -48,10 +48,9 @@
     },
     computed: {
       listeners () {
-        return {
-          ...this.$listeners,
-          input: event => this.$emit('input', event.target.value)
-        }
+        var l =  {...this.$listeners}
+        delete l.input
+        return l
       },
       textareaStyles () {
         return {
