@@ -1,6 +1,6 @@
 <template>
   <md-field class="md-chips" :class="[$mdActiveTheme, chipsClasses]">
-    <slot v-if="!mdStatic" />
+    <slot />
 
     <md-chip
       v-for="(chip, key) in value"
