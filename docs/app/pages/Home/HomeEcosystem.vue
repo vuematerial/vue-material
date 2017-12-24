@@ -48,7 +48,7 @@
               </md-card-content>
             </md-ripple>
           </md-card>
-          <md-card md-with-hover class="md-elevation-2 flying" @click.native="openLink('CODEPEN')">
+          <md-card md-with-hover class="md-elevation-2 flying" @click.native="openLink('https://codepen.io/vue-material/pen/RxGmyb')">
             <md-ripple>
               <md-card-content>
                 <div class="content">
