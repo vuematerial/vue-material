@@ -149,8 +149,8 @@
           props: [
             {
               name: 'v-model',
-              type: 'String|Number|Boolean|Array',
               description: 'The model variable to bind the autocomplete value',
+              type: 'String|Number',
               defaults: 'null'
             },
             {

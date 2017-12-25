@@ -1,6 +1,6 @@
 <template>
   <div>
-    <md-autocomplete v-model="value" :md-options="colors">
+    <md-autocomplete v-model="searchTerm" @md-selected="onSelect" :md-options="colors">
       <label>Color</label>
 
       <template slot="md-autocomplete-item" slot-scope="{ item, term }">
@@ -24,6 +24,7 @@
   export default {
     name: 'AutocompleteStatic',
     data: () => ({
+      searchTerm: null,
       value: null,
       colors: [
         { name: 'Aqua', color: '#00ffff' },
@@ -76,6 +77,14 @@
     methods: {
       noop () {
         window.alert('noop')
+      },
+      onSelect (val) {
+        this.value = val
+      }
+    },
+    watch: {
+      searchTerm () {
+        this.value = null
       }
     }
   }

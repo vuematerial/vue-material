@@ -204,13 +204,14 @@
         this.triggerPopover = false
         this.$emit('md-closed')
       },
-      selectItem (item, $event) {
+      async selectItem (item, $event) {
         const content = $event.target.textContent.trim()
 
         this.searchTerm = content
-        this.$emit('input', item)
-        this.$emit('md-selected', item)
         this.hideOptions()
+        // await next tick for case clearing selected on `v-model` change
+        await this.$nextTick()
+        this.$emit('md-selected', item)
       }
     }
   }
