@@ -42,6 +42,10 @@
   import isPromise from 'is-promise'
   import MdPropValidator from 'core/utils/MdPropValidator'
 
+  const defaultGetPlainText = (item, el) => {
+    return el.textContent.trim()
+  }
+
   export default {
     name: 'MdAutocomplete',
     props: {
@@ -73,7 +77,8 @@
       mdInputName: String,
       mdInputId: String,
       mdInputMaxlength: [String, Number],
-      mdInputPlaceholder: [String, Number]
+      mdInputPlaceholder: [String, Number],
+      mdGetPlainText: [Function, null]
     },
     data () {
       return {
@@ -205,7 +210,8 @@
         this.$emit('md-closed')
       },
       async selectItem (item, $event) {
-        const content = $event.target.textContent.trim()
+        const getPlainText = this.mdGetPlainText || defaultGetPlainText
+        const content = getPlainText(item, $event.currentTarget)
 
         this.searchTerm = content
         this.hideOptions()

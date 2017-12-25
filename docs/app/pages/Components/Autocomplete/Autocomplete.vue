@@ -3,6 +3,7 @@
 <example src="./examples/AutocompleteSearch.vue" />
 <example src="./examples/AutocompleteBox.vue" />
 <example src="./examples/AutocompleteTemplate.vue" />
+<example src="./examples/AutocompleteObjectText.vue" />
 <example src="./examples/AutocompleteAsync.vue" />
 
 <template>
@@ -41,6 +42,13 @@
       <p>Autocomplete also accepts a custom template, flexible to accept any HTML element and with an 'empty state' built in. You can also highlight the search term inside the matches, to give a feedback on why that item has been in the results. Awesome:</p>
       <code-example title="With highlight text" :component="examples['autocomplete-template']" />
       <note-block tip>Although the <code>md-highlight-text</code> component is most used with autocomplete, you can use it anywhere.</note-block>
+    </div>
+
+    <div class="page-container-section">
+      <h2>Custom Get Plain Text Method</h2>
+
+      <p>While you're using custom template, there might be content with iconic font like <router-link to="/components/icon"><code>MdIcon</code></router-link> and you don't want to treat them as a part of the content:</p>
+      <code-example title="Ignore icons" :component="examples['autocomplete-object-text']" />
     </div>
 
     <div class="page-container-section search-algorithms">
@@ -220,6 +228,16 @@
               type: 'Boolean',
               description: 'Disable/enable the fuzzy search algorithm. If <code>false</code>, the search will match the whole search term. This option do not take any effects if the <code>md-options</code> is a Promise',
               defaults: 'true'
+            },
+            {
+              name: 'md-get-plain-text',
+              type: 'Function',
+              description: [
+                'Custom method to get plain text from an object.',
+                '@param {<code>Object</code>|<code>String</code>} selected item',
+                '@param {HTML DOM Element Object} selected DOM Element Object',
+              ].join('<br/>'),
+              defaults: '(item, el) => el.textContent.trim()'
             }
           ]
         },
