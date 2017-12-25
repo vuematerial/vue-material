@@ -3,6 +3,7 @@
 <example src="./examples/Editable.vue" />
 <example src="./examples/ChipCustomTemplate.vue" />
 <example src="./examples/DuplicatedFeedback.vue" />
+<example src="./examples/Format.vue" />
 <example src="./examples/Themed.vue" />
 
 <template>
@@ -51,6 +52,13 @@
 
       <p>Chips would reject insertion while a chip was duplicated. You could customize feedback style of the duplicated chip:</p>
       <code-example title="Duplicated Feedback" :component="examples['duplicated-feedback']" />
+    </div>
+
+    <div class="page-container-section">
+      <h2>Formatter</h2>
+
+      <p>There could be a rule to be followed by the inserted chips:</p>
+      <code-example title="Formatted chips" :component="examples['format']" />
     </div>
 
     <div class="page-container-section">
@@ -156,6 +164,15 @@ export default {
             type: 'Boolean',
             description: 'Always check if there is a duplicated chip while changing the input value, or check it only on insertion',
             defaults: 'false'
+          },
+          {
+            name: 'md-format',
+            type: 'Function',
+            description: [
+              'Formatter before chip insertion. Effects to insertion and duplicated-checking.',
+              '@param {<code>String</code>} input value'
+            ].join('<br/>'),
+            defaults: 'null'
           }
         ]
       },
