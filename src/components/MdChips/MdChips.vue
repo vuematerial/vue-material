@@ -129,9 +129,13 @@
       checkDuplicated () {
         if (!this.value.includes(this.formattedInputValue)) {
           this.duplicatedChip = null
-          return
+          return false
         }
-        if (!this.mdCheckDuplicated) return
+        
+        if (!this.mdCheckDuplicated) {
+          return false
+        }
+        
         this.duplicatedChip = this.formattedInputValue
       }
     },
