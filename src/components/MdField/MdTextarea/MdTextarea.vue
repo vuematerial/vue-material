@@ -48,9 +48,10 @@
     },
     computed: {
       listeners () {
-        var l =  {...this.$listeners}
-        delete l.input
-        return l
+        return {
+          ...this.$listeners,
+          input: this.onInput
+        }
       },
       textareaStyles () {
         return {
