@@ -24,7 +24,7 @@
 
 <script>
   export default {
-    name: 'Example',
+    name: 'MultipleSelect',
     data: () => ({
       selectedMovies: []
     })

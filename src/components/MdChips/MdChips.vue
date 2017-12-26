@@ -1,12 +1,13 @@
 <template>
   <md-field class="md-chips" :class="[$mdActiveTheme, chipsClasses]">
-    <slot v-if="!mdStatic" />
+    <slot />
 
     <md-chip
       v-for="(chip, key) in value"
-      :key="key"
+      :key="chip"
       :md-deletable="!mdStatic"
       :md-clickable="!mdStatic"
+      :md-duplicated="duplicatedChip === chip"
       @keydown.enter="$emit('md-click', chip, key)"
       @click.native="$emit('md-click', chip, key)"
       @md-delete.stop="removeChip(chip)">
@@ -21,6 +22,7 @@
       :type="mdInputType"
       :id="id"
       :placeholder="mdPlaceholder"
+      @input="handleInput"
       @keydown.enter="insertChip"
       @keydown.8="handleBackRemove">
     </md-input>
@@ -52,10 +54,15 @@
       },
       mdPlaceholder: [String, Number],
       mdStatic: Boolean,
-      mdLimit: Number
+      mdLimit: Number,
+      mdCheckDuplicated: {
+        type: Boolean,
+        default: false
+      }
     },
     data: () => ({
-      inputValue: ''
+      inputValue: '',
+      duplicatedChip: null
     }),
     computed: {
       chipsClasses () {
@@ -70,13 +77,19 @@
     },
     methods: {
       insertChip ({ target }) {
-        if (
-          !this.inputValue ||
-          this.value.includes(this.inputValue) ||
-          !this.modelRespectLimit
-        ) {
+        if (!this.inputValue || !this.modelRespectLimit) {
           return
         }
+        
+        if (this.value.includes(this.inputValue)) {
+          this.duplicatedChip = null
+          // to trigger animate
+          this.$nextTick(() => {
+            this.duplicatedChip = this.inputValue
+          })
+          return
+        }
+        
         this.value.push(this.inputValue)
         this.$emit('input', this.value)
         this.$emit('md-insert', this.inputValue)
@@ -94,6 +107,26 @@
         if (!this.inputValue) {
           this.removeChip(this.value[this.value.length - 1])
         }
+      },
+      handleInput () {
+        if (this.mdCheckDuplicated) {
+          this.checkDuplicated()
+        } else {
+          this.duplicatedChip = null
+        }
+      },
+      checkDuplicated () {
+        if (!this.value.includes(this.inputValue)) {
+          this.duplicatedChip = null
+          return
+        }
+        if (!this.mdCheckDuplicated) return
+        this.duplicatedChip = this.inputValue
+      }
+    },
+    watch: {
+      value () {
+        this.checkDuplicated()
       }
     }
   })

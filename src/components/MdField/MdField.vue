@@ -5,7 +5,7 @@
     <span class="md-count" v-if="hasCounter">{{ valueLength }} / {{ MdField.maxlength || MdField.counter }}</span>
 
     <transition name="md-input-action" appear>
-      <md-button tabindex="-1" class="md-icon-button md-dense md-input-action md-clear" @click="clearInput" v-if="hasValue && mdClearable">
+      <md-button tabindex="-1" class="md-icon-button md-dense md-input-action md-clear" @click="clearInput" v-if="hasValue && mdClearable" :disabled="MdField.disabled">
         <md-clear-icon />
       </md-button>
     </transition>

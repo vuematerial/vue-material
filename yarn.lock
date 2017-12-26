@@ -7221,8 +7221,8 @@ vue-style-loader@^3.0.0, vue-style-loader@^3.0.3:
     loader-utils "^1.0.2"
 
 vue-template-compiler@^2.5.3:
-  version "2.5.9"
-  resolved "https://registry.yarnpkg.com/vue-template-compiler/-/vue-template-compiler-2.5.9.tgz#7fabc73c8d3d12d32340cd86c5fc33e00e86d686"
+  version "2.5.10"
+  resolved "https://registry.yarnpkg.com/vue-template-compiler/-/vue-template-compiler-2.5.10.tgz#8d2754677430bf520650a7e2aee9070635158fc5"
   dependencies:
     de-indent "^1.0.2"
     he "^1.1.0"
@@ -7230,6 +7230,10 @@ vue-template-compiler@^2.5.3:
 vue-template-es2015-compiler@^1.5.3, vue-template-es2015-compiler@^1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.6.0.tgz#dc42697133302ce3017524356a6c61b7b69b4a18"
+
+vue@^2.5.9:
+  version "2.5.10"
+  resolved "https://registry.yarnpkg.com/vue/-/vue-2.5.10.tgz#dcd772e2594ba994145f2f09522149d9a1e7841a"
 
 vuelidate@^0.6.1:
   version "0.6.1"

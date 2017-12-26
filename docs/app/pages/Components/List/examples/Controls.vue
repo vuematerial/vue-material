@@ -73,7 +73,7 @@
 
 <script>
   export default {
-    name: 'Expand',
+    name: 'Controls',
     data: () => ({
       ringtone: 'peace',
       settings: {

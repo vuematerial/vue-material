@@ -23,7 +23,11 @@
  */
 
 .md-layout {
-  @include md-layout-gutter($md-gutter-large);
+  @include md-layout-gutter($md-gutter-xlarge);
+
+  @include md-layout-large {
+    @include md-layout-gutter($md-gutter-large);
+  }
 
   @include md-layout-medium {
     @include md-layout-gutter($md-gutter-medium);
@@ -62,6 +66,14 @@
 
   @include md-layout-item;
 
+  @include md-layout-xlarge {
+    @include md-layout-item(xlarge);
+  }
+
+  @include md-layout-large {
+    @include md-layout-item(large);
+  }
+
   @include md-layout-medium {
     @include md-layout-item(medium);
   }
@@ -81,6 +93,14 @@
  */
 
 @include md-hide;
+
+@include md-layout-xlarge {
+  @include md-hide(xlarge);
+}
+
+@include md-layout-large {
+  @include md-hide(large);
+}
 
 @include md-layout-medium {
   @include md-hide(medium);

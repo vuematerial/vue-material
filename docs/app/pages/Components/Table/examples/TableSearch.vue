@@ -42,7 +42,7 @@
   }
 
   export default {
-    name: 'TableFixed',
+    name: 'TableSearch',
     data: () => ({
       search: null,
       searched: [],

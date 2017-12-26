@@ -5,7 +5,7 @@
 
       <a :href="linkHref" class="code-sponsor-content" target="_blank" rel="noopener">
         <strong class="code-sponsor-name">Rollbar</strong>
-        <span class="code-sponsor-description">Real-time error monitoring, alerting, and analytics for developers 🚀</span>
+        <span class="code-sponsor-description">Real-time JavaScript error monitoring, alerting, and analytics for developers 🚀</span>
       </a>
 
       <img class="code-sponsor-pixel" :src="pixelHref" />

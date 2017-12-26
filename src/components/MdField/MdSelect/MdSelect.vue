@@ -6,6 +6,7 @@
     :md-active.sync="showSelect"
     :md-offset-x="offset.x"
     :md-offset-y="offset.y"
+    :md-dense="mdDense"
     @md-opened="onOpen"
     @md-closed="onClose">
     <md-input
@@ -31,7 +32,6 @@
         ref="menu"
         class="md-select-menu"
         :md-content-class="mdClass"
-        :md-list-class="mdDense && 'md-dense'"
         :style="menuStyles"
         :id="uniqueId">
         <slot />
@@ -89,7 +89,7 @@
           items: {},
           label: null,
           multiple: false,
-          modelValue: this.model,
+          modelValue: this.localValue,
           setValue: this.setValue,
           setContent: this.setContent,
           setMultipleValue: this.setMultipleValue,
@@ -113,8 +113,10 @@
     watch: {
       localValue: {
         immediate: true,
-        handler () {
+        handler (val) {
           this.setFieldContent()
+          this.MdSelect.modelValue = this.localValue
+          this.emitSelected(val)
         }
       },
       multiple: {
@@ -123,9 +125,6 @@
           this.MdSelect.multiple = isMultiple
           this.$nextTick(() => this.initialLocalValueByDefault())
         }
-      },
-      model () {
-        this.MdSelect.modelValue = this.model
       }
     },
     methods: {
@@ -207,11 +206,9 @@
         } else {
           this.localValue = this.arrayAccessorRemove(this.localValue, index)
         }
-        this.emitSelected(this.localValue)
       },
       setValue (newValue) {
         this.model = newValue
-        this.emitSelected(newValue)
         this.setFieldValue()
         this.showSelect = false
       },
@@ -311,20 +308,18 @@
       border: 0;
     }
   }
+  .md-menu-content {
+    z-index: 111;
+    &.md-select-menu {
+      width: 100%;
 
-  .md-menu-content.md-select-menu {
-    width: 100%;
+      &.md-menu-content-enter {
+        transform: translate3d(0, -8px, 0) scaleY(.3);
+      }
 
-    &.md-menu-content-enter {
-      transform: translate3d(0, -8px, 0) scaleY(.3);
-    }
-
-    .md-list {
-      transition: opacity .3s $md-transition-drop-timing;
-    }
-
-    .md-dense .md-ripple.md-list-item-content {
-      font-size: 14px;
+      .md-list {
+        transition: opacity .3s $md-transition-drop-timing;
+      }
     }
   }
 </style>

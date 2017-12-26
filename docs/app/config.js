@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Axios from 'axios'
 import VueRouter from 'vue-router'
 import Vuei18n from 'vue-i18n'
-import enUS from './i18n/en-US'
+import i18nLocales from './i18n'
 import { routes } from './routes'
 import createRoute from './routes'
 
@@ -18,12 +18,10 @@ const mappedRoutes = routes.map(route => ({
   component: () => import(`./pages/${route.page}`)
 }))
 
-export const currentLang = enUS
+export const currentLang = i18nLocales.enUS
 export const i18n = new Vuei18n({
-  locale: 'en-US',
-  messages: {
-    'en-US': enUS
-  }
+  locale: 'enUS',
+  messages: i18nLocales
 })
 
 export const router = new VueRouter({
