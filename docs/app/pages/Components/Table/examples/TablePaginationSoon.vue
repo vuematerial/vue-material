@@ -6,6 +6,6 @@
 
 <script>
   export default {
-    name: 'TablePagination'
+    name: 'TablePaginationSoon'
   }
 </script>

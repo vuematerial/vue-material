@@ -79,7 +79,7 @@
 
 <script>
   export default {
-    name: 'Sidenav',
+    name: 'Temporary',
     data: () => ({
       showNavigation: false,
       showSidepanel: false

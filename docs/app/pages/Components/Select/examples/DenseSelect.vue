@@ -56,7 +56,7 @@
 
 <script>
   export default {
-    name: 'Example',
+    name: 'DenseSelect',
     data: () => ({
       movies: [],
       country: null,
