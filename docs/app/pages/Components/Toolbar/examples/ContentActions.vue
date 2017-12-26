@@ -47,6 +47,6 @@
 
 <script>
 export default {
-  name: 'ContentAction'
+  name: 'ContentActions'
 }
 </script>

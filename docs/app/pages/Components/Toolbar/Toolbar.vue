@@ -50,7 +50,7 @@
 import examples from 'docs-mixins/docsExample'
 
 export default {
-  name: 'Content',
+  name: 'Toolbar',
   mixins: [examples],
   data: () => ({
     api: {

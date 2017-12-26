@@ -56,7 +56,7 @@
 
 <script>
   export default {
-    name: 'Example',
+    name: 'DisabledSelect',
     data: () => ({
       movie: null,
       country: null,

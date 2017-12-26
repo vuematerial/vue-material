@@ -57,7 +57,7 @@
 
 <script>
   export default {
-    name: 'Example',
+    name: 'BasicSelect',
     data: () => ({
       movie: 'godfather',
       country: null,
