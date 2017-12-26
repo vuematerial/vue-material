@@ -19,7 +19,7 @@
 
 <script>
   export default {
-    name: 'Icons',
+    name: 'InlineActions',
     data: () => ({
       initial: 'Initial Value',
       password: 'mysecurepassword'

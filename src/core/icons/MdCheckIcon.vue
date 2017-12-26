@@ -11,7 +11,7 @@
   import MdIcon from 'components/MdIcon/MdIcon'
 
   export default {
-    name: 'MdDoneIcon',
+    name: 'MdCheckIcon',
     components: {
       MdIcon
     }

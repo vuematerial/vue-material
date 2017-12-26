@@ -12,7 +12,7 @@
 
 <script>
   export default {
-    name: 'AutocompleteStatic',
+    name: 'AutocompleteTrigger',
     data: () => ({
       selectedCountry: null,
       selectedEmployee: null,
