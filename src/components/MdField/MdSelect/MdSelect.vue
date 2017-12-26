@@ -6,6 +6,7 @@
     :md-active.sync="showSelect"
     :md-offset-x="offset.x"
     :md-offset-y="offset.y"
+    :md-dense="mdDense"
     @md-opened="onOpen"
     @md-closed="onClose">
     <md-input
@@ -31,7 +32,6 @@
         ref="menu"
         class="md-select-menu"
         :md-content-class="mdClass"
-        :md-list-class="mdDense && 'md-dense'"
         :style="menuStyles"
         :id="uniqueId">
         <slot />
@@ -319,10 +319,6 @@
 
       .md-list {
         transition: opacity .3s $md-transition-drop-timing;
-      }
-
-      .md-dense .md-ripple.md-list-item-content {
-        font-size: 14px;
       }
     }
   }
