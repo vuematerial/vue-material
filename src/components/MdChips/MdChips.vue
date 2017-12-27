@@ -88,6 +88,7 @@
     methods: {
       insertChip ({ target }) {
         let inputValue = this.formattedInputValue
+
         if (!inputValue || !this.modelRespectLimit) {
           return
         }
