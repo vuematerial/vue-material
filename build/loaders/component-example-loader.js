@@ -3,9 +3,9 @@ const pretty = require('pretty')
 const prettier = require('prettier')
 const path = require('path')
 const compiler = require('vue-template-compiler')
-const { transform } = require('babel-core')
-const transpile = code => transform(code, {extends: path.join(__dirname, '../../.babelrc')}).code
 const { resolvePath } = require('../config')
+const { transform } = require('babel-core')
+const transpile = code => transform(code, {extends: resolvePath('.babelrc')}).code
 const { getIndentedSource } = require('../../docs/app/mixins/codeSource')
 
 function camelCaseToDash (str) {
