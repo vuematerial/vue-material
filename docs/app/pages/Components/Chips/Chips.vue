@@ -170,7 +170,7 @@ export default {
             type: 'Function',
             description: [
               'Formatter before chip insertion. Effects to insertion and duplicated-checking.',
-              '@param {<code>String</code>} input value'
+              'The Chips will pass the inputted value as a parameter of this function. This function returns the formatted result.'
             ].join('<br/>'),
             defaults: 'null'
           }
