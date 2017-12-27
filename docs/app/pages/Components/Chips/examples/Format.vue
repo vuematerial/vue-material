@@ -4,9 +4,10 @@
       <label>La Liga Clubs</label>
       <div class="md-helper-text">Three uppercase letters</div>
     </md-chips>
+    
     <md-chips class="md-primary" v-model="artists" md-placeholder="Add artist..." :md-format="formatName">
       <label>Artists</label>
-      <div class="md-helper-text">Try inserting `Eugène Ysaÿe` twice. The formatter will remove diacritics.</div>
+      <div class="md-helper-text">Try inserting `Eugène Ysaÿe`. The formatter will remove diacritics.</div>
     </md-chips>
   </div>
 </template>
