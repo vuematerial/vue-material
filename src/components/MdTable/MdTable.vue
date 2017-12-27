@@ -105,12 +105,18 @@
             const sortBy = this.MdTable.sort
             const aAttr = getObjectAttribute(a, sortBy)
             const bAttr = getObjectAttribute(b, sortBy)
+            const isAsc = this.MdTable.sortOrder === 'asc'
+            let isNumber = typeof aAttr === 'number'
 
-            if (this.MdTable.sortOrder === 'desc') {
-              return aAttr.localeCompare(bAttr)
+            if (isNumber) {
+              return isAsc ? (bAttr - aAttr) : (aAttr - bAttr)
             }
 
-            return bAttr.localeCompare(aAttr)
+            if (isAsc) {
+              return bAttr.localeCompare(aAttr)
+            }
+
+            return aAttr.localeCompare(bAttr)
           })
         }
       }
