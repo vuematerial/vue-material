@@ -20,7 +20,7 @@
     const offset = text.toLowerCase().indexOf(term[0].toLowerCase())
 
     if (offset === -1) {
-      return null
+      return ''
     }
 
     let last = 0
