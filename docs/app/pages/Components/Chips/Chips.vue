@@ -57,7 +57,7 @@
     <div class="page-container-section">
       <h2>Formatter</h2>
 
-      <p>There could be a rule to be followed by the inserted chips:</p>
+      <p>Sometimes you may need to format a chip value before adding it, and for this case you can use a custom formatter function. This function will receive the chip value and must return the formatted value.</p>
       <code-example title="Formatted chips" :component="examples['format']" />
     </div>
 
