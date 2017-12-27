@@ -39,8 +39,7 @@ export default {
       words = words.map(str => str.normalize('NFD').replace(/[\u0300-\u036f]/g, ''))
       // capitalize
       words = words.map(str => str[0].toUpperCase() + str.slice(1))
-      let result = words.join(' ')
-      return result
+      return words.join(' ')
     }
   }
 }
