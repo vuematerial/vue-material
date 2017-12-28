@@ -33,9 +33,11 @@
         <h4 class="md-subheading">{{ $t('pages.home.backers') }}</h4>
 
         <ul>
+          <li>Anthony Villena</li>
+          <li>Bobby McDonald</li>
           <li>Ivo Benner</li>
           <li>Nathanael Björkgård</li>
-          <li>Anthony Villena</li>
+          <li>Viktor Kuroljov</li>
           <li>William Chong</li>
         </ul>
       </div>
