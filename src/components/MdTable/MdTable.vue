@@ -287,7 +287,7 @@
             this.MdTable.singleSelection = this.mdSelectedValue
             break
           case 'multiple':
-            this.MdTable.selectedItems = this.mdSelectedValue
+            this.MdTable.selectedItems = this.mdSelectedValue || []
             break
         }
       }
