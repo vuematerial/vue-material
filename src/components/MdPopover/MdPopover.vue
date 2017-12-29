@@ -87,7 +87,7 @@
           this.createPopper()
         }
       },
-      getObjectName (obj) {
+      getConstructorName (obj) {
         if (obj.constructor.name) {
           return obj.constructor.name
         }
@@ -96,7 +96,7 @@
       async createPopper () {
         if (this.mdSettings) {
           const options = deepmerge(this.getPopperOptions(), this.mdSettings)
-          if (this.getObjectName(this.$el).toLowerCase() !== 'comment') {
+          if (this.getConstructorName(this.$el).toLowerCase() !== 'comment') {
             this.popperInstance = new Popper(this.originalParentEl, this.$el, options)
           }
         }
