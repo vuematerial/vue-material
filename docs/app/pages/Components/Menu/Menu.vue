@@ -58,7 +58,7 @@
   }
 
   export default {
-    name: 'Menu',
+    name: 'DocMenu',
     mixins: [examples],
     data: () => ({
       props: {
