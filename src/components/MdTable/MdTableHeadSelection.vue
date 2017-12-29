@@ -39,9 +39,9 @@
     methods: {
       onChange (val) {
         if (val) {
-          this.MdTable.selectedItems = [].concat(this.MdTable.selectable)
+          this.MdTable.selectedItems = this.selectedItems.concat(this.selectable.filter(item => !this.selectedItems.includes(item)))
         } else {
-          this.MdTable.selectedItems = []
+          this.MdTable.selectedItems = this.selectedItems.filter(item => !this.selectable.includes(item))
         }
       }
     }
