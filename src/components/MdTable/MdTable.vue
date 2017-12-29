@@ -278,8 +278,8 @@
         }
       },
       select (val) {
-        this.$emit('md-selected', val)
         this.$emit('update:mdSelectedValue', val)
+        this.$emit('md-selected', val)
       },
       syncSelectedValue () {
         switch (this.MdTable.selectingMode) {
