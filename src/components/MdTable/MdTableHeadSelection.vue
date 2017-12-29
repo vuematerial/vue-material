@@ -1,7 +1,7 @@
 <template>
   <md-table-head class="md-table-cell-selection" v-if="selectableCount">
     <div class="md-table-cell-container">
-      <md-checkbox v-model="allSelected" :disabled="isDisabled" @change="onChange" />
+      <md-checkbox :model="allSelected" :disabled="isDisabled" @change="onChange" />
     </div>
   </md-table-head>
 </template>
@@ -15,9 +15,6 @@
       MdTableHead
     },
     inject: ['MdTable'],
-    data: () => ({
-      allSelected: false
-    }),
     computed: {
       selectableCount () {
         return Object.keys(this.selectable).length
@@ -30,28 +27,18 @@
       },
       selectedItems () {
         return this.MdTable.selectedItems
-      }
-    },
-    watch: {
-      selectedItems: {
-        immediate: true,
-        deep: true,
-        handler (items) {
-          window.setTimeout(() => {
-            const countSelected = Object.keys(items).length
-
-            if (this.selectableCount > 0 && countSelected > 0) {
-              this.allSelected = countSelected === this.selectableCount
-            }
-          }, 10)
-        }
+      },
+      allSelected () {
+        return this.selectedItems.length === this.selectableCount
       }
     },
     methods: {
-      onChange () {
-        Object.values(this.MdTable.selectable).forEach(callback => {
-          callback(this.allSelected)
-        })
+      onChange (val) {
+        if (val) {
+          this.MdTable.selectedItems = [].concat(this.MdTable.selectable)
+        } else {
+          this.MdTable.selectedItems = []
+        }
       }
     }
   }

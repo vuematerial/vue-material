@@ -27,7 +27,8 @@
         ...MdPropValidator('md-selectable', ['multiple', 'single'])
       },
       mdDisabled: Boolean,
-      mdAutoSelect: Boolean
+      mdAutoSelect: Boolean,
+      mdItem: Object
     },
     inject: ['MdTable'],
     data: () => ({
@@ -55,6 +56,9 @@
             'md-selected-single': this.isSingleSelected
           }
         }
+      },
+      isInSelectedItems () {
+        return this.MdTable.selectedItems.includes(this.mdItem)
       }
     },
     watch: {
@@ -65,12 +69,17 @@
           this.addSelectableItem()
         }
       },
-      mdId (newId, oldId) {
-        this.removeSelectableItem(oldId)
-        this.addSelectableItem(newId)
+      isSelected (val) {
+        let noChange = (val && this.isInSelectedItems) || (!val && !this.isInSelectedItems)
+
+        if (noChange) {
+          return false
+        }
+
+        this.MdTable.manageItemSelection(this.mdItem)
       },
-      isSelected () {
-        this.MdTable.manageItemSelection(this.mdIndex)
+      isInSelectedItems (val) {
+        this.isSelected = val
       }
     },
     methods: {
@@ -100,17 +109,23 @@
           this.toggleSelection()
         }
       },
-      addSelectableItem (id) {
-        if (this.hasMultipleSelection && !this.mdDisabled) {
-          this.$set(this.MdTable.selectable, id || this.mdId, isSelected => {
-            this.isSelected = isSelected
-          })
+      addSelectableItem () {
+        if (!this.hasMultipleSelection || this.mdDisabled) {
+          return
         }
+
+        if (this.MdTable.selectable.includes(this.mdItem)) {
+          return
+        }
+
+        this.MdTable.selectable.push(this.mdItem)
       },
-      removeSelectableItem (id) {
-        if (this.hasMultipleSelection) {
-          this.$delete(this.MdTable.selectable, id || this.mdId)
+      removeSelectableItem () {
+        if (!this.hasMultipleSelection) {
+          return
         }
+
+        this.MdTable.selectable = this.MdTable.selectable.filter(item => item !== this.mdItem)
       }
     },
     created () {

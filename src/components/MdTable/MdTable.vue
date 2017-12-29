@@ -27,7 +27,8 @@
             v-for="(item, index) in value"
             :key="getRowId(item[mdModelId])"
             :md-id="getRowId(item[mdModelId])"
-            :md-index="index">
+            :md-index="index"
+            :md-item="item">
             <slot name="md-table-row" :item="item" />
           </md-table-row-ghost>
         </tbody>
@@ -69,7 +70,7 @@
 
     return value
   }
-          
+
   export default {
     name: 'MdTable',
     components: {
@@ -130,8 +131,8 @@
           sort: null,
           sortOrder: null,
           singleSelection: null,
-          selectedItems: {},
-          selectable: {},
+          selectedItems: [],
+          selectable: [],
           fixedHeader: null,
           contentPadding: null,
           contentEl: null,
@@ -158,7 +159,7 @@
         return Object.keys(this.MdTable.items).length
       },
       selectedCount () {
-        return Object.keys(this.MdTable.selectedItems).length
+        return this.MdTable.selectedItems.length
       },
       headerStyles () {
         if (this.mdFixedHeader) {
@@ -213,6 +214,9 @@
         handler () {
           this.MdTable.hasValue = this.hasValue
         }
+      },
+      'MdTable.selectedItems' (val) {
+        this.$emit('md-selected', val)
       }
     },
     methods: {
@@ -251,17 +255,12 @@
       getModelItem (index) {
         return this.value[index]
       },
-      manageItemSelection (index) {
-        if (this.MdTable.selectedItems[index]) {
-          this.$delete(this.MdTable.selectedItems, index)
+      manageItemSelection (item) {
+        if (this.MdTable.selectedItems.includes(item)) {
+          this.MdTable.selectedItems = this.MdTable.selectedItems.filter(target => target !== item)
         } else {
-          this.$set(this.MdTable.selectedItems, index, this.value[index])
+          this.MdTable.selectedItems.push(item)
         }
-
-        this.sendSelectionEvent()
-      },
-      sendSelectionEvent () {
-        this.$emit('md-selected', Object.values(this.MdTable.selectedItems))
       },
       sortTable () {
         if (Array.isArray(this.value)) {
