@@ -82,10 +82,13 @@
         this.isSelected = val
       },
       'MdTable.selectedItems' (val) {
-        this.$emit('md-selected', val)
+        this.select(val)
       },
       'MdTable.singleSelection' (val) {
-        this.$emit('md-selected', val)
+        this.select(val)
+      },
+      mdSelectable () {
+        this.MdTable.selectingMode = this.mdSelectable
       }
     },
     methods: {
@@ -130,10 +133,14 @@
         }
 
         this.MdTable.selectable = this.MdTable.selectable.filter(item => item !== this.mdItem)
+      },
+      select (val) {
+        this.$emit('md-selected', val)
       }
     },
     created () {
       this.addSelectableItem()
+      this.MdTable.selectingMode = this.mdSelectable
     },
     beforeDestroy () {
       this.removeSelectableItem()

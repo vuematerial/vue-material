@@ -120,6 +120,9 @@
             return aAttr.localeCompare(bAttr)
           })
         }
+      },
+      mdSelectedValue: {
+        type: [Array, Object]
       }
     },
     data () {
@@ -143,7 +146,8 @@
           sortTable: this.sortTable,
           manageItemSelection: this.manageItemSelection,
           getModel: this.getModel,
-          getModelItem: this.getModelItem
+          getModelItem: this.getModelItem,
+          selectingMode: null
         }
       }
     },
@@ -216,10 +220,13 @@
         }
       },
       'MdTable.selectedItems' (val) {
-        this.$emit('md-selected', val)
+        this.select(val)
       },
       'MdTable.singleSelection' (val) {
-        this.$emit('md-selected', val)
+        this.select(val)
+      },
+      mdSelectedValue () {
+        this.syncSelectedValue()
       }
     },
     methods: {
@@ -269,7 +276,26 @@
         if (Array.isArray(this.value)) {
           this.$emit('input', this.mdSortFn(this.value))
         }
+      },
+      select (val) {
+        this.$emit('md-selected', val)
+        this.$emit('update:mdSelectedValue', val)
+      },
+      syncSelectedValue () {
+        switch (this.MdTable.selectingMode) {
+          case 'single':
+            this.MdTable.singleSelection = this.mdSelectedValue
+            break
+          case 'multiple':
+            this.MdTable.selectedItems = this.mdSelectedValue
+            break
+        }
       }
+    },
+    async created () {
+      // wait for `selectingMode` from `TableRow`
+      await this.$nextTick()
+      this.syncSelectedValue()
     },
     mounted () {
       this.setContentEl()
