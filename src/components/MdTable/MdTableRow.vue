@@ -81,12 +81,6 @@
       isInSelectedItems (val) {
         this.isSelected = val
       },
-      'MdTable.selectedItems' (val) {
-        this.select(val)
-      },
-      'MdTable.singleSelection' (val) {
-        this.select(val)
-      },
       mdSelectable () {
         this.MdTable.selectingMode = this.mdSelectable
       }
@@ -133,9 +127,6 @@
         }
 
         this.MdTable.selectable = this.MdTable.selectable.filter(item => item !== this.mdItem)
-      },
-      select (val) {
-        this.$emit('md-selected', val)
       }
     },
     created () {
