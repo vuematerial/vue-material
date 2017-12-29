@@ -217,6 +217,9 @@
       },
       'MdTable.selectedItems' (val) {
         this.$emit('md-selected', val)
+      },
+      'MdTable.singleSelection' (val) {
+        this.$emit('md-selected', val)
       }
     },
     methods: {

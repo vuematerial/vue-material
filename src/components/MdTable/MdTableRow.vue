@@ -40,7 +40,7 @@
         return Object.keys(this.MdTable.selectable).length
       },
       isSingleSelected () {
-        return this.MdTable.singleSelection === this.mdId
+        return this.MdTable.singleSelection === this.mdItem
       },
       hasMultipleSelection () {
         return this.MdTable.hasValue && this.mdSelectable === 'multiple'
@@ -80,6 +80,12 @@
       },
       isInSelectedItems (val) {
         this.isSelected = val
+      },
+      'MdTable.selectedItems' (val) {
+        this.$emit('md-selected', val)
+      },
+      'MdTable.singleSelection' (val) {
+        this.$emit('md-selected', val)
       }
     },
     methods: {
@@ -96,12 +102,10 @@
         this.isSelected = !this.isSelected
       },
       selectRowIfSingle () {
-        if (this.MdTable.singleSelection === this.mdId) {
+        if (this.MdTable.singleSelection === this.mdItem) {
           this.MdTable.singleSelection = null
-          this.$emit('md-selected', null)
         } else {
-          this.MdTable.singleSelection = this.mdId
-          this.$emit('md-selected', this.MdTable.getModelItem(this.mdIndex))
+          this.MdTable.singleSelection = this.mdItem
         }
       },
       selectRowIfMultiple () {
