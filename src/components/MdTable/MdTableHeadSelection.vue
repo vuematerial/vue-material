@@ -29,7 +29,11 @@
         return this.MdTable.selectedItems
       },
       allSelected () {
-        return this.selectedItems.length === this.selectableCount
+        if (this.selectableCount === 0) {
+          return false
+        }
+
+        return this.selectable.every(item => this.selectedItems.includes(item))
       }
     },
     methods: {
