@@ -107,7 +107,7 @@
           },
           {
             offset: true,
-            name: 'md-direction="top-start"',
+            name: 'md-direction="top-end"',
             type: 'String',
             description: 'Aligns the menu on the top right of the trigger',
             defaults: '-'
