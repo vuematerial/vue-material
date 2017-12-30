@@ -1,7 +1,7 @@
 <template>
   <md-dialog v-bind="$attrs" :md-fullscreen="false" @md-opened="setInputFocus">
-    <md-dialog-title v-if="mdTitle">{{ mdTitle }}</md-dialog-title>
-    <md-dialog-content v-if="mdContent" v-html="mdContent" />
+    <md-dialog-title v-if="mdTitle" :class="{'md-rtl-support' : mdRtl}">{{ mdTitle }}</md-dialog-title>
+    <md-dialog-content v-if="mdContent" v-html="mdContent" :class="{'md-rtl-support' : mdRtl}"/>
 
     <md-dialog-content>
       <md-field>
@@ -16,7 +16,7 @@
       </md-field>
     </md-dialog-content>
 
-    <md-dialog-actions>
+    <md-dialog-actions :class="{'md-rtl-support-direction' : mdRtl}">
       <md-button class="md-primary" @click="onCancel">{{ mdCancelText }}</md-button>
       <md-button class="md-primary" @click="onConfirm">{{ mdConfirmText }}</md-button>
     </md-dialog-actions>
@@ -44,7 +44,8 @@
       }
     },
     data: () => ({
-      inputValue: null
+      inputValue: null,
+      mdRtl : false
     }),
     watch: {
       value () {
@@ -69,6 +70,7 @@
     },
     created () {
       this.inputValue = this.value
+      this.mdRtl = this.$material.theming.rtlSupport;
     }
   }
 </script>

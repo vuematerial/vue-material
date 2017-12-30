@@ -144,7 +144,7 @@
       },
       popperSettings () {
         return {
-          placement: 'bottom-start',
+          placement: (!this.$material.theming.rtlSupport) ? 'bottom-start' : 'bottom-end',
           modifiers: {
             keepTogether: {
               enabled: true

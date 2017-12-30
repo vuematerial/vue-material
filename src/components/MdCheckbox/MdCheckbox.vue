@@ -1,5 +1,5 @@
 <template>
-  <div class="md-checkbox" :class="[$mdActiveTheme, checkClasses]">
+  <div class="md-checkbox" :class="[$mdActiveTheme, checkClasses, getRtlClass]">
     <div class="md-checkbox-container" @click.stop="toggleCheck">
       <md-ripple md-centered :md-active.sync="rippleActive" :md-disabled="disabled">
         <input type="checkbox" v-bind="{ id, name, disabled, required, value }">
@@ -24,6 +24,11 @@
       id: {
         type: String,
         default: () => 'md-checkbox-' + MdUuid()
+      }
+    },
+    computed:{
+      getRtlClass() /* string */{
+        return (this.$material.theming.rtlSupport) ? 'md-rtl-support-direction' : '';
       }
     }
   })
