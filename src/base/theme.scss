@@ -54,3 +54,25 @@
     }
   }
 }
+
+html[dir='rtl']{
+  .md-field{
+    label{
+      position: absolute;
+      right: 4%;
+      text-align: right;
+      direction: rtl;
+
+      &:first-child{
+        position: absolute;
+        right: 1%;
+        text-align: right;
+        direction: rtl;
+      }
+    }
+    button {
+      left: 0;
+      right: 95% !important;
+    }
+  }
+}
