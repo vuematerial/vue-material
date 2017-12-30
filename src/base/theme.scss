@@ -63,12 +63,12 @@ html[dir='rtl'] {
       right: 4%;
       text-align: right;
 
-      &:first-child {
+    &:first-child {
         direction: rtl;
         position: absolute;
         right: 1%;
         text-align: right;
-      }
+    }
     }
 
     button:not(first-child) {
