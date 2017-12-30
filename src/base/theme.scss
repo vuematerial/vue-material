@@ -55,24 +55,28 @@
   }
 }
 
-html[dir='rtl']{
-  .md-field{
-    label{
-      position: absolute;
-      right: 4%;
-      text-align: right;
-      direction: rtl;
+html[dir='rtl'] {
+.md-field {
+  label {
+    direction: rtl;
+    position: absolute;
+    right: 4%;
+    text-align: right;
 
-      &:first-child{
-        position: absolute;
-        right: 1%;
-        text-align: right;
-        direction: rtl;
-      }
-    }
-    button {
-      left: 0;
-      right: 95% !important;
+    &:first-child{
+      direction: rtl;
+      position: absolute;
+      right: 1%;
+      text-align: right;
     }
   }
+  button:not(first-child) {
+    left: 0;
+    right: 95%;
+  }
+  .md-toggle-password {
+    left: 0;
+    right: 95%;
+  }
+}
 }
