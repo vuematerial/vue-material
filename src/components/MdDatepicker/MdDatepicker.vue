@@ -1,6 +1,6 @@
 <template>
-  <md-field class="md-datepicker" :class="{'md-rtl-support-direction-datepicker' : mdRtl}">
-    <md-date-icon class="md-date-icon" @click.native="toggleDialog" :class="{'md-rtl-icon-input' : mdRtl}"/>
+  <md-field class="md-datepicker">
+    <md-date-icon class="md-date-icon" @click.native="toggleDialog"/>
     <md-input
       type="date"
       ref="input"
@@ -55,8 +55,7 @@
     data: () => ({
       showDialog: false,
       modelDate: null,
-      selectedDate: null,
-      mdRtl: false
+      selectedDate: null
     }),
     watch: {
       selectedDate (selectedDate) {
@@ -110,7 +109,6 @@
     created () {
       this.modelDate = this.dateToHTMLString(this.value)
       this.selectedDate = this.value
-      this.mdRtl = this.$material.theming.rtlSupport;
     }
   }
 </script>

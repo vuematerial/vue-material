@@ -49,17 +49,6 @@
         Vue.use(VueMaterial);
       </code-example>
 
-
-      <note-block tip>Init Vue Material with right to left support:</note-block>
-
-      <code-example title="Right To Left Support">
-        const options = {
-          mdRtl: true
-        }
-
-        Vue.use(VueMaterial , options);
-      </code-example>
-
       <p>Although is not the recommended approach, you can always use CDNs for fast prototyping:</p>
       <note-block tip>For better integration with Vue Material, use <a href="https://github.com/vuejs-templates/webpack" target="_blank">vue-cli</a>.</note-block>
 

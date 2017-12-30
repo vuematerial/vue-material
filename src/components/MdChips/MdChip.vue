@@ -44,7 +44,6 @@
           'md-disabled': this.mdDisabled,
           'md-deletable': this.mdDeletable,
           'md-clickable': this.mdClickable,
-          'md-rtl-support-direction' : this.$material.theming.rtlSupport,
           'md-focused': this.mdHasFocus
         }
       }

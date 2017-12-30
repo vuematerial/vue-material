@@ -10,7 +10,6 @@ export default new Vue({
     theme: 'default',
     enabled: true,
     metaColors: false,
-    rtlSupport: false
   }),
   computed: {
     themeTarget () {

@@ -89,14 +89,7 @@
         return this.mdLayout === 'box'
       },
       fieldClasses () {
-        let className = '';
-        if (this.isBoxLayout) {
-          className += 'md-autocomplete-box'
-        }
-        if(this.$material.theming.rtlSupport){
-          className +=' md-rtl-support-auto-complete'
-        }
-        return className;
+        return  this.isBoxLayout ? 'md-autocomplete-box' : '';
       },
       contentClasses () {
         if (this.isBoxLayout) {

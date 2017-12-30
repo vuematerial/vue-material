@@ -30,6 +30,3 @@ test('should not render meta colors by default', async () => {
   expect(app.$material.theming.metaColors).toBe(false)
 })
 
-test('should not render meta RTL object', async () => {
-  expect(app.$material.theming.rtlSupport).toBe(false)
-})

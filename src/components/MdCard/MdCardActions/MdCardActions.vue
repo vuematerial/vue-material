@@ -20,11 +20,7 @@
     },
     computed:{
       setClassName() /* string */{
-        let classesName = `md-alignment-${this.mdAlignment}`;
-        if (this.$material.theming.rtlSupport) {
-          classesName += ' md-rtl-support-action-buttons'
-        }
-        return classesName;
+        return `md-alignment-${this.mdAlignment}`;
       }
     }
   }

@@ -1,9 +1,9 @@
 <template>
   <md-dialog v-bind="$attrs" v-on="$listeners" :md-fullscreen="false">
-    <md-dialog-title v-if="mdTitle" :class="{'md-rtl-support' : mdRtl}">{{ mdTitle }}</md-dialog-title>
-    <md-dialog-content v-if="mdContent" v-html="mdContent" :class="{'md-rtl-support' : mdRtl}"/>
+    <md-dialog-title v-if="mdTitle">{{ mdTitle }}</md-dialog-title>
+    <md-dialog-content v-if="mdContent" v-html="mdContent"/>
 
-    <md-dialog-actions :class="{'md-rtl-support-direction' : mdRtl}">
+    <md-dialog-actions>
       <md-button
         class="md-primary"
         @click="$emit('update:mdActive', false)">
@@ -23,12 +23,6 @@
         type: String,
         default: 'Ok'
       }
-    },
-    data: () => ({
-      mdRtl: false
-    }),
-    created(){
-      this.mdRtl = this.$material.theming.rtlSupport;
     }
   }
 </script>
