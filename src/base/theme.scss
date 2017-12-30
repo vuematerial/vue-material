@@ -62,13 +62,13 @@ html[dir='rtl'] {
       position: absolute;
       right: 4%;
       text-align: right;
-
-    &:first-child {
-        direction: rtl;
-        position: absolute;
-        right: 1%;
-        text-align: right;
     }
+
+    label:first-child {
+      direction: rtl;
+      position: absolute;
+      right: 1%;
+      text-align: right;
     }
 
     button:not(first-child) {
