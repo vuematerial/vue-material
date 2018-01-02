@@ -87,11 +87,16 @@
           this.createPopper()
         }
       },
+      getConstructorName (obj) {
+        if (obj.constructor.name) {
+          return obj.constructor.name
+        }
+        return obj.constructor.toString().match(/^\[*function|object\s*(\S*)\s*\]/)[1]
+      },
       async createPopper () {
         if (this.mdSettings) {
           const options = deepmerge(this.getPopperOptions(), this.mdSettings)
-
-          if (this.$el.constructor.name.toLowerCase() !== 'comment') {
+          if (this.getConstructorName(this.$el).toLowerCase() !== 'comment') {
             this.popperInstance = new Popper(this.originalParentEl, this.$el, options)
           }
         }
