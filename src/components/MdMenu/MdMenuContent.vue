@@ -9,7 +9,7 @@
         @keydown.space.prevent="setSelection"
         @keydown.enter.prevent="setSelection"
         ref="menu">
-        <div class="md-menu-content-container md-scrollbar" :id="this.$attrs.id" :class="$mdActiveTheme">
+        <div class="md-menu-content-container md-scrollbar" :id="$attrs.id" :class="$mdActiveTheme">
           <md-list :class="listClasses" v-bind="filteredAttrs" @keydown.esc="onEsc">
             <slot />
           </md-list>
