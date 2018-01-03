@@ -109,7 +109,7 @@
   import examples from 'docs-mixins/docsExample'
 
   export default {
-    name: 'Autocomplete',
+    name: 'DocAutocomplete',
     mixins: [examples],
     data: () => ({
       autocomplete: {

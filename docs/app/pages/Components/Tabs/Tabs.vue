@@ -67,7 +67,7 @@
   import examples from 'docs-mixins/docsExample'
 
   export default {
-    name: 'Tabs',
+    name: 'DocTabs',
     mixins: [examples],
     data: () => ({
       tabs: {

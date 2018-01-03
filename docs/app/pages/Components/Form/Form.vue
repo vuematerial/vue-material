@@ -19,7 +19,7 @@
   import examples from 'docs-mixins/docsExample'
 
   export default {
-    name: 'Form',
+    name: 'DocForm',
     mixins: [examples]
   }
 </script>

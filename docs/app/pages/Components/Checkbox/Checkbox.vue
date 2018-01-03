@@ -29,7 +29,7 @@
   import examples from 'docs-mixins/docsExample'
 
   export default {
-    name: 'Checkbox',
+    name: 'DocCheckbox',
     mixins: [examples],
     data: () => ({
       props: {

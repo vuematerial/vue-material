@@ -29,7 +29,7 @@
   import examples from 'docs-mixins/docsExample'
 
   export default {
-    name: 'Radio',
+    name: 'DocRadio',
     mixins: [examples],
     data: () => ({
       props: {

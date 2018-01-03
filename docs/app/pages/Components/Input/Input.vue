@@ -74,7 +74,7 @@
   import examples from 'docs-mixins/docsExample'
 
   export default {
-    name: 'Input',
+    name: 'DocInput',
     mixins: [examples],
     data: () => ({
       field: {

@@ -98,7 +98,7 @@
 import examples from 'docs-mixins/docsExample'
 
 export default {
-  name: 'Card',
+  name: 'DocCard',
   mixins: [examples],
   data: () => ({
     api: {
