@@ -98,7 +98,7 @@ export default {
     async initDestroy (manualCall) {
       let el = this.$el
 
-      if (manualCall && this.$el.constructor.name.toLowerCase() === 'comment') {
+      if (manualCall && this.$el.nodeType === Node.COMMENT_NODE) {
         el = this.$vnode.elm
       }
 
