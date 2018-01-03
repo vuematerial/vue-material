@@ -248,7 +248,7 @@
     max-width: $md-menu-base-width * 5;
     max-height: 35vh;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     position: absolute;
     z-index: 60;
     border-radius: 2px;
