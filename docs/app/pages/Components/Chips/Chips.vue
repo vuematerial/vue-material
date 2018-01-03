@@ -73,7 +73,7 @@
 import examples from 'docs-mixins/docsExample'
 
 export default {
-  name: 'Chips',
+  name: 'DocChips',
   mixins: [examples],
   data: () => ({
     chip: {

@@ -48,7 +48,7 @@
 import examples from 'docs-mixins/docsExample'
 
 export default {
-  name: 'Icon',
+  name: 'DocIcon',
   mixins: [examples],
   data: () => ({
     api: {

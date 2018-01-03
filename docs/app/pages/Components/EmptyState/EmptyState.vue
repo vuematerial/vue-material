@@ -35,7 +35,7 @@
   import examples from 'docs-mixins/docsExample'
 
   export default {
-    name: 'EmptyState',
+    name: 'DocEmptyState',
     mixins: [examples],
     data: () => ({
       props: {

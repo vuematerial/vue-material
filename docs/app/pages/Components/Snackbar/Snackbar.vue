@@ -27,7 +27,7 @@
   import examples from 'docs-mixins/docsExample'
 
   export default {
-    name: 'Snackbar',
+    name: 'DocSnackbar',
     mixins: [examples],
     data: () => ({
       props: {

@@ -119,7 +119,7 @@
 import examples from 'docs-mixins/docsExample'
 
 export default {
-  name: 'App',
+  name: 'DocApp',
   mixins: [examples],
   data () {
     return {
