@@ -7,7 +7,6 @@
     :md-offset-x="offset.x"
     :md-offset-y="offset.y"
     :md-dense="mdDense"
-    @md-opened="onOpen"
     @md-closed="onClose">
     <md-input
       class="md-input md-select-value"
@@ -33,7 +32,7 @@
         class="md-select-menu"
         :md-content-class="mdClass"
         :style="menuStyles"
-        :id="uniqueId">
+        @enter="onMenuEnter">
         <slot />
       </md-menu-content>
     </keep-alive>
@@ -45,7 +44,6 @@
 
 <script>
   import raf from 'raf'
-  import MdUuid from 'core/utils/MdUuid'
   import MdComponent from 'core/MdComponent'
   import MdDropDownIcon from 'core/icons/MdDropDownIcon'
   import MdMenu from 'components/MdMenu/MdMenu'
@@ -77,7 +75,6 @@
     inject: ['MdField'],
     data () {
       return {
-        uniqueId: 'md-select-menu-' + MdUuid(),
         menuStyles: {},
         offset: {
           x: defaultOffset.x,
@@ -139,10 +136,8 @@
         menu.scrollTop = top - ((menuHeight - elHeight) / 2)
       },
       async setOffsets (target) {
-        await this.$nextTick()
-
         if (!this.$isServer) {
-          const menu = document.getElementById(this.uniqueId)
+          const menu = this.$refs.menu.$refs.container
 
           if (menu) {
             const selected = target || menu.querySelector('.md-selected')
@@ -160,14 +155,14 @@
           }
         }
       },
-      onOpen () {
-        this.$emit('md-opened')
-        if (this.didMount) {
-          this.setOffsets()
-          window.setTimeout(() => {
-            this.MdField.focused = true
-          }, 10)
+      onMenuEnter () {
+        if (!this.didMount) {
+          return
         }
+
+        this.setOffsets()
+        this.MdField.focused = true
+        this.$emit('md-opened')
       },
       applyHighlight () {
         this.MdField.focused = false

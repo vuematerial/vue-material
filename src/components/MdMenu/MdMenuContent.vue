@@ -1,6 +1,6 @@
 <template>
   <md-popover :md-settings="popperSettings" :md-active="shouldRender">
-    <transition name="md-menu-content" :css="didMount" v-if="shouldRender">
+    <transition name="md-menu-content" :css="didMount" v-if="shouldRender" v-on="$listeners">
       <div
         :class="[menuClasses, mdContentClass, $mdActiveTheme]"
         :style="menuStyles"
@@ -9,7 +9,7 @@
         @keydown.space.prevent="setSelection"
         @keydown.enter.prevent="setSelection"
         ref="menu">
-        <div class="md-menu-content-container md-scrollbar" :id="$attrs.id" :class="$mdActiveTheme">
+        <div class="md-menu-content-container md-scrollbar" :class="$mdActiveTheme" ref="container">
           <md-list :class="listClasses" v-bind="filteredAttrs" @keydown.esc="onEsc">
             <slot />
           </md-list>
