@@ -1,14 +1,14 @@
 <template>
   <div>
-    <form novalidate class="md-layout-row md-gutter" @submit.prevent="validateUser">
-      <md-card class="md-flex-50 md-flex-small-100">
+    <form novalidate class="md-layout" @submit.prevent="validateUser">
+      <md-card class="md-layout-item md-size-50 md-small-size-100">
         <md-card-header>
           <div class="md-title">Users</div>
         </md-card-header>
 
         <md-card-content>
-          <div class="md-layout-row md-layout-wrap md-gutter">
-            <div class="md-flex md-flex-small-100">
+          <div class="md-layout md-gutter">
+            <div class="md-layout-item md-small-size-100">
               <md-field :class="getValidationClass('firstName')">
                 <label for="first-name">First Name</label>
                 <md-input name="first-name" id="first-name" autocomplete="given-name" v-model="form.firstName" :disabled="sending" />
@@ -17,7 +17,7 @@
               </md-field>
             </div>
 
-            <div class="md-flex md-flex-small-100">
+            <div class="md-layout-item md-small-size-100">
               <md-field :class="getValidationClass('lastName')">
                 <label for="last-name">Last Name</label>
                 <md-input name="last-name" id="last-name" autocomplete="family-name" v-model="form.lastName" :disabled="sending" />
@@ -27,8 +27,8 @@
             </div>
           </div>
 
-          <div class="md-layout-row md-gutter md-layout-wrap">
-            <div class="md-flex md-flex-small-100">
+          <div class="md-layout md-gutter">
+            <div class="md-layout-item md-small-size-100">
               <md-field :class="getValidationClass('gender')">
                 <label for="gender">Gender</label>
                 <md-select name="gender" id="gender" v-model="form.gender" md-dense :disabled="sending">
@@ -40,7 +40,7 @@
               </md-field>
             </div>
 
-            <div class="md-flex md-flex-small-100">
+            <div class="md-layout-item md-small-size-100">
               <md-field :class="getValidationClass('age')">
                 <label for="age">Age</label>
                 <md-input type="number" id="age" name="age" autocomplete="age" v-model="form.age" :disabled="sending" />
