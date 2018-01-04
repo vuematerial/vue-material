@@ -47,8 +47,8 @@
       <h2>Search Algorithms</h2>
 
       <p>Vue Material autocomplete comes with 2 ways of search: <a href="https://en.wikipedia.org/wiki/Approximate_string_matching" target="_blank">Fuzzy search</a> and search by whole term. The fuzzy search tries to match the results by approximation, finding patterns inside the available options. This will help with accidental type errors and improve the results. If you think that this may be confusing, you can disable this. Example:</p>
-      <div class="md-layout-row">
-        <div class="md-flex-40">
+      <div class="md-layout md-gutter">
+        <div class="md-layout-item md-size-40">
           <p>
             <strong>Fuzzy search</strong> - search term: <code>pam</code>
           </p>
@@ -66,7 +66,7 @@
           </div>
         </div>
 
-        <div class="md-flex-40">
+        <div class="md-layout-item md-size-40">
           <p>
             <strong>Normal Search</strong> - search term: <code>pam</code>
           </p>
