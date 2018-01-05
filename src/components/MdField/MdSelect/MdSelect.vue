@@ -278,6 +278,7 @@
   .md-menu.md-select {
     display: flex;
     flex: 1;
+    overflow: auto;
 
     &:not(.md-disabled) {
       .md-input,
@@ -289,6 +290,7 @@
 
     .md-input {
       flex: 1;
+      min-width: 0;
     }
 
     select,
