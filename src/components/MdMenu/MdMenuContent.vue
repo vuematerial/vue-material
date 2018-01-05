@@ -1,6 +1,6 @@
 <template>
   <md-popover :md-settings="popperSettings" :md-active="shouldRender">
-    <transition name="md-menu-content" :css="didMount" v-if="shouldRender">
+    <transition name="md-menu-content" :css="didMount" v-if="shouldRender" v-on="$listeners">
       <div
         :class="[menuClasses, mdContentClass, $mdActiveTheme]"
         :style="menuStyles"
@@ -9,8 +9,8 @@
         @keydown.space.prevent="setSelection"
         @keydown.enter.prevent="setSelection"
         ref="menu">
-        <div class="md-menu-content-container md-scrollbar" :class="$mdActiveTheme">
-          <md-list :class="listClasses" v-bind="$attrs" @keydown.esc="onEsc">
+        <div class="md-menu-content-container md-scrollbar" :class="$mdActiveTheme" ref="container">
+          <md-list :class="listClasses" v-bind="filteredAttrs" @keydown.esc="onEsc">
             <slot />
           </md-list>
         </div>
@@ -48,6 +48,11 @@
       menuStyles: ''
     }),
     computed: {
+      filteredAttrs () {
+        const attrs = this.$attrs
+        delete attrs.id
+        return attrs
+      },
       highlightedItem () {
         return this.highlightItems[this.highlightIndex]
       },
