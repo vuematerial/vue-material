@@ -186,6 +186,8 @@
         if ('ResizeObserver' in window) {
           this.resizeObserver = new window.ResizeObserver(this.calculateStepperPos)
           this.resizeObserver.observe(this.$el)
+        } else {
+           window.addEventListener('resize', this.calculateStepperPos)
         }
 
         if (steppersContent) {
