@@ -13,10 +13,11 @@
 
     if (children) {
       children.forEach(child => {
-        const opts = child.componentOptions
+        const data = child.data
+        const componentOptions = child.componentOptions
 
-        if (opts && componentTypes.includes(opts.tag)) {
-          child.data.slot = opts.tag
+        if ((data && componentTypes.includes(data.slot)) || (componentOptions && componentTypes.includes(componentOptions.tag))) {
+          child.data.slot = data.slot || componentOptions.tag
           child.data.provide = options.Ctor.options.provide
           child.context = context
           child.functionalContext = functionalContext
