@@ -1,5 +1,5 @@
 <template>
-  <tr class="md-table-row" :class="rowClasses" @click="onClick">
+  <tr class="md-table-row" :class="rowClasses" @click="onClick" v-on="$listeners">
     <md-table-cell-selection
       v-model="isSelected"
       :md-disabled="mdDisabled"
