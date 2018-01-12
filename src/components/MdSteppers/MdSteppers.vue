@@ -246,7 +246,12 @@
         this.setupObservers()
         this.setupWatchers()
       }, 100)
-    }
+    },
+    beforeDestroy () {
+      if (!('ResizeObserver' in window)) {
+        window.removeEventListener('resize', this.calculateStepperPos)
+      }
+    },
   })
 </script>
 
