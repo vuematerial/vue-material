@@ -180,7 +180,7 @@
       },
       contentStyles () {
         if (this.mdFixedHeader) {
-          return `height: ${this.mdHeight}px`
+          return `height: ${this.mdHeight}px;max-height: ${this.mdHeight}px`
         }
       },
       contentClasses () {
