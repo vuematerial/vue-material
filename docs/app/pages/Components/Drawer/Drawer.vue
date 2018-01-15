@@ -124,14 +124,14 @@
             },
             {
               offset: true,
-              name: 'md-permanent="full"',
+              name: 'md-persistent="full"',
               type: 'String',
               description: 'Make the drawer with full height. This will make the drawer hidden when closed and and pusing the content when opened.',
               defaults: '-'
             },
             {
               offset: true,
-              name: 'md-permanent="mini"',
+              name: 'md-persistent="mini"',
               type: 'String',
               description: 'Make the drawer with full height. This will make the drawer hidden when closed and and pusing the content when opened.',
               defaults: '-'
