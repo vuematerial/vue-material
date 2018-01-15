@@ -3,6 +3,8 @@
 <example src="./examples/Counters.vue" />
 <example src="./examples/FieldIcons.vue" />
 <example src="./examples/InlineActions.vue" />
+<example src="./examples/FieldVariations.vue" />
+<example src="./examples/AppBarNested.vue" />
 
 <template>
   <page-container centered :title="$t('pages.input.title')">
@@ -18,6 +20,20 @@
       <p>Fields mimics the HTML5 attributes to keep the same compatibility with native inputs, but giving extra options. This allows Vue Material to setup the <code>md-field</code> according with the input options.</p>
       <p>You will be able to set the same properties of a regular <code>input</code> element on <code>md-input</code>. This is also valid for <code>textarea</code> and <code>select</code>. Take a look:</p>
       <code-example title="Input and Textarea" :component="examples['text-fields']" />
+    </div>
+
+    <div class="page-container-section">
+      <h2>Field Variations</h2>
+
+      <p>Fields have variations of thre layouts: Default with floating labels, a floating labels with boxes and a boxed layout with inline labels. </p>
+      <code-example title="Layouts" :component="examples['field-variations']" />
+    </div>
+
+    <div class="page-container-section">
+      <h2>App Bar Nested</h2>
+
+      <p>Fields have variations of thre layouts: Default with floating labels, a floating labels with boxes and a boxed layout with inline labels. </p>
+      <code-example title="Nested Fields" :component="examples['app-bar-nested']" />
     </div>
 
     <div class="page-container-section">
