@@ -70,12 +70,6 @@
             type: 'Boolean',
             description: 'Override native browser pickers by changing type of input to text.',
             defaults: 'true'
-          },
-          {
-            name: 'md-first-day-of-a-week',
-            type: 'Number|String',
-            description: 'The first day of a week. <code>0</code> stand for Sunday and <code>1</code> stand for Monday.',
-            defaults: '0'
           }
         ]
       }
