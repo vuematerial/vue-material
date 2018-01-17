@@ -6,7 +6,7 @@
     <slot />
 
     <keep-alive>
-      <md-datepicker-dialog :md-date.sync="selectedDate" :md-disabled-dates="mdDisabledDates" v-if="showDialog" @md-closed="toggleDialog" />
+      <md-datepicker-dialog :md-date.sync="selectedDate" :md-disabled-dates="mdDisabledDates" :md-first-day-of-a-week="mdFirstDayOfAWeek" v-if="showDialog" @md-closed="toggleDialog" />
     </keep-alive>
 
     <md-overlay class="md-datepicker-overlay" md-fixed :md-active="showDialog" @click="toggleDialog" />
@@ -44,7 +44,8 @@
       mdOverrideNative: {
         type: Boolean,
         default: true
-      }
+      },
+      mdFirstDayOfAWeek: {}
     },
     data: () => ({
       showDialog: false,
