@@ -192,6 +192,10 @@
         }
       },
       async showOptions () {
+        if (this.showMenu) {
+          return false
+        }
+
         this.showMenu = true
         await this.$nextTick()
         this.triggerPopover = true
