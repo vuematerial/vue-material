@@ -11,7 +11,7 @@
         <md-field class="search" md-nested md-clearable>
           <md-icon>search</md-icon>
           <label>Search...</label>
-          <md-input v-model="initial"></md-input>
+          <md-input v-model="normal"></md-input>
         </md-field>
 
         <div class="md-toolbar-section-end">
@@ -37,7 +37,7 @@
         <md-field class="search" md-layout="box" md-nested md-clearable>
           <md-icon>search</md-icon>
           <label>Search...</label>
-          <md-input v-model="initial"></md-input>
+          <md-input v-model="box"></md-input>
         </md-field>
 
         <div class="md-toolbar-section-end">
@@ -63,7 +63,7 @@
         <md-field class="search" md-layout="raised" md-nested md-clearable>
           <md-icon>search</md-icon>
           <label>Search...</label>
-          <md-input v-model="initial"></md-input>
+          <md-input v-model="raised"></md-input>
         </md-field>
 
         <div class="md-toolbar-section-end">
@@ -86,12 +86,7 @@
     data: () => ({
       normal: null,
       box: null,
-      raised: null,
-      inline: null,
-      number: null,
-      textarea: null,
-      autogrow: null,
-      disabled: null
+      raised: null
     })
   }
 </script>
