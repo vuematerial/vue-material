@@ -4,12 +4,13 @@ Reporting a bug?
 ================
 
 - Always search for your issue first. It may have already been answered, planned or fixed in some branch.
+- Open one issue per subject. Cluttered issues will be closed.
 - Make sure to only create issues for the newest version.
 - Create a declarative title and describe clearly the steps necessary to reproduce the issue. If an issue labeled "need repro" receives no further input from the issue author for more than 3 days, it will be closed.
-- If you want to show your code please use [Codepen](http://codepen.io/pen/) or [JSFiddle](https://jsfiddle.net/). You could start with [this template](http://codepen.io/vue-material/pen/WGavBE).
-- In case you found a solution by yourself, it could be helpful to explain how you fixed it.
+- If you want to show your code, please use [Codepen](http://codepen.io/pen/) or [JSFiddle](https://jsfiddle.net/). You can start with [this template](https://codepen.io/vue-material/pen/RxGmyb).
+- In case you found a solution by yourself, it could be helpful to explain how you have fixed it.
 - For bugs that involves build setups, you can create a reproduction repository with steps in the README.
-- If your issue is resolved but still open, don’t hesitate to close it. In case you found a solution by yourself, it could be helpful to explain how you fixed it.
+- If your issue is resolved but still open, don’t hesitate to close it. 
 
 Have a feature request?
 =======================

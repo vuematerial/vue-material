@@ -24,7 +24,7 @@
 import examples from 'docs-mixins/docsExample'
 
 export default {
-  name: 'Content',
+  name: 'DocContent',
   mixins: [examples],
   data: () => ({
     props: {

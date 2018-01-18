@@ -29,7 +29,7 @@
   import examples from 'docs-mixins/docsExample'
 
   export default {
-    name: 'Switch',
+    name: 'DocSwitch',
     mixins: [examples],
     data: () => ({
       props: {

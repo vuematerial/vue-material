@@ -23,9 +23,9 @@
             </md-ripple>
           </a>
 
-          <a class="home-sponsor" href="https://www.browserstack.com/accounts/subscriptions" target="_blank">
+          <a class="home-sponsor" href="https://cs.berry.sh/c/bb9dade0-0207-4ab0-8c86-d00502d952f5" target="_blank">
             <md-ripple>
-              <img src="/assets/sponsors/browserstack.png">
+              <md-svg-loader md-src="/assets/sponsors/rollbar.svg" />
             </md-ripple>
           </a>
         </div>
@@ -33,9 +33,11 @@
         <h4 class="md-subheading">{{ $t('pages.home.backers') }}</h4>
 
         <ul>
+          <li>Anthony Villena</li>
+          <li>Bobby McDonald</li>
           <li>Ivo Benner</li>
           <li>Nathanael Björkgård</li>
-          <li>Anthony Villena</li>
+          <li>Viktor Kuroljov</li>
           <li>William Chong</li>
         </ul>
       </div>
@@ -44,8 +46,13 @@
 </template>
 
 <script>
+  import MdSvgLoader from 'vue-material/components/MdSvgLoader/MdSvgLoader'
+
   export default {
-    name: 'HomeSponsors'
+    name: 'HomeSponsors',
+    components: {
+      MdSvgLoader
+    }
   }
 </script>
 
@@ -79,6 +86,8 @@
   }
 
   .home-sponsor {
+    color: #000 !important;
+
     + .home-sponsor {
       margin-left: 16px;
     }
@@ -92,9 +101,12 @@
       border-radius: 2px;
     }
 
-    img {
+    img,
+    >>> svg,
+    .md-svg-loader {
       max-width: 256px;
       max-height: 96px;
+      display: block;
     }
   }
 

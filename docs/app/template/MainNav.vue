@@ -72,7 +72,6 @@
     top: 64px;
     bottom: 0;
     left: 0;
-    z-index: 2;
     transition: .3s $md-transition-default-timing;
     transition-property: top;
 

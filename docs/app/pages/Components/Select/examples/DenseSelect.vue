@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="md-layout-row md-gutter">
-      <div class="md-flex">
+    <div class="md-layout md-gutter">
+      <div class="md-layout-item">
         <md-field>
           <label for="movies">Movies</label>
           <md-select v-model="movies" name="movies" id="movies" md-dense multiple>
@@ -16,7 +16,7 @@
         </md-field>
       </div>
 
-      <div class="md-flex">
+      <div class="md-layout-item">
         <md-field>
           <label for="country">Country</label>
           <md-select v-model="country" name="country" id="country" md-dense>
@@ -28,7 +28,7 @@
         </md-field>
       </div>
 
-      <div class="md-flex">
+      <div class="md-layout-item">
         <md-field>
           <label for="font">Font</label>
           <md-select v-model="font" name="font" id="font" md-dense>
@@ -56,7 +56,7 @@
 
 <script>
   export default {
-    name: 'Example',
+    name: 'DenseSelect',
     data: () => ({
       movies: [],
       country: null,

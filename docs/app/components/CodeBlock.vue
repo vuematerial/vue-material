@@ -39,6 +39,7 @@
       showMessage: false
     }),
     methods: {
+      reindentSource: codeSource.reindentSource,
       enableCopy () {
         if (this.$refs.copy) {
           const clipboard = new Clipboard(this.$refs.copy.$el, {

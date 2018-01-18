@@ -6,7 +6,7 @@
     :md-active.sync="showSelect"
     :md-offset-x="offset.x"
     :md-offset-y="offset.y"
-    @md-opened="onOpen"
+    :md-dense="mdDense"
     @md-closed="onClose">
     <md-input
       class="md-input md-select-value"
@@ -31,9 +31,8 @@
         ref="menu"
         class="md-select-menu"
         :md-content-class="mdClass"
-        :md-list-class="mdDense && 'md-dense'"
         :style="menuStyles"
-        :id="uniqueId">
+        @enter="onMenuEnter">
         <slot />
       </md-menu-content>
     </keep-alive>
@@ -45,7 +44,6 @@
 
 <script>
   import raf from 'raf'
-  import MdUuid from 'core/utils/MdUuid'
   import MdComponent from 'core/MdComponent'
   import MdDropDownIcon from 'core/icons/MdDropDownIcon'
   import MdMenu from 'components/MdMenu/MdMenu'
@@ -77,7 +75,6 @@
     inject: ['MdField'],
     data () {
       return {
-        uniqueId: 'md-select-menu-' + MdUuid(),
         menuStyles: {},
         offset: {
           x: defaultOffset.x,
@@ -89,7 +86,7 @@
           items: {},
           label: null,
           multiple: false,
-          modelValue: this.model,
+          modelValue: this.localValue,
           setValue: this.setValue,
           setContent: this.setContent,
           setMultipleValue: this.setMultipleValue,
@@ -113,8 +110,10 @@
     watch: {
       localValue: {
         immediate: true,
-        handler () {
+        handler (val) {
           this.setFieldContent()
+          this.MdSelect.modelValue = this.localValue
+          this.emitSelected(val)
         }
       },
       multiple: {
@@ -123,9 +122,6 @@
           this.MdSelect.multiple = isMultiple
           this.$nextTick(() => this.initialLocalValueByDefault())
         }
-      },
-      model () {
-        this.MdSelect.modelValue = this.model
       }
     },
     methods: {
@@ -140,10 +136,8 @@
         menu.scrollTop = top - ((menuHeight - elHeight) / 2)
       },
       async setOffsets (target) {
-        await this.$nextTick()
-
         if (!this.$isServer) {
-          const menu = document.getElementById(this.uniqueId)
+          const menu = this.$refs.menu.$refs.container
 
           if (menu) {
             const selected = target || menu.querySelector('.md-selected')
@@ -161,14 +155,14 @@
           }
         }
       },
-      onOpen () {
-        this.$emit('md-opened')
-        if (this.didMount) {
-          this.setOffsets()
-          window.setTimeout(() => {
-            this.MdField.focused = true
-          }, 10)
+      onMenuEnter () {
+        if (!this.didMount) {
+          return
         }
+
+        this.setOffsets()
+        this.MdField.focused = true
+        this.$emit('md-opened')
       },
       applyHighlight () {
         this.MdField.focused = false
@@ -207,11 +201,9 @@
         } else {
           this.localValue = this.arrayAccessorRemove(this.localValue, index)
         }
-        this.emitSelected(this.localValue)
       },
       setValue (newValue) {
         this.model = newValue
-        this.emitSelected(newValue)
         this.setFieldValue()
         this.showSelect = false
       },
@@ -286,6 +278,7 @@
   .md-menu.md-select {
     display: flex;
     flex: 1;
+    overflow: auto;
 
     &:not(.md-disabled) {
       .md-input,
@@ -297,6 +290,7 @@
 
     .md-input {
       flex: 1;
+      min-width: 0;
     }
 
     select,
@@ -311,20 +305,18 @@
       border: 0;
     }
   }
+  .md-menu-content {
+    z-index: 111;
+    &.md-select-menu {
+      width: 100%;
 
-  .md-menu-content.md-select-menu {
-    width: 100%;
+      &.md-menu-content-enter {
+        transform: translate3d(0, -8px, 0) scaleY(.3);
+      }
 
-    &.md-menu-content-enter {
-      transform: translate3d(0, -8px, 0) scaleY(.3);
-    }
-
-    .md-list {
-      transition: opacity .3s $md-transition-drop-timing;
-    }
-
-    .md-dense .md-ripple.md-list-item-content {
-      font-size: 14px;
+      .md-list {
+        transition: opacity .3s $md-transition-drop-timing;
+      }
     }
   }
 </style>

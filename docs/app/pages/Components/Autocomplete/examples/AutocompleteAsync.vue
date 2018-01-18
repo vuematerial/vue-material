@@ -10,7 +10,7 @@
 
 <script>
   export default {
-    name: 'Example',
+    name: 'AutocompleteAsync',
     data: () => ({
       value: null,
       countryList: [

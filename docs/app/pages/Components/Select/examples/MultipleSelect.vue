@@ -1,6 +1,6 @@
 <template>
-  <div class="md-layout-row md-gutter">
-    <div class="md-flex">
+  <div class="md-layout md-gutter">
+    <div class="md-layout-item">
       <md-field>
         <label for="movies">Movies</label>
         <md-select v-model="selectedMovies" name="movies" id="movies" multiple>
@@ -24,7 +24,7 @@
 
 <script>
   export default {
-    name: 'Example',
+    name: 'MultipleSelect',
     data: () => ({
       selectedMovies: []
     })

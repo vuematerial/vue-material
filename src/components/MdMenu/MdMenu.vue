@@ -57,7 +57,8 @@
           dense: this.mdDense,
           closeOnSelect: this.mdCloseOnSelect,
           bodyClickObserver: null,
-          windowResizeObserver: null
+          windowResizeObserver: null,
+          $el: this.$el
         }
       }
     },
@@ -105,11 +106,11 @@
     },
     methods: {
       toggleContent ($event) {
-        $event.stopPropagation()
         this.MdMenu.active = !this.MdMenu.active
       }
     },
     async mounted () {
+      this.MdMenu.$el = this.$el
       await this.$nextTick()
 
       this.triggerEl = this.$el.querySelector('[md-menu-trigger]')

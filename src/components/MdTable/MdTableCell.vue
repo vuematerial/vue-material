@@ -17,7 +17,8 @@
     },
     inject: ['MdTable'],
     data: () => ({
-      index: null
+      index: null,
+      parentNode: null
     }),
     computed: {
       cellClasses () {
@@ -50,7 +51,9 @@
         })
       },
       updateAllCellData () {
-        const cells = Array.from(this.$el.parentNode.childNodes).filter(({ tagName, classList }) => {
+        this.MdTable.items = {}
+
+        const cells = Array.from(this.parentNode.childNodes).filter(({ tagName, classList }) => {
           const isSelection = classList && classList.contains('md-table-cell-selection')
           const isTd = tagName && tagName.toLowerCase() === 'td'
 
@@ -67,6 +70,16 @@
       }
     },
     mounted () {
+      this.parentNode = this.$el.parentNode
+      this.updateAllCellData()
+    },
+    destroyed () {
+      const rowRemoved = this.$el.parentNode !== null
+
+      if (rowRemoved) {
+        return false
+      }
+
       this.updateAllCellData()
     }
   }

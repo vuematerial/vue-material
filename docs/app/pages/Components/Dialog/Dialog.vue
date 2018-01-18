@@ -68,7 +68,7 @@
   import examples from 'docs-mixins/docsExample'
 
   export default {
-    name: 'Dialog',
+    name: 'DocDialog',
     mixins: [examples],
     data () {
       return {

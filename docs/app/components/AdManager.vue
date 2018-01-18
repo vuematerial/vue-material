@@ -1,209 +1,152 @@
+<template>
+  <md-content class="ad-manager" id="ad-manager" md-theme="default">
+    <div id="code-sponsor" class="code-sponsor">
+      <span class="code-sponsor-header">Vue Material is proudly sponsored by:</span>
+
+      <a :href="linkHref" class="code-sponsor-content" target="_blank" rel="noopener">
+        <strong class="code-sponsor-name">Rollbar</strong>
+        <span class="code-sponsor-description">Real-time JavaScript error monitoring, alerting, and analytics for developers 🚀</span>
+      </a>
+
+      <img class="code-sponsor-pixel" :src="pixelHref" />
+    </div>
+  </md-content>
+</template>
 
 <script>
+  const isProd = process.env.NODE_ENV === 'production'
+  const token = 'bb9dade0-0207-4ab0-8c86-d00502d952f5'
+
   export default {
     name: 'AdManager',
-    abstract: true,
-    data: () => ({
-      carbonEl: null,
-      codeSponsorEl: null
-    }),
-    render () {
-      return null
-    },
-    methods: {
-      saveAdsElements () {
-        this.carbonEl = document.getElementById('carbonads')
-        this.codeSponsorEl = document.querySelector('.code-sponsor-widget')
-        if (!this.carbonEl || !this.codeSponsorEl) {
-          this.$destroy()
+    computed: {
+      linkHref () {
+        if (isProd) {
+          return `https://cs.berry.sh/c/${token}`
         }
       },
-      appendCarbonAds() {
-        const interval = window.setInterval(() => {
-          const carbonAds = document.getElementById('carbonads')
-          const container = document.querySelector('.container')
-          const mainContainer = document.querySelector('.main-container')
-          const splashContainer = document.querySelector('.splash-container')
-          const carbonAdsContainer = document.querySelector('.code-sponsor-widget')
-          if (carbonAds && container) {
-            if (splashContainer) {
-              carbonAdsContainer.appendChild(carbonAds)
-            } else if (mainContainer) {
-              mainContainer.insertBefore(carbonAds, mainContainer.firstChild)
-            } else {
-              container.insertBefore(carbonAds, container.firstChild)
-            }
-            window.clearInterval(interval)
-          }
-        }, 50)
-      },
-      appendCodeSponsor() {
-        const interval = window.setInterval(() => {
-          const carbonAds = document.querySelector('.code-sponsor-widget')
-          const container = document.querySelector('.container')
-          const mainContainer = document.querySelector('.main-container')
-          if (carbonAds && mainContainer) {
-            if (mainContainer) {
-              mainContainer.appendChild(carbonAds)
-            } else {
-              container.appendChild(carbonAds)
-            }
-            window.clearInterval(interval)
-          }
-        }, 50)
-      },
-      moveCarbonAdsToBody() {
-        if (this.carbonEl) {
-          document.body.appendChild(this.carbonEl)
-        }
-      },
-      moveCodeSponsorToBody() {
-        if (this.codeSponsorEl) {
-          document.body.appendChild(this.codeSponsorEl)
+      pixelHref () {
+        if (isProd) {
+          return `https://cs.berry.sh/l/${token}/pixel.png`
         }
       }
-    },
-    mounted () {
-      this.saveAdsElements()
-      this.appendCarbonAds()
-      this.appendCodeSponsor()
-    },
-    beforeDestroy() {
-      this.moveCarbonAdsToBody()
-      this.moveCodeSponsorToBody()
     }
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   @import "~vue-material/theme/engine";
-  $ad-responsive-big: 1670px;
-  $ad-responsive-small: 600px;
+
+  $ad-responsive-big: 1690px;
+  $ad-responsive-small: 768px;
+
   @mixin ad-theme ($hue, $color) {
-    #carbonads,
-    .code-sponsor-widget {
+    .code-sponsor {
       background: md-get-palette-color(grey, $hue);
+
+      .code-sponsor-header {
+        color: rgba($color, .54);
+      }
     }
-    .carbon-wrap a {
+
+    .code-sponsor-content {
       color: rgba($color, .7);
+
       &:hover {
         color: $color;
       }
     }
-    #carbonads .carbon-poweredby {
-      color: rgba($color, .54);
-      &:hover {
-        color: rgba($color, .87);
-      }
+  }
+
+  .ad-manager {
+    width: calc(100% + 32px);
+    margin: 0 -16px -16px;
+
+    @media (max-width: $ad-responsive-small) {
+      display: flex;
     }
   }
-  .main-container {
-    @include ad-theme(200, #000);
-  }
-  .splash-container {
-    @media (min-width: $ad-responsive-big) {
-      @include ad-theme(800, #fff);
-    }
-  }
-  #carbonads {
-    max-width: 162px;
-    margin: 1em 0 24px 16px;
-    padding: 16px;
+
+  .code-sponsor {
+    max-width: 175px;
+    margin: 7px 16px 24px 16px;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
     float: right;
     position: relative;
     z-index: 10;
-    .splash-container & {
-      @media (max-width: $ad-responsive-big) {
-        background: #fff;
-      }
-    }
+    font-size: 12px;
+    line-height: 1.5em;
+
     @media (min-width: $ad-responsive-big) {
       margin: 0;
       position: fixed;
       right: 16px;
       bottom: 16px;
     }
+
     @media (max-width: $ad-responsive-small) {
       max-width: none;
-      min-height: 100px;
-      margin-left: 0;
-      padding: 0;
+      margin-bottom: 16px;
       float: none;
     }
+
     .splash-container & {
       @media (max-width: $ad-responsive-big) {
-        max-width: none;
+        max-width: 530px;
         min-height: 100px;
-        margin-left: 0;
-        padding: 0;
+        margin: 8px auto;
         float: none;
+        background: none !important;
       }
-    }
-    .carbon-wrap {
-      display: flex;
-      flex-direction: column;
-      font-size: 12px;
-      @media (max-width: $ad-responsive-small) {
-        display: block;
-      }
-      .splash-container & {
-        @media (max-width: $ad-responsive-big) {
-          display: block;
-        }
-      }
-      .carbon-img {
-        @media (max-width: $ad-responsive-small) {
-          margin-right: 16px;
-          float: left;
-        }
-        .splash-container & {
-          @media (max-width: $ad-responsive-big) {
-            margin-right: 16px;
-            float: left;
-          }
-        }
-      }
-      .carbon-text {
-        line-height: 1.5em;
-        @media (max-width: $ad-responsive-big) {
-          padding-top: 1em;
-          padding-right: 16px;
-          display: block;
-        }
-        @media (min-width: $ad-responsive-big) {
-          margin: 12px 0 8px;
-        }
-      }
-      a {
-        &:hover {
-          text-decoration: none;
-        }
-      }
-    }
-    .carbon-poweredby {
-      font-size: 11px;
     }
   }
-  .code-sponsor-widget {
-    margin-top: 64px;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    @media (max-width: $ad-responsive-small) {
-      align-items: center;
-      flex-direction: column;
+
+  .code-sponsor-header {
+    font-size: 11px;
+    line-height: 1.3em;
+  }
+
+  .code-sponsor-content {
+    margin-top: 1em;
+
+    &:hover {
+      text-decoration: none;
     }
-    .splash-container & {
-      width: calc(100% + 32px);
-      margin: 0 -16px -16px;
-      background: #fff;
+  }
+
+  .code-sponsor-name,
+  .code-sponsor-description {
+    &:hover {
+      text-decoration: underline;
     }
-    #carbonads {
-      margin-left: 16px;
-      @media (max-width: $ad-responsive-small) {
-        margin-top: 16px;
-        margin-left: 0;
-      }
+  }
+
+  .code-sponsor-name {
+    margin-bottom: .5em;
+    display: block;
+    font-weight: 600;
+  }
+
+  .code-sponsor-pixel {
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    border: 0;
+  }
+
+  .main-container {
+    @include ad-theme(200, #000);
+  }
+
+  .splash-container {
+    @media (min-width: $ad-responsive-big) {
+      @include ad-theme(800, #fff);
     }
   }
 </style>

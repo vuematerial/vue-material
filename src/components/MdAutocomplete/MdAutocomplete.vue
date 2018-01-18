@@ -180,7 +180,9 @@
           this.showOptions()
         }
       },
-      onInput () {
+      onInput (value) {
+        this.$emit('input', value)
+
         if (!this.mdOpenOnFocus) {
           this.showOptions()
         }

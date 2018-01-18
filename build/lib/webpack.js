@@ -287,6 +287,7 @@ export default entry => {
       analyzerPort: getRandomInt(8000, 8999)
     }))
   }
+
   if (entry.components) {
     webpackConfig.plugins.push(new CopyWebpackPlugin(getCopyPaths()))
   }

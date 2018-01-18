@@ -35,8 +35,8 @@
                   </div>
 
                   <div class="md-datepicker-days">
-                    <span class="md-datepicker-empty" v-for="day in firstDayOfMonth" :key="day"></span>
-                    <div class="md-datepicker-day" v-for="day in daysInMonth" :key="day">
+                    <span class="md-datepicker-empty" v-for="day in firstDayOfMonth" :key="'day-empty-'+day"></span>
+                    <div class="md-datepicker-day" v-for="day in daysInMonth" :key="'day-'+day">
                       <span
                         class="md-datepicker-day-button"
                         :class="{

@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="md-layout-row md-gutter">
-      <div class="md-flex">
+    <div class="md-layout md-gutter">
+      <div class="md-layout-item">
         <md-field>
           <label for="movie">Movie</label>
           <md-select v-model="movie" name="movie" id="movie">
@@ -16,7 +16,7 @@
         </md-field>
       </div>
 
-      <div class="md-flex">
+      <div class="md-layout-item">
         <md-field>
           <md-select v-model="country" name="country" id="country" placeholder="Country">
             <md-option value="australia">Australia</md-option>
@@ -27,7 +27,7 @@
         </md-field>
       </div>
 
-      <div class="md-flex">
+      <div class="md-layout-item">
         <md-field>
           <label for="font">Font</label>
           <md-select v-model="font" name="font" id="font">
@@ -57,7 +57,7 @@
 
 <script>
   export default {
-    name: 'Example',
+    name: 'BasicSelect',
     data: () => ({
       movie: 'godfather',
       country: null,

@@ -45,7 +45,7 @@
   import examples from 'docs-mixins/docsExample'
 
   export default {
-    name: 'Avatar',
+    name: 'DocAvatar',
     mixins: [examples],
     data: () => ({
       regular: {
