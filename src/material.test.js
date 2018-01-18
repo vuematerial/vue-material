@@ -29,3 +29,4 @@ test('should enable theme by default', async () => {
 test('should not render meta colors by default', async () => {
   expect(app.$material.theming.metaColors).toBe(false)
 })
+

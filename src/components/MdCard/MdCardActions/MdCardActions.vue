@@ -1,5 +1,5 @@
 <template>
-  <div class="md-card-actions" :class="`md-alignment-${mdAlignment}`">
+  <div class="md-card-actions" :class="setClassName" >
     <slot />
   </div>
 </template>
@@ -16,6 +16,11 @@
         type: String,
         default: 'right',
         ...MdPropValidator('md-alignment', alignments)
+      }
+    },
+    computed:{
+      setClassName() /* string */{
+        return `md-alignment-${this.mdAlignment}`;
       }
     }
   }

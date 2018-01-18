@@ -36,11 +36,7 @@
     props: {
       mdDisabled: Boolean,
       mdDeletable: Boolean,
-      mdClickable: Boolean,
-      mdDuplicated: {
-        type: Boolean,
-        default: false
-      }
+      mdClickable: Boolean
     },
     computed: {
       chipClasses () {
@@ -48,8 +44,7 @@
           'md-disabled': this.mdDisabled,
           'md-deletable': this.mdDeletable,
           'md-clickable': this.mdClickable,
-          'md-focused': this.mdHasFocus,
-          'md-duplicated': this.mdDuplicated
+          'md-focused': this.mdHasFocus
         }
       }
     }

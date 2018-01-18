@@ -1,5 +1,6 @@
 .md-checkbox {
   @include md-theme-component() {
+
     &.md-checked {
       .md-checkbox-container {
         @include md-theme-property(background-color, accent);

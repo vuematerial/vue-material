@@ -43,7 +43,7 @@
       If there isn't sufficient contrast between background image and title, the latter won't be perfectly legible. To overcome that, apply a solid or gradient background to the text by using the <code>md-card-media-cover</code>'s properties <code>md-solid</code> or <code>md-text-scrim</code>, respectively.
 
       <code-example title="Card background with Aspect Ratio" :component="examples['media-cover']" />
-      
+
       <h2>Themes</h2>
 
       <p>Your cards will stand out if you change their base color... And you can do it by applying themes! Just add a <code>.primary</code> or <code>accent</code> class on them. This will use the current theme. You can specify a custom one with the <code>md-theme</code> property.</p>

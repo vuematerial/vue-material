@@ -46,7 +46,7 @@
         import VueMaterial from 'vue-material'
         import 'vue-material/dist/vue-material.min.css'
 
-        Vue.use(VueMaterial)
+        Vue.use(VueMaterial);
       </code-example>
 
       <p>Although is not the recommended approach, you can always use CDNs for fast prototyping:</p>

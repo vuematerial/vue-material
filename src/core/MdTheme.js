@@ -9,7 +9,7 @@ export default new Vue({
     prefix: 'md-theme-',
     theme: 'default',
     enabled: true,
-    metaColors: false
+    metaColors: false,
   }),
   computed: {
     themeTarget () {

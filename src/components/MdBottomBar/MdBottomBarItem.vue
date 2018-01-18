@@ -13,7 +13,7 @@
     <template v-else>
       <md-icon class="md-bottom-bar-icon" v-if="isAssetIcon(mdIcon)" :md-src="mdIcon"></md-icon>
       <md-icon class="md-bottom-bar-icon" v-else>{{ mdIcon }}</md-icon>
-      <span class="md-bottom-bar-label">{{ mdLabel }}</span>
+      <span class="md-bottom-bar-label" >{{ mdLabel }}</span>
     </template>
   </md-button>
 </template>

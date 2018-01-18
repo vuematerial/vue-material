@@ -144,7 +144,6 @@
       },
       popperSettings () {
         return {
-          placement: 'bottom-start',
           modifiers: {
             keepTogether: {
               enabled: true

@@ -89,9 +89,7 @@
         return this.mdLayout === 'box'
       },
       fieldClasses () {
-        if (this.isBoxLayout) {
-          return 'md-autocomplete-box'
-        }
+        return  this.isBoxLayout ? 'md-autocomplete-box' : '';
       },
       contentClasses () {
         if (this.isBoxLayout) {
