@@ -7,9 +7,9 @@
     @mousedown.passive.stop="startRipple">
     <slot />
 
-    <transition name="md-ripple" @after-enter="clearWave" v-if="!isDisabled">
-      <span class="md-ripple-wave" :class="waveClasses" :style="waveStyles" v-if="animating" ref="rippleWave" />
-    </transition>
+    <template v-if="!isDisabled">
+      <span v-for="(ripple, index) in ripples" :key="'ripple'+index" class="md-ripple-wave" :class="waveClasses" :style="ripple.waveStyles" />
+    </template>
   </div>
 </template>
 
@@ -25,10 +25,9 @@
       mdCentered: Boolean
     },
     data: () => ({
-      eventType: null,
-      waveStyles: null,
-      animating: false,
-      touchTimeout: null
+      ripples: [],
+      touchTimeout: null,
+      eventType: null
     }),
     computed: {
       isDisabled () {
@@ -84,28 +83,30 @@
               position = this.getHitPosition($event, size)
             }
 
-            await this.clearWave()
-
             this.eventType = $event.type
-            this.animating = true
-            this.applyStyles(position, size)
+            this.ripples.push({
+              animating: true,
+              waveStyles: this.applyStyles(position, size)
+            })
           }
         })
+        this.clearWaves()
       },
       applyStyles (position, size) {
         size += 'px'
 
-        this.waveStyles = {
+        return {
           ...position,
           width: size,
           height: size
         }
       },
-      clearWave () {
-        this.waveStyles = null
-        this.animating = false
-
-        return this.$nextTick()
+      clearWaves () {
+        let timeout
+        window.clearTimeout(timeout)
+        timeout = window.setTimeout(() => {
+          this.ripples = []
+        }, 1000)
       },
       getSize () {
         const { offsetWidth, offsetHeight } = this.$el
@@ -158,31 +159,33 @@
     background: currentColor;
     border-radius: 50%;
     opacity: 0;
-    transform: scale(2) translateZ(0);
+    animation: ripple .8s $md-transition-stand-timing;
+    transition-property: opacity, transform;
+    will-change: opacity, transform;
 
     &.md-centered {
+      animation-duration: 1.2s;
       top: 50%;
       left: 50%;
     }
-
-    ~ * {
+    ~ *:not(.md-ripple-wave) {
       position: relative;
       z-index: 2;
     }
   }
 
-  .md-ripple-enter-active {
-    transition: .8s $md-transition-stand-timing;
-    transition-property: opacity, transform;
-    will-change: opacity, transform;
-
-    &.md-centered {
-      transition-duration: 1.2s;
+  @keyframes ripple {
+    0% {
+      opacity: 0;
+      transform: scale(0) translateZ(0);
     }
-  }
-
-  .md-ripple-enter {
-    opacity: .26;
-    transform: scale(.26) translateZ(0);
+    20% {
+      opacity: .26;
+      transform: scale(.26) translateZ(0);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(2) translateZ(0);
+    }
   }
 </style>
