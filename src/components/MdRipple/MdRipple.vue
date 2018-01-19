@@ -1,15 +1,14 @@
 <template>
   <div
-    class="md-ripple"
-    :class="rippleClasses"
+    :class="['md-ripple', rippleClasses]"
     @touchstart.passive.stop="touchStartCheck"
     @touchmove.passive.stop="touchMoveCheck"
     @mousedown.passive.stop="startRipple">
     <slot />
 
-    <template v-if="!isDisabled">
-      <span v-for="(ripple, index) in ripples" :key="'ripple'+index" class="md-ripple-wave" :class="waveClasses" :style="ripple.waveStyles" />
-    </template>
+    <transition-group name="md-ripple" @after-enter="clearWave" v-if="!isDisabled">
+      <span v-for="(ripple, index) in ripples" :key="'ripple'+index" :class="['md-ripple-wave', waveClasses]" :style="ripple.waveStyles" />
+    </transition-group>
   </div>
 </template>
 
@@ -90,7 +89,6 @@
             })
           }
         })
-        this.clearWaves()
       },
       applyStyles (position, size) {
         size += 'px'
@@ -101,12 +99,8 @@
           height: size
         }
       },
-      clearWaves () {
-        let timeout
-        window.clearTimeout(timeout)
-        timeout = window.setTimeout(() => {
-          this.ripples = []
-        }, 1000)
+      clearWave () {
+        this.ripples.pop()
       },
       getSize () {
         const { offsetWidth, offsetHeight } = this.$el
@@ -159,9 +153,7 @@
     background: currentColor;
     border-radius: 50%;
     opacity: 0;
-    animation: ripple .8s $md-transition-stand-timing;
-    transition-property: opacity, transform;
-    will-change: opacity, transform;
+    transform: scale(2) translateZ(0);
 
     &.md-centered {
       animation-duration: 1.2s;
@@ -174,18 +166,17 @@
     }
   }
 
-  @keyframes ripple {
-    0% {
-      opacity: 0;
-      transform: scale(0) translateZ(0);
+  .md-ripple-enter-active {
+    transition: .8s $md-transition-stand-timing;
+    transition-property: opacity, transform;
+    will-change: opacity, transform;
+    &.md-centered {
+      transition-duration: 1.2s;
     }
-    20% {
-      opacity: .26;
-      transform: scale(.26) translateZ(0);
-    }
-    100% {
-      opacity: 0;
-      transform: scale(2) translateZ(0);
-    }
+  }
+
+  .md-ripple-enter {
+    opacity: .26;
+    transform: scale(.26) translateZ(0);
   }
 </style>
