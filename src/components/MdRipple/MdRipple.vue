@@ -3,10 +3,12 @@
     :class="['md-ripple', rippleClasses]"
     @touchstart.passive.stop="touchStartCheck"
     @touchmove.passive.stop="touchMoveCheck"
-    @mousedown.passive.stop="startRipple">
+    @touchend.passive.stop="clearWave"
+    @mousedown.passive.stop="startRipple"
+    @mouseup.passive.stop="clearWave">
     <slot />
 
-    <transition-group name="md-ripple" @after-enter="clearWave" v-if="!isDisabled">
+    <transition-group name="md-ripple" v-if="!isDisabled">
       <span v-for="(ripple, index) in ripples" :key="'ripple'+index" :class="['md-ripple-wave', waveClasses]" :style="ripple.waveStyles" />
     </transition-group>
   </div>
@@ -15,6 +17,18 @@
 <script>
   import raf from 'raf'
   import MdComponent from 'core/MdComponent'
+
+  const debounce = function (fn, delay) {
+    var timeoutID = null
+    return function () {
+      clearTimeout(timeoutID)
+      var args = arguments
+      var that = this
+      timeoutID = setTimeout(function () {
+        fn.apply(that, args)
+      }, delay)
+    }
+  }
 
   export default new MdComponent({
     name: 'MdRipple',
@@ -99,9 +113,9 @@
           height: size
         }
       },
-      clearWave () {
-        this.ripples.pop()
-      },
+      clearWave: debounce(function () {
+        this.ripples = []
+      }, 2000),
       getSize () {
         const { offsetWidth, offsetHeight } = this.$el
 
