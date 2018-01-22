@@ -17,18 +17,7 @@
 <script>
   import raf from 'raf'
   import MdComponent from 'core/MdComponent'
-
-  const debounce = function (fn, delay) {
-    var timeoutID = null
-    return function () {
-      clearTimeout(timeoutID)
-      var args = arguments
-      var that = this
-      timeoutID = setTimeout(function () {
-        fn.apply(that, args)
-      }, delay)
-    }
-  }
+  import debounce from 'core/utils/MdDebounce'
 
   export default new MdComponent({
     name: 'MdRipple',
