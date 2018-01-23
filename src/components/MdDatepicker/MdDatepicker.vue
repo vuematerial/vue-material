@@ -63,6 +63,9 @@
         if (selectedDate) {
           this.modelDate = this.dateToHTMLString(selectedDate)
           this.$emit('input', selectedDate)
+        } else {
+          this.modelDate = null
+          this.$emit('input', null)
         }
       },
       value () {
