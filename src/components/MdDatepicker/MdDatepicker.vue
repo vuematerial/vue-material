@@ -1,5 +1,5 @@
 <template>
-  <md-field class="md-datepicker">
+  <md-field :class="['md-datepicker', { 'md-native': !this.mdOverrideNative }]">
     <md-date-icon class="md-date-icon" @click.native="toggleDialog" />
     <md-input :type="type" ref="input" v-model="modelDate" @focus.native="onFocus" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" />
 
@@ -127,9 +127,12 @@
   }
 
   .md-datepicker {
-    label {
-      top: 0 !important;
+    &.md-native {
+      label {
+        top: 0 !important;
+      }
     }
+
     .md-date-icon {
       cursor: pointer;
     }
