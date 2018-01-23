@@ -306,7 +306,6 @@
       },
       onCancel () {
         this.closeDialog()
-        this.$emit('update:mdDate', null)
       },
       onConfirm () {
         this.closeDialog()
