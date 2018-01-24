@@ -60,6 +60,7 @@
           this.startRipple(active)
           this.$emit('update:mdActive', false)
         }
+        this.clearWave()
       }
     },
     methods: {
