@@ -314,6 +314,7 @@
       selectDate (day) {
         this.currentDate = setDate(this.currentDate, day)
         this.selectedDate = this.currentDate
+        this.$emit('update:mdDate', this.selectedDate)
       },
       closeDialog () {
         this.$emit('md-closed')
