@@ -96,9 +96,10 @@
       dateToHTMLString (date) {
         if (date) {
           let formattedDate = null
+          const dateFormat = this.$material.locale.dateFormat || 'YYYY-MM-DD'
 
           try {
-            formattedDate = format(date, 'YYYY-MM-DD')
+            formattedDate = format(date, dateFormat)
           } catch (error) {
             Vue.util.warn(`The datepicker value is not a valid date. Given value: ${date}.`, this)
           }
