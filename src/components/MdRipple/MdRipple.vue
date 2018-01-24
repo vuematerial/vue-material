@@ -1,21 +1,23 @@
 <template>
   <div
-    class="md-ripple"
-    :class="rippleClasses"
+    :class="['md-ripple', rippleClasses]"
     @touchstart.passive.stop="touchStartCheck"
     @touchmove.passive.stop="touchMoveCheck"
-    @mousedown.passive.stop="startRipple">
+    @touchend.passive.stop="clearWave"
+    @mousedown.passive.stop="startRipple"
+    @mouseup.passive.stop="clearWave">
     <slot />
 
-    <transition name="md-ripple" @after-enter="clearWave" v-if="!isDisabled">
-      <span class="md-ripple-wave" :class="waveClasses" :style="waveStyles" v-if="animating" ref="rippleWave" />
-    </transition>
+    <transition-group name="md-ripple" v-if="!isDisabled">
+      <span v-for="(ripple, index) in ripples" :key="'ripple'+index" :class="['md-ripple-wave', waveClasses]" :style="ripple.waveStyles" />
+    </transition-group>
   </div>
 </template>
 
 <script>
   import raf from 'raf'
   import MdComponent from 'core/MdComponent'
+  import debounce from 'core/utils/MdDebounce'
 
   export default new MdComponent({
     name: 'MdRipple',
@@ -25,10 +27,9 @@
       mdCentered: Boolean
     },
     data: () => ({
-      eventType: null,
-      waveStyles: null,
-      animating: false,
-      touchTimeout: null
+      ripples: [],
+      touchTimeout: null,
+      eventType: null
     }),
     computed: {
       isDisabled () {
@@ -84,29 +85,26 @@
               position = this.getHitPosition($event, size)
             }
 
-            await this.clearWave()
-
             this.eventType = $event.type
-            this.animating = true
-            this.applyStyles(position, size)
+            this.ripples.push({
+              animating: true,
+              waveStyles: this.applyStyles(position, size)
+            })
           }
         })
       },
       applyStyles (position, size) {
         size += 'px'
 
-        this.waveStyles = {
+        return {
           ...position,
           width: size,
           height: size
         }
       },
-      clearWave () {
-        this.waveStyles = null
-        this.animating = false
-
-        return this.$nextTick()
-      },
+      clearWave: debounce(function () {
+        this.ripples = []
+      }, 2000),
       getSize () {
         const { offsetWidth, offsetHeight } = this.$el
 
@@ -161,11 +159,11 @@
     transform: scale(2) translateZ(0);
 
     &.md-centered {
+      animation-duration: 1.2s;
       top: 50%;
       left: 50%;
     }
-
-    ~ * {
+    ~ *:not(.md-ripple-wave) {
       position: relative;
       z-index: 2;
     }
@@ -175,7 +173,6 @@
     transition: .8s $md-transition-stand-timing;
     transition-property: opacity, transform;
     will-change: opacity, transform;
-
     &.md-centered {
       transition-duration: 1.2s;
     }
