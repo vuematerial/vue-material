@@ -27,6 +27,9 @@
       expandStyles: {},
       showContent: false
     }),
+    props: {
+      mdExpanded: Boolean
+    },
     computed: {
       expandClasses () {
         return {
@@ -45,17 +48,56 @@
 
         return size
       },
-      toggleExpand () {
-        raf(() => {
-          let fullHeight = 0
+      fetchStyle () {
+        return new Promise(resolve => {
+          raf(() => {
+            let fullHeight = 0
 
-          if (!this.showContent) {
-            fullHeight = 'auto' // this.getChildrenSize() + 'px'
-          }
+            if (!this.showContent) {
+              fullHeight = 'auto' // this.getChildrenSize() + 'px'
+            }
 
-          this.expandStyles = { height: fullHeight }
-          this.showContent = !this.showContent
+            this.expandStyles = { height: fullHeight }
+            resolve()
+          })
         })
+      },
+      async toggleExpand () {
+        await this.fetchStyle()
+        this.showContent = !this.showContent
+      },
+      async open () {
+        if (this.showContent) {
+          return false
+        }
+
+        await this.fetchStyle()
+        this.showContent = true
+      },
+      async close () {
+        if (!this.showContent) {
+          return false
+        }
+
+        await this.fetchStyle()
+        this.showContent = false
+      }
+    },
+    watch: {
+      mdExpanded () {
+        if (this.mdExpanded) {
+          this.open()
+        } else {
+          this.close()
+        }
+      },
+      showContent () {
+        this.$emit('update:mdExpanded', this.showContent)
+      }
+    },
+    mounted () {
+      if (this.mdExpanded) {
+        this.open()
       }
     }
   }

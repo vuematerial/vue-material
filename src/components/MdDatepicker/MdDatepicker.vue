@@ -1,5 +1,5 @@
 <template>
-  <md-field class="md-datepicker">
+  <md-field :class="['md-datepicker', { 'md-native': !this.mdOverrideNative }]" md-clearable>
     <md-date-icon class="md-date-icon" @click.native="toggleDialog" />
     <md-input :type="type" ref="input" v-model="modelDate" @focus.native="onFocus" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" />
 
@@ -96,9 +96,10 @@
       dateToHTMLString (date) {
         if (date) {
           let formattedDate = null
+          const dateFormat = this.$material.locale.dateFormat || 'YYYY-MM-DD'
 
           try {
-            formattedDate = format(date, 'YYYY-MM-DD')
+            formattedDate = format(date, dateFormat)
           } catch (error) {
             Vue.util.warn(`The datepicker value is not a valid date. Given value: ${date}.`, this)
           }
@@ -127,9 +128,12 @@
   }
 
   .md-datepicker {
-    label {
-      top: 0 !important;
+    &.md-native {
+      label {
+        top: 0 !important;
+      }
     }
+
     .md-date-icon {
       cursor: pointer;
     }

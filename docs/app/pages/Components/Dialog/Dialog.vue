@@ -8,8 +8,10 @@
     <div class="page-container-section">
       <p>Dialogs informs users about a specific task and may contain critical information, require decisions, or involve multiple tasks. The dialog component works with any plain html content. You can have tabs inside, all form components and many more.</p>
       <p>The component can be used with a custom markup, using the auxiliary components or with presets made by Vue Material. Those presets emulates the default Dialogs from Javascript, like confirm, alert and prompt.</p>
-    </div>
 
+      <note-block tip>To allow scrolling in content of modal you need to wrap your content in <code>md-dialog-content</code> component.</note-block>
+
+    </div>
     <div class="page-container-section">
       <h2>Dialog</h2>
 

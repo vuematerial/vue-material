@@ -31,11 +31,12 @@
                   <md-button class="md-dense md-datepicker-month-trigger" @click="currentView = 'month'">{{ currentMonthName }} {{ currentYear }}</md-button>
 
                   <div class="md-datepicker-week">
-                    <span v-for="(day, index) in locale.shorterDays" :key="index">{{ day }}</span>
+                    <span v-for="(day, index) in locale.shorterDays" :key="index" v-if="index >= firstDayOfAWeek">{{ day }}</span>
+                    <span v-for="(day, index) in locale.shorterDays" :key="index" v-if="index < firstDayOfAWeek">{{ day }}</span>
                   </div>
 
                   <div class="md-datepicker-days">
-                    <span class="md-datepicker-empty" v-for="day in firstDayOfMonth" :key="'day-empty-'+day"></span>
+                    <span class="md-datepicker-empty" v-for="day in prefixEmptyDays" :key="'day-empty-'+day"></span>
                     <div class="md-datepicker-day" v-for="day in daysInMonth" :key="'day-'+day">
                       <span
                         class="md-datepicker-day-button"
@@ -109,6 +110,8 @@
   import MdArrowLeftIcon from 'core/icons/MdArrowLeftIcon'
   import MdDialog from 'components/MdDialog/MdDialog'
 
+  const daysInAWeek = 7
+
   const getElements = (el, selector) => {
     if (el && el.querySelector) {
       return el.querySelectorAll(selector)
@@ -139,6 +142,16 @@
       availableYears: null
     }),
     computed: {
+      firstDayOfAWeek () {
+        // normalize
+        let firstDayOfAWeek = Number(this.$material.locale.firstDayOfAWeek)
+        if (Number.isNaN(firstDayOfAWeek) || !Number.isFinite(firstDayOfAWeek)) {
+          return 0
+        }
+        firstDayOfAWeek = Math.floor(firstDayOfAWeek) % daysInAWeek
+        firstDayOfAWeek += firstDayOfAWeek < 0 ? daysInAWeek : 0
+        return firstDayOfAWeek
+      },
       locale() {
         return this.$material.locale;
       },
@@ -164,6 +177,11 @@
       },
       firstDayOfMonth () {
         return startOfMonth(this.currentDate).getDay()
+      },
+      prefixEmptyDays () {
+        let prefixEmptyDays = this.firstDayOfMonth - this.firstDayOfAWeek
+        prefixEmptyDays += prefixEmptyDays < 0 ? daysInAWeek : 0
+        return prefixEmptyDays
       },
       daysInMonth () {
         return getDaysInMonth(this.currentDate)
@@ -296,6 +314,7 @@
       selectDate (day) {
         this.currentDate = setDate(this.currentDate, day)
         this.selectedDate = this.currentDate
+        this.$emit('update:mdDate', this.selectedDate)
       },
       closeDialog () {
         this.$emit('md-closed')

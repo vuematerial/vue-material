@@ -1,7 +1,7 @@
 <template>
   <div class="full-control">
     <md-list>
-      <md-list-item md-expand>
+      <md-list-item md-expand :md-expanded.sync="expandNews">
         <md-icon>whatshot</md-icon>
         <span class="md-list-item-text">News</span>
 
@@ -40,12 +40,19 @@
         <span class="md-list-item-text">Shop</span>
       </md-list-item>
     </md-list>
+    <md-checkbox v-model="expandNews">Expand News</md-checkbox>
   </div>
 </template>
 
 <script>
   export default {
-    name: 'ListExpansion'
+    name: 'ListExpansion',
+
+    data () {
+      return {
+        expandNews: false
+      }
+    }
   }
 </script>
 

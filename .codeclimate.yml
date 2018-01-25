@@ -23,10 +23,7 @@ exclude_paths:
 plugins:
   eslint:
     enabled: false
-
-  scss-lint:
-    enabled: true
-
+    
   duplication:
     enabled: true
     config:
