@@ -178,7 +178,7 @@
         @include md-theme-property(background-color, text-primary, primary);
       }
 
-      label{
+      label {
         @include md-theme-property(color, text-primary, primary, .54);
       }
 
