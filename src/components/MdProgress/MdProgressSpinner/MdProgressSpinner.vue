@@ -55,7 +55,10 @@
         return this.mdMode === 'indeterminate'
       },
       isIE () {
-        return navigator.userAgent.toLowerCase().includes('trident')
+        if (!this.$isServer) {
+          return navigator.userAgent.toLowerCase().includes('trident')
+        }
+        return false
       },
       progressClasses () {
         let animationClass = 'md-progress-spinner-indeterminate'
