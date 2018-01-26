@@ -208,7 +208,7 @@
 
             this.indicatorStyles = {
               left: `${buttonLeft}px`,
-              right: `calc(100% - ${buttonWidth + buttonLeft}px)`
+              width: `${buttonWidth}px`
             }
           }
         })
