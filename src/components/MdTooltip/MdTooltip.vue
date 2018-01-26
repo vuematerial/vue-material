@@ -97,7 +97,7 @@
     height: $md-tooltip-height;
     padding: 0 8px;
     position: fixed;
-    z-index: 60;
+    z-index: 111;
     pointer-events: none;
     border-radius: 2px;
     transition: .15s $md-transition-enter-timing;
