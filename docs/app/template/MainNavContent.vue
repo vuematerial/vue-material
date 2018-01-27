@@ -22,6 +22,7 @@
 
     <router-link to="/components">{{ $t('pages.components.title') }}</router-link>
     <div class="main-nav-level">
+      <router-link to="/components/slider">{{ $t('pages.slider.title') }}</router-link>
       <router-link to="/components/app">{{ $t('pages.app.title') }}</router-link>
       <router-link to="/components/avatar">{{ $t('pages.avatar.title') }}</router-link>
       <router-link to="/components/bottom-bar">{{ $t('pages.bottomBar.title') }}</router-link>

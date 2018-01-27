@@ -1,5 +1,10 @@
 export const routes = [
   {
+    path: '/components/slider',
+    name: 'components/slider',
+    page: 'Components/Slider/Slider.vue'
+  },
+  {
     path: '/components/autocomplete',
     name: 'components/autocomplete',
     page: 'Components/Autocomplete/Autocomplete.vue'

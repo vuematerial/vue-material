@@ -1,0 +1,40 @@
+.md-slider {
+  @include md-theme-component() {
+    @include md-theme-property(color, primary, background);
+    &::-webkit-slider-thumb {
+      @include md-theme-property(background-color, primary);
+    }
+    &::-moz-range-thumb {
+      @include md-theme-property(background-color, primary);
+    }
+    &:active::-webkit-slider-thumb {
+      background-image: none;
+      @include md-theme-property(background-color, primary);
+      transform: scale(1.5);
+    }
+    &:active::-moz-range-thumb {
+      background-image: none;
+      @include md-theme-property(background-color, primary);
+      transform: scale(1.5);
+    }
+    &.is-lowest-value:active::-moz-range-thumb {
+      border: 1.5px solid;
+      @include md-theme-property(border-color, primary);
+      transform: scale(1.5);
+    }
+    &.is-lowest-value:active::-webkit-slider-thumb {
+      border: 1.6px solid;
+      @include md-theme-property(border-color, primary);
+      transform: scale(1.5);
+    }
+  }
+}
+
+@include md-theme-component() {
+  .md-slider-background-lower {
+    @include md-theme-property(background-color, primary);
+  }
+  .md-slider-background-upper {
+    background-color: rgba(#000, .42);
+  }
+}
