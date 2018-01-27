@@ -50,7 +50,7 @@
       },
       isLowestValue () {
         return {
-          'is-lowest-value': this.min === this.currentValue
+          'is-lowest-value': this.min === parseInt(this.currentValue)
         }
       },
       fraction () {
