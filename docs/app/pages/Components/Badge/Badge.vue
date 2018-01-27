@@ -9,14 +9,16 @@
 
     <div class="page-container-section">
 
+      <p>Buttons needs to be wrapped with <code>md-badge</code> component.</p>
       <code-example title="Example with buttons" :component="examples['buttons']" />
 
       <code-example title="Example with lists" :component="examples['lists']" />
 
       <api-item title="API - md-badge">
-        The following option can be applied to any badge:
-        <api-table :headings="classes.headings" :props="classes.props" slot="classes" />
+        <p>The following option can be applied to any badge:</p>
+
         <api-table :headings="props.headings" :props="props.props" slot="props" />
+        <api-table :headings="classes.headings" :props="classes.props" slot="classes" />
       </api-item>
     </div>
   </page-container>
@@ -41,6 +43,11 @@
       props: {
         headings: ['Name', 'Description', 'Default'],
         props: [
+          {
+            name: 'md-content',
+            type: 'String, Number',
+            description: 'A content for badge'
+          },
           {
             name: 'md-position',
             type: 'String',
