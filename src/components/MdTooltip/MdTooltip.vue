@@ -55,6 +55,9 @@
     watch: {
       mdActive () {
         this.shouldRender = this.mdActive
+      },
+      shouldRender (shouldRender) {
+        this.$emit('update:mdActive', shouldRender)
       }
     },
     methods: {
@@ -62,7 +65,6 @@
         this.shouldRender = true
       },
       hide () {
-        this.$emit('update:mdActive', false)
         this.shouldRender = false
       }
     },
