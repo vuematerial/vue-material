@@ -16,7 +16,8 @@
   },
   "files": [
     "dist",
-    "src"
+    "src",
+    "build"
   ],
   "main": "dist/vue-material.js",
   "module": "dist/vue-material.js",
@@ -24,6 +25,7 @@
   "scripts": {
     "dev": "babel-node build/local",
     "build": "rm -rf dist/; babel-node build/lib",
+    "prepare": "babel-node build/lib",
     "docs": "babel-node build/docs",
     "lint": "eslint --ext .js,.vue docs src build test",
     "test": "jest",

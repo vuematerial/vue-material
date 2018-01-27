@@ -1,6 +1,0 @@
-.md-tooltip {
-  @include md-theme-component() {
-    @include md-theme-property(color, text-primary, tooltip);
-    @include md-theme-property(background-color, tooltip, background, .9);
-  }
-}
