@@ -8,7 +8,7 @@
         :class="['md-slider', $mdActiveTheme, isLowestValue]"
         v-model="currentValue"
         type="range"
-        v-bind="{ min, max, step, required, disabled }">
+        v-bind="{ name, min, max, step, required, disabled }">
       <div :class="['md-slider-background', isLowestValue]">
         <div class="md-slider-background-lower" :style="lowerStyles"></div>
         <div class="md-slider-background-upper" :style="upperStyles"></div>
@@ -23,7 +23,10 @@
   export default new MdComponent({
     name: 'MdSlider',
     props: {
-      value: Number,
+      value: {
+        type: Number,
+        default: 0
+      },
       min: {
         type: Number,
         default: 0
@@ -33,9 +36,10 @@
         default: 100
       },
       step: {
-        type: Number,
+        type: [Number, String],
         default: 1
       },
+      name: String,
       required: Boolean,
       disabled: Boolean
     },
