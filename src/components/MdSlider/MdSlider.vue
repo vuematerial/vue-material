@@ -6,7 +6,7 @@
     <div class="md-slider-container">
       <input
         :class="['md-slider', $mdActiveTheme, isLowestValue]"
-        v-model="currentValue"
+        v-model.number="currentValue"
         type="range"
         v-bind="{ name, min, max, step, required, disabled }">
       <div :class="['md-slider-background', isLowestValue]">
@@ -54,7 +54,7 @@
       },
       isLowestValue () {
         return {
-          'is-lowest-value': this.min === parseInt(this.currentValue)
+          'is-lowest-value': this.min === this.currentValue
         }
       },
       fraction () {
