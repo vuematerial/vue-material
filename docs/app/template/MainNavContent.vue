@@ -22,7 +22,6 @@
 
     <router-link to="/components">{{ $t('pages.components.title') }}</router-link>
     <div class="main-nav-level">
-      <router-link to="/components/slider">{{ $t('pages.slider.title') }}</router-link>
       <router-link to="/components/app">{{ $t('pages.app.title') }}</router-link>
       <router-link to="/components/avatar">{{ $t('pages.avatar.title') }}</router-link>
       <router-link to="/components/bottom-bar">{{ $t('pages.bottomBar.title') }}</router-link>
@@ -64,6 +63,7 @@
       </div>
       <router-link to="/components/snackbar">{{ $t('pages.snackbar.title') }}</router-link>
       <router-link to="/components/speed-dial">{{ $t('pages.speedDial.title') }}</router-link>
+      <router-link to="/components/slider">{{ $t('pages.slider.title') }}</router-link>
       <router-link to="/components/steppers">{{ $t('pages.steppers.title') }}</router-link>
       <router-link to="/components/subheader">{{ $t('pages.subheader.title') }}</router-link>
       <router-link to="/components/table">{{ $t('pages.table.title') }}</router-link>
