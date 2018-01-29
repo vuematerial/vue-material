@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import raf from 'raf'
 
 export default {
   name: 'MdPortal',
@@ -95,7 +96,7 @@ export default {
         el.parentNode.removeChild(el)
       }
     },
-    async initDestroy (manualCall) {
+    initDestroy (manualCall) {
       let el = this.$el
 
       if (manualCall && this.$el.nodeType === Node.COMMENT_NODE) {
@@ -104,16 +105,18 @@ export default {
 
       el.classList.add(this.leaveClass)
       el.classList.add(this.leaveActiveClass)
-      await this.$nextTick()
-      el.classList.add(this.leaveToClass)
 
-      clearTimeout(this.leaveTimeout)
-      this.leaveTimeout = setTimeout(() => {
-        this.destroyElement(el)
-      }, this.getTransitionDuration(el))
+      this.$nextTick().then(() => {
+        el.classList.add(this.leaveToClass)
+
+        clearTimeout(this.leaveTimeout)
+        this.leaveTimeout = setTimeout(() => {
+          this.destroyElement(el)
+        }, this.getTransitionDuration(el))
+      })
     },
     destroyElement (el) {
-      requestAnimationFrame(() => {
+      raf(() => {
         el.classList.remove(this.leaveClass)
         el.classList.remove(this.leaveActiveClass)
         el.classList.remove(this.leaveToClass)

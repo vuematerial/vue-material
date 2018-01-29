@@ -1,17 +1,11 @@
 {
   "presets": [
-    "es2015",
-    "stage-3",
-    [
-      "env",
-      {
-        "modules": false,
-        "useBuiltIns": false
-      }
-    ]
+    "@babel/preset-es2015",
+    "@babel/preset-env"
   ],
   "plugins": [
-    "syntax-dynamic-import"
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-proposal-object-rest-spread"
   ],
   "ignore": [
     "dist/*.js"

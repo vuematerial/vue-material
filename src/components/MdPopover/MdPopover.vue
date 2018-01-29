@@ -80,14 +80,14 @@
           this.popperInstance = null
         }
       },
-      async bindPopper () {
-        await this.$nextTick()
-
-        if (this.originalParentEl) {
-          this.createPopper()
-        }
+      bindPopper () {
+        this.$nextTick().then(() => {
+          if (this.originalParentEl) {
+            this.createPopper()
+          }
+        })
       },
-      async createPopper () {
+      createPopper () {
         if (this.mdSettings) {
           const options = deepmerge(this.getPopperOptions(), this.mdSettings)
 

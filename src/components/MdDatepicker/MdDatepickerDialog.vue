@@ -229,27 +229,27 @@
         this.currentDate = this.mdDate || new Date()
         this.selectedDate = this.mdDate
       },
-      async currentDate (next, previous) {
-        await this.$nextTick()
-
-        if (previous) {
-          this.setContentStyles()
-        }
-      },
-      async currentView () {
-        await this.$nextTick()
-
-        if (this.currentView === 'year') {
-          const activeYear = getElements(this.$el, '.md-datepicker-year-button.md-datepicker-selected')
-
-          if (activeYear.length) {
-            activeYear[0].scrollIntoView({
-              behavior: 'instant',
-              block: 'center',
-              inline: 'center'
-            })
+      currentDate (next, previous) {
+        this.$nextTick().then(() => {
+          if (previous) {
+            this.setContentStyles()
           }
-        }
+        })
+      },
+      currentView () {
+        this.$nextTick().then(() => {
+          if (this.currentView === 'year') {
+            const activeYear = getElements(this.$el, '.md-datepicker-year-button.md-datepicker-selected')
+
+            if (activeYear.length) {
+              activeYear[0].scrollIntoView({
+                behavior: 'instant',
+                block: 'center',
+                inline: 'center'
+              })
+            }
+          }
+        })
       }
     },
     methods: {

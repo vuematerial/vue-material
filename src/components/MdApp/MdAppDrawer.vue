@@ -47,14 +47,15 @@
         return 0
       }
     },
-    async mounted () {
-      await this.$nextTick()
-      this.drawerElement = this.$children[0]
-      this.MdApp.drawer.width = this.getDrawerWidth()
-      this.MdApp.drawer.active = this.visible
-      this.MdApp.drawer.mode = this.mode
-      this.MdApp.drawer.submode = this.submode
-      this.MdApp.drawer.initialWidth = this.$el.offsetWidth
+    mounted () {
+      this.$nextTick().then(() => {
+        this.drawerElement = this.$children[0]
+        this.MdApp.drawer.width = this.getDrawerWidth()
+        this.MdApp.drawer.active = this.visible
+        this.MdApp.drawer.mode = this.mode
+        this.MdApp.drawer.submode = this.submode
+        this.MdApp.drawer.initialWidth = this.$el.offsetWidth
+      })
     }
   }
 </script>

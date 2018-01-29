@@ -99,13 +99,11 @@
         }
       }
     },
-    async updated () {
-      await this.$nextTick()
-      this.setWidth()
+    updated () {
+      this.$nextTick().then(this.setWidth)
     },
-    async mounted () {
-      await this.$nextTick()
-      this.setWidth()
+    mounted () {
+      this.$nextTick().then(this.setWidth)
     }
   }
 </script>

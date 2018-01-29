@@ -139,7 +139,7 @@
 
         menu.scrollTop = top - ((menuHeight - elHeight) / 2)
       },
-      async setOffsets (target) {
+      setOffsets (target) {
         if (!this.$isServer) {
           const menu = this.$refs.menu.$refs.container
 
@@ -266,12 +266,13 @@
         this.$emit('md-selected', value)
       }
     },
-    async mounted () {
+    mounted () {
       this.showSelect = false
       this.setFieldContent()
 
-      await this.$nextTick()
-      this.didMount = true
+      this.$nextTick().then(() => {
+        this.didMount = true
+      })
     }
   }
 </script>

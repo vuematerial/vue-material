@@ -27,12 +27,12 @@
       isSVG (mimetype) {
         return mimetype.indexOf('svg') >= 0
       },
-      async setHtml (value) {
-        this.html = await mdSVGStore[this.mdSrc]
+      setHtml (value) {
+        mdSVGStore[this.mdSrc].then((html) => {
+          this.html = html
 
-        await this.$nextTick()
-
-        this.$emit('md-loaded')
+          return this.$nextTick()
+        }).then(() => this.$emit('md-loaded'))
       },
       unexpectedError (reject) {
         this.error = `Something bad happened trying to fetch ${this.mdSrc}.`

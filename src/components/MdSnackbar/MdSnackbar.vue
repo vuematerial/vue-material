@@ -48,12 +48,12 @@
       }
     },
     watch: {
-      async mdActive (isActive) {
+      mdActive (isActive) {
         if (isActive) {
-          await createSnackbar(this.mdDuration, this)
-
-          this.$emit('update:mdActive', false)
-          this.$emit('md-opened')
+          createSnackbar(this.mdDuration, this).then(() => {
+            this.$emit('update:mdActive', false)
+            this.$emit('md-opened')
+          })
         } else {
           destroySnackbar()
           this.$emit('md-closed')

@@ -292,10 +292,10 @@
         }
       }
     },
-    async created () {
-      // wait for `selectingMode` from `TableRow`
-      await this.$nextTick()
-      this.syncSelectedValue()
+    created () {
+      this.$nextTick().then(() => {
+        this.syncSelectedValue()
+      })
     },
     mounted () {
       this.setContentEl()
