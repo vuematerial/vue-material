@@ -155,21 +155,21 @@
 
     // 0 value
     &.is-lowest-value::-webkit-slider-thumb {
-      border: 2px solid rgba(#000, .42);
+      border: 2px solid;
       background: transparent;
     }
 
     &.is-lowest-value::-moz-range-thumb {
-      border: 2px solid rgba(#000, .42);
+      border: 2px solid;
       background: transparent;
     }
 
     &.is-lowest-value:active::-webkit-slider-thumb {
-      border: 1.6px solid rgba(#000, .42);
+      border: 1.6px solid;
       transform: scale(1.5);
     }
     &.is-lowest-value:active::-moz-range-thumb {
-      border: 1.5px solid rgba(#000, .42);
+      border: 1.5px solid;
       transform: scale(1.5);
     }
 
@@ -178,31 +178,21 @@
       left: 6px;
     }
 
-    &.is-lowest-value:active::-moz-range-thumb {
-      transform: scale(1.5);
-    }
-    &.is-lowest-value:active::-webkit-slider-thumb {
-      transform: scale(1.5);
-    }
-
     // disabled
     &:disabled:focus::-webkit-slider-thumb,
     &:disabled:active::-webkit-slider-thumb,
     &:disabled::-webkit-slider-thumb {
       transform: scale(0.667);
-      background: rgba(#000, .42);
     }
 
     &:disabled:focus::-moz-range-thumb,
     &:disabled:active::-moz-range-thumb,
     &:disabled::-moz-range-thumb {
       transform: scale(0.667);
-      background: rgba(#000, .42);
     }
 
     &:disabled +
         .md-slider-background > .md-slider-background-lower {
-      background-color: rgba(#000, .42);
       left: -6px;
     }
 
@@ -214,7 +204,7 @@
     &.is-lowest-value:disabled:focus::-webkit-slider-thumb,
     &.is-lowest-value:disabled:active::-webkit-slider-thumb,
     &.is-lowest-value:disabled::-webkit-slider-thumb {
-      border: 3px solid rgba(#000, .42);
+      border: 3px solid;
       background: transparent;
       transform: scale(0.667);
     }
@@ -222,7 +212,7 @@
     &.is-lowest-value:disabled:focus::-moz-range-thumb,
     &.is-lowest-value:disabled:active::-moz-range-thumb,
     &.is-lowest-value:disabled::-moz-range-thumb {
-      border: 3px solid rgba(#000, .42);
+      border: 3px solid;
       background: transparent;
       transform: scale(0.667);
     }
@@ -230,8 +220,7 @@
     &.is-lowest-value:disabled:active +
         .md-slider-background > .md-slider-background-upper {
       left: 6px;
-}
-
+    }
   }
 
   .md-slider-container {

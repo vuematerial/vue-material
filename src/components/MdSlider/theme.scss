@@ -8,33 +8,102 @@
       @include md-theme-property(background-color, primary);
     }
     &:active::-webkit-slider-thumb {
-      background-image: none;
       @include md-theme-property(background-color, primary);
-      transform: scale(1.5);
     }
     &:active::-moz-range-thumb {
-      background-image: none;
       @include md-theme-property(background-color, primary);
-      transform: scale(1.5);
     }
     &.is-lowest-value:active::-moz-range-thumb {
-      border: 1.5px solid;
       @include md-theme-property(border-color, primary);
-      transform: scale(1.5);
     }
     &.is-lowest-value:active::-webkit-slider-thumb {
-      border: 1.6px solid;
       @include md-theme-property(border-color, primary);
-      transform: scale(1.5);
+    }
+    @if md-get-theme-mode() == light {
+      &.is-lowest-value::-webkit-slider-thumb {
+        border-color: rgba(#000, .26);
+      }
+      &.is-lowest-value::-moz-range-thumb {
+        border-color: rgba(#000, .26);
+      }
+
+      &.is-lowest-value:disabled:focus::-webkit-slider-thumb,
+      &.is-lowest-value:disabled:active::-webkit-slider-thumb,
+      &.is-lowest-value:disabled::-webkit-slider-thumb {
+        border: 3px solid rgba(#000, .26);
+      }
+
+      &.is-lowest-value:disabled:focus::-moz-range-thumb,
+      &.is-lowest-value:disabled:active::-moz-range-thumb,
+      &.is-lowest-value:disabled::-moz-range-thumb {
+        border: 3px solid rgba(#000, .26);
+      }
+
+      &:disabled:focus::-webkit-slider-thumb,
+      &:disabled:active::-webkit-slider-thumb,
+      &:disabled::-webkit-slider-thumb {
+        background: rgba(#000, .26);
+      }
+
+      &:disabled:focus::-moz-range-thumb,
+      &:disabled:active::-moz-range-thumb,
+      &:disabled::-moz-range-thumb {
+        background: rgba(#000, .26);
+      }
+    } @else {
+      &.is-lowest-value::-webkit-slider-thumb {
+        border-color: rgba(#fff, .30);
+      }
+      &.is-lowest-value::-moz-range-thumb {
+        border-color: rgba(#fff, .30);
+      }
+
+      &.is-lowest-value:disabled:focus::-webkit-slider-thumb,
+      &.is-lowest-value:disabled:active::-webkit-slider-thumb,
+      &.is-lowest-value:disabled::-webkit-slider-thumb {
+        border: 3px solid rgba(#fff, .30);
+      }
+
+      &.is-lowest-value:disabled:focus::-moz-range-thumb,
+      &.is-lowest-value:disabled:active::-moz-range-thumb,
+      &.is-lowest-value:disabled::-moz-range-thumb {
+        border: 3px solid rgba(#fff, .30);
+      }
+
+      &:disabled:focus::-webkit-slider-thumb,
+      &:disabled:active::-webkit-slider-thumb,
+      &:disabled::-webkit-slider-thumb {
+        background: rgba(#fff, .30);
+      }
+
+      &:disabled:focus::-moz-range-thumb,
+      &:disabled:active::-moz-range-thumb,
+      &:disabled::-moz-range-thumb {
+        background: rgba(#fff, .30);
+      }
+
+      &:disabled +
+          .md-slider-background > .md-slider-background-lower {
+        background-color: rgba(#000, .26);
+      }
     }
   }
 }
 
 @include md-theme-component() {
-  .md-slider-background-lower {
-    @include md-theme-property(background-color, primary);
-  }
-  .md-slider-background-upper {
-    background-color: rgba(#000, .42);
+  @if md-get-theme-mode() == light {
+    .md-slider-background-lower {
+      @include md-theme-property(background-color, primary);
+    }
+    .md-slider-background-upper {
+      background-color: rgba(#000, .26);
+    }
+  } @else {
+    .md-slider-background-lower {
+      @include md-theme-property(background-color, primary);
+    }
+    .md-slider-background-upper {
+      background-color: rgba(#fff, .30);
+    }
   }
 }
