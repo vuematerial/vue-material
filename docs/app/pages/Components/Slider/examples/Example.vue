@@ -9,11 +9,8 @@
 <script>
   export default {
     name: 'Example',
-    data () {
-      return {
-        sliderMax: 0,
-        slider: 0
-      }
-    }
+    data: () => ({
+      slider: 0
+    })
   }
 </script>

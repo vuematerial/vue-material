@@ -4,7 +4,7 @@
       Size
     </md-slider>
 
-    <md-slider v-model="slider2">
+    <md-slider v-model="slider2" :step="5">
       <md-icon>volume_up</md-icon>
     </md-slider>
   </div>
@@ -13,11 +13,9 @@
 <script>
   export default {
     name: 'Example',
-    data () {
-      return {
-        slider1: 10,
-        slider2: 50
-      }
-    }
+    data: () => ({
+      slider1: 10,
+      slider2: 50
+    })
   }
 </script>
