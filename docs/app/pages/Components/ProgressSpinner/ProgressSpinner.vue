@@ -38,7 +38,7 @@
   import examples from 'docs-mixins/docsExample'
 
   export default {
-    name: 'ProgressSpinner',
+    name: 'DocProgressSpinner',
     mixins: [examples],
     data: () => ({
       props: {

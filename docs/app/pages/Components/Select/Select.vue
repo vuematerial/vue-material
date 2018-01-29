@@ -55,7 +55,7 @@
   import examples from 'docs-mixins/docsExample'
 
   export default {
-    name: 'Select',
+    name: 'DocSelect',
     mixins: [examples],
     data: () => ({
       select: {

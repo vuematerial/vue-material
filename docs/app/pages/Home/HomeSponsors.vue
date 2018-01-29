@@ -1,8 +1,10 @@
 <template>
   <md-content md-tag="section" md-theme="default" class="home-sponsors">
+    <h2 class="home-title md-headline">
+      <md-icon>monetization_on</md-icon>
+      {{ $t('pages.home.sponsors') }} & {{ $t('pages.home.backers') }}
+    </h2>
     <div class="page-wrapper">
-      <h2 class="home-sponsors-title md-display-1">{{ $t('pages.home.sponsors') }} & {{ $t('pages.home.backers') }}</h2>
-
       <div class="home-sponsors-description">
         <i18n path="pages.home.sponsorsDescription" tag="p">
           <a href="https://www.github.com/marcosmoura" target="_blank">Marcos Moura</a>
@@ -33,9 +35,11 @@
         <h4 class="md-subheading">{{ $t('pages.home.backers') }}</h4>
 
         <ul>
+          <li>Anthony Villena</li>
+          <li>Bobby McDonald</li>
           <li>Ivo Benner</li>
           <li>Nathanael Björkgård</li>
-          <li>Anthony Villena</li>
+          <li>Viktor Kuroljov</li>
           <li>William Chong</li>
         </ul>
       </div>
@@ -61,17 +65,7 @@
   .home-sponsors {
     width: calc(100% + 32px);
     margin: 0 -16px -16px;
-  }
-
-  .page-wrapper {
-    max-width: 1344px;
-    margin: 0 auto;
-    padding: 56px 16px;
-  }
-
-  .home-sponsors-title {
-    margin-bottom: 56px;
-    color: rgba(#000, .87);
+    padding-bottom: 28px;
   }
 
   .home-sponsors-patreon {

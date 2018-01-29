@@ -1,6 +1,6 @@
 <template>
-  <div class="md-layout-row md-gutter">
-    <div class="md-flex">
+  <div class="md-layout md-gutter">
+    <div class="md-layout-item">
       <md-field>
         <label for="food">Food</label>
         <md-select v-model="food1" name="food" id="food">
@@ -25,7 +25,7 @@
       </md-field>
     </div>
 
-    <div class="md-flex">
+    <div class="md-layout-item">
       <md-field>
         <label for="food">Food</label>
         <md-select v-model="food2" name="food" id="food" md-dense>

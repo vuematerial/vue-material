@@ -27,7 +27,8 @@
             v-for="(item, index) in value"
             :key="getRowId(item[mdModelId])"
             :md-id="getRowId(item[mdModelId])"
-            :md-index="index">
+            :md-index="index"
+            :md-item="item">
             <slot name="md-table-row" :item="item" />
           </md-table-row-ghost>
         </tbody>
@@ -69,7 +70,7 @@
 
     return value
   }
-          
+
   export default {
     name: 'MdTable',
     components: {
@@ -105,14 +106,23 @@
             const sortBy = this.MdTable.sort
             const aAttr = getObjectAttribute(a, sortBy)
             const bAttr = getObjectAttribute(b, sortBy)
+            const isAsc = this.MdTable.sortOrder === 'asc'
+            let isNumber = typeof aAttr === 'number'
 
-            if (this.MdTable.sortOrder === 'desc') {
-              return aAttr.localeCompare(bAttr)
+            if (isNumber) {
+              return isAsc ? (bAttr - aAttr) : (aAttr - bAttr)
             }
 
-            return bAttr.localeCompare(aAttr)
+            if (isAsc) {
+              return bAttr.localeCompare(aAttr)
+            }
+
+            return aAttr.localeCompare(bAttr)
           })
         }
+      },
+      mdSelectedValue: {
+        type: [Array, Object]
       }
     },
     data () {
@@ -124,8 +134,8 @@
           sort: null,
           sortOrder: null,
           singleSelection: null,
-          selectedItems: {},
-          selectable: {},
+          selectedItems: [],
+          selectable: [],
           fixedHeader: null,
           contentPadding: null,
           contentEl: null,
@@ -136,7 +146,8 @@
           sortTable: this.sortTable,
           manageItemSelection: this.manageItemSelection,
           getModel: this.getModel,
-          getModelItem: this.getModelItem
+          getModelItem: this.getModelItem,
+          selectingMode: null
         }
       }
     },
@@ -152,7 +163,7 @@
         return Object.keys(this.MdTable.items).length
       },
       selectedCount () {
-        return Object.keys(this.MdTable.selectedItems).length
+        return this.MdTable.selectedItems.length
       },
       headerStyles () {
         if (this.mdFixedHeader) {
@@ -169,7 +180,7 @@
       },
       contentStyles () {
         if (this.mdFixedHeader) {
-          return `height: ${this.mdHeight}px`
+          return `height: ${this.mdHeight}px;max-height: ${this.mdHeight}px`
         }
       },
       contentClasses () {
@@ -207,6 +218,15 @@
         handler () {
           this.MdTable.hasValue = this.hasValue
         }
+      },
+      'MdTable.selectedItems' (val) {
+        this.select(val)
+      },
+      'MdTable.singleSelection' (val) {
+        this.select(val)
+      },
+      mdSelectedValue () {
+        this.syncSelectedValue()
       }
     },
     methods: {
@@ -245,23 +265,37 @@
       getModelItem (index) {
         return this.value[index]
       },
-      manageItemSelection (index) {
-        if (this.MdTable.selectedItems[index]) {
-          this.$delete(this.MdTable.selectedItems, index)
+      manageItemSelection (item) {
+        if (this.MdTable.selectedItems.includes(item)) {
+          this.MdTable.selectedItems = this.MdTable.selectedItems.filter(target => target !== item)
         } else {
-          this.$set(this.MdTable.selectedItems, index, this.value[index])
+          this.MdTable.selectedItems.push(item)
         }
-
-        this.sendSelectionEvent()
-      },
-      sendSelectionEvent () {
-        this.$emit('md-selected', Object.values(this.MdTable.selectedItems))
       },
       sortTable () {
         if (Array.isArray(this.value)) {
           this.$emit('input', this.mdSortFn(this.value))
         }
+      },
+      select (val) {
+        this.$emit('update:mdSelectedValue', val)
+        this.$emit('md-selected', val)
+      },
+      syncSelectedValue () {
+        switch (this.MdTable.selectingMode) {
+          case 'single':
+            this.MdTable.singleSelection = this.mdSelectedValue
+            break
+          case 'multiple':
+            this.MdTable.selectedItems = this.mdSelectedValue || []
+            break
+        }
       }
+    },
+    async created () {
+      // wait for `selectingMode` from `TableRow`
+      await this.$nextTick()
+      this.syncSelectedValue()
     },
     mounted () {
       this.setContentEl()

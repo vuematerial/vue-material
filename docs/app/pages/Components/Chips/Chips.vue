@@ -3,6 +3,7 @@
 <example src="./examples/Editable.vue" />
 <example src="./examples/ChipCustomTemplate.vue" />
 <example src="./examples/DuplicatedFeedback.vue" />
+<example src="./examples/Format.vue" />
 <example src="./examples/Themed.vue" />
 
 <template>
@@ -54,6 +55,13 @@
     </div>
 
     <div class="page-container-section">
+      <h2>Formatter</h2>
+
+      <p>Sometimes you may need to format a chip value before adding it, and for this case you can use a custom formatter function. This function will receive the chip value and must return the formatted value.</p>
+      <code-example title="Formatted chips" :component="examples['format']" />
+    </div>
+
+    <div class="page-container-section">
       <h2>Hue Colors</h2>
 
       <p>You can always use the hue modifiers in single chips:</p>
@@ -73,7 +81,7 @@
 import examples from 'docs-mixins/docsExample'
 
 export default {
-  name: 'Chips',
+  name: 'DocChips',
   mixins: [examples],
   data: () => ({
     chip: {
@@ -156,6 +164,15 @@ export default {
             type: 'Boolean',
             description: 'Always check if there is a duplicated chip while changing the input value, or check it only on insertion',
             defaults: 'false'
+          },
+          {
+            name: 'md-format',
+            type: 'Function',
+            description: [
+              'Formatter before chip insertion. Effects to insertion and duplicated-checking.',
+              'The Chips will pass the inputted value as a parameter of this function. This function returns the formatted result.'
+            ].join('<br/>'),
+            defaults: 'null'
           }
         ]
       },

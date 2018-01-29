@@ -70,7 +70,7 @@
   import examples from 'docs-mixins/docsExample'
 
   export default {
-    name: 'Steppers',
+    name: 'DocSteppers',
     mixins: [examples],
     data: () => ({
       steppers: {

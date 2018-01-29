@@ -40,7 +40,7 @@
 
 <script>
   export default {
-    name: 'AutocompleteStatic',
+    name: 'AutocompleteBox',
     data: () => ({
       selectedEmployee: null,
       employees: [

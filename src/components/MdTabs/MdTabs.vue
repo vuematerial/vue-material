@@ -1,6 +1,6 @@
 <template>
   <div class="md-tabs" :class="[tabsClasses, $mdActiveTheme]">
-    <div class="md-tabs-navigation" :class="navigationClasses">
+    <div class="md-tabs-navigation" :class="navigationClasses" ref="navigation">
       <md-button
         v-for="({ label, props, icon, disabled, data, events }, index) in MdTabs.items"
         :key="index"
@@ -75,7 +75,8 @@
       hasContent: false,
       MdTabs: {
         items: {}
-      }
+      },
+      alignmentChanging: false
     }),
     provide () {
       return {
@@ -112,8 +113,24 @@
         this.$emit('md-changed', tab)
       },
       async mdAlignment () {
+        if (this.alignmentChanging) {
+          return false
+        }
+
+        this.alignmentChanging = true
         await this.$nextTick()
-        this.setIndicatorStyles()
+
+        let cb = event => {
+          if (event.propertyName !== 'min-width') {
+            return false
+          }
+
+          this.$refs.navigation.removeEventListener('transitionend', cb)
+          this.setIndicatorStyles()
+          this.alignmentChanging = false
+        }
+
+        this.$refs.navigation.addEventListener('transitionend', cb)
       }
     },
     methods: {
@@ -191,7 +208,7 @@
 
             this.indicatorStyles = {
               left: `${buttonLeft}px`,
-              right: `calc(100% - ${buttonWidth + buttonLeft}px)`
+              width: `${buttonWidth}px`
             }
           }
         })

@@ -27,7 +27,7 @@
 import examples from 'docs-mixins/docsExample'
 
 export default {
-  name: 'File',
+  name: 'DocFile',
   mixins: [examples],
   data: () => ({
     api: {

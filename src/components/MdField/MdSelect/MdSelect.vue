@@ -6,7 +6,7 @@
     :md-active.sync="showSelect"
     :md-offset-x="offset.x"
     :md-offset-y="offset.y"
-    @md-opened="onOpen"
+    :md-dense="mdDense"
     @md-closed="onClose">
     <md-input
       class="md-input md-select-value"
@@ -31,12 +31,15 @@
         ref="menu"
         class="md-select-menu"
         :md-content-class="mdClass"
-        :md-list-class="mdDense && 'md-dense'"
         :style="menuStyles"
-        :id="uniqueId">
-        <slot />
+        @enter="onMenuEnter">
+        <slot v-if="showSelect" />
       </md-menu-content>
     </keep-alive>
+
+    <div v-if="!showSelect" v-show="false">
+      <slot />
+    </div>
 
     <input class="md-input-fake" v-model="model" :disabled="disabled" readonly tabindex="-1" />
     <select readonly v-model="model" v-bind="attributes" tabindex="-1"></select>
@@ -45,7 +48,6 @@
 
 <script>
   import raf from 'raf'
-  import MdUuid from 'core/utils/MdUuid'
   import MdComponent from 'core/MdComponent'
   import MdDropDownIcon from 'core/icons/MdDropDownIcon'
   import MdMenu from 'components/MdMenu/MdMenu'
@@ -77,7 +79,6 @@
     inject: ['MdField'],
     data () {
       return {
-        uniqueId: 'md-select-menu-' + MdUuid(),
         menuStyles: {},
         offset: {
           x: defaultOffset.x,
@@ -139,10 +140,8 @@
         menu.scrollTop = top - ((menuHeight - elHeight) / 2)
       },
       async setOffsets (target) {
-        await this.$nextTick()
-
         if (!this.$isServer) {
-          const menu = document.getElementById(this.uniqueId)
+          const menu = this.$refs.menu.$refs.container
 
           if (menu) {
             const selected = target || menu.querySelector('.md-selected')
@@ -160,14 +159,14 @@
           }
         }
       },
-      onOpen () {
-        this.$emit('md-opened')
-        if (this.didMount) {
-          this.setOffsets()
-          window.setTimeout(() => {
-            this.MdField.focused = true
-          }, 10)
+      onMenuEnter () {
+        if (!this.didMount) {
+          return
         }
+
+        this.setOffsets()
+        this.MdField.focused = true
+        this.$emit('md-opened')
       },
       applyHighlight () {
         this.MdField.focused = false
@@ -283,6 +282,7 @@
   .md-menu.md-select {
     display: flex;
     flex: 1;
+    overflow: auto;
 
     &:not(.md-disabled) {
       .md-input,
@@ -294,6 +294,7 @@
 
     .md-input {
       flex: 1;
+      min-width: 0;
     }
 
     select,
@@ -319,10 +320,6 @@
 
       .md-list {
         transition: opacity .3s $md-transition-drop-timing;
-      }
-
-      .md-dense .md-ripple.md-list-item-content {
-        font-size: 14px;
       }
     }
   }

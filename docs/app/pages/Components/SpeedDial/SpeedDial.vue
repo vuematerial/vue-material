@@ -63,7 +63,7 @@
 import examples from 'docs-mixins/docsExample'
 
 export default {
-  name: 'SpeedDial',
+  name: 'DocSpeedDial',
   mixins: [examples],
   data: () => ({
     props: {

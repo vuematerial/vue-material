@@ -70,7 +70,7 @@
     },
     computed: {
       stringValue () {
-        return this.MdField.value && this.MdField.value.toString()
+        return (this.MdField.value || this.MdField.value === 0) && this.MdField.value.toString()
       },
       hasCounter () {
         return this.mdCounter && (this.MdField.maxlength || this.MdField.counter)
@@ -174,7 +174,6 @@
 
     .md-input,
     .md-textarea {
-      width: 100%;
       height: $md-input-height;
       padding: 0;
       display: block;

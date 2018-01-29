@@ -58,6 +58,9 @@
       mdCheckDuplicated: {
         type: Boolean,
         default: false
+      },
+      mdFormat: {
+        type: Function
       }
     },
     data: () => ({
@@ -73,26 +76,35 @@
 
       modelRespectLimit () {
         return !this.mdLimit || this.value.length < this.mdLimit
+      },
+
+      formattedInputValue () {
+        if (!this.mdFormat) {
+          return this.inputValue
+        }
+        return this.mdFormat(this.inputValue)
       }
     },
     methods: {
       insertChip ({ target }) {
-        if (!this.inputValue || !this.modelRespectLimit) {
+        let inputValue = this.formattedInputValue
+
+        if (!inputValue || !this.modelRespectLimit) {
           return
         }
-        
-        if (this.value.includes(this.inputValue)) {
+
+        if (this.value.includes(inputValue)) {
           this.duplicatedChip = null
           // to trigger animate
           this.$nextTick(() => {
-            this.duplicatedChip = this.inputValue
+            this.duplicatedChip = inputValue
           })
           return
         }
-        
-        this.value.push(this.inputValue)
+
+        this.value.push(inputValue)
         this.$emit('input', this.value)
-        this.$emit('md-insert', this.inputValue)
+        this.$emit('md-insert', inputValue)
         this.inputValue = ''
       },
       removeChip (chip) {
@@ -116,12 +128,16 @@
         }
       },
       checkDuplicated () {
-        if (!this.value.includes(this.inputValue)) {
+        if (!this.value.includes(this.formattedInputValue)) {
           this.duplicatedChip = null
-          return
+          return false
         }
-        if (!this.mdCheckDuplicated) return
-        this.duplicatedChip = this.inputValue
+        
+        if (!this.mdCheckDuplicated) {
+          return false
+        }
+        
+        this.duplicatedChip = this.formattedInputValue
       }
     },
     watch: {

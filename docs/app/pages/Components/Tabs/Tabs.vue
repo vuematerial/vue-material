@@ -67,7 +67,7 @@
   import examples from 'docs-mixins/docsExample'
 
   export default {
-    name: 'Tabs',
+    name: 'DocTabs',
     mixins: [examples],
     data: () => ({
       tabs: {
@@ -183,7 +183,7 @@
             defaults: 'null'
           },
           {
-            name: 'md-label',
+            name: 'md-icon',
             type: 'String',
             description: 'The tab icon. Accepts an string or a asset URL. The tab will know how to handle the icon based on this.',
             defaults: 'null'

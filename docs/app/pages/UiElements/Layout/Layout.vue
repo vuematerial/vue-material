@@ -85,7 +85,7 @@
   import examples from 'docs-mixins/docsExample'
 
   export default {
-    name: 'Content',
+    name: 'Layout',
     mixins: [examples],
     data: () => ({
       breakpoints: {
