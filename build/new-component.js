@@ -80,6 +80,7 @@ export default Vue => {
 
 function getDocsFile (name) {
   const singleName = name.replace('Md', '')
+  const docName = name.replace('Md', 'Doc')
 
   return `<example src="./examples/Example.vue" />
 
@@ -105,7 +106,7 @@ function getDocsFile (name) {
   import examples from 'docs-mixins/docsExample'
 
   export default {
-    name: '${singleName}',
+    name: '${docName}',
     mixins: [examples]
   }
 </script>
