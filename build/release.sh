@@ -34,18 +34,19 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
 
 
   echo "\n${YELLOW}Generating changelog... ${NC}"
-  # yarn changelog
-  # rm -rf RELEASE_NOTES.md
+  yarn changelog
+  rm -rf RELEASE_NOTES.md
 
 
   echo "\n${YELLOW}Commiting... ${NC}"
   git add -A
   git commit -m "build: $VERSION"
   npm version $VERSION --message "build: release $version"
-  git push
 
 
   echo "\n${YELLOW}Publishing a new release... ${NC}"
+  git push origin refs/tags/v$VERSION
+  git push
   npm publish
 
 

@@ -20,7 +20,7 @@ config.then(data => {
     }
   }
 
-  cc(changelogConfig).pipe(releaseNotes).on('close', () => {
+  cc(changelogConfig, {}).pipe(releaseNotes).on('close', () => {
     concat([releaseNotesFile, changelogFile], changelogFile)
   })
 })
