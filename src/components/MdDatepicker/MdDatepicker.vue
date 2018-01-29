@@ -1,7 +1,7 @@
 <template>
-  <md-field class="md-datepicker">
+  <md-field :class="['md-datepicker', { 'md-native': !this.mdOverrideNative }]" md-clearable>
     <md-date-icon class="md-date-icon" @click.native="toggleDialog" />
-    <md-input type="date" ref="input" v-model="modelDate" @focus.native="onFocus" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" />
+    <md-input :type="type" ref="input" v-model="modelDate" @focus.native="onFocus" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" />
 
     <slot />
 
@@ -40,6 +40,10 @@
       mdOpenOnFocus: {
         type: Boolean,
         default: true
+      },
+      mdOverrideNative: {
+        type: Boolean,
+        default: true
       }
     },
     data: () => ({
@@ -47,6 +51,13 @@
       modelDate: null,
       selectedDate: null
     }),
+    computed: {
+      type () {
+        return this.mdOverrideNative
+          ? 'text'
+          : 'date'
+      }
+    },
     watch: {
       selectedDate (selectedDate) {
         if (selectedDate) {
@@ -71,7 +82,7 @@
     },
     methods: {
       toggleDialog () {
-        if (!isFirefox) {
+        if (!isFirefox || this.mdOverrideNative) {
           this.showDialog = !this.showDialog
         } else {
           this.$refs.input.$el.click()
@@ -85,9 +96,10 @@
       dateToHTMLString (date) {
         if (date) {
           let formattedDate = null
+          const dateFormat = this.$material.locale.dateFormat || 'YYYY-MM-DD'
 
           try {
-            formattedDate = format(date, 'YYYY-MM-DD')
+            formattedDate = format(date, dateFormat)
           } catch (error) {
             Vue.util.warn(`The datepicker value is not a valid date. Given value: ${date}.`, this)
           }
@@ -116,6 +128,12 @@
   }
 
   .md-datepicker {
+    &.md-native {
+      label {
+        top: 0 !important;
+      }
+    }
+
     .md-date-icon {
       cursor: pointer;
     }

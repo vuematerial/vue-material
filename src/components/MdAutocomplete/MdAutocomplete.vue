@@ -180,7 +180,9 @@
           this.showOptions()
         }
       },
-      onInput () {
+      onInput (value) {
+        this.$emit('input', value)
+
         if (!this.mdOpenOnFocus) {
           this.showOptions()
         }
@@ -190,6 +192,10 @@
         }
       },
       async showOptions () {
+        if (this.showMenu) {
+          return false
+        }
+
         this.showMenu = true
         await this.$nextTick()
         this.triggerPopover = true

@@ -4,7 +4,7 @@
     :style="textareaStyles"
     v-model="model"
     v-bind="attributes"
-    v-on="$listeners"
+    v-on="listeners"
     @focus="onFocus"
     @blur="onBlur">
   </textarea>
@@ -47,6 +47,12 @@
       mdAutogrow: Boolean
     },
     computed: {
+      listeners () {
+        return {
+          ...this.$listeners,
+          input: this.onInput
+        }
+      },
       textareaStyles () {
         return {
           height: this.textareaHeight

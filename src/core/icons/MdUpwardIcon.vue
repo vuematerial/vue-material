@@ -11,7 +11,7 @@
   import MdIcon from 'components/MdIcon/MdIcon'
 
   export default {
-    name: 'MdArrowDownIcon',
+    name: 'MdUpwardIcon',
     components: {
       MdIcon
     }

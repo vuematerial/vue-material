@@ -10,7 +10,7 @@
   import HomeIcon from './HomeIcon'
 
   export default {
-    name: 'HomeIcondevices',
+    name: 'HomeIconDevices',
     components: {
       HomeIcon
     }

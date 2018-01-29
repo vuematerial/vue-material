@@ -30,11 +30,11 @@ Build well-designed apps that can fit on every screen with support to all modern
 
 ## Sponsorship
 
-Vue Material is proudly sponsored by [Rollbar](https://cs.berry.sh/c/c0597778-f465-4788-abe3-8711cc087774
-). They provide real-time error monitoring, alerting, and analytics for developers.
+Vue Material is proudly sponsored by [Rollbar](https://codesponsor.io/t/c/93172542ee6813a9372c08c459fd1e5a/
+). They provide real-time JavaScript error monitoring, alerting, and analytics for developers. :rocket:
 
-You can try Rollbar for free at [https://rollbar.com](https://cs.berry.sh/c/c0597778-f465-4788-abe3-8711cc087774
-) <img src="https://cs.berry.sh/l/c0597778-f465-4788-abe3-8711cc087774/pixel.png" />
+You can try Rollbar for free at [https://rollbar.com](https://codesponsor.io/t/c/93172542ee6813a9372c08c459fd1e5a/
+) <img src="https://codesponsor.io/t/l/93172542ee6813a9372c08c459fd1e5a/pixel.png" />
 
 ## Demo and Documentation
 

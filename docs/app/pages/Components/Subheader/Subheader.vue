@@ -23,7 +23,7 @@
   import examples from 'docs-mixins/docsExample'
 
   export default {
-    name: 'Subheader',
+    name: 'DocSubheader',
     mixins: [examples]
   }
 </script>

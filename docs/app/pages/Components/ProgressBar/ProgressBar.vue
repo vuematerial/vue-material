@@ -44,7 +44,7 @@
   import examples from 'docs-mixins/docsExample'
 
   export default {
-    name: 'ProgressBar',
+    name: 'DocProgressBar',
     mixins: [examples],
     data: () => ({
       props: {

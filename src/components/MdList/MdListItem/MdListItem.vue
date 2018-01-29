@@ -65,7 +65,8 @@
         createElement(listComponent, {
           props,
           scopedSlots: resolveScopedSlot(props, children),
-          staticClass: 'md-list-item-container md-button-clean'
+          staticClass: 'md-list-item-container md-button-clean',
+          on: listeners,
         }, children.default)
       ])
     }

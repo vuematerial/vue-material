@@ -1,6 +1,6 @@
 <template>
-  <div class="md-layout-row md-gutter">
-    <div class="md-flex">
+  <div class="md-layout md-gutter">
+    <div class="md-layout-item">
       <md-field>
         <label for="movie">Disabled Select</label>
         <md-select v-model="movie" name="movie" id="movie" disabled>
@@ -15,7 +15,7 @@
       </md-field>
     </div>
 
-    <div class="md-flex">
+    <div class="md-layout-item">
       <md-field>
         <label for="country">Disabled Options</label>
         <md-select v-model="country" name="country" id="country">
@@ -27,7 +27,7 @@
       </md-field>
     </div>
 
-    <div class="md-flex">
+    <div class="md-layout-item">
       <md-field>
         <label for="food">Disabled groups</label>
         <md-select v-model="food" name="food" id="food">
@@ -56,7 +56,7 @@
 
 <script>
   export default {
-    name: 'Example',
+    name: 'DisabledSelect',
     data: () => ({
       movie: null,
       country: null,
@@ -64,9 +64,3 @@
     })
   }
 </script>
-
-<style lang="scss" scoped>
-  .md-field {
-    max-width: 300px;
-  }
-</style>

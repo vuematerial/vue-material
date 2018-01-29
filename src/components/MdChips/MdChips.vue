@@ -1,12 +1,13 @@
 <template>
   <md-field class="md-chips" :class="[$mdActiveTheme, chipsClasses]">
-    <slot v-if="!mdStatic" />
+    <slot />
 
     <md-chip
       v-for="(chip, key) in value"
-      :key="key"
+      :key="chip"
       :md-deletable="!mdStatic"
       :md-clickable="!mdStatic"
+      :md-duplicated="duplicatedChip === chip"
       @keydown.enter="$emit('md-click', chip, key)"
       @click.native="$emit('md-click', chip, key)"
       @md-delete.stop="removeChip(chip)">
@@ -21,6 +22,7 @@
       :type="mdInputType"
       :id="id"
       :placeholder="mdPlaceholder"
+      @input="handleInput"
       @keydown.enter="insertChip"
       @keydown.8="handleBackRemove">
     </md-input>
@@ -52,10 +54,18 @@
       },
       mdPlaceholder: [String, Number],
       mdStatic: Boolean,
-      mdLimit: Number
+      mdLimit: Number,
+      mdCheckDuplicated: {
+        type: Boolean,
+        default: false
+      },
+      mdFormat: {
+        type: Function
+      }
     },
     data: () => ({
-      inputValue: ''
+      inputValue: '',
+      duplicatedChip: null
     }),
     computed: {
       chipsClasses () {
@@ -66,20 +76,35 @@
 
       modelRespectLimit () {
         return !this.mdLimit || this.value.length < this.mdLimit
+      },
+
+      formattedInputValue () {
+        if (!this.mdFormat) {
+          return this.inputValue
+        }
+        return this.mdFormat(this.inputValue)
       }
     },
     methods: {
       insertChip ({ target }) {
-        if (
-          !this.inputValue ||
-          this.value.includes(this.inputValue) ||
-          !this.modelRespectLimit
-        ) {
+        let inputValue = this.formattedInputValue
+
+        if (!inputValue || !this.modelRespectLimit) {
           return
         }
-        this.value.push(this.inputValue)
+
+        if (this.value.includes(inputValue)) {
+          this.duplicatedChip = null
+          // to trigger animate
+          this.$nextTick(() => {
+            this.duplicatedChip = inputValue
+          })
+          return
+        }
+
+        this.value.push(inputValue)
         this.$emit('input', this.value)
-        this.$emit('md-insert', this.inputValue)
+        this.$emit('md-insert', inputValue)
         this.inputValue = ''
       },
       removeChip (chip) {
@@ -94,6 +119,30 @@
         if (!this.inputValue) {
           this.removeChip(this.value[this.value.length - 1])
         }
+      },
+      handleInput () {
+        if (this.mdCheckDuplicated) {
+          this.checkDuplicated()
+        } else {
+          this.duplicatedChip = null
+        }
+      },
+      checkDuplicated () {
+        if (!this.value.includes(this.formattedInputValue)) {
+          this.duplicatedChip = null
+          return false
+        }
+        
+        if (!this.mdCheckDuplicated) {
+          return false
+        }
+        
+        this.duplicatedChip = this.formattedInputValue
+      }
+    },
+    watch: {
+      value () {
+        this.checkDuplicated()
       }
     }
   })

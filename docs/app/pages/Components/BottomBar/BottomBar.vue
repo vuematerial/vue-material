@@ -56,7 +56,7 @@
   import examples from 'docs-mixins/docsExample'
 
   export default {
-    name: 'BottomBar',
+    name: 'DocBottomBar',
     mixins: [examples],
     data: () => ({
       bar: {

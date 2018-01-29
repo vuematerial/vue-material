@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: 'Types',
+  name: 'ListTypes',
   methods: {
     alert () {
       window.alert('...')

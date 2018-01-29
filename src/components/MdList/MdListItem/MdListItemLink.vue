@@ -1,5 +1,5 @@
 <template>
-  <a class="md-list-item-link" v-bind="{ href, disabled, target }">
+  <a class="md-list-item-link" v-bind="$props">
     <md-list-item-content :md-disabled="isDisabled">
       <slot />
     </md-list-item-content>
@@ -13,8 +13,13 @@
     name: 'MdListItemLink',
     mixins: [MdListItemMixin],
     props: {
+      download: String,
       href: String,
-      target: String
+      hreflang: String,
+      ping: String,
+      rel: String,
+      target: String,
+      type: String
     }
   }
 </script>

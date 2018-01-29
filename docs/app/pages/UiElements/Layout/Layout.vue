@@ -4,7 +4,7 @@
 <example src="./examples/LayoutHorizontalAlignment.vue" />
 <example src="./examples/LayoutHorizontalResponsive.vue" />
 <example src="./examples/LayoutHorizontalHide.vue" />
-<example src="./examples/LayoutHorizontalReal.vue" />
+<example src="./examples/LayoutHorizontalNested.vue" />
 
 <template>
   <page-container centered :title="$t('pages.layout.title')">
@@ -33,6 +33,11 @@
       <api-table :headings="gutter.props.headings" :props="gutter.props.props" slot="props" />
       <p>Look at this pice of code and resize you browser to see the changes:</p>
       <code-example title="Gutter" :component="examples['layout-horizontal-gutter']" />
+    </div>
+
+    <div class="page-container-section">
+      <p>Layout columns also work with nested layouts:</p>
+      <code-example title="Nested columns" :component="examples['layout-horizontal-nested']" />
     </div>
 
     <div class="page-container-section">
@@ -80,7 +85,7 @@
   import examples from 'docs-mixins/docsExample'
 
   export default {
-    name: 'Content',
+    name: 'Layout',
     mixins: [examples],
     data: () => ({
       breakpoints: {

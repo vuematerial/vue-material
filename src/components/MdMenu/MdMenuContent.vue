@@ -1,15 +1,16 @@
 <template>
   <md-popover :md-settings="popperSettings" :md-active="shouldRender">
-    <transition name="md-menu-content" :css="didMount" v-if="shouldRender">
+    <transition name="md-menu-content" :css="didMount" v-if="shouldRender" v-on="$listeners">
       <div
         :class="[menuClasses, mdContentClass, $mdActiveTheme]"
         :style="menuStyles"
         @keydown.arrow-down.prevent="setHighlight('down')"
         @keydown.arrow-up.prevent="setHighlight('up')"
         @keydown.space.prevent="setSelection"
-        @keydown.enter.prevent="setSelection">
-        <div class="md-menu-content-container md-scrollbar" :class="$mdActiveTheme">
-          <md-list :class="listClasses" v-bind="$attrs" @keydown.esc="onEsc">
+        @keydown.enter.prevent="setSelection"
+        ref="menu">
+        <div class="md-menu-content-container md-scrollbar" :class="$mdActiveTheme" ref="container">
+          <md-list :class="listClasses" v-bind="filteredAttrs" @keydown.esc="onEsc">
             <slot />
           </md-list>
         </div>
@@ -47,6 +48,11 @@
       menuStyles: ''
     }),
     computed: {
+      filteredAttrs () {
+        const attrs = this.$attrs
+        delete attrs.id
+        return attrs
+      },
       highlightedItem () {
         return this.highlightItems[this.highlightIndex]
       },
@@ -187,8 +193,9 @@
         if (document) {
           this.MdMenu.bodyClickObserver = new MdObserveEvent(document.body, 'click', $event => {
             $event.stopPropagation()
-
-            if (!this.$el.contains($event.target)) {
+            let isMdMenu = this.MdMenu.$el ? this.MdMenu.$el.contains($event.target) : false
+            let isMenuContentEl = this.$refs.menu ? this.$refs.menu.contains($event.target) : false
+            if (!this.$el.contains($event.target) && !isMdMenu && !isMenuContentEl) {
               this.MdMenu.active = false
               this.MdMenu.bodyClickObserver.destroy()
               this.MdMenu.windowResizeObserver.destroy()
@@ -246,7 +253,7 @@
     max-width: $md-menu-base-width * 5;
     max-height: 35vh;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     position: absolute;
     z-index: 60;
     border-radius: 2px;

@@ -18,7 +18,7 @@
 
 <script>
   export default {
-    name: 'Icons'
+    name: 'TabIcons'
   }
 </script>
 

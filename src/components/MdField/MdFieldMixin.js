@@ -2,6 +2,7 @@ export default {
   props: {
     value: {},
     placeholder: String,
+    name: String,
     maxlength: [String, Number],
     readonly: Boolean,
     required: Boolean,

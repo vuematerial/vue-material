@@ -41,7 +41,7 @@
   import examples from 'docs-mixins/docsExample'
 
   export default {
-    name: 'Tooltip',
+    name: 'DocTooltip',
     mixins: [examples],
     data: () => ({
       props: {

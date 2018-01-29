@@ -65,7 +65,7 @@
   import MdInteractionEvents from 'core/utils/MdInteractionEvents'
 
   export default {
-    name: 'List',
+    name: 'DocList',
     mixins: [examples],
     data: () => ({
       interactionEvents: MdInteractionEvents
