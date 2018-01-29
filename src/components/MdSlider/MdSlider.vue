@@ -14,6 +14,11 @@
         <div class="md-slider-background-upper" :style="upperStyles"></div>
       </div>
     </div>
+    <div class="md-slider-editable" v-if="mdEditable">
+      <md-field>
+        <md-input v-model.number="editableField" v-bind="{ disabled }"></md-input>
+      </md-field>
+    </div>
   </div>
 </template>
 
@@ -41,9 +46,21 @@
       },
       name: String,
       required: Boolean,
-      disabled: Boolean
+      disabled: Boolean,
+      mdEditable: Boolean
     },
     computed: {
+      editableField: {
+        get () {
+          return this.value
+        },
+        set (newValue) {
+          const value = (newValue < this.min)
+            ? this.min
+            : newValue > this.max ? this.max : newValue
+          this.currentValue = value || this.min
+        },
+      },
       currentValue: {
         get () {
           return this.value
@@ -83,6 +100,18 @@
     margin: 4px 0 24px;
     label {
       white-space: nowrap;
+    }
+    .md-slider-editable {
+      width: 30px;
+      .md-field {
+        padding: 0;
+        margin: 0;
+        min-height: 20px;
+        input {
+          max-width: 30px;
+          text-align: center;
+        }
+      }
     }
   }
 

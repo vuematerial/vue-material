@@ -1,5 +1,6 @@
 <example src="./examples/Example.vue" />
 <example src="./examples/WithLabel.vue" />
+<example src="./examples/Editable.vue" />
 
 <template>
   <page-container centered :title="$t('pages.slider.title')">
@@ -13,6 +14,7 @@
       <code-example title="Slider" :component="examples['example']" />
       <code-example title="Slider with label" :component="examples['with-label']" />
 
+      <code-example title="Slider with editable field" :component="examples['editable']" />
       <api-item title="API - md-slider">
         <p>The following options can be applied to all sliders:</p>
 
@@ -41,10 +43,16 @@
             defaults: '0'
           },
           {
+            name: 'md-editable',
+            type: 'Boolean',
+            description: 'Enables field for editable value of slider.',
+            defaults: 'false'
+          },
+          {
             name: 'min',
             type: 'Number',
             description: 'Minimal value for slider.',
-            defaults: '0'
+            defaults: ''
           },
           {
             name: 'max',
