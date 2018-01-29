@@ -1,10 +1,11 @@
 <template>
-  <md-content md-tag="section" md-theme="default" class="home-sponsors">
-    <h2 class="home-title md-headline">
-      <md-icon>monetization_on</md-icon>
-      {{ $t('pages.home.sponsors') }} & {{ $t('pages.home.backers') }}
-    </h2>
+  <md-content md-tag="section" class="home-sponsors">
     <div class="page-wrapper">
+      <h2 class="home-title md-headline">
+        <md-icon>monetization_on</md-icon>
+        {{ $t('pages.home.sponsors') }} & {{ $t('pages.home.backers') }}
+      </h2>
+
       <div class="home-sponsors-description">
         <i18n path="pages.home.sponsorsDescription" tag="p">
           <a href="https://www.github.com/marcosmoura" target="_blank">Marcos Moura</a>

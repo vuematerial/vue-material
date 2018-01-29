@@ -55,6 +55,10 @@
     letter-spacing: normal;
     font-size: 15px;
     line-height: 1.7em;
+
+    section {
+      padding: 32px 0 48px;
+    }
   }
 
   .home-splash {
@@ -100,13 +104,9 @@
 
   .home-title {
     max-width: 1312px;
-    margin: 0 auto;
-    color: rgba(#000, .87);
+    margin-bottom: 36px;
     position: relative;
-    padding: 16px 0;
-    @include md-layout-medium {
-      padding: 16px;
-    }
+
     .md-icon {
       position: absolute;
       top: 2px;

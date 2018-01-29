@@ -86,6 +86,7 @@
       position: fixed;
       right: 16px;
       bottom: 16px;
+      z-index: 1000;
     }
 
     @media (max-width: $ad-responsive-small) {

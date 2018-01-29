@@ -1,62 +1,86 @@
 <template>
   <md-content md-tag="section" md-theme="default" class="home-ecosystem">
-    <h2 class="home-title md-headline">
-      <md-icon>settings</md-icon>
-      {{ $t('pages.home.ecosystem') }}
-    </h2>
     <div class="page-wrapper">
-      <div class="md-layout md-gutter">
-        <div class="md-layout-item md-small-size-100">
-          <md-card md-with-hover class="md-elevation-2 md-primary full-height" md-theme="blue-card" @click.native="openLink('https://github.com/vuematerial/webpack')">
+      <h2 class="home-title md-headline">
+        <md-icon>settings</md-icon>
+        <span>{{ $t('pages.home.ecosystem') }}</span>
+      </h2>
+
+      <p>You can use some of our tools to make the development environment easier, more productive and with a better integration with Vue Material. You can choose between a batteries-included webpack boilerplate, a SSR template for Nuxt.js and a Single HTML file to start with the framework:</p>
+
+      <div class="md-layout md-gutter md-alignment-top-left">
+        <div class="md-layout-item md-xsmall-size-100">
+          <md-card class="md-primary" md-with-hover @click.native="openLink('https://github.com/vuematerial/webpack')">
             <md-ripple>
-              <md-card-content>
-                <div class="content">
+              <md-card-header>
+                <md-card-header-text>
                   <div class="md-title">Advanced Webpack SPA</div>
-                  <p>A full-featured Webpack + Vue Material setup with hot-reload, lint-on-save, unit testing, scss preprocessing & css extraction.</p>
-                </div>
-                <div class="image">
-                  <img src="/assets/boilerplates/webpack-advanced.png" alt="webpack">
-                </div>
+                  <div class="md-subhead">Full-featured</div>
+                </md-card-header-text>
+
+                <md-card-media>
+                  <img src="/assets/boilerplates/webpack.png" alt="Webpack">
+                </md-card-media>
+              </md-card-header>
+
+              <md-card-content>
+                A full-featured boilerplate with Webpack, Dev Server, Hot Reload, ESLint, Unit Testing, Assets Optimization, SCSS preprocessing and more.
               </md-card-content>
             </md-ripple>
           </md-card>
         </div>
-        <div class="md-layout-item md-small-size-100">
-          <md-card md-with-hover class="md-elevation-2 md-primary full-height" md-theme="green-card" @click.native="openLink('https://github.com/vuematerial/nuxtjs')">
+
+        <div class="md-layout-item md-xsmall-size-100">
+          <md-card class="md-primary" md-theme="nuxt" md-with-hover @click.native="openLink('https://github.com/vuematerial/nuxtjs')">
             <md-ripple>
+              <md-card-header>
+                <md-card-header-text>
+                  <div class="md-title">Universal App with Nuxt.js</div>
+                  <div class="md-subhead">For Server Side Rendering</div>
+                </md-card-header-text>
+
+                <md-card-media>
+                  <img src="/assets/boilerplates/nuxt.png" alt="Nuxt">
+                </md-card-media>
+              </md-card-header>
+
               <md-card-content>
-                <div class="content">
-                  <div class="md-title">Nuxt.js Universal</div>
-                  <p>Nuxt.js is a framework for creating Universal Vue.js Applications. All the configuration needed to make your development of a Vue.js Application Server Rendered more enjoyable.</p>
-                </div>
-                <div class="image">
-                  <img src="/assets/boilerplates/nuxt.png" alt="nuxtjs">
-                </div>
+                All the configuration needed to make more enjoyable the development of your application with full support for Server Side Rendering.
               </md-card-content>
             </md-ripple>
           </md-card>
         </div>
-        <div class="md-layout-item md-small-size-100 md-size-30">
-          <md-card md-with-hover class="md-elevation-2 flying" @click.native="$router.push('/getting-started')">
+
+        <div class="md-layout-item md-xsmall-size-100">
+          <md-card md-with-hover class="flying" @click.native="$router.push('/getting-started')">
             <md-ripple>
+              <md-card-header>
+                <div class="md-title">Single HTML file</div>
+              </md-card-header>
+
               <md-card-content>
-                <div class="content">
-                  <div class="md-title">Single HTML file</div>
-                  <p>The simplest possible Vue Material setup in a single HTML file. But without SCSS or ES7.</p>
-                </div>
-                <img src="/assets/boilerplates/html.png" alt="html">
+                The simplest Vue Material setup.
               </md-card-content>
+
+              <div class="ecosystem-logo">
+                <img src="/assets/boilerplates/html5.png" alt="HTML File">
+              </div>
             </md-ripple>
           </md-card>
-          <md-card md-with-hover class="md-elevation-2 flying" @click.native="openLink('https://codepen.io/vue-material/pen/RxGmyb')">
+
+          <md-card md-with-hover class="flying" @click.native="openLink('https://codepen.io/vue-material/pen/RxGmyb')">
             <md-ripple>
+              <md-card-header>
+                <div class="md-title">Codepen</div>
+              </md-card-header>
+
               <md-card-content>
-                <div class="content">
-                  <div class="md-title">Codepen for prototyping</div>
-                  <p>For fast prototyping, examples or issues reports is best to use codepen.</p>
-                </div>
-                <img src="/assets/boilerplates/codepen.svg" alt="codepen">
+                For examples or issues reporting.
               </md-card-content>
+
+              <div class="ecosystem-logo">
+                <img src="/assets/boilerplates/codepen.png" alt="Codepen">
+              </div>
             </md-ripple>
           </md-card>
         </div>
@@ -82,65 +106,43 @@
 
   @import "~vue-material/theme/engine";
 
-  @include md-register-theme("blue-card", (
-    primary: md-get-palette-color(blue, A200)
-  ));
-  @include md-register-theme("green-card", (
-    primary: md-get-palette-color(teal, 500)
+  @include md-register-theme("nuxt", (
+    primary: #46A37A
   ));
 
-  @import "~vue-material/base/theme";
   @import "~vue-material/components/MdCard/theme";
 
   .home-ecosystem {
     width: calc(100% + 32px);
-    padding-bottom: 28px;
-    margin: 0 -16px;
     background: #f5f5f5;
+
     .md-layout-item {
       @include md-layout-small {
         margin-top: 16px;
       }
     }
+
     .md-card {
-      position: relative;
-      overflow: hidden;
-      background: #fff;
-      margin-bottom: 16px;
-      .md-card-content {
-        display: flex;
-        padding: 16px;
-        height: 100%;
+      + .md-card {
+        margin-top: 24px;
       }
-      &.full-height {
-        height: 100%;
-      }
-      .content {
-        z-index: 1;
-        flex-grow: 1;
-      }
-      .image {
-        width: 100%;
-        overflow: hidden;
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        img {
-          max-height: 160px;
-        }
-      }
+
       &.flying {
         p {
-          margin-right: 80px;
+          margin-right: 15%;
         }
-        img {
+
+        .ecosystem-logo {
+          width: 100px;
+          padding: 16px;
           position: absolute;
-          bottom: -40px;
-          right: -40px;
-          max-height: 160px;
+          right: -20px;
+          bottom: -20px;
           z-index: 0;
-          opacity: .7;
+          overflow: hidden;
+          opacity: .38;
+          background-color: rgba(#000, .26);
+          border-radius: 50%;
         }
       }
     }
