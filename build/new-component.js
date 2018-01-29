@@ -156,7 +156,7 @@ const rootDir = join(__dirname, '..')
 const componentsPath = 'src/components/' + name
 const componentIndex = 'src/components/index.js'
 const themePath = 'src/theme/all.scss'
-const docsPath = 'docs/app/pages/components/' + singleName
+const docsPath = 'docs/app/pages/Components/' + singleName
 const docsRoutePath = 'docs/app/routes.js'
 const navPath = 'docs/app/template/MainNavContent.vue'
 
