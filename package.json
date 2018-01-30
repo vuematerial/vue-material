@@ -54,6 +54,7 @@
     "autoprefixer": "^7.2.5",
     "avoriaz": "^6.3.0",
     "axios": "^0.17.1",
+    "babel-core": "^7.0.0-0",
     "babel-eslint": "^8.2.1",
     "babel-jest": "^22.1.0",
     "babel-loader": "8.0.0-beta.0",
@@ -146,7 +147,8 @@
     ],
     "transform": {
       "^.+\\.js?$": "babel-jest",
-      "^.+\\.vue?$": "vue-jest"
+      "^.+\\.vue?$": "vue-jest",
+      "^.+\\.(css|scss)$": "<rootDir>/test/style-mocks.js"
     },
     "mapCoverage": true,
     "setupTestFrameworkScriptFile": "<rootDir>/test/setup.js",
