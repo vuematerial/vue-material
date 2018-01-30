@@ -109,15 +109,16 @@
         this.MdMenu.active = !this.MdMenu.active
       }
     },
-    async mounted () {
+    mounted () {
       this.MdMenu.$el = this.$el
-      await this.$nextTick()
 
-      this.triggerEl = this.$el.querySelector('[md-menu-trigger]')
+      this.$nextTick().then(() => {
+        this.triggerEl = this.$el.querySelector('[md-menu-trigger]')
 
-      if (this.triggerEl) {
-        this.triggerEl.addEventListener('click', this.toggleContent)
-      }
+        if (this.triggerEl) {
+          this.triggerEl.addEventListener('click', this.toggleContent)
+        }
+      })
     },
     beforeDestroy () {
       if (this.triggerEl) {

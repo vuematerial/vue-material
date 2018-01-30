@@ -107,12 +107,13 @@
       }
     },
     methods: {
-      async clearInput () {
+      clearInput () {
         this.MdField.clear = true
-        await this.$nextTick()
-        this.MdField.clear = false
+        this.$nextTick().then(() => {
+          this.MdField.clear = false
+        })
       },
-      async togglePassword () {
+      togglePassword () {
         this.MdField.togglePassword = !this.MdField.togglePassword
       },
       onBlur () {

@@ -8,6 +8,10 @@
     'md-app-content'
   ]
 
+  function isValidChild (componentOptions) {
+    return componentOptions && componentTypes.includes(componentOptions.tag)
+  }
+
   function buildSlots (children, context, functionalContext, options) {
     let slots = []
 
@@ -16,7 +20,7 @@
         const data = child.data
         const componentOptions = child.componentOptions
 
-        if ((data && componentTypes.includes(data.slot)) || (componentOptions && componentTypes.includes(componentOptions.tag))) {
+        if ((data && componentTypes.includes(data.slot)) || isValidChild(componentOptions)) {
           child.data.slot = data.slot || componentOptions.tag
           child.data.provide = options.Ctor.options.provide
           child.context = context

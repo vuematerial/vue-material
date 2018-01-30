@@ -77,13 +77,15 @@
       }
     },
     watch: {
-      async shouldRender (shouldRender) {
+      shouldRender (shouldRender) {
         if (shouldRender) {
           this.setPopperSettings()
-          await this.$nextTick()
-          this.setInitialHighlightIndex()
-          this.createClickEventObserver()
-          this.createResizeObserver()
+
+          this.$nextTick().then(() => {
+            this.setInitialHighlightIndex()
+            this.createClickEventObserver()
+            this.createResizeObserver()
+          })
         }
       }
     },
@@ -221,12 +223,13 @@
         }
       }
     },
-    async mounted () {
-      await this.$nextTick()
-      this.setHighlightItems()
-      this.setupWatchers()
-      this.setStyles()
-      this.didMount = true
+    mounted () {
+      this.$nextTick().then(() => {
+        this.setHighlightItems()
+        this.setupWatchers()
+        this.setStyles()
+        this.didMount = true
+      })
     },
     beforeDestroy () {
       if (this.MdMenu.bodyClickObserver) {

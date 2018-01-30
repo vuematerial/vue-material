@@ -1,4 +1,3 @@
-import 'regenerator-runtime/runtime'
 import material from './material'
 import * as MdComponents from './components'
 

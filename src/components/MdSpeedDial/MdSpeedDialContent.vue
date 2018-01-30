@@ -17,18 +17,18 @@
     name: 'MdSpeedDialContent',
     inject: ['MdSpeedDial'],
     methods: {
-      async setChildrenIndexes () {
-        await this.$nextTick()
+      setChildrenIndexes () {
+        this.$nextTick().then(() => {
+          const countChild = this.$children.length
 
-        const countChild = this.$children.length
+          this.$children.forEach((child, index) => {
+            if (child._vnode.tag === 'button') {
+              const childIndex = getChildIndex(this.MdSpeedDial.direction, index, countChild)
 
-        this.$children.forEach((child, index) => {
-          if (child._vnode.tag === 'button') {
-            const childIndex = getChildIndex(this.MdSpeedDial.direction, index, countChild)
-
-            child.$el.setAttribute('md-button-index', childIndex)
-            child.$el.classList.add('md-raised')
-          }
+              child.$el.setAttribute('md-button-index', childIndex)
+              child.$el.classList.add('md-raised')
+            }
+          })
         })
       }
     },

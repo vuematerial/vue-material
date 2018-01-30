@@ -59,13 +59,13 @@
         }
       }
     },
-    async mounted () {
-      await this.$nextTick()
+    mounted () {
+      this.$nextTick().then(() => {
+        this.reindentSource()
+        this.enableCopy()
 
-      this.reindentSource()
-      this.enableCopy()
-
-      highlight.highlightBlock(this.$refs.block)
+        highlight.highlightBlock(this.$refs.block)
+      })
     }
   }
 </script>

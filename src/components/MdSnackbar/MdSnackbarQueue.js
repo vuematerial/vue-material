@@ -20,7 +20,7 @@ function createPromise (duration, context) {
 }
 
 export const destroySnackbar = () => {
-  return new Promise(async resolve => {
+  return new Promise(resolve => {
     if (currentSnackbar) {
       window.clearTimeout(timeout)
       currentSnackbar.destroy()
@@ -31,11 +31,11 @@ export const destroySnackbar = () => {
   })
 }
 
-export const createSnackbar = async (duration, context) => {
+export const createSnackbar = (duration, context) => {
   if (currentSnackbar) {
-    await destroySnackbar()
-
-    return createPromise(duration, context)
+    return destroySnackbar().then(() => {
+      return createPromise(duration, context)
+    })
   }
 
   return createPromise(duration, context)

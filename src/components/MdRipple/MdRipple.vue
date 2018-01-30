@@ -73,7 +73,7 @@
         }, 100)
       },
       startRipple ($event) {
-        raf(async () => {
+        raf(() => {
           const { eventType, isDisabled, mdCentered } = this
 
           if (!isDisabled && (!eventType || eventType === $event.type)) {

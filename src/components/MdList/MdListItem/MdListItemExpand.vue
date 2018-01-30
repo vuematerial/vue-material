@@ -62,25 +62,28 @@
           })
         })
       },
-      async toggleExpand () {
-        await this.fetchStyle()
-        this.showContent = !this.showContent
+      toggleExpand () {
+        this.fetchStyle().then(() => {
+          this.showContent = !this.showContent
+        })
       },
-      async open () {
+      open () {
         if (this.showContent) {
           return false
         }
 
-        await this.fetchStyle()
-        this.showContent = true
+        this.fetchStyle().then(() => [
+          this.showContent = true
+        ])
       },
-      async close () {
+      close () {
         if (!this.showContent) {
           return false
         }
 
-        await this.fetchStyle()
-        this.showContent = false
+        this.fetchStyle().then(() => {
+          this.showContent = false
+        })
       }
     },
     watch: {
