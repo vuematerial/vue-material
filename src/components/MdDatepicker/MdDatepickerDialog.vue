@@ -27,7 +27,7 @@
           <div class="md-datepicker-body-content" :style="contentStyles">
             <transition name="md-datepicker-view">
               <transition-group class="md-datepicker-panel md-datepicker-calendar" :class="calendarClasses" tag="div" name="md-datepicker-month" v-if="currentView === 'day'">
-                <div class="md-datepicker-panel md-datepicker-month" v-for="(month, index) in [currentDate]" :key="month.getMonth()">
+                <div class="md-datepicker-panel md-datepicker-month" v-for="month in [currentDate]" :key="month.getMonth()">
                   <md-button class="md-dense md-datepicker-month-trigger" @click="currentView = 'month'">{{ currentMonthName }} {{ currentYear }}</md-button>
 
                   <div class="md-datepicker-week">

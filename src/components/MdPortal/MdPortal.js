@@ -64,30 +64,23 @@ export default {
   },
   methods: {
     getTransitionDuration (el) {
-      const duration = getComputedStyle(el).transitionDuration
+      const duration = window.getComputedStyle(el).transitionDuration
       const num = parseFloat(duration, 10)
       let unit = duration.match(/m?s/)
-      let milliseconds = null
 
       if (unit) {
         unit = unit[0]
       }
 
-      switch (unit) {
-        case 's':
-          milliseconds = num * 1000
-          break
-
-        case 'ms':
-          milliseconds = num
-          break
-
-        default:
-          milliseconds = 0
-          break
+      if (unit === 's') {
+        return num * 1000
       }
 
-      return milliseconds
+      if (unit === 'ms') {
+        return num
+      }
+
+      return 0
     },
     killGhostElement (el) {
       if (el.parentNode) {

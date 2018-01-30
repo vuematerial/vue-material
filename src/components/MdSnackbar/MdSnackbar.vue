@@ -37,7 +37,7 @@
       mdPosition: {
         type: String,
         default: 'center',
-      ...MdPropValidator('md-position', ['center', 'left'])
+        ...MdPropValidator('md-position', ['center', 'left'])
       }
     },
     computed: {

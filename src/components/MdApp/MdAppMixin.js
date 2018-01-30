@@ -58,6 +58,12 @@ export default {
     }
   },
   computed: {
+    isFixed () {
+      return this.mdMode && this.mdMode !== 'fixed'
+    },
+    isMini () {
+      return this.MdApp.drawer.mode === 'persistent' && this.MdApp.drawer.submode === 'mini'
+    },
     contentStyles () {
       const drawer = this.MdApp.drawer
 
@@ -68,15 +74,14 @@ export default {
       }
     },
     containerStyles () {
-      const drawer = this.MdApp.drawer
       let styles = {}
 
-      if (this.mdMode && this.mdMode !== 'fixed') {
+      if (this.isFixed) {
         styles['margin-top'] = this.MdApp.toolbar.initialHeight + 'px'
       }
 
-      if (drawer.mode === 'persistent' && drawer.submode === 'mini') {
-        styles['padding-left'] = !drawer.active ? drawer.initialWidth + 'px' : 0
+      if (this.isMini) {
+        styles['padding-left'] = !this.MdApp.drawer.active ? this.MdApp.drawer.initialWidth + 'px' : 0
       }
 
       return styles

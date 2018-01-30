@@ -98,6 +98,9 @@
           return 'md-autocomplete-box-content'
         }
       },
+      shouldFilter () {
+        return this.mdOptions[0] && this.searchTerm
+      },
       filteredStaticOptions () {
         if (this.isPromise(this.mdOptions)) {
           return false
@@ -105,7 +108,7 @@
 
         const firstItem = this.mdOptions[0]
 
-        if (this.mdOptions[0] && this.searchTerm) {
+        if (this.shouldFilter) {
           if (typeof firstItem === 'string') {
             return this.filterByString()
           } else if (typeof firstItem === 'object') {

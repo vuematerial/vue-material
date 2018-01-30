@@ -282,13 +282,10 @@
         this.$emit('md-selected', val)
       },
       syncSelectedValue () {
-        switch (this.MdTable.selectingMode) {
-          case 'single':
-            this.MdTable.singleSelection = this.mdSelectedValue
-            break
-          case 'multiple':
-            this.MdTable.selectedItems = this.mdSelectedValue || []
-            break
+        if (this.MdTable.selectingMode === 'single') {
+          this.MdTable.singleSelection = this.mdSelectedValue
+        } else if (this.MdTable.selectingMode === 'multiple') {
+          this.MdTable.selectedItems = this.mdSelectedValue || []
         }
       }
     },

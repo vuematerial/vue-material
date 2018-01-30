@@ -124,7 +124,7 @@
         immediate: true,
         handler (isMultiple) {
           this.MdSelect.multiple = isMultiple
-          this.$nextTick(() => this.initialLocalValueByDefault())
+          this.$nextTick(this.initialLocalValueByDefault)
         }
       }
     },
@@ -232,6 +232,7 @@
         if (!this.localValue) {
           this.initialLocalValueByDefault()
         }
+
         let content = []
 
         this.localValue.forEach(item => {
@@ -251,15 +252,30 @@
           this.setContentByValue()
         }
       },
+      isLocalValueSet () {
+        return this.localValue !== undefined && this.localValue !== null
+      },
+      setLocalValueIfMultiple () {
+        if (isLocalValueSet()) {
+          this.localValue = [this.localValue]
+        } else {
+          this.localValue = []
+        }
+      },
+      setLocalValueIfNotMultiple () {
+        if (this.localValue.length > 0) {
+          this.localValue = this.localValue[0]
+        } else {
+          this.localValue = null
+        }
+      },
       initialLocalValueByDefault () {
         let isArray = Array.isArray(this.localValue)
+
         if (this.multiple && !isArray) {
-          let isSet = this.localValue !== undefined && this.localValue !== null
-          this.localValue = isSet ? [this.localValue] : []
-          return
-        }
-        if (!this.multiple && isArray) {
-          this.localValue = this.localValue.length > 0 ? this.localValue[0] : null
+          this.localValue = this.setLocalValueIfMultiple()
+        } else if (!this.multiple && isArray) {
+          this.localValue = this.setLocalValueIfNotMultiple()
         }
       },
       emitSelected (value) {
