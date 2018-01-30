@@ -8,15 +8,16 @@
         :class="['md-slider', $mdActiveTheme, isLowestValue]"
         v-model.number="currentValue"
         type="range"
+        @change="onChange"
         v-bind="{ name, min, max, step, required, disabled }">
       <div :class="['md-slider-background', isLowestValue]">
-        <div class="md-slider-background-lower" :style="lowerStyles"></div>
-        <div class="md-slider-background-upper" :style="upperStyles"></div>
+        <div class="md-slider-background-lower" :style="lowerStyles" />
+        <div class="md-slider-background-upper" :style="upperStyles" />
       </div>
     </div>
     <div class="md-slider-editable" v-if="mdEditable">
       <md-field>
-        <md-input v-model.number="editableField" v-bind="{ disabled }"></md-input>
+        <md-input v-model.number="editableField" v-bind="{ disabled }" />
       </md-field>
     </div>
   </div>
@@ -86,6 +87,11 @@
         return {
           'flex': 1 - this.fraction
         }
+      }
+    },
+    methods: {
+      onChange ({ target }) {
+        this.$emit('md-change', parseFloat(target.value))
       }
     }
   })

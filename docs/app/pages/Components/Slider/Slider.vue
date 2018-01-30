@@ -19,6 +19,7 @@
         <p>The following options can be applied to all sliders:</p>
 
         <api-table :headings="props.headings" :props="props.props" slot="props" />
+        <api-table :headings="events.headings" :props="events.props" slot="events" />
 
         <note-block tip>All other <code>&lt;input type=&quot;range&quot;&gt;</code> attributes, such as <strong>name</strong> and <strong>required</strong>, can be used on <code>md-slider</code>.</note-block>
       </api-item>
@@ -65,6 +66,16 @@
             type: 'Number, String',
             description: 'Step value for slider.',
             defaults: '1'
+          }
+        ]
+      },
+      events: {
+        headings: ['Name', 'Description', 'Value'],
+        props: [
+          {
+            name: 'md-change',
+            description: 'Emits a value. Triggered every time when a change to the element\'s value is committed by the user.',
+            value: 'value'
           }
         ]
       }
