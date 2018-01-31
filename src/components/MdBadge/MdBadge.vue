@@ -1,24 +1,27 @@
 <template>
   <div class="md-badge-content" v-if="hasDefaultSlot">
     <slot />
-    <div class="md-badge" :class="[$mdActiveTheme, badgeClasses]">
+    <md-badge-standalone :class="badgeClasses">
       <div>
         {{ mdContent }}
       </div>
-    </div>
+    </md-badge-standalone>
   </div>
-  <div class="md-badge" :class="[$mdActiveTheme, badgeClasses]" v-else>
-    <div>
-      {{ mdContent }}
-    </div>
-  </div>
+  <md-badge-standalone :class="badgeClasses" v-else>
+    {{ mdContent }}
+  </md-badge-standalone>
 </template>
 
 <script>
   import MdComponent from 'core/MdComponent'
 
+  import MdBadgeStandalone from './MdBadgeStandalone'
+
   export default new MdComponent({
     name: 'MdBadge',
+    components: {
+      MdBadgeStandalone
+    },
     props: {
       mdContent: [String, Number],
       mdPosition: {
@@ -52,35 +55,6 @@
       &-bottom {
         bottom: -4px;
       }
-    }
-  }
-
-  .md-badge {
-    position: absolute;
-    transition: .3s $md-transition-default-timing;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    right: -4px;
-    font-size: 10px;
-    font-style: normal;
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    color: #fff;
-    pointer-events: none;
-    z-index: 11;
-    .md-list-item-content & {
-      position: relative;
-      top: 0;
-      bottom: 0;
-      right: 0;
-    }
-    &.md-square {
-      width: auto;
-      border-radius: 3px;
-      height: 18px;
-      padding: 0 4px;
     }
   }
 </style>
