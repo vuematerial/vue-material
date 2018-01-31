@@ -4,10 +4,6 @@
       <div
         :class="[menuClasses, mdContentClass, $mdActiveTheme]"
         :style="menuStyles"
-        @keydown.arrow-down.prevent="setHighlight('down')"
-        @keydown.arrow-up.prevent="setHighlight('up')"
-        @keydown.space.prevent="setSelection"
-        @keydown.enter.prevent="setSelection"
         ref="menu">
         <div class="md-menu-content-container md-scrollbar" :class="$mdActiveTheme" ref="container">
           <md-list :class="listClasses" v-bind="filteredAttrs" @keydown.esc="onEsc">
@@ -85,6 +81,7 @@
             this.setInitialHighlightIndex()
             this.createClickEventObserver()
             this.createResizeObserver()
+            this.createKeydownListener()
           })
         }
       }
@@ -201,8 +198,26 @@
               this.MdMenu.active = false
               this.MdMenu.bodyClickObserver.destroy()
               this.MdMenu.windowResizeObserver.destroy()
+              this.destroyKeyDownListener()
             }
           })
+        }
+      },
+      createKeydownListener () {
+        window.addEventListener('keydown', this.keyNavigation)
+      },
+      destroyKeyDownListener () {
+        window.removeEventListener('keydown', this.keyNavigation)
+      },
+      keyNavigation (event) {
+        switch (event.key) {
+          case 'ArrowUp': this.setHighlight('up')
+            break
+          case 'ArrowDown': this.setHighlight('down')
+            break
+          case 'Enter': this.setSelection()
+            break
+          case 'Space': this.setSelection()
         }
       },
       createResizeObserver () {
@@ -239,6 +254,7 @@
       if (this.MdMenu.windowResizeObserver) {
         this.MdMenu.windowResizeObserver.destroy()
       }
+      this.destroyKeyDownListener()
     }
   })
 </script>
