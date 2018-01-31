@@ -29,7 +29,7 @@ const componentExampleLoader = require.resolve('../loaders/component-example-loa
 const webpackConfig = {
   entry: {
     app: [
-      '@babel/polyfill',
+      'babel-polyfill',
       './docs/app/index.js',
       './build/docs/offline.js'
     ]
