@@ -69,6 +69,7 @@
     border-radius: 50%;
     color: #fff;
     pointer-events: none;
+    z-index: 11;
     .md-list-item-content & {
       position: relative;
       top: 0;
