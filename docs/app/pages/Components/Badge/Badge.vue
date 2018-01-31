@@ -9,7 +9,7 @@
 
     <div class="page-container-section">
 
-      <p>Buttons needs to be wrapped with <code>md-badge</code> component.</p>
+      <p>Some components like <b>button, avatar</b> needs to be wrapped with <code>md-badge</code> component.</p>
       <code-example title="Example with buttons" :component="examples['buttons']" />
 
       <code-example title="Example with lists" :component="examples['lists']" />
