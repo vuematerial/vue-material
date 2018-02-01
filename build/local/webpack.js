@@ -12,7 +12,7 @@ export default {
   devtool: 'cheap-module-eval-source-map',
   entry: {
     docs: [
-      '@babel/polyfill',
+      'babel-polyfill',
       './docs/app/index.js',
       './build/local/client'
     ]
