@@ -1,6 +1,5 @@
 <template>
   <div class="md-file">
-    <md-file-icon @click.native="openPicker" />
 
     <input
       class="md-input"

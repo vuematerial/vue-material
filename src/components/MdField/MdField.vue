@@ -24,6 +24,7 @@
   import MdClearIcon from 'core/icons/MdClearIcon'
   import MdPasswordOffIcon from 'core/icons/MdPasswordOffIcon'
   import MdPasswordOnIcon from 'core/icons/MdPasswordOnIcon'
+  import MdPropValidator from 'core/utils/MdPropValidator'
 
   export default new MdComponent({
     name: 'MdField',
@@ -33,7 +34,17 @@
       MdPasswordOnIcon
     },
     props: {
+      mdVariant: {
+        type: String,
+        default: 'bottom-line',
+        ...MdPropValidator('md-variant', [
+          'bottom-line',
+          'box',
+          'raised'
+        ])
+      },
       mdInline: Boolean,
+      mdDense: Boolean,
       mdClearable: Boolean,
       mdCounter: {
         type: Boolean,
@@ -69,6 +80,9 @@
       }
     },
     computed: {
+      isBottomLineVariant () {
+        return this.mdVariant === 'bottom-line'
+      },
       stringValue () {
         return (this.MdField.value || this.MdField.value === 0) && this.MdField.value.toString()
       },
@@ -90,7 +104,9 @@
       },
       fieldClasses () {
         return {
+          'md-field-bootom-line': this.isBottomLineVariant,
           'md-inline': this.mdInline,
+          'md-dense': this.mdDense,
           'md-clearable': this.mdClearable,
           'md-focused': this.MdField.focused,
           'md-highlight': this.MdField.highlighted,
@@ -130,9 +146,7 @@
 
   .md-field {
     width: 100%;
-    min-height: 48px;
-    margin: 4px 0 24px;
-    padding-top: 16px;
+    margin: 16px 0 28px;
     display: flex;
     position: relative;
     font-family: inherit;
@@ -140,7 +154,6 @@
     &:before,
     &:after {
       position: absolute;
-      bottom: 0;
       right: 0;
       left: 0;
       z-index: 1;
@@ -149,6 +162,99 @@
                   transform 0s .3s $md-transition-default-timing;
       will-change: border, opacity, transform;
       content: " ";
+    }
+
+    label {
+      position: absolute;
+      pointer-events: none;
+      transition: $md-transition-stand;
+      transition-duration: .3s;
+      line-height: 1;
+    }
+
+    .md-input,
+    .md-textarea {
+      padding: 0;
+      display: block;
+      flex: 1;
+      border: none;
+      background: none;
+      transition: $md-transition-stand;
+      transition-property: font-size, padding-top, color;
+      font-family: inherit;
+
+      &[disabled] {
+        cursor: default;
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      &::-webkit-input-placeholder {
+        text-shadow: none;
+        -webkit-text-fill-color: initial;
+        transition: $md-transition-stand;
+        transition-property: font-size, color;
+      }
+    }
+
+    .md-textarea {
+      resize: none;
+    }
+
+    .md-helper-text,
+    .md-error,
+    .md-count {
+      position: absolute;
+      font-size: 12px;
+      line-height: 1;
+      transition: .3s $md-transition-default-timing;
+      right: 0;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .md-error {
+      display: block !important;
+      opacity: 0;
+      transform: translate3d(0, -8px, 0);
+    }
+
+    .md-input-action {
+      width: 32px;
+      min-width: 32px;
+      height: 32px;
+      margin: 0;
+      position: absolute;
+      transition: $md-transition-default;
+
+      &.md-input-action-enter-active,
+      &.md-input-action-leave-active {
+        opacity: 0;
+      }
+
+      &.md-input-action-enter-to {
+        opacity: 1;
+      }
+    }
+
+    > .md-icon {
+      position: absolute;
+      z-index: 3;
+      transition: $md-transition-stand;
+    }
+  }
+
+  .md-field.md-field-bootom-line {
+    min-height: 44px;
+
+    &:before,
+    &:after {
+      bottom: 0;
+      right: 0;
+      left: 0;
     }
 
     &:after {
@@ -163,105 +269,60 @@
     }
 
     label {
-      position: absolute;
-      top: 23px;
+      top: 20px;
       left: 0;
-      pointer-events: none;
-      transition: $md-transition-stand;
-      transition-duration: .3s;
       font-size: 16px;
-      line-height: 20px;
     }
 
     .md-input,
-    .md-textarea {
-      height: $md-input-height;
-      padding: 0;
-      display: block;
-      flex: 1;
-      border: none;
-      background: none;
-      transition: $md-transition-stand;
-      transition-property: font-size, padding-top, color;
-      font-family: inherit;
+    .md-textarea, {
+      height: 32px;
+      padding: 8px 0 8px;
+      margin-top: 11px;
       font-size: 1px;
-      line-height: $md-input-height;
+      line-height: 16px;
 
       &[type="date"] {
         font-size: 16px;
       }
 
-      &[disabled] {
-        cursor: default;
-      }
-
-      &:focus {
-        outline: none;
-      }
-
-      &::-webkit-input-placeholder {
-        font-size: 16px;
-        text-shadow: none;
-        -webkit-text-fill-color: initial;
-        transition: $md-transition-stand;
-        transition-property: font-size, color;
-      }
     }
 
     .md-textarea {
       min-height: 32px;
       max-height: 230px;
       padding: 5px 0;
-      resize: none;
       line-height: 1.3em;
     }
 
     .md-helper-text,
     .md-error,
     .md-count {
-      height: 20px;
-      position: absolute;
-      bottom: -22px;
+      bottom: -20px;
       font-size: 12px;
-      transition: .3s $md-transition-default-timing;
     }
 
+    .md-helper-text,
     .md-error {
-      display: block !important;
       left: 0;
-      opacity: 0;
-      transform: translate3d(0, -8px, 0);
     }
 
     .md-count {
       right: 0;
     }
 
-    .md-input-action {
-      width: 32px;
-      min-width: 32px;
-      height: 32px;
-      margin: 0;
-      position: absolute;
-      top: 16px;
+    > .md-input-action {
+      top: 14px;
       right: 0;
-      transition: $md-transition-default;
-
-      &.md-input-action-enter-active,
-      &.md-input-action-leave-active {
-        opacity: 0;
-      }
-
-      &.md-input-action-enter-to {
-        opacity: 1;
-      }
     }
 
     > .md-icon {
+      bottom: 1px;
       margin: 4px auto;
-      position: relative;
-      z-index: 3;
-      transition: $md-transition-stand;
+
+      &:last-of-type:not(:first-child) {
+        right: 0;
+      }
 
       &:last-of-type:not(:first-child):after {
         display: none;
@@ -285,15 +346,9 @@
         .md-input,
         .md-textarea,
         .md-file {
-          margin-left: 12px;
+          padding-left: 36px;
         }
       }
-    }
-  }
-
-  .md-field {
-    + .md-has-textarea:not(.md-autogrow) {
-      margin-top: 36px;
     }
 
     &.md-has-placeholder {
@@ -328,7 +383,7 @@
       }
 
       label {
-        top: 16px;
+        top: 20px;
         left: 16px;
       }
 
@@ -347,35 +402,23 @@
 
       .md-count {
         right: 6px;
-        bottom: 2px;
+        bottom: 4px;
       }
 
       .md-clear {
-        top: 6px;
+        top: 0px;
         right: 6px;
       }
 
       &.md-focused,
       &.md-has-value {
         label {
-          top: 6px;
+          top: 8px;
         }
 
         .md-textarea {
-          padding-top: 10px;
+          padding-top: 16px;
         }
-      }
-    }
-
-    &.md-has-file {
-      &:before,
-      &:after,
-      label {
-        left: 36px;
-      }
-
-      .md-input {
-        margin-left: 12px;
       }
     }
 
@@ -404,49 +447,10 @@
       }
     }
 
-    &.md-inline {
-      label {
-        pointer-events: none;
-      }
-
-      &.md-focused {
-        label {
-          top: 23px;
-          font-size: 16px;
-        }
-      }
-
-      &.md-has-value {
-        label {
-          opacity: 0;
-        }
-      }
-    }
-
     &.md-disabled {
       &:after {
         background: bottom left repeat-x;
         background-size: 4px 1px;
-      }
-    }
-
-    &.md-has-password {
-      .md-toggle-password {
-        margin: 0;
-        position: absolute;
-        right: 0;
-        bottom: -2px;
-
-        svg {
-          width: 22px;
-          height: 22px;
-        }
-      }
-    }
-
-    &.md-clearable {
-      .md-input {
-        padding-right: 30px;
       }
     }
 
@@ -499,5 +503,152 @@
         vertical-align: top;
       }
     }
+
+    &.md-clearable {
+      .md-input {
+        padding-right: 30px;
+      }
+    }
+
+    &.md-has-password {
+      .md-toggle-password {
+        svg {
+          width: 22px;
+          height: 22px;
+        }
+      }
+    }
+
+    &.md-inline {
+      min-height: 32px;
+      margin-top: 8px;
+
+      label {
+        pointer-events: none;
+        top: 8px;
+      }
+
+      .md-input,
+      .md-textarea {
+        margin-top: 0;
+      }
+
+      &.md-focused,
+      &.md-has-value {
+        label {
+          top: 8px;
+          font-size: 16px;
+        }
+      }
+
+      &.md-has-value {
+        label {
+          opacity: 0;
+        }
+      }
+    }
+  }
+
+  .md-field.md-field-bootom-line.md-dense {
+    margin: 8px 0 24px;
+    min-height: 37px;
+
+    label {
+      top: 16px;
+      font-size: 13px;
+    }
+
+    .md-input,
+    .md-textarea {
+      height: 25px;
+      padding: 4px 0 7px;
+    }
+
+    .md-textarea {
+      min-height: 25px;
+    }
+
+    .md-helper-text,
+    .md-error,
+    .md-count {
+      bottom: -16px;
+    }
+
+    > .md-input-action {
+      top: 12px;
+
+      .md-icon {
+        font-size: 19.2px !important;
+      }
+
+      &,
+      .md-icon,
+      svg {
+        width: 19.2px;
+        min-width: 19.2px;
+        height: 19.2px;
+      }
+    }
+
+    > .md-icon {
+      top: 9px;
+      font-size: 19.2px !important;
+      width: 19.2px !important;
+      min-width: 19.2px;
+      height: 19.2px;
+
+      &:after {
+        width: 32px;
+      }
+
+      ~ {
+        label {
+          left: 32px;
+        }
+
+        .md-input,
+        .md-textarea,
+        .md-file {
+          padding-left: 32px;
+        }
+      }
+    }
+
+    &.md-has-textarea:not(.md-autogrow) {
+
+      label {
+        top: 16px;
+      }
+
+      > .md-icon {
+        top: 2px;
+      }
+
+      &.md-focused,
+      &.md-has-value {
+        label {
+          top: 8px;
+        }
+
+        .md-textarea {
+          padding-top: 12px;
+        }
+      }
+    }
+
+    &.md-focused,
+    &.md-has-value {
+      label {
+        top: 0;
+        font-size: 12px;
+      }
+
+      .md-input,
+      .md-textarea {
+        font-size: 13px;
+      }
+    }
+
+
   }
 </style>
