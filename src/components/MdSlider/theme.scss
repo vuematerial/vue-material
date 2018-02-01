@@ -7,10 +7,16 @@
     &::-moz-range-thumb {
       @include md-theme-property(background-color, primary);
     }
+    &::-ms-thumb {
+      @include md-theme-property(background-color, primary);
+    }
     &:active::-webkit-slider-thumb {
       @include md-theme-property(background-color, primary);
     }
     &:active::-moz-range-thumb {
+      @include md-theme-property(background-color, primary);
+    }
+    &:active::-ms-thumb {
       @include md-theme-property(background-color, primary);
     }
     &.is-lowest-value:active::-moz-range-thumb {

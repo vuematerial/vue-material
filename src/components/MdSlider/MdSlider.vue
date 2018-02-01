@@ -3,7 +3,7 @@
     <label v-if="$slots.default">
       <slot />
     </label>
-    <div class="md-slider-container">
+    <div :class="['md-slider-container', { 'ie': isIeEdge }]">
       <input
         :class="['md-slider', $mdActiveTheme, isLowestValue]"
         v-model.number="currentValue"
@@ -87,7 +87,13 @@
         return {
           'flex': 1 - this.fraction
         }
-      }
+      },
+      isIeEdge () {
+        if (!this.$isServer) {
+          return navigator.userAgent.toLowerCase().includes('trident') || navigator.userAgent.toLowerCase().includes('edge')
+        }
+        return false
+      },
     },
     methods: {
       onChange ({ target }) {
@@ -121,6 +127,14 @@
     }
   }
 
+  _:-ms-input-placeholder, :root .md-slider {
+    -ms-appearance: none;
+    // The thumb can't overflow the track or the rest of the control in IE, so we
+    // need to make it tall enough to contain the largest version of the thumb.
+    height: 32px;
+    margin: 0;
+  }
+
   .md-slider {
     transition: .3s $md-transition-default-timing;
     height: 6px;
@@ -138,9 +152,18 @@
     cursor: pointer;
     width: 100%;
     margin: 0 20px;
+    min-height: 20px; // Edge fix
+    @supports (-ms-ime-align: auto) {
+      // Edge fix to lower margins
+      margin: 0 10px;
+    }
 
     &::-moz-focus-outer {
       border: 0;
+    }
+
+    &::-ms-tooltip {
+      display: none;
     }
 
     // tracks
@@ -150,6 +173,14 @@
 
     &::-moz-range-track {
       background: transparent;
+      border: none;
+    }
+
+    &::-ms-track {
+      background: none;
+      color: transparent;
+      height: 2px;
+      width: 100%;
       border: none;
     }
 
@@ -191,6 +222,22 @@
       transform: scale(1.5);
     }
 
+    &::-ms-thumb {
+      width: 32px;
+      height: 32px;
+      border: none;
+      border-radius: 50%;
+      transform: scale(0.375);
+      // -ms-thumb doesn't currently support transitions, but leaving this here
+      // in case support ever gets added.
+      transition: transform .3s $md-transition-default-timing,
+      background .3s $md-transition-default-timing;
+    }
+
+    &:active::-ms-thumb {
+      transform: scale(0.5625);
+    }
+
     // 0 value
     &.is-lowest-value::-webkit-slider-thumb {
       border: 2px solid;
@@ -216,6 +263,15 @@
       left: 6px;
     }
 
+    &.is-lowest-value:active +
+        .md-slider-background > .md-slider-background-upper {
+      left: 9px;
+    }
+
+    &.is-lowest-value:active::-ms-thumb {
+      transform: scale(1.5);
+    }
+
     // disabled
     &:disabled:focus::-webkit-slider-thumb,
     &:disabled:active::-webkit-slider-thumb,
@@ -239,6 +295,22 @@
       left: 6px;
     }
 
+    &.is-lowest-value::-ms-thumb {
+      transform: scale(0.375);
+    }
+
+    &.is-lowest-value:focus:not(:active)::-ms-thumb {
+      transform: scale(0.375);
+    }
+
+    &.is-lowest-value:active::-ms-thumb {
+      transform: scale(0.375);
+    }
+
+    &.is-lowest-value::-ms-fill-lower {
+      background: transparent;
+    }
+
     &.is-lowest-value:disabled:focus::-webkit-slider-thumb,
     &.is-lowest-value:disabled:active::-webkit-slider-thumb,
     &.is-lowest-value:disabled::-webkit-slider-thumb {
@@ -259,6 +331,18 @@
         .md-slider-background > .md-slider-background-upper {
       left: 6px;
     }
+
+    &:disabled:focus::-ms-thumb,
+    &:disabled:active::-ms-thumb,
+    &:disabled::-ms-thumb {
+      transform: scale(0.375);
+    }
+
+    &.is-lowest-value:disabled:focus::-ms-thumb,
+    &.is-lowest-value:disabled:active::-ms-thumb,
+    &.is-lowest-value:disabled::-ms-thumb {
+      transform: scale(0.25);
+    }
   }
 
   .md-slider-container {
@@ -268,6 +352,13 @@
     background: none;
     display: flex;
     flex-direction: row;
+    .ie {
+      height: 18px;
+      overflow: visible;
+      border: none;
+      margin: none;
+      padding: none;
+    }
   }
 
   .md-slider-background {
