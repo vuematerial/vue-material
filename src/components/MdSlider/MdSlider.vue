@@ -125,6 +125,9 @@
     transition: .3s $md-transition-default-timing;
     height: 6px;
     background: transparent;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     -webkit-user-select: none;
     -moz-user-select: none;
     user-select: none;
