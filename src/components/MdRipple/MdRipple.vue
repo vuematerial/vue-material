@@ -1,11 +1,11 @@
 <template>
   <div
     :class="['md-ripple', rippleClasses]"
-    @touchstart.passive.stop="touchStartCheck"
-    @touchmove.passive.stop="touchMoveCheck"
-    @touchend.passive.stop="clearWave"
-    @mousedown.passive.stop="startRipple"
-    @mouseup.passive.stop="clearWave">
+    @touchstart.passive="event => mdEventTrigger && touchStartCheck(event)"
+    @touchmove.passive="event => mdEventTrigger && touchMoveCheck(event)"
+    @touchend.passive="event => mdEventTrigger && clearWave(event)"
+    @mousedown.passive="event => mdEventTrigger && startRipple(event)"
+    @mouseup.passive="event => mdEventTrigger && clearWave(event)">
     <slot />
 
     <transition-group name="md-ripple" v-if="!isDisabled">
@@ -24,7 +24,11 @@
     props: {
       mdActive: null,
       mdDisabled: Boolean,
-      mdCentered: Boolean
+      mdCentered: Boolean,
+      mdEventTrigger: {
+        type: Boolean,
+        default: true
+      }
     },
     data: () => ({
       ripples: [],

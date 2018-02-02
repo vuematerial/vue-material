@@ -1,5 +1,5 @@
 <template>
-  <md-ripple :md-disabled="!mdRipple || disabled">
+  <md-ripple :md-disabled="!mdRipple || disabled" :md-event-trigger="false" ref="ripple">
     <div class="md-button-content">
       <slot />
     </div>

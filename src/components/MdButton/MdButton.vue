@@ -28,7 +28,8 @@
         attrs: {
           mdRipple: this.mdRipple,
           disabled: this.disabled
-        }
+        },
+        ref: 'buttonContent'
       }, this.$slots.default)
       let buttonAttrs = {
         staticClass: 'md-button',
@@ -45,7 +46,49 @@
           disabled: this.disabled,
           type: !this.href && (this.type || 'button')
         },
-        on: this.$listeners
+        on: {
+          ...this.$listeners,
+          touchstart: event => {
+            if (!this.mdRipple || this.disabled) {
+              return false
+            }
+
+            this.$refs.buttonContent.$refs.ripple.touchStartCheck(event)
+            this.$listeners.touchstart && this.$listeners.touchstart(event)
+          },
+          touchmove: event => {
+            if (!this.mdRipple || this.disabled) {
+              return false
+            }
+
+            this.$refs.buttonContent.$refs.ripple.touchMoveCheck(event)
+            this.$listeners.touchmove && this.$listeners.touchmove(event)
+          },
+          touchend: event => {
+            if (!this.mdRipple || this.disabled) {
+              return false
+            }
+
+            this.$refs.buttonContent.$refs.ripple.clearWave(event)
+            this.$listeners.touchend && this.$listeners.touchend(event)
+          },
+          mousedown: event => {
+            if (!this.mdRipple || this.disabled) {
+              return false
+            }
+
+            this.$refs.buttonContent.$refs.ripple.startRipple(event)
+            this.$listeners.mousedown && this.$listeners.mousedown(event)
+          },
+          mouseup: event => {
+            if (!this.mdRipple || this.disabled) {
+              return false
+            }
+
+            this.$refs.buttonContent.$refs.ripple.clearWave(event)
+            this.$listeners.mouseup && this.$listeners.mouseup(event)
+          }
+        }
       }
       let tag = 'button'
 
