@@ -83,6 +83,9 @@
       isBottomLineVariant () {
         return this.mdVariant === 'bottom-line'
       },
+      isBoxVariant () {
+        return this.mdVariant === 'box'
+      },
       stringValue () {
         return (this.MdField.value || this.MdField.value === 0) && this.MdField.value.toString()
       },
@@ -105,6 +108,7 @@
       fieldClasses () {
         return {
           'md-field-bootom-line': this.isBottomLineVariant,
+          'md-field-box': this.isBoxVariant,
           'md-inline': this.mdInline,
           'md-dense': this.mdDense,
           'md-clearable': this.mdClearable,
@@ -180,7 +184,7 @@
       border: none;
       background: none;
       transition: $md-transition-stand;
-      transition-property: font-size, padding-top, color;
+      transition-property: font-size, padding-top, padding-bottom, color;
       font-family: inherit;
 
       &[disabled] {
@@ -646,6 +650,399 @@
       .md-input,
       .md-textarea {
         font-size: 13px;
+      }
+    }
+  }
+
+  .md-field.md-field-box {
+    min-height: 56px;
+    border-radius: 4px;
+
+    &:before,
+    &:after {
+      bottom: 0;
+      right: 0;
+      left: 0;
+    }
+
+    &:after {
+      height: 1px;
+    }
+
+    &:before {
+      height: 2px;
+      z-index: 2;
+      opacity: 0;
+      transform: scaleX(.12);
+    }
+
+    label {
+      top: 20px;
+      left: 16px;
+      font-size: 16px;
+    }
+
+    .md-input,
+    .md-textarea, {
+      height: 56px;
+      padding: 20px 16px 1px;
+      margin-top: 0;
+      font-size: 1px;
+      line-height: 1.15;
+
+      &[type="date"] {
+        font-size: 16px;
+      }
+    }
+
+    .md-textarea {
+      min-height: 56px;
+      max-height: 230px;
+      line-height: 1.3em;
+      padding: 28px 16px 9px;
+    }
+
+    .md-helper-text,
+    .md-error,
+    .md-count {
+      bottom: -20px;
+      font-size: 12px;
+    }
+
+    .md-helper-text,
+    .md-error {
+      left: 16px;
+    }
+
+    .md-count {
+      right: 16px;
+    }
+
+    > .md-input-action {
+      top: 50%;
+      transform: translateY(-50%);
+      right: 6px;
+    }
+
+    > .md-icon {
+      top: 50%;
+      transform: translateY(-50%);
+
+      &:first-child {
+        left: 16px;
+      }
+
+      &:last-of-type:not(:first-child) {
+        right: 16px;
+      }
+
+      ~ {
+        label {
+          left: 56px;
+        }
+
+        .md-input,
+        .md-textarea,
+        .md-file {
+          padding-left: 56px;
+        }
+      }
+    }
+
+    &.md-has-placeholder {
+      label {
+        pointer-events: auto;
+        top: 16px;
+        opacity: 0;
+        font-size: 12px;
+      }
+
+      .md-input,
+      .md-textarea {
+        padding-top: 10px;
+        padding-bottom: 11px;
+        font-size: 16px;
+      }
+
+      &.md-focused,
+      &.md-has-value {
+        .md-input,
+        .md-textarea {
+          padding-top: 20px;
+          padding-bottom: 1px;
+        }
+      }
+    }
+
+    &.md-has-textarea:not(.md-autogrow) {
+      .md-textarea {
+        min-height: 100px;
+        resize: vertical;
+      }
+
+      > .md-icon {
+        top: 18px;
+      }
+    }
+
+    .md-select {
+      > .md-icon {
+        margin-right: 12px;
+      }
+    }
+
+    &.md-focused,
+    &.md-highlight {
+      &:before {
+        opacity: 1;
+        transform: scaleX(1);
+        transition: .3s $md-transition-default-timing;
+        transition-property: border, opacity, transform;
+      }
+    }
+
+    &.md-focused,
+    &.md-has-value {
+      label {
+        pointer-events: auto;
+        top: 8px;
+        opacity: 1;
+        font-size: 12px;
+      }
+
+      .md-input,
+      .md-textarea {
+        font-size: 16px;
+      }
+    }
+
+    &.md-disabled {
+      &:after {
+        opacity: 0;
+      }
+    }
+
+    &.md-invalid {
+      @keyframes md-invalid-shake {
+        10%, 90% {
+          transform: translate3d(-1px, 0, 0);
+        }
+
+        30%, 70% {
+          transform: translate3d(-4px, 0, 0);
+        }
+
+        40%, 60% {
+          transform: translate3d(4px, 0, 0);
+        }
+      }
+
+      &.md-has-value label:not(:focus) {
+        animation: md-invalid-shake .4s $md-transition-default-timing both;
+        backface-visibility: hidden;
+        perspective: 1000px;
+      }
+
+      &.md-has-textarea:not(.md-autogrow) {
+        &:before {
+          border-width: 2px;
+        }
+      }
+
+      .md-error {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
+
+      .md-helper-text {
+        opacity: 0;
+        transform: translate3d(0, -8px, 0);
+      }
+    }
+
+    &.md-clearable {
+      .md-input {
+        padding-right: 56px;
+      }
+    }
+
+    &.md-has-password {
+      .md-toggle-password {
+        svg {
+          width: 22px;
+          height: 22px;
+        }
+      }
+    }
+
+    &.md-inline {
+      min-height: 56px;
+
+      label {
+        pointer-events: none;
+        top: 20px;
+      }
+
+      .md-input,
+      .md-textarea {
+        height: 56px;
+        padding-top: 16px;
+        padding-bottom: 18px;
+      }
+
+      .md-textarea {
+        min-height: 56px;
+        padding-top: 16px;
+        padding-bottom: 18px;
+      }
+
+      &.md-focused,
+      &.md-has-value {
+        label {
+          top: 20px;
+          font-size: 16px;
+        }
+      }
+
+      &.md-has-value {
+        label {
+          opacity: 0;
+        }
+      }
+    }
+  }
+
+  .md-field.md-field-box.md-dense {
+    margin: 8px 0 24px;
+    min-height: 47px;
+
+    label {
+      top: 16px;
+      font-size: 13px;
+    }
+
+    .md-input,
+    .md-textarea {
+      height: 47px;
+      padding: 16px 16px 1px;
+    }
+
+    .md-textarea {
+      min-height: 47px;
+      padding: 24px 16px 9px;
+    }
+
+    .md-helper-text,
+    .md-error,
+    .md-count {
+      bottom: -16px;
+    }
+
+    > .md-input-action {
+      width: 24px;
+      min-width: 24px;
+      height: 24px;
+
+      .md-icon {
+        font-size: 18px !important;
+      }
+
+      .md-icon,
+      svg {
+        width: 18px;
+        min-width: 18px;
+        height: 18px;
+      }
+    }
+
+    > .md-icon {
+      font-size: 18px !important;
+      width: 18px !important;
+      min-width: 18px;
+      height: 18px;
+
+      ~ {
+        label {
+          left: 50px;
+        }
+
+        .md-input,
+        .md-textarea,
+        .md-file {
+          padding-left: 50px;
+        }
+      }
+    }
+
+    &.md-has-placeholder {
+      label {
+        top: 16px;
+        font-size: 12px;
+      }
+
+      .md-input,
+      .md-textarea {
+        padding-top: 10px;
+        padding-bottom: 11px;
+        font-size: 13px;
+      }
+
+      &.md-focused,
+      &.md-has-value {
+        .md-input,
+        .md-textarea {
+          padding-top: 16px;
+          padding-bottom: 1px;
+        }
+      }
+    }
+
+    &.md-has-textarea:not(.md-autogrow) {
+      > .md-icon {
+        top: 16px;
+      }
+    }
+
+    &.md-focused,
+    &.md-has-value {
+      label {
+        top: 8px;
+        font-size: 12px;
+      }
+
+      .md-input,
+      .md-textarea {
+        font-size: 13px;
+      }
+    }
+
+    &.md-has-password {
+      .md-toggle-password {
+        svg {
+          width: 16px;
+          height: 16px;
+        }
+      }
+    }
+
+    &.md-inline {
+      label {
+        pointer-events: none;
+        top: 17px;
+      }
+
+      .md-input,
+      .md-textarea {
+        padding-top: 16px;
+        padding-bottom: 16px;
+      }
+
+      &.md-focused,
+      &.md-has-value {
+        label {
+          top: 17px;
+          font-size: 13px;
+        }
       }
     }
   }

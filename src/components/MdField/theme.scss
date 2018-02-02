@@ -166,3 +166,30 @@
     }
   }
 }
+
+.md-field.md-field-box {
+  @include md-theme-component() {
+    @if md-get-theme-mode()==light {
+      background-color: rgba(#000, .06);
+
+      &.md-disabled {
+        label,
+        .md-input,
+        .md-textarea {
+          color: rgba(#000, .42);
+        }
+      }
+    }
+    @else {
+      background-color: rgba(#fff, .10);
+
+      &.md-disabled {
+        label,
+        .md-input,
+        .md-textarea {
+          color: rgba(#fff, .5);
+        }
+      }
+    }
+  }
+}
