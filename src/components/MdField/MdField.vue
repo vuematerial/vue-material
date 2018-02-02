@@ -245,6 +245,18 @@
       z-index: 3;
       transition: $md-transition-stand;
     }
+
+    &.md-required {
+      label:after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translateX(calc(100% + 2px));
+        content: "*";
+        line-height: 1em;
+        vertical-align: top;
+      }
+    }
   }
 
   .md-field.md-field-bootom-line {
@@ -492,18 +504,6 @@
       }
     }
 
-    &.md-required {
-      label:after {
-        position: absolute;
-        top: 2px;
-        right: 0;
-        transform: translateX(calc(100% + 2px));
-        content: "*";
-        line-height: 1em;
-        vertical-align: top;
-      }
-    }
-
     &.md-clearable {
       .md-input {
         padding-right: 30px;
@@ -648,7 +648,5 @@
         font-size: 13px;
       }
     }
-
-
   }
 </style>
