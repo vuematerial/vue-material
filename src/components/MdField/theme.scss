@@ -29,28 +29,6 @@
           -webkit-text-fill-color: rgba(#000, .87);
         }
       }
-
-      &.md-has-textarea:not(.md-autogrow) {
-        &:after {
-          border-color: rgba(#000, .42);
-        }
-
-        &:before {
-          @include md-theme-property(border-color, primary);
-        }
-      }
-
-      &.md-disabled {
-        &:after {
-          background-image: linear-gradient(to right, rgba(#000, .38) 0%, rgba(#000, .38) 33%, transparent 0%);
-        }
-
-        label,
-        .md-input,
-        .md-textarea {
-          color: rgba(#000, .42);
-        }
-      }
     } @else {
       &:after {
         background-color: rgba(#fff, .7);
@@ -81,27 +59,6 @@
         }
       }
 
-      &.md-has-textarea:not(.md-autogrow) {
-        &:after {
-          border-color: #fff;
-        }
-
-        &:before {
-          @include md-theme-property(border-color, primary);
-        }
-      }
-
-      &.md-disabled {
-        &:after {
-          background-image: linear-gradient(to right, rgba(#fff, .7) 0%, rgba(#fff, .7) 33%, transparent 0%);
-        }
-
-        label,
-        .md-input,
-        .md-textarea {
-          color: rgba(#fff, .5);
-        }
-      }
     }
 
     > .md-icon {
@@ -158,6 +115,53 @@
     &.md-disabled {
       .md-icon svg {
         @include md-theme-property(fill, disabled, background);
+      }
+    }
+  }
+}
+
+.md-field.md-field-bootom-line {
+  @include md-theme-component() {
+    @if md-get-theme-mode()==light {
+      &.md-has-textarea:not(.md-autogrow) {
+        &:after {
+          border-color: rgba(#000, .42);
+        }
+        &:before {
+          @include md-theme-property(border-color, primary);
+        }
+      }
+
+      &.md-disabled {
+        &:after {
+          background-image: linear-gradient(to right, rgba(#000, .38) 0%, rgba(#000, .38) 33%, transparent 0%);
+        }
+        label,
+        .md-input,
+        .md-textarea {
+          color: rgba(#000, .42);
+        }
+      }
+    }
+    @else {
+      &.md-has-textarea:not(.md-autogrow) {
+        &:after {
+          border-color: #fff;
+        }
+        &:before {
+          @include md-theme-property(border-color, primary);
+        }
+      }
+
+      &.md-disabled {
+        &:after {
+          background-image: linear-gradient(to right, rgba(#fff, .7) 0%, rgba(#fff, .7) 33%, transparent 0%);
+        }
+        label,
+        .md-input,
+        .md-textarea {
+          color: rgba(#fff, .5);
+        }
       }
     }
   }
