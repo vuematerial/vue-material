@@ -76,8 +76,7 @@
       hasContent: false,
       MdTabs: {
         items: {}
-      },
-      alignmentChanging: false
+      }
     }),
     provide () {
       return {
@@ -113,28 +112,6 @@
       mdActiveTab (tab) {
         this.activeTab = tab
         this.$emit('md-changed', tab)
-      },
-      mdAlignment () {
-        if (this.alignmentChanging) {
-          return false
-        }
-
-        this.alignmentChanging = true
-
-        this.$nextTick().then(() => {
-          let cb = event => {
-            if (event.propertyName !== 'min-width') {
-              return false
-            }
-
-            this.$refs.navigation.removeEventListener('transitionend', cb)
-            this.setIndicatorStyles()
-            this.alignmentChanging = false
-          }
-
-          this.$refs.navigation.addEventListener('transitionend', cb)
-        })
-
       }
     },
     methods: {
@@ -283,6 +260,8 @@
           this.setupWatchers()
         }, 100)
       })
+
+      this.$refs.navigation.addEventListener('transitionend', this.setIndicatorStyles)
     },
     beforeDestroy () {
       if (this.resizeObserver) {
@@ -290,6 +269,7 @@
       }
 
       window.removeEventListener('resize', this.setIndicatorStyles)
+      this.$refs.navigation.removeEventListener('transitionend', this.setIndicatorStyles)
     }
   })
 </script>
