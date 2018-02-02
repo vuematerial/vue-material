@@ -23,6 +23,11 @@
       disabled: Boolean,
       to: null
     },
+    computed: {
+      rippleWorks () {
+        return this.mdRipple && !this.disabled
+      }
+    },
     render (createElement) {
       const buttonContent = createElement('md-button-content', {
         attrs: {
@@ -49,7 +54,7 @@
         on: {
           ...this.$listeners,
           touchstart: event => {
-            if (!this.mdRipple || this.disabled) {
+            if (!this.rippleWorks) {
               return false
             }
 
@@ -57,7 +62,7 @@
             this.$listeners.touchstart && this.$listeners.touchstart(event)
           },
           touchmove: event => {
-            if (!this.mdRipple || this.disabled) {
+            if (!this.rippleWorks) {
               return false
             }
 
@@ -65,7 +70,7 @@
             this.$listeners.touchmove && this.$listeners.touchmove(event)
           },
           touchend: event => {
-            if (!this.mdRipple || this.disabled) {
+            if (!this.rippleWorks) {
               return false
             }
 
@@ -73,7 +78,7 @@
             this.$listeners.touchend && this.$listeners.touchend(event)
           },
           mousedown: event => {
-            if (!this.mdRipple || this.disabled) {
+            if (!this.rippleWorks) {
               return false
             }
 
@@ -81,7 +86,7 @@
             this.$listeners.mousedown && this.$listeners.mousedown(event)
           },
           mouseup: event => {
-            if (!this.mdRipple || this.disabled) {
+            if (!this.rippleWorks) {
               return false
             }
 
