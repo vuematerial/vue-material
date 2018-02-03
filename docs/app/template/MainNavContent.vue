@@ -44,6 +44,7 @@
         <router-link to="/components/input">{{ $t('pages.input.title') }}</router-link>
         <router-link to="/components/radio">{{ $t('pages.radio.title') }}</router-link>
         <router-link to="/components/select">{{ $t('pages.select.title') }}</router-link>
+        <router-link to="/components/slider">{{ $t('pages.slider.title') }}</router-link>
         <router-link to="/components/switch">{{ $t('pages.switch.title') }}</router-link>
       </div>
 
@@ -63,7 +64,6 @@
       </div>
       <router-link to="/components/snackbar">{{ $t('pages.snackbar.title') }}</router-link>
       <router-link to="/components/speed-dial">{{ $t('pages.speedDial.title') }}</router-link>
-      <router-link to="/components/slider">{{ $t('pages.slider.title') }}</router-link>
       <router-link to="/components/steppers">{{ $t('pages.steppers.title') }}</router-link>
       <router-link to="/components/subheader">{{ $t('pages.subheader.title') }}</router-link>
       <router-link to="/components/table">{{ $t('pages.table.title') }}</router-link>
