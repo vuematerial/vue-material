@@ -26,21 +26,31 @@
         }
       }
     },
+    methods: {
+      closeMenu () {
+        this.MdMenu.active = false
+
+        if (this.MdMenu.eventObserver) {
+          this.MdMenu.eventObserver.destroy()
+        }
+      },
+
+      triggerCloseMenu () {
+        if (!this.disabled) {
+          this.closeMenu()
+        }
+      }
+    },
     created () {
       if (this.MdMenu.closeOnSelect) {
         let listenerNames = Object.keys(this.$listeners)
-        let hasInteraction = false
 
         listenerNames.forEach(listener => {
           if (MdInteractionEvents.includes(listener)) {
             this.listeners[listener] = $event => {
               if (!this.disabled) {
                 this.$listeners[listener]($event)
-                this.MdMenu.active = false
-
-                if (this.MdMenu.eventObserver) {
-                  this.MdMenu.eventObserver.destroy()
-                }
+                this.closeMenu()
               }
             }
           } else {
@@ -50,6 +60,19 @@
       } else {
         this.listeners = this.$listeners
       }
+    },
+    mounted () {
+      if (this.$el.children && this.$el.children[0]) {
+        let listItem = this.$el.children[0]
+
+        if (listItem.tagName.toUpperCase() === 'A') {
+          this.$el.addEventListener('click', this.triggerCloseMenu)
+        }
+      }
+    },
+
+    beforeDestroy () {
+      this.$el.removeEventListener('click', this.triggerCloseMenu)
     }
   })
 </script>
