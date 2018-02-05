@@ -28,7 +28,7 @@
       },
       mdDisabled: Boolean,
       mdAutoSelect: Boolean,
-      mdItem: Object
+      mdItem: [Array, Object]
     },
     inject: ['MdTable'],
     data: () => ({
