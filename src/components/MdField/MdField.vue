@@ -73,7 +73,8 @@
         password: null,
         togglePassword: false,
         clear: false,
-        file: false
+        file: false,
+        dense: false
       }
     }),
     provide () {
@@ -143,7 +144,13 @@
       },
       onBlur () {
         this.MdField.highlighted = false
-      }
+      },
+      setDense () {
+        this.MdField.dense = true
+      },
+    },
+    created () {
+      this.setDense()
     }
   })
 </script>
