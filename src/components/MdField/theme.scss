@@ -61,7 +61,7 @@
 
     }
 
-    > .md-icon {
+    > .md-ripple > .md-icon {
       &:after {
         @include md-theme-property(background-color, background-variant);
       }
@@ -100,7 +100,7 @@
         @include md-theme-property(color, primary, background);
       }
 
-      > .md-icon {
+      >.md-ripple > .md-icon {
         @include md-theme-property(color, primary, background);
         @include md-theme-property(fill, primary, background);
       }
