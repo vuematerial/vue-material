@@ -157,7 +157,9 @@
     &.md-permanent-card + .md-app-scroller .md-content {
       @include md-layout-small-and-up {
         padding-left: 0;
+        padding-right: 0;
         border-left: none;
+        border-right: none;
       }
     }
   }
@@ -167,6 +169,7 @@
 
     @include md-layout-small-and-up {
       border-left: 1px solid transparent;
+      border-right: 1px solid transparent;
     }
 
     > p {
@@ -185,8 +188,9 @@
     display: flex;
     overflow: auto;
     transform: translate3D(0, 0, 0);
-    transition: padding-left .4s $md-transition-default-timing;
-    will-change: padding-left;
+    transition: padding-left .4s $md-transition-default-timing,
+                padding-right .4s $md-transition-default-timing;
+    will-change: padding-left, padding-right;
   }
 
   .md-app-scroller {

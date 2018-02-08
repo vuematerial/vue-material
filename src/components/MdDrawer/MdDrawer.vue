@@ -17,7 +17,6 @@
       MdOverlay
     },
     props: {
-      mdLeft: Boolean,
       mdRight: Boolean,
       mdPermanent: {
         type: String,
@@ -49,7 +48,7 @@
     computed: {
       drawerClasses () {
         let classes = {
-          'md-left': this.mdLeft,
+          'md-left': !this.mdRight,
           'md-right': this.mdRight,
           'md-temporary': this.isTemporary,
           'md-persistent': this.mdPersistent,
@@ -165,8 +164,16 @@
     }
 
     &.md-temporary {
-      + .md-app-container .md-content {
-        border-left: none;
+      &.md-left {
+        + .md-app-container .md-content {
+          border-left: none;
+        }
+      }
+
+      &.md-right {
+        + .md-app-container .md-content {
+          border-right: none;
+        }
       }
 
       &.md-active {
@@ -216,8 +223,16 @@
 
     &.md-persistent {
       &:not(.md-active) {
-        + .md-app-container .md-content {
-          border-left: none;
+        &.md-left {
+          + .md-app-container .md-content {
+            border-left: none;
+          }
+        }
+
+        &.md-right {
+          + .md-app-container .md-content {
+            border-right: none;
+          }
         }
       }
     }
@@ -230,8 +245,16 @@
       will-change: transform, box-shadow;
 
       &.md-active {
-        + .md-app-container .md-content {
-          border-left: none;
+        &.md-left {
+          + .md-app-container .md-content {
+            border-left: none;
+          }
+        }
+
+        &.md-right {
+          + .md-app-container .md-content {
+            border-right: none;
+          }
         }
       }
 

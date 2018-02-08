@@ -44,7 +44,13 @@ export default {
         fixedLastHeight: false,
         overlapOff: false
       },
-      drawer: {
+      leftDrawer: {
+        initialWidth: 0,
+        active: false,
+        mode: 'temporary',
+        width: 0
+      },
+      rightDrawer: {
         initialWidth: 0,
         active: false,
         mode: 'temporary',
@@ -61,16 +67,34 @@ export default {
     isFixed () {
       return this.mdMode && this.mdMode !== 'fixed'
     },
-    isMini () {
-      return this.MdApp.drawer.mode === 'persistent' && this.MdApp.drawer.submode === 'mini'
+    isLeftMini () {
+      return this.MdApp.leftDrawer.mode === 'persistent' && this.MdApp.leftDrawer.submode === 'mini'
+    },
+    isRightMini () {
+      return this.MdApp.rightDrawer.mode === 'persistent' && this.MdApp.rightDrawer.submode === 'mini'
+    },
+    contentPaddingLeft () {
+      const leftDrawer = this.MdApp.leftDrawer
+
+      if (leftDrawer.active && leftDrawer.mode === 'persistent' && leftDrawer.submode === 'full') {
+        return leftDrawer.width
+      }
+
+      return 0
+    },
+    contentPaddingRight () {
+      const rightDrawer = this.MdApp.rightDrawer
+
+      if (rightDrawer.active && rightDrawer.mode === 'persistent' && rightDrawer.submode === 'full') {
+        return rightDrawer.width
+      }
+
+      return 0
     },
     contentStyles () {
-      const drawer = this.MdApp.drawer
-
-      if (drawer.active && drawer.mode === 'persistent' && drawer.submode === 'full') {
-        return {
-          'padding-left': drawer.width
-        }
+      return {
+        'padding-left': this.contentPaddingLeft,
+        'padding-right': this.contentPaddingRight
       }
     },
     containerStyles () {
@@ -80,8 +104,12 @@ export default {
         styles['margin-top'] = this.MdApp.toolbar.initialHeight + 'px'
       }
 
-      if (this.isMini) {
-        styles['padding-left'] = !this.MdApp.drawer.active ? this.MdApp.drawer.initialWidth + 'px' : 0
+      if (this.isLeftMini) {
+        styles['padding-left'] = !this.MdApp.leftDrawer.active ? this.MdApp.leftDrawer.initialWidth + 'px' : 0
+      }
+
+      if (this.isRightMini) {
+        styles['padding-right'] = !this.MdApp.rightDrawer.active ? this.MdApp.rightDrawer.initialWidth + 'px' : 0
       }
 
       return styles
@@ -99,7 +127,7 @@ export default {
         'md-fixed-last': this.mdMode === 'fixed-last',
         'md-reveal': this.mdMode === 'reveal',
         'md-overlap': this.mdMode === 'overlap',
-        'md-drawer-active': this.MdApp.drawer.active
+        'md-drawer-active': this.MdApp.leftDrawer.active || this.MdApp.rightDrawer.active
       }
     }
   },
