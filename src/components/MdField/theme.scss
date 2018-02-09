@@ -61,7 +61,7 @@
 
     }
 
-    > .md-ripple > .md-icon {
+    > .md-icon {
       &:after {
         @include md-theme-property(background-color, background-variant);
       }

@@ -1,23 +1,22 @@
 <template>
   <div class="md-field" :class="[$mdActiveTheme, fieldClasses]" @blur="onBlur">
-    <md-ripple :md-disabled="rippleDisabled">
-      <slot />
 
-      <span class="md-count" v-if="hasCounter">{{ valueLength }} / {{ MdField.maxlength || MdField.counter }}</span>
+    <slot />
 
-      <transition name="md-input-action" appear>
-        <md-button tabindex="-1" class="md-icon-button md-dense md-input-action md-clear" @click="clearInput" v-if="hasValue && mdClearable" :disabled="MdField.disabled">
-          <md-clear-icon />
-        </md-button>
-      </transition>
+    <span class="md-count" v-if="hasCounter">{{ valueLength }} / {{ MdField.maxlength || MdField.counter }}</span>
 
-      <transition name="md-input-action" appear>
-        <md-button tabindex="-1" class="md-icon-button md-dense md-input-action md-toggle-password" @click="togglePassword" v-if="hasPasswordToggle">
-          <md-password-off-icon v-if="MdField.togglePassword" />
-          <md-password-on-icon v-else />
-        </md-button>
-      </transition>
-    </md-ripple>
+    <transition name="md-input-action" appear>
+      <md-button tabindex="-1" class="md-icon-button md-dense md-input-action md-clear" @click="clearInput" v-if="hasValue && mdClearable" :disabled="MdField.disabled">
+        <md-clear-icon />
+      </md-button>
+    </transition>
+
+    <transition name="md-input-action" appear>
+      <md-button tabindex="-1" class="md-icon-button md-dense md-input-action md-toggle-password" @click="togglePassword" v-if="hasPasswordToggle">
+        <md-password-off-icon v-if="MdField.togglePassword" />
+        <md-password-on-icon v-else />
+      </md-button>
+    </transition>
   </div>
 </template>
 
@@ -108,9 +107,6 @@
 
         return 0
       },
-      rippleDisabled () {
-        return !this.isBoxVariant
-      },
       fieldClasses () {
         return {
           'md-field-bootom-line': this.isBottomLineVariant,
@@ -166,10 +162,6 @@
     display: flex;
     position: relative;
     font-family: inherit;
-
-    .md-ripple {
-      display: flex;
-    }
 
     &:before,
     &:after {
@@ -260,7 +252,7 @@
       }
     }
 
-    > .md-ripple > .md-icon {
+    > .md-icon {
       position: absolute;
       z-index: 3;
       transition: $md-transition-stand;
@@ -343,12 +335,12 @@
       right: 0;
     }
 
-    > .md-ripple > .md-input-action {
+    > .md-input-action {
       top: 14px;
       right: 0;
     }
 
-    > .md-ripple > .md-icon {
+    > .md-icon {
       bottom: 1px;
       margin: 4px auto;
 
@@ -594,7 +586,7 @@
       bottom: -16px;
     }
 
-    > .md-ripple > .md-input-action {
+    > .md-input-action {
       top: 12px;
 
       .md-icon {
@@ -610,7 +602,7 @@
       }
     }
 
-    > .md-ripple > .md-icon {
+    > .md-icon {
       top: 9px;
       font-size: 19.2px !important;
       width: 19.2px !important;
@@ -640,7 +632,7 @@
         top: 16px;
       }
 
-      > .md-ripple > .md-icon {
+      > .md-icon {
         top: 2px;
       }
 
@@ -734,13 +726,13 @@
       right: 16px;
     }
 
-    > .md-ripple > .md-input-action {
+    > .md-input-action {
       top: 50%;
       transform: translateY(-50%);
       right: 6px;
     }
 
-    > .md-ripple > .md-icon {
+    > .md-icon {
       top: 50%;
       transform: translateY(-50%);
 
@@ -796,7 +788,7 @@
         resize: vertical;
       }
 
-      > .md-ripple > .md-icon {
+      > .md-icon {
         top: 18px;
       }
     }
@@ -954,7 +946,7 @@
       bottom: -16px;
     }
 
-    > .md-ripple > .md-input-action {
+    > .md-input-action {
       width: 24px;
       min-width: 24px;
       height: 24px;
@@ -971,7 +963,7 @@
       }
     }
 
-    > .md-ripple > .md-icon {
+    > .md-icon {
       font-size: 18px !important;
       width: 18px !important;
       min-width: 18px;
@@ -1014,7 +1006,7 @@
     }
 
     &.md-has-textarea:not(.md-autogrow) {
-      > .md-ripple > .md-icon {
+      > .md-icon {
         top: 16px;
       }
     }
