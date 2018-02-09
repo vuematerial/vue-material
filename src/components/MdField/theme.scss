@@ -193,3 +193,30 @@
     }
   }
 }
+
+.md-field.md-field-raised {
+  @include md-theme-component() {
+    @if md-get-theme-mode()==light {
+      background-color: #fff;
+
+      &.md-disabled {
+        label,
+        .md-input,
+        .md-textarea {
+          color: rgba(#000, .42);
+        }
+      }
+    }
+    @else {
+      background-color: #000;
+
+      &.md-disabled {
+        label,
+        .md-input,
+        .md-textarea {
+          color: rgba(#fff, .5);
+        }
+      }
+    }
+  }
+}
