@@ -112,7 +112,7 @@
       },
       fieldClasses () {
         return {
-          'md-field-bootom-line': this.isBottomLineVariant,
+          'md-field-bottom-line': this.isBottomLineVariant,
           'md-field-box': this.isBoxVariant,
           'md-field-raised': this.isRaisedVariant,
           'md-inline': this.mdInline || this.isRaisedVariant,
@@ -276,7 +276,7 @@
     }
   }
 
-  .md-field.md-field-bootom-line {
+  .md-field.md-field-bottom-line {
     min-height: 44px;
 
     &:before,
@@ -566,7 +566,7 @@
     }
   }
 
-  .md-field.md-field-bootom-line.md-dense {
+  .md-field.md-field-bottom-line.md-dense {
     margin: 8px 0 24px;
     min-height: 37px;
 
