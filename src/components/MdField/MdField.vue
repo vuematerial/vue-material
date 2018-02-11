@@ -305,22 +305,16 @@
 
     .md-input,
     .md-textarea, {
-      height: 32px;
-      padding: 8px 0 8px;
-      margin-top: 11px;
-      font-size: 1px;
-      line-height: 16px;
-
-      &[type="date"] {
-        font-size: 16px;
-      }
-
+      height: 44px;
+      padding: 12px 0 0;
+      font-size: 16px;
+      line-height: 32px;
     }
 
     .md-textarea {
-      min-height: 32px;
+      min-height: 44px;
       max-height: 230px;
-      padding: 5px 0;
+      padding: 16px 0 8px;
       line-height: 1.3em;
     }
 
@@ -341,7 +335,7 @@
     }
 
     > .md-input-action {
-      top: 14px;
+      bottom: 0;
       right: 0;
     }
 
@@ -418,7 +412,7 @@
 
       .md-textarea {
         min-height: 100px;
-        padding: 0 16px;
+        padding: 26px 16px 16px;
         resize: vertical;
       }
 
@@ -443,10 +437,6 @@
       &.md-has-value {
         label {
           top: 8px;
-        }
-
-        .md-textarea {
-          padding-top: 16px;
         }
       }
     }
@@ -547,7 +537,10 @@
 
       .md-input,
       .md-textarea {
-        margin-top: 0;
+        height: 32px;
+        min-height: 32px;
+        padding-top: 8px;
+        padding-bottom: 8px;
       }
 
       &.md-focused,
