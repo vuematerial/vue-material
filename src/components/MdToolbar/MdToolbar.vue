@@ -135,11 +135,6 @@
       padding: 12px 0;
     }
 
-    .md-field {
-      margin-top: 2px;
-      margin-bottom: 14px;
-      padding-top: 16px;
-    }
   }
 
   .md-toolbar-row {

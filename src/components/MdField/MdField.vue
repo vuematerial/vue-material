@@ -46,6 +46,7 @@
       },
       mdInline: Boolean,
       mdDense: Boolean,
+      mdNested: Boolean,
       mdClearable: Boolean,
       mdCounter: {
         type: Boolean,
@@ -115,8 +116,9 @@
           'md-field-bottom-line': this.isBottomLineVariant,
           'md-field-box': this.isBoxVariant,
           'md-field-raised': this.isRaisedVariant,
-          'md-inline': this.mdInline || this.isRaisedVariant,
+          'md-inline': this.mdInline || this.isRaisedVariant || this.mdNested,
           'md-dense': this.mdDense,
+          'md-nested': this.mdNested,
           'md-clearable': this.mdClearable,
           'md-focused': this.MdField.focused,
           'md-highlight': this.MdField.highlighted,
@@ -557,6 +559,16 @@
         }
       }
     }
+
+    .md-toolbar &.md-nested {
+      margin: 8px 0 0;
+
+      > .md-icon {
+        &:after {
+          display: none;
+        }
+      }
+    }
   }
 
   .md-field.md-field-bottom-line.md-dense {
@@ -916,6 +928,23 @@
         }
       }
     }
+
+    .md-toolbar &.md-nested {
+      min-height: 40px;
+      height: 40px;
+      margin: 0;
+
+      label {
+        top: 12px;
+      }
+
+      .md-input,
+      .md-textarea {
+        height: 40px;
+        padding-top: 8px;
+        padding-bottom: 10px;
+      }
+    }
   }
 
   .md-field.md-field-box.md-dense {
@@ -1228,6 +1257,13 @@
           height: 22px;
         }
       }
+    }
+
+    .md-toolbar &.md-nested {
+      min-height: 40px;
+      height: 40px;
+      margin: 0;
+      box-shadow: none;
     }
   }
 
