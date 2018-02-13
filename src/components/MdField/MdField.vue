@@ -74,7 +74,8 @@
         togglePassword: false,
         clear: false,
         file: false,
-        dense: false
+        dense: false,
+        variant: 'bottom-line'
       }
     }),
     provide () {
@@ -147,11 +148,15 @@
       onBlur () {
         this.MdField.highlighted = false
       },
-      setDense () {
-        this.MdField.dense = true
+      setVariant () {
+        this.MdField.variant = this.mdVariant
       },
+      setDense () {
+        this.MdField.dense = this.mdDense
+      }
     },
     created () {
+      this.setVariant()
       this.setDense()
     }
   })
@@ -370,7 +375,8 @@
 
         .md-input,
         .md-textarea,
-        .md-file {
+        .md-file .md-input,
+        .md-autocomplete .md-input {
           padding-left: 36px;
         }
       }
@@ -630,7 +636,8 @@
 
         .md-input,
         .md-textarea,
-        .md-file {
+        .md-file .md-input,
+        .md-autocomplete .md-input {
           padding-left: 32px;
         }
       }
@@ -761,7 +768,8 @@
 
         .md-input,
         .md-textarea,
-        .md-file {
+        .md-file .md-input,
+        .md-autocomplete .md-input {
           padding-left: 56px;
         }
       }
@@ -1003,7 +1011,8 @@
 
         .md-input,
         .md-textarea,
-        .md-file {
+        .md-file .md-input,
+        .md-autocomplete .md-input {
           padding-left: 50px;
         }
       }
@@ -1167,7 +1176,8 @@
 
         .md-input,
         .md-textarea,
-        .md-file {
+        .md-file .md-input,
+        .md-autocomplete .md-input {
           padding-left: 56px;
         }
       }
@@ -1324,7 +1334,8 @@
 
         .md-input,
         .md-textarea,
-        .md-file {
+        .md-file .md-input,
+        .md-autocomplete .md-input {
           padding-left: 48px;
         }
       }
