@@ -1,5 +1,5 @@
 <template>
-  <transition name="md-ripple" @after-enter="clearWave">
+  <transition name="md-ripple" @after-enter="end">
     <span v-if="animating" />
   </transition>
 </template>
@@ -18,9 +18,9 @@
       waveStyles: null
     },
     methods: {
-      clearWave () {
+      end () {
         this.animating = null
-        this.$emit('clear')
+        this.$emit('md-end')
       }
     }
   })
