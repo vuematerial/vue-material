@@ -54,11 +54,11 @@
           this.startRipple({
             type: 'mousedown'
           })
-          this.$emit('update:mdActive', false)
         } else if (isEvent) {
           this.startRipple(active)
-          this.$emit('update:mdActive', false)
         }
+
+        this.$emit('update:mdActive', false)
       }
     },
     methods: {
