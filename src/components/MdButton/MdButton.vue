@@ -7,6 +7,11 @@
 
   export default new MdComponent({
     name: 'MdButton',
+    data () {
+      return {
+        rippleActive: false
+      }
+    },
     components: {
       MdButtonContent
     },
@@ -34,7 +39,12 @@
           mdRipple: this.mdRipple,
           disabled: this.disabled
         },
-        ref: 'buttonContent'
+        props: {
+          mdRippleActive: this.rippleActive
+        },
+        on: {
+          'update:mdRippleActive': active => this.rippleActive = active,
+        }
       }, this.$slots.default)
       let buttonAttrs = {
         staticClass: 'md-button',
@@ -58,7 +68,7 @@
               return false
             }
 
-            this.$refs.buttonContent.$refs.ripple.touchStartCheck(event)
+            this.rippleActive = event
             this.$listeners.touchstart && this.$listeners.touchstart(event)
           },
           touchmove: event => {
@@ -66,7 +76,7 @@
               return false
             }
 
-            this.$refs.buttonContent.$refs.ripple.touchMoveCheck(event)
+            this.rippleActive = event
             this.$listeners.touchmove && this.$listeners.touchmove(event)
           },
           touchend: event => {
@@ -74,7 +84,7 @@
               return false
             }
 
-            this.$refs.buttonContent.$refs.ripple.clearWave(event)
+            this.rippleActive = event
             this.$listeners.touchend && this.$listeners.touchend(event)
           },
           mousedown: event => {
@@ -82,7 +92,7 @@
               return false
             }
 
-            this.$refs.buttonContent.$refs.ripple.startRipple(event)
+            this.rippleActive = event
             this.$listeners.mousedown && this.$listeners.mousedown(event)
           },
           mouseup: event => {
@@ -90,7 +100,7 @@
               return false
             }
 
-            this.$refs.buttonContent.$refs.ripple.clearWave(event)
+            this.rippleActive = event
             this.$listeners.mouseup && this.$listeners.mouseup(event)
           }
         }
