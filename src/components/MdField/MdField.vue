@@ -75,7 +75,9 @@
         clear: false,
         file: false,
         dense: false,
-        variant: 'bottom-line'
+        variant: 'bottom-line',
+        chips: false,
+        typing: false
       }
     }),
     provide () {
@@ -106,6 +108,12 @@
         return this.stringValue && this.stringValue.length > 0
       },
       valueLength () {
+        let isArray = Array.isArray(this.MdField.value)
+
+        if(isArray) {
+          return this.MdField.value.length
+        }
+
         if (this.stringValue) {
           return this.stringValue.length
         }
@@ -131,7 +139,9 @@
           'md-has-password': this.MdField.password,
           'md-has-file': this.MdField.file,
           'md-has-select': this.MdField.select,
-          'md-autogrow': this.MdField.autogrow
+          'md-autogrow': this.MdField.autogrow,
+          'md-has-chips': this.MdField.chips,
+          'md-typing': this.MdField.typing
         }
       }
     },
