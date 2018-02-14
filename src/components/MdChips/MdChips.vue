@@ -22,8 +22,8 @@
       v-if="!isStatic && modelRespectLimit"
       :type="mdInputType"
       :disabled="disabled"
-      :readonly="readonly"
-      :placeholder="placeholder"
+      :readonly="readonly || mdStatic"
+      :placeholder="mdPlaceholder"
       @input="handleInput"
       @keydown.enter="insertChip"
       @keydown.8="handleBackRemove"
@@ -58,6 +58,8 @@
         ...MdPropValidator('md-input-type', ['email', 'number', 'password', 'search', 'tel', 'text', 'url'])
       },
       mdPlaceholder: [String, Number],
+      mdStatic: Boolean,
+      mdLimit: Number,
       mdCheckDuplicated: {
         type: Boolean,
         default: false
@@ -78,7 +80,7 @@
       },
 
       modelRespectLimit () {
-        return !this.maxlength || this.value.length < this.maxlength
+        return !this.mdLimit || this.value.length < this.mdLimit
       },
 
       formattedInputValue () {
@@ -97,7 +99,7 @@
       },
 
       isStatic () {
-        return this.disabled || this.readonly
+        return this.disabled || this.readonly || this.mdStatic
       }
     },
     methods: {
