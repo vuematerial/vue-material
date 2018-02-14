@@ -3,24 +3,23 @@
     :class="['md-ripple', rippleClasses]"
     @touchstart.passive.stop="touchStartCheck"
     @touchmove.passive.stop="touchMoveCheck"
-    @touchend.passive.stop="clearWave"
-    @mousedown.passive.stop="startRipple"
-    @mouseup.passive.stop="clearWave">
+    @mousedown.passive.stop="startRipple">
     <slot />
-
-    <transition-group name="md-ripple" v-if="!isDisabled">
-      <span v-for="(ripple, index) in ripples" :key="'ripple'+index" :class="['md-ripple-wave', waveClasses]" :style="ripple.waveStyles" />
-    </transition-group>
+    <md-wave v-for="ripple in ripples" :key="ripple.uuid" :class="['md-ripple-wave', waveClasses]" :style="ripple.waveStyles" @md-end="clearWave(ripple.uuid)" v-if="!isDisabled" />
   </div>
 </template>
 
 <script>
   import raf from 'raf'
   import MdComponent from 'core/MdComponent'
-  import debounce from 'core/utils/MdDebounce'
+  import uuid from 'core/utils/MdUuid'
+  import MdWave from './MdWave'
 
   export default new MdComponent({
     name: 'MdRipple',
+    components: {
+      MdWave
+    },
     props: {
       mdActive: null,
       mdDisabled: Boolean,
@@ -55,12 +54,11 @@
           this.startRipple({
             type: 'mousedown'
           })
-          this.$emit('update:mdActive', false)
         } else if (isEvent) {
           this.startRipple(active)
-          this.$emit('update:mdActive', false)
         }
-        this.clearWave()
+
+        this.$emit('update:mdActive', false)
       }
     },
     methods: {
@@ -88,8 +86,8 @@
 
             this.eventType = $event.type
             this.ripples.push({
-              animating: true,
-              waveStyles: this.applyStyles(position, size)
+              waveStyles: this.applyStyles(position, size),
+              uuid: uuid()
             })
           }
         })
@@ -103,9 +101,9 @@
           height: size
         }
       },
-      clearWave: debounce(function () {
-        this.ripples = []
-      }, 2000),
+      clearWave (uuid) {
+        uuid ? this.ripples = this.ripples.filter(ripple => ripple.uuid !== uuid) : this.ripples = []
+      },
       getSize () {
         const { offsetWidth, offsetHeight } = this.$el
 
@@ -168,19 +166,5 @@
       position: relative;
       z-index: 2;
     }
-  }
-
-  .md-ripple-enter-active {
-    transition: .8s $md-transition-stand-timing;
-    transition-property: opacity, transform;
-    will-change: opacity, transform;
-    &.md-centered {
-      transition-duration: 1.2s;
-    }
-  }
-
-  .md-ripple-enter {
-    opacity: .26;
-    transform: scale(.26) translateZ(0);
   }
 </style>
