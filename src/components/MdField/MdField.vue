@@ -77,7 +77,8 @@
         dense: false,
         variant: 'bottom-line',
         chips: false,
-        typing: false
+        typing: false,
+        native: false
       }
     }),
     provide () {
@@ -133,7 +134,7 @@
           'md-highlight': this.MdField.highlighted,
           'md-disabled': this.MdField.disabled,
           'md-required': this.MdField.required,
-          'md-has-value': this.hasValue,
+          'md-has-value': this.hasValue || this.MdField.native,
           'md-has-placeholder': this.MdField.placeholder,
           'md-has-textarea': this.MdField.textarea,
           'md-has-password': this.MdField.password,
@@ -386,7 +387,8 @@
         .md-input,
         .md-textarea,
         .md-file .md-input,
-        .md-autocomplete .md-input {
+        .md-autocomplete .md-input,
+        .md-date-input .md-input {
           padding-left: 36px;
         }
       }
@@ -649,7 +651,8 @@
         .md-input,
         .md-textarea,
         .md-file .md-input,
-        .md-autocomplete .md-input {
+        .md-autocomplete .md-input,
+        .md-date-input .md-input {
           padding-left: 32px;
         }
       }
@@ -781,7 +784,8 @@
         .md-input,
         .md-textarea,
         .md-file .md-input,
-        .md-autocomplete .md-input {
+        .md-autocomplete .md-input,
+        .md-date-input .md-input {
           padding-left: 56px;
         }
       }
@@ -1024,7 +1028,8 @@
         .md-input,
         .md-textarea,
         .md-file .md-input,
-        .md-autocomplete .md-input {
+        .md-autocomplete .md-input,
+        .md-date-input .md-input {
           padding-left: 50px;
         }
       }
@@ -1189,7 +1194,8 @@
         .md-input,
         .md-textarea,
         .md-file .md-input,
-        .md-autocomplete .md-input {
+        .md-autocomplete .md-input,
+        .md-date-input .md-input {
           padding-left: 56px;
         }
       }
@@ -1347,7 +1353,8 @@
         .md-input,
         .md-textarea,
         .md-file .md-input,
-        .md-autocomplete .md-input {
+        .md-autocomplete .md-input,
+        .md-date-input .md-input {
           padding-left: 48px;
         }
       }
