@@ -284,7 +284,7 @@
   }
 
   .md-field.md-field-bottom-line {
-    min-height: 44px;
+    min-height: 48px;
 
     &:before,
     &:after {
@@ -305,21 +305,21 @@
     }
 
     label {
-      top: 20px;
+      top: 22px;
       left: 0;
       font-size: 16px;
     }
 
     .md-input,
     .md-textarea, {
-      height: 44px;
+      height: 48px;
       padding: 12px 0 0;
       font-size: 16px;
       line-height: 32px;
     }
 
     .md-textarea {
-      min-height: 44px;
+      min-height: 48px;
       max-height: 230px;
       padding: 16px 0 8px;
       line-height: 1.3em;
@@ -463,7 +463,7 @@
     &.md-has-value {
       label {
         pointer-events: auto;
-        top: 0;
+        top: 2px;
         opacity: 1;
         font-size: 12px;
       }
@@ -579,21 +579,21 @@
 
   .md-field.md-field-bottom-line.md-dense {
     margin: 8px 0 24px;
-    min-height: 37px;
+    min-height: 40px;
 
     label {
-      top: 16px;
+      top: 18px;
       font-size: 13px;
     }
 
     .md-input,
     .md-textarea {
-      height: 25px;
-      padding: 4px 0 7px;
+      height: 40px;
+      padding: 18px 0 7px;
     }
 
     .md-textarea {
-      min-height: 25px;
+      min-height: 40px;
     }
 
     .md-helper-text,
@@ -603,27 +603,29 @@
     }
 
     > .md-input-action {
-      top: 12px;
+      bottom: 2px;
+      width: 24px;
+        min-width: 24px;
+        height: 24px;
 
       .md-icon {
-        font-size: 19.2px !important;
+        font-size: 18px !important;
       }
 
-      &,
       .md-icon,
       svg {
-        width: 19.2px;
-        min-width: 19.2px;
-        height: 19.2px;
+        width: 18px;
+        min-width: 18px;
+        height: 18px;
       }
     }
 
     > .md-icon {
-      top: 9px;
-      font-size: 19.2px !important;
-      width: 19.2px !important;
-      min-width: 19.2px;
-      height: 19.2px;
+      bottom: 1px;
+      font-size: 18px !important;
+      width: 18px !important;
+      min-width: 18px;
+      height: 18px;
 
       &:after {
         width: 32px;
@@ -668,7 +670,7 @@
     &.md-focused,
     &.md-has-value {
       label {
-        top: 0;
+        top: 2px;
         font-size: 12px;
       }
 
