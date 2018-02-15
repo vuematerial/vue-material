@@ -1,10 +1,10 @@
 <example src="./examples/SingleChip.vue" />
 <example src="./examples/Static.vue" />
 <example src="./examples/Editable.vue" />
-// <example src="./examples/ChipCustomTemplate.vue" />
-// <example src="./examples/DuplicatedFeedback.vue" />
-// <example src="./examples/Format.vue" />
-// <example src="./examples/Themed.vue" />
+<example src="./examples/ChipCustomTemplate.vue" />
+<example src="./examples/DuplicatedFeedback.vue" />
+<example src="./examples/Format.vue" />
+<example src="./examples/Themed.vue" />
 
 <template>
   <page-container centered :title="$t('pages.chips.title')">
