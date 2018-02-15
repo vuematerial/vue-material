@@ -1,6 +1,6 @@
 <template>
   <div>
-    <md-field md-clearable>
+    <md-field md-dense md-clearable>
       <label>Cleareable</label>
       <md-input v-model="initial"></md-input>
     </md-field>

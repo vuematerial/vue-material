@@ -1,9 +1,9 @@
 <example src="./examples/AutocompleteStatic.vue" />
-<example src="./examples/AutocompleteTrigger.vue" />
-<example src="./examples/AutocompleteSearch.vue" />
-<example src="./examples/AutocompleteBox.vue" />
-<example src="./examples/AutocompleteTemplate.vue" />
-<example src="./examples/AutocompleteAsync.vue" />
+// <example src="./examples/AutocompleteTrigger.vue" />
+// <example src="./examples/AutocompleteSearch.vue" />
+// <example src="./examples/AutocompleteBox.vue" />
+// <example src="./examples/AutocompleteTemplate.vue" />
+// <example src="./examples/AutocompleteAsync.vue" />
 
 <template>
   <page-container centered :title="$t('pages.autocomplete.title')">
@@ -188,26 +188,6 @@
               type: 'Boolean',
               description: 'Enable the dense layout for options',
               defaults: 'false'
-            },
-            {
-              name: 'md-layout',
-              type: 'String',
-              description: 'Sets the input layout. The floating variant is the default. See below the detailed description of each layout.',
-              defaults: 'floating'
-            },
-            {
-              offset: true,
-              name: 'md-layout="floating"',
-              type: 'String',
-              description: 'Sets the input layout to floating. This is the default.',
-              defaults: '-'
-            },
-            {
-              offset: true,
-              name: 'md-layout="box"',
-              type: 'String',
-              description: 'Sets the input layout to a boxed layout.',
-              defaults: '-'
             },
             {
               name: 'md-open-on-focus',

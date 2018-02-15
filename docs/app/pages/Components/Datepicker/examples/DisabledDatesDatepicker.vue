@@ -1,6 +1,9 @@
 <template>
   <div>
-    <md-datepicker v-model="selectedDate" :md-disabled-dates="disabledDates" />
+    <md-field>
+        <md-icon @click.native="toggleDialog">event</md-icon>
+        <md-date-input ref="input" v-model="selectedDate" :md-disabled-dates="disabledDates" />
+      </md-field>
   </div>
 </template>
 

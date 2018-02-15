@@ -1,22 +1,22 @@
 <template>
   <div>
-    <md-autocomplete v-model="value" :md-options="colors">
+    <md-field>
       <label>Color</label>
+      <md-autocomplete v-model="value" :md-options="colors">
+        <template slot="md-autocomplete-item" slot-scope="{ item, term }">
+          <span class="color" :style="`background-color: ${item.color}`"></span>
+          <md-highlight-text :md-term="term">{{ item.name }}</md-highlight-text>
+        </template>
 
-      <template slot="md-autocomplete-item" slot-scope="{ item, term }">
-        <span class="color" :style="`background-color: ${item.color}`"></span>
-        <md-highlight-text :md-term="term">{{ item.name }}</md-highlight-text>
-      </template>
-
-      <template slot="md-autocomplete-empty" slot-scope="{ term }">
-        No colors matching "{{ term }}" were found. <a @click="noop()">Create a new</a> one!
-      </template>
-
+        <template slot="md-autocomplete-empty" slot-scope="{ term }">
+          No colors matching "{{ term }}" were found. <a @click="noop()">Create a new</a> one!
+        </template>
+      </md-autocomplete>
       <div class="md-helper-text" v-if="value">
         <strong>Selected Color:</strong>
         <span class="color" :style="`background-color: ${value.color}`"></span>
       </div>
-    </md-autocomplete>
+    </md-field>
   </div>
 </template>
 

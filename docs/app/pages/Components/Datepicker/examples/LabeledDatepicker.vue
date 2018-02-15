@@ -1,8 +1,10 @@
 <template>
   <div>
-    <md-datepicker v-model="selectedDate">
+    <md-field>
+      <md-icon @click.native="toggleDialog">event</md-icon>
       <label>Select date</label>
-    </md-datepicker>
+      <md-date-input ref="input" v-model="selectedDate" />
+    </md-field>
   </div>
 </template>
 
@@ -11,6 +13,11 @@
     name: 'LabeledDatepicker',
     data: () => ({
       selectedDate: null
-    })
+    }),
+    methods: {
+      toggleDialog () {
+        this.$refs.input.toggleDialog()
+      }
+    }
   }
 </script>

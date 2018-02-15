@@ -28,10 +28,15 @@
       <p>Sometimes you may need to disable certain dates from being selected. Let's suppose that you only want to let user to select work days:</p>
       <code-example title="No weekends available" :component="examples['disabled-dates-datepicker']" />
 
+      <api-item title="API - md-date-input">
+        <p>All the following options can be applied to the md-date-input component:</p>
+
+        <api-table :headings="dateinput.props.headings" :props="dateinput.props.props" slot="props" />
+      </api-item>
       <api-item title="API - md-datepicker">
         <p>All the following options can be applied to the md-datepicker component:</p>
 
-        <api-table :headings="props.headings" :props="props.props" slot="props" />
+        <api-table :headings="datepicker.props.headings" :props="datepicker.props.props" slot="props" />
       </api-item>
     </div>
   </page-container>
@@ -44,34 +49,55 @@
     name: 'DocDatepicker',
     mixins: [examples],
     data: () => ({
-      props: {
-        headings: ['Name', 'Description', 'Default'],
-        props: [
-          {
-            name: 'v-model',
-            type: 'Date',
-            description: 'The model variable to bind the selected date',
-            defaults: 'null'
-          },
-          {
-            name: 'md-disabled-dates',
-            type: 'Array|Function',
-            description: 'The optional disabled dates. Can be either Array or Function. <br>- If <code>Array</code>, the Datepicker will disable all days inside. <br>- If <code>Function</code>, the Datepicker will pass the current day as a parameter of this function. If the return false, then the date will be disabled.',
-            defaults: 'null'
-          },
-          {
-            name: 'md-open-on-focus',
-            type: 'Boolean',
-            description: 'Disable the on focus event. Will open only if the user clicks on the icon.',
-            defaults: 'true'
-          },
-          {
-            name: 'md-override-native',
-            type: 'Boolean',
-            description: 'Override native browser pickers by changing type of input to text.',
-            defaults: 'true'
-          }
-        ]
+      dateinput: {
+        props: {
+          headings: ['Name', 'Description', 'Default'],
+          props: [
+            {
+              name: 'v-model',
+              type: 'Date',
+              description: 'The model variable to bind the selected date',
+              defaults: 'null'
+            },
+            {
+              name: 'md-disabled-dates',
+              type: 'Array|Function',
+              description: 'The optional disabled dates. Can be either Array or Function. <br>- If <code>Array</code>, the Datepicker will disable all days inside. <br>- If <code>Function</code>, the Datepicker will pass the current day as a parameter of this function. If the return false, then the date will be disabled.',
+              defaults: 'null'
+            },
+            {
+              name: 'md-open-on-focus',
+              type: 'Boolean',
+              description: 'Disable the on focus event. Will open only if the user clicks on the icon.',
+              defaults: 'true'
+            },
+            {
+              name: 'md-override-native',
+              type: 'Boolean',
+              description: 'Override native browser pickers by changing type of input to text.',
+              defaults: 'true'
+            }
+          ]
+        }
+      },
+      datepicker: {
+        props: {
+          headings: ['Name', 'Description', 'Default'],
+          props: [
+            {
+              name: 'v-model',
+              type: 'Date',
+              description: 'The model variable to bind the selected date',
+              defaults: 'null'
+            },
+            {
+              name: 'md-disabled-dates',
+              type: 'Array|Function',
+              description: 'The optional disabled dates. Can be either Array or Function. <br>- If <code>Array</code>, the Datepicker will disable all days inside. <br>- If <code>Function</code>, the Datepicker will pass the current day as a parameter of this function. If the return false, then the date will be disabled.',
+              defaults: 'null'
+            }
+          ]
+        }
       }
     })
   }

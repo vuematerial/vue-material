@@ -1,13 +1,15 @@
 <template>
   <div>
     <md-field>
+      <md-icon @click.native="openPicker('file1')">attach_file</md-icon>
       <label>Single</label>
-      <md-file v-model="single" />
+      <md-file ref="file1" v-model="single" />
     </md-field>
 
     <md-field>
       <label>Upload files</label>
-      <md-file v-model="placeholder" placeholder="A nice input placeholder" />
+      <md-file ref="file2" v-model="placeholder" placeholder="A nice input placeholder" />
+      <md-icon @click.native="openPicker('file2')">attach_file</md-icon>
     </md-field>
 
     <md-field>
@@ -41,6 +43,11 @@
       placeholder: null,
       disabled: null,
       multiple: null
-    })
+    }),
+    methods: {
+      openPicker (file) {
+        this.$refs[file].openPicker()
+      }
+    }
   }
 </script>

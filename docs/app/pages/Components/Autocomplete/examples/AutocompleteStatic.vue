@@ -1,12 +1,15 @@
 <template>
   <div>
-    <md-autocomplete v-model="selectedCountry" :md-options="countries">
+    <md-field md-clearable>
+      <md-icon>place</md-icon>
       <label>Country</label>
-    </md-autocomplete>
+      <md-autocomplete v-model="selectedCountry" :md-options="countries"></md-autocomplete>
+    </md-field>
 
-    <md-autocomplete v-model="selectedEmployee" :md-options="employees" md-dense>
+    <md-field md-dense>
       <label>Employees</label>
-    </md-autocomplete>
+      <md-autocomplete v-model="selectedEmployee" :md-options="employees" md-dense></md-autocomplete>
+    </md-field>
   </div>
 </template>
 

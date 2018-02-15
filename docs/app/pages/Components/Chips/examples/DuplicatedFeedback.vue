@@ -1,14 +1,22 @@
 <template>
   <div>
-    <md-chips class="md-primary" v-model="chips" md-placeholder="Add genre...">
+    <md-field md-variant="bottom-line">
+      <md-chips class="md-primary" v-model="chips" md-placeholder="Add genre..."></md-chips>
+
       <div class="md-helper-text">Default</div>
-    </md-chips>
-    <md-chips class="md-primary shake-on-error" v-model="chips" md-placeholder="Add genre...">
+    </md-field>
+
+    <md-field md-variant="bottom-line">
+      <md-chips class="md-primary shake-on-error" v-model="chips" md-placeholder="Add genre..."></md-chips>
+
       <div class="md-helper-text">Shake duplicated chip on insertion</div>
-    </md-chips>
-    <md-chips class="md-primary pulse-on-error" v-model="chips" md-placeholder="Add genre..." md-check-duplicated>
+    </md-field>
+
+    <md-field md-variant="bottom-line">
+      <md-chips class="md-primary pulse-on-error" v-model="chips" md-placeholder="Add genre..." md-check-duplicated></md-chips>
+
       <div class="md-helper-text">Always pulse duplicated chip</div>
-    </md-chips>
+    </md-field>
   </div>
 </template>
 

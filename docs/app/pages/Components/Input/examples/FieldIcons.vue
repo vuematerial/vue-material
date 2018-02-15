@@ -1,12 +1,12 @@
 <template>
   <div>
-    <md-field>
+    <md-field md-dense>
       <md-icon>event</md-icon>
       <label>Date</label>
       <md-input v-model="date"></md-input>
     </md-field>
 
-    <md-field>
+    <md-field md-dense>
       <label>Voice</label>
       <md-input v-model="voice"></md-input>
       <md-icon>keyboard_voice</md-icon>

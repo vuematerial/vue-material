@@ -1,10 +1,11 @@
 <template>
   <div>
-    <md-autocomplete v-model="value" :md-options="countries" @md-changed="getCountries" @md-opened="getCountries">
+    <md-field>
       <label>Country</label>
-
-      <template slot="md-autocomplete-item" slot-scope="{ item }">{{ item.name }}</template>
-    </md-autocomplete>
+      <md-autocomplete v-model="value" :md-options="countries" @md-changed="getCountries" @md-opened="getCountries">
+        <template slot="md-autocomplete-item" slot-scope="{ item }">{{ item.name }}</template>
+      </md-autocomplete>
+    </md-field>
   </div>
 </template>
 
