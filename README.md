@@ -95,7 +95,9 @@ Optionally import Roboto font from Google CDN:
 
 ## Questions
 
-The issue list is exclusively for bugs and feature requests. Use the [Slack Channel](https://vue-material.slack.com) instead. Follow this [invitation link](https://join.slack.com/t/vuematerial/shared_invite/MTgzMzU2NDQ5ODkwLTE0OTQ4MDI3MDAtNWYyZjhkNzEzMA).
+If you have any questions, ideas or you want to discuss with Vue Material community. Use the [Discord](https://discord.gg/rgcmTtm)
+
+Or you can use [Slack Channel](https://vue-material.slack.com). Follow this [invitation link for Slack](https://join.slack.com/t/vuematerial/shared_invite/MTgzMzU2NDQ5ODkwLTE0OTQ4MDI3MDAtNWYyZjhkNzEzMA).
 
 ## Contributing
 
