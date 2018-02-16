@@ -22,6 +22,10 @@
   <a href="https://www.npmjs.com/package/vue-material">
     <img src="https://img.shields.io/npm/l/vue-material.svg" alt="License">
   </a>
+  
+  <a href="https://discord.gg/rgcmTtm">
+    <img src="https://discordapp.com/api/guilds/379653048798281729/widget.png" alt="Chat">
+  </a>
 </p>
 
 Vue Material is Simple, lightweight and built exactly according to the Google <a href="http://material.google.com" target="_blank">Material Design</a> specs
