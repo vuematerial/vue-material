@@ -1,5 +1,4 @@
 import mountTemplate from 'test/utils/mountTemplate'
-import mockConsole from 'test/utils/mockConsole'
 import MdCard from '../MdCard.vue'
 import MdCardArea from './MdCardArea.vue'
 

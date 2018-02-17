@@ -1,5 +1,10 @@
 <!--
 
+Questions
+================
+If you have any questions, ideas or you want to discuss with Vue Material community. Use the Discord instead.
+Follow this link: https://discord.gg/rgcmTtm
+
 Reporting a bug?
 ================
 

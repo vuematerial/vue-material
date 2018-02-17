@@ -5,7 +5,7 @@
     props: {
       mdIndex: [String, Number],
       mdId: [String, Number],
-      mdItem: Object
+      mdItem: [Array, Object]
     },
     render () {
       this.$slots.default[0].componentOptions.propsData.mdIndex = this.mdIndex

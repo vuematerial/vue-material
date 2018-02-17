@@ -289,6 +289,9 @@
       this.$nextTick().then(() => {
         this.didMount = true
       })
+    },
+    updated () {
+      this.setFieldContent()
     }
   }
 </script>

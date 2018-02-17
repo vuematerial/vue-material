@@ -95,7 +95,9 @@
         }
       },
       showContent () {
-        this.$emit('update:mdExpanded', this.showContent)
+        let expanded = this.showContent
+        this.$emit('update:mdExpanded', expanded)
+        this.$nextTick(() => this.$emit(expanded ? 'md-expanded' : 'md-collapsed'))
       }
     },
     mounted () {

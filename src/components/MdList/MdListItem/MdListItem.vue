@@ -44,6 +44,10 @@
       return MdListItemExpand
     }
 
+    if (props.disabled) {
+      return MdListItemButton
+    }
+
     if (isRouterLink(parent, props)) {
       MdListItemRouter.props = MdRouterLinkProps(parent, {
         target: String
