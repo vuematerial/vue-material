@@ -727,7 +727,7 @@
       height: 56px;
       padding: 20px 16px 1px;
       margin-top: 0;
-      font-size: 1px;
+      font-size: 16px;
       line-height: 1.15;
 
       &[type="date"] {
