@@ -329,18 +329,16 @@
       border: 0;
     }
   }
-  .md-menu-content {
+  .md-menu-content.md-select-menu {
     z-index: 111;
-    &.md-select-menu {
-      width: 100%;
+    width: 100%;
 
-      &.md-menu-content-enter {
-        transform: translate3d(0, -8px, 0) scaleY(.3);
-      }
+    &.md-menu-content-enter {
+      transform: translate3d(0, -8px, 0) scaleY(.3);
+    }
 
-      .md-list {
-        transition: opacity .3s $md-transition-drop-timing;
-      }
+    .md-list {
+      transition: opacity .3s $md-transition-drop-timing;
     }
   }
 </style>
