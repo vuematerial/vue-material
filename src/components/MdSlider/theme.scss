@@ -19,11 +19,11 @@
     &:active::-ms-thumb {
       @include md-theme-property(background-color, primary);
     }
-    &.is-lowest-value:active::-moz-range-thumb {
-      @include md-theme-property(border-color, primary);
+    &:focus:not(:active)::-webkit-slider-thumb {
+      @include md-theme-property-value(box-shadow, 0 0 0 10px, primary, background, .26);
     }
-    &.is-lowest-value:active::-webkit-slider-thumb {
-      @include md-theme-property(border-color, primary);
+    &:focus:not(:active)::-moz-range-thumb {
+      @include md-theme-property-value(box-shadow, 0 0 0 10px, primary, background, .26);
     }
     @if md-get-theme-mode() == light {
       &.is-lowest-value::-webkit-slider-thumb {
@@ -31,6 +31,22 @@
       }
       &.is-lowest-value::-moz-range-thumb {
         border-color: rgba(#000, .26);
+      }
+
+      &.is-lowest-value:active::-moz-range-thumb {
+        border-color: rgba(#000, .26);
+        background-color: transparent;
+      }
+      &.is-lowest-value:active::-webkit-slider-thumb {
+        border-color: rgba(#000, .26);
+        background-color: transparent;
+      }
+
+      &.is-lowest-value:focus:not(:active)::-webkit-slider-thumb {
+        box-shadow: 0 0 0 10px rgba(#000, .12);
+      }
+      &.is-lowest-value:focus:not(:active)::-moz-range-thumb {
+        box-shadow: 0 0 0 10px rgba(#000, .12);
       }
 
       &.is-lowest-value:disabled:focus::-webkit-slider-thumb,
@@ -62,6 +78,24 @@
       }
       &.is-lowest-value::-moz-range-thumb {
         border-color: rgba(#fff, .30);
+      }
+
+      &.is-lowest-value:active::-moz-range-thumb {
+        border-color: rgba(#fff, .30);
+        background-color: transparent;
+      }
+      &.is-lowest-value:active::-webkit-slider-thumb {
+        border-color: rgba(#fff, .30);
+        background-color: transparent;
+      }
+
+      &.is-lowest-value:focus:not(:active)::-webkit-slider-thumb {
+        box-shadow: 0 0 0 10px rgba(#fff, .12);
+        background-color: rgba(#fff, .12);
+      }
+      &.is-lowest-value:focus:not(:active)::-moz-range-thumb {
+        box-shadow: 0 0 0 10px rgba(#fff, .12);
+        background-color: rgba(#fff, .12);
       }
 
       &.is-lowest-value:disabled:focus::-webkit-slider-thumb,
