@@ -79,14 +79,6 @@
             this.rippleActive = event
             this.$listeners.touchmove && this.$listeners.touchmove(event)
           },
-          touchend: event => {
-            if (!this.rippleWorks) {
-              return false
-            }
-
-            this.rippleActive = event
-            this.$listeners.touchend && this.$listeners.touchend(event)
-          },
           mousedown: event => {
             if (!this.rippleWorks) {
               return false
@@ -94,14 +86,6 @@
 
             this.rippleActive = event
             this.$listeners.mousedown && this.$listeners.mousedown(event)
-          },
-          mouseup: event => {
-            if (!this.rippleWorks) {
-              return false
-            }
-
-            this.rippleActive = event
-            this.$listeners.mouseup && this.$listeners.mouseup(event)
           }
         }
       }
