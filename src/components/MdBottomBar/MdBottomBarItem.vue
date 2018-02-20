@@ -5,7 +5,7 @@
     :id="id"
     :disabled="mdDisabled"
     :md-ripple="MdBottomBar.type === 'fixed'"
-    v-bind="$attrs"
+    v-bind="attrs"
     v-on="$listeners"
     @click="setActiveItem">
     <slot v-if="$slots.default"></slot>
@@ -58,6 +58,18 @@
         return {
           'md-active': this.id === this.MdBottomBar.activeItem
         }
+      },
+      attrs () {
+        let attrs = {...this.$attrs}
+
+        const propNames = Object.keys(this.$options.propsData)
+        propNames.forEach(prop => {
+          if (!ignoredProps.includes(prop)) {
+            attrs[prop] = this[prop]
+          }
+        })
+
+        return attrs
       }
     },
     methods: {
@@ -99,14 +111,7 @@
     beforeCreate () {
       if (this.$router && this.$options.propsData.to) {
         const componentProps = MdRouterLinkProps(this, this.$options.props)
-        const propNames = Object.keys(this.$options.propsData)
-
         this.$options.props = componentProps
-        propNames.forEach(prop => {
-          if (!ignoredProps.includes(prop)) {
-            this.$attrs[prop] = this.$options.propsData[prop]
-          }
-        })
       }
     },
     created () {
