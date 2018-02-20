@@ -90,8 +90,8 @@
       mdCard: Boolean,
       mdFixedHeader: Boolean,
       mdHeight: {
-        type: String,
-        default: '400px'
+        type: [Number, String],
+        default: 400
       },
       mdSort: String,
       mdSortOrder: {
@@ -180,7 +180,10 @@
       },
       contentStyles () {
         if (this.mdFixedHeader) {
-          return `height: ${this.mdHeight};max-height: ${this.mdHeight}`
+          const height = typeof this.mdHeight === 'number'
+            ? `${this.mdHeight}px`
+            : this.mdHeight
+          return `height: ${height};max-height: ${height}`
         }
       },
       contentClasses () {
