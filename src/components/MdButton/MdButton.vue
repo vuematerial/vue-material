@@ -7,6 +7,11 @@
 
   export default new MdComponent({
     name: 'MdButton',
+    data () {
+      return {
+        rippleActive: false
+      }
+    },
     components: {
       MdButtonContent
     },
@@ -23,11 +28,22 @@
       disabled: Boolean,
       to: null
     },
+    computed: {
+      rippleWorks () {
+        return this.mdRipple && !this.disabled
+      }
+    },
     render (createElement) {
       const buttonContent = createElement('md-button-content', {
         attrs: {
           mdRipple: this.mdRipple,
           disabled: this.disabled
+        },
+        props: {
+          mdRippleActive: this.rippleActive
+        },
+        on: {
+          'update:mdRippleActive': active => this.rippleActive = active,
         }
       }, this.$slots.default)
       let buttonAttrs = {
@@ -45,7 +61,33 @@
           disabled: this.disabled,
           type: !this.href && (this.type || 'button')
         },
-        on: this.$listeners
+        on: {
+          ...this.$listeners,
+          touchstart: event => {
+            if (!this.rippleWorks) {
+              return false
+            }
+
+            this.rippleActive = event
+            this.$listeners.touchstart && this.$listeners.touchstart(event)
+          },
+          touchmove: event => {
+            if (!this.rippleWorks) {
+              return false
+            }
+
+            this.rippleActive = event
+            this.$listeners.touchmove && this.$listeners.touchmove(event)
+          },
+          mousedown: event => {
+            if (!this.rippleWorks) {
+              return false
+            }
+
+            this.rippleActive = event
+            this.$listeners.mousedown && this.$listeners.mousedown(event)
+          }
+        }
       }
       let tag = 'button'
 
