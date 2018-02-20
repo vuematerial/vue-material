@@ -24,6 +24,7 @@
   import MdClearIcon from 'core/icons/MdClearIcon'
   import MdPasswordOffIcon from 'core/icons/MdPasswordOffIcon'
   import MdPasswordOnIcon from 'core/icons/MdPasswordOnIcon'
+  import MdPropValidator from 'core/utils/MdPropValidator'
 
   export default new MdComponent({
     name: 'MdField',
@@ -34,6 +35,16 @@
     },
     props: {
       mdInline: Boolean,
+      mdNested: Boolean,
+      mdLayout: {
+        type: String,
+        default: 'normal',
+        ...MdPropValidator('md-layout', [
+          'normal',
+          'box',
+          'raised'
+        ])
+      },
       mdClearable: Boolean,
       mdCounter: {
         type: Boolean,
@@ -69,6 +80,12 @@
       }
     },
     computed: {
+      isBoxLayout () {
+        return this.mdLayout === 'box'
+      },
+      isRaisedLayout () {
+        return this.mdLayout === 'raised'
+      },
       stringValue () {
         return (this.MdField.value || this.MdField.value === 0) && this.MdField.value.toString()
       },
@@ -90,7 +107,10 @@
       },
       fieldClasses () {
         return {
-          'md-inline': this.mdInline,
+          'md-raised': this.isRaisedLayout,
+          'md-box': this.isBoxLayout,
+          'md-inline': this.mdInline || this.isRaisedLayout || this.mdNested,
+          'md-app-bar-nested': this.mdNested,
           'md-clearable': this.mdClearable,
           'md-focused': this.MdField.focused,
           'md-highlight': this.MdField.highlighted,
@@ -125,6 +145,8 @@
 
 <style lang="scss">
   @import "~components/MdAnimation/variables";
+  @import "~components/MdElevation/mixins";
+  @import "~components/MdLayout/mixins";
 
   $md-input-height: 32px;
 
@@ -423,6 +445,27 @@
       }
     }
 
+    .md-toolbar &.md-app-bar-nested {
+      min-height: 40px;
+      height: 40px;
+      margin: 0;
+      padding-top: 6px;
+
+      label {
+          top: 13px;
+      }
+
+      > .md-icon {
+        &:after {
+          display: none;
+        }
+      }
+
+      .md-input-action {
+        top: 6px;
+      }
+    }
+
     &.md-disabled {
       &:after {
         background: bottom left repeat-x;
@@ -497,6 +540,328 @@
         content: "*";
         line-height: 1em;
         vertical-align: top;
+      }
+    }
+  }
+
+  .md-field {
+    &.md-box {
+      border-radius: 4px;
+      min-height: 56px;
+      padding-top: 23px;
+
+      &:before,
+      &:after{
+        border-radius: 0 0 4px 4px;
+      }
+
+      &:after {
+        height: 2px;
+      }
+
+      .md-input,
+      .md-textarea {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      label {
+        left: 16px;
+        top: 18px;
+        margin-right: 16px;
+      }
+
+      .md-helper-text,
+      .md-error {
+        left: 16px;
+        padding-right: 16px;
+      }
+
+      .md-count {
+        right: 16px;
+      }
+
+      .md-input-action {
+        right: 8px;
+      }
+
+      > .md-icon {
+        margin-left: 16px;
+        margin-right: 16px;
+        margin-top: -8px;
+
+        &:after {
+          display: none;
+        }
+
+        ~ {
+          label {
+            left: 56px;
+          }
+
+          .md-input,
+          .md-textarea,
+          .md-file {
+            padding-left: 0px;
+            margin-left: 0px;
+          }
+        }
+      }
+
+      .md-input,
+      .md-file {
+        ~ {
+          .md-icon {
+            margin-left: 0px;
+          }
+        }
+      }
+
+      &.md-has-file {
+        &:before,
+        &:after{
+          left: 0px;
+        }
+
+        label {
+          left: 56px;
+        }
+
+        .md-input {
+          margin-left: 0px;
+        }
+
+        .md-file .md-icon {
+          margin-top: -8px;
+          margin-left: 16px;
+        }
+      }
+
+      .md-textarea{
+        ~ {
+          .md-icon {
+            margin-top: 4px;
+            margin-right: 10px;
+          }
+        }
+      }
+
+      &.md-disabled {
+        &:after {
+          display: none;
+        }
+      }
+
+      &.md-focused,
+      &.md-has-value {
+        label {
+          top: 6px;
+          opacity: 1;
+        }
+      }
+
+      &.md-has-placeholder {
+        padding-top: 12px;
+        transition: padding-top .3s $md-transition-default-timing;
+        will-change: padding;
+
+        label {
+          top: 6px;
+          font-size: 12px;
+        }
+
+        .md-input {
+          font-size: 16px;
+        }
+
+        &:not(.md-inline) {
+          &.md-focused,
+          &.md-has-value {
+            padding-top: 23px;
+          }
+        }
+      }
+
+      &.md-inline {
+        padding-top: 12px;
+
+        &.md-focused {
+          label {
+            top: 18px;
+          }
+        }
+
+        &.md-has-placeholder,
+        &.md-has-value {
+          label {
+            opacity: 0;
+          }
+        }
+      }
+
+      .md-toolbar &.md-app-bar-nested {
+        min-height: 40px;
+        height: 40px;
+        margin: 0;
+        padding-top: 4px;
+
+        label {
+            top: 10px;
+        }
+
+        > .md-icon {
+          margin-top: 4px;
+        }
+
+        .md-input-action {
+          top: 4px;
+        }
+      }
+    }
+
+    &.md-raised {
+      @include md-elevation(2);
+      padding-top: 2px;
+      border-radius: 2px;
+      align-items: center;
+
+      &.md-focused {
+        z-index: 120;
+      }
+
+      &:before,
+      &:after {
+        display: none;
+      }
+
+      .md-input,
+      &.md-autogrow .md-textarea {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .md-helper-text,
+      .md-error {
+        left: 16px;
+        padding-right: 16px;
+      }
+
+      .md-count {
+        right: 16px;
+      }
+
+      &.md-focused label,
+      label,
+      .md-input-action {
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .md-input-action {
+        right: 8px;
+      }
+
+      &.md-focused label,
+      label {
+        margin-top: 2px;
+        left: 16px;
+      }
+
+      > .md-icon {
+        margin-left: 16px;
+        margin-right: 16px;
+
+        &:after {
+          display: none;
+        }
+
+        ~ {
+          label {
+            left: 56px;
+          }
+
+          .md-input,
+          .md-textarea,
+          .md-file {
+            padding-left: 0px;
+            margin-left: 0px;
+          }
+        }
+      }
+
+      .md-input,
+      .md-file {
+        ~ {
+          .md-icon {
+            margin-left: 0px;
+          }
+        }
+      }
+
+      &.md-has-file {
+        .md-input {
+          margin-left: 0px;
+        }
+
+        .md-file .md-icon {
+          margin-left: 16px;
+        }
+      }
+
+      .md-textarea{
+        ~ {
+          .md-icon {
+            margin-right: 10px;
+          }
+        }
+      }
+
+      &.md-disabled {
+        @include md-elevation(1);
+      }
+
+      &.md-has-placeholder {
+        label {
+          display: none;
+        }
+
+        .md-input {
+          font-size: 16px;
+        }
+      }
+
+      &.md-has-textarea:not(.md-autogrow) {
+        &.md-focused label,
+        label {
+          font-size: 16px;
+          line-height: 1.3em;
+          top: 20px;
+          left: 16px;
+        }
+
+        &.md-has-value {
+          label {
+            opacity: 0;
+          }
+        }
+      }
+
+      .md-toolbar &.md-app-bar-nested {
+        min-height: 40px;
+        height: 40px;
+        margin: 0;
+        box-shadow: none;
+        padding-top: 0;
+
+        label {
+          top: 20px;
+          margin-top: 0;
+        }
+
+        .md-input-action {
+          top: 50%;
+          transform: translateY(-50%);
+        }
       }
     }
   }

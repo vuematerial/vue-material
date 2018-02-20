@@ -51,6 +51,10 @@
           color: rgba(#000, .42);
         }
       }
+
+      &.md-box {
+        background-color: rgba(#000, .06);
+      }
     } @else {
       &:after {
         background-color: rgba(#fff, .7);
@@ -101,6 +105,10 @@
         .md-textarea {
           color: rgba(#fff, .5);
         }
+      }
+
+      &.md-box {
+        background-color: rgba(#fff, .10);
       }
     }
 
@@ -158,6 +166,68 @@
     &.md-disabled {
       .md-icon svg {
         @include md-theme-property(fill, disabled, background);
+      }
+    }
+
+    .md-toolbar &.md-app-bar-nested {
+      &:after {
+        @include md-theme-property(background-color, text-primary, primary, .42);
+      }
+
+      &:before {
+        @include md-theme-property(background-color, text-primary, primary);
+      }
+
+      label {
+        @include md-theme-property(color, text-primary, primary, .54);
+      }
+
+      input,
+      textarea {
+        @include md-theme-property(color, text-primary, primary);
+        @include md-theme-property(-webkit-text-fill-color, text-primary, primary);
+      }
+
+      svg {
+        @include md-theme-property(fill, text-primary, primary);
+      }
+    }
+
+    .md-toolbar &.md-app-bar-nested.md-raised {
+      @include md-theme-property(background-color, background, "", .12);
+
+      label {
+        @include md-theme-property(color, text-primary, primary, .54);
+        @include md-theme-property(-webkit-text-fill-color, text-primary, primary, .54);
+      }
+
+      input {
+        @include md-theme-property(color, text-primary, primary);
+        @include md-theme-property(-webkit-text-fill-color, text-primary, primary);
+      }
+
+      svg {
+        @include md-theme-property(fill, text-primary, primary);
+      }
+
+      &.md-focused {
+        @include md-theme-property(background-color, background);
+
+        .md-icon,
+        label {
+          @include md-theme-property(color, text-primary, background, .54);
+          @include md-theme-property(-webkit-text-fill-color, text-primary, background, .54);
+        }
+
+        input {
+          @include md-theme-property(color, text-primary, background, .87);
+          @include md-theme-property(-webkit-text-fill-color, text-primary, background, .87);
+        }
+
+        svg {
+          @include md-theme-property(fill, text-primary, background, .54);
+        }
+
       }
     }
   }
