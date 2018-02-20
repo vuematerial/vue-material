@@ -370,6 +370,7 @@
       left: 50% !important;
       transform: translate3D(-50%, -50%, 0);
       transform-origin: center center;
+      position: fixed !important;
     }
   }
 
