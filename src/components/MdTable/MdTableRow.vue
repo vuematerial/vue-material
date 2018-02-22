@@ -24,7 +24,8 @@
       mdId: [Number, String],
       mdSelectable: {
         type: [String],
-        ...MdPropValidator('md-selectable', ['multiple', 'single'])
+        ...MdPropValidator('md-selectable', ['multiple', 'single']),
+        default: 'single'
       },
       mdDisabled: Boolean,
       mdAutoSelect: Boolean,
