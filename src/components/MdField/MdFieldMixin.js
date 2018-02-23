@@ -116,9 +116,17 @@ export default {
     },
     onFocus () {
       this.MdField.focused = true
+      this.$emit('focus')
     },
     onBlur () {
       this.MdField.focused = false
+      this.$emit('blur')
+    },
+    onKeyup (event) {
+      this.$emit('keyup', event)
+    },
+    onKeydown (event) {
+      this.$emit('keydown', event)
     }
   },
   created () {
