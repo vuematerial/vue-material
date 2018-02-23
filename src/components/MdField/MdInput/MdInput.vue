@@ -5,7 +5,9 @@
     v-bind="attributes"
     v-on="listeners"
     @focus="onFocus"
-    @blur="onBlur">
+    @blur="onBlur"
+    @keyup="onKeyup"
+    @keydown="onKeydown">
 </template>
 
 <script>
