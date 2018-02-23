@@ -1,8 +1,10 @@
 <template>
   <div>
-    <md-datepicker v-model="selectedDate">
+    <md-field>
+      <md-icon md-datepicker-trigger>event</md-icon>
       <label>Select date</label>
-    </md-datepicker>
+      <md-datepicker ref="input" v-model="selectedDate" />
+    </md-field>
   </div>
 </template>
 
