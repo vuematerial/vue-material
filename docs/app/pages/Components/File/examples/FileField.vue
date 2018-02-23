@@ -1,6 +1,7 @@
 <template>
   <div>
     <md-field>
+      <md-icon md-file-trigger>attach_file</md-icon>
       <label>Single</label>
       <md-file v-model="single" />
     </md-field>
@@ -8,6 +9,7 @@
     <md-field>
       <label>Upload files</label>
       <md-file v-model="placeholder" placeholder="A nice input placeholder" />
+      <md-icon md-file-trigger>attach_file</md-icon>
     </md-field>
 
     <md-field>
