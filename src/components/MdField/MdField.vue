@@ -297,6 +297,7 @@
       }
     }
 
+    [md-file-trigger],
     [md-datepicker-trigger] {
       cursor: pointer;
     }
