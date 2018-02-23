@@ -76,6 +76,8 @@
         dense: false,
         chips: false,
         typing: false,
+        date: false,
+        native: false,
         variant: 'bottom-line',
         $el: null
       }
@@ -141,6 +143,8 @@
           'md-has-select': this.MdField.select,
           'md-has-chips': this.MdField.chips,
           'md-typing': this.MdField.typing,
+          'md-has-date': this.MdField.date,
+          'md-native': this.MdField.native,
           'md-autogrow': this.MdField.autogrow
         }
       }
@@ -292,6 +296,10 @@
         vertical-align: top;
       }
     }
+
+    [md-datepicker-trigger] {
+      cursor: pointer;
+    }
   }
 
   .md-field.md-field-bottom-line {
@@ -387,7 +395,8 @@
         .md-input,
         .md-textarea,
         .md-file .md-input,
-        .md-autocomplete .md-input {
+        .md-autocomplete .md-input,
+        .md-date-input .md-input {
           padding-left: 36px;
         }
       }
@@ -470,6 +479,7 @@
       }
     }
 
+    &.md-has-date.md-native,
     &.md-focused,
     &.md-has-value {
       label {
@@ -570,6 +580,7 @@
         }
       }
 
+      &.md-has-date.md-native,
       &.md-has-value {
         label {
           opacity: 0;
@@ -651,7 +662,8 @@
         .md-input,
         .md-textarea,
         .md-file .md-input,
-        .md-autocomplete .md-input {
+        .md-autocomplete .md-input,
+        .md-date-input .md-input {
           padding-left: 32px;
         }
       }
@@ -679,6 +691,7 @@
       }
     }
 
+    &.md-has-date.md-native,
     &.md-focused,
     &.md-has-value {
       label {
@@ -783,7 +796,8 @@
         .md-input,
         .md-textarea,
         .md-file .md-input,
-        .md-autocomplete .md-input {
+        .md-autocomplete .md-input,
+        .md-date-input .md-input {
           padding-left: 56px;
         }
       }
@@ -841,6 +855,7 @@
       }
     }
 
+    &.md-has-date.md-native,
     &.md-focused,
     &.md-has-value {
       label {
@@ -944,6 +959,7 @@
         }
       }
 
+      &.md-has-date.md-native,
       &.md-has-value {
         label {
           opacity: 0;
@@ -1026,7 +1042,8 @@
         .md-input,
         .md-textarea,
         .md-file .md-input,
-        .md-autocomplete .md-input {
+        .md-autocomplete .md-input,
+        .md-date-input .md-input {
           padding-left: 50px;
         }
       }
@@ -1061,6 +1078,7 @@
       }
     }
 
+    &.md-has-date.md-native,
     &.md-focused,
     &.md-has-value {
       label {
@@ -1100,6 +1118,12 @@
         label {
           top: 17px;
           font-size: 13px;
+        }
+      }
+
+      &.md-has-date.md-native {
+        label {
+          opacity: 0;
         }
       }
     }
@@ -1191,7 +1215,8 @@
         .md-input,
         .md-textarea,
         .md-file .md-input,
-        .md-autocomplete .md-input {
+        .md-autocomplete .md-input,
+        .md-date-input .md-input {
           padding-left: 56px;
         }
       }
@@ -1230,6 +1255,7 @@
       }
     }
 
+    &.md-has-date.md-native,
     &.md-has-value {
       label {
         opacity: 0;
@@ -1349,7 +1375,8 @@
         .md-input,
         .md-textarea,
         .md-file .md-input,
-        .md-autocomplete .md-input {
+        .md-autocomplete .md-input,
+        .md-date-input .md-input {
           padding-left: 48px;
         }
       }
