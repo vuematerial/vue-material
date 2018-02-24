@@ -231,12 +231,8 @@
         const body = document.body
         const { top, left } = body.getBoundingClientRect()
 
-        const scrollLeft = (window.pageXOffset !== undefined) ? 
-          window.pageXOffset :
-          (document.documentElement || document.body.parentNode || document.body).scrollLeft
-        const scrollTop = (window.pageYOffset !== undefined) ?
-          window.pageYOffset :
-          (document.documentElement || document.body.parentNode || document.body).scrollTop
+        const scrollLeft = window.pageXOffset !== undefined ? window.pageXOffset : body.scrollLeft
+        const scrollTop = window.pageYOffset !== undefined ? window.pageYOffset : body.scrollTop
 
         return { x: left + scrollLeft, y: top + scrollTop }
       }
