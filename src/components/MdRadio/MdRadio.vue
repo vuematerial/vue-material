@@ -2,7 +2,7 @@
   <div class="md-radio" :class="[$mdActiveTheme, radioClasses]">
     <div class="md-radio-container" @click.stop="toggleCheck">
       <md-ripple md-centered :md-active.sync="rippleActive" :md-disabled="disabled">
-        <input type="radio" v-bind="{ id, name, disabled, required, value }">
+        <input type="radio" :checked="isSelected" v-bind="{ id, name, disabled, required, value }">
       </md-ripple>
     </div>
 
@@ -139,7 +139,9 @@
 
       input {
         position: absolute;
-        left: -999em;
+        left: ($md-radio-touch-size - $md-radio-size) / 2;
+        top: ($md-radio-touch-size - $md-radio-size) / 2;
+        opacity: 0;
       }
     }
 
@@ -161,15 +163,4 @@
     }
   }
 
-  .md-radio.md-required {
-    label:after {
-      position: absolute;
-      top: 2px;
-      right: 0;
-      transform: translateX(calc(100% + 2px));
-      content: "*";
-      line-height: 1em;
-      vertical-align: top;
-    }
-  }
 </style>
