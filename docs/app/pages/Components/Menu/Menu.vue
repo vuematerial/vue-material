@@ -175,20 +175,20 @@
         ]
       },
       events: {
-          headings: ['Name', 'Description', 'Value'],
-          props: [
-            {
-              name: 'md-opened',
-              description: 'Triggered when menu opens',
-              value: 'null'
-            },
-            {
-              name: 'md-closed',
-              description: 'Triggered when menu closes',
-              value: 'null'
-            }
-          ]
-        }      
+        headings: ['Name', 'Description', 'Value'],
+        props: [
+          {
+            name: 'md-opened',
+            description: 'Triggered when menu opens',
+            value: 'null'
+          },
+          {
+            name: 'md-closed',
+            description: 'Triggered when menu closes',
+            value: 'null'
+          }
+        ]
+      }      
     })
   }
 </script>
