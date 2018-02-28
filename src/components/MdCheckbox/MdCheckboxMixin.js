@@ -7,7 +7,7 @@ export default {
   props: {
     model: [String, Boolean, Object, Number, Array],
     value: {
-      type: [String, Boolean, Object, Number, Array],
+      type: [String, Boolean, Object, Number],
       default: 'on'
     },
     name: [String, Number],
