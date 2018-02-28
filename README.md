@@ -22,6 +22,10 @@
   <a href="https://www.npmjs.com/package/vue-material">
     <img src="https://img.shields.io/npm/l/vue-material.svg" alt="License">
   </a>
+  
+  <a href="https://discord.gg/rgcmTtm">
+    <img src="https://discordapp.com/api/guilds/379653048798281729/widget.png" alt="Chat">
+  </a>
 </p>
 
 Vue Material is Simple, lightweight and built exactly according to the Google <a href="http://material.google.com" target="_blank">Material Design</a> specs
@@ -95,7 +99,9 @@ Optionally import Roboto font from Google CDN:
 
 ## Questions
 
-The issue list is exclusively for bugs and feature requests. Use the [Slack Channel](https://vue-material.slack.com) instead. Follow this [invitation link](https://join.slack.com/t/vuematerial/shared_invite/MTgzMzU2NDQ5ODkwLTE0OTQ4MDI3MDAtNWYyZjhkNzEzMA).
+If you have any questions, ideas or you want to discuss with Vue Material community. Use the [Discord](https://discord.gg/rgcmTtm)
+
+Or you can use [Slack Channel](https://vue-material.slack.com). Follow this [invitation link for Slack](https://join.slack.com/t/vuematerial/shared_invite/MTgzMzU2NDQ5ODkwLTE0OTQ4MDI3MDAtNWYyZjhkNzEzMA).
 
 ## Contributing
 
