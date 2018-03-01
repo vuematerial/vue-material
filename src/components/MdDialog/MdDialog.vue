@@ -79,7 +79,7 @@
         if (this.mdClickOutsideToClose) {
           this.closeDialog()
         }
-        this.$emit('mdClickOutside');
+        this.$emit('md-clicked-outside');
       },
       onEsc () {
         if (this.mdCloseOnEsc) {
