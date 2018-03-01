@@ -122,6 +122,11 @@
                 name: 'md-closed',
                 description: 'Triggered when a dialog closes',
                 value: 'null'
+              },
+              {
+                name: 'md-clicked-outside',
+                description: 'Triggered when user clicks outside',
+                value: 'null'
               }
             ]
           }
