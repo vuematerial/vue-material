@@ -23,9 +23,9 @@
       MdRipple
     },
     props: {
-      model: [String, Number, Boolean],
+      model: [String, Number, Boolean, Object],
       value: {
-        type: [String, Number, Boolean],
+        type: [String, Number, Boolean, Object],
         default: 'on'
       },
       id: {
