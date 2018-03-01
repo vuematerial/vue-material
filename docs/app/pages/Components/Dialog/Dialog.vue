@@ -125,7 +125,7 @@
               },
               {
                 name: 'md-clicked-outside',
-                description: 'Triggered when user clicks outside',
+                description: 'Triggered when clicked outside',
                 value: 'null'
               }
             ]
