@@ -12,49 +12,7 @@
   }
 }
 
-.md-autocomplete {
-  @include md-theme-component() {
-    &.md-autocomplete-box {
-      @include md-theme-property(background-color, background);
-
-      &.md-focused {
-        label {
-          @include md-theme-property(color, text-hint, background);
-        }
-      }
-
-      .md-toolbar & {
-        @include md-theme-property(background-color, background, "", .12);
-
-        label,
-        input {
-          @include md-theme-property(color, text-primary, primary);
-          @include md-theme-property(-webkit-text-fill-color, text-primary, primary);
-        }
-
-        svg {
-          @include md-theme-property(fill, text-primary, primary);
-        }
-
-        &.md-focused {
-          @include md-theme-property(background-color, background);
-
-          label,
-          input {
-            @include md-theme-property(color, text-hint, background);
-            @include md-theme-property(-webkit-text-fill-color, text-hint, background);
-          }
-
-          svg {
-            @include md-theme-property(fill, text-hint, background);
-          }
-        }
-      }
-    }
-  }
-}
-
-.md-autocomplete-box-content {
+.md-autocomplete-raised-content {
   @include md-theme-component() {
     &:after {
       @include md-theme-property(background-color, background);

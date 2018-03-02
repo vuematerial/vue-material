@@ -1,6 +1,10 @@
 <template>
   <div>
-    <md-datepicker v-model="selectedDate" />
+    <md-field>
+      <md-icon md-datepicker-trigger>event</md-icon>
+      <md-datepicker ref="input" v-model="selectedDate" />
+    </md-field>
+
     <md-field>
       <label for="movie">First day of a week</label>
       <md-select v-model="firstDayOfAWeek">

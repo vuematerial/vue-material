@@ -1,6 +1,5 @@
 <template>
-  <md-field class="md-autocomplete" :class="fieldClasses" md-clearable :md-inline="isBoxLayout">
-    <md-menu md-direction="bottom-start" :md-dense="mdDense" md-align-trigger md-full-width :md-active.sync="showMenu">
+  <md-menu class="md-autocomplete" md-direction="bottom-start" :md-dense="mdDense" md-align-trigger md-full-width :md-active.sync="showMenu">
       <md-input
         v-model="searchTerm"
         v-bind="$attrs"
@@ -32,9 +31,6 @@
         </md-menu-item>
       </md-menu-content>
     </md-menu>
-
-    <slot />
-  </md-field>
 </template>
 
 <script>
@@ -44,20 +40,13 @@
 
   export default {
     name: 'MdAutocomplete',
+    inject: ['MdField'],
     props: {
       value: {
         type: null,
         required: true
       },
       mdDense: Boolean,
-      mdLayout: {
-        type: String,
-        default: 'floating',
-        ...MdPropValidator('md-layout', [
-          'floating',
-          'box'
-        ])
-      },
       mdOpenOnFocus: {
         type: Boolean,
         default: true
@@ -85,17 +74,9 @@
       }
     },
     computed: {
-      isBoxLayout () {
-        return this.mdLayout === 'box'
-      },
-      fieldClasses () {
-        if (this.isBoxLayout) {
-          return 'md-autocomplete-box'
-        }
-      },
       contentClasses () {
-        if (this.isBoxLayout) {
-          return 'md-autocomplete-box-content'
+        if (this.MdField.variant == "raised") {
+          return 'md-autocomplete-raised-content'
         }
       },
       shouldFilter () {
@@ -236,7 +217,7 @@
   @import "~components/MdLayout/mixins";
 
   .md-autocomplete {
-    .md-menu {
+    &.md-menu {
       width: 100%;
       display: flex;
     }
@@ -254,54 +235,7 @@
     z-index: 100;
   }
 
-  .md-field.md-inline.md-autocomplete-box {
-    @include md-elevation(2);
-    padding-top: 2px;
-    border-radius: 2px;
-
-    &.md-focused {
-      z-index: 120;
-    }
-
-    &:before,
-    &:after {
-      display: none;
-    }
-
-    .md-toolbar & {
-      min-height: 40px;
-      height: 40px;
-      margin: 0;
-      box-shadow: none;
-    }
-
-    .md-menu {
-      align-items: center;
-    }
-
-    .md-input {
-      padding-left: 16px;
-    }
-
-    &.md-focused label,
-    label,
-    .md-input-action {
-      top: 50%;
-      transform: translateY(-50%);
-    }
-
-    .md-input-action {
-      right: 8px;
-    }
-
-    &.md-focused label,
-    label {
-      margin-top: 2px;
-      left: 16px;
-    }
-  }
-
-  .md-autocomplete-box-content:after {
+  .md-autocomplete-raised-content:after {
     height: 6px;
     position: absolute;
     top: -6px;
