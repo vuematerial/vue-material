@@ -1,3 +1,17 @@
+@function md-field-raised-backround-opacity($background) {
+  $color-theme: map-get($md-theme-palette, theme);
+
+  @if $background != "" {
+    $color-theme: md-pick-contrast(md-get-color-by-type($background, $color-theme));
+  }
+
+  @if $color-theme == "dark" {
+    @return .12;
+  } @else {
+    @return .06;
+  }
+}
+
 .md-field {
   @include md-theme-component() {
     @if md-get-theme-mode() == light {
@@ -169,6 +183,30 @@
 
     .md-toolbar &.md-nested {
       &:after {
+        @include md-theme-property(background-color, text-primary, background-variant, .42);
+      }
+
+      &:before {
+        @include md-theme-property(background-color, text-primary, background-variant);
+      }
+
+      label {
+        @include md-theme-property(color, text-primary, background-variant, .54);
+      }
+
+      input,
+      textarea {
+        @include md-theme-property(color, text-primary, background-variant);
+        @include md-theme-property(-webkit-text-fill-color, text-primary, background-variant);
+      }
+
+      svg {
+        @include md-theme-property(fill, text-primary, background-variant);
+      }
+    }
+
+    .md-toolbar.md-primary &.md-nested {
+      &:after {
         @include md-theme-property(background-color, text-primary, primary, .42);
       }
 
@@ -188,6 +226,54 @@
 
       svg {
         @include md-theme-property(fill, text-primary, primary);
+      }
+    }
+
+    .md-toolbar.md-accent &.md-nested {
+      &:after {
+        @include md-theme-property(background-color, text-primary, accent, .42);
+      }
+
+      &:before {
+        @include md-theme-property(background-color, text-primary, accent);
+      }
+
+      label {
+        @include md-theme-property(color, text-primary, accent, .54);
+      }
+
+      input,
+      textarea {
+        @include md-theme-property(color, text-primary, accent);
+        @include md-theme-property(-webkit-text-fill-color, text-primary, accent);
+      }
+
+      svg {
+        @include md-theme-property(fill, text-primary, accent);
+      }
+    }
+
+    .md-toolbar.md-transparent &.md-nested {
+      &:after {
+        @include md-theme-property(background-color, text-primary, background, .42);
+      }
+
+      &:before {
+        @include md-theme-property(background-color, text-primary, background);
+      }
+
+      label {
+        @include md-theme-property(color, text-primary, background, .54);
+      }
+
+      input,
+      textarea {
+        @include md-theme-property(color, text-primary, background);
+        @include md-theme-property(-webkit-text-fill-color, text-primary, background);
+      }
+
+      svg {
+        @include md-theme-property(fill, text-primary, background);
       }
     }
   }
@@ -220,6 +306,30 @@
 
     .md-toolbar &.md-nested {
       &:after {
+        @include md-theme-property(background-color, text-primary, background-variant, .42);
+      }
+
+      &:before {
+        @include md-theme-property(background-color, text-primary, background-variant);
+      }
+
+      label {
+        @include md-theme-property(color, text-primary, background-variant, .54);
+      }
+
+      input,
+      textarea {
+        @include md-theme-property(color, text-primary, primary);
+        @include md-theme-property(-webkit-text-fill-color, text-primary, background-variant);
+      }
+
+      svg {
+        @include md-theme-property(fill, text-primary, background-variant);
+      }
+    }
+
+    .md-toolbar.md-primary &.md-nested {
+      &:after {
         @include md-theme-property(background-color, text-primary, primary, .42);
       }
 
@@ -239,6 +349,54 @@
 
       svg {
         @include md-theme-property(fill, text-primary, primary);
+      }
+    }
+
+    .md-toolbar.md-accent &.md-nested {
+      &:after {
+        @include md-theme-property(background-color, text-primary, accent, .42);
+      }
+
+      &:before {
+        @include md-theme-property(background-color, text-primary, accent);
+      }
+
+      label {
+        @include md-theme-property(color, text-primary, accent, .54);
+      }
+
+      input,
+      textarea {
+        @include md-theme-property(color, text-primary, accent);
+        @include md-theme-property(-webkit-text-fill-color, text-primary, accent);
+      }
+
+      svg {
+        @include md-theme-property(fill, text-primary, accent);
+      }
+    }
+
+    .md-toolbar.md-transparent &.md-nested {
+      &:after {
+        @include md-theme-property(background-color, text-primary, background, .42);
+      }
+
+      &:before {
+        @include md-theme-property(background-color, text-primary, background);
+      }
+
+      label {
+        @include md-theme-property(color, text-primary, background, .54);
+      }
+
+      input,
+      textarea {
+        @include md-theme-property(color, text-primary, background);
+        @include md-theme-property(-webkit-text-fill-color, text-primary, background);
+      }
+
+      svg {
+        @include md-theme-property(fill, text-primary, background);
       }
     }
   }
@@ -268,8 +426,27 @@
       }
     }
 
+
     .md-toolbar &.md-nested {
-      @include md-theme-property(background-color, background, "", .12);
+      @include md-theme-property(background-color, text-primary, background-variant, md-field-raised-backround-opacity(background-variant));
+
+      label {
+        @include md-theme-property(color, text-primary, primary, .54);
+        @include md-theme-property(-webkit-text-fill-color, text-primary, background-variant, .54);
+      }
+
+      input {
+        @include md-theme-property(color, text-primary, primary);
+        @include md-theme-property(-webkit-text-fill-color, text-primary, background-variant);
+      }
+
+      svg {
+        @include md-theme-property(fill, text-primary, background-variant);
+      }
+    }
+
+    .md-toolbar.md-primary &.md-nested {
+      @include md-theme-property(background-color, text-primary, primary, md-field-raised-backround-opacity(primary));
 
       label {
         @include md-theme-property(color, text-primary, primary, .54);
@@ -284,7 +461,45 @@
       svg {
         @include md-theme-property(fill, text-primary, primary);
       }
+    }
 
+    .md-toolbar.md-accent &.md-nested {
+      @include md-theme-property(background-color, text-primary, accent, md-field-raised-backround-opacity(accent));
+
+      label {
+        @include md-theme-property(color, text-primary, accent, .54);
+        @include md-theme-property(-webkit-text-fill-color, text-primary, accent, .54);
+      }
+
+      input {
+        @include md-theme-property(color, text-primary, accent);
+        @include md-theme-property(-webkit-text-fill-color, text-primary, accent);
+      }
+
+      svg {
+        @include md-theme-property(fill, text-primary, accent);
+      }
+    }
+
+    .md-toolbar.md-transparent &.md-nested {
+      @include md-theme-property(background-color, text-primary, background, md-field-raised-backround-opacity(background));
+
+      label {
+        @include md-theme-property(color, text-primary, background, .54);
+        @include md-theme-property(-webkit-text-fill-color, text-primary, background, .54);
+      }
+
+      input {
+        @include md-theme-property(color, text-primary, background);
+        @include md-theme-property(-webkit-text-fill-color, text-primary, background);
+      }
+
+      svg {
+        @include md-theme-property(fill, text-primary, background);
+      }
+    }
+
+    .md-toolbar &.md-nested {
       &.md-focused {
         @include md-theme-property(background-color, background);
         .md-icon,
