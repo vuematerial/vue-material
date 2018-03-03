@@ -60,6 +60,9 @@
       component: Object
     },
     computed: {
+      source () {
+        return this.component.source.replace(/src="\/assets/g, 'src="https://vuematerial.io/assets')
+      },
       parameters () {
         return getParameters({
           files: {
@@ -79,7 +82,7 @@
               content: html
             },
             "App.vue": {
-              content: this.component.source
+              content: this.source
             },
           }
         })
