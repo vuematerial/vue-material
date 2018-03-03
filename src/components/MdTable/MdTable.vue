@@ -9,13 +9,15 @@
     </keep-alive>
 
     <div class="md-table-fixed-header" :class="headerClasses" :style="headerStyles" v-if="mdFixedHeader">
-      <table>
+      <div class="md-table-fixed-header-container" ref="fixedHeaderContainer" @scroll="setHeaderScroll">
+        <table :style="fixedHeaderTableStyles">
         <md-table-thead />
       </table>
     </div>
+    </div>
 
     <md-content class="md-table-content md-scrollbar" :class="contentClasses" :style="contentStyles" @scroll="setScroll">
-      <table>
+      <table ref="contentTable">
         <md-table-thead :class="headerClasses" v-if="!mdFixedHeader && $scopedSlots['md-table-row']" />
 
         <tbody v-if="!$scopedSlots['md-table-row']">
@@ -60,6 +62,7 @@
   import MdTableRow from './MdTableRow'
   import MdTableRowGhost from './MdTableRowGhost'
   import MdTableCellSelection from './MdTableCellSelection'
+  import MdResizeObserver from 'core/utils/MdResizeObserver'
 
   const getObjectAttribute = (object, key) => {
     let value = object
@@ -127,6 +130,8 @@
     },
     data () {
       return {
+        windowResizeObserver: null,
+        fixedHeaderTableWidth: 0,
         fixedHeaderPadding: 0,
         hasContentScroll: false,
         MdTable: {
@@ -190,6 +195,11 @@
         if (this.mdFixedHeader && this.value.length === 0) {
           return `md-table-empty`
         }
+      },
+      fixedHeaderTableStyles () {
+        return {
+          width: this.fixedHeaderTableWidth + 'px'
+        }
       }
     },
     provide () {
@@ -245,7 +255,16 @@
       },
       setScroll ($event) {
         raf(() => {
+          if(this.mdFixedHeader) {
+            this.$refs.fixedHeaderContainer.scrollLeft = $event.target.scrollLeft
+          }
+
           this.hasContentScroll = $event.target.scrollTop > 0
+        })
+      },
+      setHeaderScroll ($event) {
+        raf(() => {
+          this.MdTable.contentEl.scrollLeft = $event.target.scrollLeft
         })
       },
       getContentEl () {
@@ -290,6 +309,11 @@
         } else if (this.MdTable.selectingMode === 'multiple') {
           this.MdTable.selectedItems = this.mdSelectedValue || []
         }
+      },
+      setWidth () {
+        if(this.mdFixedHeader) {
+          this.fixedHeaderTableWidth = this.$refs.contentTable.offsetWidth
+        }
       }
     },
     created () {
@@ -299,9 +323,16 @@
     },
     mounted () {
       this.setContentEl()
+      this.$nextTick().then(this.setWidth)
 
       if (this.mdFixedHeader) {
         this.setHeaderPadding()
+        this.windowResizeObserver = new MdResizeObserver(window, this.setWidth)
+      }
+    },
+    beforeDestroy () {
+     if (this.windowResizeObserver) {
+        this.windowResizeObserver.destroy()
       }
     }
   }
@@ -317,6 +348,18 @@
 
     .md-table-fixed-header {
       position: relative;
+
+      .md-table-fixed-header-container {
+        -webkit-box-flex: 1;
+        flex: 1;
+        overflow-x: auto;
+
+        &::-webkit-scrollbar,
+        &::-webkit-scrollbar-thumb,
+        &::-webkit-scrollbar-button {
+          display: none;
+        }
+      }
     }
 
     .md-table-fixed-header-active {

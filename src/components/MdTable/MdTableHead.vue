@@ -20,6 +20,7 @@
 
 <script>
   import MdUpwardIcon from 'core/icons/MdUpwardIcon'
+  import MdResizeObserver from 'core/utils/MdResizeObserver'
 
   export default {
     name: 'MdTableHead',
@@ -35,7 +36,8 @@
     },
     inject: ['MdTable'],
     data: () => ({
-      width: null
+      width: null,
+      windowResizeObserver: null
     }),
     computed: {
       hasSort () {
@@ -104,6 +106,15 @@
     },
     mounted () {
       this.$nextTick().then(this.setWidth)
+
+      if (this.MdTable.fixedHeader) {
+        this.windowResizeObserver = new MdResizeObserver(window, this.setWidth)
+      }
+    },
+    beforeDestroy () {
+     if (this.windowResizeObserver) {
+        this.windowResizeObserver.destroy()
+      }
     }
   }
 </script>
