@@ -48,10 +48,6 @@
   })
   `
 
-  function camelCaseToDash (str) {
-    return str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase()
-  }
-
   import { getParameters } from "codesandbox/lib/api/define";
 
   export default {
