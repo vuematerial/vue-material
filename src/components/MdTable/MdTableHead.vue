@@ -112,7 +112,7 @@
       }
     },
     beforeDestroy () {
-     if (this.windowResizeObserver) {
+      if (this.windowResizeObserver) {
         this.windowResizeObserver.destroy()
       }
     }

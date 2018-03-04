@@ -11,9 +11,9 @@
     <div class="md-table-fixed-header" :class="headerClasses" :style="headerStyles" v-if="mdFixedHeader">
       <div class="md-table-fixed-header-container" ref="fixedHeaderContainer" @scroll="setHeaderScroll">
         <table :style="fixedHeaderTableStyles">
-        <md-table-thead />
-      </table>
-    </div>
+          <md-table-thead />
+        </table>
+      </div>
     </div>
 
     <md-content class="md-table-content md-scrollbar" :class="contentClasses" :style="contentStyles" @scroll="setScroll">
@@ -331,7 +331,7 @@
       }
     },
     beforeDestroy () {
-     if (this.windowResizeObserver) {
+      if (this.windowResizeObserver) {
         this.windowResizeObserver.destroy()
       }
     }
