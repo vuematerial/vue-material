@@ -1,6 +1,9 @@
 <template>
   <div>
-    <md-datepicker v-model="selectedDate" :md-open-on-focus="false" />
+    <md-field>
+      <md-icon md-datepicker-trigger>event</md-icon>
+      <md-datepicker ref="input" v-model="selectedDate" :md-open-on-focus="false" />
+    </md-field>
   </div>
 </template>
 

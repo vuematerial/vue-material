@@ -1,30 +1,32 @@
 <template>
   <div>
     <strong>Fuzzy Search:</strong>
-    <md-autocomplete v-model="selectedCountry" :md-options="employees">
+    <md-field md-clearable>
       <label>Manager</label>
+      <md-autocomplete v-model="selectedEmployee" :md-options="employees">
+        <template slot="md-autocomplete-item" slot-scope="{ item, term }">
+          <md-highlight-text :md-term="term">{{ item }}</md-highlight-text>
+        </template>
 
-      <template slot="md-autocomplete-item" slot-scope="{ item, term }">
-        <md-highlight-text :md-term="term">{{ item }}</md-highlight-text>
-      </template>
-
-      <template slot="md-autocomplete-empty" slot-scope="{ term }">
-        No countries matching "{{ term }}" were found. <a @click="noop()">Create a new</a> one!
-      </template>
-    </md-autocomplete>
+        <template slot="md-autocomplete-empty" slot-scope="{ term }">
+          No countries matching "{{ term }}" were found. <a @click="noop()">Create a new</a> one!
+        </template>
+      </md-autocomplete>
+    </md-field>
 
     <strong>Normal Search:</strong>
-    <md-autocomplete v-model="selectedEmployee" :md-options="countries" :md-fuzzy-search="false">
+    <md-field md-clearable>
       <label>Country</label>
+      <md-autocomplete v-model="selectedCountry" :md-options="countries" :md-fuzzy-search="false">
+        <template slot="md-autocomplete-item" slot-scope="{ item, term }">
+          <md-highlight-text :md-term="term">{{ item }}</md-highlight-text>
+        </template>
 
-      <template slot="md-autocomplete-item" slot-scope="{ item, term }">
-        <md-highlight-text :md-term="term">{{ item }}</md-highlight-text>
-      </template>
-
-      <template slot="md-autocomplete-empty" slot-scope="{ term }">
-        No countries matching "{{ term }}" were found. <a @click="noop()">Create a new</a> one!
-      </template>
-    </md-autocomplete>
+        <template slot="md-autocomplete-empty" slot-scope="{ term }">
+          No countries matching "{{ term }}" were found. <a @click="noop()">Create a new</a> one!
+        </template>
+      </md-autocomplete>
+    </md-field>
   </div>
 </template>
 

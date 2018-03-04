@@ -1,16 +1,22 @@
 <template>
-  <md-field :class="['md-datepicker', { 'md-native': !this.mdOverrideNative }]" md-clearable>
-    <md-date-icon class="md-date-icon" @click.native="toggleDialog" />
-    <md-input :type="type" ref="input" v-model="modelDate" @focus.native="onFocus" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" />
-
-    <slot />
+  <div :class="['md-date-input', { 'md-native': !this.mdOverrideNative }]">
+    <md-input
+    :type="type"
+    :placeholder="placeholder"
+    :readonly="readonly"
+    :disabled="disabled"
+    :required="required"
+    ref="input"
+    v-model="modelDate"
+    @focus.native="onFocus"
+    pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" />
 
     <keep-alive>
       <md-datepicker-dialog :md-date.sync="selectedDate" :md-disabled-dates="mdDisabledDates" v-if="showDialog" @md-closed="toggleDialog" />
     </keep-alive>
 
     <md-overlay class="md-datepicker-overlay" md-fixed :md-active="showDialog" @click="toggleDialog" />
-  </md-field>
+  </div>
 </template>
 
 <script>
@@ -21,19 +27,17 @@
   import isValid from 'date-fns/is_valid'
   import MdOverlay from 'components/MdOverlay/MdOverlay'
   import MdDatepickerDialog from './MdDatepickerDialog'
-  import MdDateIcon from 'core/icons/MdDateIcon'
-  import MdField from 'components/MdField/MdField'
   import MdInput from 'components/MdField/MdInput/MdInput'
+  import MdFieldMixin from '../MdField/MdFieldMixin'
 
   export default {
     name: 'MdDatepicker',
     components: {
       MdOverlay,
-      MdDateIcon,
-      MdField,
       MdInput,
       MdDatepickerDialog
     },
+    mixins: [MdFieldMixin],
     props: {
       value: [String, Date],
       mdDisabledDates: [Array, Function],
@@ -46,7 +50,9 @@
         default: true
       }
     },
+    inject: ['MdField'],
     data: () => ({
+      triggerEl: null,
       showDialog: false,
       modelDate: null,
       selectedDate: null
@@ -82,6 +88,8 @@
     },
     methods: {
       toggleDialog () {
+        if(this.disabled || this.readonly) return
+
         if (!isFirefox || this.mdOverrideNative) {
           this.showDialog = !this.showDialog
         } else {
@@ -111,6 +119,25 @@
     created () {
       this.modelDate = this.dateToHTMLString(this.value)
       this.selectedDate = this.value
+
+      this.MdField.date = true
+      this.MdField.native = !this.mdOverrideNative
+    },
+    mounted () {
+      this.$nextTick().then(() => {
+        this.triggerEl = this.MdField.$el.querySelector('[md-datepicker-trigger]')
+        if (this.triggerEl) {
+          this.triggerEl.addEventListener('click', this.toggleDialog)
+        }
+      })
+    },
+    beforeDestroy () {
+      this.MdField.date = false
+      this.MdField.native = false
+
+      if (this.triggerEl) {
+        this.triggerEl.removeEventListener('click', this.toggleDialog)
+      }
     }
   }
 </script>
@@ -127,16 +154,9 @@
     }
   }
 
-  .md-datepicker {
-    &.md-native {
-      label {
-        top: 0 !important;
-      }
-    }
-
-    .md-date-icon {
-      cursor: pointer;
-    }
+  .md-date-input {
+    width: 100%;
+    display: flex;
 
     input[type=date]::-webkit-clear-button,
     input[type=date]::-webkit-inner-spin-button,

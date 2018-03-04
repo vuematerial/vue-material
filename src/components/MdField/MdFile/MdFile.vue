@@ -1,6 +1,5 @@
 <template>
   <div class="md-file">
-    <md-file-icon @click.native="openPicker" />
 
     <input
       class="md-input"
@@ -30,6 +29,11 @@
         default: () => 'md-file-' + MdUuid()
       },
       name: String
+    },
+    data () {
+      return {
+        triggerEl: null
+      }
     },
     mixins: [MdFieldMixin],
     inject: ['MdField'],
@@ -73,8 +77,20 @@
     created () {
       this.MdField.file = true
     },
+    mounted () {
+      this.$nextTick().then(() => {
+        this.triggerEl = this.MdField.$el.querySelector('[md-file-trigger]')
+        if (this.triggerEl) {
+          this.triggerEl.addEventListener('click', this.openPicker)
+        }
+      })
+    },
     beforeDestroy () {
       this.MdField.file = false
+
+      if (this.triggerEl) {
+        this.triggerEl.removeEventListener('click', this.openPicker)
+      }
     }
   }
 </script>

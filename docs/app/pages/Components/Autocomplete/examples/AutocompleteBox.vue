@@ -1,12 +1,9 @@
 <template>
   <div>
-    <md-autocomplete
-      v-model="selectedEmployee"
-      :md-options="employees"
-      md-layout="box"
-      md-dense>
+    <md-field md-dense>
       <label>Employees</label>
-    </md-autocomplete>
+      <md-autocomplete v-model="selectedEmployee" :md-options="employees"></md-autocomplete>
+    </md-field>
 
     <md-toolbar class="md-primary">
       <div class="md-toolbar-row">
@@ -16,13 +13,10 @@
           </md-button>
         </div>
 
-        <md-autocomplete
-          class="search"
-          v-model="selectedEmployee"
-          :md-options="employees"
-          md-layout="box">
+        <md-field md-variant="raised" md-nested class="search">
           <label>Search...</label>
-        </md-autocomplete>
+          <md-autocomplete v-model="selectedEmployee" :md-options="employees"></md-autocomplete>
+        </md-field>
 
         <div class="md-toolbar-section-end">
           <md-button class="md-icon-button">
