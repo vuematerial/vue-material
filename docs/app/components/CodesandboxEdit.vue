@@ -57,7 +57,8 @@
   export default {
     name: 'CodesandboxEdit',
     props: {
-      component: Object
+      component: Object,
+      title: String
     },
     computed: {
       source () {
@@ -68,7 +69,12 @@
           files: {
             "package.json": {
               content: {
-                name: `Vue Material - ${camelCaseToDash(this.component.name)}`,
+                name: `Vue Material - ${this.title}`,
+                keywords: [
+                  "vue-material",
+                  "material-design",
+                  "vue"
+                ],
                 dependencies: {
                   vue: "latest",
                   "vue-material": "latest"
