@@ -1,5 +1,5 @@
 <template>
-  <th class="md-table-head" :class="headClasses" :style="headStyles" @click="changeSort">
+  <th class="md-table-head" :id="id" :class="headClasses" :style="headStyles" @click="changeSort">
     <div class="md-table-head-container" v-if="$slots.default">
       <div class="md-table-head-label">
         <slot />
@@ -29,6 +29,7 @@
     props: {
       mdNumeric: Boolean,
       numeric: Boolean,
+      id: [String, Number],
       label: String,
       tooltip: String,
       sortBy: String

@@ -10,6 +10,7 @@
   export default {
     name: 'MdTableCell',
     props: {
+      mdId: [String, Number],
       mdLabel: String,
       mdNumeric: Boolean,
       mdTooltip: String,
@@ -44,6 +45,7 @@
     methods: {
       setCellData ($vm = this) {
         this.$set(this.MdTable.items, $vm.index, {
+          id: $vm.mdId,
           label: $vm.mdLabel,
           numeric: $vm.mdNumeric,
           tooltip: $vm.mdTooltip,
