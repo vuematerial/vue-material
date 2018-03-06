@@ -6,6 +6,7 @@
     </md-button>
 
     <input type="hidden" name="parameters" v-model="parameters">
+    <input type="hidden" name="query" value="module=App.vue">
   </form>
 </template>
 
