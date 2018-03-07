@@ -255,7 +255,7 @@
       },
       setScroll ($event) {
         raf(() => {
-          if(this.mdFixedHeader) {
+          if (this.mdFixedHeader) {
             this.$refs.fixedHeaderContainer.scrollLeft = $event.target.scrollLeft
           }
 
@@ -311,7 +311,7 @@
         }
       },
       setWidth () {
-        if(this.mdFixedHeader) {
+        if (this.mdFixedHeader) {
           this.fixedHeaderTableWidth = this.$refs.contentTable.offsetWidth
         }
       }
