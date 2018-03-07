@@ -32,6 +32,7 @@
         <p>All the following options can be applied to the md-datepicker component:</p>
 
         <api-table :headings="props.headings" :props="props.props" slot="props" />
+        <api-table :headings="events.headings" :props="events.props" slot="events" />
       </api-item>
     </div>
   </page-container>
@@ -71,6 +72,21 @@
             description: 'Override native browser pickers by changing type of input to text.',
             defaults: 'true'
           }
+        ]
+      },
+      events: {
+        headings: ['Name', 'Description', 'Value'],
+        props: [
+          {
+            name: 'md-opened',
+            description: 'Triggered when a datepicker dialog opens',
+            value: 'null'
+          },
+          {
+            name: 'md-closed',
+            description: 'Triggered when a datepicker dialog closes',
+            value: 'null'
+          },
         ]
       }
     })
