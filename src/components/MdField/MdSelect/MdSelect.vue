@@ -17,7 +17,7 @@
       :required="required"
       :placeholder="placeholder"
       v-on="inputListeners"
-      v-bind="$attrs"
+      v-bind="attrs"
       @focus.prevent="onFocus"
       @blur.prevent="removeHighlight"
       @click="openSelect"
@@ -104,6 +104,13 @@
       return { MdSelect }
     },
     computed: {
+      attrs () {
+        return {
+          ...this.$attrs,
+          name: this.name,
+          id: this.id
+        }
+      },
       inputListeners () {
         return {
           ...this.$listeners,
