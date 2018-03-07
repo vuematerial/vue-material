@@ -229,21 +229,11 @@
 
           if (isValEmpty && isOldEmpty) {
             return false
-          }
-
-          if (!isValEmpty && !isOldEmpty) {
-            if (val.length !== old.length) {
-              return true
-            }
-
-            if (val.every((item, index) => item == old[index])) {
-              return false
-            }
-
+          } else if (!isValEmpty && !isOldEmpty) {
+            return (val.length !== old.length) ? true : !val.every((item, index) => item == old[index])
+          } else {
             return true
           }
-
-          return true
         })()
 
         if (changed) {
