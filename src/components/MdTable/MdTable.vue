@@ -222,11 +222,28 @@
           this.MdTable.hasValue = this.hasValue
         }
       },
-      'MdTable.selectedItems' (val) {
-        this.select(val)
+      'MdTable.selectedItems' (val, old) {
+        let changed = (() => {
+          let isValEmpty = !val || val.length === 0
+          let isOldEmpty = !old || old.length === 0
+
+          if (isValEmpty && isOldEmpty) {
+            return false
+          } else if (!isValEmpty && !isOldEmpty) {
+            return (val.length !== old.length) ? true : !val.every((item, index) => item == old[index])
+          } else {
+            return true
+          }
+        })()
+
+        if (changed) {
+          this.select(val)
+        }
       },
-      'MdTable.singleSelection' (val) {
-        this.select(val)
+      'MdTable.singleSelection' (val, old) {
+        if (val != old) {
+          this.select(val)
+        }
       },
       mdSelectedValue () {
         this.syncSelectedValue()
