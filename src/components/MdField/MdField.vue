@@ -1311,10 +1311,16 @@
     }
 
     .md-toolbar &.md-nested {
+      transition: $md-transition-default;
+      transition-property: background-color, box-shadow;
       min-height: 40px;
       height: 40px;
       margin: 0;
       box-shadow: none;
+
+      &.md-focused {
+        @include md-elevation(2);
+      }
     }
   }
 
