@@ -50,7 +50,7 @@
     watch: {
       mdActive (isActive) {
         if (isActive) {
-          createSnackbar(this.mdDuration, this).then(() => {
+          createSnackbar(this.mdDuration, this.mdPersistent, this).then(() => {
             this.$emit('update:mdActive', false)
             this.$emit('md-opened')
           })

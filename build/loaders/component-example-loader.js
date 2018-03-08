@@ -1,6 +1,3 @@
-const sass = require('node-sass')
-const pretty = require('pretty')
-const prettier = require('prettier')
 const path = require('path')
 const compiler = require('vue-template-compiler')
 const { resolvePath } = require('../config')
@@ -10,26 +7,6 @@ const { getIndentedSource } = require('../../docs/app/mixins/codeSource')
 
 function camelCaseToDash (str) {
   return str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase()
-}
-
-function getComponentScript (script) {
-  return getIndentedSource(`
-    Vue.use(VueMaterial.default)
-
-    ${script}
-
-    const app = new Vue(example)
-
-    app.$mount('#app')
-  `)
-}
-
-function getComponentTemplate (template) {
-  return pretty(`
-    <div id="app">
-      ${template}
-    </div>
-  `)
 }
 
 module.exports = function (source) {
@@ -55,40 +32,6 @@ module.exports = function (source) {
     }
   })
 
-  let { script, template, style } = parsedTags
-
-  if (style) {
-    style = style.replace(/~vue-material/g, '.')
-
-    const { css } = sass.renderSync({
-      data: style,
-      includePaths: [resolvePath('src')],
-      outputStyle: 'expanded'
-    })
-
-    style = css.toString('utf8')
-  }
-
-  if (template) {
-    template = template.replace(/src="\/assets/g, 'src="https://vuematerial.io/assets')
-    template = getComponentTemplate(template)
-  }
-
-  if (script) {
-    let newScript = null
-
-    script = script.replace('export default ', 'const example = ')
-    script = getComponentScript(script)
-
-    try {
-      newScript = transpile(script)
-    } catch (e) {
-      newScript = script
-    }
-
-    script = prettier.format(newScript, { semi: false })
-  }
-
   const code = `
     const Vue = require('vue');
     const CodeLoading = require('docs/app/components/CodeLoading');
@@ -105,10 +48,7 @@ module.exports = function (source) {
       component.options.examples = component.options.examples || {};
       component.options.examples['${fileName}'] = {
         name: '${fileName}',
-        source: ${JSON.stringify(source)},
-        template: ${JSON.stringify(template)},
-        script: ${JSON.stringify(script)},
-        style: ${JSON.stringify(style)}
+        source: ${JSON.stringify(source)}
       }
     }`
 

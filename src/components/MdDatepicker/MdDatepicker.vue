@@ -84,6 +84,11 @@
       toggleDialog () {
         if (!isFirefox || this.mdOverrideNative) {
           this.showDialog = !this.showDialog
+          if (this.showDialog) {
+            this.$emit('md-opened')
+          } else {
+            this.$emit('md-closed')
+          }
         } else {
           this.$refs.input.$el.click()
         }

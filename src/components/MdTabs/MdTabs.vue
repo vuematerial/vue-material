@@ -207,22 +207,20 @@
           }
         }
       },
+      callResizeFunctions () {
+        this.setIndicatorStyles()
+        this.calculateTabPos()
+      },
       setupObservers () {
-        if ('ResizeObserver' in window) {
-          this.resizeObserver = new window.ResizeObserver(this.setIndicatorStyles)
-          this.resizeObserver.observe(this.$el)
-        } else {
-          this.resizeObserver = MdObserveElement(this.$el.querySelector('.md-tabs-content'), {
-            childList: true,
-            characterData: true,
-            subtree: true
-          }, () => {
-            this.setIndicatorStyles()
-            this.calculateTabPos()
-          })
+        this.resizeObserver = MdObserveElement(this.$el.querySelector('.md-tabs-content'), {
+          childList: true,
+          characterData: true,
+          subtree: true
+        }, () => {
+          this.callResizeFunctions()
+        })
 
-          window.addEventListener('resize', this.setIndicatorStyles)
-        }
+        window.addEventListener('resize', this.callResizeFunctions)
       },
       setupWatchers () {
         if (this.mdSyncRoute) {
@@ -268,7 +266,7 @@
         this.resizeObserver.disconnect()
       }
 
-      window.removeEventListener('resize', this.setIndicatorStyles)
+      window.removeEventListener('resize', this.callResizeFunctions)
       this.$refs.navigation.removeEventListener('transitionend', this.setIndicatorStyles)
     }
   })
