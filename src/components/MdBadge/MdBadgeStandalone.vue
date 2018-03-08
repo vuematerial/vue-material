@@ -1,8 +1,6 @@
 <template>
   <div class="md-badge" :class="[$mdActiveTheme]">
-    <div>
-      <slot />
-    </div>
+    <slot />
   </div>
 </template>
 
@@ -37,6 +35,11 @@
       top: 0;
       bottom: 0;
       right: 0;
+    }
+    &.md-dense {
+      width: 18px;
+      height: 18px;
+      font-size: 8px;
     }
     &.md-square {
       width: auto;

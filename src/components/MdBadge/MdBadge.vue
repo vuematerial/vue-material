@@ -27,7 +27,8 @@
       mdPosition: {
         type: String,
         default: 'top'
-      }
+      },
+      mdDense: Boolean
     },
     computed: {
       hasDefaultSlot () {
@@ -35,7 +36,8 @@
       },
       badgeClasses () {
         return {
-          ['md-position-' + this.mdPosition]: true
+          ['md-position-' + this.mdPosition]: true,
+          'md-dense': this.mdDense
         }
       }
     }
