@@ -43,6 +43,7 @@
       <api-item title="API - md-menu">
         <p>The following options can be used with any menu:</p>
         <api-table :headings="props.headings" :props="props.props" slot="props" />
+        <api-table :headings="events.headings" :props="events.props" slot="events" />
         <note-block tip>All <a href="https://router.vuejs.org/en/api/router-link.html" target="_blank">options</a> of <code>router-link</code> can be simply used here.</note-block>
       </api-item>
     </div>
@@ -172,7 +173,22 @@
             defaults: '-'
           }
         ]
-      }
+      },
+      events: {
+        headings: ['Name', 'Description', 'Value'],
+        props: [
+          {
+            name: 'md-opened',
+            description: 'Triggered when menu opens',
+            value: 'null'
+          },
+          {
+            name: 'md-closed',
+            description: 'Triggered when menu closes',
+            value: 'null'
+          }
+        ]
+      }      
     })
   }
 </script>

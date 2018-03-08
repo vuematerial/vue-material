@@ -59,7 +59,7 @@
             <md-menu-content class="fixed-theme-selector-items">
               <md-menu-item :class="getPrimaryClass('default')" @click="setTheme('default')">Light</md-menu-item>
               <md-menu-item :class="getPrimaryClass('default-dark')" @click="setTheme('default-dark')">Dark</md-menu-item>
-              <md-menu-item :class="getPrimaryClass('light-green')" @click="setTheme('light-green')">Light Teal</md-menu-item>
+              <md-menu-item :class="getPrimaryClass('light-green')" @click="setTheme('light-green')">Light Green</md-menu-item>
               <md-menu-item :class="getPrimaryClass('dark-green')" @click="setTheme('dark-green')">Dark Green</md-menu-item>
             </md-menu-content>
           </md-menu>

@@ -62,25 +62,28 @@
           })
         })
       },
-      async toggleExpand () {
-        await this.fetchStyle()
-        this.showContent = !this.showContent
+      toggleExpand () {
+        this.fetchStyle().then(() => {
+          this.showContent = !this.showContent
+        })
       },
-      async open () {
+      open () {
         if (this.showContent) {
           return false
         }
 
-        await this.fetchStyle()
-        this.showContent = true
+        this.fetchStyle().then(() => [
+          this.showContent = true
+        ])
       },
-      async close () {
+      close () {
         if (!this.showContent) {
           return false
         }
 
-        await this.fetchStyle()
-        this.showContent = false
+        this.fetchStyle().then(() => {
+          this.showContent = false
+        })
       }
     },
     watch: {
@@ -92,7 +95,9 @@
         }
       },
       showContent () {
-        this.$emit('update:mdExpanded', this.showContent)
+        let expanded = this.showContent
+        this.$emit('update:mdExpanded', expanded)
+        this.$nextTick(() => this.$emit(expanded ? 'md-expanded' : 'md-collapsed'))
       }
     },
     mounted () {

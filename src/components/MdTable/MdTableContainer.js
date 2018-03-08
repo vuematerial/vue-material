@@ -5,9 +5,13 @@ function processChildren (children, createElement) {
   let nodes = Array.from(children)
   let namedSlots = {}
 
+  function getTag ({ componentOptions }) {
+    return componentOptions && componentOptions.tag
+  }
+
   nodes.forEach((node, index) => {
     if (node && node.tag) {
-      const tag = node.componentOptions && node.componentOptions.tag
+      const tag = getTag(node)
 
       if (tag && slotNames.includes(tag)) {
         node.data.slot = tag

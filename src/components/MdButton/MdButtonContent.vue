@@ -1,5 +1,5 @@
 <template>
-  <md-ripple :md-disabled="!mdRipple || disabled">
+  <md-ripple :md-disabled="!mdRipple || disabled" :md-event-trigger="false" :md-active="mdRippleActive" @update:mdActive="active => $emit('update:mdRippleActive', active)">
     <div class="md-button-content">
       <slot />
     </div>
@@ -16,6 +16,7 @@
     },
     props: {
       mdRipple: Boolean,
+      mdRippleActive: [Boolean, Event],
       disabled: Boolean
     }
   }

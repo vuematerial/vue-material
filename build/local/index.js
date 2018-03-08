@@ -11,7 +11,7 @@ const app = express()
 const compiler = webpack(webpackConfig)
 const devMiddlewareInstance = devMiddleware(compiler, {
   publicPath: config.public,
-  quiet: true
+  logLevel: 'silent'
 })
 
 const hotMiddlewareInstance = hotMiddleware(compiler, {

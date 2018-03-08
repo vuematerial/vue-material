@@ -5,9 +5,9 @@ export default {
     MdRipple
   },
   props: {
-    model: [String, Number, Boolean, Array],
+    model: [String, Boolean, Object, Number, Array],
     value: {
-      type: [String, Number, Boolean],
+      type: [String, Boolean, Object, Number],
       default: 'on'
     },
     name: [String, Number],

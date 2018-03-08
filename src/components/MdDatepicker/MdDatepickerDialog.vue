@@ -27,7 +27,7 @@
           <div class="md-datepicker-body-content" :style="contentStyles">
             <transition name="md-datepicker-view">
               <transition-group class="md-datepicker-panel md-datepicker-calendar" :class="calendarClasses" tag="div" name="md-datepicker-month" v-if="currentView === 'day'">
-                <div class="md-datepicker-panel md-datepicker-month" v-for="(month, index) in [currentDate]" :key="month.getMonth()">
+                <div class="md-datepicker-panel md-datepicker-month" v-for="month in [currentDate]" :key="month.getMonth()">
                   <md-button class="md-dense md-datepicker-month-trigger" @click="currentView = 'month'">{{ currentMonthName }} {{ currentYear }}</md-button>
 
                   <div class="md-datepicker-week">
@@ -229,27 +229,27 @@
         this.currentDate = this.mdDate || new Date()
         this.selectedDate = this.mdDate
       },
-      async currentDate (next, previous) {
-        await this.$nextTick()
-
-        if (previous) {
-          this.setContentStyles()
-        }
-      },
-      async currentView () {
-        await this.$nextTick()
-
-        if (this.currentView === 'year') {
-          const activeYear = getElements(this.$el, '.md-datepicker-year-button.md-datepicker-selected')
-
-          if (activeYear.length) {
-            activeYear[0].scrollIntoView({
-              behavior: 'instant',
-              block: 'center',
-              inline: 'center'
-            })
+      currentDate (next, previous) {
+        this.$nextTick().then(() => {
+          if (previous) {
+            this.setContentStyles()
           }
-        }
+        })
+      },
+      currentView () {
+        this.$nextTick().then(() => {
+          if (this.currentView === 'year') {
+            const activeYear = getElements(this.$el, '.md-datepicker-year-button.md-datepicker-selected')
+
+            if (activeYear.length) {
+              activeYear[0].scrollIntoView({
+                behavior: 'instant',
+                block: 'center',
+                inline: 'center'
+              })
+            }
+          }
+        })
       }
     },
     methods: {
@@ -370,6 +370,7 @@
       left: 50% !important;
       transform: translate3D(-50%, -50%, 0);
       transform-origin: center center;
+      position: fixed !important;
     }
   }
 

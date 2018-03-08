@@ -5,7 +5,7 @@ const path = require('path')
 const compiler = require('vue-template-compiler')
 const { resolvePath } = require('../config')
 const { transform } = require('babel-core')
-const transpile = code => transform(code, {extends: resolvePath('.babelrc')}).code
+const transpile = code => transform(code).code
 const { getIndentedSource } = require('../../docs/app/mixins/codeSource')
 
 function camelCaseToDash (str) {

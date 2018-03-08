@@ -12,13 +12,13 @@
 }
 
 @mixin md-layout-small {
-  @media (max-width: #{$md-breakpoint-small - 16px}) {
+  @media (max-width: #{$md-breakpoint-small}) {
     @content;
   }
 }
 
 @mixin md-layout-medium {
-  @media (max-width: #{$md-breakpoint-medium - 16px}) {
+  @media (max-width: #{$md-breakpoint-medium}) {
     @content;
   }
 }

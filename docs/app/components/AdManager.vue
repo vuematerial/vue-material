@@ -15,20 +15,24 @@
 
 <script>
   const isProd = process.env.NODE_ENV === 'production'
-  const token = 'bb9dade0-0207-4ab0-8c86-d00502d952f5'
+  const token = '0989e0dbf1919e50f5b34ab00c81fa6f'
 
   export default {
     name: 'AdManager',
     computed: {
       linkHref () {
         if (isProd) {
-          return `https://cs.berry.sh/c/${token}`
+          return `https://codesponsor.io/t/c/${token}`
         }
+
+        return false
       },
       pixelHref () {
         if (isProd) {
-          return `https://cs.berry.sh/l/${token}/pixel.png`
+          return `https://codesponsor.io/t/l/${token}/pixel.png`
         }
+
+        return false
       }
     }
   }
@@ -43,7 +47,6 @@
   @mixin ad-theme ($hue, $color) {
     .code-sponsor {
       background: md-get-palette-color(grey, $hue);
-
       .code-sponsor-header {
         color: rgba($color, .54);
       }
@@ -51,7 +54,6 @@
 
     .code-sponsor-content {
       color: rgba($color, .7);
-
       &:hover {
         color: $color;
       }
@@ -84,6 +86,7 @@
       position: fixed;
       right: 16px;
       bottom: 16px;
+      z-index: 1000;
     }
 
     @media (max-width: $ad-responsive-small) {
@@ -110,7 +113,6 @@
 
   .code-sponsor-content {
     margin-top: 1em;
-
     &:hover {
       text-decoration: none;
     }

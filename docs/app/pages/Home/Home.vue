@@ -6,7 +6,7 @@
       <md-icon class="home-icon-indicator" @click.native="scrollDown">keyboard_arrow_down</md-icon>
     </div>
 
-    <!-- <home-ecosystem /> -->
+    <home-ecosystem />
     <home-sponsors />
   </splash-container>
 </template>
@@ -55,6 +55,10 @@
     letter-spacing: normal;
     font-size: 15px;
     line-height: 1.7em;
+
+    section {
+      padding: 32px 0 48px;
+    }
   }
 
   .home-splash {
@@ -84,5 +88,30 @@
     left: 50%;
     transform: translateX(-50%);
     animation: home-icon-indicator 2s infinite $md-transition-stand-timing;
+  }
+</style>
+
+<style lang="scss">
+  @import "~vue-material/components/MdAnimation/variables";
+  @import "~vue-material/components/MdIcon/mixins";
+  @import "~vue-material/components/MdLayout/mixins";
+
+  .page-wrapper {
+    max-width: 1344px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+
+  .home-title {
+    max-width: 1312px;
+    margin-bottom: 36px;
+    position: relative;
+
+    .md-icon {
+      position: absolute;
+      top: 2px;
+      bottom: 0;
+      left: -48px;
+    }
   }
 </style>

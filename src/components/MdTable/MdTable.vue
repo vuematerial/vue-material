@@ -90,7 +90,7 @@
       mdCard: Boolean,
       mdFixedHeader: Boolean,
       mdHeight: {
-        type: Number,
+        type: [Number, String],
         default: 400
       },
       mdSort: String,
@@ -180,7 +180,10 @@
       },
       contentStyles () {
         if (this.mdFixedHeader) {
-          return `height: ${this.mdHeight}px;max-height: ${this.mdHeight}px`
+          const height = typeof this.mdHeight === 'number'
+            ? `${this.mdHeight}px`
+            : this.mdHeight
+          return `height: ${height};max-height: ${height}`
         }
       },
       contentClasses () {
@@ -282,20 +285,17 @@
         this.$emit('md-selected', val)
       },
       syncSelectedValue () {
-        switch (this.MdTable.selectingMode) {
-          case 'single':
-            this.MdTable.singleSelection = this.mdSelectedValue
-            break
-          case 'multiple':
-            this.MdTable.selectedItems = this.mdSelectedValue || []
-            break
+        if (this.MdTable.selectingMode === 'single') {
+          this.MdTable.singleSelection = this.mdSelectedValue
+        } else if (this.MdTable.selectingMode === 'multiple') {
+          this.MdTable.selectedItems = this.mdSelectedValue || []
         }
       }
     },
-    async created () {
-      // wait for `selectingMode` from `TableRow`
-      await this.$nextTick()
-      this.syncSelectedValue()
+    created () {
+      this.$nextTick().then(() => {
+        this.syncSelectedValue()
+      })
     },
     mounted () {
       this.setContentEl()

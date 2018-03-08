@@ -38,11 +38,11 @@ The release strategy will be like this:
   - [X] Multiple themes
   - [x] CSS Variables
   - [ ] CSS-only themes
-- [ ] SSR Support - `NEW`
+- [X] SSR Support - `NEW`
   - [X] Basic Support
 
 ### Components
-- [ ] MdAutocomplete - `NEW API`
+- [X] MdAutocomplete - `NEW API`
 - [X] MdApp - `NEW`
   - [X] Documentation
   - [X] Reusable App Shell component
@@ -79,8 +79,8 @@ The release strategy will be like this:
   - [X] Prompt
   - [X] Custom
 - [X] MdDivider
-- [ ] MdDrawer - `NEW API`
-  - [ ] Documentation
+- [X] MdDrawer - `NEW API`
+  - [X] Documentation
   - [x] Deprecate md-sidenav
   - [X] Persistent - `NEW`
   - [X] Permanent  - `NEW`
@@ -92,8 +92,8 @@ The release strategy will be like this:
   - [X] Deprecate whiteframe component
   - [X] Elevation classes
 - [X] MdEmptyState - `NEW`
-- [ ] MdField - `NEW API`
-  - [ ] Documentation
+- [X] MdField - `NEW API`
+  - [X] Documentation
   - [X] Change md-input-container to md-field
   - [X] Input/Textarea
   - [X] Checkbox
@@ -102,8 +102,8 @@ The release strategy will be like this:
   - [X] File - `NEW API`
   - [x] Select
 - [X] MdIcon
-- [ ] MdLayout - `NEW API`
-  - [ ] Documentation
+- [X] MdLayout - `NEW API`
+  - [X] Documentation
   - [X] Deprecate layout component
   - [X] New flexbox/responsive/class-based grid
 - [ ] MdList - `NEW API`
@@ -112,26 +112,26 @@ The release strategy will be like this:
   - [X] Expansion
   - [X] Input Controls
 - [X] MdMenu - `NEW API`
-- [ ] MdProgress - `NEW API`
-  - [ ] Documentation
-  - [ ] Spinner
-  - [ ] Bar
-  - [ ] 0%/100% progress
-  - [ ] Indeterminate state
+- [X] MdProgress - `NEW API`
+  - [X] Documentation
+  - [X] Spinner
+  - [X] Bar
+  - [X] 0%/100% progress
+  - [X] Indeterminate state
 - [X] MdRadio
 - [ ] MdRipple - `NEW API`
   - [ ] Documentation
   - [X] New ripple
   - [ ] Abstract component
   - [ ] Performance improvements
-- [ ] MdSnackbar
-  - [ ] Documentation
+- [X] MdSnackbar
+  - [X] Documentation
   - [X] Themed Snackbar
 - [X] MdSpeedDial - `NEW API`
   - [X] Click Action
   - [X] Multiple Effects
-- [ ] MdSteppers - `NEW API`
-  - [ ] Documentation
+- [X] MdSteppers - `NEW API`
+  - [X] Documentation
   - [X] Horizontal
   - [X] Vertical
 - [X] MdSubheader
@@ -146,8 +146,8 @@ The release strategy will be like this:
   - [x] Selection
   - [ ] Pagination
   - [x] Alternate Header
-- [ ] MdTabs
-  - [ ] Documentation
+- [X] MdTabs
+  - [X] Documentation
   - [X] Router integration - `NEW`
   - [X] Router Sync - `NEW`
   - [X] Symple way to trigger active tab
@@ -160,15 +160,15 @@ The release strategy will be like this:
   - [ ] Guide
   - [ ] Extending Vue Material
   - [ ] Third Party Components
-- [ ] About
+- [X] About
 - [ ] Changelog
 - [ ] Components summary
 - [ ] Contribute
-- [ ] Getting Started
+- [X] Getting Started
 - [ ] Migration Guide
-- [ ] Static docs
-- [ ] Themes
-  - [ ] Configuration
+- [X] Static docs
+- [X] Themes
+  - [X] Configuration
   - [ ] Dynamic Themes
 - [ ] UI Elements summary
 

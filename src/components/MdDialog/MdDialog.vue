@@ -61,14 +61,14 @@
       }
     },
     watch: {
-      async mdActive (isActive) {
-        await this.$nextTick()
-
-        if (isActive) {
-          this.$emit('md-opened')
-        } else {
-          this.$emit('md-closed')
-        }
+      mdActive (isActive) {
+        this.$nextTick().then(() => {
+          if (isActive) {
+            this.$emit('md-opened')
+          } else {
+            this.$emit('md-closed')
+          }
+        })
       }
     },
     methods: {

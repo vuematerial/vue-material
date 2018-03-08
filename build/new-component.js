@@ -80,6 +80,7 @@ export default Vue => {
 
 function getDocsFile (name) {
   const singleName = name.replace('Md', '')
+  const docName = name.replace('Md', 'Doc')
 
   return `<example src="./examples/Example.vue" />
 
@@ -105,7 +106,7 @@ function getDocsFile (name) {
   import examples from 'docs-mixins/docsExample'
 
   export default {
-    name: '${singleName}',
+    name: '${docName}',
     mixins: [examples]
   }
 </script>
@@ -155,7 +156,7 @@ const rootDir = join(__dirname, '..')
 const componentsPath = 'src/components/' + name
 const componentIndex = 'src/components/index.js'
 const themePath = 'src/theme/all.scss'
-const docsPath = 'docs/app/pages/components/' + singleName
+const docsPath = 'docs/app/pages/Components/' + singleName
 const docsRoutePath = 'docs/app/routes.js'
 const navPath = 'docs/app/template/MainNavContent.vue'
 

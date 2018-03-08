@@ -114,18 +114,19 @@
     created () {
       this.MdBottomBar.type = this.mdType
     },
-    async mounted () {
-      await this.$nextTick()
+    mounted () {
+      this.$nextTick().then(() => {
+        if (this.mdSyncRoute) {
+          this.setActiveItemByRoute()
+        } else {
+          this.setActiveItemByIndex(0)
+        }
 
-      if (this.mdSyncRoute) {
-        this.setActiveItemByRoute()
-      } else {
-        this.setActiveItemByIndex(0)
-      }
+        window.setTimeout(() => {
+          this.setupWatchers()
+        }, 100)
+      })
 
-      window.setTimeout(() => {
-        this.setupWatchers()
-      }, 100)
     }
   })
 </script>

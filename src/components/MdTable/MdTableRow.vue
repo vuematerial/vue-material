@@ -28,7 +28,7 @@
       },
       mdDisabled: Boolean,
       mdAutoSelect: Boolean,
-      mdItem: Object
+      mdItem: [Array, Object]
     },
     inject: ['MdTable'],
     data: () => ({
@@ -83,6 +83,10 @@
       },
       mdSelectable () {
         this.MdTable.selectingMode = this.mdSelectable
+      },
+      mdItem (after, before) {
+        this.removeSelectableItem(before)
+        this.$nextTick(this.addSelectableItem)
       }
     },
     methods: {
@@ -121,12 +125,12 @@
 
         this.MdTable.selectable.push(this.mdItem)
       },
-      removeSelectableItem () {
+      removeSelectableItem (target = this.mdItem) {
         if (!this.hasMultipleSelection) {
           return
         }
 
-        this.MdTable.selectable = this.MdTable.selectable.filter(item => item !== this.mdItem)
+        this.MdTable.selectable = this.MdTable.selectable.filter(item => item !== target)
       }
     },
     created () {
