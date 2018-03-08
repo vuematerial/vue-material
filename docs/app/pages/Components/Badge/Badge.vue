@@ -1,5 +1,6 @@
 <example src="./examples/Buttons.vue" />
 <example src="./examples/Lists.vue" />
+<example src="./examples/Dense.vue" />
 
 <template>
   <page-container centered :title="$t('pages.badge.title')">
@@ -13,6 +14,8 @@
       <code-example title="Example with buttons" :component="examples['buttons']" />
 
       <code-example title="Example with lists" :component="examples['lists']" />
+
+      <code-example title="Dense" :component="examples['dense']" />
 
       <api-item title="API - md-badge">
         <p>The following option can be applied to any badge:</p>
@@ -53,7 +56,13 @@
             type: 'String',
             description: 'Position of badge <code>top</code> or <code>bottom</code>',
             defaults: 'top'
-          }
+          },
+          {
+            name: 'md-dense',
+            type: 'Boolean',
+            description: 'Enables the dense layout',
+            defaults: 'false'
+          },
         ]
       }
     })
