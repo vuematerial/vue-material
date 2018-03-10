@@ -148,7 +148,6 @@
       "^.+\\.vue?$": "jest-vue",
       ".*": "jest-css-modules"
     },
-    "mapCoverage": true,
     "setupTestFrameworkScriptFile": "<rootDir>/test/setup.js",
     "collectCoverageFrom": [
       "src/**/*.{js,vue}",
