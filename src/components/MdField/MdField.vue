@@ -196,6 +196,28 @@
       transition-duration: .3s;
       line-height: 1;
     }
+    .md-suffix {
+      padding: 12px 0 0;
+      font-size: 16px;
+      line-height: 32px;
+      align-self: center;
+      justify-self: center;
+    }
+
+    .md-prefix {
+      display: none;
+      padding: 12px 4px 0 0;
+      font-size: 16px;
+      line-height: 32px;
+      align-self: center;
+      justify-self: center;
+    }
+
+    &.md-focused, &.md-has-value {
+      .md-prefix {
+        display: block;
+      }
+    }
 
     .md-input,
     .md-textarea {
