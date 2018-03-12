@@ -271,7 +271,7 @@ export default entry => {
     }, webpackConfig)
   }
 
-  webpackConfig = merge({
+  webpackConfig = merge(webpackConfig, {
     plugins: [
       new webpack.BannerPlugin({
         banner: banner,
@@ -280,7 +280,7 @@ export default entry => {
       }),
       new webpack.optimize.OccurrenceOrderPlugin()
     ]
-  }, webpackConfig)
+  })
 
   if (entry.analyze && process.argv.includes('--analyze')) {
     webpackConfig.plugins.push(new BundleAnalyzerPlugin({

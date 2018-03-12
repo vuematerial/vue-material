@@ -178,9 +178,14 @@
         this.MdMenu.active = false
       },
       getOffsets () {
+        const relativePosition = this.getBodyPosition()
+
+        const offsetX = this.MdMenu.offsetX || 0
+        const offsetY = this.MdMenu.offsetY || 0
+        
         return {
-          offsetX: this.MdMenu.offsetX || 0,
-          offsetY: this.MdMenu.offsetY || 0
+          offsetX: offsetX - relativePosition.x,
+          offsetY: offsetY - relativePosition.y
         }
       },
       hasCustomOffsets () {
@@ -236,6 +241,15 @@
             max-width: ${this.MdMenu.instance.$el.offsetWidth}px
           `
         }
+      },
+      getBodyPosition() {
+        const body = document.body
+        const { top, left } = body.getBoundingClientRect()
+
+        const scrollLeft = window.pageXOffset !== undefined ? window.pageXOffset : body.scrollLeft
+        const scrollTop = window.pageYOffset !== undefined ? window.pageYOffset : body.scrollTop
+
+        return { x: left + scrollLeft, y: top + scrollTop }
       }
     },
     mounted () {

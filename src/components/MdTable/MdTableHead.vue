@@ -1,5 +1,5 @@
 <template>
-  <th class="md-table-head" :class="headClasses" :style="headStyles" @click="changeSort">
+  <th class="md-table-head" :id="id" :class="headClasses" :style="headStyles" @click="changeSort">
     <div class="md-table-head-container" v-if="$slots.default">
       <div class="md-table-head-label">
         <slot />
@@ -20,6 +20,7 @@
 
 <script>
   import MdUpwardIcon from 'core/icons/MdUpwardIcon'
+  import MdResizeObserver from 'core/utils/MdResizeObserver'
 
   export default {
     name: 'MdTableHead',
@@ -29,13 +30,15 @@
     props: {
       mdNumeric: Boolean,
       numeric: Boolean,
+      id: [String, Number],
       label: String,
       tooltip: String,
       sortBy: String
     },
     inject: ['MdTable'],
     data: () => ({
-      width: null
+      width: null,
+      windowResizeObserver: null
     }),
     computed: {
       hasSort () {
@@ -104,6 +107,15 @@
     },
     mounted () {
       this.$nextTick().then(this.setWidth)
+
+      if (this.MdTable.fixedHeader) {
+        this.windowResizeObserver = new MdResizeObserver(window, this.setWidth)
+      }
+    },
+    beforeDestroy () {
+      if (this.windowResizeObserver) {
+        this.windowResizeObserver.destroy()
+      }
     }
   }
 </script>

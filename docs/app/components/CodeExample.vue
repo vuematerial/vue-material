@@ -6,7 +6,7 @@
         <md-icon>code</md-icon>
         <md-tooltip md-theme="default">Code</md-tooltip>
       </md-button>
-      <codepen-edit :component="component" v-if="component.name" />
+      <codesandbox-edit :component="component" :title="title" v-if="component.name" />
     </md-toolbar>
 
     <transition name="block">
