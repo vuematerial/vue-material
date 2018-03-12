@@ -6,7 +6,7 @@
         :style="menuStyles"
         ref="menu">
         <div class="md-menu-content-container md-scrollbar" :class="$mdActiveTheme" ref="container">
-          <md-list :class="listClasses" v-bind="filteredAttrs" @keydown.esc="onEsc">
+          <md-list :class="listClasses" v-bind="filteredAttrs">
             <slot />
           </md-list>
         </div>
@@ -182,7 +182,7 @@
 
         const offsetX = this.MdMenu.offsetX || 0
         const offsetY = this.MdMenu.offsetY || 0
-        
+
         return {
           offsetX: offsetX - relativePosition.x,
           offsetY: offsetY - relativePosition.y
@@ -223,6 +223,8 @@
           case 'Enter': this.setSelection()
             break
           case 'Space': this.setSelection()
+            break
+          case 'Escape': this.onEsc()
         }
       },
       createResizeObserver () {
