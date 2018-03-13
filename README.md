@@ -96,7 +96,7 @@ Optionally import Roboto font & Material Icons from Google CDN:
 
 ## Changelog
 
-<a href="https://vuematerial.io/#/changelog" target="_blank">Changelog</a>
+<a href="https://github.com/vuematerial/vue-material/releases">Changelog</a>
 
 ## Questions
 
