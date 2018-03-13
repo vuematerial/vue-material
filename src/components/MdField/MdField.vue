@@ -397,7 +397,12 @@
       }
     }
 
+    &.md-autogrow {
+      padding-top: 0;
+    }
+
     &.md-has-textarea:not(.md-autogrow) {
+      padding-top: 0;
       &:before,
       &:after {
         height: auto;
@@ -421,7 +426,7 @@
 
       .md-textarea {
         min-height: 100px;
-        padding: 26px 16px 16px;
+        padding: 26px 16px 4px 16px;
         resize: vertical;
       }
 
@@ -538,6 +543,7 @@
     &.md-inline {
       min-height: 32px;
       margin-top: 8px;
+      padding-top: 0;
 
       label {
         pointer-events: none;
