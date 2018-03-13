@@ -197,7 +197,6 @@
       line-height: 1;
     }
     .md-suffix {
-      padding: 12px 0 0;
       font-size: 16px;
       line-height: 32px;
       align-self: center;
@@ -206,7 +205,7 @@
 
     .md-prefix {
       display: none;
-      padding: 12px 4px 0 0;
+      padding-right: 4px;
       font-size: 16px;
       line-height: 32px;
       align-self: center;
