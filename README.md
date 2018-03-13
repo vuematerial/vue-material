@@ -42,7 +42,9 @@ You can try Rollbar for free at [https://rollbar.com](https://codesponsor.io/t/c
 
 ## Demo and Documentation
 
-<a href="https://vuematerial.io/" target="_blank">Demo</a>
+<a href="https://vuematerial.io/" target="_blank">Documentation & demos</a>
+
+<a href="https://github.com/vuematerial/examples" target="_blank">Examples</a>
 
 If you are trying to find the documentation for previous versions, please go to <a href="https://vue-material-old.netlify.com">old website</a>.
 
@@ -51,8 +53,8 @@ If you are trying to find the documentation for previous versions, please go to 
 Install Vue Material through npm or yarn
 
 ``` bash
-npm install vue-material@beta --save
-yarn add vue-material@beta
+npm install vue-material --save
+yarn add vue-material
 ```
 
 <small>* Others package managers like JSPM and Bower are not supported yet.</small>
@@ -86,16 +88,15 @@ Alternativelly you can <a href="https://github.com/vuematerial/vue-material/arch
 <script src="path/to/vue-material.js"></script>
 ```
 
-Optionally import Roboto font from Google CDN:
+Optionally import Roboto font & Material Icons from Google CDN:
 
 ``` html
-<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
-<link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic|Material+Icons">
 ```
 
 ## Changelog
 
-<a href="https://vuematerial.io/#/changelog" target="_blank">Changelog</a>
+<a href="https://github.com/vuematerial/vue-material/releases">Changelog</a>
 
 ## Questions
 
