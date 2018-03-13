@@ -16,7 +16,7 @@
 
 <script>
   export default {
-    name: 'InlineActions',
+    name: 'Fixes',
     data: () => ({
       initial: 0,
       empty: ''
