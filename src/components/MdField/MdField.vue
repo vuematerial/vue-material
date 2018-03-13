@@ -307,7 +307,7 @@
     }
 
     label {
-      top: 22px;
+      top: 24px;
       left: 0;
       font-size: 16px;
     }
