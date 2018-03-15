@@ -7,6 +7,6 @@ export default (el = window, observerFn) => {
   }, { passive: true })
 
   return {
-    destroy: () => observer.destroy
+    destroy: observer.destroy
   }
 }
