@@ -1,4 +1,5 @@
 import MdApp from './MdApp'
+import MdSlider from './MdSlider'
 import MdAutocomplete from './MdAutocomplete'
 import MdAvatar from './MdAvatar'
 import MdBottomBar from './MdBottomBar'
@@ -37,6 +38,7 @@ import MdToolbar from './MdToolbar'
 import MdTooltip from './MdTooltip'
 
 export {
+  MdSlider,
   MdApp,
   MdAutocomplete,
   MdAvatar,

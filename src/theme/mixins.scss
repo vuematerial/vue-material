@@ -168,6 +168,49 @@
   #{$property}: var(--md-theme-#{$md-current-theme}-#{$type}#{$variant}, $value);
 }
 
+
+/**
+ * Theme a single css property with a value
+ * ---
+ * Usage example:
+ *
+ * .md-button {
+ *   min-width: 88px;
+ *   height: 40px;
+ *   display: inline-block;
+ *   border-radius: 2px;
+ *   transition: .3s ease;
+ *
+ *   @include md-theme-component() {
+ *     @include md-theme-property(box-shadow, 0 0 3px, primary);
+ *   }
+ * }
+ *
+ * ---
+ * @access public
+ * @param {string} $property —  The css property
+ * @param {string} $attribute —  The css attribute value
+ * @param {string} $type —  A palette type
+ * @param {string} $background —  The background color to analyse contrast
+ * @param {number} $opacity —  The opacity amount
+ */
+
+@mixin md-theme-property-value ($property, $attribute, $type, $background: "", $opacity: "") {
+  $value: md-theme($type, $background);
+  $variant: null;
+
+  @if $background != "" {
+    $variant: -on-#{$background};
+  }
+
+  @if $opacity != "" {
+    $value: rgba($value, $opacity);
+  }
+
+  #{$property}: $attribute $value;
+  #{$property}: $attribute var(--md-theme-#{$md-current-theme}-#{$type}#{$variant}, $value);
+}
+
 /**
  * Theme a single css property darkening the color by a certain amount
  * ---

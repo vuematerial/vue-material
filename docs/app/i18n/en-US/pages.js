@@ -226,6 +226,10 @@ export default {
   speedDial: {
     title: 'Speed Dial'
   },
+  slider: {
+    title: 'Slider',
+    description: 'Sliders let users select from a range of values by moving the slider thumb. '
+  },
   snackbar: {
     title: 'Snackbar'
   },
