@@ -3,10 +3,11 @@
     <slot name="md-app-toolbar"></slot>
 
     <main class="md-app-container md-flex md-layout-row" :style="[containerStyles, contentStyles]" :class="[$mdActiveTheme, scrollerClasses]">
-      <slot name="md-app-drawer"></slot>
+      <slot name="md-app-drawer-left"></slot>
       <div class="md-app-scroller md-layout-column md-flex" :class="[$mdActiveTheme, scrollerClasses]">
         <slot name="md-app-content"></slot>
       </div>
+      <slot name="md-app-drawer-right"></slot>
     </main>
   </div>
 </template>

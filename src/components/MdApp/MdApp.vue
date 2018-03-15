@@ -1,4 +1,5 @@
 <script>
+  import Vue from 'vue'
   import MdAppSideDrawer from './MdAppSideDrawer'
   import MdAppInternalDrawer from './MdAppInternalDrawer'
 
@@ -15,6 +16,8 @@
   function buildSlots (children, context, functionalContext, options) {
     let slots = []
 
+    let hasDrawer = false
+
     if (children) {
       children.forEach(child => {
         const data = child.data
@@ -22,6 +25,19 @@
 
         if ((data && componentTypes.includes(data.slot)) || isValidChild(componentOptions)) {
           child.data.slot = data.slot || componentOptions.tag
+
+          if (componentOptions.tag === 'md-app-drawer') {
+            if (hasDrawer) {
+              Vue.util.warn(`There shouldn't be more than one drawer in a MdApp at one time.`)
+              return
+            }
+
+            hasDrawer = true
+            let nativeMdRight = componentOptions.propsData.mdRight
+            let mdRight = nativeMdRight === '' || !!nativeMdRight
+            child.data.slot += `-${mdRight ? 'right' : 'left'}`
+          }
+
           child.data.provide = options.Ctor.options.provide
           child.context = context
           child.functionalContext = functionalContext

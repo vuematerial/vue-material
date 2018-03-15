@@ -44,17 +44,13 @@ export default {
         fixedLastHeight: false,
         overlapOff: false
       },
-      leftDrawer: {
+      drawer: {
         initialWidth: 0,
         active: false,
         mode: 'temporary',
-        width: 0
-      },
-      rightDrawer: {
-        initialWidth: 0,
-        active: false,
-        mode: 'temporary',
-        width: 0
+        submode: null,
+        width: 0,
+        right: false
       }
     }
   }),
@@ -67,34 +63,21 @@ export default {
     isFixed () {
       return this.mdMode && this.mdMode !== 'fixed'
     },
-    isLeftMini () {
-      return this.MdApp.leftDrawer.mode === 'persistent' && this.MdApp.leftDrawer.submode === 'mini'
+    isDrawerMini () {
+      return this.MdApp.drawer.mode === 'persistent' && this.MdApp.drawer.submode === 'mini'
     },
-    isRightMini () {
-      return this.MdApp.rightDrawer.mode === 'persistent' && this.MdApp.rightDrawer.submode === 'mini'
-    },
-    contentPaddingLeft () {
-      const leftDrawer = this.MdApp.leftDrawer
+    contentPadding () {
+      const drawer = this.MdApp.drawer
 
-      if (leftDrawer.active && leftDrawer.mode === 'persistent' && leftDrawer.submode === 'full') {
-        return leftDrawer.width
-      }
-
-      return 0
-    },
-    contentPaddingRight () {
-      const rightDrawer = this.MdApp.rightDrawer
-
-      if (rightDrawer.active && rightDrawer.mode === 'persistent' && rightDrawer.submode === 'full') {
-        return rightDrawer.width
+      if (this.MdApp.drawer.active && this.MdApp.drawer.mode === 'persistent' && this.MdApp.drawer.submode === 'full') {
+        return this.MdApp.drawer.width
       }
 
       return 0
     },
     contentStyles () {
       return {
-        'padding-left': this.contentPaddingLeft,
-        'padding-right': this.contentPaddingRight
+        [`padding-${this.MdApp.drawer.right ? 'right' : 'left'}`]: this.contentPadding
       }
     },
     containerStyles () {
@@ -104,12 +87,8 @@ export default {
         styles['margin-top'] = this.MdApp.toolbar.initialHeight + 'px'
       }
 
-      if (this.isLeftMini) {
-        styles['padding-left'] = !this.MdApp.leftDrawer.active ? this.MdApp.leftDrawer.initialWidth + 'px' : 0
-      }
-
-      if (this.isRightMini) {
-        styles['padding-right'] = !this.MdApp.rightDrawer.active ? this.MdApp.rightDrawer.initialWidth + 'px' : 0
+      if (this.isDrawerMini) {
+        styles[`padding-${this.MdApp.drawer.right ? 'right' : 'left'}`] = !this.MdApp.drawer.active ? this.MdApp.drawer.initialWidth + 'px' : 0
       }
 
       return styles
@@ -127,7 +106,7 @@ export default {
         'md-fixed-last': this.mdMode === 'fixed-last',
         'md-reveal': this.mdMode === 'reveal',
         'md-overlap': this.mdMode === 'overlap',
-        'md-drawer-active': this.MdApp.leftDrawer.active || this.MdApp.rightDrawer.active
+        'md-drawer-active': this.MdApp.drawer.active
       }
     }
   },

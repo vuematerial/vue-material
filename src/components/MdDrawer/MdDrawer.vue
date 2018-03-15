@@ -238,11 +238,18 @@
     }
 
     &.md-persistent-mini {
-      border-right: 1px solid;
       transform: translate3D(0, 64px, 0);
       transition: .3s $md-transition-stand-timing;
       transition-property: transform, width;
       will-change: transform, box-shadow;
+
+      &.md-left {
+        border-right: 1px solid;
+      }
+
+      &.md-right {
+        border-left: 1px solid;
+      }
 
       &.md-active {
         &.md-left {

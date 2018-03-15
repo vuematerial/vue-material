@@ -1,6 +1,6 @@
 <template>
   <div class="md-app md-app-side-drawer md-layout-row" :class="[appClasses, $mdActiveTheme]">
-    <slot name="md-app-drawer"></slot>
+    <slot name="md-app-drawer-left"></slot>
 
     <main class="md-app-container md-flex md-layout-column" :class="[$mdActiveTheme, scrollerClasses]" :style="contentStyles" @scroll.passive="handleScroll">
       <slot name="md-app-toolbar"></slot>
@@ -8,6 +8,8 @@
         <slot name="md-app-content"></slot>
       </div>
     </main>
+
+    <slot name="md-app-drawer-right"></slot>
   </div>
 </template>
 
