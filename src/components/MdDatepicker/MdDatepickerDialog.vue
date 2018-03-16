@@ -80,7 +80,7 @@
 
           <md-dialog-actions class="md-datepicker-body-footer">
             <md-button class="md-primary" @click="onCancel">Cancel</md-button>
-            <md-button class="md-primary" @click="onConfirm">Ok</md-button>
+            <md-button v-if="!mdImmediately" class="md-primary" @click="onConfirm">Ok</md-button>
           </md-dialog-actions>
         </div>
       </div>
