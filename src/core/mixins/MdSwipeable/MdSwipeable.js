@@ -66,6 +66,7 @@ export default {
         startX: 0,
         startY: 0
       }
+      this.swiped = null
       this.swipeStart = false
     },
   },
