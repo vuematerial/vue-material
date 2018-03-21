@@ -11,7 +11,7 @@
       </div>
     </md-toolbar>
 
-    <md-drawer :md-active.sync="showNavigation">
+    <md-drawer :md-active.sync="showNavigation" md-swipeable>
       <md-toolbar class="md-transparent" md-elevation="0">
         <span class="md-title">My App name</span>
       </md-toolbar>
