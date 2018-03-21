@@ -50,11 +50,11 @@ export default {
       const elapsedTime = new Date() - this.swipeStartTime
 
       if (elapsedTime <= this.mdSwipeTime) {
-        if (Math.abs(actualX) >= this.mdSwipeThreshold && Math.abs(actualX) <= this.mdSwipeRestraint) {
+        if (Math.abs(actualX) >= this.mdSwipeThreshold && Math.abs(actualY) <= this.mdSwipeRestraint) {
           this.swiped = actualX < 0
             ? 'left'
             : 'right'
-        } else if (Math.abs(actualY) >= this.mdSwipeThreshold && Math.abs(actualY) <= this.mdSwipeRestraint) {
+        } else if (Math.abs(actualY) >= this.mdSwipeThreshold && Math.abs(actualX) <= this.mdSwipeRestraint) {
           this.swiped = actualY < 0
             ? 'up'
             : 'down'
