@@ -1,7 +1,7 @@
 let currentSnackbar = null
 let timeout = null
 
-function createPromise (duration, context) {
+function createPromise (duration, persistent, context) {
   return new Promise(resolve => {
     currentSnackbar = {
       destroy: () => {
@@ -13,7 +13,9 @@ function createPromise (duration, context) {
     if (duration !== Infinity) {
       timeout = window.setTimeout(() => {
         destroySnackbar()
-        context._vnode.componentInstance.initDestroy(true)
+        if (!persistent) {
+          context._vnode.componentInstance.initDestroy(true)
+        }
       }, duration)
     }
   })

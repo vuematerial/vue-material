@@ -64,27 +64,24 @@
         on: {
           ...this.$listeners,
           touchstart: event => {
-            if (!this.rippleWorks) {
-              return false
+            if (this.rippleWorks) {
+              this.rippleActive = event
             }
 
-            this.rippleActive = event
             this.$listeners.touchstart && this.$listeners.touchstart(event)
           },
           touchmove: event => {
-            if (!this.rippleWorks) {
-              return false
+            if (this.rippleWorks) {
+              this.rippleActive = event
             }
 
-            this.rippleActive = event
             this.$listeners.touchmove && this.$listeners.touchmove(event)
           },
           mousedown: event => {
-            if (!this.rippleWorks) {
-              return false
+            if (this.rippleWorks) {
+              this.rippleActive = event
             }
 
-            this.rippleActive = event
             this.$listeners.mousedown && this.$listeners.mousedown(event)
           }
         }
