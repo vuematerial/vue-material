@@ -3,7 +3,7 @@ export default {
     mdSwipeable: Boolean,
     mdSwipeThreshold: {
       type: Number,
-      default: 50
+      default: 150
     },
     mdSwipeRestraint: {
       type: Number,
@@ -11,7 +11,7 @@ export default {
     },
     mdSwipeTime: {
       type: Number,
-      default: 400
+      default: 300
     }
   },
   data: () => ({
