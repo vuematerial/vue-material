@@ -11,8 +11,11 @@
   import MdOverlay from 'components/MdOverlay/MdOverlay'
   import MdPropValidator from 'core/utils/MdPropValidator'
 
+  import MdSwipeable from 'core/mixins/MdSwipeable/MdSwipeable'
+
   export default new MdComponent({
     name: 'MdDrawer',
+    mixins: [MdSwipeable],
     components: {
       MdOverlay
     },
@@ -43,6 +46,11 @@
           this.$emit('md-opened')
         } else {
           this.$emit('md-closed')
+        }
+      },
+      swiped (value) {
+        if (value === 'right' || value === 'left') {
+          this.$emit('update:mdActive', value === 'right')
         }
       }
     },
