@@ -16,7 +16,6 @@ export default {
   },
   data: () => ({
     swipeStart: false,
-    swipeElement: window,
     swipeStartTime: null,
     swiped: null,
     touchPosition: {
@@ -24,6 +23,11 @@ export default {
       startY: 0
     }
   }),
+  computed: {
+    getSwipeElement () {
+      return this.swipeElement || window
+    }
+  },
   methods: {
     handleTouchStart (event) {
       this.touchPosition.startX = event.touches[0].screenX
@@ -55,7 +59,6 @@ export default {
             ? 'up'
             : 'down'
         }
-
       }
     },
     handleTouchEnd () {
@@ -68,16 +71,16 @@ export default {
   },
   mounted () {
     if (this.mdSwipeable) {
-      this.swipeElement.addEventListener('touchstart', this.handleTouchStart, false)
-      this.swipeElement.addEventListener('touchend', this.handleTouchEnd, false)
-      this.swipeElement.addEventListener('touchmove', this.handleTouchMove, false)
+      this.getSwipeElement.addEventListener('touchstart', this.handleTouchStart, false)
+      this.getSwipeElement.addEventListener('touchend', this.handleTouchEnd, false)
+      this.getSwipeElement.addEventListener('touchmove', this.handleTouchMove, false)
     }
   },
   beforeDestroy () {
     if (this.mdSwipeable) {
-      this.swipeElement.removeEventListener('touchstart', this.handleTouchStart, false)
-      this.swipeElement.removeEventListener('touchend', this.handleTouchEnd, false)
-      this.swipeElement.removeEventListener('touchmove', this.handleTouchMove, false)
+      this.getSwipeElement.removeEventListener('touchstart', this.handleTouchStart, false)
+      this.getSwipeElement.removeEventListener('touchend', this.handleTouchEnd, false)
+      this.getSwipeElement.removeEventListener('touchmove', this.handleTouchMove, false)
     }
   }
 }
