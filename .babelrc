@@ -1,19 +1,13 @@
 {
   "presets": [
-    "es2015",
-    "stage-3",
-    [
-      "env",
-      {
-        "modules": false,
-        "useBuiltIns": false
-      }
-    ]
+    "env",
+    "react",
+    "stage-0"
   ],
   "plugins": [
-    "syntax-dynamic-import"
-  ],
-  "ignore": [
-    "dist/*.js"
+    "transform-class-properties",
+    "transform-decorators",
+    "transform-react-constant-elements",
+    "transform-react-inline-elements"
   ]
 }

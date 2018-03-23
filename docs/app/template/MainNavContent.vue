@@ -86,21 +86,22 @@
       }
     },
     methods: {
-      async scrollActiveItemIntoView () {
-        await this.$nextTick()
+      scrollActiveItemIntoView () {
+        this.$nextTick().then(() => {
+          const activeEl = this.$el.querySelector('.router-link-exact-active')
 
-        const activeEl = this.$el.querySelector('.router-link-exact-active')
-
-        if (activeEl) {
-          activeEl.scrollIntoView({
-            behavior: 'smooth'
-          })
-        }
+          if (activeEl) {
+            activeEl.scrollIntoView({
+              behavior: 'smooth'
+            })
+          }
+        })
       }
     },
-    async mounted () {
-      await this.$nextTick()
-      window.setTimeout(this.scrollActiveItemIntoView, 700)
+    mounted () {
+      this.$nextTick().then(() => {
+        window.setTimeout(this.scrollActiveItemIntoView, 700)
+      })
     }
   }
 </script>

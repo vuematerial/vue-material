@@ -12,7 +12,7 @@
   }
 </style>
 
-<script lang="babel">
+<script>
   import MdComponent from 'core/MdComponent'
 
   export default new MdComponent({

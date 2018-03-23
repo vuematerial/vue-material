@@ -22,6 +22,52 @@
     }
   }
 
+  function shouldRenderButtonWithListener (listeners) {
+    let listenerNames = Object.keys(listeners)
+    let shouldRender = false
+
+    listenerNames.forEach(listener => {
+      if (MdInteractionEvents.includes(listener)) {
+        shouldRender = true
+      }
+    })
+
+    return shouldRender
+  }
+
+  function isRouterLink(parent, props) {
+    return parent && parent.$router && props.to
+  }
+
+  function createListComponent (props, parent, listeners) {
+    if (hasExpansion(props)) {
+      return MdListItemExpand
+    }
+
+    if (props.disabled) {
+      return MdListItemButton
+    }
+
+    if (isRouterLink(parent, props)) {
+      MdListItemRouter.props = MdRouterLinkProps(parent, {
+        target: String
+      })
+      delete MdListItemRouter.props.href
+
+      return MdListItemRouter
+    }
+
+    if (props.href) {
+      return MdListItemLink
+    }
+
+    if (shouldRenderButtonWithListener(listeners)) {
+      return MdListItemButton
+    }
+
+    return MdListItemDefault
+  }
+
   export default {
     name: 'MdListItem',
     functional: true,
@@ -30,28 +76,8 @@
     },
     render (createElement, { parent, props, listeners, data, slots }) {
       let children = slots()
-      let listComponent = MdListItemDefault
+      let listComponent = createListComponent(props, parent, listeners)
       let staticClass = 'md-list-item'
-
-      if (hasExpansion(props)) {
-        listComponent = MdListItemExpand
-      } else if (parent && parent.$router && props.to) {
-        listComponent = MdListItemRouter
-        listComponent.props = MdRouterLinkProps(parent, {
-          target: String
-        })
-        delete listComponent.props.href
-      } else if (props.href) {
-        listComponent = MdListItemLink
-      } else {
-        let listenerNames = Object.keys(listeners)
-
-        listenerNames.forEach(listener => {
-          if (MdInteractionEvents.includes(listener)) {
-            listComponent = MdListItemButton
-          }
-        })
-      }
 
       if (data.staticClass) {
         staticClass += ' ' + data.staticClass

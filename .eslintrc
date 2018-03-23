@@ -6,18 +6,20 @@
     "sourceType": "module"
   },
   "plugins": [
-    "jest"
+    "jest",
+    "vue"
   ],
   "extends": [
-    "plugin:vue/recommended"
+    "plugin:vue/essential"
   ],
   "env": {
     "jest/globals": true
   },
   "rules": {
     "arrow-parens": 0,
-    "generator-star-spacing": 0,
-    "vue/valid-v-on": 0,
+    "generator-star-spacing": "off",
+    "indent": "off",
+    "indent-legacy": ["error", 2],
     "max-depth": [
       "error",
       4
@@ -37,9 +39,10 @@
     "complexity": [
       "error",
       {
-        "max": 5
+        "max": 6
       }
     ],
+    "vue/valid-v-on": 0,
     "vue/v-bind-style": [
       "error",
       "shorthand"

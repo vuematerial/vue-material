@@ -1,5 +1,10 @@
 <!--
 
+Questions
+================
+If you have any questions, ideas or you want to discuss with Vue Material community. Use the Discord instead.
+Follow this link: https://discord.gg/rgcmTtm
+
 Reporting a bug?
 ================
 
@@ -7,7 +12,7 @@ Reporting a bug?
 - Open one issue per subject. Cluttered issues will be closed.
 - Make sure to only create issues for the newest version.
 - Create a declarative title and describe clearly the steps necessary to reproduce the issue. If an issue labeled "need repro" receives no further input from the issue author for more than 3 days, it will be closed.
-- If you want to show your code, please use [Codepen](http://codepen.io/pen/) or [JSFiddle](https://jsfiddle.net/). You can start with [this template](https://codepen.io/vue-material/pen/RxGmyb).
+- If you want to show your code, please use https://codesandbox.io/s/github/vuematerial/examples/tree/master/examples/quick-start
 - In case you found a solution by yourself, it could be helpful to explain how you have fixed it.
 - For bugs that involves build setups, you can create a reproduction repository with steps in the README.
 - If your issue is resolved but still open, don’t hesitate to close it. 
@@ -44,5 +49,8 @@ Do not create new features based on a problem that will only solve edge cases fo
 
 ### Reproduction Link
 
-<!-- If you want to show your code please use Codepen or JSFiddle. -->
-<!-- You could start with this template: http://codepen.io/vue-material/pen/WGavBE. -->
+<!-- If you want to show your code please use Codesanbox. -->
+<!-- 
+  You could start with this template:
+  https://codesandbox.io/s/github/vuematerial/examples/tree/master/examples/quick-start
+-->

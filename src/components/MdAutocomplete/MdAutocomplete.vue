@@ -98,6 +98,9 @@
           return 'md-autocomplete-box-content'
         }
       },
+      shouldFilter () {
+        return this.mdOptions[0] && this.searchTerm
+      },
       filteredStaticOptions () {
         if (this.isPromise(this.mdOptions)) {
           return false
@@ -105,7 +108,7 @@
 
         const firstItem = this.mdOptions[0]
 
-        if (this.mdOptions[0] && this.searchTerm) {
+        if (this.shouldFilter) {
           if (typeof firstItem === 'string') {
             return this.filterByString()
           } else if (typeof firstItem === 'object') {
@@ -126,11 +129,13 @@
       mdOptions: {
         deep: true,
         immediate: true,
-        async handler () {
+        handler () {
           if (this.isPromise(this.mdOptions)) {
             this.isPromisePending = true
-            this.filteredAsyncOptions = await this.mdOptions
-            this.isPromisePending = false
+            this.mdOptions.then(options => {
+              this.filteredAsyncOptions = options
+              this.isPromisePending = false
+            })
           }
         }
       },
@@ -191,22 +196,27 @@
           this.$emit('md-changed', this.searchTerm)
         }
       },
-      async showOptions () {
+      showOptions () {
         if (this.showMenu) {
           return false
         }
 
         this.showMenu = true
-        await this.$nextTick()
-        this.triggerPopover = true
-        this.$emit('md-opened')
+        this.$nextTick().then(() => {
+          this.triggerPopover = true
+          this.$emit('md-opened')
+        })
       },
-      async hideOptions () {
-        await this.$nextTick()
-        this.showMenu = false
-        await this.$nextTick()
-        this.triggerPopover = false
-        this.$emit('md-closed')
+      hideOptions () {
+        const clearPopover = () => {
+          this.triggerPopover = false
+          this.$emit('md-closed')
+        }
+
+        this.$nextTick().then(() => {
+          this.showMenu = false
+          this.$nextTick().then(clearPopover)
+        })
       },
       selectItem (item, $event) {
         const content = $event.target.textContent.trim()

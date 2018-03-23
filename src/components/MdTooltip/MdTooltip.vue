@@ -68,16 +68,16 @@
         this.shouldRender = false
       }
     },
-    async mounted () {
-      await this.$nextTick()
+    mounted () {
+      this.$nextTick().then(() => {
+        this.shouldRender = this.mdActive
+        this.targetEl = this._vnode.componentInstance.originalParentEl
 
-      this.shouldRender = this.mdActive
-      this.targetEl = this._vnode.componentInstance.originalParentEl
-
-      if (this.targetEl) {
-        this.targetEl.addEventListener('mouseenter', this.show, false)
-        this.targetEl.addEventListener('mouseleave', this.hide, false)
-      }
+        if (this.targetEl) {
+          this.targetEl.addEventListener('mouseenter', this.show, false)
+          this.targetEl.addEventListener('mouseleave', this.hide, false)
+        }
+      })
     },
     beforeDestroy () {
       if (this.targetEl) {

@@ -46,6 +46,12 @@
             defaults: '4000'
           },
           {
+            name: 'md-persistent',
+            type: 'Boolean',
+            description: 'This will make the snackbar persistent in your application, even changing routes.',
+            defaults: 'false'
+          },
+          {
             name: 'md-position',
             type: 'String',
             description: 'Sets the snackbar position on the bottom of the screen.',

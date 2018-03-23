@@ -22,6 +22,10 @@
   <a href="https://www.npmjs.com/package/vue-material">
     <img src="https://img.shields.io/npm/l/vue-material.svg" alt="License">
   </a>
+  
+  <a href="https://discord.gg/rgcmTtm">
+    <img src="https://discordapp.com/api/guilds/379653048798281729/widget.png" alt="Chat">
+  </a>
 </p>
 
 Vue Material is Simple, lightweight and built exactly according to the Google <a href="http://material.google.com" target="_blank">Material Design</a> specs
@@ -38,7 +42,9 @@ You can try Rollbar for free at [https://rollbar.com](https://codesponsor.io/t/c
 
 ## Demo and Documentation
 
-<a href="https://vuematerial.io/" target="_blank">Demo</a>
+<a href="https://vuematerial.io/" target="_blank">Documentation & demos</a>
+
+<a href="https://github.com/vuematerial/examples" target="_blank">Examples</a>
 
 If you are trying to find the documentation for previous versions, please go to <a href="https://vue-material-old.netlify.com">old website</a>.
 
@@ -47,8 +53,8 @@ If you are trying to find the documentation for previous versions, please go to 
 Install Vue Material through npm or yarn
 
 ``` bash
-npm install vue-material@beta --save
-yarn add vue-material@beta
+npm install vue-material --save
+yarn add vue-material
 ```
 
 <small>* Others package managers like JSPM and Bower are not supported yet.</small>
@@ -82,20 +88,21 @@ Alternativelly you can <a href="https://github.com/vuematerial/vue-material/arch
 <script src="path/to/vue-material.js"></script>
 ```
 
-Optionally import Roboto font from Google CDN:
+Optionally import Roboto font & Material Icons from Google CDN:
 
 ``` html
-<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
-<link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic|Material+Icons">
 ```
 
 ## Changelog
 
-<a href="https://vuematerial.io/#/changelog" target="_blank">Changelog</a>
+<a href="https://github.com/vuematerial/vue-material/releases">Changelog</a>
 
 ## Questions
 
-The issue list is exclusively for bugs and feature requests. Use the [Slack Channel](https://vue-material.slack.com) instead. Follow this [invitation link](https://join.slack.com/t/vuematerial/shared_invite/MTgzMzU2NDQ5ODkwLTE0OTQ4MDI3MDAtNWYyZjhkNzEzMA).
+If you have any questions, ideas or you want to discuss with Vue Material community. Use the [Discord](https://discord.gg/rgcmTtm)
+
+Or you can use [Slack Channel](https://vue-material.slack.com). Follow this [invitation link for Slack](https://join.slack.com/t/vuematerial/shared_invite/MTgzMzU2NDQ5ODkwLTE0OTQ4MDI3MDAtNWYyZjhkNzEzMA).
 
 ## Contributing
 

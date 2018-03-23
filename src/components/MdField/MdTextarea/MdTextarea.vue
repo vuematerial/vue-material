@@ -76,14 +76,15 @@
 
         this.textareaHeight = newHeight + 'px'
       },
-      async applyStyles () {
+      applyStyles () {
         if (this.mdAutogrow) {
-          this.setTextAreaSize(32)
-          await this.$nextTick()
-          this.setTextAreaSize()
-          window.setTimeout(() => {
-            this.$el.style.overflow = 'auto'
-          }, 10)
+          this.setTextAreaSize(this.MdField.dense ? 23 : 32)
+          this.$nextTick().then(() => {
+            this.setTextAreaSize()
+            window.setTimeout(() => {
+              this.$el.style.overflow = 'auto'
+            }, 10)
+          })
         }
       },
       setTextarea () {
@@ -101,9 +102,8 @@
       this.setTextarea()
       this.setAutogrow()
     },
-    async mounted () {
-      await this.$nextTick()
-      this.applyStyles()
+    mounted () {
+      this.$nextTick().then(this.applyStyles)
     },
     beforeDestroy () {
       this.setTextarea(false)

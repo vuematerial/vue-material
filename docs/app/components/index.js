@@ -6,7 +6,7 @@ import LogoVueMaterial from './LogoVueMaterial'
 import CodeLoading from './CodeLoading'
 import CodeBlock from './CodeBlock'
 import CodeExample from './CodeExample'
-import CodepenEdit from './CodepenEdit'
+import CodesandboxEdit from './CodesandboxEdit'
 import GridLayout from './GridLayout'
 import GridLayoutItem from './GridLayoutItem'
 import ApiItem from './ApiItem'
@@ -19,7 +19,7 @@ Vue.component(LogoVueMaterial.name, LogoVueMaterial)
 Vue.component(CodeLoading.name, CodeLoading)
 Vue.component(CodeBlock.name, CodeBlock)
 Vue.component(CodeExample.name, CodeExample)
-Vue.component(CodepenEdit.name, CodepenEdit)
+Vue.component(CodesandboxEdit.name, CodesandboxEdit)
 Vue.component(GridLayout.name, GridLayout)
 Vue.component(GridLayoutItem.name, GridLayoutItem)
 Vue.component(ApiItem.name, ApiItem)

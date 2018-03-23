@@ -53,7 +53,7 @@
       <p>Lists can have expansion panels to reveal more options:</p>
       <code-example title="Expansion" :component="examples['list-expansion']" />
 
-      <api-item title="API - md-content">
+      <api-item title="API - md-list">
         Coming soon...
       </api-item>
     </div>
