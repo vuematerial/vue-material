@@ -45,8 +45,10 @@
       <slot name="md-table-pagination" />
     </md-content>
 
-    <slot name="md-table-loading"></slot>
-    <md-progress-bar md-mode="indeterminate" v-if="!$scopedSlots['md-table-loading'] && asyncLoading" />
+    <slot name="md-table-loading" v-if="asyncLoading">
+      <md-progress-bar md-mode="indeterminate" />
+    </slot>
+
 
     <slot v-if="items && items.length > 0" />
   </md-tag-switcher>
