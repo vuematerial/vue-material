@@ -26,7 +26,7 @@
       <span class="md-tabs-indicator" :style="indicatorStyles" :class="indicatorClass" ref="indicator"></span>
     </div>
 
-    <md-content class="md-tabs-content" :style="contentStyles" v-show="hasContent">
+    <md-content ref="tabsContent" class="md-tabs-content" :style="contentStyles" v-show="hasContent">
       <div class="md-tabs-container" :style="containerStyles">
         <slot />
       </div>
@@ -94,6 +94,9 @@
       },
       navigationClasses () {
         return 'md-elevation-' + this.mdElevation
+      },
+      swipeElement () {
+        return this.$refs.tabsContent.$el
       }
     },
     watch: {
