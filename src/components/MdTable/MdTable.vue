@@ -22,9 +22,9 @@
           <slot />
         </tbody>
 
-        <tbody v-else-if="value.length">
+        <tbody v-else-if="items && items.length > 0">
           <md-table-row-ghost
-            v-for="(item, index) in value"
+            v-for="(item, index) in items"
             :key="getRowId(item[mdModelId])"
             :md-id="getRowId(item[mdModelId])"
             :md-index="index"
@@ -45,11 +45,12 @@
       <slot name="md-table-pagination" />
     </md-content>
 
-    <slot v-if="value" />
+    <slot v-if="items && items.length > 0" />
   </md-tag-switcher>
 </template>
 
 <script>
+  import axios from 'axios'
   import raf from 'raf'
 
   import MdTagSwitcher from 'components/MdTagSwitcher/MdTagSwitcher'
@@ -123,6 +124,20 @@
       },
       mdSelectedValue: {
         type: [Array, Object]
+      },
+      asyncUrl: {
+        type: String
+      },
+      asyncResultsKey: {
+        type: String
+      },
+      asyncParams: {
+        type: Object,
+        default: () => {}
+      },
+      asyncHeaders: {
+        type: Object,
+        default: () => {}
       }
     },
     data () {
@@ -148,7 +163,8 @@
           getModel: this.getModel,
           getModelItem: this.getModelItem,
           selectingMode: null
-        }
+        },
+        items: this.value || []
       }
     },
     computed: {
@@ -171,7 +187,7 @@
         }
       },
       hasValue () {
-        return this.value && this.value.length !== 0
+        return this.items && this.items.length !== 0
       },
       headerClasses () {
         if ((this.mdFixedHeader && this.hasContentScroll) || !this.hasValue) {
@@ -184,7 +200,7 @@
         }
       },
       contentClasses () {
-        if (this.mdFixedHeader && this.value.length === 0) {
+        if (this.mdFixedHeader && this.items.length === 0) {
           return `md-table-empty`
         }
       }
@@ -296,6 +312,10 @@
       // wait for `selectingMode` from `TableRow`
       await this.$nextTick()
       this.syncSelectedValue()
+      if (this.asyncUrl) {
+        const data = (await axios.get(this.asyncUrl, { params: this.asyncParams, headers: this.asyncHeaders })).data
+        this.items = this.asyncResultsKey ? data[this.asyncResultsKey] : data
+      }
     },
     mounted () {
       this.setContentEl()

@@ -33,7 +33,9 @@
 
   @import "~vue-material/base/theme";
   @import "~vue-material/components/MdContent/theme";
+</style>
 
+<style lang="scss" scoped>
   .md-content {
     padding: 1px 16px;
   }

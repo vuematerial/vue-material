@@ -7,6 +7,7 @@
 <example src="./examples/TableSearch.vue" />
 <example src="./examples/TableSingle.vue" />
 <example src="./examples/TableMultiple.vue" />
+<example src="./examples/TableAsync.vue" />
 <example src="./examples/TablePaginationSoon.vue" />
 
 <template>
@@ -93,6 +94,12 @@
     <div class="page-container-section">
       <p>Multiple selections great for bulk changes and you can use the alternate header to hold the options that you can call when there are options selected. Note that if you click in the checkbox or on the entire row will do the same action, due to <code>md-auto-select</code> option. Really handy:</p>
       <code-example title="Multiple" :component="examples['table-multiple']" />
+    </div>
+
+    <div class="page-container-section">
+      <h2>Asynchronous Tables</h2>
+      <p>Asynchronous tables are great for server-side rendered data</p>
+      <code-example title="Asynchronous" :component="examples['table-async']"></code-example>
     </div>
 
     <div class="page-container-section">

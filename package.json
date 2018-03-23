@@ -41,11 +41,12 @@
   "peerDependencies": {
     "vue": "^2.5.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "axios": "^0.18.0"
+  },
   "devDependencies": {
     "autoprefixer": "^7.1.6",
     "avoriaz": "^6.0.1",
-    "axios": "^0.17.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.1",
