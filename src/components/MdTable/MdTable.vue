@@ -17,6 +17,9 @@
     </div>
 
     <md-content class="md-table-content md-scrollbar" :class="contentClasses" :style="contentStyles" @scroll="setScroll">
+      <slot name="md-table-loading" v-if="asyncLoading">
+        <md-progress-bar md-mode="indeterminate" />
+      </slot>
       <table ref="contentTable">
         <md-table-thead :class="headerClasses" v-if="!mdFixedHeader && $scopedSlots['md-table-row']" />
 
@@ -47,18 +50,14 @@
       <slot name="md-table-pagination" />
     </md-content>
 
-    <slot name="md-table-loading" v-if="asyncLoading">
-      <md-progress-bar md-mode="indeterminate" />
-    </slot>
-
 
     <slot v-if="items && items.length > 0" />
   </md-tag-switcher>
 </template>
 
 <script>
-  import axios from 'axios'
   import raf from 'raf'
+  import isPromise from 'is-promise'
 
   import MdTagSwitcher from 'components/MdTagSwitcher/MdTagSwitcher'
   import MdUuid from 'core/utils/MdUuid'
@@ -91,7 +90,7 @@
       MdTableCellSelection
     },
     props: {
-      value: [Array, Object],
+      value: [Array, Object, Promise],
       mdModelId: {
         type: String,
         default: 'id'
@@ -133,20 +132,6 @@
       mdSelectedValue: {
         type: [Array, Object]
       },
-      mdAsyncUrl: {
-        type: String
-      },
-      mdAsyncResultsKey: {
-        type: String
-      },
-      mdAsyncParams: {
-        type: Object,
-        default: () => {}
-      },
-      mdAsyncHeaders: {
-        type: Object,
-        default: () => {}
-      }
     },
     data () {
       return {
@@ -357,13 +342,14 @@
     },
     async created () {
       // wait for `selectingMode` from `TableRow`
-      await this.$nextTick()
-      this.syncSelectedValue()
-      if (this.mdAsyncUrl) {
+      this.$nextTick().then(() => {
+        this.syncSelectedValue()
+      })
+
+      if (isPromise(this.value)) {
         this.asyncLoading = true
-        const data = (await axios.get(this.mdAsyncUrl, { params: this.mdAsyncParams, headers: this.mdAsyncHeaders })).data
-        this.items = this.mdAsyncResultsKey ? data[this.mdAsyncResultsKey] : data
-        this.asyncLoading = false
+        this.value.then((resolved) => this.items = resolved)
+          .then(() => this.asyncLoading = false)
       }
     },
     mounted () {
