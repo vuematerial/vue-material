@@ -1,6 +1,6 @@
 <template>
   <div>
-    <md-table async-url="https://reqres.in/api/users" async-results-key="data" :async-params="{page: 3}" md-card md-fixed-header>
+    <md-table md-async-url="https://reqres.in/api/users" md-async-results-key="data" :md-async-params="{page: 3}" md-card md-fixed-header>
       <md-table-toolbar>
         <h1 class="md-title">People</h1>
       </md-table-toolbar>

@@ -45,6 +45,9 @@
       <slot name="md-table-pagination" />
     </md-content>
 
+    <slot name="md-table-loading"></slot>
+    <md-progress-bar md-mode="indeterminate" v-if="!$scopedSlots['md-table-loading'] && asyncLoading" />
+
     <slot v-if="items && items.length > 0" />
   </md-tag-switcher>
 </template>
@@ -125,17 +128,17 @@
       mdSelectedValue: {
         type: [Array, Object]
       },
-      asyncUrl: {
+      mdAsyncUrl: {
         type: String
       },
-      asyncResultsKey: {
+      mdAsyncResultsKey: {
         type: String
       },
-      asyncParams: {
+      mdAsyncParams: {
         type: Object,
         default: () => {}
       },
-      asyncHeaders: {
+      mdAsyncHeaders: {
         type: Object,
         default: () => {}
       }
@@ -164,7 +167,8 @@
           getModelItem: this.getModelItem,
           selectingMode: null
         },
-        items: this.value || []
+        items: this.value || [],
+        asyncLoading: false,
       }
     },
     computed: {
@@ -312,9 +316,11 @@
       // wait for `selectingMode` from `TableRow`
       await this.$nextTick()
       this.syncSelectedValue()
-      if (this.asyncUrl) {
-        const data = (await axios.get(this.asyncUrl, { params: this.asyncParams, headers: this.asyncHeaders })).data
-        this.items = this.asyncResultsKey ? data[this.asyncResultsKey] : data
+      if (this.mdAsyncUrl) {
+        this.asyncLoading = true
+        const data = (await axios.get(this.mdAsyncUrl, { params: this.mdAsyncParams, headers: this.mdAsyncHeaders })).data
+        this.items = this.mdAsyncResultsKey ? data[this.mdAsyncResultsKey] : data
+        this.asyncLoading = false
       }
     },
     mounted () {
