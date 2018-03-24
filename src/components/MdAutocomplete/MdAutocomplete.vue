@@ -157,7 +157,7 @@
       },
       matchText (item) {
         const target = item.toLowerCase()
-        const search = this.searchTerm.toLowerCase()
+        const search = this.searchTerm.toString().toLowerCase()
 
         if (this.mdFuzzySearch) {
           return fuzzy(search, target)
