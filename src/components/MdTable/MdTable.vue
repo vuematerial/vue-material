@@ -340,7 +340,7 @@
         }
       }
     },
-    async created () {
+    created () {
       // wait for `selectingMode` from `TableRow`
       this.$nextTick().then(() => {
         this.syncSelectedValue()
@@ -348,7 +348,7 @@
 
       if (isPromise(this.value)) {
         this.asyncLoading = true
-        this.value.then((resolved) => this.items = resolved)
+        return this.value.then((resolved) => this.items = resolved)
           .then(() => this.asyncLoading = false)
       }
     },
