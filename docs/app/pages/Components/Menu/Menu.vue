@@ -1,6 +1,7 @@
 <example src="./examples/Directions.vue" />
 <example src="./examples/Sizes.vue" />
 <example src="./examples/MenuAlignments.vue" />
+<example src="./examples/AutoClose.vue" />
 <example src="./examples/MultipleContent.vue" />
 
 <template>
@@ -31,6 +32,13 @@
       <p><code>md-menu</code> have 4 different sizes and a auto mode:</p>
       <code-example title="5 possible sizes" :component="examples['sizes']" />
       <note-block>The max-width of a menu is 280px.</note-block>
+    </div>
+
+    <div class="page-container-section">
+      <h2>AutoClose</h2>
+
+      <p><code>md-menu</code> can be auto closed on click or select:</p>
+      <code-example title="Auto close menu on events" :component="examples['auto-close']" />
     </div>
 
     <div class="page-container-section">
@@ -70,6 +78,12 @@
             type: 'Boolean',
             description: 'Used to show/hide a menu programatically.',
             defaults: 'false'
+          },
+          {
+            name: 'md-close-on-click',
+            type: 'Boolean',
+            description: 'When this options is true, the menu will be closed after any click event.',
+            defaults: 'true'
           },
           {
             name: 'md-close-on-select',

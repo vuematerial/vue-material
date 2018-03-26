@@ -30,6 +30,10 @@
         type: Boolean,
         default: true
       },
+      mdCloseOnClick: {
+        type: Boolean,
+        default: true
+      },
       mdSize: {
         type: String,
         default: 'small',
@@ -56,6 +60,7 @@
           fullWidth: this.mdFullWidth,
           dense: this.mdDense,
           closeOnSelect: this.mdCloseOnSelect,
+          closeOnClick: this.mdCloseOnClick,
           bodyClickObserver: null,
           windowResizeObserver: null,
           $el: this.$el
@@ -102,6 +107,12 @@
         } else {
           this.$emit('md-opened')
         }
+      },
+      mdCloseOnSelect () {
+        this.MdMenu.closeOnSelect  = this.mdCloseOnSelect
+      },
+      mdCloseOnClick () {
+        this.MdMenu.closeOnClick  = this.mdCloseOnClick
       }
     },
     methods: {

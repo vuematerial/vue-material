@@ -202,7 +202,8 @@
             $event.stopPropagation()
             let isMdMenu = this.MdMenu.$el ? this.MdMenu.$el.contains($event.target) : false
             let isMenuContentEl = this.$refs.menu ? this.$refs.menu.contains($event.target) : false
-            if (!this.$el.contains($event.target) && !isMdMenu && !isMenuContentEl) {
+            let onBackdropExpectMenu = !this.$el.contains($event.target) && !isMenuContentEl
+            if (!isMdMenu && (this.MdMenu.closeOnClick || onBackdropExpectMenu)) {
               this.MdMenu.active = false
               this.MdMenu.bodyClickObserver.destroy()
               this.MdMenu.windowResizeObserver.destroy()
