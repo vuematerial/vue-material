@@ -22,7 +22,7 @@
 
 <script>
   export default {
-    name: 'Directions',
+    name: 'AutoClose',
 
     data () {
       return {
