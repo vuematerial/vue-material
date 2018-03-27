@@ -196,6 +196,27 @@
       transition-duration: .3s;
       line-height: 1;
     }
+    .md-suffix {
+      font-size: 16px;
+      line-height: 32px;
+      align-self: center;
+      justify-self: center;
+    }
+
+    .md-prefix {
+      display: none;
+      padding-right: 4px;
+      font-size: 16px;
+      line-height: 32px;
+      align-self: center;
+      justify-self: center;
+    }
+
+    &.md-focused, &.md-has-value {
+      .md-prefix {
+        display: block;
+      }
+    }
 
     .md-input,
     .md-textarea {
@@ -286,6 +307,7 @@
 
   .md-field.md-field-bottom-line {
     min-height: 48px;
+    padding-top: 16px;
 
     &:before,
     &:after {
@@ -313,8 +335,7 @@
 
     .md-input,
     .md-textarea, {
-      height: 48px;
-      padding: 12px 0 0;
+      height: 32px;
       font-size: 16px;
       line-height: 32px;
     }
@@ -581,6 +602,7 @@
   .md-field.md-field-bottom-line.md-dense {
     margin: 8px 0 24px;
     min-height: 40px;
+    padding-top: 16px;
 
     label {
       top: 18px;
@@ -589,8 +611,9 @@
 
     .md-input,
     .md-textarea {
-      height: 40px;
-      padding: 18px 0 7px;
+      height: 24px;
+      padding: 0 0 4px;
+      line-height: 20px;
     }
 
     .md-textarea {

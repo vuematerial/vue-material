@@ -134,6 +134,10 @@ export default {
     title: 'Avatar',
     description: 'Avatars can be used to represent people. When used with a specific logo, avatars can also be used to represent a brand.'
   },
+  badge: {
+    title: 'Badge',
+    description: 'Small status descriptors for UI elements.'
+  },
   bottomBar: {
     title: 'Bottom Bar',
     description: 'Bottom navigation bars make it easy to explore and switch between top-level views in a single tap.'

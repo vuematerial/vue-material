@@ -24,6 +24,7 @@
     <div class="main-nav-level">
       <router-link to="/components/app">{{ $t('pages.app.title') }}</router-link>
       <router-link to="/components/avatar">{{ $t('pages.avatar.title') }}</router-link>
+      <router-link to="/components/badge">{{ $t('pages.badge.title') }}</router-link>
       <router-link to="/components/bottom-bar">{{ $t('pages.bottomBar.title') }}</router-link>
       <router-link to="/components/button">{{ $t('pages.button.title') }}</router-link>
       <router-link to="/components/card">{{ $t('pages.card.title') }}</router-link>
