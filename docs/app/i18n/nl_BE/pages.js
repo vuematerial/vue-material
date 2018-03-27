@@ -5,7 +5,7 @@ export default {
     material: 'Material Design',
     materialContent: 'Simpel, licht en gemaakt volgens het standaard gespecifieerd door Google Material Design.',
     compatible: 'Compatibel',
-    compatibleContent: 'Maak mooi gedesignde applicaties dat past op elk schermformaat en wordt ondersteund op alle moderne browsers.',
+    compatibleContent: 'Maak prachtige gedesignde applicaties dat past op elk schermformaat en wordt ondersteund op alle moderne browsers.',
     featured: '',
     featuredContent: 'Compleet met dinamische themas, herbruikbare componenten met een gebruiksvriendelijke API.',
     ecosystem: 'Ecosysteem',
