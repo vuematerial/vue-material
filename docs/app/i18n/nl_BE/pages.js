@@ -5,15 +5,15 @@ export default {
     material: 'Material Design',
     materialContent: 'Simpel, licht en gemaakt volgens het standaard gespecifieerd door Google Material Design.',
     compatible: 'Compatibel',
-    compatibleContent: 'Maak prachtige gedesignde applicaties dat past op elk schermformaat en wordt ondersteund op alle moderne browsers.',
+    compatibleContent: 'Maak prachtig gedesignde applicaties dat past op elk schermformaat en dat wordt ondersteund op alle moderne browsers.',
     featured: '',
-    featuredContent: 'Compleet met dinamische themas, herbruikbare componenten met een gebruiksvriendelijke API.',
+    featuredContent: 'Compleet met dynamische themas, herbruikbare componenten met een gebruiksvriendelijke API.',
     ecosystem: 'Ecosysteem',
     viewProject: 'Zie project',
     sponsors: 'Sponsors',
     backers: 'Backers',
     sponsorsDescription: 'Vue Material hangt niet af van een bedrijf. Het is een vrij project gecreeërd door {0} in zijn vrije tijd. Het werd een van de meest gebruikte bibliotheken van Vue.JS. De productie is actief en we werken hard aan perfectie voor u.',
-    beAPatron: 'Als je denkt dat dit project jij of je bedrijf helpt in enige weg mogelijk, dan kan je overwegen het project te sponseren op Patreon.'
+    beAPatron: 'Als u denkt dat dit project u of uw helpt in enige weg mogelijk, dan kunt u overwegen het project te sponseren op Patreon.'
   },
   about: {
     title: 'Over'
@@ -23,7 +23,7 @@ export default {
   },
   gettingStarted: {
     title: 'Eerste stappen',
-    introduction: 'Vue Material is de beste integratie tussen Vue.JS en Material Design! Je kan het makkelijk configureren voor alle jouw doeleinden. Je hoeft alleen te kiezen naar een installatie methode dat voor jou past en volg de instructies. Laten we eraan beginnen.',
+    introduction: 'Vue Material is de beste integratie tussen Vue.JS en Material Design! Je kan het makkelijk configureren voor al jouw doeleinden. Je hoeft alleen te kiezen naar een installatie methode dat voor jou past en volg de instructies. Laten we eraan beginnen.',
     installation: 'Installatie',
     npmOrYarn: 'NPM of Yarn'
   },
