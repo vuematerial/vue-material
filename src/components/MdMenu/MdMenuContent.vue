@@ -365,6 +365,10 @@
       text-transform: none;
       white-space: nowrap;
 
+      .md-list-item-container {
+        height: 100%;
+      }
+
       @include md-layout-small {
         font-size: 14px;
       }
