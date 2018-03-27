@@ -4,13 +4,9 @@
       <div
         :class="[menuClasses, mdContentClass, $mdActiveTheme]"
         :style="menuStyles"
-        @keydown.arrow-down.prevent="setHighlight('down')"
-        @keydown.arrow-up.prevent="setHighlight('up')"
-        @keydown.space.prevent="setSelection"
-        @keydown.enter.prevent="setSelection"
         ref="menu">
         <div class="md-menu-content-container md-scrollbar" :class="$mdActiveTheme" ref="container">
-          <md-list :class="listClasses" v-bind="filteredAttrs" @keydown.esc="onEsc">
+          <md-list :class="listClasses" v-bind="filteredAttrs">
             <slot />
           </md-list>
         </div>
@@ -85,6 +81,7 @@
             this.setInitialHighlightIndex()
             this.createClickEventObserver()
             this.createResizeObserver()
+            this.createKeydownListener()
           })
         }
       }
@@ -185,7 +182,7 @@
 
         const offsetX = this.MdMenu.offsetX || 0
         const offsetY = this.MdMenu.offsetY || 0
-        
+
         return {
           offsetX: offsetX - relativePosition.x,
           offsetY: offsetY - relativePosition.y
@@ -206,8 +203,29 @@
               this.MdMenu.active = false
               this.MdMenu.bodyClickObserver.destroy()
               this.MdMenu.windowResizeObserver.destroy()
+              this.destroyKeyDownListener()
             }
           })
+        }
+      },
+      createKeydownListener () {
+        window.addEventListener('keydown', this.keyNavigation)
+      },
+      destroyKeyDownListener () {
+        window.removeEventListener('keydown', this.keyNavigation)
+      },
+      keyNavigation (event) {
+        event.preventDefault()
+        switch (event.key) {
+          case 'ArrowUp': this.setHighlight('up')
+            break
+          case 'ArrowDown': this.setHighlight('down')
+            break
+          case 'Enter': this.setSelection()
+            break
+          case 'Space': this.setSelection()
+            break
+          case 'Escape': this.onEsc()
         }
       },
       createResizeObserver () {
@@ -253,6 +271,7 @@
       if (this.MdMenu.windowResizeObserver) {
         this.MdMenu.windowResizeObserver.destroy()
       }
+      this.destroyKeyDownListener()
     }
   })
 </script>
