@@ -9,6 +9,8 @@
     <md-checkbox v-model="obj" :value="obj1">Object 1</md-checkbox>
     <md-checkbox v-model="obj" :value="obj2">Object 2</md-checkbox>
 
+    <md-checkbox v-model="indeterminate" indeterminate>Indeterminate</md-checkbox>
+
     <table>
       <tr>
         <th>Array</th>
@@ -40,7 +42,8 @@
       disabled: true,
       obj1: {name: 'obj1'},
       obj2: {name: 'obj2'},
-      obj: null
+      obj: null,
+      indeterminate: true
     })
   }
 </script>
