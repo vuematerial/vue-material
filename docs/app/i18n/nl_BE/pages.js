@@ -101,12 +101,12 @@ export default {
       content: 'Overlappende inhoud'
     },
     apiApp: {
-      desc: 'In both examples we have 3 distinct areas: Toolbar, Drawer and Content. You should create them using the following tags:',
-      toolbar: 'Creates the toolbar accepting any options from the md-toolbar',
-      drawer: 'Places the drawer panel, that also accepts any options from the md-drawer. You can have a left or right placed drawers. Or both.',
-      content: 'Here you will add any content for your page.',
-      alert: 'Any other tag passed as a direct child of the md-app tag will be ignored. The component will only look for those three tags and choose the right placement for them.',
-      propsDesc: 'The following properties can be applied'
+      desc: 'In beide voorbeelden hebben we drie duidelijke gebieden: Taakbalk, Lade (Navigatie) en Inhoud. Je zou ze moeten maken in de volgende tags:',
+      toolbar: 'Maakt een taakbal met alle opties van de md-toolbar',
+      drawer: 'Maakt een lade paneel, dat alsook opties neemt van de md-drawer. Je kan ze rechts of links plaatsen. Of beide.',
+      content: 'Hier kan gelijk welke inhoud plaatsen voor je pagina.',
+      alert: 'Elke andere tag verbonden aan een child van de md-app zal genegeerd worden. Het component zal alleen kijken naar die drie tags en het de juiste vervanging zoeken.',
+      propsDesc: 'De volgende opties zullen worden toegepast'
     },
     apiToolbar: {
       desc: 'Alle instellingen worden ondersteunt {0}. Gelieve te naar {1} te wijzen voor de API.',
