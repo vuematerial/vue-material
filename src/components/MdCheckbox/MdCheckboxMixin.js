@@ -12,7 +12,8 @@ export default {
     },
     name: [String, Number],
     required: Boolean,
-    disabled: Boolean
+    disabled: Boolean,
+    indeterminate: Boolean
   },
   model: {
     prop: 'model',
@@ -43,7 +44,8 @@ export default {
       return {
         'md-checked': this.isSelected,
         'md-disabled': this.disabled,
-        'md-required': this.required
+        'md-required': this.required,
+        'md-indeterminate': this.indeterminate
       }
     }
   },
