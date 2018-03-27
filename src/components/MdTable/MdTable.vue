@@ -215,6 +215,7 @@
       return { MdTable }
     },
     watch: {
+      value() {}, // Watch this prop to make the table reactive to props
       mdSort: {
         immediate: true,
         handler () {
@@ -306,10 +307,10 @@
         this.fixedHeaderPadding = contentEl.offsetWidth - tableEl.offsetWidth
       },
       getModel () {
-        return this.value
+        return this.items
       },
       getModelItem (index) {
-        return this.value[index]
+        return this.items[index]
       },
       manageItemSelection (item) {
         if (this.MdTable.selectedItems.includes(item)) {
@@ -319,8 +320,8 @@
         }
       },
       sortTable () {
-        if (Array.isArray(this.value)) {
-          this.$emit('input', this.mdSortFn(this.value))
+        if (Array.isArray(this.items)) {
+          this.$emit('input', this.mdSortFn(this.items))
         }
       },
       select (val) {
