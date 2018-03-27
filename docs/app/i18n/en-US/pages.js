@@ -91,7 +91,7 @@ export default {
     },
     lastRow: {
       title: 'The last toolbar row fixed',
-      desc: 'When your page has some primary navigation buttons, such as tabs and others, you may want them to be always available. You can make the second row of your toolbar always visible, hiding the first one when it\'s not needed. As an example, the WhatsApp main page has this behaviour.',
+      desc: 'When your page have some primary navigation buttons, such as tabs and others, you may want them to be always available. You can make the second row of your toolbar always visible, hiding the first one when it\'s not needed. As an example, the WhatsApp main page have this behaviour.',
       fixed: 'Navigation fixed'
     },
     overlap: {
