@@ -118,17 +118,15 @@
   .md-checkbox.md-indeterminate {
     .md-checkbox-container {
       &:after {
-        width: 8px;
-        height: 9px;
-        top: 0;
-        left: 4.5px;
-        z-index: 12;
-        border: 2px solid transparent;
-        border-top: 0;
-        border-left: 0;
-        border-right: 0;
+        width: 12px;
+        height: 2px;
+        top: 50%;
+        left: 50%;
+        z-index: 7;
+        border-style: solid;
+        border-width: 0 0 2px;
         opacity: 0;
-        transform: rotate(0deg) scale3D(1, 1, 1)!important;
+        transform: translate(-50%, -50%) !important;
       }
     }
   }
