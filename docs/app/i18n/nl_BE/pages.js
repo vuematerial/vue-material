@@ -96,8 +96,8 @@ export default {
       fixed: 'Vaste navigatie'
     },
     overlap: {
-      title: 'Flexible space with overlapping content',
-      desc: 'If you want to give focus on the content cards you may want to use the overlap. It\'s just an awesome effect!',
+      title: 'Flexibele plaats met overlappende inhoud',
+      desc: 'Als je focus wilt geven aan inhoud kaarten, dan zul je waarschijnlijk overlappend te werk willen gaan. Het effect is formidabel!',
       content: 'Overlappende inhoud'
     },
     apiApp: {
