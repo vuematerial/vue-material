@@ -25,7 +25,7 @@ export default {
   }),
   computed: {
     getSwipeElement () {
-      return this.swipeElement || window
+      return this.mdSwipeElement || window
     }
   },
   methods: {

@@ -95,7 +95,7 @@
       navigationClasses () {
         return 'md-elevation-' + this.mdElevation
       },
-      swipeElement () {
+      mdSwipeElement () {
         return this.$refs.tabsContent.$el
       }
     },
