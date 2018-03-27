@@ -47,6 +47,7 @@
       mdDense: Boolean,
       mdNested: Boolean,
       mdClearable: Boolean,
+      mdClear: Function,
       mdCounter: {
         type: Boolean,
         default: true
@@ -138,6 +139,7 @@
     methods: {
       clearInput () {
         this.MdField.clear = true
+        this.$emit('md-clear')
         this.$nextTick().then(() => {
           this.MdField.clear = false
         })
