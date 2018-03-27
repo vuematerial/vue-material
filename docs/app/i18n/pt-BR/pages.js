@@ -5,14 +5,14 @@ export default {
     material: 'Material Design',
     materialContent: 'Simples, leve e feito exatamente de acordo com as especificações do Material Design da Google.',
     compatible: 'Compatível',
-    compatibleContent: 'Build well-designed apps that can fit on every screen with support to all modern Web Browsers.',
+    compatibleContent: 'Crie aplicativos bem desenhados que podem caber em qualquer tela, com suporte a todos os mais modernos Browsers.',
     featured: 'Cheio de recursos',
     featuredContent: 'Completo, com temas dinâmicos, componentes sob demanda e muito mais através de uma API fácil de usar.',
     ecosystem: 'Ecossistema',
     viewProject: 'Visualizar projeto',
     sponsors: 'Patrocinadores',
     backers: 'Apoiadores',
-    sponsorsDescription: 'Vue Material não é financiadi pela umbrella ou outra empresa nem algo do tipo. É um projeto independente criado por {0} em seu tempo livre, e que se tornou uma das bibliotecas de interface de usuário mais utilizadas para Vue.js. O desenvolvimento está ativo e estamos trabalhando duro para entregar coisas incríveis para você.',
+    sponsorsDescription: 'Vue Material não é financiado pela Umbrella Corp. ou outra empresa, nem algo do tipo. É um projeto independente criado por {0} em seu tempo livre, e que se tornou uma das bibliotecas de interface de usuário mais utilizadas para Vue.js. O desenvolvimento está ativo e estamos trabalhando duro para entregar coisas incríveis para você.',
     beAPatron: 'Se você acha que esse projeto ajudou você ou sua companhia de alguma forma, considere se tornar um apoiador/patrocinador no Patreon'
   },
   about: {
@@ -23,7 +23,7 @@ export default {
   },
   gettingStarted: {
     title: 'Primeiros passos',
-    introduction: 'Vue Material é a melhor integração entre Vue.js e especificações Material Design! Você pode facilmente configurá-lo para se encaixar ás suas necessidades. Tudo o que precisa fazer é escolher um método de instalação que te antenda melhor e seguir suas instruções. Vamos começar!',
+    introduction: 'Vue Material é a melhor integração entre Vue.js e as especificações Material Design! Você pode facilmente configurá-lo para se encaixar ás suas necessidades. Tudo o que precisa fazer é escolher um método de instalação que te antenda melhor e seguir suas instruções. Vamos começar!',
     installation: 'Instalação',
     npmOrYarn: 'NPM ou Yarn'
   },
@@ -53,8 +53,8 @@ export default {
     title: 'Elementos',
   },
   elevation: {
-    title: 'Elevação',
-    description: 'Medida através da frente de uma das superfícies até a frente de outra, a elevação de um elemento indica a distância entre superfícies e a profundidade de suas sombras'
+    title: 'Profundidade',
+    description: 'Medida através da frente de uma das superfícies até a frente de outra, a profundidade de um elemento indica a distância entre superfícies e a profundidade de suas sombras'
   },
   button: {
     title: 'Botões',
@@ -63,10 +63,10 @@ export default {
   app: {
     title: 'App',
     intro: {
-      desc1: 'The following patterns applies the elevations in which content should scroll, how to size flexible space, and when to anchor specific elements.',
-      desc2: 'When building applications there is some repeated behaviours regarding the structure of the app. Responsive drawers, flexible toolbars, scrolling... Either scenario could repeat across all complex applications. This documentation website, for example, needs some of them, and maybe you\'ll need them too. To solve those problems the {0} was created.',
-      desc3: 'It has all behaviour to build complex application shells, that will be simple, responsive and it will integrate seamlessly with the drawers, toolbars and content.',
-      desc4: 'The {0} component supports {1}, {2} and {3}, which are aliases for {4}, {5} and {6} respectively. Look at the examples:'
+      desc1: 'Os elementos a seguir aplicam as profundidades nas quais um conteudo deve rolar, dimensionam um espaço flexível, e ligam elementos específicos.',
+      desc2: 'Ao desenvolver aplicativos, existem alguns comportamentos referentes a estrutura desse mesmo aplicativo que são repetitivos. Bandejas responsivas, barras de ferramentas responsivas, rolamento... Qualquer cenário pode se repetir através de todas as aplicações, simples ou complexas. Essa documentação, por exemplo, necessitou de alguns desses cenários, e talvez até você vai precisar também. Para resolver esses problemas o {0} foi criado.',
+      desc3: 'Esse elemento possui todos os comportamentos para desenvolver aplicações mais elaboradas, que serão simples, responsivas e irão se integrar perfeitamente com as bandejas, barras de ferramentas, os conteúdos e outros componentes.',
+      desc4: 'O componente {0} aceita {1}, {2} e {3}, que são apelidos para {4}, {5} e {6} respectivamente. Veja os exemplos:'
     },
     regular: {
       title: 'Regular Toolbars',
