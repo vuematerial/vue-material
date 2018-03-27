@@ -121,7 +121,7 @@ export default {
       page: 'Inhoud pagina'
     },
     props: {
-      mdMode: 'Zet een taakbalk mode. Zie hieronder een gedetaileerde beschrijven van elke mode.',
+      mdMode: 'Zet een taakbalk mode. Zie hieronder een gedetaileerde beschrijving van elke mode.',
       mdModeFixed: 'Maak de taakbalk vast zonder een effect bij het scrollen.',
       mdModeFixedLast: 'Zet de tweede rij van de taakbalk vast. Het is NODIG dat er twee md-toolbar-row zitten binnen in de taakbalk.',
       mdModeReveal: 'De taakbalk verdwijnt tijdelijk, maar komt terug bij het scrollen. Dit is een goede manier voor mobiele applicaties.',
