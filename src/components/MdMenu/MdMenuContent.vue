@@ -215,6 +215,7 @@
         window.removeEventListener('keydown', this.keyNavigation)
       },
       keyNavigation (event) {
+        event.preventDefault()
         switch (event.key) {
           case 'ArrowUp': this.setHighlight('up')
             break
