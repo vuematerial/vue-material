@@ -98,6 +98,9 @@
         if (this.mdPermanent) {
           return this.mdPermanent
         }
+      },
+      mdSwipeElement () {
+        return this.$el.parentNode
       }
     },
     methods: {
