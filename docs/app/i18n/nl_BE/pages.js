@@ -92,8 +92,8 @@ export default {
     },
     lastRow: {
       title: 'De laatste rij vastgezet',
-      desc: 'Wanneer je pagina sommige primaire knoppen heeft, such as tabs and others, you may want them to be always available. You can make the second row of your toolbar always visible, hiding the first one when it\'s not needed. As an example, the WhatsApp main page have this behaviour.',
-      fixed: 'Navigation fixed'
+      desc: 'Wanneer je pagina sommige primaire knoppen heeft, die tabs en andere, wil je misschien dat ze altijd zichtbaar zijn. Je kan de tweede rij van je taakbalk altijd zichtbaar maken, het verbergen van de eerste is niet nodig. Bijvoorbeeld de home pagina van WhatsApp heeft deze structuur.',
+      fixed: 'Vaste navigatie'
     },
     overlap: {
       title: 'Flexible space with overlapping content',
