@@ -5,6 +5,7 @@
 <example src="./examples/InlineActions.vue" />
 <example src="./examples/FieldVariations.vue" />
 <example src="./examples/AppBarNested.vue" />
+<example src="./examples/Fixes.vue" />
 
 <template>
   <page-container centered :title="$t('pages.input.title')">
@@ -62,7 +63,16 @@
 
       <p>Fields can have a clearable feature to make easy for users to clear the value. And to be easier to type passwords we can show a toggle button to reveal the password. This is really useful for mobile applications:</p>
       <code-example title="Clear and password" :component="examples['inline-actions']" />
+    </div>
 
+    <div class="page-container-section">
+      <h2>Prefixes & suffixes</h2>
+
+      <p>Prefixes and suffixes can be used to clarify units or to add input in advance. Prefixes are left justified in the text field; suffixes are right justified. Text fields can have both prefixes and suffixes.</p>
+      <code-example title="Prefixes & suffixes" :component="examples['fixes']" />
+    </div>
+
+    <div class="page-container-section">
       <api-item title="API - md-field">
         <p>The following options can be applied to any field:</p>
 
