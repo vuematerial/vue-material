@@ -41,26 +41,26 @@ You will need [Node.js](http://nodejs.org) **version 6+**
 After cloning the repo, run:
 
 ``` bash
-$ npm install
+$ yarn install
 ```
 
-### Commonly used NPM scripts
+### Commonly used YARN scripts
 
 ``` bash
 ### Start dev server with hot reload
-$ npm run dev
+$ yarn dev
 
 ### Check for errors
-$ npm run lint
+$ yarn lint
 
 ### Build everything
-$ npm run build
+$ yarn build
 
 ### Build docs only
-$ npm run build:docs
+$ yarn build:docs
 
 ### Build lib only
-$ npm run build:lib
+$ yarn build:lib
 ```
 
 The other tasks on package.json **SHOULD NOT** be executed.
