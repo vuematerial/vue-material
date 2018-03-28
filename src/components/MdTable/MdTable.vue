@@ -215,7 +215,9 @@
       return { MdTable }
     },
     watch: {
-      value() {}, // Watch this prop to make the table reactive to props
+      value() {
+        if (isPromise(this.value)) this.resolvePromise()
+      }, // Watch this prop to make the table reactive to props
       mdSort: {
         immediate: true,
         handler () {
@@ -268,6 +270,11 @@
       }
     },
     methods: {
+      resolvePromise() {
+        this.asyncLoading = true
+        return this.value.then((resolved) => this.items = resolved)
+            .then(() => this.asyncLoading = false)
+      },
       emitEvent (eventName, value) {
         this.$emit(eventName, value)
       },
@@ -346,12 +353,7 @@
       this.$nextTick().then(() => {
         this.syncSelectedValue()
       })
-
-      if (isPromise(this.value)) {
-        this.asyncLoading = true
-        return this.value.then((resolved) => this.items = resolved)
-          .then(() => this.asyncLoading = false)
-      }
+      if (isPromise(this.value)) this.resolvePromise();
     },
     mounted () {
       this.setContentEl()
