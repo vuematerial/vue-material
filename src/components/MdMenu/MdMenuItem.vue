@@ -16,7 +16,6 @@
     },
     inject: ['MdMenu'],
     data: () => ({
-      listeners: {},
       highlighted: false
     }),
     computed: {
@@ -24,6 +23,31 @@
         return {
           'md-highlight': this.highlighted
         }
+      },
+      listeners () {
+        if (this.disabled) {
+          return {}
+        }
+
+        if (!this.MdMenu.closeOnSelect) {
+          return this.$listeners
+        }
+
+        let listeners = {}
+        let listenerNames = Object.keys(this.$listeners)
+
+        listenerNames.forEach(listener => {
+          if (MdInteractionEvents.includes(listener)) {
+            listeners[listener] = $event => {
+              this.$listeners[listener]($event)
+              this.closeMenu()
+            }
+          } else {
+            listeners[listener] = this.$listeners[listener]
+          }
+        })
+
+        return listeners
       }
     },
     methods: {
@@ -39,26 +63,6 @@
         if (!this.disabled) {
           this.closeMenu()
         }
-      }
-    },
-    created () {
-      if (this.MdMenu.closeOnSelect) {
-        let listenerNames = Object.keys(this.$listeners)
-
-        listenerNames.forEach(listener => {
-          if (MdInteractionEvents.includes(listener)) {
-            this.listeners[listener] = $event => {
-              if (!this.disabled) {
-                this.$listeners[listener]($event)
-                this.closeMenu()
-              }
-            }
-          } else {
-            this.listeners[listener] = this.$listeners[listener]
-          }
-        })
-      } else {
-        this.listeners = this.$listeners
       }
     },
     mounted () {
