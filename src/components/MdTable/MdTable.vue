@@ -216,7 +216,11 @@
     },
     watch: {
       value() {
-        if (isPromise(this.value)) this.resolvePromise()
+        if (isPromise(this.value)) {
+          this.resolvePromise()
+        } else {
+          this.items = this.value
+        }
       }, // Watch this prop to make the table reactive to props
       mdSort: {
         immediate: true,
@@ -353,7 +357,11 @@
       this.$nextTick().then(() => {
         this.syncSelectedValue()
       })
-      if (isPromise(this.value)) this.resolvePromise();
+      if (isPromise(this.value)) {
+        this.resolvePromise()
+      } else {
+        this.items = this.value
+      };
     },
     mounted () {
       this.setContentEl()
