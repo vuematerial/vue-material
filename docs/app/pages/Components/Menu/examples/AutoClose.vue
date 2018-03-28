@@ -27,7 +27,7 @@
     data () {
       return {
         data: '',
-        closeOnClick: true,
+        closeOnClick: false,
         closeOnSelect: true
       }
     }

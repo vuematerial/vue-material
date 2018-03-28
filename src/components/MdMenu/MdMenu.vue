@@ -32,7 +32,7 @@
       },
       mdCloseOnClick: {
         type: Boolean,
-        default: true
+        default: false
       },
       mdSize: {
         type: String,

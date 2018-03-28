@@ -83,7 +83,7 @@
             name: 'md-close-on-click',
             type: 'Boolean',
             description: 'When this options is true, the menu will be closed after any click event.',
-            defaults: 'true'
+            defaults: 'false'
           },
           {
             name: 'md-close-on-select',
