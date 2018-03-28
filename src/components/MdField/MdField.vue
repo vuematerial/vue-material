@@ -47,7 +47,6 @@
       mdDense: Boolean,
       mdNested: Boolean,
       mdClearable: Boolean,
-      mdClear: Function,
       mdCounter: {
         type: Boolean,
         default: true
