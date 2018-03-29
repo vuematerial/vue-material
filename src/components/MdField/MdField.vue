@@ -341,9 +341,9 @@
     }
 
     .md-textarea {
-      min-height: 48px;
+      min-height: 32px;
       max-height: 230px;
-      padding: 16px 0 8px;
+      padding: 6px 0 6px;
       line-height: 1.3em;
     }
 
@@ -418,12 +418,9 @@
       }
     }
 
-    &.md-autogrow {
-      padding-top: 0;
-    }
-
     &.md-has-textarea:not(.md-autogrow) {
       padding-top: 0;
+
       &:before,
       &:after {
         height: auto;
@@ -441,7 +438,7 @@
       }
 
       label {
-        top: 20px;
+        top: 16px;
         left: 16px;
       }
 
@@ -579,6 +576,25 @@
         padding-bottom: 8px;
       }
 
+      .md-textarea {
+        padding-top: 6px;
+        padding-bottom: 6px;
+      }
+
+      &.md-has-textarea:not(.md-autogrow) {
+        .md-textarea {
+          padding-top: 14px;
+          padding-bottom: 16px;
+        }
+
+        &.md-focused,
+        &.md-has-value {
+          label {
+            top: 16px;
+          }
+        }
+      }
+
       &.md-focused,
       &.md-has-value {
         label {
@@ -608,7 +624,6 @@
   .md-field.md-field-bottom-line.md-dense {
     margin: 8px 0 24px;
     min-height: 40px;
-    padding-top: 16px;
 
     label {
       top: 18px;
@@ -618,12 +633,15 @@
     .md-input,
     .md-textarea {
       height: 24px;
+      min-height: 24px;
       padding: 0 0 4px;
       line-height: 20px;
+      font-size: 13px;
     }
 
     .md-textarea {
-      min-height: 40px;
+      line-height: 1.3em;
+      padding: 2px 0 4px;
     }
 
     .md-helper-text,
@@ -638,13 +656,9 @@
       min-width: 24px;
       height: 24px;
 
-      .md-icon {
-        font-size: 18px !important;
-      }
-
-      &,
       .md-icon,
       svg {
+        font-size: 18px !important;
         width: 18px;
         min-width: 18px;
         height: 18px;
@@ -652,7 +666,6 @@
     }
 
     > .md-icon {
-      top: 9px;
       font-size: 18px !important;
       width: 18px !important;
       min-width: 18px;
@@ -693,7 +706,7 @@
         }
 
         .md-textarea {
-          padding-top: 12px;
+          padding-top: 24px;
         }
       }
     }
@@ -708,6 +721,40 @@
       .md-input,
       .md-textarea {
         font-size: 13px;
+      }
+    }
+
+    &.md-inline {
+      min-height: 25px;
+
+      label {
+        top: 3px;
+      }
+
+      &.md-has-textarea:not(.md-autogrow) {
+        .md-textarea {
+          padding-top: 14px;
+        }
+
+        &.md-focused,
+        &.md-has-value {
+          label {
+            top: 16px;
+          }
+        }
+      }
+
+      &.md-focused,
+      &.md-has-value {
+        label {
+          top: 3px;
+          font-size: 13px;
+        }
+
+        .md-input,
+        .md-textarea {
+          font-size: 13px;
+        }
       }
     }
   }
