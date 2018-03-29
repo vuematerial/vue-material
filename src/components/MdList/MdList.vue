@@ -8,7 +8,49 @@
   import MdComponent from 'core/MdComponent'
 
   export default new MdComponent({
-    name: 'MdList'
+    name: 'MdList',
+    data () {
+      return {
+        MdList: {
+          expandable: [],
+          expandATab: this.expandATab,
+          pushExpandable: this.pushExpandable,
+          removeExpandable: this.removeExpandable
+        }
+      }
+    },
+    provide () {
+      return {
+        MdList: this.MdList
+      }
+    },
+    props: {
+      mdExpandOnlyOne: {
+        default: false
+      }
+    },
+    methods: {
+      expandATab (expandedListItem) {
+        if (this.mdExpandOnlyOne && expandedListItem) {
+          const otherExpandableListItems = this.MdList.expandable.filter(target => target !== expandedListItem)
+          otherExpandableListItems.forEach(expandableListItem => expandableListItem.close())
+        }
+      },
+      pushExpandable (expandableListItem) {
+        let expandableListItems = this.MdList.expandable
+
+        if (!expandableListItems.find(target => target === expandableListItem)) {
+          this.MdList.expandable = expandableListItems.concat([expandableListItem])
+        }
+      },
+      removeExpandable (expandableListItem) {
+        let expandableListItems = this.MdList.expandable
+
+        if (expandableListItems.find(target => target === expandableListItem)) {
+          this.MdList.expandable = expandableListItems.filter(target => target !== expandableListItem)
+        }
+      }
+    }
   })
 </script>
 
