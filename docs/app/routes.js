@@ -202,7 +202,7 @@ export const routes = [
     page: 'Components/File/File.vue'
   },
   {
-    path: '/components/list/:optional?',
+    path: '/components/list/:optional?/:sub?',
     name: 'components/list',
     page: 'Components/List/List.vue'
   },

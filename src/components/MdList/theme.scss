@@ -29,7 +29,7 @@
     }
 
     .md-selected,
-    .router-link-exact-active {
+    .router-link-active {
       .md-list-item-content {
         @include md-theme-property(color, primary, background);
       }
