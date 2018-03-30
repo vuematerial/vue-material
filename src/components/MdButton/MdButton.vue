@@ -26,7 +26,8 @@
         default: 'button'
       },
       disabled: Boolean,
-      to: null
+      to: null,
+      exact: Boolean
     },
     computed: {
       rippleWorks () {

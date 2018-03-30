@@ -12,6 +12,7 @@
       },
       href: [String, Number],
       to: null,
+      exact: Boolean,
       mdDisabled: Boolean,
       mdLabel: [String, Number],
       mdIcon: String,
