@@ -101,7 +101,9 @@
         })
       },
       setActiveItem ($event) {
-        this.MdBottomBar.activeItem = this.id
+        if (!this.MdBottomBar.syncRoute) {
+          this.MdBottomBar.activeItem = this.id
+        }
 
         if (this.MdBottomBar.type === 'shift') {
           this.MdBottomBar.mouseEvent = $event

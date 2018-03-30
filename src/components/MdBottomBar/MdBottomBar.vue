@@ -25,13 +25,16 @@
         ...MdPropValidator('md-type', ['fixed', 'shift'])
       }
     },
-    data: () => ({
-      MdBottomBar: {
-        mouseEvent: null,
-        activeItem: null,
-        items: {}
+    data () {
+      return {
+        MdBottomBar: {
+          mouseEvent: null,
+          activeItem: null,
+          items: {},
+          syncRoute: this.mdSyncRoute
+        }
       }
-    }),
+    },
     provide () {
       return {
         MdBottomBar: this.MdBottomBar
@@ -50,6 +53,9 @@
     watch: {
       activeItem () {
         this.$emit('md-changed', this.activeItem)
+      },
+      mdSyncRoute () {
+        this.MdBottomBar.syncRoute = mdSyncRoute
       }
     },
     methods: {
@@ -82,10 +88,6 @@
         if (!this.mdSyncRoute) {
           this.setActiveItemByIndex(0)
         }
-
-        window.setTimeout(() => {
-          this.setupWatchers()
-        }, 100)
       })
 
     }
