@@ -2,6 +2,7 @@
   import MdComponent from 'core/MdComponent'
   import MdFocused from 'core/mixins/MdFocused/MdFocused'
   import MdRipple from 'core/mixins/MdRipple/MdRipple'
+  import MdRouterLink from 'core/mixins/MdRouterLink/MdRouterLink'
   import MdRouterLinkProps from 'core/utils/MdRouterLinkProps'
   import MdButtonContent from './MdButtonContent'
 
@@ -17,7 +18,8 @@
     },
     mixins: [
       MdRipple,
-      MdFocused
+      MdFocused,
+      MdRouterLink
     ],
     props: {
       href: String,
@@ -25,9 +27,7 @@
         type: String,
         default: 'button'
       },
-      disabled: Boolean,
-      to: null,
-      exact: Boolean
+      disabled: Boolean
     },
     computed: {
       rippleWorks () {
@@ -95,7 +95,13 @@
         this.$options.props = MdRouterLinkProps(this, this.$options.props)
 
         tag = 'router-link'
-        buttonAttrs.props = this.$props
+        const exactActiveClass = this.$props.exactActiveClass || this.$material.router.linkExactActiveClass
+        const activeClass = `${this.$props.activeClass || this.$material.router.linkActiveClass} md-active`
+        buttonAttrs.props = {
+          ...this.$props,
+          exactActiveClass,
+          activeClass
+        }
         delete buttonAttrs.props.type
         delete buttonAttrs.attrs.type
         delete buttonAttrs.props.href

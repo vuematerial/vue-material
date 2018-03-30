@@ -75,7 +75,7 @@ export const routes = [
     page: 'Components/Tabs/Tabs.vue'
   },
   {
-    path: '/components/bottom-bar/:optional?',
+    path: '/components/bottom-bar/:optional?/:sub?',
     name: 'components/bottom-bar',
     page: 'Components/BottomBar/BottomBar.vue'
   },
