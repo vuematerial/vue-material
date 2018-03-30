@@ -102,7 +102,8 @@
           this.setHasContent()
         }
       },
-      activeTab () {
+      activeTab (index) {
+        this.$emit('md-changed', index)
         this.$nextTick().then(() => {
           this.setIndicatorStyles()
           this.setActiveTabIndex()
@@ -127,8 +128,9 @@
         }
       },
       setActiveTab (index) {
-        this.activeTab = index
-        this.$emit('md-changed', index)
+        if (!this.mdSyncRoute) {
+          this.activeTab = index
+        }
       },
       setActiveTabIndex () {
         const activeButton = this.$el.querySelector('.md-button.md-active')
@@ -142,27 +144,6 @@
 
         if (!this.hasActiveTab()) {
           this.activeTab = keys[index]
-        }
-      },
-      setActiveTabByRoute () {
-        const { items, keys } = this.getItemsAndKeys()
-        let tabIndex = null
-
-        if (this.$router) {
-          keys.forEach((key, index) => {
-            const item = items[key]
-            const toProp = item.props.to
-
-            if (toProp && toProp === this.$route.path) {
-              tabIndex = index
-            }
-          })
-        }
-
-        if (!this.hasActiveTab() && !tabIndex) {
-          this.activeTab = keys[0]
-        } else {
-          this.activeTab = keys[tabIndex]
         }
       },
       setHasContent () {
@@ -189,6 +170,11 @@
               this.indicatorStyles = {
                 left: `${buttonLeft}px`,
                 right: `calc(100% - ${buttonWidth + buttonLeft}px)`
+              }
+            } else {
+              this.indicatorStyles = {
+                left: '100%',
+                right: '100%'
               }
             }
           })
@@ -221,18 +207,6 @@
         })
 
         window.addEventListener('resize', this.callResizeFunctions)
-      },
-      setupWatchers () {
-        if (this.mdSyncRoute) {
-          this.$watch('$route', {
-            deep: true,
-            handler () {
-              if (this.mdSyncRoute) {
-                this.setActiveTabByRoute()
-              }
-            }
-          })
-        }
       }
     },
     created () {
@@ -241,9 +215,7 @@
     },
     mounted () {
       this.$nextTick().then(() => {
-        if (this.mdSyncRoute) {
-          this.setActiveTabByRoute()
-        } else {
+        if (!this.mdSyncRoute) {
           this.setActiveTabByIndex(0)
         }
 
@@ -255,7 +227,6 @@
         window.setTimeout(() => {
           this.noTransition = false
           this.setupObservers()
-          this.setupWatchers()
         }, 100)
       })
 

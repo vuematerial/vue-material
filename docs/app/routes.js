@@ -70,7 +70,7 @@ export const routes = [
     page: 'Components/Snackbar/Snackbar.vue'
   },
   {
-    path: '/components/tabs/:optional?',
+    path: '/components/tabs/:optional?/:sub?',
     name: 'components/tabs',
     page: 'Components/Tabs/Tabs.vue'
   },
