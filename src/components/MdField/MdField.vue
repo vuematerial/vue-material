@@ -228,6 +228,7 @@
       transition: $md-transition-stand;
       transition-property: font-size, padding-top, padding-bottom, color;
       font-family: inherit;
+      margin: 0;
 
       &[disabled] {
         cursor: default;
@@ -344,7 +345,7 @@
       min-height: 32px;
       max-height: 230px;
       padding: 6px 0 6px;
-      line-height: 1.3em;
+      line-height: 20px;
     }
 
     .md-helper-text,
@@ -647,8 +648,8 @@
     }
 
     .md-textarea {
-      line-height: 1.3em;
-      padding: 2px 0 4px;
+      line-height: 16px;
+      padding: 2px 0 6px;
     }
 
     .md-prefix,
