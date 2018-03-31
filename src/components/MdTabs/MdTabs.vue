@@ -4,6 +4,7 @@
       <md-button
         v-for="({ label, props, icon, disabled, data, events }, index) in MdTabs.items"
         :key="index"
+        class="md-tab-nav-button"
         :class="{
           'md-active': index === activeTab,
           'md-icon-label': icon && label
@@ -40,6 +41,7 @@
   import MdAssetIcon from 'core/mixins/MdAssetIcon/MdAssetIcon'
   import MdPropValidator from 'core/utils/MdPropValidator'
   import MdObserveElement from 'core/utils/MdObserveElement'
+  import MdThrottling from 'core/utils/MdThrottling'
   import MdContent from 'components/MdContent/MdContent'
 
   export default new MdComponent({
@@ -76,7 +78,8 @@
       hasContent: false,
       MdTabs: {
         items: {}
-      }
+      },
+      activeButtonEl: null
     }),
     provide () {
       return {
@@ -106,13 +109,16 @@
         this.$emit('md-changed', index)
         this.$nextTick().then(() => {
           this.setIndicatorStyles()
-          this.setActiveTabIndex()
+          this.setActiveButtonEl()
           this.calculateTabPos()
         })
       },
       mdActiveTab (tab) {
         this.activeTab = tab
         this.$emit('md-changed', tab)
+      },
+      activeButtonEl (activeButtonEl) {
+        this.activeTabIndex = [].indexOf.call(activeButtonEl.parentNode.childNodes, activeButtonEl)
       }
     },
     methods: {
@@ -132,12 +138,8 @@
           this.activeTab = index
         }
       },
-      setActiveTabIndex () {
-        const activeButton = this.$el.querySelector('.md-button.md-active')
-
-        if (activeButton) {
-          this.activeTabIndex = [].indexOf.call(activeButton.parentNode.childNodes, activeButton)
-        }
+      setActiveButtonEl () {
+        this.activeButtonEl = this.$el.querySelector('.md-tab-nav-button.md-active')
       },
       setActiveTabByIndex (index) {
         const { keys } = this.getItemsAndKeys()
@@ -151,14 +153,14 @@
 
         this.hasContent = keys.some(key => items[key].hasContent)
       },
-      setIndicatorStyles () {
+      setIndicatorStyles:  MdThrottling(function () {
         raf(() => {
           this.$nextTick().then(() => {
-            const activeButton = this.$el.querySelector('.md-button.md-active')
+            this.setActiveButtonEl()
 
-            if (activeButton && this.$refs.indicator) {
-              const buttonWidth = activeButton.offsetWidth
-              const buttonLeft = activeButton.offsetLeft
+            if (this.activeButtonEl && this.$refs.indicator) {
+              const buttonWidth = this.activeButtonEl.offsetWidth
+              const buttonLeft = this.activeButtonEl.offsetLeft
               const indicatorLeft = this.$refs.indicator.offsetLeft
 
               if (indicatorLeft < buttonLeft) {
@@ -179,7 +181,7 @@
             }
           })
         })
-      },
+      }, 100),
       calculateTabPos () {
         if (this.hasContent) {
           const tabElement = this.$el.querySelector(`.md-tab:nth-child(${this.activeTabIndex + 1})`)
@@ -221,7 +223,7 @@
 
         return this.$nextTick()
       }).then(() => {
-        this.setActiveTabIndex()
+        this.setActiveButtonEl()
         this.calculateTabPos()
 
         window.setTimeout(() => {
