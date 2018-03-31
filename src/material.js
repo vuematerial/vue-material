@@ -19,8 +19,7 @@ const init = () => {
       firstDayOfAWeek: 0
     },
     router: {
-      linkActiveClass: 'router-link-active',
-      linkExactActiveClass: 'router-link-exact-active'
+      linkActiveClass: 'router-link-active'
     }
   })
 

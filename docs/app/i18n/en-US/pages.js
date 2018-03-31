@@ -46,6 +46,9 @@ export default {
     title: 'Themes - Advanced',
     nav: 'Advanced'
   },
+  withRouter: {
+    title: 'Work with Vue Router'
+  },
   components: {
     title: 'Components',
   },

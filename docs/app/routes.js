@@ -258,6 +258,11 @@ export const routes = [
     page: 'UiElements/Typography/Typography.vue'
   },
   {
+    path: '/with-router',
+    name: 'with-router',
+    page: 'WithRouter.vue'
+  },
+  {
     path: '*',
     name: 'error',
     page: 'Error.vue'

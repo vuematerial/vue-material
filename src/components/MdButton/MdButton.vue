@@ -95,7 +95,7 @@
         this.$options.props = MdRouterLinkProps(this, this.$options.props)
 
         tag = 'router-link'
-        const exactActiveClass = this.$props.exactActiveClass || this.$material.router.linkExactActiveClass
+        const exactActiveClass = this.$props.exactActiveClass
         const activeClass = `${this.$props.activeClass || this.$material.router.linkActiveClass} md-active`
         buttonAttrs.props = {
           ...this.$props,
