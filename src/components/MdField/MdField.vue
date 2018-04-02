@@ -138,6 +138,7 @@
     methods: {
       clearInput () {
         this.MdField.clear = true
+        this.$emit('md-clear')
         this.$nextTick().then(() => {
           this.MdField.clear = false
         })

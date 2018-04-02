@@ -76,7 +76,8 @@
       <api-item title="API - md-field">
         <p>The following options can be applied to any field:</p>
 
-        <api-table :headings="field.headings" :props="field.props" slot="props" />
+        <api-table :headings="field.props.headings" :props="field.props.props" slot="props" />
+        <api-table :headings="field.events.headings" :props="field.events.props" slot="events" />
       </api-item>
 
       <api-item title="API - md-input">
@@ -104,72 +105,84 @@
     mixins: [examples],
     data: () => ({
       field: {
-        headings: ['Name', 'Description', 'Default'],
-        props: [
-          {
-            name: 'md-variant',
-            type: 'String',
-            description: 'Sets the field variant. The bottom line variant is the default. See below the detailed description of each variant.',
-            defaults: 'bottom-line'
-          },
-          {
-            offset: true,
-            name: 'md-variant="bottom-line"',
-            type: 'String',
-            description: 'Sets the field variant to bottom line. This is the default.',
-            defaults: '-'
-          },
-          {
-            offset: true,
-            name: 'md-variant="box"',
-            type: 'String',
-            description: 'Sets the field variant to a boxed variant.',
-            defaults: '-'
-          },
-          {
-            offset: true,
-            name: 'md-variant="raised"',
-            type: 'String',
-            description: 'Sets the field variant to a raised variant.',
-            defaults: '-'
-          },
-          {
-            name: 'md-dense',
-            type: 'Boolean',
-            description: 'Enable the dense layout',
-            defaults: 'false'
-          },
-          {
-            name: 'md-inline',
-            type: 'Boolean',
-            description: 'Make the label inline. This means that the label will disappear when the input receives a focus.',
-            defaults: 'false'
-          },
-          {
-            name: 'md-nested',
-            type: 'Boolean',
-            description: 'Enable the nested layout. Its works only within toolbar',
-            defaults: 'false'
-          },
-          {
-            name: 'md-counter',
-            type: 'Boolean',
-            description: 'Enable the character counter. Only works with fields that have a <code>md-input</code> or <code>md-textarea</code> with a <code>maxlength</code> or <code>md-counter</code> attributes.',
-            defaults: 'false'
-          },
-          {
-            name: 'md-clearable',
-            type: 'Boolean',
-            description: 'Add a clear button on the right of the input.',
-            defaults: 'false'
-          },
-          {
-            name: 'md-toggle-password',
-            type: 'Boolean',
-            description: 'Add a toggle button on the right of the input to reveal/hide the password. Only works with fields that have a <code>md-input</code> with type password.',
-            defaults: 'false'
-          }
-        ]
+        props: {
+          headings: ['Name', 'Description', 'Default'],
+          props: [
+            {
+              name: 'md-variant',
+              type: 'String',
+              description: 'Sets the field variant. The bottom line variant is the default. See below the detailed description of each variant.',
+              defaults: 'bottom-line'
+            },
+            {
+              offset: true,
+              name: 'md-variant="bottom-line"',
+              type: 'String',
+              description: 'Sets the field variant to bottom line. This is the default.',
+              defaults: '-'
+            },
+            {
+              offset: true,
+              name: 'md-variant="box"',
+              type: 'String',
+              description: 'Sets the field variant to a boxed variant.',
+              defaults: '-'
+            },
+            {
+              offset: true,
+              name: 'md-variant="raised"',
+              type: 'String',
+              description: 'Sets the field variant to a raised variant.',
+              defaults: '-'
+            },
+            {
+              name: 'md-dense',
+              type: 'Boolean',
+              description: 'Enable the dense layout',
+              defaults: 'false'
+            },
+            {
+              name: 'md-inline',
+              type: 'Boolean',
+              description: 'Make the label inline. This means that the label will disappear when the input receives a focus.',
+              defaults: 'false'
+            },
+            {
+              name: 'md-nested',
+              type: 'Boolean',
+              description: 'Enable the nested layout. Its works only within toolbar',
+              defaults: 'false'
+            },
+            {
+              name: 'md-counter',
+              type: 'Boolean',
+              description: 'Enable the character counter. Only works with fields that have a <code>md-input</code> or <code>md-textarea</code> with a <code>maxlength</code> or <code>md-counter</code> attributes.',
+              defaults: 'false'
+            },
+            {
+              name: 'md-clearable',
+              type: 'Boolean',
+              description: 'Add a clear button on the right of the input.',
+              defaults: 'false'
+            },
+            {
+              name: 'md-toggle-password',
+              type: 'Boolean',
+              description: 'Add a toggle button on the right of the input to reveal/hide the password. Only works with fields that have a <code>md-input</code> with type password.',
+              defaults: 'false'
+            }
+          ]
+        },
+        events: {
+          headings: ['Name', 'Description', 'Value'],
+          props: [
+            {
+              name: 'md-clear',
+              description: 'Triggered after a mouse click on clear icon. Only fired when md-clearable is true.',
+              value: '-'
+            }
+          ]
+        }
       },
       input: {
         headings: ['Name', 'Description', 'Default'],
