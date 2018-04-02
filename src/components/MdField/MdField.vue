@@ -228,6 +228,7 @@
       transition: $md-transition-stand;
       transition-property: font-size, padding-top, padding-bottom, color;
       font-family: inherit;
+      margin: 0;
 
       &[disabled] {
         cursor: default;
@@ -287,7 +288,7 @@
     }
 
     > .md-icon {
-      position: absolute;
+      // position: absolute;
       z-index: 3;
       transition: $md-transition-stand;
     }
@@ -328,7 +329,7 @@
     }
 
     label {
-      top: 22px;
+      top: 24px;
       left: 0;
       font-size: 16px;
     }
@@ -341,10 +342,10 @@
     }
 
     .md-textarea {
-      min-height: 48px;
+      min-height: 32px;
       max-height: 230px;
-      padding: 16px 0 8px;
-      line-height: 1.3em;
+      padding: 6px 0 6px;
+      line-height: 20px;
     }
 
     .md-helper-text,
@@ -369,11 +370,13 @@
     }
 
     > .md-icon {
-      bottom: 1px;
       margin: 4px auto;
+      margin-right: 12px;
 
       &:last-of-type:not(:first-child) {
         right: 0;
+        margin-left: 12px;
+        margin-right: 0;
       }
 
       &:last-of-type:not(:first-child):after {
@@ -385,7 +388,7 @@
         height: 4px;
         position: absolute;
         left: -1px;
-        bottom: -5px;
+        bottom: -2px;
         transition: .3s $md-transition-default-timing;
         content: "";
       }
@@ -393,13 +396,6 @@
       ~ {
         label {
           left: 36px;
-        }
-
-        .md-input,
-        .md-textarea,
-        .md-file .md-input,
-        .md-autocomplete .md-input {
-          padding-left: 36px;
         }
       }
     }
@@ -419,6 +415,8 @@
     }
 
     &.md-has-textarea:not(.md-autogrow) {
+      padding-top: 0;
+
       &:before,
       &:after {
         height: auto;
@@ -436,13 +434,13 @@
       }
 
       label {
-        top: 20px;
+        top: 16px;
         left: 16px;
       }
 
       .md-textarea {
         min-height: 100px;
-        padding: 26px 16px 16px;
+        padding: 26px 16px 4px 16px;
         resize: vertical;
       }
 
@@ -542,12 +540,14 @@
     }
 
     &.md-clearable {
-      .md-input {
-        padding-right: 30px;
+      &.md-has-value {
+        padding-right: 40px;
       }
     }
 
     &.md-has-password {
+      padding-right: 40px;
+
       .md-toggle-password {
         svg {
           width: 22px;
@@ -559,6 +559,7 @@
     &.md-inline {
       min-height: 32px;
       margin-top: 8px;
+      padding-top: 0;
 
       label {
         pointer-events: none;
@@ -573,6 +574,25 @@
         padding-bottom: 8px;
       }
 
+      .md-textarea {
+        padding-top: 6px;
+        padding-bottom: 6px;
+      }
+
+      &.md-has-textarea:not(.md-autogrow) {
+        .md-textarea {
+          padding-top: 14px;
+          padding-bottom: 16px;
+        }
+
+        &.md-focused,
+        &.md-has-value {
+          label {
+            top: 16px;
+          }
+        }
+      }
+
       &.md-focused,
       &.md-has-value {
         label {
@@ -581,9 +601,19 @@
         }
       }
 
+      &.md-focused {
+        .md-prefix, {
+          display: none;
+        }
+      }
+
       &.md-has-value {
         label {
           opacity: 0;
+        }
+
+        .md-prefix, {
+          display: block;
         }
       }
     }
@@ -602,7 +632,6 @@
   .md-field.md-field-bottom-line.md-dense {
     margin: 8px 0 24px;
     min-height: 40px;
-    padding-top: 16px;
 
     label {
       top: 18px;
@@ -612,12 +641,22 @@
     .md-input,
     .md-textarea {
       height: 24px;
+      min-height: 24px;
       padding: 0 0 4px;
       line-height: 20px;
+      font-size: 13px;
     }
 
     .md-textarea {
-      min-height: 40px;
+      line-height: 16px;
+      padding: 2px 0 6px;
+    }
+
+    .md-prefix,
+    .md-suffix {
+      font-size: 13px;
+      line-height: 20px;
+      padding-bottom: 4px;
     }
 
     .md-helper-text,
@@ -632,13 +671,9 @@
       min-width: 24px;
       height: 24px;
 
-      .md-icon {
-        font-size: 18px !important;
-      }
-
-      &,
       .md-icon,
       svg {
+        font-size: 18px !important;
         width: 18px;
         min-width: 18px;
         height: 18px;
@@ -646,26 +681,19 @@
     }
 
     > .md-icon {
-      top: 9px;
       font-size: 18px !important;
       width: 18px !important;
       min-width: 18px;
       height: 18px;
+      margin-top: 0;
 
       &:after {
-        width: 32px;
+        width: 30px;
       }
 
       ~ {
         label {
-          left: 32px;
-        }
-
-        .md-input,
-        .md-textarea,
-        .md-file .md-input,
-        .md-autocomplete .md-input {
-          padding-left: 32px;
+          left: 30px;
         }
       }
     }
@@ -687,7 +715,7 @@
         }
 
         .md-textarea {
-          padding-top: 12px;
+          padding-top: 24px;
         }
       }
     }
@@ -704,11 +732,46 @@
         font-size: 13px;
       }
     }
+
+    &.md-inline {
+      min-height: 25px;
+
+      label {
+        top: 3px;
+      }
+
+      &.md-has-textarea:not(.md-autogrow) {
+        .md-textarea {
+          padding-top: 14px;
+        }
+
+        &.md-focused,
+        &.md-has-value {
+          label {
+            top: 16px;
+          }
+        }
+      }
+
+      &.md-focused,
+      &.md-has-value {
+        label {
+          top: 3px;
+          font-size: 13px;
+        }
+
+        .md-input,
+        .md-textarea {
+          font-size: 13px;
+        }
+      }
+    }
   }
 
   .md-field.md-field-box {
     min-height: 56px;
     border-radius: 4px;
+    padding: 0 16px;
 
     &:before,
     &:after {
@@ -737,7 +800,7 @@
     .md-input,
     .md-textarea, {
       height: 56px;
-      padding: 20px 16px 1px;
+      padding: 20px 0 1px;
       margin-top: 0;
       font-size: 1px;
       line-height: 1.15;
@@ -751,7 +814,13 @@
       min-height: 56px;
       max-height: 230px;
       line-height: 1.3em;
-      padding: 28px 16px 9px;
+      padding: 28px 0 9px;
+    }
+
+    .md-prefix,
+    .md-suffix {
+      transition: $md-transition-stand;
+      transition-property: padding-top;
     }
 
     .md-helper-text,
@@ -773,31 +842,22 @@
     > .md-input-action {
       top: 50%;
       transform: translateY(-50%);
-      right: 6px;
+      right: 8px;
     }
 
     > .md-icon {
-      top: 50%;
-      transform: translateY(-50%);
 
       &:first-child {
-        left: 16px;
+        margin-right: 16px;
       }
 
       &:last-of-type:not(:first-child) {
-        right: 16px;
+        margin-left: 16px;
       }
 
       ~ {
         label {
           left: 56px;
-        }
-
-        .md-input,
-        .md-textarea,
-        .md-file .md-input,
-        .md-autocomplete .md-input {
-          padding-left: 56px;
         }
       }
     }
@@ -867,6 +927,11 @@
       .md-textarea {
         font-size: 16px;
       }
+
+      .md-prefix,
+      .md-suffix {
+        padding-top: 20px;
+      }
     }
 
     &.md-disabled {
@@ -914,12 +979,14 @@
     }
 
     &.md-clearable {
-      .md-input {
+      &.md-has-value {
         padding-right: 56px;
       }
     }
 
     &.md-has-password {
+      padding-right: 56px;
+
       .md-toggle-password {
         svg {
           width: 22px;
@@ -955,11 +1022,26 @@
           top: 20px;
           font-size: 16px;
         }
+
+        .md-prefix,
+        .md-suffix {
+          padding-top: 0;
+        }
+      }
+
+      &.md-focused {
+        .md-prefix, {
+          display: none;
+        }
       }
 
       &.md-has-value {
         label {
           opacity: 0;
+        }
+
+        .md-prefix, {
+          display: block;
         }
       }
     }
@@ -994,12 +1076,17 @@
     .md-input,
     .md-textarea {
       height: 47px;
-      padding: 16px 16px 1px;
+      padding: 16px 0 1px;
     }
 
     .md-textarea {
       min-height: 47px;
-      padding: 24px 16px 9px;
+      padding: 24px 0 9px;
+    }
+
+    .md-prefix,
+    .md-suffix {
+      font-size: 13px;
     }
 
     .md-helper-text,
@@ -1034,13 +1121,6 @@
       ~ {
         label {
           left: 50px;
-        }
-
-        .md-input,
-        .md-textarea,
-        .md-file .md-input,
-        .md-autocomplete .md-input {
-          padding-left: 50px;
         }
       }
     }
@@ -1085,6 +1165,11 @@
       .md-textarea {
         font-size: 13px;
       }
+
+      .md-prefix,
+      .md-suffix {
+        padding-top: 16px;
+      }
     }
 
     &.md-has-password {
@@ -1114,6 +1199,11 @@
           top: 17px;
           font-size: 13px;
         }
+
+        .md-prefix,
+        .md-suffix {
+          padding-top: 0;
+        }
       }
     }
   }
@@ -1123,6 +1213,7 @@
     border-radius: 2px;
     align-items: center;
     min-height: 48px;
+    padding: 0 16px;
 
     &.md-focused {
       z-index: 120;
@@ -1149,7 +1240,7 @@
     .md-input,
     .md-textarea, {
       height: 48px;
-      padding: 15px 16px 15px;
+      padding: 15px 0 15px;
       margin-top: 0;
       font-size: 16px;
       line-height: 1.15;
@@ -1159,7 +1250,12 @@
       min-height: 48px;
       max-height: 230px;
       line-height: 1.3em;
-      padding: 15px 16px 15px;
+      padding: 15px 0 15px;
+    }
+
+    .md-prefix,
+    .md-suffix {
+      padding-top: 2px;
     }
 
     .md-helper-text,
@@ -1181,31 +1277,21 @@
     > .md-input-action {
       top: 50%;
       transform: translateY(-50%);
-      right: 6px;
+      right: 8px;
     }
 
     > .md-icon {
-      top: 50%;
-      transform: translateY(-50%);
-
       &:first-child {
-        left: 16px;
+        margin-right: 16px;
       }
 
       &:last-of-type:not(:first-child) {
-        right: 16px;
+        margin-left: 16px;
       }
 
       ~ {
         label {
           left: 56px;
-        }
-
-        .md-input,
-        .md-textarea,
-        .md-file .md-input,
-        .md-autocomplete .md-input {
-          padding-left: 56px;
         }
       }
     }
@@ -1243,9 +1329,19 @@
       }
     }
 
+    &.md-focused {
+      .md-prefix {
+        display: none;
+      }
+    }
+
     &.md-has-value {
       label {
         opacity: 0;
+      }
+
+      .md-prefix {
+        display: block;
       }
     }
 
@@ -1282,12 +1378,14 @@
     }
 
     &.md-clearable {
-      .md-input {
+      &.md-has-value {
         padding-right: 56px;
       }
     }
 
     &.md-has-password {
+      padding-right: 56px;
+
       .md-toggle-password {
         svg {
           width: 22px;
@@ -1320,7 +1418,7 @@
     .md-input,
     .md-textarea, {
       height: 37px;
-      padding: 12px 16px 10px;
+      padding: 12px 0 10px;
       font-size: 13px;
     }
 
@@ -1328,7 +1426,12 @@
       min-height: 37px;
       max-height: 230px;
       line-height: 1.3em;
-      padding: 12px 16px 10px;
+      padding: 12px 0 10px;
+    }
+
+    .md-prefix,
+    .md-suffix {
+      font-size: 13px;
     }
 
     .md-helper-text,
@@ -1364,23 +1467,18 @@
         label {
           left: 48px;
         }
-
-        .md-input,
-        .md-textarea,
-        .md-file .md-input,
-        .md-autocomplete .md-input {
-          padding-left: 48px;
-        }
       }
     }
 
     &.md-clearable {
-      .md-input {
+      &.md-has-value {
         padding-right: 48px;
       }
     }
 
     &.md-has-password {
+      padding-right: 48px;
+
       .md-toggle-password {
         svg {
           width: 16px;
