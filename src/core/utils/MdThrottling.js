@@ -8,23 +8,29 @@ export default (fn, time, option) => {
     (option.trailing === false ? false : true ) :
     true
   let timeout = null
+  let duplicated = false
 
   return function () {
     const functionCall = () => fn.apply(this, arguments)
 
     if (timeout) {
+      duplicated = true
       return false
-    }
-
-    if (!timeout && leading) {
+    } else if (leading) {
       functionCall()
     }
 
-    timeout = setTimeout(() => {
-      timeout = null
-      if (trailing) {
-        functionCall()
-      }
-    }, time)
+    const setThrottling = () => {
+
+      timeout = setTimeout(() => {
+        timeout = null
+
+        if (duplicated && trailing) {
+          duplicated = false
+          functionCall()
+          setThrottling()
+        }
+      }, time)
+    }
   }
 }

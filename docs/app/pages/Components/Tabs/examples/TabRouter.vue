@@ -2,7 +2,9 @@
   <div>
     <md-tabs md-sync-route>
       <md-tab id="tab-home" md-label="Home" to="/components/tabs" exact></md-tab>
-      <md-tab id="tab-pages" md-label="Pages" to="/components/tabs/pages"></md-tab>
+      <md-tab id="tab-pages" md-label="Pages" to="/components/tabs/pages">
+        <sub-page />
+      </md-tab>
       <md-tab id="tab-posts" md-label="Posts" to="/components/tabs/posts"></md-tab>
       <md-tab id="tab-favorites" md-label="Favorites" to="/components/tabs/favorites"></md-tab>
       <md-tab id="tab-disabled" md-label="Disabled" md-disabled></md-tab>
@@ -16,7 +18,35 @@
 
 <script>
   export default {
-    name: 'TabRouter'
+    name: 'TabRouter',
+    components: {
+      SubPage: {
+        name: 'SubPage',
+        render (createElement) {
+          return createElement('md-tabs', {
+            props: {
+              mdSyncRoute: true
+            }
+          }, [
+              createElement('md-tab', {
+                props: {
+                  id: 'tab-pages-1',
+                  mdLabel: 'Pages 1',
+                  to: '/components/tabs/pages/1'
+                }
+              }),
+              createElement('md-tab', {
+                props: {
+                  id: 'tab-pages-2',
+                  mdLabel: 'Pages 2',
+                  to: '/components/tabs/pages/2'
+                }
+              })
+            ]
+          )
+        }
+      }
+    }
   }
 </script>
 

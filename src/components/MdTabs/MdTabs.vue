@@ -6,7 +6,7 @@
         :key="index"
         class="md-tab-nav-button"
         :class="{
-          'md-active': index === activeTab,
+          'md-active': (!mdSyncRoute && index === activeTab),
           'md-icon-label': icon && label
         }"
         :disabled="disabled"
@@ -110,7 +110,6 @@
         this.$nextTick().then(() => {
           this.setIndicatorStyles()
           this.setActiveButtonEl()
-          this.calculateTabPos()
         })
       },
       mdActiveTab (tab) {
@@ -118,7 +117,14 @@
         this.$emit('md-changed', tab)
       },
       activeButtonEl (activeButtonEl) {
-        this.activeTabIndex = [].indexOf.call(activeButtonEl.parentNode.childNodes, activeButtonEl)
+        this.activeTabIndex = activeButtonEl ? [].indexOf.call(activeButtonEl.parentNode.childNodes, activeButtonEl) : -1
+      },
+      activeTabIndex (index) {
+        this.setIndicatorStyles()
+        this.calculateTabPos()
+      },
+      '$route' () {
+        this.$nextTick(this.setActiveButtonEl)
       }
     },
     methods: {
@@ -139,7 +145,7 @@
         }
       },
       setActiveButtonEl () {
-        this.activeButtonEl = this.$el.querySelector('.md-tab-nav-button.md-active')
+        this.activeButtonEl = this.$refs.navigation.querySelector('.md-tab-nav-button.md-active')
       },
       setActiveTabByIndex (index) {
         const { keys } = this.getItemsAndKeys()
@@ -153,11 +159,10 @@
 
         this.hasContent = keys.some(key => items[key].hasContent)
       },
-      setIndicatorStyles:  MdThrottling(function () {
+      setIndicatorStyles () {
         raf(() => {
           this.$nextTick().then(() => {
-            this.setActiveButtonEl()
-
+            // this.setActiveButtonEl()
             if (this.activeButtonEl && this.$refs.indicator) {
               const buttonWidth = this.activeButtonEl.offsetWidth
               const buttonLeft = this.activeButtonEl.offsetLeft
@@ -181,13 +186,13 @@
             }
           })
         })
-      }, 100),
+      },
       calculateTabPos () {
         if (this.hasContent) {
           const tabElement = this.$el.querySelector(`.md-tab:nth-child(${this.activeTabIndex + 1})`)
 
           this.contentStyles = {
-            height: `${tabElement.offsetHeight}px`
+            height: tabElement ? `${tabElement.offsetHeight}px` : 0
           }
 
           this.containerStyles = {
@@ -212,6 +217,7 @@
       }
     },
     created () {
+      this.setIndicatorStyles = MdThrottling(this.setIndicatorStyles, 300)
       this.setHasContent()
       this.activeTab = this.mdActiveTab
     },
