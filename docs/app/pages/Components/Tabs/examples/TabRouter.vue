@@ -22,35 +22,7 @@
 
 <script>
   export default {
-    name: 'TabRouter',
-    components: {
-      SubPage: {
-        name: 'SubPage',
-        render (createElement) {
-          return createElement('md-tabs', {
-            props: {
-              mdSyncRoute: true
-            }
-          }, [
-              createElement('md-tab', {
-                props: {
-                  id: 'tab-pages-1',
-                  mdLabel: 'Pages 1',
-                  to: '/components/tabs/pages/1'
-                }
-              }),
-              createElement('md-tab', {
-                props: {
-                  id: 'tab-pages-2',
-                  mdLabel: 'Pages 2',
-                  to: '/components/tabs/pages/2'
-                }
-              })
-            ]
-          )
-        }
-      }
-    }
+    name: 'TabRouter'
   }
 </script>
 
