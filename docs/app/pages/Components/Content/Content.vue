@@ -33,7 +33,7 @@ export default {
         {
           name: 'md-tag',
           type: 'String',
-          description: 'The outpug tag. Useful when you want to create a section instead of div, for example.',
+          description: 'The output tag. Useful when you want to create a section instead of div, for example.',
           defaults: 'div'
         }
       ]
