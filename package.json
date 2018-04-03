@@ -56,7 +56,7 @@
     "babel-preset-stage-2": "^6.24.1",
     "chalk": "^2.3.0",
     "clipboard": "^1.7.1",
-    "codesandbox": "^1.2.2",
+    "codesandbox": "^1.2.7",
     "commitizen": "^2.9.6",
     "concat": "^1.0.3",
     "connect-history-api-fallback": "^1.5.0",
