@@ -4,16 +4,16 @@
  * Structure - The main styles for html and body tags
  */
 
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
 html {
   height: 100%;
   box-sizing: border-box;
   transition: background-color .3s $md-transition-stand-timing;
-
-  *,
-  *:before,
-  *:after {
-    box-sizing: inherit;
-  }
 }
 
 body {
