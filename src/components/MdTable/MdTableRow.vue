@@ -116,21 +116,19 @@
       },
       addSelectableItem () {
         if (!this.hasMultipleSelection || this.mdDisabled) {
-          return
+          return false
         }
 
         if (this.MdTable.selectable.includes(this.mdItem)) {
-          return
+          return false
         }
 
         this.MdTable.selectable.push(this.mdItem)
       },
       removeSelectableItem (target = this.mdItem) {
-        if (!this.hasMultipleSelection) {
-          return
+        if (this.mdSelectable === 'multiple') {
+          this.MdTable.selectable = this.MdTable.selectable.filter(item => item !== target)
         }
-
-        this.MdTable.selectable = this.MdTable.selectable.filter(item => item !== target)
       }
     },
     created () {

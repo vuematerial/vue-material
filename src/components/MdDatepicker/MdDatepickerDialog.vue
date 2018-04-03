@@ -1,6 +1,6 @@
 <template>
   <md-popover :md-settings="popperSettings" md-active>
-    <transition name="md-datepicker-dialog" appear>
+    <transition name="md-datepicker-dialog" appear @enter="setContentStyles" @after-leave="resetDate">
       <div class="md-datepicker-dialog" :class="[$mdActiveTheme]">
         <div class="md-datepicker-header">
           <span class="md-datepicker-year-select" :class="{ 'md-selected': currentView === 'year' }" @click="currentView = 'year'">{{ selectedYear }}</span>
@@ -80,7 +80,7 @@
 
           <md-dialog-actions class="md-datepicker-body-footer">
             <md-button class="md-primary" @click="onCancel">Cancel</md-button>
-            <md-button class="md-primary" @click="onConfirm">Ok</md-button>
+            <md-button v-if="!mdImmediately" class="md-primary" @click="onConfirm">Ok</md-button>
           </md-dialog-actions>
         </div>
       </div>
@@ -130,7 +130,11 @@
     },
     props: {
       mdDate: Date,
-      mdDisabledDates: [Array, Function]
+      mdDisabledDates: [Array, Function],
+      mdImmediately: {
+        type: Boolean,
+        default: false
+      }
     },
     data: () => ({
       currentDate: null,
@@ -314,7 +318,11 @@
       selectDate (day) {
         this.currentDate = setDate(this.currentDate, day)
         this.selectedDate = this.currentDate
-        this.$emit('update:mdDate', this.selectedDate)
+
+        if (this.mdImmediately) {
+          this.$emit('update:mdDate', this.selectedDate)
+          this.closeDialog()
+        }
       },
       closeDialog () {
         this.$emit('md-closed')
@@ -326,20 +334,19 @@
         this.closeDialog()
       },
       onConfirm () {
-        this.closeDialog()
         this.$emit('update:mdDate', this.selectedDate)
+        this.closeDialog()
+      },
+      resetDate () {
+        this.currentDate = this.mdDate || new Date()
+        this.selectedDate = this.mdDate
+        this.currentView = 'day'
       }
     },
     created () {
       this.setAvailableYears()
-      this.currentDate = this.mdDate || new Date()
-      this.selectedDate = this.mdDate
-      this.currentView = 'day'
-
-      window.setTimeout(() => {
-        this.setContentStyles()
-      }, 50)
-    },
+      this.resetDate()
+    }
   })
 </script>
 

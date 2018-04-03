@@ -68,10 +68,10 @@
             </md-ripple>
           </md-card>
 
-          <md-card md-with-hover class="flying" @click.native="openLink('https://codepen.io/vue-material/pen/RxGmyb')">
+          <md-card md-with-hover class="flying" @click.native="openLink('https://codesandbox.io/s/github/vuematerial/examples/tree/master/examples/quick-start')">
             <md-ripple>
               <md-card-header>
-                <div class="md-title">Codepen</div>
+                <div class="md-title">Codesandbox</div>
               </md-card-header>
 
               <md-card-content>
@@ -79,7 +79,7 @@
               </md-card-content>
 
               <div class="ecosystem-logo">
-                <img src="/assets/boilerplates/codepen.png" alt="Codepen">
+                <img src="/assets/boilerplates/codesandbox.png" alt="Codepen">
               </div>
             </md-ripple>
           </md-card>

@@ -29,6 +29,10 @@
         color: rgba(#000, .54);
       }
 
+      .md-suffix, .md-prefix {
+        color: rgba(#000, .54);
+      }
+
       .md-input,
       .md-textarea {
         &::-webkit-input-placeholder {
@@ -55,6 +59,10 @@
       .md-helper-text,
       .md-count,
       label {
+        color: rgba(#fff, .7);
+      }
+
+      .md-suffix, .md-prefix {
         color: rgba(#fff, .7);
       }
 

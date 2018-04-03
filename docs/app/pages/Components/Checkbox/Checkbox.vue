@@ -52,6 +52,12 @@
             type: 'String',
             description: 'The checkbox unique id.',
             defaults: 'a random string'
+          },
+          {
+            name: 'indeterminate',
+            type: 'Boolean',
+            description: 'Enables the indeterminate look of the checkbox.',
+            defaults: 'false'
           }
         ]
       },

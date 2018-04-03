@@ -15,6 +15,19 @@
       }
     }
 
+    &.md-indeterminate {
+      .md-checkbox-container {
+        border-color: rgba(#000, .54);
+        background-color: rgba(#fff, .3);
+        &:after {
+          border-color: rgba(#000, .54);
+        }
+      }
+      .md-ripple {
+        color: rgba(#000, .54);
+      }
+    }
+
     &.md-checked.md-primary {
       .md-checkbox-container {
         @include md-theme-property(background-color, primary);
@@ -27,6 +40,18 @@
     }
 
     @if md-get-theme-mode() == light {
+      &.md-indeterminate {
+        .md-checkbox-container {
+          border-color: rgba(#000, .54);
+          background-color: transparent;
+          &:after {
+            border-color: rgba(#000, .54);
+          }
+        }
+        .md-ripple {
+          color: rgba(#000, .54);
+        }
+      }
       .md-checkbox-container {
         border-color: rgba(#000, .54);
       }
@@ -44,6 +69,19 @@
         }
       }
     } @else {
+      &.md-indeterminate {
+        .md-checkbox-container {
+          border-color: rgba(#fff, .7);
+          background-color: transparent;
+          &:after {
+            border-color: rgba(#fff, .7);
+          }
+        }
+        .md-ripple {
+          color: rgba(#fff, .7);
+        }
+      }
+
       .md-checkbox-container {
         border-color: rgba(#fff, .7);
       }
