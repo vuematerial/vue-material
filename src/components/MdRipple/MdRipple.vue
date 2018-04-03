@@ -52,7 +52,7 @@
     watch: {
       mdActive (active) {
         const isBoolean = typeof active === 'boolean'
-        const isEvent = active.constructor.name.toLowerCase() === 'mouseevent'
+        const isEvent = active.constructor.toString().match(/function (\w*)/)[1].toLowerCase() === 'mouseevent'
 
         if (isBoolean && this.mdCentered && active) {
           this.startRipple({
