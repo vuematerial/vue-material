@@ -1402,10 +1402,11 @@
       height: 40px;
       margin: 0;
       box-shadow: none;
-      
+
       &.md-focused {
         @include md-elevation(2);
       }
+    }
   }
 
   .md-field.md-inline.md-field-raised.md-dense {
