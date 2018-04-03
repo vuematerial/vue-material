@@ -83,7 +83,7 @@
           headings: ['Name', 'Description', 'Default'],
           props: [
             {
-              name: 'md-expand-only-one',
+              name: 'md-expand-single',
               type: 'Boolean',
               description: 'If set true, one expandable list item could be expanded at most at a time. The expanded list item will be collapsed when another is expanded',
               defaults: 'false'

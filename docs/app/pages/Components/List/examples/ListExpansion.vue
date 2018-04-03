@@ -1,7 +1,7 @@
 <template>
   <div class="full-control">
     <div class="list">
-      <md-list :md-expand-only-one="expandOnlyOne">
+      <md-list :md-expand-single="expandSingle">
         <md-list-item md-expand :md-expanded.sync="expandNews">
           <md-icon>whatshot</md-icon>
           <span class="md-list-item-text">News</span>
@@ -43,7 +43,7 @@
       </md-list>
     </div>
     <div class="control">
-      <md-switch v-model="expandOnlyOne">Expand Only One</md-switch>
+      <md-switch v-model="expandSingle">Expand Only One</md-switch>
       <md-checkbox v-model="expandNews">Expand News</md-checkbox>
     </div>
   </div>
@@ -56,7 +56,7 @@
     data () {
       return {
         expandNews: false,
-        expandOnlyOne: false
+        expandSingle: false
       }
     }
   }

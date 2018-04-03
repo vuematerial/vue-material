@@ -25,13 +25,13 @@
       }
     },
     props: {
-      mdExpandOnlyOne: {
+      mdExpandSingle: {
         default: false
       }
     },
     methods: {
       expandATab (expandedListItem) {
-        if (this.mdExpandOnlyOne && expandedListItem) {
+        if (this.mdExpandSingle && expandedListItem) {
           const otherExpandableListItems = this.MdList.expandable.filter(target => target !== expandedListItem)
           otherExpandableListItems.forEach(expandableListItem => expandableListItem.close())
         }
