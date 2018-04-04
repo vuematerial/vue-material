@@ -1,7 +1,7 @@
 <template>
   <md-field :class="['md-datepicker', { 'md-native': !this.mdOverrideNative }]" md-clearable>
     <md-date-icon class="md-date-icon" @click.native="toggleDialog" />
-    <md-input :type="type" ref="input" v-model="modelDate" @focus.native="onFocus" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" />
+    <md-input :type="type" ref="input" :value="modelDate" @input="onInput" @focus.native="onFocus" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" />
 
     <slot />
 
@@ -31,6 +31,22 @@
   import MdField from 'components/MdField/MdField'
   import MdInput from 'components/MdField/MdInput/MdInput'
 
+  function debounce(f, wait, immediate) {
+    let timeout
+    return function() {
+      const context = this;
+      const args = arguments;
+      const later = function() {
+        timeout = null;
+        if (!immediate) f.apply(context, args)
+      }
+      const callNow = immediate && !timeout
+      clearTimeout(timeout)
+      timeout = setTimeout(later, wait)
+      if (callNow) f.apply(context, args)
+    }
+  }
+
   export default {
     name: 'MdDatepicker',
     components: {
@@ -54,7 +70,7 @@
       mdImmediately: {
         type: Boolean,
         default: false
-      }
+      },
     },
     data: () => ({
       showDialog: false,
@@ -93,6 +109,12 @@
       }
     },
     methods: {
+      onInput: debounce(function (value) {
+        const parsedDate = parse(value)
+        if (isValid(parsedDate)) {
+          this.selectedDate = parsedDate
+        }
+      }, 1000),
       toggleDialog () {
         if (!isFirefox || this.mdOverrideNative) {
           this.showDialog = !this.showDialog
