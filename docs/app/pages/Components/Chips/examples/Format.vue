@@ -1,14 +1,16 @@
 <template>
   <div>
-    <md-chips class="md-primary" v-model="clubs" md-placeholder="Add club..." :md-format="toUppercase">
+    <md-field md-variant="bottom-line">
       <label>La Liga Clubs</label>
+      <md-chips class="md-primary" v-model="clubs" :md-format="toUppercase"></md-chips>
       <div class="md-helper-text">Three uppercase letters</div>
-    </md-chips>
-    
-    <md-chips class="md-primary" v-model="artists" md-placeholder="Add artist..." :md-format="formatName">
+    </md-field>
+
+    <md-field md-variant="bottom-line">
       <label>Artists</label>
+      <md-chips class="md-primary" v-model="artists" md-placeholder="Add artist..." :md-format="formatName"></md-chips>
       <div class="md-helper-text">Try inserting `Eugène Ysaÿe`. The formatter will remove diacritics.</div>
-    </md-chips>
+    </md-field>
   </div>
 </template>
 
