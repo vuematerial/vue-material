@@ -28,7 +28,7 @@
   import MdOverlay from 'components/MdOverlay/MdOverlay'
   import MdDatepickerDialog from './MdDatepickerDialog'
   import MdDateIcon from 'core/icons/MdDateIcon'
-  import debounce from 'core/utils/MdDebounce'
+  import mdDebounce from 'core/utils/MdDebounce'
   import MdField from 'components/MdField/MdField'
   import MdInput from 'components/MdField/MdInput/MdInput'
 
@@ -56,6 +56,10 @@
         type: Boolean,
         default: false
       },
+      mdDebounce: {
+        type: Number,
+        default: 1000
+      }
     },
     data: () => ({
       showDialog: false,
@@ -94,12 +98,12 @@
       }
     },
     methods: {
-      onInput: debounce(function (value) {
+      onInput(value) {
         const parsedDate = parse(value)
         if (isValid(parsedDate)) {
           this.selectedDate = parsedDate
         }
-      }, 1000),
+      },
       toggleDialog () {
         if (!isFirefox || this.mdOverrideNative) {
           this.showDialog = !this.showDialog
@@ -133,6 +137,7 @@
       }
     },
     created () {
+      this.onInput = mdDebounce(this.onInput, this.mdDebounce)
       this.modelDate = this.dateToHTMLString(this.value)
       this.selectedDate = this.value
     }
