@@ -1,6 +1,9 @@
 <template>
   <div>
-    <md-datepicker v-model="selectedDate" md-immediately />
+    <md-field md-clearable>
+      <md-icon md-datepicker-trigger>event</md-icon>
+      <md-datepicker v-model="selectedDate" md-immediately />
+    </md-field>
   </div>
 </template>
 
