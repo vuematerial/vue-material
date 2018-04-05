@@ -73,6 +73,8 @@
         togglePassword: false,
         clear: false,
         file: false,
+        date: false,
+        native: false,
         dense: false,
         variant: 'bottom-line',
         $el: null
@@ -130,6 +132,8 @@
           'md-has-textarea': this.MdField.textarea,
           'md-has-password': this.MdField.password,
           'md-has-file': this.MdField.file,
+          'md-has-date': this.MdField.date,
+          'md-native': this.MdField.native,
           'md-has-select': this.MdField.select,
           'md-autogrow': this.MdField.autogrow
         }

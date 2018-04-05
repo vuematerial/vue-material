@@ -1,9 +1,12 @@
 <template>
-  <md-field :class="['md-datepicker', { 'md-native': !this.mdOverrideNative }]" md-clearable>
-    <md-date-icon class="md-date-icon" @click.native="toggleDialog" />
-    <md-input :type="type" ref="input" v-model="modelDate" @focus.native="onFocus" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" />
-
-    <slot />
+  <div :class="['md-datepicker']">
+    <md-input
+    :type="type"
+    ref="input"
+    v-model="modelDate"
+    @focus.native="onFocus"
+    pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
+    v-bind="{ disabled, required, placeholder }" />
 
     <keep-alive>
       <md-datepicker-dialog
@@ -16,7 +19,7 @@
     </keep-alive>
 
     <md-overlay class="md-datepicker-overlay" md-fixed :md-active="showDialog" @click="toggleDialog" />
-  </md-field>
+  </div>
 </template>
 
 <script>
@@ -27,16 +30,13 @@
   import isValid from 'date-fns/is_valid'
   import MdOverlay from 'components/MdOverlay/MdOverlay'
   import MdDatepickerDialog from './MdDatepickerDialog'
-  import MdDateIcon from 'core/icons/MdDateIcon'
-  import MdField from 'components/MdField/MdField'
   import MdInput from 'components/MdField/MdInput/MdInput'
+  import MdFieldMixin from '../MdField/MdFieldMixin'
 
   export default {
     name: 'MdDatepicker',
     components: {
       MdOverlay,
-      MdDateIcon,
-      MdField,
       MdInput,
       MdDatepickerDialog
     },
@@ -56,7 +56,10 @@
         default: false
       }
     },
+    mixins: [MdFieldMixin],
+    inject: ['MdField'],
     data: () => ({
+      triggerEl: null,
       showDialog: false,
       modelDate: null,
       selectedDate: null
@@ -69,6 +72,12 @@
       }
     },
     watch: {
+      mdOverrideNative: {
+        immediate: true,
+        handler () {
+          this.MdField.native = !this.mdOverrideNative
+        }
+      },
       selectedDate (selectedDate) {
         if (selectedDate) {
           this.modelDate = this.dateToHTMLString(selectedDate)
@@ -94,6 +103,8 @@
     },
     methods: {
       toggleDialog () {
+        if(this.disabled || this.readonly) return
+
         if (!isFirefox || this.mdOverrideNative) {
           this.showDialog = !this.showDialog
           if (this.showDialog) {
@@ -128,6 +139,24 @@
     created () {
       this.modelDate = this.dateToHTMLString(this.value)
       this.selectedDate = this.value
+
+      this.MdField.date = true
+    },
+    mounted () {
+      this.$nextTick().then(() => {
+        this.triggerEl = this.MdField.$el.querySelector('[md-datepicker-trigger]')
+
+        if (this.triggerEl) {
+          this.triggerEl.addEventListener('click', this.toggleDialog)
+        }
+      })
+    },
+    beforeDestroy () {
+      this.MdField.date = false
+
+      if (this.triggerEl) {
+        this.triggerEl.removeEventListener('click', this.toggleDialog)
+      }
     }
   }
 </script>
@@ -145,20 +174,103 @@
   }
 
   .md-datepicker {
-    &.md-native {
-      label {
-        top: 0 !important;
-      }
-    }
-
-    .md-date-icon {
-      cursor: pointer;
-    }
+    width: 100%;
+    display: flex;
 
     input[type=date]::-webkit-clear-button,
     input[type=date]::-webkit-inner-spin-button,
     input[type=date]::-webkit-calendar-picker-indicator {
       display: none;
+    }
+  }
+
+  .md-field{
+    &.md-has-date {
+      [md-datepicker-trigger] {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .md-field.md-field-bottom-line.md-has-date {
+    &.md-native {
+      &:not(.md-inline) {
+        label {
+          pointer-events: auto;
+          top: 2px;
+          opacity: 1;
+          font-size: 12px;
+        }
+      }
+
+      &.md-inline {
+        label {
+          opacity: 0;
+        }
+      }
+
+      .md-prefix {
+        display: block;
+      }
+    }
+  }
+
+  .md-field.md-field-box.md-has-date {
+    &.md-native {
+      &:not(.md-inline) {
+        label {
+          pointer-events: auto;
+          top: 8px;
+          opacity: 1;
+          font-size: 12px;
+        }
+
+        .md-input {
+          padding-top: 20px;
+          padding-bottom: 1px;
+        }
+
+        .md-prefix,
+        .md-suffix {
+          padding-top: 20px;
+        }
+      }
+
+      &.md-inline {
+        label {
+          opacity: 0;
+        }
+      }
+
+      .md-prefix {
+        display: block;
+      }
+
+      &.md-dense:not(.md-inline) {
+        .md-input {
+          padding-top: 16px;
+          padding-bottom: 1px;
+        }
+
+        .md-prefix,
+        .md-suffix {
+          padding-top: 16px;
+        }
+      }
+    }
+  }
+
+  .md-field.md-field-raised.md-has-date {
+    &.md-native {
+      &.md-inline {
+        label {
+          opacity: 0;
+        }
+      }
+
+      .md-prefix {
+        display: block;
+      }
     }
   }
 </style>
