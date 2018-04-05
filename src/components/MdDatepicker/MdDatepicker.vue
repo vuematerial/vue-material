@@ -28,24 +28,9 @@
   import MdOverlay from 'components/MdOverlay/MdOverlay'
   import MdDatepickerDialog from './MdDatepickerDialog'
   import MdDateIcon from 'core/icons/MdDateIcon'
+  import debounce from 'core/utils/MdDebounce'
   import MdField from 'components/MdField/MdField'
   import MdInput from 'components/MdField/MdInput/MdInput'
-
-  function debounce(f, wait, immediate) {
-    let timeout
-    return function() {
-      const context = this;
-      const args = arguments;
-      const later = function() {
-        timeout = null;
-        if (!immediate) f.apply(context, args)
-      }
-      const callNow = immediate && !timeout
-      clearTimeout(timeout)
-      timeout = setTimeout(later, wait)
-      if (callNow) f.apply(context, args)
-    }
-  }
 
   export default {
     name: 'MdDatepicker',
