@@ -192,7 +192,7 @@
           this.showOptions()
         }
 
-        if (this.searchTerm.constructor.name.toLowerCase() !== 'inputevent') {
+        if (this.searchTerm.constructor.toString().match(/function (\w*)/)[1].toLowerCase() !== 'inputevent') {
           this.$emit('md-changed', this.searchTerm)
         }
       },
