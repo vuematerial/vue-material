@@ -1,5 +1,6 @@
 <example src="./examples/RegularRadio.vue" />
 <example src="./examples/RadioHueColors.vue" />
+<example src="./examples/ControlledRadio.vue" />
 
 <template>
   <page-container centered :title="$t('pages.radio.title')">
@@ -11,6 +12,10 @@
       <h2>Radio</h2>
 
       <code-example title="Radio" :component="examples['regular-radio']" />
+
+      <p>Radio buttons can also be controlled programatically, (such as with Vuex actions and getters), by binding to the :model property.</p>
+      <code-example title="Controlled Radio" :component="examples['controlled-radio']" />
+
       <code-example title="Hue Colors" :component="examples['radio-hue-colors']" />
 
       <api-item title="API - md-radio">
