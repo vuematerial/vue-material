@@ -2,6 +2,7 @@
   import Vue from 'vue'
   import MdAppSideDrawer from './MdAppSideDrawer'
   import MdAppInternalDrawer from './MdAppInternalDrawer'
+  import MdDrawerRightPrevious from '../MdDrawer/MdDrawerRightPrevious';
 
   const componentTypes = [
     'md-app-toolbar',
@@ -13,7 +14,7 @@
     return componentOptions && componentTypes.includes(componentOptions.tag)
   }
 
-  function buildSlots (children, context, functionalContext, options) {
+  function buildSlots (children, context, functionalContext, options, createElement) {
     let slots = []
 
     let hasDrawer = false
@@ -36,6 +37,12 @@
             let nativeMdRight = componentOptions.propsData.mdRight
             let mdRight = nativeMdRight === '' || !!nativeMdRight
             child.data.slot += `-${mdRight ? 'right' : 'left'}`
+
+            if (mdRight) {
+              const drawerRightPrevious = createElement(MdDrawerRightPrevious, { props: {...child.data.attrs}})
+              drawerRightPrevious.data.slot = 'md-app-drawer-right-previous'
+              slots.push(drawerRightPrevious)
+            }
           }
 
           child.data.provide = options.Ctor.options.provide
@@ -70,7 +77,7 @@
     render (createElement, { children, props, data }) {
       let appComponent = MdAppSideDrawer
       const { context, functionalContext, componentOptions } = createElement(appComponent)
-      const slots = buildSlots(children, context, functionalContext, componentOptions)
+      const slots = buildSlots(children, context, functionalContext, componentOptions, createElement)
       const drawers = getDrawers(slots)
 
       drawers.forEach(drawer => {

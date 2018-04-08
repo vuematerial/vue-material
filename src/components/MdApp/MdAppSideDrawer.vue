@@ -1,7 +1,7 @@
 <template>
   <div class="md-app md-app-side-drawer md-layout-row" :class="[appClasses, $mdActiveTheme]">
     <slot name="md-app-drawer-left"></slot>
-
+    <slot name="md-app-drawer-right-previous"></slot>
     <main class="md-app-container md-flex md-layout-column" :class="[$mdActiveTheme, scrollerClasses]" :style="contentStyles" @scroll.passive="handleScroll">
       <slot name="md-app-toolbar"></slot>
       <div class="md-app-scroller md-layout-column md-flex" :class="[$mdActiveTheme, scrollerClasses]" :style="containerStyles" @scroll.passive="handleScroll">

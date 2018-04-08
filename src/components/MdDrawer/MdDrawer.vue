@@ -170,7 +170,7 @@
         }
       }
 
-      &.md-right {
+      &.md-right-previous {
         + .md-app-container .md-content {
           border-right: none;
         }
@@ -229,7 +229,7 @@
           }
         }
 
-        &.md-right {
+        &.md-right-previous {
           + .md-app-container .md-content {
             border-right: none;
           }
@@ -258,7 +258,7 @@
           }
         }
 
-        &.md-right {
+        &.md-right-previous {
           + .md-app-container .md-content {
             border-right: none;
           }
