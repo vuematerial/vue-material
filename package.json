@@ -23,7 +23,7 @@
   "unpkg": "dist/vue-material.min.js",
   "scripts": {
     "dev": "babel-node build/local",
-    "build": "rm -rf dist/; babel-node build/lib",
+    "build": "rm -rf dist/ && babel-node build/lib",
     "docs": "babel-node build/docs",
     "lint": "eslint --ext .js,.vue docs src build test",
     "test": "jest",
