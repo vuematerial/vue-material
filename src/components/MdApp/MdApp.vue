@@ -37,6 +37,10 @@
             let nativeMdRight = componentOptions.propsData.mdRight
             let mdRight = nativeMdRight === '' || !!nativeMdRight
             child.data.slot += `-${mdRight ? 'right' : 'left'}`
+            child.key = JSON.stringify({
+              'persistent': child.data.attrs['md-persistent'],
+              'permanent': child.data.attrs['md-permanent']
+            })
 
             if (mdRight) {
               const drawerRightPrevious = createElement(MdDrawerRightPrevious, { props: {...child.data.attrs}})

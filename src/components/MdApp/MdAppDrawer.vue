@@ -1,5 +1,5 @@
 <template>
-  <md-drawer class="md-app-drawer" v-bind="$attrs" v-on="$listeners" :md-right="mdRight" :key="mdRight" ref="drawer">
+  <md-drawer class="md-app-drawer" :md-active="mdActive && initialized" v-bind="$attrs" v-on="$listeners" :md-right="mdRight" ref="drawer">
     <slot />
   </md-drawer>
 </template>
@@ -14,10 +14,14 @@
         mode: null,
         submode: null
       },
-      key: null
+      initialized: false
     }),
     props: {
       mdRight: {
+        type: Boolean,
+        default: false
+      },
+      mdActive: {
         type: Boolean,
         default: false
       }
@@ -69,13 +73,14 @@
         this.MdApp.drawer.mode = 'temporary'
         this.MdApp.drawer.submode = null
         this.MdApp.drawer.initialWidth = 0
-      }
+      },
     },
     mounted () {
       this.$nextTick().then(() => {
         this.MdApp.drawer.initialWidth = this.$el.offsetWidth
         this.drawerElement = this.$refs.drawer
         this.updateDrawerData()
+        this.initialized = true
       })
     },
     updated () {
