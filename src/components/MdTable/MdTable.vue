@@ -47,7 +47,7 @@
       <slot name="md-table-pagination" />
     </md-content>
 
-    <slot v-if="value" />
+    <slot v-if="value && value.length" />
   </md-tag-switcher>
 </template>
 
