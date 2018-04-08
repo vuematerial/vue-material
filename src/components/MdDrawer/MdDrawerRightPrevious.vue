@@ -46,6 +46,9 @@
         }
 
         return classes
+      },
+      isTemporary () {
+        return !this.mdPermanent && !this.mdPersistent
       }
     }
   })
