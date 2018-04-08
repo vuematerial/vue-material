@@ -18,7 +18,7 @@
   import MdAppMixin from './MdAppMixin'
 
   export default new MdComponent({
-    name: 'MdAppInternalSideDrawer',
+    name: 'MdAppSideDrawer',
     mixins: [MdAppMixin]
   })
 </script>
