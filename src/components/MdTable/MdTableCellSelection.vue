@@ -20,17 +20,17 @@
       isSelected: false
     }),
     watch: {
-      value () {
-        this.isSelected = this.value
+      value: {
+        immediate: true,
+        handler (value) {
+          this.isSelected = value
+        }
       }
     },
     methods: {
       onChange () {
         this.$emit('input', this.isSelected)
       }
-    },
-    created () {
-      this.isSelected = this.value
     }
   }
 </script>
