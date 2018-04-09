@@ -28,6 +28,9 @@
       onChange () {
         this.$emit('input', this.isSelected)
       }
+    },
+    created () {
+      this.isSelected = this.value
     }
   }
 </script>
