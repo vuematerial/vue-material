@@ -269,7 +269,7 @@
           return id
         }
 
-        Vue.util.warn('An available mdModelId is necessary for MdTable')
+        Vue.util.warn('An available md-model-id is necessary for MdTable')
         return 'md-row-' + MdUuid()
       },
       setScroll ($event) {
