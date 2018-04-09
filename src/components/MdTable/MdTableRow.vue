@@ -37,7 +37,7 @@
     }),
     computed: {
       selectableCount () {
-        return Object.keys(this.MdTable.selectable).length
+        return this.MdTable.selectable.length
       },
       isMultipleSelected () {
         return this.MdTable.selectedItems.includes(this.mdItem)
@@ -133,8 +133,10 @@
       }
     },
     created () {
-      this.addSelectableItem()
-      this.MdTable.selectingMode = this.mdSelectable
+      this.$nextTick(() => {
+        this.addSelectableItem()
+        this.MdTable.selectingMode = this.mdSelectable
+      })
     },
     beforeDestroy () {
       this.removeSelectableItem()
