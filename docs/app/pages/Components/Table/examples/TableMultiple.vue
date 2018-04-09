@@ -1,6 +1,6 @@
 <template>
   <div>
-    <md-table v-model="people" md-card @md-selected="onSelect">
+    <md-table v-model="people" md-card md-model-id="email" @md-selected="onSelect">
       <md-table-toolbar>
         <h1 class="md-title">With auto select and alternate headers</h1>
       </md-table-toolbar>

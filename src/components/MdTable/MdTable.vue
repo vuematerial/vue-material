@@ -52,6 +52,7 @@
 </template>
 
 <script>
+  import Vue from 'vue'
   import raf from 'raf'
 
   import MdTagSwitcher from 'components/MdTagSwitcher/MdTagSwitcher'
@@ -268,6 +269,7 @@
           return id
         }
 
+        Vue.util.warn('An available mdModelId is necessary for MdTable')
         return 'md-row-' + MdUuid()
       },
       setScroll ($event) {
