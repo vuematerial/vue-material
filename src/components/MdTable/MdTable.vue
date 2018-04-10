@@ -47,7 +47,7 @@
       <slot name="md-table-pagination" />
     </md-content>
 
-    <slot v-if="value" />
+    <slot v-if="!hasValue" />
   </md-tag-switcher>
 </template>
 
