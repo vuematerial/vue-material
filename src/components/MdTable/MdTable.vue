@@ -27,8 +27,8 @@
         <tbody v-else-if="value.length">
           <md-table-row-ghost
             v-for="(item, index) in value"
-            :key="getRowId(item[mdModelId])"
-            :md-id="getRowId(item[mdModelId])"
+            :key="getRowId(item, mdModelId)"
+            :md-id="getRowId(item, mdModelId)"
             :md-index="index"
             :md-item="item">
             <slot name="md-table-row" :item="item" />
@@ -154,7 +154,8 @@
           getModel: this.getModel,
           getModelItem: this.getModelItem,
           selectingMode: null
-        }
+        },
+        itemsUuidMap: new WeakMap()
       }
     },
     computed: {
@@ -264,13 +265,21 @@
       emitEvent (eventName, value) {
         this.$emit(eventName, value)
       },
-      getRowId (id) {
+      getRowId (item, propertyName) {
+        let id = item[propertyName]
+
         if (id) {
           return id
         }
 
-        Vue.util.warn('An available md-model-id is necessary for MdTable')
-        return 'md-row-' + MdUuid()
+        id = this.itemsUuidMap.get(item)
+
+        if (!id) {
+          id = 'md-row-' + MdUuid()
+          this.itemsUuidMap.set(item, id)
+        }
+
+        return id
       },
       setScroll ($event) {
         raf(() => {
