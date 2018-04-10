@@ -52,7 +52,6 @@
 </template>
 
 <script>
-  import Vue from 'vue'
   import raf from 'raf'
 
   import MdTagSwitcher from 'components/MdTagSwitcher/MdTagSwitcher'
