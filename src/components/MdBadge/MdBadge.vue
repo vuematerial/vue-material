@@ -14,6 +14,7 @@
 
 <script>
   import MdComponent from 'core/MdComponent'
+  import MdPropValidator from 'core/utils/MdPropValidator'
 
   import MdBadgeStandalone from './MdBadgeStandalone'
 
@@ -26,7 +27,11 @@
       mdContent: [String, Number],
       mdPosition: {
         type: String,
-        default: 'top'
+        default: 'top',
+        ...MdPropValidator('md-position', [
+          'top',
+          'bottom'
+        ])
       },
       mdDense: Boolean
     },
