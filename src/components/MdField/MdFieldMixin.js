@@ -21,7 +21,7 @@ export default {
         return this.localValue
       },
       set (value) {
-        if (value.constructor.name.toLowerCase() !== 'inputevent') {
+        if (value.constructor.toString().match(/function (\w*)/)[1].toLowerCase() !== 'inputevent') {
           this.$nextTick(() => {
             this.localValue = value
           })

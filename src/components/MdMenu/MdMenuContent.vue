@@ -216,11 +216,14 @@
         window.removeEventListener('keydown', this.keyNavigation)
       },
       keyNavigation (event) {
-        event.preventDefault()
         switch (event.key) {
-          case 'ArrowUp': this.setHighlight('up')
+          case 'ArrowUp':
+            event.preventDefault()
+            this.setHighlight('up')
             break
-          case 'ArrowDown': this.setHighlight('down')
+          case 'ArrowDown':
+            event.preventDefault()
+            this.setHighlight('down')
             break
           case 'Enter': this.setSelection()
             break
