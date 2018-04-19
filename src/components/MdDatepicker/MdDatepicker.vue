@@ -85,7 +85,7 @@
           const parsedDate = parse(value)
 
           if (isValid(parsedDate)) {
-            this.selectedDate = parsedDate
+            this.selectedDate = this.dateToHTMLString(parsedDate)
           }
         } else {
           this.selectedDate = null
