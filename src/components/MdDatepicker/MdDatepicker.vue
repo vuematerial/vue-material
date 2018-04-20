@@ -28,7 +28,7 @@
   import MdOverlay from 'components/MdOverlay/MdOverlay'
   import MdDatepickerDialog from './MdDatepickerDialog'
   import MdDateIcon from 'core/icons/MdDateIcon'
-  import mdDebounce from 'core/utils/MdDebounce'
+  import MdDebounce from 'core/utils/MdDebounce'
   import MdField from 'components/MdField/MdField'
   import MdInput from 'components/MdField/MdInput/MdInput'
 
@@ -56,7 +56,7 @@
         type: Boolean,
         default: false
       },
-      mdDebounce: {
+      MdDebounce: {
         type: Number,
         default: 1000
       }
@@ -137,7 +137,7 @@
       }
     },
     created () {
-      this.onInput = mdDebounce(this.onInput, this.mdDebounce)
+      this.onInput = MdDebounce(this.onInput, this.MdDebounce)
       this.modelDate = this.dateToHTMLString(this.value)
       this.selectedDate = this.value
     }
