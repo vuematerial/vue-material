@@ -63,7 +63,7 @@
     }),
     computed: {
       locale() {
-        return this.$material.locale;
+        return this.$material.locale
       },
       type () {
         return this.mdOverrideNative

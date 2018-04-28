@@ -157,7 +157,7 @@
         return firstDayOfAWeek
       },
       locale() {
-        return this.$material.locale;
+        return this.$material.locale
       },
       popperSettings () {
         return {
