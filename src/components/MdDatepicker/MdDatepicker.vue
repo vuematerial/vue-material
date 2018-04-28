@@ -118,11 +118,11 @@
       pattern () {
         return this.dateFormat.replace(/YYYY|MM|DD/g, match => {
           switch (match) {
-            case 'YYYY':
-              return '[0-9]{4}'
-            case 'MM':
-            case 'DD':
-              return '[0-9]{2}'
+          case 'YYYY':
+            return '[0-9]{4}'
+          case 'MM':
+          case 'DD':
+            return '[0-9]{2}'
           }
         })
       }
@@ -155,15 +155,15 @@
       },
       mdModelType (type) {
         switch (type) {
-          case Date:
-            this.$emit('input', this.localDate)
-            break;
-          case String:
-            this.$emit('input', this.localString)
-            break;
-          case Number:
-            this.$emit('input', this.localNumber)
-            break;
+        case Date:
+          this.$emit('input', this.localDate)
+          break;
+        case String:
+          this.$emit('input', this.localString)
+          break;
+        case Number:
+          this.$emit('input', this.localNumber)
+          break;
         }
       }
     },

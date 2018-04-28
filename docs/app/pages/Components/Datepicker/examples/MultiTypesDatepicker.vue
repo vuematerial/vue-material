@@ -67,6 +67,7 @@
           this.$material.locale.firstDayOfAWeek = val
         }
       },
+      // eslint-disable-next-line
       type () {
         if (typeof this.dynamicByModel === 'object' && this.dynamicByModel instanceof Date && isValid(this.dynamicByModel)) {
           return 'date'
@@ -85,29 +86,29 @@
       },
       mdType () {
         switch (this.mdTypeValue) {
-          case 'date':
-            return Date
-          case 'string':
-            return String
-          case 'number':
-            return Number
+        case 'date':
+          return Date
+        case 'string':
+          return String
+        case 'number':
+          return Number
         }
       }
     },
     methods: {
       toDate () {
         switch (this.type) {
-          case 'null':
-            this.dynamicByModel = null
-            break
+        case 'null':
+          this.dynamicByModel = null
+          break
 
-          case 'string':
-            this.dynamicByModel = parse(this.dynamicByModel, this.dateFormat, new Date())
-            break
+        case 'string':
+          this.dynamicByModel = parse(this.dynamicByModel, this.dateFormat, new Date())
+          break
 
-          case 'number':
-            this.dynamicByModel = new Date(this.dynamicByModel)
-            break
+        case 'number':
+          this.dynamicByModel = new Date(this.dynamicByModel)
+          break
         }
       },
       toString () {
