@@ -210,7 +210,7 @@
             Vue.util.warn(`The datepicker value is not a valid date. Given value: ${this.value}, format: ${this.dateFormat}`)
           }
         } else {
-          Vue.util.warn('The datepicker value is not a valid date. Given value: ${this.value}')
+          Vue.util.warn(`The datepicker value is not a valid date. Given value: ${this.value}`)
         }
       }
     },
