@@ -69,6 +69,12 @@
             defaults: 'null'
           },
           {
+            name: 'v-model-type',
+            type: 'Constructor',
+            description: 'Model type. This props will be overwritten by <code>typeof v-model</code>. It could be <code>Date</code>, <code>Number</code> or <code>String</code>.',
+            defaults: 'Date'
+          },
+          {
             name: 'md-disabled-dates',
             type: 'Array|Function',
             description: 'The optional disabled dates. Can be either Array or Function. <br>- If <code>Array</code>, the Datepicker will disable all days inside. <br>- If <code>Function</code>, the Datepicker will pass the current day as a parameter of this function. If the return false, then the date will be disabled.',

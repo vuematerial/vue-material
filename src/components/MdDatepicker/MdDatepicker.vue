@@ -26,6 +26,7 @@
   import parse from 'date-fns/parse'
   import isValid from 'date-fns/isValid'
   import MdDebounce from 'core/utils/MdDebounce'
+  import MdPropValidator from 'core/utils/MdPropValidator'
   import MdOverlay from 'components/MdOverlay/MdOverlay'
   import MdDatepickerDialog from './MdDatepickerDialog'
   import MdDateIcon from 'core/icons/MdDateIcon'
@@ -55,6 +56,11 @@
       mdImmediately: {
         type: Boolean,
         default: false
+      },
+      mdModelType: {
+        type: Function,
+        default: Date,
+        ...MdPropValidator('md-mode', [Date, String, Number])
       }
     },
     data: () => ({
@@ -76,6 +82,17 @@
       dateFormat () {
         return this.locale.dateFormat || 'YYYY-MM-DD'
       },
+      modelType () {
+        if (this.isModelTypeString) {
+          return String
+        } else if (this.isModelTypeNumber) {
+          return Number
+        } else if (this.isModelTypeDate) {
+          return Date
+        } else {
+          return this.mdModelType
+        }
+      },
       isModelNull () {
         return this.value === null || this.value === undefined
       },
@@ -87,19 +104,6 @@
       },
       isModelTypeDate () {
         return typeof this.value === 'object' && this.value instanceof Date && isValid(this.value)
-      },
-      modelType () {
-        if (this.isModelTypeString) {
-          return 'string'
-        } else if (this.isModelTypeNumber) {
-          return 'number'
-        } else if (this.isModelTypeDate) {
-          return 'date'
-        } else if (this.isModelNull) {
-          return 'null'
-        } else {
-          Vue.util.warn('The datepicker value is not a valid date. Given value:', this.model)
-        }
       },
       localString () {
         return this.localDate && format(this.localDate, this.dateFormat)
@@ -129,17 +133,17 @@
       },
       localDate () {
         this.inputDate = this.localString
-        if (this.isModelTypeDate) {
+        if (this.modelType === Date) {
           this.$emit('input', this.localDate)
         }
       },
       localString () {
-        if (this.isModelTypeString) {
+        if (this.modelType === String) {
           this.$emit('input', this.localString)
         }
       },
       localNumber () {
-        if (this.isModelTypeNumber) {
+        if (this.modelType === Number) {
           this.$emit('input', this.localNumber)
         }
       },
@@ -149,8 +153,18 @@
           this.valueDateToLocalDate()
         }
       },
-      modelType () {
-        this.valueDateToLocalDate()
+      mdModelType (type) {
+        switch (type) {
+          case Date:
+            this.$emit('input', this.localDate)
+            break;
+          case String:
+            this.$emit('input', this.localString)
+            break;
+          case Number:
+            this.$emit('input', this.localNumber)
+            break;
+        }
       }
     },
     methods: {
@@ -180,7 +194,7 @@
           this.localDate = null
         }
       },
-      valueDateToLocalDate() {
+      valueDateToLocalDate () {
         if (this.isModelNull) {
           this.localDate = null
         } else if (this.isModelTypeNumber) {
@@ -196,7 +210,7 @@
             Vue.util.warn(`The datepicker value is not a valid date. Given value: ${this.value}, format: ${this.dateFormat}`)
           }
         } else {
-          Vue.util.warn('The datepicker value is not a valid date. Given value:', this.value)
+          Vue.util.warn('The datepicker value is not a valid date. Given value: ${this.value}')
         }
       }
     },
