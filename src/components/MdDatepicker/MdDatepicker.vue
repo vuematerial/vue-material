@@ -62,6 +62,9 @@
       selectedDate: null
     }),
     computed: {
+      locale() {
+        return this.$material.locale;
+      },
       type () {
         return this.mdOverrideNative
           ? 'text'
@@ -113,7 +116,7 @@
       dateToHTMLString (date) {
         if (date) {
           let formattedDate = null
-          const dateFormat = this.$material.locale.dateFormat || 'YYYY-MM-DD'
+          const dateFormat = this.locale.dateFormat || 'YYYY-MM-DD'
 
           try {
             formattedDate = format(date, dateFormat)

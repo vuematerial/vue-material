@@ -148,7 +148,7 @@
     computed: {
       firstDayOfAWeek () {
         // normalize
-        let firstDayOfAWeek = Number(this.$material.locale.firstDayOfAWeek)
+        let firstDayOfAWeek = Number(this.locale.firstDayOfAWeek)
         if (Number.isNaN(firstDayOfAWeek) || !Number.isFinite(firstDayOfAWeek)) {
           return 0
         }
