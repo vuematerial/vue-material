@@ -1,5 +1,6 @@
 <example src="./examples/BasicDatepicker.vue" />
 <example src="./examples/LabeledDatepicker.vue" />
+<example src="./examples/MultiTypesDatepicker.vue" />
 <example src="./examples/CancelOpenDatepicker.vue" />
 <example src="./examples/CloseOnSelectDatepicker.vue" />
 <example src="./examples/DisabledDatesDatepicker.vue" />
@@ -16,6 +17,12 @@
       <code-example title="Basic Example" :component="examples['basic-datepicker']" />
 
       <code-example title="Labeled Example" :component="examples['labeled-datepicker']" />
+    </div>
+
+    <div class="page-container-section">
+      <h2>Model Types</h2>
+      <p>Vue Material datepicker supports multiple types of <code>v-model</code>, whiches default is <code>Date</code>. If you want to communicate with other services without timezone problems, you could use <code>String</code> to avoid them:</p>
+      <code-example title="With different type binding" :component="examples['multi-types-datepicker']" />
     </div>
 
     <div class="page-container-section">
@@ -57,7 +64,7 @@
         props: [
           {
             name: 'v-model',
-            type: 'Date',
+            type: 'Date|Number|String',
             description: 'The model variable to bind the selected date',
             defaults: 'null'
           },
