@@ -69,7 +69,7 @@
             defaults: 'null'
           },
           {
-            name: 'v-model-type',
+            name: 'md-model-type',
             type: 'Constructor',
             description: 'Model type. This props will be overwritten by <code>typeof v-model</code>. It could be <code>Date</code>, <code>Number</code> or <code>String</code>.',
             defaults: 'Date'
