@@ -60,7 +60,7 @@
       mdModelType: {
         type: Function,
         default: Date,
-        ...MdPropValidator('md-mode', [Date, String, Number])
+        ...MdPropValidator('md-model-type', [Date, String, Number])
       }
     },
     data: () => ({
