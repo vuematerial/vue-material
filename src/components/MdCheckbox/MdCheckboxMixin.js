@@ -8,12 +8,17 @@ export default {
     model: [String, Boolean, Object, Number, Array],
     value: {
       type: [String, Boolean, Object, Number],
-      default: 'on'
     },
     name: [String, Number],
     required: Boolean,
     disabled: Boolean,
-    indeterminate: Boolean
+    indeterminate: Boolean,
+    trueValue: {
+      default: true
+    },
+    falseValue: {
+      default: false
+    }
   },
   model: {
     prop: 'model',
@@ -23,22 +28,35 @@ export default {
     rippleActive: false
   }),
   computed: {
+    attrs () {
+      const attrs = {
+        id: this.id,
+        name: this.name,
+        disabled: this.disabled,
+        required: this.required,
+        'true-value': this.trueValue,
+        'false-value': this.falseValue
+      }
+
+      if (this.$options.propsData.hasOwnProperty('value')) {
+        attrs.value = this.value
+      }
+
+      return attrs
+    },
     isSelected () {
       if (this.isModelArray) {
         return this.model.includes(this.value)
       }
 
-      if (this.isModelBoolean && this.value === 'on') {
-        return this.model
+      if (this.hasValue) {
+        return this.model === this.value
       }
 
-      return this.model === this.value
+      return this.model === this.trueValue
     },
     isModelArray () {
       return Array.isArray(this.model)
-    },
-    isModelBoolean () {
-      return typeof this.model === 'boolean'
     },
     checkClasses () {
       return {
@@ -47,6 +65,9 @@ export default {
         'md-required': this.required,
         'md-indeterminate': this.indeterminate
       }
+    },
+    hasValue () {
+      return this.$options.propsData.hasOwnProperty('value')
     }
   },
   methods: {
@@ -68,15 +89,11 @@ export default {
 
       this.$emit('change', newModel)
     },
-    handleStringCheckbox () {
-      if (!this.isSelected) {
-        this.$emit('change', this.value)
-      } else {
-        this.$emit('change', null)
-      }
+    handleSingleSelectCheckbox () {
+      this.$emit('change', this.isSelected ? null : this.value)
     },
-    handleBooleanCheckbox () {
-      this.$emit('change', !this.model)
+    handleSimpleCheckbox () {
+      this.$emit('change', this.isSelected ? this.falseValue : this.trueValue)
     },
     toggleCheck () {
       if (!this.disabled) {
@@ -84,10 +101,10 @@ export default {
 
         if (this.isModelArray) {
           this.handleArrayCheckbox()
-        } else if (this.isModelBoolean) {
-          this.handleBooleanCheckbox()
+        } else if (this.hasValue) {
+          this.handleSingleSelectCheckbox()
         } else {
-          this.handleStringCheckbox()
+          this.handleSimpleCheckbox()
         }
       }
     }
