@@ -39,7 +39,9 @@ export default {
       }
 
       if (this.$options.propsData.hasOwnProperty('value')) {
-        attrs.value = this.value
+        if (this.value === null || typeof this.value !== 'object') {
+          attrs.value = (this.value === null || this.value === undefined) ? '' : String(this.value)
+        }
       }
 
       return attrs
