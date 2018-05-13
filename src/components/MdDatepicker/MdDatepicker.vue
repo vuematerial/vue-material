@@ -25,11 +25,11 @@
   import format from 'date-fns/format'
   import parse from 'date-fns/parse'
   import isValid from 'date-fns/isValid'
-  import MdDebounce from 'core/utils/MdDebounce'
   import MdPropValidator from 'core/utils/MdPropValidator'
   import MdOverlay from 'components/MdOverlay/MdOverlay'
   import MdDatepickerDialog from './MdDatepickerDialog'
   import MdDateIcon from 'core/icons/MdDateIcon'
+  import MdDebounce from 'core/utils/MdDebounce'
   import MdField from 'components/MdField/MdField'
   import MdInput from 'components/MdField/MdInput/MdInput'
 
@@ -61,6 +61,10 @@
         type: Function,
         default: Date,
         ...MdPropValidator('md-model-type', [Date, String, Number])
+      },
+      MdDebounce: {
+        type: Number,
+        default: 1000
       }
     },
     data: () => ({
@@ -215,7 +219,7 @@
       }
     },
     created () {
-      this.inputDateToLocalDate = MdDebounce(this.inputDateToLocalDate, 500)
+      this.inputDateToLocalDate = MdDebounce(this.inputDateToLocalDate, this.MdDebounce)
     }
   }
 </script>

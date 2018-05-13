@@ -78,7 +78,7 @@
       },
       applyStyles () {
         if (this.mdAutogrow) {
-          this.setTextAreaSize(this.MdField.dense ? 23 : 32)
+          this.setTextAreaSize(32)
           this.$nextTick().then(() => {
             this.setTextAreaSize()
             window.setTimeout(() => {

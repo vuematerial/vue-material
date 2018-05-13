@@ -40,12 +40,7 @@
         return !!this.$slots.default
       },
       badgeClasses () {
-        const staticClass = this.$vnode.data.staticClass ?
-          this.$vnode.data.staticClass.split(' ').filter(val => val).reduce((result, key) => {
-          result[key] = true
-          return result
-        }, {}) : {}
-
+        const staticClass = this.getStaticClass()
         const dynamicClass = this.$vnode.data.class
 
         return {
@@ -62,6 +57,20 @@
           ...staticStyle,
           ...style
         }
+      }
+    },
+    methods: {
+      getStaticClass () {
+        const staticClass = this.$vnode.data.staticClass
+
+        function filterClasses () {
+          staticClass.split(' ').filter(val => val).reduce((result, key) => {
+            result[key] = true
+            return result
+          }, {})
+        }
+
+        return staticClass ? filterClasses() : {}
       }
     }
   })

@@ -162,7 +162,7 @@
     overflow: hidden;
     position: relative;
     transform: translateZ(0) scaleY(1);
-    transform-origin: top center;
+    transform-origin: center center;
     transition: opacity .3s $md-transition-default-timing,
                 transform .4s $md-transition-default-timing;
     will-change: opacity, transform;

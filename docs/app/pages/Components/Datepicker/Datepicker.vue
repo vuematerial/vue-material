@@ -97,6 +97,12 @@
             type: 'Boolean',
             description: 'Override native browser pickers by changing type of input to text.',
             defaults: 'true'
+          },
+          {
+            name: 'md-debounce',
+            type: 'Number',
+            description: 'Debounces the conversion of plaintext into a date object. Set to a longer time if your users type slowly, or shorter if your users type really fast.',
+            defaults: 1000
           }
         ]
       },

@@ -1,7 +1,8 @@
 <template>
   <tr class="md-table-row" :class="rowClasses" @click="onClick" v-on="$listeners">
     <md-table-cell-selection
-      v-model="isSelected"
+      :value="isMultipleSelected"
+      @input="selected => selected ? addSelection() : removeSelection()"
       :md-disabled="mdDisabled"
       :md-selectable="mdSelectable === 'multiple'"
       :md-row-id="mdIndex"
@@ -32,12 +33,14 @@
     },
     inject: ['MdTable'],
     data: () => ({
-      index: null,
-      isSelected: false
+      index: null
     }),
     computed: {
       selectableCount () {
-        return Object.keys(this.MdTable.selectable).length
+        return this.MdTable.selectable.length
+      },
+      isMultipleSelected () {
+        return this.MdTable.selectedItems.includes(this.mdItem)
       },
       isSingleSelected () {
         return this.MdTable.singleSelection === this.mdItem
@@ -52,7 +55,7 @@
         if (this.MdTable.hasValue) {
           return {
             'md-has-selection': !this.mdDisabled && (this.mdAutoSelect || this.hasSingleSelection),
-            'md-selected': this.isSelected,
+            'md-selected': this.isMultipleSelected,
             'md-selected-single': this.isSingleSelected
           }
         }
@@ -68,18 +71,6 @@
         } else {
           this.addSelectableItem()
         }
-      },
-      isSelected (val) {
-        let noChange = (val && this.isInSelectedItems) || (!val && !this.isInSelectedItems)
-
-        if (noChange) {
-          return false
-        }
-
-        this.MdTable.manageItemSelection(this.mdItem)
-      },
-      isInSelectedItems (val) {
-        this.isSelected = val
       },
       mdSelectable () {
         this.MdTable.selectingMode = this.mdSelectable
@@ -100,7 +91,17 @@
         }
       },
       toggleSelection () {
-        this.isSelected = !this.isSelected
+        this.MdTable.manageItemSelection(this.mdItem)
+      },
+      addSelection () {
+        if (!this.isMultipleSelected) {
+          this.MdTable.selectedItems.push(this.mdItem)
+        }
+      },
+      removeSelection () {
+        if (this.isMultipleSelected) {
+          this.MdTable.selectedItems = this.MdTable.selectedItems.filter(target => target !== this.mdItem)
+        }
       },
       selectRowIfSingle () {
         if (this.MdTable.singleSelection === this.mdItem) {
@@ -132,8 +133,10 @@
       }
     },
     created () {
-      this.addSelectableItem()
-      this.MdTable.selectingMode = this.mdSelectable
+      this.$nextTick(() => {
+        this.addSelectableItem()
+        this.MdTable.selectingMode = this.mdSelectable
+      })
     },
     beforeDestroy () {
       this.removeSelectableItem()
