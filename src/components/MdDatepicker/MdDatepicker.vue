@@ -70,7 +70,7 @@
     data: () => ({
       showDialog: false,
       // String for input
-      inputDate: null,
+      inputDate: '',
       // Date for real value
       localDate: null
     }),
@@ -168,6 +168,11 @@
         case Number:
           this.$emit('input', this.localNumber)
           break;
+        }
+      },
+      dateFormat () {
+        if (this.localDate) {
+          this.inputDate = format(this.inputDate, this.dateFormat)
         }
       }
     },
