@@ -1,6 +1,5 @@
 <template>
   <div class="md-chips" :class="[$mdActiveTheme, chipsClasses]">
-
     <md-chip
       v-for="(chip, key) in value"
       :key="chip"
@@ -209,7 +208,7 @@
     }
 
     .md-chip {
-      margin: 2px 4px 2px 0;
+      margin: 1px 4px 3px 0;
 
       &:last-of-type {
         margin-right: 8px;
