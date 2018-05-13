@@ -27,7 +27,7 @@
   }
 
   function shouldRenderSlot (data, componentOptions) {
-    rreturn (data && componentTypes.includes(data.slot)) || isValidChild(componentOptions)
+    return (data && componentTypes.includes(data.slot)) || isValidChild(componentOptions)
   }
 
   function buildSlots (children, context, functionalContext, options, createElement) {
@@ -44,7 +44,7 @@
           child.data.slot = data.slot || componentOptions.tag
 
           if (componentOptions.tag === 'md-app-drawer') {
-            const isRightDrawer = isRightDrawer(componentOptions.propsData)
+            const isRight = isRightDrawer(componentOptions.propsData)
 
             if (hasDrawer) {
               Vue.util.warn(`There shouldn't be more than one drawer in a MdApp at one time.`)
@@ -52,13 +52,13 @@
             }
 
             hasDrawer = true
-            child.data.slot += `-${isRightDrawer ? 'right' : 'left'}`
+            child.data.slot += `-${isRight ? 'right' : 'left'}`
             child.key = JSON.stringify({
               'persistent': child.data.attrs['md-persistent'],
               'permanent': child.data.attrs['md-permanent']
             })
 
-            createRightDrawer(isRightDrawer)
+            createRightDrawer(isRight)
           }
 
           child.data.provide = options.Ctor.options.provide
