@@ -308,7 +308,6 @@
 
   .md-field.md-field-bottom-line {
     min-height: 48px;
-    padding-top: 16px;
 
     &:before,
     &:after {
@@ -336,7 +335,8 @@
 
     .md-input,
     .md-textarea, {
-      height: 32px;
+      height: 48px;
+      padding: 12px 0 0;
       font-size: 16px;
       line-height: 32px;
     }
@@ -603,7 +603,6 @@
   .md-field.md-field-bottom-line.md-dense {
     margin: 8px 0 24px;
     min-height: 40px;
-    padding-top: 16px;
 
     label {
       top: 18px;
@@ -612,9 +611,8 @@
 
     .md-input,
     .md-textarea {
-      height: 24px;
-      padding: 0 0 4px;
-      line-height: 20px;
+      height: 40px;
+      padding: 18px 0 7px;
     }
 
     .md-textarea {
