@@ -25,8 +25,8 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   yarn lint
 
 
-  echo "\n${YELLOW}Running all tests... ${NC}"
-  yarn test
+  # echo "\n${YELLOW}Running all tests... ${NC}"
+  # yarn test
 
 
   echo "\n${YELLOW}Generating build... ${NC}"

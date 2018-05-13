@@ -47,7 +47,7 @@
 
   :root {
     @each $type, $value in $palette {
-      --md-theme-#{$name}-#{$type}: $value
+      --md-theme-#{$name}-#{$type}: #{$value}
     }
   }
 
