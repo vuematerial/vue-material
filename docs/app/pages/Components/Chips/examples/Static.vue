@@ -1,8 +1,6 @@
 <template>
   <div>
-    <md-field>
-      <md-chips v-model="cities" readonly></md-chips>
-    </md-field>
+    <md-chips v-model="cities" md-static></md-chips>
   </div>
 </template>
 

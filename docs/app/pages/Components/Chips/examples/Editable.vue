@@ -1,8 +1,6 @@
 <template>
   <div>
-    <md-field>
-      <md-chips v-model="fruits" md-placeholder="Add fruit..."></md-chips>
-    </md-field>
+    <md-chips v-model="fruits" md-placeholder="Add fruit..."></md-chips>
   </div>
 </template>
 

@@ -142,7 +142,7 @@ export default {
             defaults: 'text'
           },
           {
-            name: 'placeholder',
+            name: 'md-placeholder',
             type: 'String',
             description: 'The input placeholder. It is useful to show to the user which type of data will be inserted.',
             defaults: 'null'

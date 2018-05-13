@@ -1,5 +1,5 @@
 <template>
-  <div class="md-field" :class="[$mdActiveTheme, fieldClasses]" @blur="onBlur" :data-counter="mdCounter ? 'Yes' : 'NO'">
+  <div class="md-field" :class="[$mdActiveTheme, fieldClasses]" @blur="onBlur">
     <slot />
 
     <span class="md-count" v-if="hasCounter">{{ valueLength }} / {{ MdField.maxlength || MdField.counter }}</span>
@@ -74,8 +74,6 @@
         clear: false,
         file: false,
         dense: false,
-        chips: false,
-        typing: false,
         variant: 'bottom-line',
         $el: null
       }
@@ -108,12 +106,6 @@
         return this.stringValue && this.stringValue.length > 0
       },
       valueLength () {
-        let isArray = Array.isArray(this.MdField.value)
-
-        if (isArray) {
-          return this.MdField.value.length
-        }
-
         if (this.stringValue) {
           return this.stringValue.length
         }
@@ -139,8 +131,6 @@
           'md-has-password': this.MdField.password,
           'md-has-file': this.MdField.file,
           'md-has-select': this.MdField.select,
-          'md-has-chips': this.MdField.chips,
-          'md-typing': this.MdField.typing,
           'md-autogrow': this.MdField.autogrow
         }
       }
