@@ -190,26 +190,6 @@
               defaults: 'false'
             },
             {
-              name: 'md-layout',
-              type: 'String',
-              description: 'Sets the input layout. The floating variant is the default. See below the detailed description of each layout.',
-              defaults: 'floating'
-            },
-            {
-              offset: true,
-              name: 'md-layout="floating"',
-              type: 'String',
-              description: 'Sets the input layout to floating. This is the default.',
-              defaults: '-'
-            },
-            {
-              offset: true,
-              name: 'md-layout="box"',
-              type: 'String',
-              description: 'Sets the input layout to a boxed layout.',
-              defaults: '-'
-            },
-            {
               name: 'md-open-on-focus',
               type: 'Boolean',
               description: 'Disable/enable the on focus event. If <code>false</code>, the options will show the results right after a keystroke.',
