@@ -20,8 +20,11 @@
       isSelected: false
     }),
     watch: {
-      value () {
-        this.isSelected = this.value
+      value: {
+        immediate: true,
+        handler (value) {
+          this.isSelected = value
+        }
       }
     },
     methods: {
