@@ -4,9 +4,6 @@ import VueRouter from 'vue-router'
 import Vuei18n from 'vue-i18n'
 import i18nLocales from './i18n'
 import { routes } from './routes'
-import createRoute from './routes'
-
-const debug = process.env.NODE_ENV !== 'production'
 
 Vue.prototype.$http = Axios
 
@@ -25,6 +22,6 @@ export const i18n = new Vuei18n({
 })
 
 export const router = new VueRouter({
-  mode: debug ? 'hash' : 'history',
+  mode: 'history',
   routes: mappedRoutes
 })
