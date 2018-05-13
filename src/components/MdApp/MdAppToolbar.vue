@@ -61,6 +61,10 @@
     }
   }
 
+  .md-app-toolbar {
+    min-height: 64px;
+  }
+
   .md-overlap {
     .md-app-toolbar {
       height: 196px;
