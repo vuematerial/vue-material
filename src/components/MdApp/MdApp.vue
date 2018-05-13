@@ -14,6 +14,22 @@
     return componentOptions && componentTypes.includes(componentOptions.tag)
   }
 
+  function isRightDrawer ({ mdRight }) {
+    return mdRight === '' || !!mdRight
+  }
+
+  function createRightDrawer (isMdRight) {
+    if (isMdRight) {
+      const drawerRightPrevious = createElement(MdDrawerRightPrevious, { props: {...child.data.attrs}})
+      drawerRightPrevious.data.slot = 'md-app-drawer-right-previous'
+      slots.push(drawerRightPrevious)
+    }
+  }
+
+  function shouldRenderSlot (data, componentOptions) {
+    rreturn (data && componentTypes.includes(data.slot)) || isValidChild(componentOptions)
+  }
+
   function buildSlots (children, context, functionalContext, options, createElement) {
     let slots = []
 
@@ -24,29 +40,25 @@
         const data = child.data
         const componentOptions = child.componentOptions
 
-        if ((data && componentTypes.includes(data.slot)) || isValidChild(componentOptions)) {
+        if (shouldRenderSlot(data, componentOptions)) {
           child.data.slot = data.slot || componentOptions.tag
 
           if (componentOptions.tag === 'md-app-drawer') {
+            const isRightDrawer = isRightDrawer(componentOptions.propsData)
+
             if (hasDrawer) {
               Vue.util.warn(`There shouldn't be more than one drawer in a MdApp at one time.`)
               return
             }
 
             hasDrawer = true
-            let nativeMdRight = componentOptions.propsData.mdRight
-            let mdRight = nativeMdRight === '' || !!nativeMdRight
-            child.data.slot += `-${mdRight ? 'right' : 'left'}`
+            child.data.slot += `-${isRightDrawer ? 'right' : 'left'}`
             child.key = JSON.stringify({
               'persistent': child.data.attrs['md-persistent'],
               'permanent': child.data.attrs['md-permanent']
             })
 
-            if (mdRight) {
-              const drawerRightPrevious = createElement(MdDrawerRightPrevious, { props: {...child.data.attrs}})
-              drawerRightPrevious.data.slot = 'md-app-drawer-right-previous'
-              slots.push(drawerRightPrevious)
-            }
+            createRightDrawer(isRightDrawer)
           }
 
           child.data.provide = options.Ctor.options.provide
