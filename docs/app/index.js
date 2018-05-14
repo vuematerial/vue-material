@@ -9,6 +9,7 @@ import VueMaterial from 'vue-material'
 import App from './App'
 import { i18n, router } from './config'
 import store from './store'
+import './banner'
 import './components'
 
 Vue.config.productionTip = false
