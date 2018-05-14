@@ -2,7 +2,7 @@ import Vue from 'vue'
 import deepmerge from 'deepmerge'
 import { mount } from 'avoriaz'
 
-export default async (component, template, options = {}) => {
+export default async (component, template, options = { propsData: {} }) => {
   const wrapper = mount(component, deepmerge(options, {
     slots: {
       default: [template]
