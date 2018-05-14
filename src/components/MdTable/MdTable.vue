@@ -47,7 +47,7 @@
       <slot name="md-table-pagination" />
     </md-content>
 
-    <slot v-if="!hasValue" />
+    <slot v-if="!hasValue && $scopedSlots['md-table-row']" />
   </md-tag-switcher>
 </template>
 
