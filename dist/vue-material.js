@@ -1,5 +1,5 @@
 /*!
- * vue-material v1.0.0-beta-10.1
+ * vue-material v1.0.0-beta-10.2
  * Made with <3 by marcosmoura 2018
  * Released under the MIT License.
  */
@@ -2107,7 +2107,7 @@ function createRightDrawer(isMdRight) {
 }
 
 function shouldRenderSlot(data, componentOptions) {
-  rreturn(data && componentTypes.includes(data.slot)) || isValidChild(componentOptions);
+  return data && componentTypes.includes(data.slot) || isValidChild(componentOptions);
 }
 
 function buildSlots(children, context, functionalContext, options, createElement) {
@@ -2124,7 +2124,7 @@ function buildSlots(children, context, functionalContext, options, createElement
         child.data.slot = data.slot || componentOptions.tag;
 
         if (componentOptions.tag === 'md-app-drawer') {
-          var _isRightDrawer = _isRightDrawer(componentOptions.propsData);
+          var isRight = isRightDrawer(componentOptions.propsData);
 
           if (hasDrawer) {
             _vue2.default.util.warn('There shouldn\'t be more than one drawer in a MdApp at one time.');
@@ -2132,13 +2132,13 @@ function buildSlots(children, context, functionalContext, options, createElement
           }
 
           hasDrawer = true;
-          child.data.slot += '-' + (_isRightDrawer ? 'right' : 'left');
+          child.data.slot += '-' + (isRight ? 'right' : 'left');
           child.key = JSON.stringify({
             'persistent': child.data.attrs['md-persistent'],
             'permanent': child.data.attrs['md-permanent']
           });
 
-          createRightDrawer(_isRightDrawer);
+          createRightDrawer(isRight);
         }
 
         child.data.provide = options.Ctor.options.provide;
@@ -17189,7 +17189,7 @@ var render = function() {
                 "input",
                 _vm._b(
                   {
-                    attrs: { type: "checkbox" },
+                    attrs: { id: _vm.id, type: "checkbox" },
                     domProps: { indeterminate: _vm.indeterminate }
                   },
                   "input",
@@ -28317,7 +28317,7 @@ var render = function() {
                   _c(
                     "input",
                     _vm._b(
-                      { attrs: { type: "checkbox" } },
+                      { attrs: { id: _vm.id, type: "checkbox" } },
                       "input",
                       {
                         id: _vm.id,
@@ -29354,7 +29354,9 @@ var render = function() {
         2
       ),
       _vm._v(" "),
-      !_vm.hasValue ? _vm._t("default") : _vm._e()
+      !_vm.hasValue && _vm.$scopedSlots["md-table-row"]
+        ? _vm._t("default")
+        : _vm._e()
     ],
     2
   )
