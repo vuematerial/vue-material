@@ -149,6 +149,7 @@
           // methods
           emitEvent: this.emitEvent,
           sortTable: this.sortTable,
+          mdSortFn: this.mdSortFn,
           manageItemSelection: this.manageItemSelection,
           getModel: this.getModel,
           getModelItem: this.getModelItem,
