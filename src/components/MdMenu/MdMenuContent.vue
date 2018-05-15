@@ -4,13 +4,9 @@
       <div
         :class="[menuClasses, mdContentClass, $mdActiveTheme]"
         :style="menuStyles"
-        @keydown.arrow-down.prevent="setHighlight('down')"
-        @keydown.arrow-up.prevent="setHighlight('up')"
-        @keydown.space.prevent="setSelection"
-        @keydown.enter.prevent="setSelection"
         ref="menu">
         <div class="md-menu-content-container md-scrollbar" :class="$mdActiveTheme" ref="container">
-          <md-list :class="listClasses" v-bind="filteredAttrs" @keydown.esc="onEsc">
+          <md-list :class="listClasses" v-bind="filteredAttrs">
             <slot />
           </md-list>
         </div>
@@ -85,6 +81,7 @@
             this.setInitialHighlightIndex()
             this.createClickEventObserver()
             this.createResizeObserver()
+            this.createKeydownListener()
           })
         }
       }
@@ -185,7 +182,7 @@
 
         const offsetX = this.MdMenu.offsetX || 0
         const offsetY = this.MdMenu.offsetY || 0
-        
+
         return {
           offsetX: offsetX - relativePosition.x,
           offsetY: offsetY - relativePosition.y
@@ -196,18 +193,57 @@
 
         return Boolean(alignTrigger || offsetY || offsetX)
       },
+      isMenu ({ target }) {
+        return this.MdMenu.$el ? this.MdMenu.$el.contains(target) : false
+      },
+      isMenuContentEl ({ target }) {
+        return this.$refs.menu ? this.$refs.menu.contains(target) : false
+      },
+      isBackdropExpectMenu ($event) {
+        return !this.$el.contains($event.target) && !this.isMenu($event)
+      },
       createClickEventObserver () {
         if (document) {
           this.MdMenu.bodyClickObserver = new MdObserveEvent(document.body, 'click', $event => {
             $event.stopPropagation()
-            let isMdMenu = this.MdMenu.$el ? this.MdMenu.$el.contains($event.target) : false
-            let isMenuContentEl = this.$refs.menu ? this.$refs.menu.contains($event.target) : false
-            if (!this.$el.contains($event.target) && !isMdMenu && !isMenuContentEl) {
+
+            if (!this.isMenu($event) && (this.MdMenu.closeOnClick || this.isBackdropExpectMenu($event))) {
               this.MdMenu.active = false
               this.MdMenu.bodyClickObserver.destroy()
               this.MdMenu.windowResizeObserver.destroy()
+              this.destroyKeyDownListener()
             }
           })
+        }
+      },
+      createKeydownListener () {
+        window.addEventListener('keydown', this.keyNavigation)
+      },
+      destroyKeyDownListener () {
+        window.removeEventListener('keydown', this.keyNavigation)
+      },
+      keyNavigation (event) {
+        switch (event.key) {
+        case 'ArrowUp':
+          event.preventDefault()
+          this.setHighlight('up')
+          break
+
+        case 'ArrowDown':
+          event.preventDefault()
+          this.setHighlight('down')
+          break
+
+        case 'Enter':
+          this.setSelection()
+          break
+
+        case 'Space':
+          this.setSelection()
+          break
+
+        case 'Escape':
+          this.onEsc()
         }
       },
       createResizeObserver () {
@@ -253,6 +289,7 @@
       if (this.MdMenu.windowResizeObserver) {
         this.MdMenu.windowResizeObserver.destroy()
       }
+      this.destroyKeyDownListener()
     }
   })
 </script>
@@ -364,6 +401,10 @@
       font-family: 'Roboto', sans-serif;
       text-transform: none;
       white-space: nowrap;
+
+      .md-list-item-container {
+        height: 100%;
+      }
 
       @include md-layout-small {
         font-size: 14px;

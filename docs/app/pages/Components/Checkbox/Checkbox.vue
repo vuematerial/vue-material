@@ -1,5 +1,6 @@
 <example src="./examples/RegularCheckboxes.vue" />
 <example src="./examples/CheckboxHueColors.vue" />
+<example src="./examples/TrueFalseValue.vue" />
 
 <template>
   <page-container centered :title="$t('pages.checkbox.title')">
@@ -12,6 +13,7 @@
 
       <code-example title="Checkbox" :component="examples['regular-checkboxes']" />
       <code-example title="Hue Colors" :component="examples['checkbox-hue-colors']" />
+      <code-example title="True / False Value" :component="examples['true-false-value']" />
 
       <api-item title="API - md-checkbox">
         <p>The following options can be applied to all checkboxes:</p>
@@ -52,6 +54,12 @@
             type: 'String',
             description: 'The checkbox unique id.',
             defaults: 'a random string'
+          },
+          {
+            name: 'indeterminate',
+            type: 'Boolean',
+            description: 'Enables the indeterminate look of the checkbox.',
+            defaults: 'false'
           }
         ]
       },

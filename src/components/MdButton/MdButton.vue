@@ -340,7 +340,7 @@
     }
 
     &.md-fab-bottom-center {
-      top: 24px;
+      bottom: 24px;
     }
 
     &.md-fab-top-right,

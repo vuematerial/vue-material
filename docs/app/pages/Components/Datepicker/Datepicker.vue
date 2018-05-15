@@ -1,6 +1,7 @@
 <example src="./examples/BasicDatepicker.vue" />
 <example src="./examples/LabeledDatepicker.vue" />
 <example src="./examples/CancelOpenDatepicker.vue" />
+<example src="./examples/CloseOnSelectDatepicker.vue" />
 <example src="./examples/DisabledDatesDatepicker.vue" />
 
 <template>
@@ -21,6 +22,12 @@
       <h2>Cancel open on focus</h2>
       <p>By default Datepicker component open on focus on it's input. This will make the input useless and the user will not be able to type de date manually. You can disable this behavior:</p>
       <code-example title="With initial date selected" :component="examples['cancel-open-datepicker']" />
+    </div>
+
+    <div class="page-container-section">
+      <h2>Immediately selection</h2>
+      <p>Datepicker dialog could be closed instantly after a date is selected. Date will be selected immediately without any confirm:</p>
+      <code-example title="Close dialog on select" :component="examples['close-on-select-datepicker']" />
     </div>
 
     <div class="page-container-section">
@@ -67,10 +74,22 @@
             defaults: 'true'
           },
           {
+            name: 'md-immediately',
+            type: 'Boolean',
+            description: 'Select the date without confirm and close the dialog immediately.',
+            defaults: 'false'
+          },
+          {
             name: 'md-override-native',
             type: 'Boolean',
             description: 'Override native browser pickers by changing type of input to text.',
             defaults: 'true'
+          },
+          {
+            name: 'md-debounce',
+            type: 'Number',
+            description: 'Debounces the conversion of plaintext into a date object. Set to a longer time if your users type slowly, or shorter if your users type really fast.',
+            defaults: 1000
           }
         ]
       },

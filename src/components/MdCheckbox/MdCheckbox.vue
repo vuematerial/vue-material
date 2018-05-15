@@ -2,7 +2,7 @@
   <div class="md-checkbox" :class="[$mdActiveTheme, checkClasses]">
     <div class="md-checkbox-container" @click.stop="toggleCheck">
       <md-ripple md-centered :md-active.sync="rippleActive" :md-disabled="disabled">
-        <input type="checkbox" v-bind="{ id, name, disabled, required, value }">
+        <input :id="id" type="checkbox" v-bind="attrs" :indeterminate.prop="indeterminate">
       </md-ripple>
     </div>
 
@@ -112,6 +112,22 @@
       padding-left: 16px;
       position: relative;
       line-height: $md-checkbox-size;
+    }
+  }
+
+  .md-checkbox.md-indeterminate {
+    .md-checkbox-container {
+      &:after {
+        width: 12px;
+        height: 2px;
+        top: 50%;
+        left: 50%;
+        z-index: 7;
+        border-style: solid;
+        border-width: 0 0 2px;
+        opacity: 0;
+        transform: translate(-50%, -50%) !important;
+      }
     }
   }
 

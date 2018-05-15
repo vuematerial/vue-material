@@ -43,13 +43,6 @@ test('should create a fallback id if not given', async () => {
   expect(label.getAttribute('for')).toBe(createdId)
 })
 
-test('should create a fallback value if not given', async () => {
-  const wrapper = await mountStringSlot(MdSwitch, 'Label')
-  const createdValue = wrapper.vm.$props.value
-
-  expect(createdValue).toBe('on')
-})
-
 test('should create disabled and required classes', async () => {
   const wrapper = await mountStringSlot(MdSwitch, 'Label', {
     propsData: {
@@ -150,7 +143,7 @@ test('should toggle a checked class when checked', async () => {
   expect(toggle.hasClass('md-checked')).toBe(false)
 })
 
-test('should bind "on" value when no value attribute is given', async () => {
+test('should bind true / false when no value attribute is given', async () => {
   const template = `
     <div>
       <md-switch v-model="model"></md-switch>
@@ -168,11 +161,36 @@ test('should bind "on" value when no value attribute is given', async () => {
 
   container.trigger('click')
   expect(toggle.vm.isSelected).toBe(true)
-  expect(wrapper.data().model).toBe('on')
+  expect(wrapper.data().model).toBe(true)
 
   container.trigger('click')
   expect(toggle.vm.isSelected).toBe(false)
-  expect(wrapper.data().model).toBe(null)
+  expect(wrapper.data().model).toBe(false)
+})
+
+test('true-value / false-value should works', async () => {
+  const template = `
+    <div>
+      <md-switch v-model="model" true-value="true" false-value="false"></md-switch>
+    </div>
+  `
+  const wrapper = await mountTemplate(MdSwitch, template, {
+    data: {
+      model: null
+    }
+  })
+  const toggle = wrapper.find(MdSwitch)[0]
+  const container = wrapper.find('.md-switch-container')[0]
+
+  expect(toggle.vm.isSelected).toBe(false)
+
+  container.trigger('click')
+  expect(toggle.vm.isSelected).toBe(true)
+  expect(wrapper.data().model).toBe('true')
+
+  container.trigger('click')
+  expect(toggle.vm.isSelected).toBe(false)
+  expect(wrapper.data().model).toBe('false')
 })
 
 test('should toggle string values on model', async () => {
@@ -227,10 +245,10 @@ test('should toggle boolean model when switch do not have a value', async () => 
   expect(wrapper.data().model).toBe(false)
 })
 
-test('should toggle boolean model when switch have true value', async () => {
+test('should toggle null / value while checkbox has been set value', async () => {
   const template = `
     <div>
-      <md-switch v-model="model" :value="true"></md-switch>
+      <md-switch v-model="model" value="val"></md-switch>
     </div>
   `
   const wrapper = await mountTemplate(MdSwitch, template, {
@@ -247,36 +265,9 @@ test('should toggle boolean model when switch have true value', async () => {
 
   container.trigger('click')
   expect(toggle.vm.isSelected).toBe(true)
-  expect(wrapper.data().model).toBe(true)
+  expect(wrapper.data().model).toBe('val')
 
   container.trigger('click')
   expect(toggle.vm.isSelected).toBe(false)
-  expect(wrapper.data().model).toBe(false)
-})
-
-test('should toggle boolean model when switch have false value', async () => {
-  const template = `
-    <div>
-      <md-switch v-model="model" :value="false"></md-switch>
-    </div>
-  `
-  const wrapper = await mountTemplate(MdSwitch, template, {
-    data: {
-      model: false
-    }
-  })
-  const toggle = wrapper.find(MdSwitch)[0]
-  const container = wrapper.find('.md-switch-container')[0]
-
-  await toggle.vm.$nextTick()
-
-  expect(toggle.vm.isSelected).toBe(true)
-
-  container.trigger('click')
-  expect(toggle.vm.isSelected).toBe(false)
-  expect(wrapper.data().model).toBe(true)
-
-  container.trigger('click')
-  expect(toggle.vm.isSelected).toBe(true)
-  expect(wrapper.data().model).toBe(false)
+  expect(wrapper.data().model).toBe(null)
 })

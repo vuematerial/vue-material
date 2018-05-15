@@ -1,5 +1,113 @@
-<a name="v1.0.0-beta-8"></a>
-# [v1.0.0-beta-8](https://github.com/vuematerial/vue-material/compare/v1.0.7-beta-8...v1.0.0-beta-7) (2018-01-29)
+<a name="1.0.0-beta-10.2"></a>
+# [1.0.0-beta-10.2](https://github.com/vuematerial/vue-material/compare/v1.0.0-beta-10.1...v1.0.0-beta-10.2) (2018-05-15)
+
+
+### Bug Fixes
+
+* **MdTable:** fix table rendering default slot twice ([#1731](https://github.com/vuematerial/vue-material/issues/1731)) ([3c61bcf](https://github.com/vuematerial/vue-material/commit/3c61bcf))
+
+
+<a name="1.0.0-beta-10.1"></a>
+# [1.0.0-beta-10.1](https://github.com/vuematerial/vue-material/compare/v1.0.0-beta-10...v1.0.0-beta-10.1) (2018-05-13)
+
+
+### Bug Fixes
+
+* **MdApp:** fix typo breaking MdApp on several scenarios ([#1728](https://github.com/vuematerial/vue-material/issues/1728)) ([8bdbaf3](https://github.com/vuematerial/vue-material/commit/8bdbaf3)), closes [#1727](https://github.com/vuematerial/vue-material/issues/1727)
+
+
+<a name="1.0.0-beta-10"></a>
+# [1.0.0-beta-10](https://github.com/vuematerial/vue-material/compare/v1.0.0-beta-9...v1.0.0-beta-10) (2018-05-13)
+
+
+### Bug Fixes
+
+* **Core:** inject SassScript value to CSS variables to fix libsass 3.5.0 ([#1620](https://github.com/vuematerial/vue-material/issues/1620)) ([4f180f6](https://github.com/vuematerial/vue-material/commit/4f180f6)), closes [/sass-lang.com/documentation/file.SASS_CHANGELOG.html#3_5_0__12_July_2017](https://github.com//sass-lang.com/documentation/file.SASS_CHANGELOG.html/issues/3_5_0__12_July_2017) [#1619](https://github.com/vuematerial/vue-material/issues/1619)
+* **MdApp:** right drawer, fully reactive ([#1493](https://github.com/vuematerial/vue-material/issues/1493)) ([3ac16c7](https://github.com/vuematerial/vue-material/commit/3ac16c7)), closes [#1204](https://github.com/vuematerial/vue-material/issues/1204)
+* **MdBadge:** custom class and style supported ([#1676](https://github.com/vuematerial/vue-material/issues/1676)) ([71b7afa](https://github.com/vuematerial/vue-material/commit/71b7afa))
+* **MdBottomBarItem:** missing props to for router link ([#1531](https://github.com/vuematerial/vue-material/issues/1531)) ([6860d3a](https://github.com/vuematerial/vue-material/commit/6860d3a)), closes [#1412](https://github.com/vuematerial/vue-material/issues/1412)
+* **MdButton:** change type of mdRippleActive prop to null to support SSR ([baf6a14](https://github.com/vuematerial/vue-material/commit/baf6a14))
+* **MdButton:** fab-bottom-center style ([#1724](https://github.com/vuematerial/vue-material/issues/1724)) ([d1b296e](https://github.com/vuematerial/vue-material/commit/d1b296e)), closes [#1722](https://github.com/vuematerial/vue-material/issues/1722)
+* **MdButton:** fix events when ripple is on ([#1532](https://github.com/vuematerial/vue-material/issues/1532)) ([e7f8f34](https://github.com/vuematerial/vue-material/commit/e7f8f34))
+* **MdButton:** Ripple for firefox ([#1468](https://github.com/vuematerial/vue-material/issues/1468)) ([156506b](https://github.com/vuematerial/vue-material/commit/156506b)), closes [#1461](https://github.com/vuematerial/vue-material/issues/1461)
+* **MdCard:** prevent showing scrollbars ([#1580](https://github.com/vuematerial/vue-material/issues/1580)) ([dc7892e](https://github.com/vuematerial/vue-material/commit/dc7892e))
+* **MdChips:** improve alignment with other regular fields like md-input ([ce7e075](https://github.com/vuematerial/vue-material/commit/ce7e075))
+* **MdCore:** remove all async/await from codebase ([5c3c208](https://github.com/vuematerial/vue-material/commit/5c3c208))
+* **MdDialog:** remove md-primary from MdDialogConfirm's cancel button ([#1633](https://github.com/vuematerial/vue-material/issues/1633)) ([e125c0d](https://github.com/vuematerial/vue-material/commit/e125c0d)), closes [#1622](https://github.com/vuematerial/vue-material/issues/1622)
+* **MdField:** fix font size for safari ([#1476](https://github.com/vuematerial/vue-material/issues/1476)) ([679f3d6](https://github.com/vuematerial/vue-material/commit/679f3d6))
+* **MdField:** fix textarea and inline alignments ([#1646](https://github.com/vuematerial/vue-material/issues/1646)) ([dbeb7e9](https://github.com/vuematerial/vue-material/commit/dbeb7e9))
+* **MdFile:** empty statement ([#1716](https://github.com/vuematerial/vue-material/issues/1716)) ([ae10127](https://github.com/vuematerial/vue-material/commit/ae10127)), closes [#1711](https://github.com/vuematerial/vue-material/issues/1711)
+* **MdLayout:** remove breakpoint margins ([#1457](https://github.com/vuematerial/vue-material/issues/1457)) ([c568fe3](https://github.com/vuematerial/vue-material/commit/c568fe3))
+* **MdMenu:** fix vertical alignment for menu items in IE ([#1615](https://github.com/vuematerial/vue-material/issues/1615)) ([5d3dfcf](https://github.com/vuematerial/vue-material/commit/5d3dfcf))
+* **MdMenu:** preventDefault only for specific keys ([7c10a09](https://github.com/vuematerial/vue-material/commit/7c10a09))
+* **MdMenuItem:** fix router ([#1474](https://github.com/vuematerial/vue-material/issues/1474)) ([eb6c8df](https://github.com/vuematerial/vue-material/commit/eb6c8df)), closes [#1471](https://github.com/vuematerial/vue-material/issues/1471)
+* **MdProgressBar:** query style ([#1683](https://github.com/vuematerial/vue-material/issues/1683)) ([48453a1](https://github.com/vuematerial/vue-material/commit/48453a1)), closes [#1682](https://github.com/vuematerial/vue-material/issues/1682)
+* **MdRipple:** clear immediately ([#1506](https://github.com/vuematerial/vue-material/issues/1506)) ([d52954a](https://github.com/vuematerial/vue-material/commit/d52954a))
+* **MdSelect:** adjust position when body has margin ([#1551](https://github.com/vuematerial/vue-material/issues/1551)) ([c820b72](https://github.com/vuematerial/vue-material/commit/c820b72))
+* **MdSelect:** dropdown icon align with input on botton line variant ([#1600](https://github.com/vuematerial/vue-material/issues/1600)) ([5c30f73](https://github.com/vuematerial/vue-material/commit/5c30f73))
+* **MdSelect:** fix select position under md-dialog ([#1525](https://github.com/vuematerial/vue-material/issues/1525)) ([f7990c5](https://github.com/vuematerial/vue-material/commit/f7990c5)), closes [#1149](https://github.com/vuematerial/vue-material/issues/1149)
+* **MdSelect:** pass props id and name as pure html attributes ([#1583](https://github.com/vuematerial/vue-material/issues/1583)) ([9fde310](https://github.com/vuematerial/vue-material/commit/9fde310))
+* **MdSelect:** update the text if options are updated ([#1481](https://github.com/vuematerial/vue-material/issues/1481)) ([042e571](https://github.com/vuematerial/vue-material/commit/042e571)), closes [#1389](https://github.com/vuematerial/vue-material/issues/1389)
+* **MdSteppers:** zero height in IE ([#1664](https://github.com/vuematerial/vue-material/issues/1664)) ([665732c](https://github.com/vuematerial/vue-material/commit/665732c))
+* **MdTable:** emit selected/update event only when selected items really changed ([#1585](https://github.com/vuematerial/vue-material/issues/1585)) ([a591144](https://github.com/vuematerial/vue-material/commit/a591144)), closes [#1559](https://github.com/vuematerial/vue-material/issues/1559)
+* **MdTable:** fix value condition for slot ([af0b89c](https://github.com/vuematerial/vue-material/commit/af0b89c))
+* **MdTable:** make fixed header follow the horizontal scroll ([#1575](https://github.com/vuematerial/vue-material/issues/1575)) ([b14aac3](https://github.com/vuematerial/vue-material/commit/b14aac3))
+* **MdTable:** reactive selection ([#1674](https://github.com/vuematerial/vue-material/issues/1674)) ([ddee303](https://github.com/vuematerial/vue-material/commit/ddee303)), closes [#1348](https://github.com/vuematerial/vue-material/issues/1348)
+* **MdTableRow:** removeSelectableItem when empty ([#1616](https://github.com/vuematerial/vue-material/issues/1616)) ([6d787bd](https://github.com/vuematerial/vue-material/commit/6d787bd)), closes [#1610](https://github.com/vuematerial/vue-material/issues/1610)
+* **MdTableRow:** update selectableItem while `mdItem` changed ([#1496](https://github.com/vuematerial/vue-material/issues/1496)) ([30c2f80](https://github.com/vuematerial/vue-material/commit/30c2f80)), closes [#1492](https://github.com/vuematerial/vue-material/issues/1492)
+* build script ([0b4ffc3](https://github.com/vuematerial/vue-material/commit/0b4ffc3))
+* **MdTabs:** correct indicator position on transition end ([#1467](https://github.com/vuematerial/vue-material/issues/1467)) ([bc3b611](https://github.com/vuematerial/vue-material/commit/bc3b611)), closes [#1432](https://github.com/vuematerial/vue-material/issues/1432)
+* **MdTabs:** remove ResizeObserver to improve the size and position calculation ([#1552](https://github.com/vuematerial/vue-material/issues/1552)) ([ef0cd2f](https://github.com/vuematerial/vue-material/commit/ef0cd2f))
+* **MdTabs:** transparent content ([#1725](https://github.com/vuematerial/vue-material/issues/1725)) ([a4e3619](https://github.com/vuematerial/vue-material/commit/a4e3619)), closes [#1713](https://github.com/vuematerial/vue-material/issues/1713)
+* constructor name support for IE11 ([95614b6](https://github.com/vuematerial/vue-material/commit/95614b6))
+* ios devices do not trigger click events on 'non-clickable' elements ([#1634](https://github.com/vuematerial/vue-material/issues/1634)) ([63b8ac0](https://github.com/vuematerial/vue-material/commit/63b8ac0)), closes [#1503](https://github.com/vuematerial/vue-material/issues/1503)
+* make dev env works ([a8e3978](https://github.com/vuematerial/vue-material/commit/a8e3978))
+
+
+### Components
+
+* **MdBadge:** new md-badge component ([#1465](https://github.com/vuematerial/vue-material/issues/1465)) ([3c60a38](https://github.com/vuematerial/vue-material/commit/3c60a38))
+
+
+### Features
+
+* **MdBadge:** add prop validation ([a53aff6](https://github.com/vuematerial/vue-material/commit/a53aff6))
+* **MdCheckbox:** add `indeterminate` variant ([#1597](https://github.com/vuematerial/vue-material/issues/1597)) ([e373857](https://github.com/vuematerial/vue-material/commit/e373857))
+* **MdCheckbox:** add object to possible checkbox value ([#1556](https://github.com/vuematerial/vue-material/issues/1556)) ([05821e2](https://github.com/vuematerial/vue-material/commit/05821e2))
+* **MdCheckBox:** True / false value supporting ([#1703](https://github.com/vuematerial/vue-material/issues/1703)) ([7cdcb66](https://github.com/vuematerial/vue-material/commit/7cdcb66)), closes [#1701](https://github.com/vuematerial/vue-material/issues/1701)
+* **MdChips:** Support with field variants ([#1668](https://github.com/vuematerial/vue-material/issues/1668)) ([c502a16](https://github.com/vuematerial/vue-material/commit/c502a16))
+* **MdDatepicker:** add close and open events ([#1577](https://github.com/vuematerial/vue-material/issues/1577)) ([5cb9b7b](https://github.com/vuematerial/vue-material/commit/5cb9b7b))
+* **MdDatepicker:** add immediately option ([#1607](https://github.com/vuematerial/vue-material/issues/1607)) ([f62ec6a](https://github.com/vuematerial/vue-material/commit/f62ec6a)), closes [#1606](https://github.com/vuematerial/vue-material/issues/1606)
+* **MdDatepicker:** Debounce the conversion into a date object ([#1666](https://github.com/vuematerial/vue-material/issues/1666)) ([a47ebe1](https://github.com/vuematerial/vue-material/commit/a47ebe1))
+* **MdDialog:** add emit event when clicked outside of dialog ([#1567](https://github.com/vuematerial/vue-material/issues/1567)) ([b19f6f0](https://github.com/vuematerial/vue-material/commit/b19f6f0))
+* **MdField:** add [@md](https://github.com/md)-clear event ([#1635](https://github.com/vuematerial/vue-material/issues/1635)) ([6ef5235](https://github.com/vuematerial/vue-material/commit/6ef5235))
+* **MdField:** add prefixes and suffixes ([#1592](https://github.com/vuematerial/vue-material/issues/1592)) ([a30d84c](https://github.com/vuematerial/vue-material/commit/a30d84c))
+* **MdField:** new field variants ([#1545](https://github.com/vuematerial/vue-material/issues/1545)) ([f2347f1](https://github.com/vuematerial/vue-material/commit/f2347f1))
+* **MdFile:** Support with field variants ([#1662](https://github.com/vuematerial/vue-material/issues/1662)) ([fbf6d2a](https://github.com/vuematerial/vue-material/commit/fbf6d2a))
+* **MdList:** expand only one option ([#1645](https://github.com/vuematerial/vue-material/issues/1645)) ([09b8573](https://github.com/vuematerial/vue-material/commit/09b8573)), closes [#1641](https://github.com/vuematerial/vue-material/issues/1641)
+* **MdListItemExpand:** add expanded and collapsed events ([#1495](https://github.com/vuematerial/vue-material/issues/1495)) ([11c2785](https://github.com/vuematerial/vue-material/commit/11c2785)), closes [#1490](https://github.com/vuematerial/vue-material/issues/1490)
+* **MdMenu:** new props mdCloseOnClick ([#1630](https://github.com/vuematerial/vue-material/issues/1630)) ([ecf5cb7](https://github.com/vuematerial/vue-material/commit/ecf5cb7))
+* **MdSnackbar:** keep alive if its persistent ([#1561](https://github.com/vuematerial/vue-material/issues/1561)) ([33007b4](https://github.com/vuematerial/vue-material/commit/33007b4))
+* **MdTable:** allow 2D array as the model value ([#1477](https://github.com/vuematerial/vue-material/issues/1477)) ([aed487a](https://github.com/vuematerial/vue-material/commit/aed487a))
+* **MdTable:** allow custom value for mdHeight ([#1522](https://github.com/vuematerial/vue-material/issues/1522)) ([c63b757](https://github.com/vuematerial/vue-material/commit/c63b757))
+* **MdTableCell:** add `md-id` prop ([#1584](https://github.com/vuematerial/vue-material/issues/1584)) ([7e7249a](https://github.com/vuematerial/vue-material/commit/7e7249a))
+
+
+### Performance Improvements
+
+* move universal selector from html tag ([#1652](https://github.com/vuematerial/vue-material/issues/1652)) ([2340eae](https://github.com/vuematerial/vue-material/commit/2340eae))
+
+
+### BREAKING CHANGES
+
+* **MdApp:** Replace useless props `mdLeft` with `!this.mdRight`
+* **MdApp:** no more than one drawer in a MdApp
+* **MdCheckBox:** checkbox without setting value is true / false as default
+
+
+
+<a name="1.0.0-beta-8"></a>
+# [1.0.0-beta-8](https://github.com/vuematerial/vue-material/compare/4521af6...v1.0.0-beta-8) (2018-01-29)
 
 
 ### Bug Fixes
@@ -66,7 +174,3 @@
 * fix(MdTable): select event should be triggered after select update event
 
 * fix(MdTableHeadSelection): select all only take effect on selectable items
-
-
-
-

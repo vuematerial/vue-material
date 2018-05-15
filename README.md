@@ -24,7 +24,7 @@
   </a>
   
   <a href="https://discord.gg/rgcmTtm">
-    <img src="https://discordapp.com/api/guilds/379653048798281729/widget.png" alt="Chat">
+    <img src="https://img.shields.io/discord/379653048798281729.svg?logo=discord&colorB=7289DA" alt="Chat">
   </a>
 </p>
 

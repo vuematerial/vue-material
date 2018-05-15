@@ -106,8 +106,8 @@ The release strategy will be like this:
   - [X] Documentation
   - [X] Deprecate layout component
   - [X] New flexbox/responsive/class-based grid
-- [ ] MdList - `NEW API`
-  - [ ] Documentation
+- [X] MdList - `NEW API`
+  - [X] Documentation
   - [X] Router integration
   - [X] Expansion
   - [X] Input Controls
@@ -161,7 +161,7 @@ The release strategy will be like this:
   - [ ] Extending Vue Material
   - [ ] Third Party Components
 - [X] About
-- [ ] Changelog
+- [X] Changelog
 - [ ] Components summary
 - [ ] Contribute
 - [X] Getting Started
@@ -218,6 +218,8 @@ I will point out those changes inside the migration guide.
 - Slider Input
 - Split Screen
 - ...
+
+<small>Vue Material 2 will be released with the new Material Design guidelines landed on Google I/O 2018. Stay tuned!<small>
 
 ## But man! I need the ___________
 Have something in mind? Need a new components? Created something meaningful and think that this can fit inside the lib? Let's discuss? We have a [Slack Channel](https://join.slack.com/t/vuematerial/shared_invite/MTgzMzU2NDQ5ODkwLTE0OTQ4MDI3MDAtNWYyZjhkNzEzMA) and I'm online there almost everyday. Send me a message!

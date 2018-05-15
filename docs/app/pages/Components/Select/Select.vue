@@ -14,7 +14,7 @@
     <div class="page-container-section">
       <h2>Select</h2>
 
-      <p>Vue Material selects works alogn with <code>md-option</code> component to provide the possible selection options. You should use it inside the <code>md-field</code> component The selection is will always react to changes on the <code>v-model</code> prop:</p>
+      <p>Vue Material selects works along with <code>md-option</code> component to provide the possible selection options. You should use it inside the <code>md-field</code> component The selection is will always react to changes on the <code>v-model</code> prop:</p>
       <code-example title="Single selection" :component="examples['basic-select']" />
 
       <p>Selects also work with multiple selection with a <code>v-model</code> as an <code>Array</code>. It is awesome:</p>

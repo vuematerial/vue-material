@@ -8,15 +8,15 @@ Before submitting your contribution please read the guidelines.
 
 ## Issue Reporting Guidelines
 
-- Do not create questions. The issue list is exclusively for reports, bugs and feature requests. Use the [Gitter Channel]( https://gitter.im/vuematerial/questions) instead.
+- Do not create questions. The issue list is exclusively for reports, bugs and feature requests. Use the [Discord server]( https://discord.gg/rgcmTtm) instead.
 
-- Always search for your issue first. It may have already been answered, planned or fixed in some branch. New components and features will be planned on [Milestones](https://github.com/marcosmoura/vue-material/milestones) or on [Projects](https://github.com/marcosmoura/vue-material/projects).
+- Always search for your issue first. It may have already been answered, planned or fixed in some branch. New components and features will be planned on [Milestones](https://github.com/vuematerial/vue-material/milestones) or on [Projects](https://github.com/vuematerial/vue-material/projects).
 
-- Only create issues for the newest version. For now. Until 1.0.0.
+- Only create issues for the newest version.
 
 - Create a declarative title and describe clearly the steps necessary to reproduce the issue. If an issue labeled "need repro" receives no further input from the issue author for more than 3 days, it will be closed.
 
-- If you want to show your code please use [Codepen](http://codepen.io/pen/) or [JSFiddle](https://jsfiddle.net/). You could start with [this template](http://codepen.io/vue-material/pen/WGavBE).
+- If you want to show your code please use [Codepen](http://codepen.io/pen/) or [JSFiddle](https://jsfiddle.net/). You could start with [this template](https://codesandbox.io/s/github/vuematerial/examples/tree/master/examples/quick-start).
 
 - In case you found a solution by yourself try to explain how you fixed it. It could be useful for somebody else. :)
 
@@ -41,26 +41,26 @@ You will need [Node.js](http://nodejs.org) **version 6+**
 After cloning the repo, run:
 
 ``` bash
-$ npm install
+$ yarn install
 ```
 
-### Commonly used NPM scripts
+### Commonly used YARN scripts
 
 ``` bash
 ### Start dev server with hot reload
-$ npm run dev
+$ yarn dev
 
 ### Check for errors
-$ npm run lint
+$ yarn lint
 
 ### Build everything
-$ npm run build
+$ yarn build
 
 ### Build docs only
-$ npm run build:docs
+$ yarn build:docs
 
 ### Build lib only
-$ npm run build:lib
+$ yarn build:lib
 ```
 
 The other tasks on package.json **SHOULD NOT** be executed.

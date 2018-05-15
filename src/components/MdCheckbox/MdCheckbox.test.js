@@ -43,13 +43,6 @@ test('should create a fallback id if not given', async () => {
   expect(label.getAttribute('for')).toBe(createdId)
 })
 
-test('should create a fallback value if not given', async () => {
-  const wrapper = await mountStringSlot(MdCheckbox, 'Label')
-  const createdValue = wrapper.vm.$props.value
-
-  expect(createdValue).toBe('on')
-})
-
 test('should create disabled and required classes', async () => {
   const wrapper = await mountStringSlot(MdCheckbox, 'Label', {
     propsData: {
@@ -150,7 +143,7 @@ test('should toggle a checked class when checked', async () => {
   expect(checkbox.hasClass('md-checked')).toBe(false)
 })
 
-test('should bind "on" value when no value attribute is given', async () => {
+test('should bind true / false when no value attribute is given', async () => {
   const template = `
     <div>
       <md-checkbox v-model="model"></md-checkbox>
@@ -168,11 +161,36 @@ test('should bind "on" value when no value attribute is given', async () => {
 
   container.trigger('click')
   expect(checkbox.vm.isSelected).toBe(true)
-  expect(wrapper.data().model).toBe('on')
+  expect(wrapper.data().model).toBe(true)
 
   container.trigger('click')
   expect(checkbox.vm.isSelected).toBe(false)
-  expect(wrapper.data().model).toBe(null)
+  expect(wrapper.data().model).toBe(false)
+})
+
+test('true-value / false-value should works', async () => {
+  const template = `
+    <div>
+      <md-checkbox v-model="model" true-value="true" false-value="false"></md-checkbox>
+    </div>
+  `
+  const wrapper = await mountTemplate(MdCheckbox, template, {
+    data: {
+      model: null
+    }
+  })
+  const checkbox = wrapper.find(MdCheckbox)[0]
+  const container = wrapper.find('.md-checkbox-container')[0]
+
+  expect(checkbox.vm.isSelected).toBe(false)
+
+  container.trigger('click')
+  expect(checkbox.vm.isSelected).toBe(true)
+  expect(wrapper.data().model).toBe('true')
+
+  container.trigger('click')
+  expect(checkbox.vm.isSelected).toBe(false)
+  expect(wrapper.data().model).toBe('false')
 })
 
 test('should toggle string values on model', async () => {
@@ -227,10 +245,10 @@ test('should toggle boolean model when checkbox do not have a value', async () =
   expect(wrapper.data().model).toBe(false)
 })
 
-test('should toggle boolean model when checkbox have true value', async () => {
+test('should toggle null / value while checkbox has been set value', async () => {
   const template = `
     <div>
-      <md-checkbox v-model="model" :value="true"></md-checkbox>
+      <md-checkbox v-model="model" value="val"></md-checkbox>
     </div>
   `
   const wrapper = await mountTemplate(MdCheckbox, template, {
@@ -247,36 +265,9 @@ test('should toggle boolean model when checkbox have true value', async () => {
 
   container.trigger('click')
   expect(checkbox.vm.isSelected).toBe(true)
-  expect(wrapper.data().model).toBe(true)
+  expect(wrapper.data().model).toBe('val')
 
   container.trigger('click')
   expect(checkbox.vm.isSelected).toBe(false)
-  expect(wrapper.data().model).toBe(false)
-})
-
-test('should toggle boolean model when checkbox have false value', async () => {
-  const template = `
-    <div>
-      <md-checkbox v-model="model" :value="false"></md-checkbox>
-    </div>
-  `
-  const wrapper = await mountTemplate(MdCheckbox, template, {
-    data: {
-      model: false
-    }
-  })
-  const checkbox = wrapper.find(MdCheckbox)[0]
-  const container = wrapper.find('.md-checkbox-container')[0]
-
-  await checkbox.vm.$nextTick()
-
-  expect(checkbox.vm.isSelected).toBe(true)
-
-  container.trigger('click')
-  expect(checkbox.vm.isSelected).toBe(false)
-  expect(wrapper.data().model).toBe(true)
-
-  container.trigger('click')
-  expect(checkbox.vm.isSelected).toBe(true)
-  expect(wrapper.data().model).toBe(false)
+  expect(wrapper.data().model).toBe(null)
 })

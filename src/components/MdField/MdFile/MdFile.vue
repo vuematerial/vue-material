@@ -42,7 +42,7 @@
         return names.join(', ')
       },
       getFileName (files, target) {
-        if (!files) {
+        if (!files || files.length === 0) {
           return target.value.split('\\').pop()
         }
 

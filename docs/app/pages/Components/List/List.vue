@@ -54,7 +54,16 @@
       <code-example title="Expansion" :component="examples['list-expansion']" />
 
       <api-item title="API - md-list">
-        Coming soon...
+        <p>The following options can be applied to any list:</p>
+
+        <api-table :headings="list.props.headings" :props="list.props.props" slot="props" />
+        <api-table :headings="list.classes.headings" :props="list.classes.props" slot="classes" />
+      </api-item>
+
+      <api-item title="API - md-list-item">
+        <p>The following options can be applied to any list item. All <a href="https://router.vuejs.org/en/api/router-link.html" target="_blank">options</a> of <code>router-link</code> can be simply used here:</p>
+
+        <api-table :headings="item.props.headings" :props="item.props.props" slot="props" />
       </api-item>
     </div>
   </page-container>
@@ -68,7 +77,56 @@
     name: 'DocList',
     mixins: [examples],
     data: () => ({
-      interactionEvents: MdInteractionEvents
+      interactionEvents: MdInteractionEvents,
+      list: {
+        props: {
+          headings: ['Name', 'Description', 'Default'],
+          props: [
+            {
+              name: 'md-expand-single',
+              type: 'Boolean',
+              description: 'If set true, one expandable list item could be expanded at most at a time. The expanded list item will be collapsed when another is expanded',
+              defaults: 'false'
+            }
+          ]
+        },
+        classes: {
+          headings: ['Name', 'Description'],
+          props: [
+            {
+              name: 'md-dense',
+              description: 'Enables the dense layout'
+            },
+            {
+              name: 'md-double-line',
+              description: 'The double line lists are good to show additional information about single items'
+            },
+            {
+              name: 'md-triple-line',
+              description: 'The three line lists are great for showing a preview of the full content of the item'
+            }
+          ]
+        }
+      },
+      item: {
+        props: {
+          headings: ['Name', 'Description', 'Default'],
+          props: [
+            {
+              name: 'md-expand',
+              type: 'Boolean',
+              description: 'Enables the expansion panel',
+              defaults: 'false'
+            },
+            {
+              name: 'md-expanded',
+              type: 'Boolean',
+              description: 'The prop to show/hide the expansion panel. Should be used with the <code>.sync</code> modifier',
+              defaults: 'false'
+            }
+          ]
+        }
+      }
     })
   }
 </script>
