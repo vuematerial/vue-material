@@ -9,13 +9,13 @@
 <template>
   <page-container centered :title="$t('pages.chips.title')">
     <div class="page-container-section">
-      <p>Chips represent complex entities in small blocks, such as a contact. They can be used as a way for a user create arbitrary items, like categories or tags.</p>
+      <p>Chips represent complex entities in small blocks, such as a contact. They can be used as a way for a user to create arbitrary items, like categories or tags.</p>
     </div>
 
     <div class="page-container-section">
       <h2>Standalone Chip</h2>
 
-      <p>A chip can be used standalone, without any connection with another chip. It can be used to be like a badge or a category of a entity in your application. You can specify if your chip can be deletable and clickable:</p>
+      <p>A chip can be used as standalone, without any connection with another chip. It can be used like a badge or a category of an entity in your application. You can specify if your chip can be deletable and clickable:</p>
       <code-example title="Single" :component="examples['single-chip']" />
 
       <api-item title="API - md-chip">
@@ -29,28 +29,28 @@
     <div class="page-container-section">
       <h2>Editable model</h2>
 
-      <p>Sometimes we need to edit the set of items on screen, for example. When editing tags, the user may need to remove/add tags. In this case you can use the editable chips, that is the default behaviour:</p>
+      <p>Sometimes we need to edit the set of items on screen, for example, when editing tags, the user may need to remove/add tags. In this case you can use the editable chips, that is the default behaviour:</p>
       <code-example title="Editable" :component="examples['editable']" />
     </div>
 
     <div class="page-container-section">
       <h2>Readonly</h2>
 
-      <p>Let's think in a entity that have tags. Sometimes you might need to show all of them in a single row, but not enable the user to edit them. You can achieve that using the <code>md-chips</code> component, with a static option:</p>
+      <p>Let's think in an entity that have tags. Sometimes you might need to show all of them in a single row, but not allow the user to edit them. You can achieve that using the <code>md-chips</code> component, with a static option:</p>
       <code-example title="Static" :component="examples['static']" />
     </div>
 
     <div class="page-container-section">
       <h2>Custom Template</h2>
 
-      <p>Sometimes we need to show more information about a chip, so we want to have a custom HTML structure for the chip itself. To create that scenario we can use the template scope. In this case all you have to do is to create a slot with your custom template and you're good to go. Take a loot at this example:</p>
+      <p>Sometimes we need to show more information about a chip, so we want to have a custom HTML structure for the chip itself. To create that scenario we can use the template scope. In this case all you have to do is to create a slot with your custom template and you're good to go. Take a look at this example:</p>
       <code-example title="Scoped Slot" :component="examples['chip-custom-template']" />
     </div>
 
     <div class="page-container-section">
       <h2>Duplicated Chip</h2>
 
-      <p>Chips would reject insertion while a chip was duplicated. You could customize feedback style of the duplicated chip:</p>
+      <p>Chips would reject insertion if a chip is duplicated. You can customize feedback style of the duplicated chip:</p>
       <code-example title="Duplicated Feedback" :component="examples['duplicated-feedback']" />
     </div>
 
