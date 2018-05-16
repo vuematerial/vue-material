@@ -1,5 +1,5 @@
 const getOption = (options, key) => options ?
-  (option[key] === false ? false : true ) :
+  (options[key] === false ? false : true ) :
   true
 
 export default (fn, time, option) => {
