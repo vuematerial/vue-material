@@ -1,12 +1,10 @@
-
+const getOption = (options, key) => options ?
+  (option[key] === false ? false : true ) :
+  true
 
 export default (fn, time, option) => {
-  const leading = option ?
-    (option.leading === false ? false : true ) :
-    true
-  const trailing = option ?
-    (option.trailing === false ? false : true ) :
-    true
+  const leading = getOption(option, 'leading')
+  const trailing = getOption(option, 'trailing')
   let timeout = null
   let duplicated = false
 
