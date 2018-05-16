@@ -54,8 +54,8 @@
             hasDrawer = true
             child.data.slot += `-${isRight ? 'right' : 'left'}`
             child.key = JSON.stringify({
-              'persistent': child.data.attrs['md-persistent'],
-              'permanent': child.data.attrs['md-permanent']
+              'persistent': child.data.attrs && child.data.attrs['md-persistent'],
+              'permanent': child.data.attrs && child.data.attrs['md-permanent']
             })
 
             createRightDrawer(isRight)
