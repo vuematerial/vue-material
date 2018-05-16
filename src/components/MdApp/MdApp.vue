@@ -36,7 +36,9 @@
     let hasDrawer = false
 
     if (children) {
+      /* eslint-disable complexity */
       children.forEach(child => {
+      /* eslint-enable */
         const data = child.data
         const componentOptions = child.componentOptions
 
