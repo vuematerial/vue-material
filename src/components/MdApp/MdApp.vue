@@ -36,7 +36,9 @@
     let hasDrawer = false
 
     if (children) {
+      /* eslint-disable complexity */
       children.forEach(child => {
+      /* eslint-enable */
         const data = child.data
         const componentOptions = child.componentOptions
 
@@ -54,8 +56,8 @@
             hasDrawer = true
             child.data.slot += `-${isRight ? 'right' : 'left'}`
             child.key = JSON.stringify({
-              'persistent': child.data.attrs['md-persistent'],
-              'permanent': child.data.attrs['md-permanent']
+              'persistent': child.data.attrs && child.data.attrs['md-persistent'],
+              'permanent': child.data.attrs && child.data.attrs['md-permanent']
             })
 
             createRightDrawer(isRight)
