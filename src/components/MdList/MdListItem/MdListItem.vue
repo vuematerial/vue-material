@@ -66,8 +66,7 @@
       return MdListItemLink
     }
 
-    const shouldRenderButton = shouldRenderButtonWithListener(listeners)
-    if (shouldRenderButton) {
+    if (shouldRenderButtonWithListener(listeners)) {
       if (hasChildrenButtons(children)) {
         return MdListItemFakeButton
       }
