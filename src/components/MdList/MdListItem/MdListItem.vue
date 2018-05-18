@@ -2,6 +2,7 @@
   import MdInteractionEvents from 'core/utils/MdInteractionEvents'
   import MdRouterLinkProps from 'core/utils/MdRouterLinkProps'
   import MdListItemDefault from './MdListItemDefault'
+  import MdListItemFakeButton from './MdListItemFakeButton'
   import MdListItemButton from './MdListItemButton'
   import MdListItemLink from './MdListItemLink'
   import MdListItemRouter from './MdListItemRouter'
@@ -22,6 +23,12 @@
     }
   }
 
+  function hasChildrenButtons (children) {
+    return children.default.some(child => {
+      return !!child.componentOptions && child.componentOptions.tag === 'md-button'
+    })
+  }
+
   function shouldRenderButtonWithListener (listeners) {
     let listenerNames = Object.keys(listeners)
     let shouldRender = false
@@ -39,7 +46,7 @@
     return parent && parent.$router && props.to
   }
 
-  function createListComponent (props, parent, listeners) {
+  function createListComponent (props, parent, listeners, children) {
     if (hasExpansion(props)) {
       return MdListItemExpand
     }
@@ -61,7 +68,11 @@
       return MdListItemLink
     }
 
-    if (shouldRenderButtonWithListener(listeners)) {
+    const shouldRenderButton = shouldRenderButtonWithListener(listeners)
+    if (shouldRenderButton) {
+      if (hasChildrenButtons(children)) {
+        return MdListItemFakeButton
+      }
       return MdListItemButton
     }
 
@@ -76,7 +87,7 @@
     },
     render (createElement, { parent, props, listeners, data, slots }) {
       let children = slots()
-      let listComponent = createListComponent(props, parent, listeners)
+      let listComponent = createListComponent(props, parent, listeners, children)
       let staticClass = 'md-list-item'
 
       if (data.staticClass) {
@@ -127,6 +138,9 @@
     text-transform: none;
 
     &:not(.md-list-item-default):not([disabled]) {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
       user-select: none;
       cursor: pointer;
     }
