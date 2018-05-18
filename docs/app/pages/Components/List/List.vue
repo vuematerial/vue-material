@@ -39,11 +39,6 @@
         <li v-for="event in interactionEvents" :key="event">{{ event }}</li>
       </ul>
 
-      <note-block>
-        Mixing a list action with actions on the list items hurts usability. When clicking on the list item action, will the list action be triggered as well?
-        Therefore, when using a list action, do not use actions on the list items. Mixing them additionally has technical compatibility issues between browsers.
-      </note-block>
-
       <p>If you pass a <code>href</code> attribute, the item will automatically render an <code>a</code> tag.</p>
       <p>All <a href="https://router.vuejs.org/en/api/router-link.html" target="_blank">options</a> of <code>router-link</code> can be simply used here. This will render an <code>a</code> tag:</p>
       <code-example title="Different types" :component="examples['list-types']" />
