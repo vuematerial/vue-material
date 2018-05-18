@@ -23,10 +23,8 @@
     }
   }
 
-  function hasChildrenButtons (children) {
-    return children.default.some(child => {
-      return !!child.componentOptions && child.componentOptions.tag === 'md-button'
-    })
+  function hasChildrenButtons (childrens) {
+    return childrens.default.some(children => children.componentOptions && children.componentOptions.tag === 'md-button')
   }
 
   function shouldRenderButtonWithListener (listeners) {
