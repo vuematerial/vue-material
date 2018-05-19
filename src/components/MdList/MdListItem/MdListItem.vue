@@ -135,9 +135,6 @@
     text-transform: none;
 
     &:not(.md-list-item-default):not([disabled]) {
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
       user-select: none;
       cursor: pointer;
     }
