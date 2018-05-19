@@ -30,6 +30,13 @@
     return (data && componentTypes.includes(data.slot)) || isValidChild(componentOptions)
   }
 
+  function generateAttrKeys (attrs) {
+    return JSON.stringify({
+      'persistent': attrs && attrs['md-persistent'],
+      'permanent': attrs && attrs['md-permanent']
+    })
+  }
+
   function buildSlots (children, context, functionalContext, options, createElement) {
     let slots = []
 
@@ -37,6 +44,7 @@
 
     if (children) {
       children.forEach(child => {
+        /* eslint-enable */
         const data = child.data
         const componentOptions = child.componentOptions
 
@@ -53,10 +61,7 @@
 
             hasDrawer = true
             child.data.slot += `-${isRight ? 'right' : 'left'}`
-            child.key = JSON.stringify({
-              'persistent': child.data.attrs['md-persistent'],
-              'permanent': child.data.attrs['md-permanent']
-            })
+            child.key = generateAttrKeys(data.attrs)
 
             createRightDrawer(isRight)
           }
