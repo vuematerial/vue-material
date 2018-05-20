@@ -1,9 +1,9 @@
 <template>
   <page-container centered :title="$t('pages.configuration.title')">
     <div class="page-container-section">
-      <h2 class="md-headline">How to customized</h2>
+      <h2 class="md-headline">Global configuration</h2>
 
-      <p>Vue Material provide some options for customized. These options are reactive, you can change it anytime, anywhere:</p>
+      <p>Vue Material is providing some global options for customization. These options are reactive, you can change it anytime, anywhere:</p>
       <code-example :title="$t('pages.configuration.viaVueGlobalObject')">
         import Vue from 'vue'
 
