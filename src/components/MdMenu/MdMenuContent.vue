@@ -224,7 +224,6 @@
         window.removeEventListener('keydown', this.keyNavigation)
       },
       keyNavigation (event) {
-        console.log(event)
         switch (event.key) {
         case 'ArrowUp':
           event.preventDefault()
