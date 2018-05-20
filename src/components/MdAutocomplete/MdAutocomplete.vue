@@ -202,20 +202,15 @@
         }
 
         this.showMenu = true
-        this.$nextTick().then(() => {
+        this.$nextTick(() => {
           this.triggerPopover = true
           this.$emit('md-opened')
         })
       },
       hideOptions () {
-        const clearPopover = () => {
+        this.$nextTick(() => {
           this.triggerPopover = false
           this.$emit('md-closed')
-        }
-
-        this.$nextTick().then(() => {
-          this.showMenu = false
-          this.$nextTick().then(clearPopover)
         })
       },
       selectItem (item, $event) {
