@@ -274,7 +274,7 @@ export const mapRoutes = () => {
 
   routes.forEach(route => {
     if (!route.redirect && route.path !== '*') {
-      mappedRoutes.push(route.path.replace('/:optional?', ''))
+      mappedRoutes.push(route.path.replace('/:optional?/:sub?', ''))
     }
   })
 
