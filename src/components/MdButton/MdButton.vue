@@ -32,6 +32,9 @@
     computed: {
       rippleWorks () {
         return this.mdRipple && !this.disabled
+      },
+      isRouterLink () {
+        return this.$router && this.to;
       }
     },
     render (createElement) {
@@ -91,7 +94,7 @@
 
       if (this.href) {
         tag = 'a'
-      } else if (this.$router && this.to) {
+      } else if (this.isRouterLink) {
         this.$options.props = MdRouterLinkProps(this, this.$options.props)
 
         tag = 'router-link'
