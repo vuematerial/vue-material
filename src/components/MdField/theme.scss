@@ -1,17 +1,3 @@
-@function md-field-raised-backround-opacity($background) {
-  $color-theme: map-get($md-theme-palette, theme);
-
-  @if $background != "" {
-    $color-theme: md-pick-contrast(md-get-color-by-type($background, $color-theme));
-  }
-
-  @if $color-theme == "dark" {
-    @return .12;
-  } @else {
-    @return .06;
-  }
-}
-
 .md-field {
   @include md-theme-component() {
     @if md-get-theme-mode() == light {
@@ -47,6 +33,28 @@
           -webkit-text-fill-color: rgba(#000, .87);
         }
       }
+
+      &.md-has-textarea:not(.md-autogrow) {
+        &:after {
+          border-color: rgba(#000, .42);
+        }
+
+        &:before {
+          @include md-theme-property(border-color, primary);
+        }
+      }
+
+      &.md-disabled {
+        &:after {
+          background-image: linear-gradient(to right, rgba(#000, .38) 0%, rgba(#000, .38) 33%, transparent 0%);
+        }
+
+        label,
+        .md-input,
+        .md-textarea {
+          color: rgba(#000, .42);
+        }
+      }
     } @else {
       &:after {
         background-color: rgba(#fff, .7);
@@ -80,9 +88,31 @@
           -webkit-text-fill-color: #fff;
         }
       }
+
+      &.md-has-textarea:not(.md-autogrow) {
+        &:after {
+          border-color: #fff;
+        }
+
+        &:before {
+          @include md-theme-property(border-color, primary);
+        }
+      }
+
+      &.md-disabled {
+        &:after {
+          background-image: linear-gradient(to right, rgba(#fff, .7) 0%, rgba(#fff, .7) 33%, transparent 0%);
+        }
+
+        label,
+        .md-input,
+        .md-textarea {
+          color: rgba(#fff, .5);
+        }
+      }
     }
 
-    >.md-icon {
+    > .md-icon {
       &:after {
         @include md-theme-property(background-color, background-variant);
       }
@@ -121,7 +151,7 @@
         @include md-theme-property(color, primary, background);
       }
 
-      >.md-ripple>.md-icon {
+      > .md-icon {
         @include md-theme-property(color, primary, background);
         @include md-theme-property(fill, primary, background);
       }
@@ -136,394 +166,6 @@
     &.md-disabled {
       .md-icon svg {
         @include md-theme-property(fill, disabled, background);
-      }
-    }
-  }
-}
-
-.md-field.md-field-bottom-line {
-  @include md-theme-component() {
-    @if md-get-theme-mode() == light {
-      &.md-has-textarea:not(.md-autogrow) {
-        &:after {
-          border-color: rgba(#000, .42);
-        }
-
-        &:before {
-          @include md-theme-property(border-color, primary);
-        }
-      }
-
-      &.md-disabled {
-        &:after {
-          background-image: linear-gradient(to right, rgba(#000, .38) 0%, rgba(#000, .38) 33%, transparent 0%);
-        }
-
-        label,
-        .md-input,
-        .md-textarea {
-          color: rgba(#000, .42);
-        }
-      }
-    } @else {
-      &.md-has-textarea:not(.md-autogrow) {
-        &:after {
-          border-color: #fff;
-        }
-
-        &:before {
-          @include md-theme-property(border-color, primary);
-        }
-      }
-
-      &.md-disabled {
-        &:after {
-          background-image: linear-gradient(to right, rgba(#fff, .7) 0%, rgba(#fff, .7) 33%, transparent 0%);
-        }
-
-        label,
-        .md-input,
-        .md-textarea {
-          color: rgba(#fff, .5);
-        }
-      }
-    }
-
-    .md-toolbar &.md-nested {
-      &:after {
-        @include md-theme-property(background-color, text-primary, background-variant, .42);
-      }
-
-      &:before {
-        @include md-theme-property(background-color, text-primary, background-variant);
-      }
-
-      label {
-        @include md-theme-property(color, text-primary, background-variant, .54);
-      }
-
-      input,
-      textarea {
-        @include md-theme-property(color, text-primary, background-variant);
-        @include md-theme-property(-webkit-text-fill-color, text-primary, background-variant);
-      }
-
-      svg {
-        @include md-theme-property(fill, text-primary, background-variant);
-      }
-    }
-
-    .md-toolbar.md-primary &.md-nested {
-      &:after {
-        @include md-theme-property(background-color, text-primary, primary, .42);
-      }
-
-      &:before {
-        @include md-theme-property(background-color, text-primary, primary);
-      }
-
-      label {
-        @include md-theme-property(color, text-primary, primary, .54);
-      }
-
-      input,
-      textarea {
-        @include md-theme-property(color, text-primary, primary);
-        @include md-theme-property(-webkit-text-fill-color, text-primary, primary);
-      }
-
-      svg {
-        @include md-theme-property(fill, text-primary, primary);
-      }
-    }
-
-    .md-toolbar.md-accent &.md-nested {
-      &:after {
-        @include md-theme-property(background-color, text-primary, accent, .42);
-      }
-
-      &:before {
-        @include md-theme-property(background-color, text-primary, accent);
-      }
-
-      label {
-        @include md-theme-property(color, text-primary, accent, .54);
-      }
-
-      input,
-      textarea {
-        @include md-theme-property(color, text-primary, accent);
-        @include md-theme-property(-webkit-text-fill-color, text-primary, accent);
-      }
-
-      svg {
-        @include md-theme-property(fill, text-primary, accent);
-      }
-    }
-
-    .md-toolbar.md-transparent &.md-nested {
-      &:after {
-        @include md-theme-property(background-color, text-primary, background, .42);
-      }
-
-      &:before {
-        @include md-theme-property(background-color, text-primary, background);
-      }
-
-      label {
-        @include md-theme-property(color, text-primary, background, .54);
-      }
-
-      input,
-      textarea {
-        @include md-theme-property(color, text-primary, background);
-        @include md-theme-property(-webkit-text-fill-color, text-primary, background);
-      }
-
-      svg {
-        @include md-theme-property(fill, text-primary, background);
-      }
-    }
-  }
-}
-
-.md-field.md-field-box {
-  @include md-theme-component() {
-    @if md-get-theme-mode() == light {
-      background-color: rgba(#000, .06);
-
-      &.md-disabled {
-        label,
-        .md-input,
-        .md-textarea {
-          color: rgba(#000, .42);
-        }
-      }
-    }
-    @else {
-      background-color: rgba(#fff, .10);
-
-      &.md-disabled {
-        label,
-        .md-input,
-        .md-textarea {
-          color: rgba(#fff, .5);
-        }
-      }
-    }
-
-    .md-toolbar &.md-nested {
-      &:after {
-        @include md-theme-property(background-color, text-primary, background-variant, .42);
-      }
-
-      &:before {
-        @include md-theme-property(background-color, text-primary, background-variant);
-      }
-
-      label {
-        @include md-theme-property(color, text-primary, background-variant, .54);
-      }
-
-      input,
-      textarea {
-        @include md-theme-property(color, text-primary, primary);
-        @include md-theme-property(-webkit-text-fill-color, text-primary, background-variant);
-      }
-
-      svg {
-        @include md-theme-property(fill, text-primary, background-variant);
-      }
-    }
-
-    .md-toolbar.md-primary &.md-nested {
-      &:after {
-        @include md-theme-property(background-color, text-primary, primary, .42);
-      }
-
-      &:before {
-        @include md-theme-property(background-color, text-primary, primary);
-      }
-
-      label {
-        @include md-theme-property(color, text-primary, primary, .54);
-      }
-
-      input,
-      textarea {
-        @include md-theme-property(color, text-primary, primary);
-        @include md-theme-property(-webkit-text-fill-color, text-primary, primary);
-      }
-
-      svg {
-        @include md-theme-property(fill, text-primary, primary);
-      }
-    }
-
-    .md-toolbar.md-accent &.md-nested {
-      &:after {
-        @include md-theme-property(background-color, text-primary, accent, .42);
-      }
-
-      &:before {
-        @include md-theme-property(background-color, text-primary, accent);
-      }
-
-      label {
-        @include md-theme-property(color, text-primary, accent, .54);
-      }
-
-      input,
-      textarea {
-        @include md-theme-property(color, text-primary, accent);
-        @include md-theme-property(-webkit-text-fill-color, text-primary, accent);
-      }
-
-      svg {
-        @include md-theme-property(fill, text-primary, accent);
-      }
-    }
-
-    .md-toolbar.md-transparent &.md-nested {
-      &:after {
-        @include md-theme-property(background-color, text-primary, background, .42);
-      }
-
-      &:before {
-        @include md-theme-property(background-color, text-primary, background);
-      }
-
-      label {
-        @include md-theme-property(color, text-primary, background, .54);
-      }
-
-      input,
-      textarea {
-        @include md-theme-property(color, text-primary, background);
-        @include md-theme-property(-webkit-text-fill-color, text-primary, background);
-      }
-
-      svg {
-        @include md-theme-property(fill, text-primary, background);
-      }
-    }
-  }
-}
-
-.md-field.md-field-raised {
-  @include md-theme-component() {
-    @if md-get-theme-mode() == light {
-      background-color: #fff;
-
-      &.md-disabled {
-        label,
-        .md-input,
-        .md-textarea {
-          color: rgba(#000, .42);
-        }
-      }
-    } @else {
-      background-color: #000;
-
-      &.md-disabled {
-        label,
-        .md-input,
-        .md-textarea {
-          color: rgba(#fff, .5);
-        }
-      }
-    }
-
-
-    .md-toolbar &.md-nested {
-      @include md-theme-property(background-color, text-primary, background-variant, md-field-raised-backround-opacity(background-variant));
-
-      label {
-        @include md-theme-property(color, text-primary, primary, .54);
-        @include md-theme-property(-webkit-text-fill-color, text-primary, background-variant, .54);
-      }
-
-      input {
-        @include md-theme-property(color, text-primary, primary);
-        @include md-theme-property(-webkit-text-fill-color, text-primary, background-variant);
-      }
-
-      svg {
-        @include md-theme-property(fill, text-primary, background-variant);
-      }
-    }
-
-    .md-toolbar.md-primary &.md-nested {
-      @include md-theme-property(background-color, text-primary, primary, md-field-raised-backround-opacity(primary));
-
-      label {
-        @include md-theme-property(color, text-primary, primary, .54);
-        @include md-theme-property(-webkit-text-fill-color, text-primary, primary, .54);
-      }
-
-      input {
-        @include md-theme-property(color, text-primary, primary);
-        @include md-theme-property(-webkit-text-fill-color, text-primary, primary);
-      }
-
-      svg {
-        @include md-theme-property(fill, text-primary, primary);
-      }
-    }
-
-    .md-toolbar.md-accent &.md-nested {
-      @include md-theme-property(background-color, text-primary, accent, md-field-raised-backround-opacity(accent));
-
-      label {
-        @include md-theme-property(color, text-primary, accent, .54);
-        @include md-theme-property(-webkit-text-fill-color, text-primary, accent, .54);
-      }
-
-      input {
-        @include md-theme-property(color, text-primary, accent);
-        @include md-theme-property(-webkit-text-fill-color, text-primary, accent);
-      }
-
-      svg {
-        @include md-theme-property(fill, text-primary, accent);
-      }
-    }
-
-    .md-toolbar.md-transparent &.md-nested {
-      @include md-theme-property(background-color, text-primary, background, md-field-raised-backround-opacity(background));
-
-      label {
-        @include md-theme-property(color, text-primary, background, .54);
-        @include md-theme-property(-webkit-text-fill-color, text-primary, background, .54);
-      }
-
-      input {
-        @include md-theme-property(color, text-primary, background);
-        @include md-theme-property(-webkit-text-fill-color, text-primary, background);
-      }
-
-      svg {
-        @include md-theme-property(fill, text-primary, background);
-      }
-    }
-
-    .md-toolbar &.md-nested {
-      &.md-focused {
-        @include md-theme-property(background-color, background);
-        .md-icon,
-        label {
-          @include md-theme-property(color, text-primary, background, .54);
-          @include md-theme-property(-webkit-text-fill-color, text-primary, background, .54);
-        }
-
-        input {
-          @include md-theme-property(color, text-primary, background, .87);
-          @include md-theme-property(-webkit-text-fill-color, text-primary, background, .87);
-        }
-
-        svg {
-          @include md-theme-property(fill, text-primary, background, .54);
-        }
       }
     }
   }

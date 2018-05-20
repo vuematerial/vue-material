@@ -49,7 +49,8 @@
           {
             name: 'md-content',
             type: 'String, Number',
-            description: 'A content for badge'
+            description: 'A content for badge',
+            defaults: ' '
           },
           {
             name: 'md-position',

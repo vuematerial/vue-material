@@ -269,8 +269,11 @@
       will-change: height;
     }
 
-    &.md-transparent .md-tabs-navigation {
-      background-color: transparent !important;
+    &.md-transparent {
+      .md-tabs-navigation,
+      .md-tabs-content {
+        background-color: transparent !important;
+      }
     }
 
     &.md-dynamic-height .md-tabs-content {

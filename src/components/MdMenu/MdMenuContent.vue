@@ -193,14 +193,21 @@
 
         return Boolean(alignTrigger || offsetY || offsetX)
       },
+      isMenu ({ target }) {
+        return this.MdMenu.$el ? this.MdMenu.$el.contains(target) : false
+      },
+      isMenuContentEl ({ target }) {
+        return this.$refs.menu ? this.$refs.menu.contains(target) : false
+      },
+      isBackdropExpectMenu ($event) {
+        return !this.$el.contains($event.target) && !this.isMenu($event)
+      },
       createClickEventObserver () {
         if (document) {
           this.MdMenu.bodyClickObserver = new MdObserveEvent(document.body, 'click', $event => {
             $event.stopPropagation()
-            let isMdMenu = this.MdMenu.$el ? this.MdMenu.$el.contains($event.target) : false
-            let isMenuContentEl = this.$refs.menu ? this.$refs.menu.contains($event.target) : false
-            let onBackdropExpectMenu = !this.$el.contains($event.target) && !isMenuContentEl
-            if (!isMdMenu && (this.MdMenu.closeOnClick || onBackdropExpectMenu)) {
+
+            if (!this.isMenu($event) && (this.MdMenu.closeOnClick || this.isBackdropExpectMenu($event))) {
               this.MdMenu.active = false
               this.MdMenu.bodyClickObserver.destroy()
               this.MdMenu.windowResizeObserver.destroy()
@@ -216,17 +223,27 @@
         window.removeEventListener('keydown', this.keyNavigation)
       },
       keyNavigation (event) {
-        event.preventDefault()
         switch (event.key) {
-          case 'ArrowUp': this.setHighlight('up')
-            break
-          case 'ArrowDown': this.setHighlight('down')
-            break
-          case 'Enter': this.setSelection()
-            break
-          case 'Space': this.setSelection()
-            break
-          case 'Escape': this.onEsc()
+        case 'ArrowUp':
+          event.preventDefault()
+          this.setHighlight('up')
+          break
+
+        case 'ArrowDown':
+          event.preventDefault()
+          this.setHighlight('down')
+          break
+
+        case 'Enter':
+          this.setSelection()
+          break
+
+        case 'Space':
+          this.setSelection()
+          break
+
+        case 'Escape':
+          this.onEsc()
         }
       },
       createResizeObserver () {

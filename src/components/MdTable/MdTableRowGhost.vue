@@ -1,7 +1,6 @@
 <script>
   export default {
     name: 'MdTableRowGhost',
-    abstract: true,
     props: {
       mdIndex: [String, Number],
       mdId: [String, Number],

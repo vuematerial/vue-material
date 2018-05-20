@@ -3,8 +3,6 @@
 <example src="./examples/Counters.vue" />
 <example src="./examples/FieldIcons.vue" />
 <example src="./examples/InlineActions.vue" />
-<example src="./examples/FieldVariations.vue" />
-<example src="./examples/AppBarNested.vue" />
 <example src="./examples/Fixes.vue" />
 
 <template>
@@ -21,20 +19,6 @@
       <p>Fields mimics the HTML5 attributes to keep the same compatibility with native inputs, but giving extra options. This allows Vue Material to setup the <code>md-field</code> according with the input options.</p>
       <p>You will be able to set the same properties of a regular <code>input</code> element on <code>md-input</code>. This is also valid for <code>textarea</code> and <code>select</code>. Take a look:</p>
       <code-example title="Input and Textarea" :component="examples['text-fields']" />
-    </div>
-
-    <div class="page-container-section">
-      <h2>Field Variations</h2>
-
-      <p>Fields have three layout variations: Default (with floating labels), solo (with inline labels) and boxed (with floating labels).</p>
-      <code-example title="Variants and Dense" :component="examples['field-variations']" />
-    </div>
-
-    <div class="page-container-section">
-      <h2>App Bar Nested</h2>
-
-      <p>All field variations are works really great as search bar inside a toolbar.</p>
-      <code-example title="Nested Fields" :component="examples['app-bar-nested']" />
     </div>
 
     <div class="page-container-section">
@@ -76,7 +60,8 @@
       <api-item title="API - md-field">
         <p>The following options can be applied to any field:</p>
 
-        <api-table :headings="field.headings" :props="field.props" slot="props" />
+        <api-table :headings="field.props.headings" :props="field.props.props" slot="props" />
+        <api-table :headings="field.events.headings" :props="field.events.props" slot="events" />
       </api-item>
 
       <api-item title="API - md-input">
@@ -107,48 +92,9 @@
         headings: ['Name', 'Description', 'Default'],
         props: [
           {
-            name: 'md-variant',
-            type: 'String',
-            description: 'Sets the field variant. The bottom line variant is the default. See below the detailed description of each variant.',
-            defaults: 'bottom-line'
-          },
-          {
-            offset: true,
-            name: 'md-variant="bottom-line"',
-            type: 'String',
-            description: 'Sets the field variant to bottom line. This is the default.',
-            defaults: '-'
-          },
-          {
-            offset: true,
-            name: 'md-variant="box"',
-            type: 'String',
-            description: 'Sets the field variant to a boxed variant.',
-            defaults: '-'
-          },
-          {
-            offset: true,
-            name: 'md-variant="raised"',
-            type: 'String',
-            description: 'Sets the field variant to a raised variant.',
-            defaults: '-'
-          },
-          {
-            name: 'md-dense',
-            type: 'Boolean',
-            description: 'Enable the dense layout',
-            defaults: 'false'
-          },
-          {
             name: 'md-inline',
             type: 'Boolean',
             description: 'Make the label inline. This means that the label will disappear when the input receives a focus.',
-            defaults: 'false'
-          },
-          {
-            name: 'md-nested',
-            type: 'Boolean',
-            description: 'Enable the nested layout. Its works only within toolbar',
             defaults: 'false'
           },
           {
@@ -169,7 +115,17 @@
             description: 'Add a toggle button on the right of the input to reveal/hide the password. Only works with fields that have a <code>md-input</code> with type password.',
             defaults: 'false'
           }
-        ]
+        ],
+        events: {
+          headings: ['Name', 'Description', 'Value'],
+          props: [
+            {
+              name: 'md-clear',
+              description: 'Triggered after a mouse click on clear icon. Only fired when md-clearable is true.',
+              value: '-'
+            }
+          ]
+        }
       },
       input: {
         headings: ['Name', 'Description', 'Default'],

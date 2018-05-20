@@ -23,6 +23,7 @@
       MdArrowDownIcon
     },
     mixins: [MdListItemMixin],
+    inject: ['MdList'],
     data: () => ({
       expandStyles: {},
       showContent: false
@@ -98,12 +99,22 @@
         let expanded = this.showContent
         this.$emit('update:mdExpanded', expanded)
         this.$nextTick(() => this.$emit(expanded ? 'md-expanded' : 'md-collapsed'))
+
+        if (expanded) {
+          this.MdList.expandATab(this)
+        }
       }
+    },
+    created () {
+      this.MdList.pushExpandable(this)
     },
     mounted () {
       if (this.mdExpanded) {
         this.open()
       }
+    },
+    beforeDestroy () {
+      this.MdList.removeExpandable(this)
     }
   }
 </script>

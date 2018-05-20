@@ -48,7 +48,9 @@ export default {
         initialWidth: 0,
         active: false,
         mode: 'temporary',
-        width: 0
+        submode: null,
+        width: 0,
+        right: false
       }
     }
   }),
@@ -61,16 +63,21 @@ export default {
     isFixed () {
       return this.mdMode && this.mdMode !== 'fixed'
     },
-    isMini () {
+    isDrawerMini () {
       return this.MdApp.drawer.mode === 'persistent' && this.MdApp.drawer.submode === 'mini'
     },
-    contentStyles () {
+    contentPadding () {
       const drawer = this.MdApp.drawer
 
-      if (drawer.active && drawer.mode === 'persistent' && drawer.submode === 'full') {
-        return {
-          'padding-left': drawer.width
-        }
+      if (this.MdApp.drawer.active && this.MdApp.drawer.mode === 'persistent' && this.MdApp.drawer.submode === 'full') {
+        return this.MdApp.drawer.width
+      }
+
+      return 0
+    },
+    contentStyles () {
+      return {
+        [`padding-${this.MdApp.drawer.right ? 'right' : 'left'}`]: this.contentPadding
       }
     },
     containerStyles () {
@@ -80,8 +87,8 @@ export default {
         styles['margin-top'] = this.MdApp.toolbar.initialHeight + 'px'
       }
 
-      if (this.isMini) {
-        styles['padding-left'] = !this.MdApp.drawer.active ? this.MdApp.drawer.initialWidth + 'px' : 0
+      if (this.isDrawerMini) {
+        styles[`padding-${this.MdApp.drawer.right ? 'right' : 'left'}`] = !this.MdApp.drawer.active ? this.MdApp.drawer.initialWidth + 'px' : 0
       }
 
       return styles

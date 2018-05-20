@@ -1,4 +1,4 @@
-import cc from 'conventional-changelog'
+import converntionalChangelog from 'conventional-changelog'
 import config from 'conventional-changelog-vue-material'
 import concat from 'concat'
 import { createWriteStream } from 'fs'
@@ -12,6 +12,7 @@ const releaseNotes = createWriteStream(releaseNotesFile)
 config.then(data => {
   const changelogConfig = {
     config: data,
+    releaseCount: 0,
     pkg: {
       transform (pkg) {
         pkg.version = `v${version}`
@@ -20,7 +21,7 @@ config.then(data => {
     }
   }
 
-  cc(changelogConfig, {}).pipe(releaseNotes).on('close', () => {
+  converntionalChangelog(changelogConfig, {}).pipe(releaseNotes).on('close', () => {
     concat([releaseNotesFile, changelogFile], changelogFile)
   })
 })

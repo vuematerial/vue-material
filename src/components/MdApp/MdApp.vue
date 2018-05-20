@@ -1,6 +1,8 @@
 <script>
+  import Vue from 'vue'
   import MdAppSideDrawer from './MdAppSideDrawer'
   import MdAppInternalDrawer from './MdAppInternalDrawer'
+  import MdDrawerRightPrevious from '../MdDrawer/MdDrawerRightPrevious';
 
   const componentTypes = [
     'md-app-toolbar',
@@ -12,16 +14,58 @@
     return componentOptions && componentTypes.includes(componentOptions.tag)
   }
 
-  function buildSlots (children, context, functionalContext, options) {
+  function isRightDrawer ({ mdRight }) {
+    return mdRight === '' || !!mdRight
+  }
+
+  function createRightDrawer (isMdRight) {
+    if (isMdRight) {
+      const drawerRightPrevious = createElement(MdDrawerRightPrevious, { props: {...child.data.attrs}})
+      drawerRightPrevious.data.slot = 'md-app-drawer-right-previous'
+      slots.push(drawerRightPrevious)
+    }
+  }
+
+  function shouldRenderSlot (data, componentOptions) {
+    return (data && componentTypes.includes(data.slot)) || isValidChild(componentOptions)
+  }
+
+  function generateAttrKeys (attrs) {
+    return JSON.stringify({
+      'persistent': attrs && attrs['md-persistent'],
+      'permanent': attrs && attrs['md-permanent']
+    })
+  }
+
+  function buildSlots (children, context, functionalContext, options, createElement) {
     let slots = []
+
+    let hasDrawer = false
 
     if (children) {
       children.forEach(child => {
+        /* eslint-enable */
         const data = child.data
         const componentOptions = child.componentOptions
 
-        if ((data && componentTypes.includes(data.slot)) || isValidChild(componentOptions)) {
+        if (shouldRenderSlot(data, componentOptions)) {
           child.data.slot = data.slot || componentOptions.tag
+
+          if (componentOptions.tag === 'md-app-drawer') {
+            const isRight = isRightDrawer(componentOptions.propsData)
+
+            if (hasDrawer) {
+              Vue.util.warn(`There shouldn't be more than one drawer in a MdApp at one time.`)
+              return
+            }
+
+            hasDrawer = true
+            child.data.slot += `-${isRight ? 'right' : 'left'}`
+            child.key = generateAttrKeys(data.attrs)
+
+            createRightDrawer(isRight)
+          }
+
           child.data.provide = options.Ctor.options.provide
           child.context = context
           child.functionalContext = functionalContext
@@ -54,7 +98,7 @@
     render (createElement, { children, props, data }) {
       let appComponent = MdAppSideDrawer
       const { context, functionalContext, componentOptions } = createElement(appComponent)
-      const slots = buildSlots(children, context, functionalContext, componentOptions)
+      const slots = buildSlots(children, context, functionalContext, componentOptions, createElement)
       const drawers = getDrawers(slots)
 
       drawers.forEach(drawer => {
@@ -157,7 +201,9 @@
     &.md-permanent-card + .md-app-scroller .md-content {
       @include md-layout-small-and-up {
         padding-left: 0;
+        padding-right: 0;
         border-left: none;
+        border-right: none;
       }
     }
   }
@@ -167,6 +213,7 @@
 
     @include md-layout-small-and-up {
       border-left: 1px solid transparent;
+      border-right: 1px solid transparent;
     }
 
     > p {
@@ -185,8 +232,9 @@
     display: flex;
     overflow: auto;
     transform: translate3D(0, 0, 0);
-    transition: padding-left .4s $md-transition-default-timing;
-    will-change: padding-left;
+    transition: padding-left .4s $md-transition-default-timing,
+                padding-right .4s $md-transition-default-timing;
+    will-change: padding-left, padding-right;
   }
 
   .md-app-scroller {

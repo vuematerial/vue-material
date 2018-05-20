@@ -1815,20 +1815,26 @@ code-point-at@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
 
-codesandbox-import-utils@^1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/codesandbox-import-utils/-/codesandbox-import-utils-1.2.2.tgz#de08fbae99d3ef68be49497ceb88ec463e8eb869"
+codesandbox-import-util-types@^1.2.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/codesandbox-import-util-types/-/codesandbox-import-util-types-1.2.3.tgz#12a03690e410a3dfcdb62d8f05e7f651604c1b73"
+
+codesandbox-import-utils@^1.2.7:
+  version "1.2.7"
+  resolved "https://registry.yarnpkg.com/codesandbox-import-utils/-/codesandbox-import-utils-1.2.7.tgz#1396c47841cea6ff8fb85777720deb3069d0a6d9"
   dependencies:
+    codesandbox-import-util-types "^1.2.3"
     istextorbinary "^2.2.1"
     lz-string "^1.4.4"
 
-codesandbox@^1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/codesandbox/-/codesandbox-1.2.2.tgz#ee203955676fde0de9bcfe4f141ce81e811931e6"
+codesandbox@^1.2.7:
+  version "1.2.7"
+  resolved "https://registry.yarnpkg.com/codesandbox/-/codesandbox-1.2.7.tgz#9a5319b4714d9d9467956f95d5bae432d97d812a"
   dependencies:
     axios "^0.16.2"
     chalk "^1.1.3"
-    codesandbox-import-utils "^1.2.2"
+    codesandbox-import-util-types "^1.2.3"
+    codesandbox-import-utils "^1.2.7"
     commander "^2.9.0"
     fs-extra "^3.0.1"
     git-branch "^1.0.0"

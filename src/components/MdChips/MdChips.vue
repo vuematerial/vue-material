@@ -132,11 +132,11 @@
           this.duplicatedChip = null
           return false
         }
-        
+
         if (!this.mdCheckDuplicated) {
           return false
         }
-        
+
         this.duplicatedChip = this.formattedInputValue
       }
     },

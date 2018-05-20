@@ -339,7 +339,7 @@
       }
 
       .md-steppers-container {
-        flex-direction: column;
+        display: block;
       }
 
       .md-button-content {
@@ -355,6 +355,7 @@
       }
 
       .md-stepper {
+        flex: none;
         padding: 0;
         position: relative;
 

@@ -94,23 +94,23 @@
           props: [
             {
               name: 'xsmall',
-              description: 'For screens who have the maximum of 600px wide. For small, medium and large handsets in portrait. Also applies to small tablets in portrait.',
-              value: '<600px'
+              description: 'For screens who have the maximum of 599px wide. For small, medium and large handsets in portrait. Also applies to small tablets in portrait.',
+              value: '<599px'
             },
             {
               name: 'small',
-              description: 'For screens who have between of 600px and 960px wide. For medium and large handsets in landscape, small and large tablets in portrait mode and some desktop monitors.',
-              value: '960px'
+              description: 'For screens who have between of 600px and 959px wide. For medium and large handsets in landscape, small and large tablets in portrait mode and some desktop monitors.',
+              value: '959px'
             },
             {
               name: 'medium',
-              description: 'For screens who have between of 960px and 1280px wide. For small and large tablets in landscape and desktop monitors.',
-              value: '1280px'
+              description: 'For screens who have between of 960px and 1279px wide. For small and large tablets in landscape and desktop monitors.',
+              value: '1279px'
             },
             {
               name: 'large',
-              description: 'For screens who have between of 1280px and 1920px wide. For large desktop monitors.',
-              value: '1920px'
+              description: 'For screens who have between of 1280px and 1919px wide. For large desktop monitors.',
+              value: '1919px'
             },
             {
               name: 'xlarge',

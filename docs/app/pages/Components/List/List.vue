@@ -56,6 +56,7 @@
       <api-item title="API - md-list">
         <p>The following options can be applied to any list:</p>
 
+        <api-table :headings="list.props.headings" :props="list.props.props" slot="props" />
         <api-table :headings="list.classes.headings" :props="list.classes.props" slot="classes" />
       </api-item>
 
@@ -82,10 +83,10 @@
           headings: ['Name', 'Description', 'Default'],
           props: [
             {
-              name: 'id',
-              type: 'String',
-              description: 'The item id. Used when changing the selected item dynamically',
-              defaults: 'a random string'
+              name: 'md-expand-single',
+              type: 'Boolean',
+              description: 'If set true, one expandable list item could be expanded at most at a time. The expanded list item will be collapsed when another is expanded',
+              defaults: 'false'
             }
           ]
         },

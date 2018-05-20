@@ -16,7 +16,7 @@
     },
     props: {
       mdRipple: Boolean,
-      mdRippleActive: [Boolean, Event],
+      mdRippleActive: null,
       disabled: Boolean
     }
   }

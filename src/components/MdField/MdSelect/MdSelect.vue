@@ -263,7 +263,7 @@
         return this.localValue !== undefined && this.localValue !== null
       },
       setLocalValueIfMultiple () {
-        if (isLocalValueSet()) {
+        if (this.isLocalValueSet()) {
           this.localValue = [this.localValue]
         } else {
           this.localValue = []

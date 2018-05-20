@@ -3,7 +3,7 @@
     <div class="md-switch-container" @click.stop="toggleCheck">
       <div class="md-switch-thumb">
         <md-ripple md-centered :md-active.sync="rippleActive" :md-disabled="disabled">
-          <input type="checkbox" v-bind="{ id, name, disabled, required, value }">
+          <input :id="id" type="checkbox" v-bind="{ id, name, disabled, required, value }">
         </md-ripple>
       </div>
     </div>

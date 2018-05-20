@@ -1,7 +1,7 @@
 {
   "name": "vue-material",
   "description": "Material Design for Vue.js",
-  "version": "1.0.0-beta-8",
+  "version": "1.0.0-beta-10.2",
   "license": "MIT",
   "author": {
     "name": "marcosmoura",
@@ -23,7 +23,7 @@
   "unpkg": "dist/vue-material.min.js",
   "scripts": {
     "dev": "babel-node build/local",
-    "build": "rm -rf dist/; babel-node build/lib",
+    "build": "rm -rf dist/ && babel-node build/lib",
     "docs": "babel-node build/docs",
     "lint": "eslint --ext .js,.vue docs src build test",
     "test": "jest",
@@ -56,7 +56,7 @@
     "babel-preset-stage-2": "^6.24.1",
     "chalk": "^2.3.0",
     "clipboard": "^1.7.1",
-    "codesandbox": "^1.2.2",
+    "codesandbox": "^1.2.7",
     "commitizen": "^2.9.6",
     "concat": "^1.0.3",
     "connect-history-api-fallback": "^1.5.0",
