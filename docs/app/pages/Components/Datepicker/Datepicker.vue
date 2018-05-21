@@ -20,19 +20,19 @@
 
     <div class="page-container-section">
       <h2>Cancel open on focus</h2>
-      <p>By default Datepicker component open on focus on it's input. This will make the input useless and the user will not be able to type de date manually. You can disable this behavior:</p>
+      <p>By default Datepicker component open on focus to it's input. This will make the input useless and the user will not be able to type the date manually. You can disable this behavior:</p>
       <code-example title="With initial date selected" :component="examples['cancel-open-datepicker']" />
     </div>
 
     <div class="page-container-section">
       <h2>Immediately selection</h2>
-      <p>Datepicker dialog could be closed instantly after a date is selected. Date will be selected immediately without any confirm:</p>
+      <p>The Datepicker dialog can be made to close instantly after a date is selected. Date will be selected immediately without any additional confirmation or user action:</p>
       <code-example title="Close dialog on select" :component="examples['close-on-select-datepicker']" />
     </div>
 
     <div class="page-container-section">
       <h2>Disabled dates</h2>
-      <p>Sometimes you may need to disable certain dates from being selected. Let's suppose that you only want to let user to select work days:</p>
+      <p>Sometimes you may need to disable certain dates from being selected. Let's suppose that you want to let the user select only week days:</p>
       <code-example title="No weekends available" :component="examples['disabled-dates-datepicker']" />
 
       <api-item title="API - md-datepicker">
