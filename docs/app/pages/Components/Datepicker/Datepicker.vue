@@ -26,7 +26,7 @@
 
     <div class="page-container-section">
       <h2>Immediately selection</h2>
-      <p>The Datepicker dialog can be made to close instantly after a date is selected. Date will be selected immediately without any additional confirmation or user action:</p>
+      <p>The Datepicker dialog can be made to close instantly after a date is selected. The date will be selected immediately without any additional confirmation or user action:</p>
       <code-example title="Close dialog on select" :component="examples['close-on-select-datepicker']" />
     </div>
 
