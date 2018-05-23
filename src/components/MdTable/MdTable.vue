@@ -113,14 +113,12 @@
             let isNumber = typeof aAttr === 'number'
 
             if (isNumber) {
-              return isAsc ? (bAttr - aAttr) : (aAttr - bAttr)
+              return isAsc ? (aAttr - bAttr) : (bAttr - aAttr)
             }
 
-            if (isAsc) {
-              return bAttr.localeCompare(aAttr)
-            }
-
-            return aAttr.localeCompare(bAttr)
+            return isAsc ?
+              aAttr.localeCompare(bAttr) :
+              bAttr.localeCompare(aAttr)
           })
         }
       },
