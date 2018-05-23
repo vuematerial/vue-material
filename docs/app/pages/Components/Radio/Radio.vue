@@ -37,13 +37,13 @@
         props: [
           {
             name: 'value',
-            type: 'String|Number|Boolean',
+            type: 'String|Number|Boolean|Object',
             description: 'The value of the radio',
             defaults: 'on'
           },
           {
             name: 'v-model',
-            type: 'String|Number|Boolean',
+            type: 'String|Number|Boolean|Object',
             description: 'The model variable to bind the selection value. If no value is assigned, then it will use the same behaviour of a regular input[type="radio"].',
             defaults: 'null'
           },
