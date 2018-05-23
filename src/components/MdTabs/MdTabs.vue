@@ -240,6 +240,8 @@
       this.activeTab = this.mdActiveTab
     },
     mounted () {
+      this.setupObservers()
+
       this.$nextTick().then(() => {
         if (this.mdSyncRoute) {
           this.setActiveTabByRoute()
@@ -254,7 +256,6 @@
 
         window.setTimeout(() => {
           this.noTransition = false
-          this.setupObservers()
           this.setupWatchers()
         }, 100)
       })
