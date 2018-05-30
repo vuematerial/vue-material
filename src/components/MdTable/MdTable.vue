@@ -322,7 +322,7 @@
         if (this.MdTable.selectedItems.includes(item)) {
           this.MdTable.selectedItems = this.MdTable.selectedItems.filter(target => target !== item)
         } else {
-          this.MdTable.selectedItems.push(item)
+          this.MdTable.selectedItems = this.MdTable.selectedItems.concat([item])
         }
       },
       sortTable () {
