@@ -124,7 +124,10 @@
         handler (val) {
           this.setFieldContent()
           this.MdSelect.modelValue = this.localValue
-          this.emitSelected(val)
+
+          if (this.didMount) {
+            this.emitSelected(val)
+          }
         }
       },
       multiple: {
