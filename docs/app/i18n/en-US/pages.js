@@ -102,7 +102,7 @@ export default {
     apiApp: {
       desc: 'In these examples we have 3 distinct areas: Toolbar, Drawer and Content. You should create them using the following tags:',
       toolbar: 'Creates the toolbar accepting any options from the md-toolbar',
-      drawer: 'Places the drawer panel, that also accepts any options from the md-drawer. You can have left or right placed drawers. Or both.',
+      drawer: 'Places the drawer panel, that also accepts any options from the md-drawer. You can have a left or right placed drawer. Placing multiple drawers is currently not supported.',
       content: 'Here you will add any content for your page.',
       alert: 'Any other tag passed as a direct child of the md-app tag will be ignored. The component will only look for these three tags and choose the right placement for them.',
       propsDesc: 'The following properties can be applied'
