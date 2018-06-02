@@ -1,4 +1,4 @@
-import MdTheme from 'core/MdTheme'
+import MdTheme from './MdTheme'
 import deepmerge from 'deepmerge'
 
 export default function (newComponent) {
