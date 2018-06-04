@@ -2110,6 +2110,13 @@ function shouldRenderSlot(data, componentOptions) {
   return data && componentTypes.includes(data.slot) || isValidChild(componentOptions);
 }
 
+function generateAttrKeys(attrs) {
+  return JSON.stringify({
+    'persistent': attrs && attrs['md-persistent'],
+    'permanent': attrs && attrs['md-permanent']
+  });
+}
+
 function buildSlots(children, context, functionalContext, options, createElement) {
   var slots = [];
 
@@ -2117,6 +2124,7 @@ function buildSlots(children, context, functionalContext, options, createElement
 
   if (children) {
     children.forEach(function (child) {
+      /* eslint-enable */
       var data = child.data;
       var componentOptions = child.componentOptions;
 
@@ -2133,10 +2141,7 @@ function buildSlots(children, context, functionalContext, options, createElement
 
           hasDrawer = true;
           child.data.slot += '-' + (isRight ? 'right' : 'left');
-          child.key = JSON.stringify({
-            'persistent': child.data.attrs['md-persistent'],
-            'permanent': child.data.attrs['md-permanent']
-          });
+          child.key = generateAttrKeys(data.attrs);
 
           createRightDrawer(isRight);
         }
@@ -3287,6 +3292,7 @@ exports.default = {
         if (this.isPromise(this.mdOptions)) {
           this.isPromisePending = true;
           this.mdOptions.then(function (options) {
+            toLowerCase;
             _this.filteredAsyncOptions = options;
             _this.isPromisePending = false;
           });
@@ -3311,7 +3317,13 @@ exports.default = {
     },
     matchText: function matchText(item) {
       var target = item.toLowerCase();
-      var search = this.searchTerm.toLowerCase();
+      var search = '';
+      if (typeof this.searchTerm === 'string') {
+        search = searchTerm;
+      } else if (_typeof(this.searchTerm) === 'object') {
+        search = searchTerm.target;
+      }
+      search = search.toLowerCase();
 
       if (this.mdFuzzySearch) {
         return (0, _fuzzysearch2.default)(search, target);
@@ -7981,7 +7993,7 @@ exports.default = {
       return this.localValue !== undefined && this.localValue !== null;
     },
     setLocalValueIfMultiple: function setLocalValueIfMultiple() {
-      if (isLocalValueSet()) {
+      if (this.isLocalValueSet()) {
         this.localValue = [this.localValue];
       } else {
         this.localValue = [];

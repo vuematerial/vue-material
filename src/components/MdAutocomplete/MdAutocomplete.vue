@@ -132,7 +132,7 @@
         handler () {
           if (this.isPromise(this.mdOptions)) {
             this.isPromisePending = true
-            this.mdOptions.then(options => {
+            this.mdOptions.then(options => {toLowerCase
               this.filteredAsyncOptions = options
               this.isPromisePending = false
             })
@@ -157,7 +157,13 @@
       },
       matchText (item) {
         const target = item.toLowerCase()
-        const search = this.searchTerm.toLowerCase()
+        let search = ''
+        if (typeof this.searchTerm === 'string') {
+          search = searchTerm
+        } else if (typeof this.searchTerm === 'object') {
+          search = searchTerm.target
+        }
+        search = search.toLowerCase()
 
         if (this.mdFuzzySearch) {
           return fuzzy(search, target)
