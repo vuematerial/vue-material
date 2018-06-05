@@ -59,8 +59,8 @@
             &lt;meta charset="utf-8"&gt;
             &lt;meta content="width=device-width,initial-scale=1,minimal-ui" name="viewport"&gt;
             &lt;link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic|Material+Icons"&gt;
-          	&lt;link rel="stylesheet" href="https://unpkg.com/vue-material@beta/dist/vue-material.min.css"&gt;
-          	&lt;link rel="stylesheet" href="https://unpkg.com/vue-material@beta/dist/theme/default.css"&gt;
+          	&lt;link rel="stylesheet" href="https://unpkg.com/vue-material/dist/vue-material.min.css"&gt;
+          	&lt;link rel="stylesheet" href="https://unpkg.com/vue-material/dist/theme/default.css"&gt;
           &lt;/head&gt;
 
           &lt;body&gt;
@@ -69,7 +69,7 @@
             &lt;/div&gt;
 
             &lt;script src="https://unpkg.com/vue"&gt;&lt;/script&gt;
-            &lt;script src="https://unpkg.com/vue-material@beta"&gt;&lt;/script&gt;
+            &lt;script src="https://unpkg.com/vue-material"&gt;&lt;/script&gt;
             &lt;script&gt;
               Vue.use(VueMaterial.default)
 
