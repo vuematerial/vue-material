@@ -129,7 +129,7 @@
     will-change: border;
 
     &.md-active {
-      .md-list-expand-icon {
+      > .md-list-item-content > .md-list-expand-icon {
         perspective: 1000px;
         perspective-origin: 50% 50%;
         transform: rotateX(180deg);
