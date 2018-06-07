@@ -348,6 +348,10 @@
       }
     },
     created () {
+      if (this.mdSort) {
+        this.sortTable()
+      }
+
       this.$nextTick().then(() => {
         this.syncSelectedValue()
       })
