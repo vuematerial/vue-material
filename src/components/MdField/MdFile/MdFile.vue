@@ -7,7 +7,7 @@
       readonly
       v-model="model"
       v-bind="{ disabled, required, placeholder }"
-      @focus="openPicker"
+      @click="openPicker"
       @blur="onBlur">
 
     <input type="file" ref="inputFile" v-bind="attributes" v-on="$listeners" @change="onChange" />
