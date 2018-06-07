@@ -33,12 +33,12 @@ export const destroySnackbar = () => {
   })
 }
 
-export const createSnackbar = (duration, context) => {
+export const createSnackbar = (duration, persistent, context) => {
   if (currentSnackbar) {
     return destroySnackbar().then(() => {
-      return createPromise(duration, context)
+      return createPromise(duration, persistent, context)
     })
   }
 
-  return createPromise(duration, context)
+  return createPromise(duration, persistent, context)
 }
