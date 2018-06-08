@@ -1,0 +1,21 @@
+.md-rating-bar {
+  @include md-theme-component() {
+    &.md-rating-bar {
+      > .md-empty-icon .md-icon {
+        @include md-theme-property(color, text-primary, "", 0.26);
+      }
+
+      > .md-full-icon .md-icon {
+        @include md-theme-property(color, text-primary, "", 0.38)
+      }
+
+      &.md-primary > .md-full-icon .md-icon {
+        @include md-theme-property(color, primary);
+      }
+
+      &.md-accent > .md-full-icon .md-icon {
+        @include md-theme-property(color, accent);
+      }
+    }
+  }
+}
