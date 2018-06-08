@@ -127,8 +127,10 @@
     text-transform: none;
 
     &:not(.md-list-item-default):not([disabled]) {
-      user-select: none;
-      cursor: pointer;
+      > .md-list-item-content {
+        user-select: none;
+        cursor: pointer;
+      }
     }
 
     &.md-button-clean:hover {
