@@ -50,7 +50,7 @@
       </code-example>
 
       <p>Although is not the recommended approach, you can always use CDNs for fast prototyping:</p>
-      <note-block tip>For better integration with Vue Material, use <a href="https://github.com/vuejs-templates/webpack" target="_blank">vue-cli</a>.</note-block>
+      <note-block tip>For better integration with Vue Material, use <a href="https://cli.vuejs.org" target="_blank">vue-cli</a>.</note-block>
 
       <code-example title="CDN" label="HTML" lang="html">
         &lt;!doctype html&gt;
