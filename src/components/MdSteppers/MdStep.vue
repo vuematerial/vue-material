@@ -2,7 +2,7 @@
   <div class="md-stepper">
     <md-step-header v-if="MdSteppers.isVertical" :index="id" />
 
-    <div :class="['md-stepper-content', { 'md-active': id === MdSteppers.activeStep }]" :tabindex="tabIndex">
+    <div :class="['md-stepper-content', { 'md-active': isActive }]" :tabindex="tabIndex" v-show="isActive">
       <slot />
     </div>
   </div>
@@ -44,10 +44,13 @@
       }
     },
     computed: {
+      isActive () {
+        return this.id === this.MdSteppers.activeStep
+      },
       tabIndex () {
-        return this.id !== this.MdSteppers.activeStep
-        ? -1
-        : false
+        return !this.isActive
+          ? -1
+          : false
       }
     },
     methods: {
