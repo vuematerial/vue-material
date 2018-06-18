@@ -155,7 +155,7 @@
             description: 'By default the layout items will be always wrapper under the parent layout. Use this class if you want to disable this behaviour, but the responsiveness will not work.'
           },
           {
-            name: 'md-alignment-<code>[x]</code>-<code>[y]</code>',
+            name: 'md-alignment-<code>[y]</code>-<code>[x]</code>',
             description: `Sets the alignment of all children based on a value per coordinate. The alignment only works if both x and y is present e.g. <code>md-alignment-top-center</code>. The possible values are: <br>
               <ul>
                 <li>top</li>
