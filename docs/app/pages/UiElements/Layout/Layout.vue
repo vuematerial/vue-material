@@ -41,7 +41,7 @@
     </div>
 
     <div class="page-container-section">
-      <p>You can use layouts for almost anything on your app, even for small parts. To help you with that you can have differents alignments per <code>md-layout</code>, combining horizontal and vertical alignments, using the <code>md-alignment-[horizontal]-[vertical]</code> class, e.g. <code>md-alignment-top-center</code>. The alignment works on the parent element and will affect the position of all children items:</p>
+      <p>You can use layouts for almost anything on your app, even for small parts. To help you with that you can have differents alignments per <code>md-layout</code>, combining horizontal and vertical alignments, using the <code>md-alignment-[vertical]-[horizontal]</code> class, e.g. <code>md-alignment-top-center</code>. The alignment works on the parent element and will affect the position of all children items:</p>
       <code-example title="Alignments" :component="examples['layout-horizontal-alignment']" />
     </div>
 
