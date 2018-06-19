@@ -27,6 +27,12 @@ export default {
     installation: 'Installation',
     npmOrYarn: 'NPM or Yarn'
   },
+  configuration: {
+    title: 'Configuration',
+    viaVueGlobalObject: 'Via Vue global object',
+    inVueComponents: 'In Vue components',
+    options: 'Options',
+  },
   themes: {
     title: 'Themes'
   },

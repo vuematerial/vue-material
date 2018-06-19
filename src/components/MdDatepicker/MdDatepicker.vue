@@ -1,14 +1,14 @@
 <template>
   <md-field :class="['md-datepicker', { 'md-native': !this.mdOverrideNative }]" md-clearable>
     <md-date-icon class="md-date-icon" @click.native="toggleDialog" />
-    <md-input :type="type" ref="input" :value="modelDate" @input="onInput" @focus.native="onFocus" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" />
+    <md-input :type="type" ref="input" v-model="inputDate" @focus.native="onFocus" :pattern="pattern" />
 
     <slot />
 
     <keep-alive>
       <md-datepicker-dialog
         v-if="showDialog"
-        :md-date.sync="selectedDate"
+        :md-date.sync="localDate"
         :md-disabled-dates="mdDisabledDates"
         :mdImmediately="mdImmediately"
         @md-closed="toggleDialog"
@@ -24,7 +24,8 @@
   import isFirefox from 'is-firefox'
   import format from 'date-fns/format'
   import parse from 'date-fns/parse'
-  import isValid from 'date-fns/is_valid'
+  import isValid from 'date-fns/isValid'
+  import MdPropValidator from 'core/utils/MdPropValidator'
   import MdOverlay from 'components/MdOverlay/MdOverlay'
   import MdDatepickerDialog from './MdDatepickerDialog'
   import MdDateIcon from 'core/icons/MdDateIcon'
@@ -42,7 +43,7 @@
       MdDatepickerDialog
     },
     props: {
-      value: [String, Date],
+      value: [String, Number, Date],
       mdDisabledDates: [Array, Function],
       mdOpenOnFocus: {
         type: Boolean,
@@ -56,6 +57,11 @@
         type: Boolean,
         default: false
       },
+      mdModelType: {
+        type: Function,
+        default: Date,
+        ...MdPropValidator('md-model-type', [Date, String, Number])
+      },
       MdDebounce: {
         type: Number,
         default: 1000
@@ -63,47 +69,114 @@
     },
     data: () => ({
       showDialog: false,
-      modelDate: null,
-      selectedDate: null
+      // String for input
+      inputDate: '',
+      // Date for real value
+      localDate: null
     }),
     computed: {
+      locale () {
+        return this.$material.locale
+      },
       type () {
         return this.mdOverrideNative
           ? 'text'
           : 'date'
+      },
+      dateFormat () {
+        return this.locale.dateFormat || 'YYYY-MM-DD'
+      },
+      modelType () {
+        if (this.isModelTypeString) {
+          return String
+        } else if (this.isModelTypeNumber) {
+          return Number
+        } else if (this.isModelTypeDate) {
+          return Date
+        } else {
+          return this.mdModelType
+        }
+      },
+      isModelNull () {
+        return this.value === null || this.value === undefined
+      },
+      isModelTypeString () {
+        return typeof this.value === 'string'
+      },
+      isModelTypeNumber () {
+        return Number.isInteger(this.value) && this.value >= 0
+      },
+      isModelTypeDate () {
+        return typeof this.value === 'object' && this.value instanceof Date && isValid(this.value)
+      },
+      localString () {
+        return this.localDate && format(this.localDate, this.dateFormat)
+      },
+      localNumber () {
+        return this.localDate && Number(this.localDate)
+      },
+      parsedInputDate () {
+        const parsedDate = parse(this.inputDate, this.dateFormat, new Date())
+        return parsedDate && isValid(parsedDate) ? parsedDate : null
+      },
+      pattern () {
+        return this.dateFormat.replace(/YYYY|MM|DD/g, match => {
+          switch (match) {
+          case 'YYYY':
+            return '[0-9]{4}'
+          case 'MM':
+          case 'DD':
+            return '[0-9]{2}'
+          }
+        })
       }
     },
     watch: {
-      selectedDate (selectedDate) {
-        if (selectedDate) {
-          this.modelDate = this.dateToHTMLString(selectedDate)
-          this.$emit('input', selectedDate)
+      inputDate (value) {
+        this.inputDateToLocalDate()
+      },
+      localDate () {
+        this.inputDate = this.localString
+        if (this.modelType === Date) {
+          this.$emit('input', this.localDate)
         }
       },
-      value () {
-        if (this.value) {
-          this.modelDate = this.dateToHTMLString(this.value)
+      localString () {
+        if (this.modelType === String) {
+          this.$emit('input', this.localString)
         }
       },
-      modelDate (value) {
-        if (value) {
-          const parsedDate = parse(value)
-
-          if (isValid(parsedDate)) {
-            this.selectedDate = parsedDate
-          }
-        } else {
-          this.selectedDate = null
+      localNumber () {
+        if (this.modelType === Number) {
+          this.$emit('input', this.localNumber)
+        }
+      },
+      value: {
+        immediate: true,
+        handler() {
+          this.valueDateToLocalDate()
+        }
+      },
+      mdModelType (type) {
+        switch (type) {
+        case Date:
+          this.$emit('input', this.localDate)
+          break;
+        case String:
+          this.$emit('input', this.localString)
+          break;
+        case Number:
+          this.$emit('input', this.localNumber)
+          break;
+        }
+      },
+      dateFormat () {
+        if (this.localDate) {
+          this.inputDate = format(this.inputDate, this.dateFormat)
         }
       }
     },
     methods: {
-      onInput(value) {
-        const parsedDate = parse(value)
-        if (isValid(parsedDate)) {
-          this.selectedDate = parsedDate
-        }
-      },
       toggleDialog () {
         if (!isFirefox || this.mdOverrideNative) {
           this.showDialog = !this.showDialog
@@ -121,25 +194,37 @@
           this.toggleDialog()
         }
       },
-      dateToHTMLString (date) {
-        if (date) {
-          let formattedDate = null
-          const dateFormat = this.$material.locale.dateFormat || 'YYYY-MM-DD'
-
-          try {
-            formattedDate = format(date, dateFormat)
-          } catch (error) {
-            Vue.util.warn(`The datepicker value is not a valid date. Given value: ${date}.`, this)
+      inputDateToLocalDate () {
+        if (this.inputDate) {
+          if (this.parsedInputDate) {
+            this.localDate = this.parsedInputDate
           }
+        } else {
+          this.localDate = null
+        }
+      },
+      valueDateToLocalDate () {
+        if (this.isModelNull) {
+          this.localDate = null
+        } else if (this.isModelTypeNumber) {
+          this.localDate = new Date(this.value)
+        } else if (this.isModelTypeDate) {
+          this.localDate = this.value
+        } else if (this.isModelTypeString) {
+          let parsedDate = parse(this.value, this.dateFormat, new Date())
 
-          return formattedDate
+          if (isValid(parsedDate)) {
+            this.localDate = parse(this.value, this.dateFormat, new Date())
+          } else {
+            Vue.util.warn(`The datepicker value is not a valid date. Given value: ${this.value}, format: ${this.dateFormat}`)
+          }
+        } else {
+          Vue.util.warn(`The datepicker value is not a valid date. Given value: ${this.value}`)
         }
       }
     },
     created () {
-      this.onInput = MdDebounce(this.onInput, this.MdDebounce)
-      this.modelDate = this.dateToHTMLString(this.value)
-      this.selectedDate = this.value
+      this.inputDateToLocalDate = MdDebounce(this.inputDateToLocalDate, this.MdDebounce)
     }
   }
 </script>

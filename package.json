@@ -66,7 +66,7 @@
     "css-loader": "^0.28.9",
     "css-mqpacker": "^6.0.2",
     "cz-conventional-changelog": "^2.1.0",
-    "date-fns": "^1.29.0",
+    "date-fns": "^2.0.0-alpha.7",
     "deepmerge": "^2.0.1",
     "eslint": "^4.16.0",
     "eslint-config-standard": "^11.0.0-beta.0",
