@@ -1,5 +1,5 @@
 <template>
-  <div class="md-dialog-content">
+  <div class="md-dialog-content md-theme-default">
     <slot />
   </div>
 </template>
