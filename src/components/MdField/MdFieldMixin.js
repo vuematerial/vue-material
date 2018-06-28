@@ -22,7 +22,7 @@ export default {
       },
       set (value) {
         if (value.constructor.toString().match(/function (\w*)/)[1].toLowerCase() !== 'inputevent') {
-          this.$nextTick(() => {
+          this.$nextTick().then(() => {
             this.localValue = value
           })
         }
