@@ -22,9 +22,8 @@ export default {
       },
       set (value) {
         if (value.constructor.toString().match(/function (\w*)/)[1].toLowerCase() !== 'inputevent') {
-          this.$nextTick(() => {
-            this.localValue = value
-          })
+          this.$emit('input', value)
+          this.localValue = value
         }
       }
     },
@@ -68,9 +67,6 @@ export default {
     },
     mdCounter () {
       this.setMaxlength()
-    },
-    localValue (val) {
-      this.$emit('input', val)
     },
     value (val) {
       this.localValue = val
