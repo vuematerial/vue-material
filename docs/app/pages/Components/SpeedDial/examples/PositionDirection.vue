@@ -1,5 +1,24 @@
 <template>
   <div class="example">
+    <div class="demo-option">
+      <md-field class="select">
+        <label for="top">Top</label>
+        <md-select id="top" v-model="topPosition">
+          <md-option value="md-top-left">Left</md-option>
+          <md-option value="md-top-center">Center</md-option>
+          <md-option value="md-top-right">Right</md-option>
+        </md-select>
+      </md-field>
+
+      <md-field class="select">
+        <label for="bottom">Bottom</label>
+        <md-select id="bottom" v-model="bottomPosition">
+          <md-option value="md-bottom-left">Left</md-option>
+          <md-option value="md-bottom-center">Center</md-option>
+          <md-option value="md-bottom-right">Right</md-option>
+        </md-select>
+      </md-field>
+    </div>
     <md-speed-dial :class="topPosition" md-direction="bottom">
       <md-speed-dial-target class="md-primary">
         <md-icon>my_location</md-icon>
@@ -31,26 +50,6 @@
         </md-button>
       </md-speed-dial-content>
     </md-speed-dial>
-
-    <div class="demo-option">
-      <div>
-        <label for="top">Top</label>
-        <select id="top" v-model="topPosition">
-          <option value="md-top-left">Left</option>
-          <option value="md-top-center">Center</option>
-          <option value="md-top-right">Right</option>
-        </select>
-      </div>
-
-      <div>
-        <label for="bottom">Bottom</label>
-        <select id="bottom" v-model="bottomPosition">
-          <option value="md-bottom-left">Left</option>
-          <option value="md-bottom-center">Center</option>
-          <option value="md-bottom-right">Right</option>
-        </select>
-      </div>
-    </div>
   </div>
 </template>
 
@@ -71,15 +70,18 @@ export default {
 
   .demo-option {
     display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 
-    div {
+    .select {
       margin: 0 6px;
-      display: flex;
-      flex-direction: column;
+      display: inline-flex;
+      width: auto;
     }
   }
 </style>

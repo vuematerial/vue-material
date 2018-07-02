@@ -95,7 +95,7 @@
       },
       addSelection () {
         if (!this.isMultipleSelected) {
-          this.MdTable.selectedItems.push(this.mdItem)
+          this.MdTable.selectedItems = this.MdTable.selectedItems.concat([this.mdItem])
         }
       },
       removeSelection () {
@@ -124,7 +124,7 @@
           return false
         }
 
-        this.MdTable.selectable.push(this.mdItem)
+        this.MdTable.selectable = this.MdTable.selectable.concat([this.mdItem])
       },
       removeSelectableItem (target = this.mdItem) {
         if (this.mdSelectable === 'multiple') {

@@ -115,6 +115,11 @@ export const routes = [
     page: 'GettingStarted.vue'
   },
   {
+    path: '/configuration',
+    name: 'configuration',
+    page: 'Configuration.vue'
+  },
+  {
     path: '/themes',
     name: 'themes',
     redirect: '/themes/concepts'

@@ -5,7 +5,7 @@
 <template>
   <page-container centered :title="$t('pages.checkbox.title')">
     <div class="page-container-section">
-      <p>Checkboxes allow the user to select multiple options from a set. Vue material checkboxes can work with multiple <code>v-model</code> types: <code>String</code>, <code>Number</code>, <code>Boolean</code> and <code>Array</code>.</p>
+      <p>Checkboxes allow the user to select multiple options from a set. Vue material checkboxes can work with multiple <code>v-model</code> types: <code>String</code>, <code>Number</code>, <code>Boolean</code>, <code>Object</code> and <code>Array</code>.</p>
     </div>
 
     <div class="page-container-section">

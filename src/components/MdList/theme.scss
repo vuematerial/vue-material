@@ -18,7 +18,7 @@
     .md-list-item-container {
       @include md-theme-property(color, text-primary, background);
 
-      &:not(.md-list-item-default):not([disabled]):hover {
+      &:not(.md-list-item-default):not(.md-list-item-expand):not([disabled]):hover {
         @include md-theme-property(background-color, divider, background);
         @include md-theme-property(color, text-primary, background);
       }
@@ -35,8 +35,17 @@
       }
     }
 
-    .md-list-item-expand.md-active {
-      @include md-theme-property(border-color, divider, background);
+    .md-list-item-expand {
+      &.md-active {
+        @include md-theme-property(border-color, divider, background);
+      }
+
+      &:not(.md-list-item-default):not([disabled]) {
+        > .md-list-item-content:hover {
+          @include md-theme-property(background-color, divider, background);
+          @include md-theme-property(color, text-primary, background);
+        }
+      }
     }
   }
 }

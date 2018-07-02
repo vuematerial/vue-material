@@ -113,14 +113,12 @@
             let isNumber = typeof aAttr === 'number'
 
             if (isNumber) {
-              return isAsc ? (bAttr - aAttr) : (aAttr - bAttr)
+              return isAsc ? (aAttr - bAttr) : (bAttr - aAttr)
             }
 
-            if (isAsc) {
-              return bAttr.localeCompare(aAttr)
-            }
-
-            return aAttr.localeCompare(bAttr)
+            return isAsc ?
+              aAttr.localeCompare(bAttr) :
+              bAttr.localeCompare(aAttr)
           })
         }
       },
@@ -322,7 +320,7 @@
         if (this.MdTable.selectedItems.includes(item)) {
           this.MdTable.selectedItems = this.MdTable.selectedItems.filter(target => target !== item)
         } else {
-          this.MdTable.selectedItems.push(item)
+          this.MdTable.selectedItems = this.MdTable.selectedItems.concat([item])
         }
       },
       sortTable () {
@@ -348,6 +346,10 @@
       }
     },
     created () {
+      if (this.mdSort) {
+        this.sortTable()
+      }
+
       this.$nextTick().then(() => {
         this.syncSelectedValue()
       })

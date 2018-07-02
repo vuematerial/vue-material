@@ -222,6 +222,8 @@
       this.activeTab = this.mdActiveTab
     },
     mounted () {
+      this.setupObservers()
+
       this.$nextTick().then(() => {
         if (!this.mdSyncRoute) {
           this.setActiveTabByIndex(0)

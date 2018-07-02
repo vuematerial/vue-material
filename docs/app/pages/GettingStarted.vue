@@ -7,7 +7,7 @@
 
       <p>Vue Material is the best integration between Vue.js and Material Design specs! You can easily configure it to suit all your needs through an easy API.</p>
       <p>The documentation is divided by Themes, Components and UI Elements. The themes area is the definitive guide on how to theme your application (or write your own themes). The Components and UI Elements parts shows live examples, along with an API Table of each component/resource.</p>
-      <note-block>Vue Material Documentation assumes that you are confortable with Vue.js <strong>2.5+</strong>. If you are new to Vue.js, it might not be the best idea to learn from here as your first step - grasp the basics then come back. The <a href="https://vuejs.org/v2/guide/index.html">Vue.js website</a> is the greatest documentation source for you to start with.</note-block>
+      <note-block>Vue Material Documentation assumes that you are comfortable with Vue.js <strong>2.5+</strong>. If you are new to Vue.js, it might not be the best idea to learn from here as your first step - grasp the basics then come back. The <a href="https://vuejs.org/v2/guide/index.html">Vue.js website</a> is the greatest documentation source for you to start with.</note-block>
     </div>
 
     <div class="page-container-section">
@@ -50,7 +50,7 @@
       </code-example>
 
       <p>Although is not the recommended approach, you can always use CDNs for fast prototyping:</p>
-      <note-block tip>For better integration with Vue Material, use <a href="https://github.com/vuejs-templates/webpack" target="_blank">vue-cli</a>.</note-block>
+      <note-block tip>For better integration with Vue Material, use <a href="https://cli.vuejs.org" target="_blank">vue-cli</a>.</note-block>
 
       <code-example title="CDN" label="HTML" lang="html">
         &lt;!doctype html&gt;
@@ -59,8 +59,8 @@
             &lt;meta charset="utf-8"&gt;
             &lt;meta content="width=device-width,initial-scale=1,minimal-ui" name="viewport"&gt;
             &lt;link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic|Material+Icons"&gt;
-          	&lt;link rel="stylesheet" href="https://unpkg.com/vue-material@beta/dist/vue-material.min.css"&gt;
-          	&lt;link rel="stylesheet" href="https://unpkg.com/vue-material@beta/dist/theme/default.css"&gt;
+          	&lt;link rel="stylesheet" href="https://unpkg.com/vue-material/dist/vue-material.min.css"&gt;
+          	&lt;link rel="stylesheet" href="https://unpkg.com/vue-material/dist/theme/default.css"&gt;
           &lt;/head&gt;
 
           &lt;body&gt;
@@ -69,7 +69,7 @@
             &lt;/div&gt;
 
             &lt;script src="https://unpkg.com/vue"&gt;&lt;/script&gt;
-            &lt;script src="https://unpkg.com/vue-material@beta"&gt;&lt;/script&gt;
+            &lt;script src="https://unpkg.com/vue-material"&gt;&lt;/script&gt;
             &lt;script&gt;
               Vue.use(VueMaterial.default)
 
