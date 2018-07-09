@@ -5,9 +5,8 @@
         class="md-progress-spinner-draw"
         preserveAspectRatio="xMidYMid meet"
         focusable="false"
-        :viewBox="`0 0 ${mdDiameter} ${mdDiameter}`"
-        :style="svgStyles">
-        <circle class="md-progress-spinner-circle" cx="50%" cy="50%" :r="circleRadius" :style="circleStyles"></circle>
+        :viewBox="`0 0 ${mdDiameter} ${mdDiameter}`">
+        <circle class="md-progress-spinner-circle" cx="50%" cy="50%" :r="circleRadius"></circle>
       </svg>
     </div>
   </transition>
@@ -71,23 +70,6 @@
           ['md-' + this.mdMode]: true
         }
       },
-      svgStyles () {
-        const size = `${this.mdDiameter}px`
-
-        return {
-          width: size,
-          height: size
-        }
-      },
-      circleStyles () {
-        return {
-          'stroke-dashoffset': this.circleStrokeDashOffset,
-          'stroke-dasharray': this.circleStrokeDashArray,
-          'stroke-width': this.circleStrokeWidth,
-          '--md-progress-spinner-start-value': 0.95 * this.circleCircumference,
-          '--md-progress-spinner-end-value': 0.2 * this.circleCircumference,
-        }
-      },
       circleRadius () {
         return (this.mdDiameter - this.mdStroke) / 2
       },
@@ -114,9 +96,30 @@
     },
     watch: {
       mdDiameter () {
-        this.attachStyleTag()
+        this.attachSvgStyle()
+        this.attachCircleStyle()
       }
     },
+    methods: {
+      attachSvgStyle () {
+        const svg = this.$el.getElementsByClassName('md-progress-spinner-draw')[0]
+        const size = `${this.mdDiameter}px`
+        svg.style.width = size
+        svg.style.height = size
+      },
+      attachCircleStyle () {
+        const circle = this.$el.getElementsByClassName('md-progress-spinner-circle')[0]
+        circle.style.strokeDashoffset = this.circleStrokeDashOffset
+        circle.style.strokeDasharray = this.circleStrokeDashArray
+        circle.style.strokeWidth = this.circleStrokeWidth;
+        circle.style.setProperty('--md-progress-spinner-start-value', 0.95 * this.circleCircumference)
+        circle.style.setProperty('--md-progress-spinner-end-value', 0.2 * this.circleCircumference)
+      }
+    },
+    mounted () {
+      this.attachSvgStyle()
+      this.attachCircleStyle()
+    }
   })
 </script>
 
