@@ -67,13 +67,17 @@
     }
 
     if (shouldRenderButtonWithListener(listeners)) {
-      if (hasChildrenButtons(children)) {
-        return MdListItemFakeButton
-      }
-      return MdListItemButton
+      return renderButtonWithListener(children)
     }
 
     return MdListItemDefault
+  }
+
+  function renderButtonWithListener (children) {
+    if (hasChildrenButtons(children)) {
+      return MdListItemFakeButton
+    }
+    return MdListItemButton
   }
 
   export default {
