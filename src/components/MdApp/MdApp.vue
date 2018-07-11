@@ -14,16 +14,9 @@
     return componentOptions && componentTypes.includes(componentOptions.tag)
   }
 
-  function isRightDrawer ({ mdRight }) {
-    return mdRight === '' || !!mdRight
-  }
-
-  function createRightDrawer (isMdRight) {
-    if (isMdRight) {
-      const drawerRightPrevious = createElement(MdDrawerRightPrevious, { props: {...child.data.attrs}})
-      drawerRightPrevious.data.slot = 'md-app-drawer-right-previous'
-      slots.push(drawerRightPrevious)
-    }
+  function isRightDrawer (propsData) {
+    if (!propsData) return false
+    return propsData.mdRight === '' || !!propsData.mdRight
   }
 
   function shouldRenderSlot (data, componentOptions) {
@@ -49,9 +42,10 @@
         const componentOptions = child.componentOptions
 
         if (shouldRenderSlot(data, componentOptions)) {
-          child.data.slot = data.slot || componentOptions.tag
+          const slotName = data.slot || componentOptions.tag
+          child.data.slot = slotName
 
-          if (componentOptions.tag === 'md-app-drawer') {
+          if (slotName === 'md-app-drawer') {
             const isRight = isRightDrawer(componentOptions.propsData)
 
             if (hasDrawer) {
@@ -63,7 +57,11 @@
             child.data.slot += `-${isRight ? 'right' : 'left'}`
             child.key = generateAttrKeys(data.attrs)
 
-            createRightDrawer(isRight)
+            if (isRight) {
+              const drawerRightPrevious = createElement(MdDrawerRightPrevious, { props: {...child.data.attrs}})
+              drawerRightPrevious.data.slot = 'md-app-drawer-right-previous'
+              slots.push(drawerRightPrevious)
+            }
           }
 
           child.data.provide = options.Ctor.options.provide
@@ -80,9 +78,9 @@
 
   function getDrawers (children) {
     const drawerVnodes = children.filter(child => {
-      return child.componentOptions.tag === 'md-app-drawer'
+      const tag = child.data.slot || child.componentOptions.tag
+      return tag === 'md-app-drawer'
     })
-
     return drawerVnodes.length ? drawerVnodes : []
   }
 
