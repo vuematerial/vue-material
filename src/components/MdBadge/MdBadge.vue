@@ -64,7 +64,7 @@
         const staticClass = this.$vnode.data.staticClass
 
         function filterClasses () {
-          staticClass.split(' ').filter(val => val).reduce((result, key) => {
+          return staticClass.split(' ').filter(val => val).reduce((result, key) => {
             result[key] = true
             return result
           }, {})
