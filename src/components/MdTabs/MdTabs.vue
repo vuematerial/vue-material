@@ -26,7 +26,7 @@
       <span class="md-tabs-indicator" :style="indicatorStyles" :class="indicatorClass" ref="indicator"></span>
     </div>
 
-    <md-content class="md-tabs-content" :style="contentStyles" v-show="hasContent">
+    <md-content ref="tabsContent" class="md-tabs-content" :style="contentStyles" v-show="hasContent">
       <div class="md-tabs-container" :style="containerStyles">
         <slot />
       </div>
@@ -41,10 +41,11 @@
   import MdPropValidator from 'core/utils/MdPropValidator'
   import MdObserveElement from 'core/utils/MdObserveElement'
   import MdContent from 'components/MdContent/MdContent'
+  import MdSwipeable from 'core/mixins/MdSwipeable/MdSwipeable'
 
   export default new MdComponent({
     name: 'MdTabs',
-    mixins: [MdAssetIcon],
+    mixins: [MdAssetIcon, MdSwipeable],
     components: {
       MdContent
     },
@@ -93,6 +94,9 @@
       },
       navigationClasses () {
         return 'md-elevation-' + this.mdElevation
+      },
+      mdSwipeElement () {
+        return this.$refs.tabsContent.$el
       }
     },
     watch: {
@@ -112,6 +116,15 @@
       mdActiveTab (tab) {
         this.activeTab = tab
         this.$emit('md-changed', tab)
+      },
+      swiped (value) {
+        const { keys } = this.getItemsAndKeys()
+        const max = keys.length || 0
+        if (this.activeTabIndex < max && value === 'right') {
+          this.setSwipeActiveTabByIndex(this.activeTabIndex + 1)
+        } else if (this.activeTabIndex > 0 && value === 'left') {
+          this.setSwipeActiveTabByIndex(this.activeTabIndex - 1)
+        }
       }
     },
     methods: {
@@ -135,6 +148,13 @@
 
         if (activeButton) {
           this.activeTabIndex = [].indexOf.call(activeButton.parentNode.childNodes, activeButton)
+        }
+      },
+      setSwipeActiveTabByIndex (index) {
+        const { keys } = this.getItemsAndKeys()
+
+        if (keys) {
+          this.activeTab = keys[index]
         }
       },
       setActiveTabByIndex (index) {
