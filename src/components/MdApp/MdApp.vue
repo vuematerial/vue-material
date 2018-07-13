@@ -30,6 +30,7 @@
     })
   }
 
+  /* eslint-disable complexity */
   function buildSlots (children, context, functionalContext, options, createElement) {
     let slots = []
 
@@ -37,7 +38,6 @@
 
     if (children) {
       children.forEach(child => {
-        /* eslint-enable */
         const data = child.data
         const componentOptions = child.componentOptions
 
@@ -75,6 +75,7 @@
 
     return slots
   }
+  /* eslint-enable complexity */
 
   function getDrawers (children) {
     const drawerVnodes = children.filter(child => {

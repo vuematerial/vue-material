@@ -36,31 +36,30 @@ export default {
 
       this.swipeStart = true
     },
+    /* eslint-disable complexity */
     handleTouchMove (event) {
-      if (!this.swipeStart) {
-        return
-      }
+      if (this.swipeStart) {
+        const touchmoveX = event.touches[0].screenX
+        const touchmoveY = event.touches[0].screenY
 
-      const touchmoveX = event.touches[0].screenX
-      const touchmoveY = event.touches[0].screenY
+        const actualX = touchmoveX - this.touchPosition.startX
+        const actualY = touchmoveY - this.touchPosition.startY
 
-      const actualX = touchmoveX - this.touchPosition.startX
-      const actualY = touchmoveY - this.touchPosition.startY
+        const elapsedTime = new Date() - this.swipeStartTime
 
-      const elapsedTime = new Date() - this.swipeStartTime
-
-      if (elapsedTime <= this.mdSwipeTime) {
-        if (Math.abs(actualX) >= this.mdSwipeThreshold && Math.abs(actualY) <= this.mdSwipeRestraint) {
-          this.swiped = actualX < 0
-            ? 'left'
-            : 'right'
-        } else if (Math.abs(actualY) >= this.mdSwipeThreshold && Math.abs(actualX) <= this.mdSwipeRestraint) {
-          this.swiped = actualY < 0
-            ? 'up'
-            : 'down'
+        if (elapsedTime <= this.mdSwipeTime) {
+          if (Math.abs(actualX) >= this.mdSwipeThreshold && Math.abs(actualY) <= this.mdSwipeRestraint) {
+            this.swiped = actualX < 0
+              ? 'left'
+              : 'right'
+          } else if (Math.abs(actualY) >= this.mdSwipeThreshold && Math.abs(actualX) <= this.mdSwipeRestraint) {
+            this.swiped = actualY < 0
+              ? 'up'
+              : 'down'
+          }
         }
       }
-    },
+    }, /* eslint-enable complexity */
     handleTouchEnd () {
       this.touchPosition = {
         startX: 0,
