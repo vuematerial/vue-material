@@ -5,8 +5,9 @@
         class="md-progress-spinner-draw"
         preserveAspectRatio="xMidYMid meet"
         focusable="false"
-        :viewBox="`0 0 ${mdDiameter} ${mdDiameter}`">
-        <circle class="md-progress-spinner-circle" cx="50%" cy="50%" :r="circleRadius"></circle>
+        :viewBox="`0 0 ${mdDiameter} ${mdDiameter}`"
+        ref="md-progress-spinner-draw">
+        <circle class="md-progress-spinner-circle" cx="50%" cy="50%" :r="circleRadius" ref="md-progress-spinner-circle"></circle>
       </svg>
     </div>
   </transition>
@@ -102,13 +103,13 @@
     },
     methods: {
       attachSvgStyle () {
-        const svg = this.$el.getElementsByClassName('md-progress-spinner-draw')[0]
+        const svg = this.$refs['md-progress-spinner-draw']
         const size = `${this.mdDiameter}px`
         svg.style.width = size
         svg.style.height = size
       },
       attachCircleStyle () {
-        const circle = this.$el.getElementsByClassName('md-progress-spinner-circle')[0]
+        const circle = this.$refs['md-progress-spinner-circle']
         circle.style.strokeDashoffset = this.circleStrokeDashOffset
         circle.style.strokeDasharray = this.circleStrokeDashArray
         circle.style.strokeWidth = this.circleStrokeWidth;
