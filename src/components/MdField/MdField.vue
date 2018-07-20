@@ -176,7 +176,6 @@
     
     input:-webkit-autofill ~ label {
       top: 0;
-      opacity: 1;
       font-size: 12px;
     }
     
