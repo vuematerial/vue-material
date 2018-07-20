@@ -8,15 +8,15 @@
 <template>
   <page-container centered :title="$t('pages.input.title')">
     <div class="page-container-section">
-      <p>Text fields allows users to input, edit, and select text, typically inside forms but they can appear in other places, like dialog boxes and search.</p>
-      <p>Vue Material fields works with a <code>md-field</code> as a wrapper with a input component inside, that can be <code>md-input</code>, <code>md-textarea</code> or even a <code>md-select</code>.</p>
-      <note-block tip>Selects have its own <router-link to="/components/select">documentation page</router-link>, dedicated to show better examples on how to use it.</note-block>
+      <p>Text fields allow users to input, edit and select text typically inside forms. But they can appear in other places as well like dialog boxes and search.</p>
+      <p>Vue Material fields work with a <code>md-field</code> wrapped around an input component, that can be <code>md-input</code>, <code>md-textarea</code> or even a <code>md-select</code>.</p>
+      <note-block tip><code>md-select</code> has its own <router-link to="/components/select">documentation page</router-link>, dedicated to show better examples on how to use it.</note-block>
     </div>
 
     <div class="page-container-section">
       <h2>Text Fields</h2>
 
-      <p>Fields mimics the HTML5 attributes to keep the same compatibility with native inputs, but giving extra options. This allows Vue Material to setup the <code>md-field</code> according with the input options.</p>
+      <p>Fields mimic the HTML5 attributes to keep the same compatibility with native inputs, but has extra options. This allows Vue Material to accordingly setup the various <code>md-field</code> with its corresponding input options.</p>
       <p>You will be able to set the same properties of a regular <code>input</code> element on <code>md-input</code>. This is also valid for <code>textarea</code> and <code>select</code>. Take a look:</p>
       <code-example title="Input and Textarea" :component="examples['text-fields']" />
     </div>
@@ -24,7 +24,7 @@
     <div class="page-container-section">
       <h2>Errors and Messages</h2>
 
-      <p>Vue Material have validation states to show error messages. You can use it along with other Vue 3rd party validation libraries, like Vuelidate or Vee-Validate:</p>
+      <p>Vue Material has validation states to show error messages. You can use it along with other 3rd party Vue validation libraries, like Vuelidate or Vee-Validate:</p>
       <code-example title="Validation" :component="examples['errors-messages']" />
     </div>
 
@@ -45,14 +45,14 @@
     <div class="page-container-section">
       <h2>Inline Actions</h2>
 
-      <p>Fields can have a clearable feature to make easy for users to clear the value. And to be easier to type passwords we can show a toggle button to reveal the password. This is really useful for mobile applications:</p>
+      <p>Fields can have a clearable feature to make it easier for users to clear the value. To use passwords better we can show a toggle button to reveal the password. This is really useful for mobile applications:</p>
       <code-example title="Clear and password" :component="examples['inline-actions']" />
     </div>
 
     <div class="page-container-section">
       <h2>Prefixes & suffixes</h2>
 
-      <p>Prefixes and suffixes can be used to clarify units or to add input in advance. Prefixes are left justified in the text field; suffixes are right justified. Text fields can have both prefixes and suffixes.</p>
+      <p>Prefixes and suffixes can be used to clarify units or to add input in advance. Prefixes are left justified in the text field whereas suffixes are right justified. Text fields can have both prefixes and suffixes.</p>
       <code-example title="Prefixes & suffixes" :component="examples['fixes']" />
     </div>
 
@@ -89,33 +89,35 @@
     mixins: [examples],
     data: () => ({
       field: {
-        headings: ['Name', 'Description', 'Default'],
-        props: [
-          {
-            name: 'md-inline',
-            type: 'Boolean',
-            description: 'Make the label inline. This means that the label will disappear when the input receives a focus.',
-            defaults: 'false'
-          },
-          {
-            name: 'md-counter',
-            type: 'Boolean',
-            description: 'Enable the character counter. Only works with fields that have a <code>md-input</code> or <code>md-textarea</code> with a <code>maxlength</code> or <code>md-counter</code> attributes.',
-            defaults: 'false'
-          },
-          {
-            name: 'md-clearable',
-            type: 'Boolean',
-            description: 'Add a clear button on the right of the input.',
-            defaults: 'false'
-          },
-          {
-            name: 'md-toggle-password',
-            type: 'Boolean',
-            description: 'Add a toggle button on the right of the input to reveal/hide the password. Only works with fields that have a <code>md-input</code> with type password.',
-            defaults: 'false'
-          }
-        ],
+        props:{
+          headings: ['Name', 'Description', 'Default'],
+          props: [
+            {
+              name: 'md-inline',
+              type: 'Boolean',
+              description: 'Make the label inline. This means that the label will disappear when the input receives a focus.',
+              defaults: 'false'
+            },
+            {
+              name: 'md-counter',
+              type: 'Boolean',
+              description: 'Enable the character counter. Only works with fields that have a <code>md-input</code> or <code>md-textarea</code> with a <code>maxlength</code> or <code>md-counter</code> attributes.',
+              defaults: 'false'
+            },
+            {
+              name: 'md-clearable',
+              type: 'Boolean',
+              description: 'Add a clear button on the right of the input.',
+              defaults: 'false'
+            },
+            {
+              name: 'md-toggle-password',
+              type: 'Boolean',
+              description: 'Add a toggle button on the right of the input to reveal/hide the password. Only works with fields that have a <code>md-input</code> with type password.',
+              defaults: 'false'
+            }
+          ],
+        },
         events: {
           headings: ['Name', 'Description', 'Value'],
           props: [
@@ -180,9 +182,9 @@
           },
           {
             name: 'md-counter',
-            type: 'Number',
-            description: 'Enable the counter for the field. This is useful when you want only a counter without set a maxlength',
-            defaults: 'null'
+            type: 'Number|Boolean',
+            description: 'Enable the counter for the field. This is useful when you want only a counter without setting a maxlength. After setting a maxlength, in case if you do not want to display the counter, set this prop to false',
+            defaults: 'true'
           }
         ]
       },
