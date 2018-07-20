@@ -173,6 +173,13 @@
       font-size: 16px;
       line-height: 20px;
     }
+    
+    input:-webkit-autofill ~ label {
+      top: 0;
+      opacity: 1;
+      font-size: 12px;
+    }
+    
     .md-suffix {
       font-size: 16px;
       line-height: 32px;
