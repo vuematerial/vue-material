@@ -88,7 +88,7 @@
     "html-webpack-plugin": "^2.30.1",
     "is-firefox": "^1.0.3",
     "is-promise": "^2.1.0",
-    "jest": "^22.1.4",
+    "jest": "^23.2.0",
     "jest-vue": "^0.8.2",
     "node-sass": "^4.7.2",
     "offline-plugin": "^4.9.0",
@@ -141,7 +141,8 @@
     "moduleFileExtensions": [
       "js",
       "json",
-      "vue"
+      "vue",
+      "scss"
     ],
     "transform": {
       "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
