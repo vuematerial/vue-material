@@ -1,39 +1,8 @@
-<template>
-  <md-content class="ad-manager" id="ad-manager" md-theme="default">
-    <div id="code-sponsor" class="code-sponsor">
-      <span class="code-sponsor-header">Vue Material is proudly sponsored by:</span>
-
-      <a :href="linkHref" class="code-sponsor-content" target="_blank" rel="noopener">
-        <strong class="code-sponsor-name">Rollbar</strong>
-        <span class="code-sponsor-description">Real-time JavaScript error monitoring, alerting, and analytics for developers 🚀</span>
-      </a>
-
-      <img class="code-sponsor-pixel" :src="pixelHref" />
-    </div>
-  </md-content>
-</template>
-
 <script>
-  const isProd = process.env.NODE_ENV === 'production'
-  const token = '0989e0dbf1919e50f5b34ab00c81fa6f'
-
   export default {
     name: 'AdManager',
-    computed: {
-      linkHref () {
-        if (isProd) {
-          return `https://codesponsor.io/t/c/${token}`
-        }
-
-        return false
-      },
-      pixelHref () {
-        if (isProd) {
-          return `https://codesponsor.io/t/l/${token}/pixel.png`
-        }
-
-        return false
-      }
+    render () {
+      return null
     }
   }
 </script>

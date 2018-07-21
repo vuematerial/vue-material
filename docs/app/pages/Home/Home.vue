@@ -3,9 +3,10 @@
     <div class="home-splash">
       <home-header />
       <home-features />
-      <md-icon class="home-icon-indicator" @click.native="scrollDown">keyboard_arrow_down</md-icon>
+      <md-icon class="home-icon-indicator" @click.native="scrollToEcosystem">keyboard_arrow_down</md-icon>
     </div>
 
+    <home-premium />
     <home-ecosystem />
     <home-sponsors />
   </splash-container>
@@ -15,6 +16,7 @@
   import HomeHeader from './HomeHeader'
   import HomeFeatures from './HomeFeatures'
   import HomeEcosystem from './HomeEcosystem'
+  import HomePremium from './HomePremium'
   import HomeSponsors from './HomeSponsors'
 
   export default {
@@ -23,19 +25,37 @@
       HomeHeader,
       HomeFeatures,
       HomeEcosystem,
+      HomePremium,
       HomeSponsors
     },
     methods: {
-      scrollDown () {
-        const targetEl = document.querySelector('.home-ecosystem, .home-sponsors')
+      scrollDown (target) {
+        window.scroll({
+          ...target,
+          behavior: 'smooth'
+        })
+      },
+      scrollToEcosystem () {
+        const targetEl = document.querySelector('#premium, .home-ecosystem, .home-sponsors')
 
         if (targetEl) {
-          window.scroll({
+          this.scrollDown({
             top: targetEl.offsetTop,
-            left: 0,
-            behavior: 'smooth'
+            left: 0
           })
         }
+      }
+    },
+    mounted () {
+      if (this.$route.hash === '#premium') {
+        const premiumEl = document.querySelector('#premium')
+
+        window.setTimeout(() => {
+          this.scrollDown({
+            top: premiumEl.offsetTop,
+            left: 0
+          })
+        }, 100)
       }
     }
   }

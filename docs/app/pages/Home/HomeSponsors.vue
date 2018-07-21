@@ -3,7 +3,7 @@
     <div class="page-wrapper">
       <h2 class="home-title md-headline">
         <md-icon>monetization_on</md-icon>
-        {{ $t('pages.home.sponsors') }} & {{ $t('pages.home.backers') }}
+        {{ $t('pages.home.backers') }}
       </h2>
 
       <div class="home-sponsors-description">
@@ -17,31 +17,16 @@
       </div>
 
       <div class="home-sponsors-backers">
-        <h3 class="md-title">{{ $t('pages.home.sponsors') }}</h3>
-
-        <div class="home-sponsor-list md-layout md-layout-wrap">
-          <a class="home-sponsor" href="">
-            <md-ripple>
-              <img src="/assets/sponsors/yatima.png">
-            </md-ripple>
-          </a>
-
-          <a class="home-sponsor" href="https://cs.berry.sh/c/bb9dade0-0207-4ab0-8c86-d00502d952f5" target="_blank">
-            <md-ripple>
-              <md-svg-loader md-src="/assets/sponsors/rollbar.svg" />
-            </md-ripple>
-          </a>
-        </div>
-
         <h4 class="md-subheading">{{ $t('pages.home.backers') }}</h4>
 
         <ul>
           <li>Anthony Villena</li>
           <li>Bobby McDonald</li>
           <li>Ivo Benner</li>
+          <li>N Squared</li>
           <li>Nathanael Björkgård</li>
-          <li>Viktor Kuroljov</li>
           <li>William Chong</li>
+          <li>Yatima Kagurazaka</li>
         </ul>
       </div>
     </div>

@@ -9,6 +9,7 @@ export default {
     featured: 'Full-featured',
     featuredContent: 'Complete with dynamic themes, on demand components and all with an easy-to-use API.',
     ecosystem: 'Ecosystem',
+    premium: 'Premium Themes',
     viewProject: 'View project',
     sponsors: 'Sponsors',
     backers: 'Backers',
