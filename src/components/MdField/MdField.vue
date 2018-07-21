@@ -174,7 +174,7 @@
       line-height: 20px;
     }
     
-    input:-webkit-autofill ~ label {
+    .md-input:-webkit-autofill ~ label {
       top: 0;
       font-size: 12px;
     }
