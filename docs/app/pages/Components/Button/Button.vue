@@ -83,7 +83,7 @@ export default {
             {
               name: 'href',
               type: 'String',
-              description: 'Creates a anchor on the button. In this case the generated tag will be <a>.',
+              description: 'Creates a anchor on the button. In this case the generated tag will be `<a>`.',
               defaults: 'null'
             },
             {
