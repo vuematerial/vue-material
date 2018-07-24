@@ -255,8 +255,10 @@
           this.select(val)
         }
       },
-      mdSelectedValue: async function () {
-        await this.$nextTick() // render the table first
+      mdSelectedValue () {
+        this.syncSelectedValue()
+      },
+      value () {
         this.syncSelectedValue()
       }
     },
@@ -333,7 +335,8 @@
         this.$emit('update:mdSelectedValue', val)
         this.$emit('md-selected', val)
       },
-      syncSelectedValue () {
+      syncSelectedValue: async function () {
+        await this.$nextTick() // render the table first
         if (this.MdTable.selectingMode === 'single') {
           this.MdTable.singleSelection = this.mdSelectedValue
         } else if (this.MdTable.selectingMode === 'multiple') {
