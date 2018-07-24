@@ -255,7 +255,8 @@
           this.select(val)
         }
       },
-      mdSelectedValue () {
+      mdSelectedValue: async function () {
+        await this.$nextTick() // render the table first
         this.syncSelectedValue()
       }
     },
