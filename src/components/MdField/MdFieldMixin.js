@@ -22,7 +22,6 @@ export default {
       },
       set (value) {
         if (value.constructor.toString().match(/function (\w*)/)[1].toLowerCase() !== 'inputevent') {
-          this.sentValue = value
           this.$emit('input', value) // needed for autofill support
         }
       }
@@ -52,8 +51,6 @@ export default {
         return this.value
       },
       set (value) {
-        console.log(`localValue set: ${value} ${Date.now() - start}`)
-        console.log(`value direction ${this.sentValue} ${Date.now() - start}`)
         this.sentValue = value
         this.$emit('input', value) // needed for autofill support
       }
