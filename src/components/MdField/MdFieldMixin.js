@@ -42,18 +42,12 @@ export default {
         maxlength: this.maxlength
       }
     },
-    localValue: {
-      get () {
-        if ( this.sentValue !== this.value ) {
-          this.sentValue = this.value
-          this.$emit('input', this.value) // concession to maintain API
-        }
-        return this.value
-      },
-      set (value) {
-        this.sentValue = value
-        this.$emit('input', value) // needed for autofill support
+    localValue () {
+      if ( this.sentValue !== this.value ) {
+        this.sentValue = this.value
+        this.$emit('input', this.value) // concession to maintain API
       }
+      return this.value
     }
   },
   watch: {
