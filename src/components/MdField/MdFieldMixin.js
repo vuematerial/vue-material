@@ -11,7 +11,7 @@ export default {
   },
   data () {
     return {
-      localValue: this.value,
+      sentValue: '',
       textareaHeight: false
     }
   },
@@ -22,10 +22,8 @@ export default {
       },
       set (value) {
         if (value.constructor.toString().match(/function (\w*)/)[1].toLowerCase() !== 'inputevent') {
-          this.$nextTick(() => {
-            this.localValue = value
-          })
-          this.$emit('input', value)
+          this.sentValue = value
+          this.$emit('input', value) // needed for autofill support
         }
       }
     },
@@ -43,6 +41,21 @@ export default {
         placeholder: this.placeholder,
         readonly: this.readonly,
         maxlength: this.maxlength
+      }
+    },
+    localValue: {
+      get () {
+        if ( this.sentValue !== this.value ) {
+          this.sentValue = this.value
+          this.$emit('input', this.value) // concession to maintain API
+        }
+        return this.value
+      },
+      set (value) {
+        console.log(`localValue set: ${value} ${Date.now() - start}`)
+        console.log(`value direction ${this.sentValue} ${Date.now() - start}`)
+        this.sentValue = value
+        this.$emit('input', value) // needed for autofill support
       }
     }
   },
@@ -69,12 +82,6 @@ export default {
     },
     mdCounter () {
       this.setMaxlength()
-    },
-    localValue (val) {
-      this.$emit('input', val)
-    },
-    value (val) {
-      this.localValue = val
     }
   },
   methods: {
