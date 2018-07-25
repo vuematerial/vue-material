@@ -14,7 +14,7 @@
 
       <p>The bottom bar is compatible with all Vue Router options. Just pass the values as parameters on <code>md-bottom-bar-item</code> component:</p>
       <code-example title="With default fixed style" :component="examples['bar-router']" />
-      <note-block tip>Note: Try tro change the url manually to see the component selecting the correct item.</note-block>
+      <note-block tip>Note: Try to change the url manually to see the component selecting the correct item.</note-block>
     </div>
 
     <div class="page-container-section">
