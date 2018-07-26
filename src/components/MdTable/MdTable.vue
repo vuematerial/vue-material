@@ -257,6 +257,9 @@
       },
       mdSelectedValue () {
         this.syncSelectedValue()
+      },
+      value () {
+        this.syncSelectedValue()
       }
     },
     methods: {
@@ -333,11 +336,13 @@
         this.$emit('md-selected', val)
       },
       syncSelectedValue () {
-        if (this.MdTable.selectingMode === 'single') {
-          this.MdTable.singleSelection = this.mdSelectedValue
-        } else if (this.MdTable.selectingMode === 'multiple') {
-          this.MdTable.selectedItems = this.mdSelectedValue || []
-        }
+        this.$nextTick().then(() => { // render the table first
+          if (this.MdTable.selectingMode === 'single') {
+            this.MdTable.singleSelection = this.mdSelectedValue
+          } else if (this.MdTable.selectingMode === 'multiple') {
+            this.MdTable.selectedItems = this.mdSelectedValue || []
+          }
+        })
       },
       setWidth () {
         if (this.mdFixedHeader) {
@@ -350,9 +355,7 @@
         this.sortTable()
       }
 
-      this.$nextTick().then(() => {
-        this.syncSelectedValue()
-      })
+      this.syncSelectedValue()
     },
     mounted () {
       this.setContentEl()
