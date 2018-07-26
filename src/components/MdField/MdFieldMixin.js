@@ -22,11 +22,7 @@ export default {
       },
       set (value) {
         if (value.constructor.toString().match(/function (\w*)/)[1].toLowerCase() !== 'inputevent') {
-<<<<<<< HEAD
           this.sentValue = value
-=======
-          this.sentValue = this.value
->>>>>>> f6d0e65ec1f4de7360ea99fdc6a331b6bd2b1699
           this.$emit('input', value) // needed for autofill support
         }
       }
