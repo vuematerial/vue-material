@@ -23,7 +23,7 @@
     <div class="page-container-section">
       <h2>Column Layout</h2>
 
-      <p>The layout system in Vue Material is essentially based on columns and makes use of the flexbox to be flexible enough and thereby give you the best experience with a great and easy API.</p>
+      <p>The layout system in Vue Material is essentially based on columns and makes use of the flexbox to be flexible enough and thereby gives you the best experience with a great and easy API.</p>
       <p>What you have to do to get started with layouts is to create a <code>md-layout</code> parent element, that will hold a list of <code>md-layout-item</code>. You can set up as many columns as you want using <code>md-layout-item</code>:</p>
       <code-example title="Columns" :component="examples['layout-horizontal-columns']" />
     </div>
@@ -41,7 +41,7 @@
     </div>
 
     <div class="page-container-section">
-      <p>You can use layouts for almost anything in your app, even for small parts. To help you with that you can have different alignments for <code>md-layout</code> with various combinations of horizontal and vertical alignments in the <code>md-alignment-[horizontal]-[vertical]</code> class, e.g. <code>md-alignment-top-center</code>. The alignment works on the parent element and it will change the position of all the child items:</p>
+      <p>You can use layouts for almost anything in your app, even for small parts. To help you with that you can have different alignments for <code>md-layout</code> with various combinations of horizontal and vertical alignments to the <code>md-alignment-[horizontal]-[vertical]</code> class, e.g. <code>md-alignment-top-center</code>. The alignment works on the parent element and it will change the position of all the child items:</p>
       <code-example title="Alignments" :component="examples['layout-horizontal-alignment']" />
     </div>
 
@@ -152,7 +152,7 @@
           },
           {
             name: 'md-layout-nowrap',
-            description: 'By default the layout items will be always wrapped under the parent layout. Use this class if you want to disable this behaviour, but the responsiveness will not work.'
+            description: 'By default the layout items will always be wrapped under the parent layout. Use this class if you want to disable this behaviour, but the responsiveness will not work.'
           },
           {
             name: 'md-alignment-<code>[x]</code>-<code>[y]</code>',
