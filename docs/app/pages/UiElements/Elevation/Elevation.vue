@@ -4,7 +4,7 @@
   <page-container centered :title="$t('pages.elevation.title')">
     <div class="page-container-section">
       <p>Measured from the front of one surface to the front of another, an element’s elevation indicates the distance between surfaces and the depth of its shadow.</p>
-      <p>Elevation classes goes from 1px to 24px depth. You can add this class on any HTML tag.</p>
+      <p>Elevation classes range from 1px to 24px in depth. You can add this class to any HTML tag.</p>
     </div>
 
     <div class="page-container-section">
