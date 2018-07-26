@@ -260,6 +260,7 @@
       },
       value () {
         this.syncSelectedValue()
+        this.setWidth()
       }
     },
     methods: {
