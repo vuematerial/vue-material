@@ -44,6 +44,10 @@ export default {
       }
     },
     localValue () {
+      if (typeof this.value === 'undefined') {  // un data-binded case
+        return this.sentValue
+      }
+
       if ( this.sentValue !== this.value ) {
         this.sentValue = this.value
         this.$emit('input', this.value) // concession to maintain API
