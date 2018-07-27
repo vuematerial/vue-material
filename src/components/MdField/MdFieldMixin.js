@@ -44,14 +44,13 @@ export default {
       }
     },
     localValue () {
-      if (typeof this.value === 'undefined') {  // un data-binded case
+      if ( this.value === undefined ) {  // support not having v-model set
         return this.sentValue
+      } else if ( this.sentValue !== this.value ) {
+        this.sentValue = this.value
+        this.$emit('input', this.value) // needed for upstreamChange test
       }
 
-      if ( this.sentValue !== this.value ) {
-        this.sentValue = this.value
-        this.$emit('input', this.value) // concession to maintain API
-      }
       return this.value
     }
   },
