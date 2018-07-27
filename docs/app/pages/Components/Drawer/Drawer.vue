@@ -57,6 +57,12 @@
       <api-table :headings="drawer.props.headings" :props="drawer.props.props" slot="props" />
       <api-table :headings="drawer.events.headings" :props="drawer.events.props" slot="events" />
     </api-item>
+
+    <api-item title="API - Swipeable">
+      <p>The following options can be applied to any <code>md-drawer</code> component that is using <code>md-swipeable</code> prop.</p>
+
+      <api-table :headings="swipeable.props.headings" :props="swipeable.props.props" slot="props" />
+    </api-item>
   </page-container>
 </template>
 
@@ -67,6 +73,31 @@
     name: 'DocDrawer',
     mixins: [examples],
     data: () => ({
+      swipeable: {
+        props: {
+          headings: ['Name', 'Description', 'Default'],
+          props: [
+            {
+              name: 'md-swipe-threshold',
+              type: 'Number',
+              description: 'The minimal distance traveled to be considered swipe.',
+              defaults: '50'
+            },
+            {
+              name: 'md-swipe-restraint',
+              type: 'Number',
+              description: 'The maximum distance allowed at the same time in perpendicular direction.',
+              defaults: '100'
+            },
+            {
+              name: 'md-swipe-time',
+              type: 'Number',
+              description: 'The maximum time allowed to detect swipe.',
+              defaults: '400'
+            },
+          ]
+        }
+      },
       drawer: {
         props: {
           headings: ['Name', 'Description', 'Default'],
@@ -75,6 +106,12 @@
               name: 'md-active',
               type: 'Boolean',
               description: 'Option used to trigger the drawer visibility. Should be used with the <code>.sync</code> modifier.',
+              defaults: 'false'
+            },
+            {
+              name: 'md-swipeable',
+              type: 'Boolean',
+              description: 'Option used to enable touch support to be opened/closed by swipe. For more option see  API - Swipeable',
               defaults: 'false'
             },
             {
