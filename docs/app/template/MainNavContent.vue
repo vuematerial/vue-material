@@ -14,6 +14,8 @@
       <router-link to="/themes/advanced">{{ $t('pages.themeAdvanced.nav') }}</router-link>
     </div>
 
+    <router-link to="/with-router">{{ $t('pages.withRouter.title') }}</router-link>
+
     <router-link to="/ui-elements">{{ $t('pages.uiElements.title') }}</router-link>
     <div class="main-nav-level">
       <router-link to="/ui-elements/elevation">{{ $t('pages.elevation.title') }}</router-link>

@@ -2,7 +2,7 @@
   <div class="md-stepper">
     <md-step-header v-if="MdSteppers.isVertical" :index="id" />
 
-    <div class="md-stepper-content" :class="{ 'md-active': id === MdSteppers.activeStep }">
+    <div class="md-stepper-content" :class="{ 'md-active': !MdSteppers.syncRoute && id === MdSteppers.activeStep }">
       <slot />
     </div>
   </div>
@@ -10,6 +10,7 @@
 
 <script>
   import MdUuid from 'core/utils/MdUuid'
+  import MdRouterLink from 'core/mixins/MdRouterLink/MdRouterLink'
   import MdStepHeader from './MdStepHeader'
 
   export default {
@@ -17,13 +18,13 @@
     components: {
       MdStepHeader
     },
+    mixins: [MdRouterLink],
     props: {
       id: {
         type: String,
         default: () => 'md-stepper-' + MdUuid()
       },
       href: [String, Number],
-      to: null,
       mdLabel: String,
       mdDescription: String,
       mdError: String,

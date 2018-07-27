@@ -1,5 +1,5 @@
 <template>
-  <md-button class="md-stepper-header" :class="classes" :disabled="shouldDisable" v-bind="data.props" v-on="data.events" @click.native="MdSteppers.setActiveStep(index)">
+  <md-button class="md-stepper-header" :class="classes" :disabled="shouldDisable" v-bind="data.props" v-on="data.events" @click.native="!MdSteppers.syncRoute && MdSteppers.setActiveStep(index)">
     <md-warning-icon class="md-stepper-icon" v-if="data.error" />
 
     <div class="md-stepper-number" v-else>
@@ -50,7 +50,7 @@
       },
       classes () {
         return {
-          'md-active': this.index === this.MdSteppers.activeStep,
+          'md-active': !this.MdSteppers.syncRoute && this.index === this.MdSteppers.activeStep,
           'md-error': this.data.error,
           'md-done': this.data.done
         }
