@@ -27,6 +27,7 @@
     "docs": "babel-node build/docs",
     "lint": "eslint --ext .js,.vue docs src build test",
     "test": "jest",
+    "test-dbg": "node --inspect --inspect-brk ./node_modules/jest/bin/jest.js",
     "coverage": "yarn test --coverage",
     "githooks": "sh build/git-hooks/install.sh",
     "changelog": "babel-node build/generate-changelog.js",
