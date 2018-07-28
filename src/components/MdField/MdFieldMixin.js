@@ -18,7 +18,13 @@ export default {
   computed: {
     model: {
       get () {
-        return this.localValue
+        if ( this.value === undefined ) {  // support not having v-model set
+          return this.sentValue
+        } else if ( this.sentValue !== this.value ) {
+          this.sentValue = this.value
+          this.$emit('input', this.value) // needed for upstreamChange test
+        }
+        return this.value
       },
       set (value) {
         if (value.constructor.toString().match(/function (\w*)/)[1].toLowerCase() !== 'inputevent') {
@@ -43,18 +49,10 @@ export default {
         maxlength: this.maxlength
       }
     },
-    localValue: {
+    localValue: { // DEPRECATED: use model instead
       get () {
-        if ( this.value === undefined ) {  // support not having v-model set
-          return this.sentValue
-        } else if ( this.sentValue !== this.value ) {
-          this.sentValue = this.value
-          this.$emit('input', this.value) // needed for upstreamChange test
-        }
-
-        return this.value
+        return this.model
       },
-      // DEPRECATED: use model instead
       set (value) {
         this.model = value
       }
