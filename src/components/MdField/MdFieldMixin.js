@@ -43,15 +43,21 @@ export default {
         maxlength: this.maxlength
       }
     },
-    localValue () {
-      if ( this.value === undefined ) {  // support not having v-model set
-        return this.sentValue
-      } else if ( this.sentValue !== this.value ) {
-        this.sentValue = this.value
-        this.$emit('input', this.value) // needed for upstreamChange test
-      }
+    localValue: {
+      get () {
+        if ( this.value === undefined ) {  // support not having v-model set
+          return this.sentValue
+        } else if ( this.sentValue !== this.value ) {
+          this.sentValue = this.value
+          this.$emit('input', this.value) // needed for upstreamChange test
+        }
 
-      return this.value
+        return this.value
+      },
+      // DEPRECATED: use model instead
+      set (value) {
+        this.model = value
+      }
     }
   },
   watch: {
