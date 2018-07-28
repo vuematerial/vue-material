@@ -99,7 +99,9 @@ export default {
       }
     },
     setFieldValue () {
-      this.MdField.value = this.model
+      this.$nextTick().then(() => {
+        this.MdField.value = this.model
+      })
     },
     setPlaceholder () {
       this.MdField.placeholder = Boolean(this.placeholder)
