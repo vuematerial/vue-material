@@ -94,6 +94,7 @@
         this.MdField.autogrow = this.mdAutogrow
       },
       onInput () {
+        this.setFieldValue()
         this.applyStyles()
       }
     },
