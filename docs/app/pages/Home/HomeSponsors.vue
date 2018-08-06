@@ -12,7 +12,9 @@
         </i18n>
         <p>{{ $t('pages.home.beAPatron') }}:</p>
         <a href="https://www.patreon.com/bePatron?u=4832202" target="_blank" class="home-sponsors-patreon">
-          <img src="/assets/sponsors/patreon.png">
+          <md-ripple>
+            <img src="/assets/sponsors/patreon.png">
+          </md-ripple>
         </a>
       </div>
 
@@ -21,6 +23,8 @@
 
         <div class="home-sponsor-list md-layout md-layout-wrap">
           <a class="home-sponsor" href="http://impulso.work" target="_blank">
+            <md-tooltip md-theme="default" md-direction="right">Impulso</md-tooltip>
+
             <md-ripple>
               <img src="/assets/sponsors/logo-impulso.png">
             </md-ripple>
