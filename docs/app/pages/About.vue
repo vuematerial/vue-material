@@ -19,6 +19,7 @@
           <div class="author-card-links">
             <a href="https://github.com/marcosmoura" target="_blank" rel="noopener">GitHub</a>
             <a href="https://linkedin.com/in/marcosvmmoura" target="_blank" rel="noopener">Linkedin</a>
+            <a href="mailto:marcosvmmoura@gmail.com" target="_blank" rel="noopener">Email</a>
           </div>
         </div>
       </div>
@@ -100,7 +101,18 @@
 
     .author-card-links {
       display: flex;
-      flex-direction: column;
+
+      a {
+        margin-right: 24px;
+        position: relative;
+
+        + a:before {
+          position: absolute;
+          top: 0;
+          left: -16px;
+          content: "- "
+        }
+      }
     }
   }
 
