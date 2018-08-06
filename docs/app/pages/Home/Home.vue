@@ -2,6 +2,7 @@
   <splash-container splash class="home-page">
     <div class="home-splash">
       <home-header />
+      <ad-manager />
       <home-features />
       <md-icon class="home-icon-indicator" @click.native="scrollToEcosystem">keyboard_arrow_down</md-icon>
     </div>
@@ -18,6 +19,7 @@
   import HomeEcosystem from './HomeEcosystem'
   import HomePremium from './HomePremium'
   import HomeSponsors from './HomeSponsors'
+  import AdManager from '../../components/AdManager'
 
   export default {
     name: 'Home',
@@ -26,7 +28,8 @@
       HomeFeatures,
       HomeEcosystem,
       HomePremium,
-      HomeSponsors
+      HomeSponsors,
+      AdManager
     },
     methods: {
       scrollDown (target) {
@@ -112,10 +115,6 @@
 </style>
 
 <style lang="scss">
-  @import "~vue-material/components/MdAnimation/variables";
-  @import "~vue-material/components/MdIcon/mixins";
-  @import "~vue-material/components/MdLayout/mixins";
-
   .page-wrapper {
     max-width: 1344px;
     margin: 0 auto;
@@ -132,6 +131,32 @@
       top: 2px;
       bottom: 0;
       left: -48px;
+    }
+  }
+
+  .home-splash {
+    .ad-manager {
+      @media (max-width: 1690px) {
+        margin: 32px 0 !important;
+
+        .code-fund {
+          display: flex !important;
+          align-items: center;
+          flex-direction: row;
+
+          .code-fund-image {
+            max-width: 175px;
+          }
+
+          .code-fund-data {
+            margin-left: 8px;
+          }
+
+          a {
+            color: #fff !important;
+          }
+        }
+      }
     }
   }
 </style>

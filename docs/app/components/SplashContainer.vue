@@ -3,7 +3,7 @@
     <div class="splash-container main-container" :class="{ centered }">
       <slot />
 
-      <ad-manager />
+      <ad-manager v-if="$route.name !== 'home'" />
     </div>
   </transition>
 </template>
