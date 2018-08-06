@@ -59,6 +59,10 @@
     transform: translate3d(0, 150px, 0);
     transition-property: opacity, transform;
     will-change: opacity, transform;
+
+    .ad-manager {
+      display: none;
+    }
   }
 
   .page-container-enter-to {
