@@ -3,7 +3,7 @@
     <div class="page-wrapper">
       <h2 class="home-title md-headline">
         <md-icon>monetization_on</md-icon>
-        {{ $t('pages.home.backers') }}
+        {{ $t('pages.home.sponsors') }} &amp; {{ $t('pages.home.backers') }}
       </h2>
 
       <div class="home-sponsors-description">
@@ -17,6 +17,16 @@
       </div>
 
       <div class="home-sponsors-backers">
+        <h3 class="md-title">{{ $t('pages.home.sponsors') }}</h3>
+
+        <div class="home-sponsor-list md-layout md-layout-wrap">
+          <a class="home-sponsor" href="http://impulso.work" target="_blank">
+            <md-ripple>
+              <img src="/assets/sponsors/logo-impulso.png">
+            </md-ripple>
+          </a>
+        </div>
+
         <h4 class="md-subheading">{{ $t('pages.home.backers') }}</h4>
 
         <ul>
