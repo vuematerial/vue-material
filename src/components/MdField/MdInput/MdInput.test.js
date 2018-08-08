@@ -1,9 +1,7 @@
 import Vue from 'vue'
 import mountTemplate from 'test/utils/mountTemplate'
-import { mount } from 'avoriaz'
 import MdFieldModule from 'components/MdField'
 import MdField from '../MdField.vue'
-import upstreamChange from '../fixtures/upstreamChange.vue'
 
 
 
