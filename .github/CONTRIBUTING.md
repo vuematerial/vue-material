@@ -8,7 +8,7 @@ Before submitting your contribution please read the guidelines.
 
 ## Issue Reporting Guidelines
 
-- Do not create questions. The issue list is exclusively for reports, bugs and feature requests. Use the [Discord server]( https://discord.gg/rgcmTtm) instead.
+- Do not create questions. The issue list is exclusively for reports, bugs and feature requests. Use the [Discord server]( https://discord.gg/vuematerial) instead.
 
 - Always search for your issue first. It may have already been answered, planned or fixed in some branch. New components and features will be planned on [Milestones](https://github.com/vuematerial/vue-material/milestones) or on [Projects](https://github.com/vuematerial/vue-material/projects).
 

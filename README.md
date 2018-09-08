@@ -23,7 +23,7 @@
     <img src="https://img.shields.io/npm/l/vue-material.svg" alt="License">
   </a>
   
-  <a href="https://discord.gg/rgcmTtm">
+  <a href="https://discord.gg/vuematerial">
     <img src="https://img.shields.io/discord/379653048798281729.svg?logo=discord&colorB=7289DA" alt="Chat">
   </a>
 </p>
@@ -100,9 +100,7 @@ Optionally import Roboto font & Material Icons from Google CDN:
 
 ## Questions
 
-If you have any questions, ideas or you want to discuss with Vue Material community. Use the [Discord](https://discord.gg/rgcmTtm)
-
-Or you can use [Slack Channel](https://vue-material.slack.com). Follow this [invitation link for Slack](https://join.slack.com/t/vuematerial/shared_invite/MTgzMzU2NDQ5ODkwLTE0OTQ4MDI3MDAtNWYyZjhkNzEzMA).
+If you have any questions, ideas or you want to discuss with Vue Material community, use [Discord](https://discord.gg/vuematerial) to join us.
 
 ## Contributing
 
