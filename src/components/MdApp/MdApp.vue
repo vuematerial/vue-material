@@ -80,7 +80,7 @@
   function getDrawers (children) {
     const drawerVnodes = children.filter(child => {
       const tag = child.data.slot || child.componentOptions.tag
-      return tag === 'md-app-drawer'
+      return ['md-app-drawer', 'md-app-drawer-right', 'md-app-drawer-left'].indexOf(tag) > -1
     })
     return drawerVnodes.length ? drawerVnodes : []
   }
