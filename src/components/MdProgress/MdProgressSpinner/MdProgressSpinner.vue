@@ -1,5 +1,5 @@
 <template>
-  <transition name="md-progress-spinner" appear>
+  <transition name="md-progress-spinner" :duration="{ determinate: 2000, indeterminate: 400 }[mdMode]" appear>
     <div class="md-progress-spinner" :class="[progressClasses, $mdActiveTheme]">
       <svg
         class="md-progress-spinner-draw"
@@ -169,7 +169,7 @@
       transform: rotate(4680deg)
     }
   }
-  
+
   @keyframes md-progress-spinner-stroke-rotate {
     0% {
       stroke-dashoffset: var(--md-progress-spinner-start-value);
@@ -260,9 +260,7 @@
       animation: md-progress-spinner-rotate 2s linear infinite;
 
       &.md-progress-spinner-enter,
-      &.md-progress-spinner-leave-active {
-        transition-duration: .4s;
-
+      &.md-progress-spinner-leave-to {
         .md-progress-spinner-draw {
           opacity: 0;
           transform: scale(.1);
@@ -276,12 +274,15 @@
     }
 
     &.md-determinate {
-      &.md-progress-spinner-enter-active,
-      &.md-progress-spinner-leave-active {
-        transition-duration: 2s;
-
+      &.md-progress-spinner-enter-active {
         .md-progress-spinner-draw {
           animation: md-progress-spinner-initial-rotate 1.98s $md-transition-stand-timing forwards;
+        }
+      }
+
+      &.md-progress-spinner-leave-active {
+        .md-progress-spinner-draw {
+          animation: md-progress-spinner-initial-rotate reverse 1.98s $md-transition-stand-timing forwards;
         }
       }
 
