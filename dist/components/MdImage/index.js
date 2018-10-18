@@ -1,5 +1,5 @@
 /*!
- * vue-material vv1.0.0-beta-10.3[D[4[D[D[D[D[D[D[D[D[D[D[D[D[D[D[
+ * vue-material v1.0.0-beta-10.5
  * Made with <3 by marcosmoura 2018
  * Released under the MIT License.
  */
