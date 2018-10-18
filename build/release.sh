@@ -21,16 +21,8 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   echo "${CLEAR}Releasing Vue Material - ${GREEN}Version $VERSION${NC}"
 
 
-  echo "\n${YELLOW}Checking for errors... ${NC}"
-  yarn lint
-
-
-  # echo "\n${YELLOW}Running all tests... ${NC}"
-  # yarn test
-
-
   echo "\n${YELLOW}Generating build... ${NC}"
-  VERSION=$VERSION yarn build
+  VERSION=$VERSION npm run build
 
 
   echo "\n${YELLOW}Commiting... ${NC}"
@@ -40,7 +32,7 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
 
 
   echo "\n${YELLOW}Generating changelog... ${NC}"
-  yarn changelog
+  npm run changelog
   rm -rf RELEASE_NOTES.md
   git add -A
   git commit -m "build: changelog $VERSION"
