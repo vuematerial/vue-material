@@ -73,24 +73,3 @@
   letter-spacing: -.01em;
   line-height: 112px;
 }
-
-
-/**
- * Links and Buttons - Create consise links across all the application
- */
-/*
-   ========================================================================== */
-
-a:not(.md-button) {
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: underline;
-  }
-}
-
-button {
-  &:focus {
-    outline: none;
-  }
-}
