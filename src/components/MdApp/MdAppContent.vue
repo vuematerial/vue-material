@@ -22,6 +22,8 @@
 
 <style lang="scss">
   .md-app-content {
+    min-height: 100%;
+
     .md-card {
       margin-right: 16px;
       margin-left: 16px;
