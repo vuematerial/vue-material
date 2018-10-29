@@ -1,5 +1,5 @@
 /*!
- * vue-material v1.0.0-beta-10.8
+ * vue-material v1.0.0-beta-10.9
  * Made with <3 by marcosmoura 2018
  * Released under the MIT License.
  */
@@ -7405,11 +7405,10 @@ function subMilliseconds (dirtyDate, dirtyAmount, dirtyOptions) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* unused harmony export protectedTokens */
 /* harmony export (immutable) */ __webpack_exports__["a"] = isProtectedToken;
 /* harmony export (immutable) */ __webpack_exports__["b"] = throwProtectedError;
-const protectedTokens = ['D', 'DD', 'YY', 'YYYY']
-/* unused harmony export protectedTokens */
-
+var protectedTokens = ['D', 'DD', 'YY', 'YYYY']
 
 function isProtectedToken(token) {
   return protectedTokens.indexOf(token) !== -1
