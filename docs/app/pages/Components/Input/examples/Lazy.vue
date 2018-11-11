@@ -14,7 +14,7 @@
 
 <script>
   export default {
-    name: 'lazy',
+    name: 'Lazy',
     data: () => ({
       initial: 'Initial Value',
       isLazy: true
