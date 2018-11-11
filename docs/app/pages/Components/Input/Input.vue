@@ -4,6 +4,7 @@
 <example src="./examples/FieldIcons.vue" />
 <example src="./examples/InlineActions.vue" />
 <example src="./examples/Fixes.vue" />
+<example src="./examples/Lazy.vue" />
 
 <template>
   <page-container centered :title="$t('pages.input.title')">
@@ -54,6 +55,12 @@
 
       <p>Prefixes and suffixes can be used to clarify units or to add input in advance. Prefixes are left justified in the text field whereas suffixes are right justified. Text fields can have both prefixes and suffixes.</p>
       <code-example title="Prefixes & suffixes" :component="examples['fixes']" />
+    </div>
+    <div class="page-container-section">
+      <h2>Lazy Input</h2>
+
+      <p>You can set isLazy prop determine input whether use v-model.lazy.</p>
+      <code-example title="Lazy Input" :component="examples['lazy']" />
     </div>
 
     <div class="page-container-section">
@@ -185,6 +192,12 @@
             type: 'Number|Boolean',
             description: 'Enable the counter for the field. This is useful when you want only a counter without setting a maxlength. After setting a maxlength, in case if you do not want to display the counter, set this prop to false',
             defaults: 'true'
+          },
+          {
+            name: 'isLazy',
+            type: 'Boolean',
+            description: 'Enable input render with v-model.lazy.',
+            defaults: 'false'
           }
         ]
       },

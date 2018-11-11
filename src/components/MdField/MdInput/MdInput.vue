@@ -1,5 +1,14 @@
 <template>
   <input
+    v-if="isLazy"
+    class="md-input"
+    v-model.lazy="model"
+    v-bind="attributes"
+    v-on="listeners"
+    @focus="onFocus"
+    @blur="onBlur">
+  <input
+    v-else
     class="md-input"
     v-model="model"
     v-bind="attributes"
@@ -25,6 +34,10 @@
       type: {
         type: String,
         default: 'text'
+      },
+      isLazy: {
+        type: Boolean,
+        default: false
       }
     },
     computed: {
