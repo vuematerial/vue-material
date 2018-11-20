@@ -201,14 +201,14 @@
         return this.$refs.menu ? this.$refs.menu.contains(target) : false
       },
       isBackdropExpectMenu ($event) {
-        return !this.$el.contains($event.target) && !this.isMenu($event)
+        return !this.MdMenu.$el.contains($event.target) && !this.isMenu($event)
       },
       createClickEventObserver () {
         if (document) {
           this.MdMenu.bodyClickObserver = new MdObserveEvent(document.body, 'click', $event => {
             $event.stopPropagation()
 
-            if (!this.isMenu($event) && (this.MdMenu.closeOnClick || this.isBackdropExpectMenu($event))) {
+            if (this.MdMenu.closeOnClick && this.isBackdropExpectMenu($event)) {
               this.MdMenu.active = false
               this.MdMenu.bodyClickObserver.destroy()
               this.MdMenu.windowResizeObserver.destroy()
