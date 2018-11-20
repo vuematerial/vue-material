@@ -6,7 +6,7 @@
       </md-ripple>
     </div>
 
-    <label :for="id" class="md-checkbox-label" v-if="$slots.default" @click.prevent="toggleCheck">
+    <label :for="id" class="md-checkbox-label" v-if="$slots.default">
       <slot />
     </label>
   </div>
