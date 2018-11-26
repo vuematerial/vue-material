@@ -7,3 +7,4 @@ coverage/
 yarn-debug.log
 npm-debug.log
 .vscode
+.idea/
