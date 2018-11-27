@@ -1,3 +1,7 @@
 export default {
-  appName: 'Vue Material'
+  appName: 'Vue Material',
+  navigation: {
+    home: 'Home',
+    button: 'Button'
+  }
 }

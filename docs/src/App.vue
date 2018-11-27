@@ -1,5 +1,6 @@
 <template>
   <div v-if="loaded" id="docs" class="docs">
+    <AppNavigation />
     <RouterView />
   </div>
 </template>
@@ -7,8 +8,13 @@
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator'
   import { getDocumentLocale, getGlobalMessages, setMessages } from '@/i18n'
+  import AppNavigation from '@/templates/AppNavigation'
 
-  @Component
+  @Component({
+    components: {
+      AppNavigation
+    }
+  })
   class App extends Vue {
 
     loaded = false
