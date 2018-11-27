@@ -10,6 +10,7 @@
 
   @Component
   class App extends Vue {
+
     loaded = false
 
     async created () {
@@ -19,6 +20,7 @@
       await setMessages(documentLanguage, messages)
       this.loaded = true
     }
+
   }
 
   export default App

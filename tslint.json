@@ -1,7 +1,8 @@
 {
   "defaultSeverity": "warning",
   "extends": [
-    "tslint:recommended"
+    "tslint:recommended",
+    "tslint-config-airbnb"
   ],
   "linterOptions": {
     "exclude": [
@@ -9,24 +10,28 @@
       "node_modules/**"
     ]
   },
+  "rulesDirectory": [
+    "node_modules/tslint-eslint-rules/dist/rules"
+  ],
   "rules": {
     "array-bracket-spacing": [
-      "never",
-      true
+      true,
+      "never"
     ],
     "cyclomatic-complexity": [
-      42,
-      true
+      true,
+      42
     ],
+    "import-name": false,
     "indent": [
+      true,
       "spaces",
-      2,
-      true
+      2
     ],
     "interface-name": false,
     "max-line-length": [
-      120,
-      true
+      true,
+      120
     ],
     "max-nested-callbacks": [
       3,
@@ -49,33 +54,35 @@
     "no-multi-spaces": true,
     "object-literal-sort-keys": false,
     "ordered-imports": false,
-    "padded-blocks": [
-      "error",
-      {
-        "classes": "always"
-      }
-    ],
     "quotemark": [
-      "single",
-      true
+      true,
+      "single"
     ],
     "semicolon": [
-      "never",
-      true
+      true,
+      "never"
     ],
     "space-before-function-paren": true,
     "strict-type-predicates": true,
     "switch-default": true,
     "ter-newline-after-var": [
-      "always",
-      true
+      true,
+      "always"
     ],
     "ter-no-irregular-whitespace": true,
     "ter-no-mixed-spaces-and-tabs": [
-      "always",
-      true
+      true,
+      "always"
     ],
     "ter-no-proto": true,
+    "ter-padded-blocks": [
+      true,
+      {
+        "blocks": "never",
+        "classes": "always",
+        "switches": "never"
+      }
+    ],
     "ter-prefer-arrow-callback": [
       true,
       {
@@ -84,8 +91,5 @@
     ],
     "trailing-comma": false,
     "valid-typeof": true
-  },
-  "rulesDirectory": [
-    "node_modules/tslint-eslint-rules/dist/rules"
-  ]
+  }
 }

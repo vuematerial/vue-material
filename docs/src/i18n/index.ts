@@ -10,7 +10,6 @@ export default i18n
 
 async function getMessages (language: string, path: string, isPage: boolean = false) {
   async function importFile (fileLanguage: string) {
-
     if (isPage) {
       return import(`../${path}/i18n/${fileLanguage}.ts`)
     }

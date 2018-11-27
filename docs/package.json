@@ -1,6 +1,6 @@
 {
   "name": "@vuematerial/docs",
-  "version": "0.1.0",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
     "dev": "vue-cli-service serve",
@@ -29,7 +29,6 @@
     "babel-core": "^6.26.3",
     "node-sass": "^4.10.0",
     "sass-loader": "^7.1.0",
-    "tslint-eslint-rules": "^5.4.0",
     "vue-template-compiler": "^2.5.17"
   }
 }
