@@ -1,0 +1,19 @@
+{
+  "name": "vue-material",
+  "description": "Material Design for Vue.js",
+  "version": "2.0.0",
+  "license": "MIT",
+  "author": {
+    "name": "marcosmoura",
+    "email": "marcosvmmoura@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vuematerial/vue-material.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vuematerial/vue-material/issues"
+  },
+  "dependencies": {
+  }
+}

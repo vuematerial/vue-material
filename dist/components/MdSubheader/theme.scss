@@ -1,9 +1,0 @@
-.md-subheader {
-  @include md-theme-component() {
-    @include md-theme-property(color, text-accent, background);
-
-    &.md-primary {
-      @include md-theme-property(color, primary, background);
-    }
-  }
-}

@@ -1,3 +1,0 @@
-#!/bin/bash
-
-NODE_ENV=test node ./node_modules/jest/bin/jest
