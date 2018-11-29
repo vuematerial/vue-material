@@ -1,0 +1,21 @@
+@import '~@vuematerial/theme/engine/utils';
+@import './variables';
+
+@function md-get-state-opacity ($state, $color) {
+  @return map-get(map-get($md-state, $state), $color);
+}
+
+@function md-get-state-rgba ($hex, $state, $color) {
+  @return rgba($hex, md-get-state-opacity($state, $color));
+}
+
+@function md-get-state-color ($paletteColor, $state) {
+  $color: md-get-color($paletteColor);
+  $shade: md-pick-contrast($color);
+
+  @if ($shade == dark) {
+    @return md-get-state-rgba(#fff, $state, color);
+  }
+
+  @return md-get-state-rgba(#000, $state, surface);
+}

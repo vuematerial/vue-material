@@ -8,7 +8,7 @@
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator'
   import { getDocumentLocale, getGlobalMessages, setMessages } from '@/i18n'
-  import AppNavigation from '@/templates/AppNavigation'
+  import AppNavigation from '@/templates/AppNavigation.vue'
 
   @Component({
     components: {
@@ -33,14 +33,25 @@
 </script>
 
 <style lang="scss">
+  @import '~vue-material/vue-material';
+  @import '~vue-material/theme/engine';
+
+  @include md-create-theme('default');
+
+  @import '~vue-material/theme/components';
+</style>
+
+<style lang="scss">
   body {
     overflow: hidden;
   }
 </style>
 
 <style lang="scss" scoped>
-  .app {
+  .docs {
     height: 100vh;
     display: flex;
+    flex-direction: column;
+    font-family: Roboto, sans-serif;
   }
 </style>

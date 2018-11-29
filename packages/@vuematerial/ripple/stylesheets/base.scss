@@ -1,0 +1,46 @@
+@import '~@vuematerial/motion/stylesheets/variables';
+
+.md-ripple {
+  position: relative;
+  overflow: hidden;
+
+  *:not(.md-ripple-wave):not(img) {
+    position: relative;
+    z-index: 3;
+  }
+
+  &.md-centered,
+  &.md-force-centered {
+    .md-ripple-wave {
+      top: 50%;
+      left: 50%;
+    }
+  }
+}
+
+.md-ripple-wave {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+  background: currentColor;
+  border-radius: 50%;
+  transform: scale(0) translateZ(0);
+  transform-origin: center center;
+  transition-duration: 225ms;
+  will-change: opacity, transform;
+}
+
+.md-ripple-enter {
+  opacity: 0;
+}
+
+.md-ripple-enter-active {
+  opacity: 1;
+  transition: 75ms opacity $md-motion-easing-default,
+              225ms transform $md-motion-easing-enter;
+}
+
+.md-ripple-leave-active {
+  opacity: 0 !important;
+  transition-duration: 225ms;
+}

@@ -24,6 +24,11 @@ export default new Router({
       component: importPage('Home', 'Home')
     },
     {
+      path: '/button',
+      name: 'button',
+      component: importPage('Button', 'Button')
+    },
+    {
       path: '*',
       name: 'error',
       component: importPage('Error', 'Error')

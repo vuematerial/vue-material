@@ -1,0 +1,43 @@
+@import '~@vuematerial/motion/stylesheets/variables';
+
+.md-button-base {
+  margin: 0;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  outline: none;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  transition: $md-motion-easing-default $md-motion-duration-small;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: inherit;
+  line-height: normal;
+  text-decoration: none;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.md-button {
+  @extend .md-button-base;
+
+  min-width: 64px;
+  min-height: 36px;
+  padding: 0 16px;
+  user-select: none;
+  text-transform: uppercase;
+
+  + .md-button {
+    margin-left: 8px;
+  }
+
+  &::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+  }
+}

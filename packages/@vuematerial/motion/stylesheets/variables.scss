@@ -1,0 +1,14 @@
+$md-motion-duration-enter: 250ms;
+$md-motion-duration-leave: 200ms;
+
+$md-motion-duration-expand: 300ms;
+$md-motion-duration-collapse: 250ms;
+
+$md-motion-duration-small: 100ms;
+$md-motion-duration-medium: 200ms;
+$md-motion-duration-large: 300ms;
+
+
+$md-motion-easing-default: cubic-bezier(.4, .0, .2, 1);
+$md-motion-easing-enter: cubic-bezier(.0, .0, .2, 1);
+$md-motion-easing-leave: cubic-bezier(.4, .0, 1, 1);

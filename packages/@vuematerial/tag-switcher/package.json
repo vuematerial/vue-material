@@ -1,0 +1,23 @@
+{
+  "name": "@vuematerial/tag-switcher",
+  "description": "Vue Material tag switcher component",
+  "version": "2.0.0",
+  "license": "MIT",
+  "author": {
+    "name": "marcosmoura",
+    "email": "marcosvmmoura@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vuematerial/vue-material.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vuematerial/vue-material/issues"
+  },
+  "peerDependencies": {
+    "vue": "^2.5.0"
+  },
+  "devDependencies": {
+    "vue": "^2.5.17"
+  }
+}

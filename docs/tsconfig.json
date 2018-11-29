@@ -13,10 +13,8 @@
   },
   "include": [
     "src/**/*.ts",
-    "src/**/*.json",
     "src/**/*.vue",
     "__tests__/**/*.ts",
-    "__tests__/**/*.json",
     "__tests__/**/*.vue"
   ],
   "exclude": [

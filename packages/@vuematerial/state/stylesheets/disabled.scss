@@ -1,0 +1,6 @@
+@import './variables';
+
+.md-state.md-disabled {
+  pointer-events: none;
+  opacity: $md-state-disabled-opacity;
+}

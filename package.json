@@ -19,14 +19,14 @@
     "lerna": "lerna",
     "updated": "lerna updated",
     "clean": "lerna clean --yes && rm -rf node_modules yarn.lock && yarn",
-    "lint": "vue-cli-service lint",
+    "lint": "vue-cli-service lint {docs,packages/typings}/**/*.{vue,ts}",
     "dev": "(cd docs && yarn dev)"
   },
   "devDependencies": {
-    "@types/jest": "^23.3.9",
-    "@vue/cli-plugin-typescript": "^3.1.1",
-    "@vue/cli-service": "^3.1.4",
-    "lerna": "^3.4.3",
+    "@types/jest": "^23.3.10",
+    "@vue/cli-plugin-typescript": "^3.2.0",
+    "@vue/cli-service": "^3.2.0",
+    "lerna": "^3.5.0",
     "lint-staged": "^8.1.0",
     "ts-jest": "^23.10.5",
     "tslint-config-airbnb": "^5.11.1",
@@ -39,7 +39,7 @@
   "workspaces": [
     "docs",
     "packages/vue-material",
-    "packages/@vuematerial/*"
+    "packages/@vuematerial/**"
   ],
   "sideEffects": false,
   "engines": {

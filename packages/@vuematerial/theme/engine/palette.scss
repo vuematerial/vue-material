@@ -1,0 +1,22 @@
+$md-theme-palette: (
+  primary: #6200EE,
+  primary-variant: #3700B3,
+  text-on-primary: #fff,
+
+  secondary: #03DAC6,
+  secondary-variant: #018786,
+  text-on-secondary: #000,
+
+  background: #fff,
+  text-on-background: #000,
+
+  surface: #fff,
+  text-on-surface: #000,
+
+  error: #B00020,
+  text-on-error: #fff
+);
+
+$md-themes: () !global;
+$md-current-theme: () !global;
+$md-current-component: '' !global;

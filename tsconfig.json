@@ -5,7 +5,6 @@
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
     "importHelpers": true,
-    "jsx": "preserve",
     "lib": [
       "dom",
       "dom.iterable",
@@ -33,10 +32,5 @@
   },
   "exclude": [
     "node_modules"
-  ],
-  "include": [
-    "./docs/**/*",
-    "./packages/**/*",
-    "./typings/**/*"
   ]
 }

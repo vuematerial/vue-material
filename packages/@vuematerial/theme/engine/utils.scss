@@ -1,0 +1,41 @@
+@function md-preset-has-primitive ($preset, $primitive) {
+  @return
+    map-has-key($preset, $primitive)
+    or map-has-key($preset, #{$primitive}-variant)
+    and not map-has-key($new-preset, text-on-#{$primitive});
+}
+
+@function md-get-text-color-by-contrast($color) {
+  $color-contrast: md-pick-contrast($color);
+
+  @if $color-contrast == dark {
+    @return #fff;
+  }
+
+  @return #000;
+}
+
+@function md-generate-preset-contrast-by-primitive ($preset, $primitive) {
+  @if (md-preset-has-primitive($preset, $primitive)) {
+    @return map-merge($preset, (
+      text-on-#{$primitive}: md-get-text-color-by-contrast(map-get($preset, $primitive))
+    ));
+  }
+
+  @return $preset;
+}
+
+@function md-generate-preset-contrast ($preset) {
+  $new-preset: $preset;
+  $new-preset: md-generate-preset-contrast-by-primitive($new-preset, primary);
+  $new-preset: md-generate-preset-contrast-by-primitive($new-preset, secondary);
+  $new-preset: md-generate-preset-contrast-by-primitive($new-preset, background);
+  $new-preset: md-generate-preset-contrast-by-primitive($new-preset, surface);
+  $new-preset: md-generate-preset-contrast-by-primitive($new-preset, error);
+
+  @return $new-preset;
+}
+
+@function md-get-color ($color) {
+  @return map-get(map-get($md-current-theme, preset), $color);
+}

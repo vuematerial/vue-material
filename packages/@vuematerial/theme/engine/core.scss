@@ -1,0 +1,46 @@
+@mixin md-create-theme ($theme-name: default, $theme-preset: (), $theme-overrides: (), $css-variables: false) {
+  $md-themes: map-merge($md-themes, (
+    #{$theme-name}: (
+      preset: map-merge($md-theme-palette, md-generate-preset-contrast($theme-preset)),
+      overrides: $theme-overrides,
+      cssVariables: $css-variables
+    )
+  )) !global;
+}
+
+@mixin md-theme-component ($component-name: '', $overrides: ()) {
+  @each $theme-name, $theme in $md-themes {
+    $new-overrides: map-merge((
+      $component-name: $overrides
+    ), map-get($theme, overrides));
+    $md-current-theme: map-merge($theme, ( overrides: $new-overrides )) !global;
+
+    @if ($component-name != '') {
+      $md-current-component: $component-name !global;
+
+      .md-theme-#{$theme-name} & {
+        @content;
+      }
+    } @else {
+      .md-theme-#{$theme-name} {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin md-theme-property ($property, $value: '') {
+  $preset: map-get($md-current-theme, preset);
+  $overrides: map-get($md-current-theme, overrides);
+  $css-variables: map-get($md-current-theme, cssVariables);
+
+  @if (map-has-key($overrides, $md-current-component)) {
+    $component-overrides: map-get($overrides, $md-current-component);
+
+    @if (map-has-key($component-overrides, $property)) {
+      #{$property}: map-get($component-overrides, $property);
+    } @else {
+      #{$property}: map-get($preset, $value);
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "@vuematerial/theme",
+  "description": "Vue Material theme engine",
+  "version": "2.0.0",
+  "license": "MIT",
+  "author": {
+    "name": "marcosmoura",
+    "email": "marcosvmmoura@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vuematerial/vue-material.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vuematerial/vue-material/issues"
+  },
+  "dependencies": {
+
+  }
+}

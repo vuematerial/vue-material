@@ -5,7 +5,7 @@
   "useWorkspaces": true,
   "packages": [
     "docs",
-    "packages/@vuematerial/*",
+    "packages/@vuematerial/**",
     "packages/vue-material"
   ],
   "command": {

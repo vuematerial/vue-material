@@ -15,5 +15,8 @@
     "url": "https://github.com/vuematerial/vue-material/issues"
   },
   "dependencies": {
+    "@vuematerial/button": "^2.0.0",
+    "@vuematerial/core": "^2.0.0",
+    "@vuematerial/theme": "^2.0.0"
   }
 }

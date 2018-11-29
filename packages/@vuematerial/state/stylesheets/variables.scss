@@ -1,0 +1,28 @@
+$md-state-disabled-opacity: .38;
+
+$md-state: (
+  hovered: (
+    surface: .04,
+    color: .08
+  ),
+  focused: (
+    surface: .12,
+    color: .24
+  ),
+  selected: (
+    surface: .08,
+    color: .16
+  ),
+  activated: (
+    surface: .12,
+    color: .24
+  ),
+  pressed: (
+    surface: .16,
+    color: .32
+  ),
+  dragged: (
+    surface: .08,
+    color: .16
+  )
+);
