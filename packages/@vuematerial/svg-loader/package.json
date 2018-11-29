@@ -1,6 +1,6 @@
 {
-  "name": "vue-material",
-  "description": "Material Design for Vue.js",
+  "name": "@vuematerial/svg-loader",
+  "description": "SVG Loader component of Vue Material",
   "version": "2.0.0",
   "license": "MIT",
   "author": {
@@ -14,12 +14,10 @@
   "bugs": {
     "url": "https://github.com/vuematerial/vue-material/issues"
   },
-  "dependencies": {
-    "@vuematerial/base": "^2.0.0",
-    "@vuematerial/button": "^2.0.0",
-    "@vuematerial/core": "^2.0.0",
-    "@vuematerial/elevation": "^2.0.0",
-    "@vuematerial/icon": "^2.0.0",
-    "@vuematerial/theme": "^2.0.0"
+  "peerDependencies": {
+    "vue": "^2.5.0"
+  },
+  "devDependencies": {
+    "vue": "^2.5.17"
   }
 }

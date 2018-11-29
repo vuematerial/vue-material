@@ -1,0 +1,17 @@
+@import "~@vuematerial/motion/stylesheets/variables";
+
+.md-icon-font {
+  transition: color $md-motion-duration-small $md-motion-easing-default;
+  font-family: "Material Icons";
+  font-feature-settings: "liga";
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: normal;
+  line-height: 1em;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  word-wrap: normal;
+  white-space: nowrap;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

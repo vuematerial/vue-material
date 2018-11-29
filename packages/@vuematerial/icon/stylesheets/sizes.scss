@@ -1,0 +1,28 @@
+$md-icon-size: 24px;
+
+@mixin md-icon-size($size: $md-icon-size) {
+  width: $size;
+  min-width: $size;
+  height: $size;
+  font-size: $size !important;
+}
+
+.md-icon {
+  @include md-icon-size($md-icon-size);
+
+  &.md-size-2x {
+    @include md-icon-size($md-icon-size * 2);
+  }
+
+  &.md-size-3x {
+    @include md-icon-size($md-icon-size * 3);
+  }
+
+  &.md-size-4x {
+    @include md-icon-size($md-icon-size * 4);
+  }
+
+  &.md-size-5x {
+    @include md-icon-size($md-icon-size * 5);
+  }
+}

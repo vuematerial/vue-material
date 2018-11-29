@@ -21,8 +21,11 @@
     "vue": "^2.5.17"
   },
   "dependencies": {
+    "@vuematerial/elevation": "^2.0.0",
+    "@vuematerial/icon": "^2.0.0",
     "@vuematerial/motion": "^2.0.0",
     "@vuematerial/ripple": "^2.0.0",
-    "@vuematerial/theme": "^2.0.0"
+    "@vuematerial/theme": "^2.0.0",
+    "raf": "^3.4.1"
   }
 }

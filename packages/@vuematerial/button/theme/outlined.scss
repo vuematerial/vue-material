@@ -1,0 +1,15 @@
+.md-button.md-outlined {
+  @include md-theme-component (button) {
+    &:before {
+      @include md-theme-property(border-color, text-on-surface);
+    }
+
+    &.md-primary:before {
+      @include md-theme-property(border-color, primary);
+    }
+
+    &.md-secondary:before {
+      @include md-theme-property(border-color, secondary);
+    }
+  }
+}

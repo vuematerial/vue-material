@@ -1,6 +1,6 @@
 {
-  "name": "vue-material",
-  "description": "Material Design for Vue.js",
+  "name": "@vuematerial/icon",
+  "description": "Icon component of Vue Material",
   "version": "2.0.0",
   "license": "MIT",
   "author": {
@@ -15,11 +15,7 @@
     "url": "https://github.com/vuematerial/vue-material/issues"
   },
   "dependencies": {
-    "@vuematerial/base": "^2.0.0",
-    "@vuematerial/button": "^2.0.0",
-    "@vuematerial/core": "^2.0.0",
-    "@vuematerial/elevation": "^2.0.0",
-    "@vuematerial/icon": "^2.0.0",
-    "@vuematerial/theme": "^2.0.0"
+    "@vuematerial/motion": "^2.0.0",
+    "@vuematerial/svg-loader": "^2.0.0"
   }
 }

@@ -9,13 +9,36 @@
   @return rgba($hex, md-get-state-opacity($state, $color));
 }
 
-@function md-get-state-color ($paletteColor, $state) {
-  $color: md-get-color($paletteColor);
-  $shade: md-pick-contrast($color);
+@function md-get-state-color ($paletteColor, $state, $finalColor: '', $backgroundColor: '') {
+  $shade: null;
+  $stateColor: null;
+  $opacityReference: null;
 
-  @if ($shade == dark) {
-    @return md-get-state-rgba(#fff, $state, color);
+  @if ($finalColor != '') {
+    $stateColor: $finalColor;
+
+    @if ($backgroundColor != '') {
+      $shade: md-pick-contrast(md-get-color($paletteColor));
+
+      @if ($shade == dark) {
+        $opacityReference: surface;
+      } @else {
+        $opacityReference: color;
+      }
+    } @else {
+      $opacityReference: surface;
+    }
+  } @else {
+    $shade: md-pick-contrast(md-get-color($paletteColor));
+
+    @if ($shade == dark) {
+      $stateColor: #fff;
+      $opacityReference: color;
+    } @else {
+      $opacityReference: surface;
+      $stateColor: #000;
+    }
   }
 
-  @return md-get-state-rgba(#000, $state, surface);
+  @return md-get-state-rgba($stateColor, $state, $opacityReference);
 }

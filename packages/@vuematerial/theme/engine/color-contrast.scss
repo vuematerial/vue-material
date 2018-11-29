@@ -326,7 +326,7 @@ $md-linear-channel-values:
 
 @function md-pick-contrast($color) {
   $lightColor: #fff;
-  $darkColor: rgba(#000, .87);
+  $darkColor: #000;
   $lightContrast: md-calculate-contrast($color, $lightColor);
   $darkContrast: md-calculate-contrast($color, $darkColor);
   $minimumContrast: 3.1;

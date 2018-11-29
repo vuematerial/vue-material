@@ -1,0 +1,17 @@
+.md-icon {
+  @include md-theme-component() {
+    &.md-icon-image {
+      svg {
+        @include md-theme-property(fill, icon);
+      }
+
+      &.md-primary svg {
+        @include md-theme-property(fill, primary);
+      }
+
+      &.md-secondary svg {
+        @include md-theme-property(fill, secondary);
+      }
+    }
+  }
+}

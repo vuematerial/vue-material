@@ -17,7 +17,9 @@ $md-theme-palette: (
   text-on-error: #fff,
 
   scrollbar: #757575,
-  scrollbar-background: darken(#eee, 5%)
+  scrollbar-background: darken(#eee, 5%),
+
+  icon: rgba(#000, 0.54)
 );
 
 $md-themes: () !global;

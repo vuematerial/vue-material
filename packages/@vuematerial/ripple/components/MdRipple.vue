@@ -11,14 +11,14 @@
     @touchstart.passive="onTouchStart"
     @touchend.passive="onTouchEnd"
   >
+    <slot />
+
     <MdRippleWave
       v-for="({ style, classes }, id) in waves"
       :key="id"
       :md-style="style"
       :class="classes"
     />
-
-    <slot />
   </MdState>
 
   <MdState
@@ -109,7 +109,7 @@ class MdRipple extends Vue {
   getWaveScale () {
     const { offsetWidth, offsetHeight } = this.$el
 
-    return Math.sqrt(Math.pow(offsetWidth, 2) + Math.pow(offsetHeight, 2)) + 10
+    return Math.sqrt(Math.pow(offsetWidth, 2) + Math.pow(offsetHeight, 2)) + 20
   }
 
   getTransformStyle (scale: number, size: number) {

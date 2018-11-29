@@ -44,6 +44,10 @@
   line-height: 32px;
 }
 
+.md-title {
+  @extend .md-h5;
+}
+
 .md-subtitle-1 {
   font-size: 16px;
   font-weight: 400;

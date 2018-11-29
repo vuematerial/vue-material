@@ -3,7 +3,6 @@
 .md-state {
   position: relative;
 
-  &:after,
   &:before {
     position: absolute;
     top: 0;
@@ -14,12 +13,8 @@
     content: ' ';
   }
 
-  &:after {
-    z-index: 1;
-  }
-
   &:before {
-    z-index: 2;
+    z-index: 1;
   }
 
   > *:not(.md-ripple-wave):not(img) {
@@ -27,6 +22,6 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    z-index: 3;
+    z-index: 2;
   }
 }

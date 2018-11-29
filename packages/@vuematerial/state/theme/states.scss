@@ -1,6 +1,6 @@
 @import '../stylesheets/utils';
 
-@mixin md-generate-state ($state, $selector: '&:before') {
+@mixin md-generate-state ($state, $selector: '&:before', $backgroundColor: '') {
   $rootSelector: '.md-state.md-#{$state}';
 
   @if ($selector != '&:before') {
@@ -24,12 +24,26 @@
           background-color: md-get-state-color(secondary, $state);
         }
       }
+
+      &.md-flat {
+        &.md-primary {
+          #{$selector} {
+            background-color: md-get-state-color(primary, $state, md-get-color(primary), $backgroundColor);
+          }
+        }
+
+        &.md-secondary {
+          #{$selector} {
+            background-color: md-get-state-color(secondary, $state, md-get-color(secondary), $backgroundColor);
+          }
+        }
+      }
     }
   }
 }
 
-@include md-generate-state(hovered, '&:hover:after');
-@include md-generate-state(pressed, '&:active:after');
+@include md-generate-state(hovered, '&:hover:before', surface);
+@include md-generate-state(pressed, '&:active:before');
 @include md-generate-state(selected);
 @include md-generate-state(focused);
 @include md-generate-state(activated);

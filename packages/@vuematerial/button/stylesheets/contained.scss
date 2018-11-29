@@ -1,0 +1,10 @@
+@import '~@vuematerial/elevation/elevation';
+
+.md-button.md-contained {
+  @extend .md-elevation-2;
+
+  &:active,
+  &.md-pressed {
+    @extend .md-elevation-6;
+  }
+}

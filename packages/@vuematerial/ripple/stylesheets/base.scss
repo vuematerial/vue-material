@@ -3,7 +3,7 @@
 .md-ripple {
   overflow: hidden;
 
-  *:not(.md-ripple-wave):not(img) {
+  > *:not(.md-ripple-wave):not(img) {
     position: relative;
     z-index: 3;
   }
@@ -41,5 +41,6 @@
 
 .md-ripple-leave-active {
   opacity: 0 !important;
-  transition-duration: 225ms;
+  transition: 200ms opacity $md-motion-easing-default,
+              225ms transform $md-motion-easing-enter;
 }

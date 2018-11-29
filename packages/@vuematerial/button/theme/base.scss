@@ -1,15 +1,22 @@
+@import './overrides';
+
 .md-button {
-  @include md-theme-component (state) {
+  @include md-theme-component (button, $md-button-overrides) {
+    @include md-theme-property(padding);
+    @include md-theme-property(border-radius);
     @include md-theme-property(color, text-on-surface);
 
+    &:before {
+      @include md-theme-property(border-radius);
+      @include md-theme-property(border-width);
+    }
+
     &.md-primary {
-      @include md-theme-property(background-color, primary);
-      @include md-theme-property(color, text-on-primary);
+      @include md-theme-property(color, primary);
     }
 
     &.md-secondary {
-      @include md-theme-property(background-color, secondary);
-      @include md-theme-property(color, text-on-secondary);
+      @include md-theme-property(color, secondary);
     }
   }
 }

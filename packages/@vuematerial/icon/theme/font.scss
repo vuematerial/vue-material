@@ -1,0 +1,15 @@
+.md-icon {
+  @include md-theme-component() {
+    &.md-icon-font {
+      @include md-theme-property(color, icon);
+
+      &.md-primary {
+        @include md-theme-property(color, primary);
+      }
+
+      &.md-secondary {
+        @include md-theme-property(color, secondary);
+      }
+    }
+  }
+}

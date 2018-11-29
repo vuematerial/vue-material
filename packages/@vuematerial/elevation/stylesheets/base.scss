@@ -1,0 +1,15 @@
+@import '~@vuematerial/motion/stylesheets/variables';
+@import "./variables";
+@import "./mixins";
+
+$md-elevation-count: length($md-elevation-umbra) - 1;
+
+[class*="md-elevation-"] {
+  transition: 280ms $md-motion-easing-default;
+}
+
+@for $i from 0 through $md-elevation-count {
+  .md-elevation-#{$i} {
+    @include md-elevation($i);
+  }
+}
