@@ -6,6 +6,7 @@
 
 <script lang="ts">
   import { Component, Vue, Prop } from 'vue-property-decorator'
+  import raf from 'raf'
 
   @Component
   class MdRippleWave extends Vue {
@@ -16,7 +17,7 @@
     componentStyle: object = {}
 
     mounted () {
-      this.$nextTick(() => {
+      raf(() => {
         this.componentStyle = this.mdStyle
       })
     }
