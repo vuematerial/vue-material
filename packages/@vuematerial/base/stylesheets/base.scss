@@ -1,0 +1,43 @@
+@import '~@vuematerial/motion/stylesheets/variables';
+
+/**
+ * Structure
+ *
+ * The main styles for html and body tags
+ *
+**/
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  @extend .md-body-1;
+
+  transition: $md-motion-duration-small $md-motion-easing-default;
+  min-height: 100vh;
+  margin: 0;
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
+
+/**
+ * Reset focus
+ *
+ * Suppress the focus outline on links that cannot be accessed via keyboard.
+ * This prevents an unwanted focus outline from appearing around elements that
+ * might still respond to pointer events.
+ *
+**/
+
+[tabindex="-1"]:focus {
+  outline: none !important;
+}

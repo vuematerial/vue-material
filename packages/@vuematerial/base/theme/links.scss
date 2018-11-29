@@ -1,0 +1,17 @@
+a:not(.md-button) {
+  @include md-theme-component() {
+    @include md-theme-property(color, primary);
+
+    &:hover {
+      @include md-theme-property(color, primary-variant);
+    }
+
+    &.md-secondary {
+      @include md-theme-property(color, secondary);
+
+      &:hover {
+        @include md-theme-property(color, secondary-variant);
+      }
+    }
+  }
+}

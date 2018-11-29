@@ -1,5 +1,5 @@
 <template>
-  <div v-if="loaded" id="docs" class="docs">
+  <div v-if="loaded" id="docs" class="docs md-scrollbar">
     <AppNavigation />
     <RouterView />
   </div>

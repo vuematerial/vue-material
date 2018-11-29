@@ -5,18 +5,13 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  position: relative;
-  overflow: hidden;
   outline: none;
   cursor: pointer;
   background: transparent;
   border: 0;
   border-radius: 0;
   transition: $md-motion-easing-default $md-motion-duration-small;
-  font: inherit;
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: inherit;
+  font-family: inherit;
   line-height: normal;
   text-decoration: none;
   vertical-align: top;
@@ -30,7 +25,6 @@
   min-height: 36px;
   padding: 0 16px;
   user-select: none;
-  text-transform: uppercase;
 
   + .md-button {
     margin-left: 8px;

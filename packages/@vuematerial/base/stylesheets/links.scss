@@ -1,0 +1,10 @@
+@import '~@vuematerial/motion/stylesheets/variables';
+
+/**
+ * Overrides - Default links
+ */
+
+ a:not(.md-button) {
+  transition: $md-motion-duration-small $md-motion-easing-default;
+  transition-property: color, background-color, opacity;
+}

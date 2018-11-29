@@ -1,0 +1,114 @@
+/**
+ * Text and Titles - Implement all guidelines for text content
+**/
+
+.md-h1 {
+  font-size: 96px;
+  font-weight: 300;
+  letter-spacing: -1.5px;
+  line-height: 136px;
+}
+
+.md-h2 {
+  font-size: 60px;
+  font-weight: 300;
+  letter-spacing: -.5px;
+  line-height: 84px;
+}
+
+.md-h3 {
+  font-size: 48px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 68px;
+}
+
+.md-h4 {
+  font-size: 34px;
+  font-weight: 400;
+  letter-spacing: .25px;
+  line-height: 48px;
+}
+
+.md-h5 {
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 32px;
+}
+
+.md-h6 {
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: .15px;
+  line-height: 32px;
+}
+
+.md-subtitle-1 {
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: .15px;
+  line-height: 28px;
+}
+
+.md-subtitle-2 {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: .15px;
+  line-height: 20px;
+}
+
+.md-body-1 {
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: .5px;
+  line-height: 22px;
+}
+
+.md-body-2 {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: .25px;
+  line-height: 20px;
+}
+
+.md-caption {
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: .04px;
+  line-height: 16px;
+}
+
+.md-overline {
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  line-height: 14px;
+  text-transform: uppercase;
+}
+
+.md-button {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1.25px;
+  text-transform: uppercase;
+}
+
+
+/**
+ * Links and Buttons - Create consise links across all the application
+**/
+
+a:not(.md-button) {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+button {
+  &:focus {
+    outline: none;
+  }
+}

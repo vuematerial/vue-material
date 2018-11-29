@@ -14,7 +14,10 @@ $md-theme-palette: (
   text-on-surface: #000,
 
   error: #B00020,
-  text-on-error: #fff
+  text-on-error: #fff,
+
+  scrollbar: #757575,
+  scrollbar-background: darken(#eee, 5%)
 );
 
 $md-themes: () !global;

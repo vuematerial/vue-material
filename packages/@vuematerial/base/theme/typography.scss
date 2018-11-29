@@ -1,0 +1,5 @@
+.md-caption {
+  @include md-theme-component() {
+    @include md-theme-property(color, text-on-surface, '', .54);
+  }
+}

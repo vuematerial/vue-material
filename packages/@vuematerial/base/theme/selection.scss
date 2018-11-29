@@ -1,0 +1,6 @@
+:not(input):not(textarea)::selection {
+  @include md-theme-component() {
+    @include md-theme-property(background-color, primary-variant, '', .3);
+    @include md-theme-property(color, text-on-background);
+  }
+}

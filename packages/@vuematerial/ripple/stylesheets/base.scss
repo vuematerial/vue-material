@@ -1,7 +1,6 @@
 @import '~@vuematerial/motion/stylesheets/variables';
 
 .md-ripple {
-  position: relative;
   overflow: hidden;
 
   *:not(.md-ripple-wave):not(img) {

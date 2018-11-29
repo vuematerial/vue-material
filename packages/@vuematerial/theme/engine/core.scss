@@ -17,19 +17,23 @@
 
     @if ($component-name != '') {
       $md-current-component: $component-name !global;
+    }
 
-      .md-theme-#{$theme-name} & {
-        @content;
-      }
-    } @else {
-      .md-theme-#{$theme-name} {
-        @content;
-      }
+    .md-theme-#{$theme-name} & {
+      @content;
     }
   }
 }
 
-@mixin md-theme-property ($property, $value: '') {
+@mixin md-apply-theme-property ($property, $map, $value, $opacity) {
+  @if ($opacity != 1) {
+    #{$property}: rgba(map-get($map, $value), $opacity);
+  } @else {
+    #{$property}: map-get($map, $value);
+  }
+}
+
+@mixin md-theme-property ($property, $value: '', $background: '', $opacity: 1) {
   $preset: map-get($md-current-theme, preset);
   $overrides: map-get($md-current-theme, overrides);
   $css-variables: map-get($md-current-theme, cssVariables);
@@ -38,9 +42,9 @@
     $component-overrides: map-get($overrides, $md-current-component);
 
     @if (map-has-key($component-overrides, $property)) {
-      #{$property}: map-get($component-overrides, $property);
+      @include md-apply-theme-property($property, $component-overrides, $property, $opacity);
     } @else {
-      #{$property}: map-get($preset, $value);
+      @include md-apply-theme-property($property, $preset, $value, $opacity);
     }
   }
 }
