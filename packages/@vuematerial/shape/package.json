@@ -1,6 +1,6 @@
 {
-  "name": "vue-material",
-  "description": "Material Design for Vue.js",
+  "name": "@vuematerial/shape",
+  "description": "Vue Material shape component",
   "version": "2.0.0",
   "license": "MIT",
   "author": {
@@ -14,14 +14,15 @@
   "bugs": {
     "url": "https://github.com/vuematerial/vue-material/issues"
   },
+  "peerDependencies": {
+    "vue": "^2.5.0"
+  },
+  "devDependencies": {
+    "vue": "^2.5.17"
+  },
   "dependencies": {
-    "@vuematerial/app-bar": "^2.0.0",
-    "@vuematerial/base": "^2.0.0",
-    "@vuematerial/button": "^2.0.0",
-    "@vuematerial/core": "^2.0.0",
     "@vuematerial/elevation": "^2.0.0",
-    "@vuematerial/icon": "^2.0.0",
-    "@vuematerial/shape": "^2.0.0",
+    "@vuematerial/motion": "^2.0.0",
     "@vuematerial/theme": "^2.0.0"
   }
 }

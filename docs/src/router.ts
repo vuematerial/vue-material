@@ -24,9 +24,19 @@ export default new Router({
       component: importPage('Home', 'Home')
     },
     {
+      path: '/app-bar',
+      name: 'app-bar',
+      component: importPage('AppBar', 'AppBar')
+    },
+    {
       path: '/button',
       name: 'button',
       component: importPage('Button', 'Button')
+    },
+    {
+      path: '/shape',
+      name: 'shape',
+      component: importPage('Shape', 'Shape')
     },
     {
       path: '*',

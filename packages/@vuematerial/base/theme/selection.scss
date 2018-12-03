@@ -1,6 +1,22 @@
-:not(input):not(textarea)::selection {
+body ::selection {
   @include md-theme-component() {
-    @include md-theme-property(background-color, primary-variant, '', .3);
-    @include md-theme-property(color, text-on-background);
+    & {
+      @include md-theme-property(background-color, primary-variant, '', .3);
+      @include md-theme-property(color, text-on-background);
+    }
+  }
+}
+
+.md-primary ::selection {
+  @include md-theme-component() {
+    @include md-theme-property(background-color, background, '', .3);
+    @include md-theme-property(color, text-on-primary);
+  }
+}
+
+.md-secondary ::selection {
+  @include md-theme-component() {
+    @include md-theme-property(background-color, background, '', .3);
+    @include md-theme-property(color, text-on-secondary);
   }
 }

@@ -1,0 +1,7 @@
+@import './overrides';
+
+.md-shape {
+  @include md-theme-component (shape) {
+
+  }
+}
