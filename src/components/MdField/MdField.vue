@@ -170,6 +170,7 @@
       pointer-events: none;
       transition: $md-transition-stand;
       transition-duration: .3s;
+      transform-origin: left;
       font-size: 16px;
       line-height: 20px;
     }
@@ -418,7 +419,7 @@
         pointer-events: auto;
         top: 0;
         opacity: 1;
-        font-size: 12px;
+        transform:scale(0.75);
       }
 
       .md-input,
@@ -429,6 +430,7 @@
 
     &.md-inline {
       label {
+        transform:scale(1);
         pointer-events: none;
       }
 
