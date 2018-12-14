@@ -7,6 +7,11 @@ let VueMaterial = Vue => {
   Object.values(MdComponents).forEach((MdComponent) => {
     Vue.use(MdComponent)
   })
+  Object.keys(MdComponents).forEach((key) => {
+    if(MdComponents.hasOwnProperty(key)){
+      Vue.use(MdComponents[key])
+    }
+  })
 }
 
 VueMaterial.version = '__VERSION__'
