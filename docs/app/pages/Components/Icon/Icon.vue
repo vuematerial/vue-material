@@ -31,7 +31,7 @@
 
     <div class="page-container-section">
       <h2>SVG Source</h2>
-      <p>When loading an icon font, you will be able to use ALL of it's icons. This may hurts the performance of your application. Instead, you can use only the icons that you really need, loading them using svg.</p>
+      <p>When loading an icon font, you will be able to use ALL of it's icons. This may hurt the performance of your application. Instead, you can use only the icons that you really need, loading them using svg.</p>
 
       <code-example title="SVG Assets" :component="examples['svg-assets']" />
 
