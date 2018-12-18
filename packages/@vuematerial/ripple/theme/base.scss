@@ -1,15 +1,15 @@
-@import '~@vuematerial/state/stylesheets/utils';
+@import '../stylesheets/utils';
 
 @mixin md-ripple-spec ($paletteColor, $finalColor: '') {
   .md-ripple-wave {
-    background: md-get-state-color($paletteColor, pressed, $finalColor);
+    background: md-get-ripple-state-color($paletteColor, pressed, $finalColor);
 
     &.md-ripple-enter {
       &.md-force-centered {
-        background: md-get-state-color($paletteColor, pressed, $finalColor);
+        background: md-get-ripple-state-color($paletteColor, pressed, $finalColor);
 
         &:before {
-          background: md-get-state-color($paletteColor, activated, $finalColor);
+          background: md-get-ripple-state-color($paletteColor, activated, $finalColor);
         }
       }
     }

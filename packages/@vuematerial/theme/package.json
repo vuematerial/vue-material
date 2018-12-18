@@ -13,8 +13,5 @@
   },
   "bugs": {
     "url": "https://github.com/vuematerial/vue-material/issues"
-  },
-  "dependencies": {
-
   }
 }

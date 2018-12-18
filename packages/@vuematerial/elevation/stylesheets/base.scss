@@ -13,3 +13,9 @@ $md-elevation-count: length($md-elevation-umbra) - 1;
     @include md-elevation($i);
   }
 }
+
+@for $i from 0 through $md-elevation-count {
+  .md-elevation-filter-#{$i} {
+    @include md-elevation-filter($i);
+  }
+}

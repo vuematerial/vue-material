@@ -1,0 +1,50 @@
+@import '../stylesheets/utils';
+
+@mixin md-generate-ripple-state ($state, $selector: '&:before', $backgroundColor: '') {
+  $rootSelector: '.md-ripple.md-#{$state}';
+
+  @if ($selector != '&:before') {
+    $rootSelector: '.md-ripple';
+  }
+
+  #{$rootSelector} {
+    @include md-theme-component (state) {
+      #{$selector} {
+        background-color: md-get-ripple-state-color(surface, $state);
+      }
+
+      &.md-primary {
+        #{$selector} {
+          background-color: md-get-ripple-state-color(primary, $state);
+        }
+      }
+
+      &.md-secondary {
+        #{$selector} {
+          background-color: md-get-ripple-state-color(secondary, $state);
+        }
+      }
+
+      &.md-flat {
+        &.md-primary {
+          #{$selector} {
+            background-color: md-get-ripple-state-color(primary, $state, md-get-color(primary), $backgroundColor);
+          }
+        }
+
+        &.md-secondary {
+          #{$selector} {
+            background-color: md-get-ripple-state-color(secondary, $state, md-get-color(secondary), $backgroundColor);
+          }
+        }
+      }
+    }
+  }
+}
+
+@include md-generate-ripple-state(hovered, '&:hover:before', surface);
+@include md-generate-ripple-state(pressed, '&:active:before');
+@include md-generate-ripple-state(selected);
+@include md-generate-ripple-state(focused);
+@include md-generate-ripple-state(activated);
+@include md-generate-ripple-state(dragged);

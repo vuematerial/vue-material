@@ -1,15 +1,15 @@
 @import '~@vuematerial/theme/engine/utils';
 @import './variables';
 
-@function md-get-state-opacity ($state, $color) {
-  @return map-get(map-get($md-state, $state), $color);
+@function md-get-ripple-state-opacity ($state, $color) {
+  @return map-get(map-get($md-ripple-state, $state), $color);
 }
 
-@function md-get-state-rgba ($hex, $state, $color) {
-  @return rgba($hex, md-get-state-opacity($state, $color));
+@function md-get-ripple-state-rgba ($hex, $state, $color) {
+  @return rgba($hex, md-get-ripple-state-opacity($state, $color));
 }
 
-@function md-get-state-color ($paletteColor, $state, $finalColor: '', $backgroundColor: '') {
+@function md-get-ripple-state-color ($paletteColor, $state, $finalColor: '', $backgroundColor: '') {
   $shade: null;
   $stateColor: null;
   $opacityReference: null;
@@ -40,5 +40,5 @@
     }
   }
 
-  @return md-get-state-rgba($stateColor, $state, $opacityReference);
+  @return md-get-ripple-state-rgba($stateColor, $state, $opacityReference);
 }

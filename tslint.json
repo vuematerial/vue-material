@@ -22,12 +22,9 @@
       true,
       42
     ],
+    "function-name": false,
     "import-name": false,
-    "indent": [
-      true,
-      "spaces",
-      2
-    ],
+    "indent": false,
     "interface-name": false,
     "max-line-length": [
       true,
@@ -90,6 +87,12 @@
       }
     ],
     "trailing-comma": false,
-    "valid-typeof": true
+    "valid-typeof": true,
+    "variable-name": [
+      true,
+      "ban-keywords",
+      "check-format",
+      "allow-pascal-case"
+    ]
   }
 }

@@ -2,10 +2,20 @@
 
 .md-ripple {
   overflow: hidden;
+  position: relative;
 
-  > *:not(.md-ripple-wave):not(img) {
-    position: relative;
-    z-index: 3;
+  &:before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transition: $md-motion-easing-default $md-motion-duration-medium;
+    content: ' ';
+  }
+
+  &:before {
+    z-index: 1;
   }
 
   &.md-centered,
@@ -14,6 +24,14 @@
       top: 50%;
       left: 50%;
     }
+  }
+
+  > *:not(.md-ripple-wave):not(img):not(.md-shape-form) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 3;
   }
 }
 
@@ -35,12 +53,12 @@
 
 .md-ripple-enter-active {
   opacity: 1;
-  transition: 75ms opacity $md-motion-easing-default,
+  transition: 175ms opacity $md-motion-easing-default,
               225ms transform $md-motion-easing-enter;
 }
 
 .md-ripple-leave-active {
   opacity: 0 !important;
-  transition: 200ms opacity $md-motion-easing-default,
-              225ms transform $md-motion-easing-enter;
+  transition: 300ms opacity $md-motion-easing-default,
+              300ms transform $md-motion-easing-enter;
 }

@@ -1,7 +1,50 @@
 @import './overrides';
 
-.md-shape {
+.md-shape-flat:not(.md-flat),
+.md-shape-corner {
   @include md-theme-component (shape) {
+    @include md-theme-property(color, text-on-surface);
 
+    &.md-primary {
+      @include md-theme-property(color, text-on-primary);
+    }
+
+    &.md-secondary {
+      @include md-theme-property(color, text-on-secondary);
+    }
+  }
+}
+
+.md-shape-flat:not(.md-flat) {
+  @include md-theme-component (shape) {
+    @include md-theme-property(background-color, surface);
+
+    &.md-primary {
+      @include md-theme-property(background-color, primary);
+    }
+
+    &.md-secondary {
+      @include md-theme-property(background-color, secondary);
+    }
+  }
+}
+
+.md-shape-corner {
+  @include md-theme-component (shape) {
+    .md-shape-form-fill {
+      @include md-theme-property(fill, surface);
+    }
+
+    &.md-primary {
+      .md-shape-form-fill {
+        @include md-theme-property(fill, primary);
+      }
+    }
+
+    &.md-secondary {
+      .md-shape-form-fill {
+        @include md-theme-property(fill, secondary);
+      }
+    }
   }
 }

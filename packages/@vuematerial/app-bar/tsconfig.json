@@ -1,0 +1,10 @@
+{
+  "extends": "./node_modules/@vuematerial/typings/tsconfig.json",
+  "include": [
+    "node_modules/@vuematerial/**/*.ts",
+    "node_modules/@vuematerial/**/*.vue",
+    "components/**/*.vue",
+    "__tests__/**/*.ts",
+    "__tests__/**/*.vue"
+  ]
+}

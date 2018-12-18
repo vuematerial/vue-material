@@ -7,15 +7,15 @@
         AppBar
       </MdAppBar>
 
-      <MdAppBar class="md-primary">
+      <MdAppBar md-primary>
         AppBar Primary
       </MdAppBar>
 
-      <MdAppBar class="md-secondary">
+      <MdAppBar md-secondary md-cut="center">
         AppBar Secondary
       </MdAppBar>
 
-      <MdAppBar class="md-primary md-extended">
+      <MdAppBar md-primary md-extended>
         <div class="md-app-bar-content">
 
         </div>

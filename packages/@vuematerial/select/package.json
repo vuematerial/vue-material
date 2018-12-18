@@ -21,6 +21,8 @@
     "vue": "^2.5.17"
   },
   "dependencies": {
-    "@vuematerial/core": "^2.0.0"
+    "@vuematerial/core": "^2.0.0",
+    "@vuematerial/typings": "^2.0.0",
+    "vue-property-decorator": "^7.2.0"
   }
 }

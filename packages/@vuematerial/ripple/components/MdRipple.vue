@@ -1,10 +1,10 @@
 <template>
-  <MdState
+  <MdShape
     v-if="!isDisabled"
-    v-bind="mdAttrs || $attrs"
+    v-on="$listeners"
+    v-bind="$attrs"
     :md-tag="mdTag"
     :class="rippleClasses"
-    v-on="$listeners"
     @mousedown.passive="onMouseDown"
     @mouseout.passive="onMouseOut"
     @mouseup.passive="onMouseUp"
@@ -19,15 +19,15 @@
       :md-style="style"
       :class="classes"
     />
-  </MdState>
+  </MdShape>
 
-  <MdState
+  <MdShape
     v-else
     :md-tag="mdTag"
     class="md-ripple md-ripple-disabled"
   >
     <slot />
-  </MdState>
+  </MdShape>
 </template>
 
 <script lang="ts">
@@ -35,13 +35,14 @@ import { Component, Vue, Prop, Watch } from 'vue-property-decorator'
 import raf from 'raf'
 import isEmptyObject from 'is-empty-object'
 
+import MdShape from '@vuematerial/shape'
 import mdUuid from '@vuematerial/core/utils/mdUuid'
-import MdState from '@vuematerial/state/components/MdState.vue'
 import MdRippleWave from './MdRippleWave.vue'
+
+Vue.use(MdShape)
 
 @Component({
   components: {
-    MdState,
     MdRippleWave
   }
 })
@@ -51,16 +52,28 @@ class MdRipple extends Vue {
   mdTag!: string
 
   @Prop({ type: Boolean, default: false })
+  mdDisabled!: boolean
+
+  @Prop({ type: Boolean, default: false })
+  mdFocused!: boolean
+
+  @Prop({ type: Boolean, default: false })
+  mdSelected!: boolean
+
+  @Prop({ type: Boolean, default: false })
+  mdActivated!: boolean
+
+  @Prop({ type: Boolean, default: false })
+  mdPressed!: boolean
+
+  @Prop({ type: Boolean, default: false })
+  mdDragged!: boolean
+
+  @Prop({ type: Boolean, default: false })
   mdActive!: string
 
   @Prop({ type: Boolean, default: false })
-  mdDisabled!: string
-
-  @Prop({ type: Boolean, default: false })
   mdCentered!: string
-
-  @Prop({ type: Object, default: () => ({}) })
-  mdAttrs!: { class: object }
 
   waves: object = {}
   lastWave: string = ''
@@ -86,8 +99,15 @@ class MdRipple extends Vue {
   get rippleClasses () {
     return [
       'md-ripple',
-      { 'md-centered': this.mdCentered },
-      this.mdAttrs.class
+      {
+        'md-centered': this.mdCentered,
+        'md-disabled': this.mdDisabled,
+        'md-focused': this.mdFocused,
+        'md-selected': this.mdSelected,
+        'md-activated': this.mdActivated,
+        'md-pressed': this.mdPressed,
+        'md-dragged': this.mdDragged
+      }
     ]
   }
 

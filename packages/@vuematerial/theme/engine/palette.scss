@@ -19,7 +19,9 @@ $md-theme-palette: (
   scrollbar: #757575,
   scrollbar-background: darken(#eee, 5%),
 
-  icon: rgba(#000, 0.54)
+  icon: #000,
+  icon-inactive: rgba(#000, .6),
+  icon-disabled: rgba(#000, .38)
 );
 
 $md-themes: () !global;

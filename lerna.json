@@ -2,10 +2,10 @@
   "version": "2.0.0",
   "npmClient": "yarn",
   "lerna": "3.4.3",
-  "useWorkspaces": true,
   "packages": [
     "docs",
     "packages/@vuematerial/**",
+    "packages/typings",
     "packages/vue-material"
   ],
   "command": {

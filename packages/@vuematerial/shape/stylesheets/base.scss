@@ -1,122 +1,18 @@
 @import '~@vuematerial/motion/stylesheets/variables';
 
-.md-shape {
-  position: relative;
-}
-
-.md-shape-notch {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-
-  &:before,
-  &:after {
-    height: 0;
-    position: absolute;
-    right: 0;
-    left: 0;
-    z-index: 3;
-    border: 16px solid transparent;
-    content: ' ';
-  }
-
-  &:before {
-    top: 0;
-    border-top-width: 0;
-    border-bottom-color: #fff;
-  }
-
-  &:after {
-    bottom: 0;
-    border-top-color: #fff;
-    border-bottom-width: 0;
-  }
-}
-
-.md-shape-notch-fill,
-.md-shape-notch-shadow {
-  position: absolute;
-  right: 0;
-  left: 0;
-}
-
-.md-shape-notch-fill {
-  top: 16px;
-  bottom: 16px;
-  z-index: 2;
-  background-color: #fff;
-  box-shadow: 0 0 3px 2px rgba(#000, .3);
-
-  &:after,
-  &:before {
-    position: absolute;
-    right: 16px;
-    left: 16px;
-    box-shadow: 0 0 3px 2px rgba(#000, .3);
-    content: " ";
-  }
-
-  &:after {
-    top: -16px;
-  }
-
-  &:before {
-    bottom: -16px;
-  }
-}
-
-.md-shape-notch-shadow-x,
-.md-shape-notch-shadow-y {
-  top: 0;
-  bottom: 0;
-
-  &:after,
-  &:before {
-    width: 15px;
-    position: absolute;
-    z-index: 1;
-    background-color: #fff;
-    box-shadow: 0 0 3px 2px rgba(#000, .3);
-    content: ' ';
-  }
-}
-
-.md-shape-notch-shadow-x {
-  &:before {
-    top: 13px;
-    right: 3px;
-    transform: rotate(45deg);
-    transform-origin: top right;
-  }
-
-  &:after {
-    bottom: 13px;
-    left: 3px;
-    transform: rotate(45deg);
-    transform-origin: top left;
-  }
-}
-
-.md-shape-notch-shadow-y {
-  &:before {
-    bottom: 3px;
-    right: 13px;
-    transform: rotate(135deg);
-    transform-origin: top right;
-  }
-
-  &:after {
-    top: 3px;
-    left: 13px;
-    transform: rotate(135deg);
-    transform-origin: top left;
-  }
-}
-
 .md-shape-content {
-  padding: 16px;
+  width: 100%;
+  display: flex;
   position: relative;
-  z-index: 4;
+  z-index: 2;
+}
+
+.md-shape-form {
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }

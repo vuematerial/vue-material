@@ -1,5 +1,5 @@
 {
-  "extends": "../tsconfig.json",
+  "extends": "./node_modules/@vuematerial/typings/tsconfig.json",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
@@ -16,8 +16,5 @@
     "src/**/*.vue",
     "__tests__/**/*.ts",
     "__tests__/**/*.vue"
-  ],
-  "exclude": [
-    "node_modules"
   ]
 }

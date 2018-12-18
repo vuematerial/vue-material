@@ -1,7 +1,9 @@
 <template>
   <MdRipple
-    md-tag="button"
     class="md-button"
+    md-tag="button"
+    v-on="$listeners"
+    v-bind="buttonAttrs"
     :class="buttonClasses"
   >
     <span class="md-button-content" v-if="$slots.default.length === 1">
@@ -14,7 +16,7 @@
 </template>
 
 <script lang="ts">
-  import { Component, Vue } from 'vue-property-decorator'
+  import { Component, Vue, Prop } from 'vue-property-decorator'
   import raf from 'raf'
   import MdRipple from '@vuematerial/ripple/components/MdRipple.vue'
 
@@ -25,28 +27,30 @@
   })
   class MdButton extends Vue {
 
-    isFlat: boolean = false
+    @Prop({ type: Boolean, default: false })
+    mdContained!: boolean
+
+    @Prop({ type: Boolean, default: false })
+    mdOutlined!: boolean
+
+    get buttonAttrs () {
+      let buttonAttrs = {
+        ...this.$attrs
+      }
+
+      if (this.mdContained) {
+        buttonAttrs['md-elevation'] = '2'
+      }
+
+      return buttonAttrs
+    }
 
     get buttonClasses () {
       return {
-        'md-flat': this.isFlat
+        'md-contained': this.mdContained,
+        'md-outlined': this.mdOutlined,
+        'md-flat': !this.mdContained
       }
-    }
-
-    setIsFlat () {
-      raf(() => {
-        const { classList } = this.$el
-
-        this.isFlat = !classList.contains('md-contained') && !classList.contains('md-fab')
-      })
-    }
-
-    updated () {
-      this.setIsFlat()
-    }
-
-    mounted () {
-      this.setIsFlat()
     }
 
   }

@@ -1,7 +1,7 @@
 const generatedIds = new Set()
 
-function mdUuid (): string {
-  const id = `md-${new Date().getTime().toString(36)}`
+function mdUuid (prefix: boolean = true): string {
+  const id = `${prefix ? 'md-' : ''}${new Date().getTime().toString(36)}`
 
   if (generatedIds.has(id)) {
     return mdUuid()

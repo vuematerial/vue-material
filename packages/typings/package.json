@@ -1,6 +1,6 @@
 {
-  "name": "@vuematerial/svg-loader",
-  "description": "SVG Loader component of Vue Material",
+  "name": "@vuematerial/typings",
+  "description": "Vue Material TS Typings",
   "version": "2.0.0",
   "license": "MIT",
   "author": {
@@ -13,15 +13,5 @@
   },
   "bugs": {
     "url": "https://github.com/vuematerial/vue-material/issues"
-  },
-  "peerDependencies": {
-    "vue": "^2.5.0"
-  },
-  "devDependencies": {
-    "vue": "^2.5.17"
-  },
-  "dependencies": {
-    "@vuematerial/typings": "^2.0.0",
-    "vue-property-decorator": "^7.2.0"
   }
 }

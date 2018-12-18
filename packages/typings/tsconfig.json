@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+    "importHelpers": true,
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext",
+      "scripthost"
+    ],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "newLine": "lf",
+    "noEmitOnError": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "pretty": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "stripInternal": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "target": "esnext",
+    "typeRoots": [
+      "./node_modules/@types",
+      "./node_modules/@vuematerial/typings"
+    ],
+    "types": [
+      "jest",
+      "webpack-env"
+    ]
+  }
+}

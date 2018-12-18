@@ -2,9 +2,6 @@
 
 .md-button {
   @include md-theme-component (button, $md-button-overrides) {
-    @include md-theme-property(padding);
-    @include md-theme-property(border-radius);
-    @include md-theme-property(color, text-on-surface);
 
     &:before {
       @include md-theme-property(border-radius);
@@ -18,5 +15,16 @@
     &.md-secondary {
       @include md-theme-property(color, secondary);
     }
+  }
+}
+
+.md-button {
+  &.md-shape-flat {
+    @include md-theme-property(padding);
+    @include md-theme-property(border-radius);
+  }
+
+  &.md-shape-corner .md-shape-content {
+    @include md-theme-property(padding);
   }
 }

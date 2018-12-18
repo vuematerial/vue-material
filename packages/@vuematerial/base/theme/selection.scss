@@ -1,7 +1,7 @@
 body ::selection {
   @include md-theme-component() {
     & {
-      @include md-theme-property(background-color, primary-variant, '', .3);
+      @include md-theme-property(background-color, primary-variant, '', .4);
       @include md-theme-property(color, text-on-background);
     }
   }
@@ -16,7 +16,7 @@ body ::selection {
 
 .md-secondary ::selection {
   @include md-theme-component() {
-    @include md-theme-property(background-color, background, '', .3);
+    @include md-theme-property(background-color, background, '', .4);
     @include md-theme-property(color, text-on-secondary);
   }
 }

@@ -1,16 +1,5 @@
 .md-button.md-contained {
   @include md-theme-component (button) {
-    @include md-theme-property(background-color, text-on-surface, '', .12);
-    @include md-theme-property(color, text-on-surface);
 
-    &.md-primary {
-      @include md-theme-property(background-color, primary);
-      @include md-theme-property(color, text-on-primary);
-    }
-
-    &.md-secondary {
-      @include md-theme-property(background-color, secondary);
-      @include md-theme-property(color, text-on-secondary);
-    }
   }
 }

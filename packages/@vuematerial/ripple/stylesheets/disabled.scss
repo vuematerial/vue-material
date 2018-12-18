@@ -1,0 +1,6 @@
+@import './variables';
+
+.md-ripple.md-disabled {
+  pointer-events: none;
+  opacity: $md-ripple-disabled-opacity;
+}

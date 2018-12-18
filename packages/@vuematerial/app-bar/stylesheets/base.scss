@@ -1,9 +1,6 @@
 @import '~@vuematerial/motion/stylesheets/variables';
-@import '~@vuematerial/elevation/elevation';
 
 .md-app-bar {
-  @extend .md-elevation-4;
-
   min-height: 56px;
   padding: 0 8px 0 16px;
   display: flex;
