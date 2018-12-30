@@ -96,8 +96,14 @@
       }
     },
     watch: {
+      mdValue () {
+        this.attachCircleStyle()
+      },
       mdDiameter () {
         this.attachSvgStyle()
+        this.attachCircleStyle()
+      },
+      mdStroke () {
         this.attachCircleStyle()
       }
     },
