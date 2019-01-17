@@ -99,7 +99,6 @@
     },
     methods: {
       getPageCount () {
-            debugger
         if (this.mdCount % this.currentPageSize) {
           return Math.floor((this.mdCount / this.currentPageSize)) + 1
         } else {
@@ -107,7 +106,6 @@
         }
       },
       setPage (mdPage, mdCount) {
-            debugger
         this.mdPage = mdCount > 0 ? (mdPage > 0 ? mdPage : (this.mdPage > 0 ? this.mdPage : 1)) : 0
         var pageCount = this.getPageCount()
         if (this.mdPage > pageCount) {
