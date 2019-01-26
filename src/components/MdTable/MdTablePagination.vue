@@ -12,11 +12,11 @@
 
     <span>{{ mdPage }}/{{ pageCount }}</span>
 
-    <md-button class="md-icon-button md-table-pagination-previous" @click="goToPrevious()" :disabled="mdPage === 1">
+    <md-button class="md-icon-button md-table-pagination-previous" @click="changePage(-1)" :disabled="mdPage === 1">
       <md-icon>keyboard_arrow_left</md-icon>
     </md-button>
 
-    <md-button class="md-icon-button md-table-pagination-next" @click="goToNext()" :disabled="mdPage === pageCount">
+    <md-button class="md-icon-button md-table-pagination-next" @click="changePage(+1)" :disabled="mdPage === pageCount">
       <md-icon>keyboard_arrow_right</md-icon>
     </md-button>
   </div>
@@ -50,7 +50,7 @@
       },
       mdLabel: {
         type: String,
-        default: '每页显示:'
+        default: 'Rows per page:'
       }
     },
     data: () => ({
@@ -63,14 +63,10 @@
         return this.getPageCount()
       }
     },
-    created () {
-      // overhide MdTable.sortTable to call pagination sort
-      this.MdTable.sortTable = this.sort
-    },
     watch: {
-      mdPageSize: {
+      mdData: {
         immediate: true,
-        handler (pageSize) {
+        handler (mdData) {
           this.mdData = mdData
           this.updatePage()
         }
@@ -134,39 +130,16 @@
           }
         }
       },
-      goToPrevious () {
+      changePage (AddOrSubtract) {
         if (this.mdData && this.mdData.mdData) {
-          // external pagination/sort
-          if (this.mdUpdate(this.mdPage - 1, this.currentPageSize, this.MdTable.sort, this.MdTable.sortOrder) !== false) {
-            this.mdPage = this.mdPage - 1
+          // external pagination
+          if (this.mdUpdate(this.mdPage + AddOrSubtract, this.currentPageSize, this.MdTable.sort, this.MdTable.sortOrder) !== false) {
+            this.mdPage = this.mdPage + AddOrSubtract
           }
         } else {
-          // internal pagination/sort
-          this.mdPage = this.mdPage - 1
+          // internal pagination
+          this.mdPage = this.mdPage + AddOrSubtract
           this.$emit('update:mdPaginatedData', getPageData(this.mdData, this.mdPage, this.currentPageSize))
-        }
-      },
-      goToNext () {
-        if (this.mdData && this.mdData.mdData) {
-          // external pagination/sort
-          if (this.mdUpdate(this.mdPage + 1, this.currentPageSize, this.MdTable.sort, this.MdTable.sortOrder) !== false) {
-            this.mdPage = this.mdPage + 1
-          }
-        } else {
-          // internal pagination/sort
-          this.mdPage = this.mdPage + 1
-          this.$emit('update:mdPaginatedData', getPageData(this.mdData, this.mdPage, this.currentPageSize))
-        }
-      },
-      sort () {
-        if (this.mdData && this.mdData.mdData) {
-          // external pagination/sort
-          this.mdUpdate(this.mdPage, this.currentPageSize, this.MdTable.sort, this.MdTable.sortOrder)
-        } else {
-          // internal pagination/sort
-          var data = this.MdTable.mdSortFn(this.mdData)
-          this.$emit('update:mdData', data)
-          this.$emit('update:mdPaginatedData', getPageData(data, this.mdPage, this.currentPageSize))
         }
       }
     }
