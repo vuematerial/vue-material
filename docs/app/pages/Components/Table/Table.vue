@@ -7,7 +7,8 @@
 <example src="./examples/TableSearch.vue" />
 <example src="./examples/TableSingle.vue" />
 <example src="./examples/TableMultiple.vue" />
-<example src="./examples/TablePaginationSoon.vue" />
+<example src="./examples/TablePagination.vue" />
+<example src="./examples/TablePaginationRemote.vue" />
 
 <template>
   <page-container centered :title="$t('pages.table.title')">
@@ -96,8 +97,11 @@
     </div>
 
     <div class="page-container-section">
-      <p>The table pagination will create the mechanism to show contents through pages. This component will be available soon. :)</p>
-      <code-example title="Pagination" :component="examples['table-pagination-soon']" />
+      <p>The table pagination will create the mechanism to show contents through pages.</p>
+      <code-example title="Pagination" :component="examples['table-pagination']" />
+
+      <p>Here's an example of a table controlled remotely through ajax.</p>
+      <code-example title="Remote pagination" :component="examples['table-pagination-remote']" />
 
       <api-item title="API - md-table">
         <p>The following options can be applied to the md-table component:</p>
@@ -109,6 +113,11 @@
         <p>The following options can be applied to the head and cell components:</p>
         <api-table :headings="cell.props.headings" :props="cell.props.props" slot="props" />
         <api-table :headings="cell.events.headings" :props="cell.events.props" slot="events" />
+      </api-item>
+
+      <api-item title="API - md-table-pagination">
+        <p>The following options can be applied to the pagination component:</p>
+        <api-table :headings="pagination.props.headings" :props="pagination.props.props" slot="props" />
       </api-item>
 
     </div>
@@ -209,6 +218,37 @@
             name: 'md-selected',
             description: 'Triggered when the user selects one or more items',
             value: 'Selected item or items'
+          }],
+        },
+      },
+      pagination: {
+        props: {
+          headings: ['Name', 'Description', 'Default'],
+          props: [{
+            name: 'md-page-size',
+            type: 'Number',
+            description: 'Selected page size',
+            defaults: '10',
+          }, {
+            name: 'md-page-options',
+            type: 'Array',
+            description: 'Number of items per page available',
+            defaults: '[5, 10, 25, 50, 100]',
+          }, {
+            name: 'md-update',
+            type: 'Function',
+            description: 'Provides an update of the current pagination status: page, pageSize, sort, sortOrder. If this function returns false it won’t update the component',
+            defaults: 'An empty function which returns true'
+          }, {
+            name: 'md-paginated-data',
+            type: 'Array',
+            description: 'Used in front end pagination, provides the paginated list of items. Please use as <pre>:md-paginated-data.sync="paginatedData"</pre>',
+            defaults: 'null',
+          }, {
+            name: 'md-data',
+            type: 'Array|Object',
+            description: 'If you need remote pagination please provide a structure like the following <pre>{\n  mdCount: null,\n  mdPage: null,\n  mdData: []\n}</pre> Otherwise, if you need local pagination just provide the full list of unpaginated data: <pre>[{...}, {...}, ...]</pre>',
+            defaults: 'null',
           }],
         },
       },

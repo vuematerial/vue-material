@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!-- <md-table v-model="users" md-card>
+    <md-table v-model="paginatedUsers" md-card md-sort="name" md-sort-order="asc">
       <md-table-toolbar>
         <h1 class="md-title">Users</h1>
       </md-table-toolbar>
@@ -13,9 +13,13 @@
         <md-table-cell md-label="Job Title">{{ item.title }}</md-table-cell>
       </md-table-row>
 
-      <md-table-pagination />
-    </md-table> -->
-    Coming Soon...
+      <md-table-pagination
+        :md-page-size="2"
+        :md-page-options="[1,2,3,4,5,6]"
+        :md-update="updatePagination"
+        :md-data="users"
+        :md-paginated-data.sync="paginatedUsers" />
+    </md-table>
   </div>
 </template>
 
@@ -58,9 +62,15 @@
           email: "tstave4@reference.com",
           gender: "Male",
           title: "Software Test Engineer III"
-        }
-      ]
-    })
+        },
+      ],
+      paginatedUsers: [],
+    }),
+    methods: {
+      updatePagination (page, pageSize, sort, sortOrder) {
+        console.log('pagination has updated', page, pageSize, sort, sortOrder);
+      }
+    },
   }
 </script>
 
