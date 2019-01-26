@@ -10,7 +10,7 @@
       </md-field>
     </template>
 
-    <span>{{ mdPage }}/{{ pageCount }}</span>
+    <span>{{ (mdPage - 1) * currentPageSize + 1 }}–{{ Math.min(mdPage * currentPageSize, mdCount) }} {{ mdSeparator }} {{ mdCount }}</span>
 
     <md-button class="md-icon-button md-table-pagination-previous" @click="changePage(-1)" :disabled="mdPage === 1">
       <md-icon>keyboard_arrow_left</md-icon>
@@ -46,11 +46,16 @@
         default: 10
       },
       mdUpdate: {
-        type: Function
+        type: Function,
+        default: () => true
       },
       mdLabel: {
         type: String,
         default: 'Rows per page:'
+      },
+      mdSeparator: {
+        type: String,
+        default: 'of'
       }
     },
     data: () => ({
@@ -61,6 +66,9 @@
     computed: {
       pageCount () {
         return this.getPageCount()
+      },
+      isExternalPagination () {
+        return this.mdData && this.mdData.mdData
       }
     },
     watch: {
@@ -81,25 +89,15 @@
       currentPageSize: {
         immediate: true,
         handler (newValue, oldValue) {
-          if (oldValue) {
-            if (this.mdData && this.mdData.mdData) {
-              // external pagination
-              this.mdUpdate(this.mdPage, this.currentPageSize, this.MdTable.sort, this.MdTable.sortOrder)
-            } else {
-              // internal pagination
-              this.updatePage()
-            }
+          if (this.mdUpdate(this.mdPage, this.currentPageSize, this.MdTable.sort, this.MdTable.sortOrder) !== false) {
+            this.updatePage()
           }
         }
       }
     },
     methods: {
       getPageCount () {
-        if (this.mdCount % this.currentPageSize) {
-          return Math.floor((this.mdCount / this.currentPageSize)) + 1
-        } else {
-          return Math.floor((this.mdCount / this.currentPageSize))
-        }
+        return Math.ceil(this.mdCount / this.currentPageSize);
       },
       setPage (mdPage, mdCount) {
         this.mdPage = mdCount > 0 ? (mdPage > 0 ? mdPage : (this.mdPage > 0 ? this.mdPage : 1)) : 0
@@ -110,36 +108,27 @@
       },
       updatePage () {
         if (this.currentPageSize !== 0) {
-          if (this.mdData && !this.mdData.mdData) {
-            // internal pagination
+          if (this.isExternalPagination) {
+            this.mdCount = this.mdData.mdCount
+            this.setPage(this.mdData.mdPage, this.mdCount)
+            this.$emit('update:mdPaginatedData', this.mdData.mdData)
+          } else {
             this.mdCount = this.mdData.length
-            this.setPage(this.mdPage, this.mdData.length)
+            this.setPage(this.mdPage, this.mdCount)
             if (this.mdPage > 0) {
               this.$emit('update:mdPaginatedData', getPageData(this.mdData, this.mdPage, this.currentPageSize))
             } else {
               this.$emit('update:mdPaginatedData', [])
             }
-          } else if (this.mdData) {
-            // external pagination
-            this.mdCount = this.mdData.mdCount
-            this.setPage(this.mdData.mdPage, this.mdCount)
-            this.$emit('update:mdPaginatedData', this.mdData.mdData)
-          } else {
-            this.mdCount = 0
-            this.mdPage = 0
           }
         }
       },
       changePage (AddOrSubtract) {
-        if (this.mdData && this.mdData.mdData) {
-          // external pagination
-          if (this.mdUpdate(this.mdPage + AddOrSubtract, this.currentPageSize, this.MdTable.sort, this.MdTable.sortOrder) !== false) {
-            this.mdPage = this.mdPage + AddOrSubtract
-          }
-        } else {
-          // internal pagination
+        if (this.mdUpdate(this.mdPage + AddOrSubtract, this.currentPageSize, this.MdTable.sort, this.MdTable.sortOrder) !== false) {
           this.mdPage = this.mdPage + AddOrSubtract
-          this.$emit('update:mdPaginatedData', getPageData(this.mdData, this.mdPage, this.currentPageSize))
+          if (!this.isExternalPagination) {
+            this.$emit('update:mdPaginatedData', getPageData(this.mdData, this.mdPage, this.currentPageSize))
+          }
         }
       }
     }
