@@ -100,9 +100,19 @@
       <code-example title="Pagination" :component="examples['table-pagination-soon']" />
 
       <api-item title="API - md-table">
-        <p>Coming soon...</p>
+        <p>The following options can be applied to the md-table component:</p>
+        <api-table :headings="table.props.headings" :props="table.props.props" slot="props" />
+        <api-table :headings="table.events.headings" :props="table.events.props" slot="events" />
       </api-item>
+
+      <api-item title="API - md-table-head &amp; md-table-cell">
+        <p>The following options can be applied to the head and cell components:</p>
+        <api-table :headings="cell.props.headings" :props="cell.props.props" slot="props" />
+        <api-table :headings="cell.events.headings" :props="cell.events.props" slot="events" />
+      </api-item>
+
     </div>
+
   </page-container>
 </template>
 
@@ -111,6 +121,97 @@
 
   export default {
     name: 'DocTable',
-    mixins: [examples]
+    mixins: [examples],
+    data: () => ({
+      table: {
+        props: {
+          headings: ['Name', 'Description', 'Default'],
+          props: [{
+            name: 'v-model',
+            type: 'Array',
+            description: 'The model variable to bind the input prompt value',
+            defaults: '[]'
+          }, {
+            name: 'md-model-id',
+            type: 'String',
+            description: 'Object property in the `v-model` array to use as :key',
+            defaults: 'id'
+          }, {
+            name: 'md-card',
+            type: 'Boolean',
+            description: 'Renders table as Card',
+            defaults: 'false'
+          }, {
+            name: 'md-sort',
+            type: 'String',
+            description: 'Lets you define a column to sort your data with',
+            defaults: 'null'
+          }, {
+            name: 'md-sort-order',
+            type: 'String',
+            description: 'Sort order',
+            defaults: 'asc'
+          }, {
+            name: 'md-sort-fn',
+            type: 'Function',
+            description: 'Custom sorting function',
+            defaults: 'String or Numeric sort depending on the column data'
+          }, {
+            name: 'md-height',
+            type: 'Number|String',
+            description: 'Sets the table height',
+            defaults: '400'
+          }, {
+            name: 'md-selected-value',
+            type: 'Array|Object',
+            description: 'Lets you provide a selected value. Eg. <pre>:md-selected-value.sync="selectedValue"</pre>',
+            defaults: 'null'
+          }],
+        },
+        events: {
+          headings: ['Name', 'Description', 'Default'],
+          props: [],
+        },
+      },
+      cell: {
+        props: {
+          headings: ['Name', 'Description', 'Default'],
+          props: [{
+            name: 'md-id',
+            type: 'String|Number',
+            description: 'You can define an id for the cell',
+            defaults: 'null'
+          }, {
+            name: 'md-label',
+            type: 'String',
+            description: 'Specifies the cell’s header',
+            defaults: 'null'
+          }, {
+            name: 'md-numeric',
+            type: 'Boolean',
+            description: 'Aligns text to right',
+            defaults: 'false'
+          }, {
+            name: 'md-tooltip',
+            type: 'String',
+            description: 'Specify a tooltip',
+            defaults: 'null'
+          }, {
+            name: 'md-sort-by',
+            type: 'String',
+            description: '&nbsp;',
+            defaults: 'null'
+          }],
+        },
+        events: {
+          headings: ['Name', 'Description', 'Default'],
+          props: [{
+            name: 'md-selected',
+            description: 'Triggered when the user selects one or more items',
+            value: 'Selected item or items'
+          }],
+        },
+      },
+    }),
   }
 </script>
