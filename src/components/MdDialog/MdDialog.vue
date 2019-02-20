@@ -112,33 +112,23 @@
     border-radius: 2px;
     backface-visibility: hidden;
     pointer-events: auto;
-    transform: translate(-50%, -50%);
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
     transform-origin: center center;
     transition: opacity .15s $md-transition-stand-timing,
                 transform .2s $md-transition-stand-timing;
     will-change: opacity, transform, left, top;
 
-    > .md-dialog-tabs,
-    > .md-dialog-title,
-    > .md-dialog-content,
-    > .md-dialog-actions {
-      transition: opacity .3s $md-transition-default-timing,
-                  transform .25s $md-transition-default-timing;
-      will-change: opacity, transform;
+    &.md-dialog-leave,
+    &.md-dialog-enter-to {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
     }
-  }
 
-.md-dialog-enter-active,
-  .md-dialog-leave-active {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(.9);
-
-    > .md-dialog-tabs,
-    > .md-dialog-title,
-    > .md-dialog-content,
-    > .md-dialog-actions {
+    &.md-dialog-enter,
+    &.md-dialog-leave-to {
       opacity: 0;
-      transform: scale(.95) translate3D(0, 10%, 0);
+      transform: translate(-50%, -50%) scale(.9);
     }
   }
 
@@ -174,13 +164,15 @@
       border-radius: 0;
       transform: none;
 
-      &.md-dialog-enter {
+      &.md-dialog-enter,
+      &.md-dialog-leave-to {
         opacity: 0;
         transform: translate3D(0, 30%, 0);
       }
 
-      &.md-dialog-leave-active {
-        opacity: 0;
+      &.md-dialog-leave,
+      &.md-dialog-enter-to {
+        opacity: 1;
         transform: translate3D(0, 0, 0);
       }
     }
