@@ -1,18 +1,18 @@
 <template>
   <md-portal>
-    <div class="md-dialog" :class="dialogClasses">
-      <md-focus-trap>
-        <transition name="md-dialog">
+    <transition name="md-dialog">
+      <div class="md-dialog" v-if="mdActive">
+        <md-focus-trap>
           <div class="md-dialog-container" :class="[dialogContainerClasses, $mdActiveTheme]" v-on="$listeners"
-               @keydown.esc="onEsc" v-if="mdActive">
+               @keydown.esc="onEsc">
             <slot/>
             <keep-alive>
               <md-overlay :class="mdBackdropClass" md-fixed :md-active="mdActive" @click="onClick" v-if="mdBackdrop"/>
             </keep-alive>
           </div>
-        </transition>
-      </md-focus-trap>
-    </div>
+        </md-focus-trap>
+      </div>
+    </transition>
   </md-portal>
 </template>
 
@@ -54,19 +54,19 @@
       mdAnimateFromSource: Boolean
     },
     computed: {
-      dialogClasses() {
+      dialogClasses () {
         return {
           'md-active': this.mdActive
         }
       },
-      dialogContainerClasses() {
+      dialogContainerClasses () {
         return {
           'md-dialog-fullscreen': this.mdFullscreen
         }
       }
     },
     watch: {
-      mdActive(isActive) {
+      mdActive (isActive) {
         this.$nextTick().then(() => {
           if (isActive) {
             this.$emit('md-opened')
@@ -77,16 +77,16 @@
       }
     },
     methods: {
-      closeDialog() {
+      closeDialog () {
         this.$emit('update:mdActive', false)
       },
-      onClick() {
+      onClick () {
         if (this.mdClickOutsideToClose) {
           this.closeDialog()
         }
         this.$emit('md-clicked-outside');
       },
-      onEsc() {
+      onEsc () {
         if (this.mdCloseOnEsc) {
           this.closeDialog()
         }
@@ -100,6 +100,10 @@
   @import "~components/MdLayout/mixins";
   @import "~components/MdElevation/mixins";
 
+  $opacity-transition-duration: .15s;
+  $transform-transition-duration: .20s;
+  $max-duration: max($opacity-transition-duration, $transform-transition-duration);
+
   .md-dialog {
     position: fixed;
     top: 0;
@@ -109,13 +113,40 @@
     align-items: center;
     justify-content: center;
     pointer-events: none;
-    display: none;
-    z-index: -1;
+    display: flex;
+    transition-duration: $max-duration;
+    z-index: 110;
 
-    &.md-active {
-      z-index: 110;
-      display: flex;
+    &.md-dialog-leave,
+    &.md-dialog-enter-to {
+      .md-dialog-container {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      .md-dialog-fullscreen {
+        @include md-layout-xsmall {
+          opacity: 0;
+          transform: translate(0, 30%);
+        }
+      }
     }
+
+    &.md-dialog-enter,
+    &.md-dialog-leave-to {
+      .md-dialog-container {
+        opacity: 0;
+        transform: scale(.9);
+      }
+
+      .md-dialog-fullscreen {
+        @include md-layout-xsmall {
+          opacity: 1;
+          transform: translate(0, 0);
+        }
+      }
+    }
+
   }
 
   .md-dialog-container {
@@ -130,9 +161,10 @@
     border-radius: 2px;
     backface-visibility: hidden;
     pointer-events: auto;
+    opacity: 1;
     transform: scale(1);
     transform-origin: center center;
-    transition: opacity .15s $md-transition-stand-timing, transform .2s $md-transition-stand-timing;
+    transition: opacity $opacity-transition-duration $md-transition-stand-timing, transform $transform-transition-duration $md-transition-stand-timing;
     will-change: opacity, transform;
 
     > .md-dialog-tabs,
@@ -183,16 +215,6 @@
       max-height: 100%;
       border-radius: 0;
       transform: none;
-
-      &.md-dialog-enter {
-        opacity: 0;
-        transform: translate3D(0, 30%, 0);
-      }
-
-      &.md-dialog-leave-active {
-        opacity: 0;
-        transform: translate3D(0, 0, 0);
-      }
     }
   }
 </style>
