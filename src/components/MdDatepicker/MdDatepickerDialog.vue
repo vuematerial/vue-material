@@ -366,6 +366,7 @@
     backface-visibility: hidden;
     pointer-events: auto;
     transform-origin: top left;
+    flex-shrink: 0;
     transition: opacity .2s $md-transition-stand-timing,
                 transform .35s $md-transition-stand-timing;
     will-change: opacity, transform, left, top;
