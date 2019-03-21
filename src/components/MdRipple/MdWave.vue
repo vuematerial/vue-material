@@ -1,5 +1,5 @@
 <template>
-  <transition name="md-ripple" @after-enter="end">
+  <transition name="md-ripple" @after-enter="end" appear>
     <span v-if="animating" />
   </transition>
 </template>
