@@ -1,7 +1,7 @@
 <template>
   <md-field :class="['md-datepicker', { 'md-native': !this.mdOverrideNative }]" md-clearable>
     <md-date-icon class="md-date-icon" @click.native="toggleDialog" />
-    <md-input :type="type" ref="input" v-model="inputDate" @focus.native="onFocus" :pattern="pattern" />
+    <md-input :disabled="mdDisabled" :type="type" ref="input" v-model="inputDate" @focus.native="onFocus" :pattern="pattern" />
 
     <slot />
 
@@ -45,6 +45,10 @@
     props: {
       value: [String, Number, Date],
       mdDisabledDates: [Array, Function],
+      mdDisabled: {
+        type: Boolean,
+        default: false,
+      },
       mdOpenOnFocus: {
         type: Boolean,
         default: true
@@ -178,6 +182,9 @@
     },
     methods: {
       toggleDialog () {
+        if (this.mdDisabled) {
+          return;
+        }
         if (!isFirefox || this.mdOverrideNative) {
           this.showDialog = !this.showDialog
           if (this.showDialog) {

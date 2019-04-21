@@ -103,7 +103,13 @@
             type: 'Number',
             description: 'Debounces the conversion of plaintext into a date object. Set to a longer time if your users type slowly, or shorter if your users type really fast.',
             defaults: 1000
-          }
+          },
+          {
+            name: 'md-disabled',
+            type: 'Boolean',
+            description: 'Disables the entire datepicker',
+            defaults: 'false'
+          },
         ]
       },
       events: {
