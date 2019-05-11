@@ -108,7 +108,7 @@
         return {
           ...this.$attrs,
           name: this.name,
-          id: this.id
+          id: undefined
         }
       },
       inputListeners () {
