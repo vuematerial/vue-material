@@ -24,6 +24,7 @@
   export default {
     name: 'Home',
     components: {
+      AdManager,
       HomeHeader,
       HomeFeatures,
       HomeEcosystem,
@@ -86,8 +87,7 @@
 
   .home-splash {
     max-width: 1312px;
-    min-height: calc(100vh - 80px);
-    padding-top: 24px;
+    padding: 24px 0;
     position: relative;
   }
 

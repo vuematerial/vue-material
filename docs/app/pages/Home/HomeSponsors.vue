@@ -10,38 +10,14 @@
         <i18n path="pages.home.sponsorsDescription" tag="p">
           <a href="https://www.github.com/marcosmoura" target="_blank">Marcos Moura</a>
         </i18n>
+
         <p>{{ $t('pages.home.beAPatron') }}:</p>
+
         <a href="https://www.patreon.com/bePatron?u=4832202" target="_blank" class="home-sponsors-patreon">
           <md-ripple>
             <img src="/assets/sponsors/patreon.png">
           </md-ripple>
         </a>
-      </div>
-
-      <div class="home-sponsors-backers">
-        <h3 class="md-title">{{ $t('pages.home.sponsors') }}</h3>
-
-        <div class="home-sponsor-list md-layout md-layout-wrap">
-          <a class="home-sponsor" href="http://impulso.work" target="_blank">
-            <md-tooltip md-theme="default" md-direction="right">Impulso</md-tooltip>
-
-            <md-ripple>
-              <img src="/assets/sponsors/logo-impulso.png">
-            </md-ripple>
-          </a>
-        </div>
-
-        <h4 class="md-subheading">{{ $t('pages.home.backers') }}</h4>
-
-        <ul>
-          <li>Anthony Villena</li>
-          <li>Bobby McDonald</li>
-          <li>Ivo Benner</li>
-          <li>N Squared</li>
-          <li>Nathanael Björkgård</li>
-          <li>William Chong</li>
-          <li>Yatima Kagurazaka</li>
-        </ul>
       </div>
     </div>
   </md-content>
@@ -70,6 +46,7 @@
 
   .home-sponsors-patreon {
     max-width: 180px;
+    margin: 24px 0;
     display: inline-block;
   }
 

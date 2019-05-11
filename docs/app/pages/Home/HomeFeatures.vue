@@ -40,6 +40,7 @@
   @import "~vue-material/components/MdLayout/mixins";
 
   .home-features {
+    margin-top: 60px;
     padding-bottom: 60px;
     flex: none;
 

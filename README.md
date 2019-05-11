@@ -11,10 +11,6 @@
     <img src="https://travis-ci.org/vuematerial/vue-material.svg?branch=master" alt="Build Status">
   </a>
 
-  <!--a href="https://codeclimate.com/github/vuematerial/vue-material/coverage">
-    <img src="https://codeclimate.com/github/vuematerial/vue-material/badges/coverage.svg">
-  </a-->
-
   <a href="https://www.npmjs.com/package/vue-material">
     <img src="https://img.shields.io/npm/dt/vue-material.svg" alt="Downloads">
   </a>
@@ -22,8 +18,8 @@
   <a href="https://www.npmjs.com/package/vue-material">
     <img src="https://img.shields.io/npm/l/vue-material.svg" alt="License">
   </a>
-  
-  <a href="https://discord.gg/rgcmTtm">
+
+  <a href="https://discord.gg/vuematerial">
     <img src="https://img.shields.io/discord/379653048798281729.svg?logo=discord&colorB=7289DA" alt="Chat">
   </a>
 </p>
@@ -31,14 +27,6 @@
 Vue Material is Simple, lightweight and built exactly according to the Google <a href="http://material.google.com" target="_blank">Material Design</a> specs
 
 Build well-designed apps that can fit on every screen with support to all modern Web Browsers with dynamic themes, components on demand and all with an ease-to-use API
-
-## Sponsorship
-
-Vue Material is proudly sponsored by [Rollbar](https://codesponsor.io/t/c/93172542ee6813a9372c08c459fd1e5a/
-). They provide real-time JavaScript error monitoring, alerting, and analytics for developers. :rocket:
-
-You can try Rollbar for free at [https://rollbar.com](https://codesponsor.io/t/c/93172542ee6813a9372c08c459fd1e5a/
-) <img src="https://codesponsor.io/t/l/93172542ee6813a9372c08c459fd1e5a/pixel.png" />
 
 ## Demo and Documentation
 
