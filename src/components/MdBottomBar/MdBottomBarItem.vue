@@ -20,6 +20,7 @@
 
 <script>
   import MdAssetIcon from 'core/mixins/MdAssetIcon/MdAssetIcon'
+  import MdRouterLink from 'core/mixins/MdRouterLink/MdRouterLink'
   import MdUuid from 'core/utils/MdUuid'
   import MdRouterLinkProps from 'core/utils/MdRouterLinkProps'
 
@@ -27,13 +28,12 @@
 
   export default {
     name: 'MdBottomBarItem',
-    mixins: [MdAssetIcon],
+    mixins: [MdAssetIcon, MdRouterLink],
     props: {
       id: {
         type: String,
         default: () => 'md-bottom-bar-item-' + MdUuid()
       },
-      to: null,
       mdLabel: String,
       mdIcon: String,
       mdDisabled: Boolean
@@ -101,7 +101,9 @@
         })
       },
       setActiveItem ($event) {
-        this.MdBottomBar.activeItem = this.id
+        if (!this.MdBottomBar.syncRoute) {
+          this.MdBottomBar.activeItem = this.id
+        }
 
         if (this.MdBottomBar.type === 'shift') {
           this.MdBottomBar.mouseEvent = $event

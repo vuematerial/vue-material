@@ -176,6 +176,7 @@
       },
       onEsc () {
         this.MdMenu.active = false
+        this.destroyKeyDownListener()
       },
       getOffsets () {
         const relativePosition = this.getBodyPosition()

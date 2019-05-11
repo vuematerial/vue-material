@@ -1,17 +1,18 @@
 <script>
   import MdUuid from 'core/utils/MdUuid'
+  import MdRouterLink from 'core/mixins/MdRouterLink/MdRouterLink'
   import MdObserveElement from 'core/utils/MdObserveElement'
   import MdRouterLinkProps from 'core/utils/MdRouterLinkProps'
 
   export default {
     name: 'MdTab',
+    mixins: [MdRouterLink],
     props: {
       id: {
         type: String,
         default: () => 'md-tab-' + MdUuid()
       },
       href: [String, Number],
-      to: null,
       mdDisabled: Boolean,
       mdLabel: [String, Number],
       mdIcon: String,

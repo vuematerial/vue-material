@@ -1,13 +1,13 @@
 <template>
   <div class="md-file">
-    <md-file-icon @click.native="openPicker" />
+    <md-file-icon class="md-file-icon" :class="iconClass" @click.native="openPicker" />
 
     <input
       class="md-input"
       readonly
       v-model="model"
       v-bind="{ disabled, required, placeholder }"
-      @focus="openPicker"
+      @click="openPicker"
       @blur="onBlur">
 
     <input type="file" ref="inputFile" v-bind="attributes" v-on="$listeners" @change="onChange" />
@@ -30,6 +30,13 @@
         default: () => 'md-file-' + MdUuid()
       },
       name: String
+    },
+    computed: {
+      iconClass () {
+        return {
+          'md-disabled': this.disabled
+        }
+      }
     },
     mixins: [MdFieldMixin],
     inject: ['MdField'],
@@ -95,8 +102,14 @@
       border: 0;
     }
 
-    .md-icon {
-      cursor: pointer;
+    .md-file-icon {
+      &:not(.md-disabled) {
+        cursor: pointer;
+      }
+
+      &.md-disabled {
+        pointer-events: none;
+      }
     }
   }
 </style>

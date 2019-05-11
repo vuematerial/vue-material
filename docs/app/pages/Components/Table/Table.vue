@@ -12,7 +12,7 @@
 <template>
   <page-container centered :title="$t('pages.table.title')">
     <div class="page-container-section">
-      <p>Data tables display sets of raw data. They usually appear in desktop enterprise products. They are the component that have more features in all Vue Material ecosystem. There is a lot of options that you can tweak to change and impact on the table layout.</p>
+      <p>Data tables display sets of raw data. They usually appear in desktop enterprise products. They are the component that have more features in all Vue Material ecosystem. There are a lot of options that you can tweak to change and impact the table layout.</p>
       <note-block warning>This component is still WIP. Right now you can use the core basic stuff, but soon we will release <strong>Pagination</strong>, <strong>Internal search</strong> and <strong>Edit options</strong>. The current API will not change during the beta phase (likely).</note-block>
     </div>
 
@@ -20,7 +20,7 @@
       <h2>Simple tables</h2>
 
       <p>To create a basic table, with simple data and without any advanced options, you have a really simple markup to use.</p>
-      <p>There is some components that mimics the native table elements:</p>
+      <p>There are some components that mimic the native table elements:</p>
       <ul>
         <li>
           <code>md-table</code> => <code>table</code>
@@ -45,7 +45,7 @@
     </div>
 
     <div class="page-container-section">
-      <p>In pages that only have a table, you can put this table within a card. Fortunately Vue Material provide an options out of the box to add a table card without any efforts:</p>
+      <p>In pages that only have a table, you can put this table within a card. Fortunately Vue Material provides an option out of the box to add a table card without any effort:</p>
       <code-example title="Table within a card" :component="examples['table-card']" />
     </div>
 
@@ -54,7 +54,7 @@
 
       <note-block alert>This section will assume that you have knowledge of <a href="https://vuejs.org/v2/guide/components.html#Scoped-Slots" target="_blank">Vue Scoped Slots</a>. You'll need them to create advanced tables.</note-block>
 
-      <p>Vue Material have advanced tables that can handle with your data, sorting, selecting and manipulating it. You can pass a <code>v-model</code> with you data and tweak the table to suit your needs. Along with that, you should give to data table a custom template. This will allow the table to have it's own markup and display all rows for you. This is really powerfull!</p>
+      <p>Vue Material have advanced tables that can handle with your data, sorting, selecting and manipulating it. You can pass a <code>v-model</code> with you data and tweak the table to suit your needs. Along with that, you should give to data table a custom template. This will allow the table to have its own markup and display all rows for you. This is really powerfull!</p>
       <p>There are plenty of options for you to make your data table awesome, so carefully read this documentation, analyze the code examples with full attention and take a deeper look at the API section.</p>
 
       <p>Let's start with a <strong>custom template</strong> feature:</p>
@@ -73,7 +73,7 @@
     </div>
 
     <div class="page-container-section">
-      <p><strong>With large datasets comes great responsability</strong>... with your user. We know that Vue Material tables have a great layout, but we need to care about the usability of your screens. Fixed headers will make easier to interact with the table, by keeping all options always visible:</p>
+      <p><strong>With large datasets comes great responsibility</strong>... with your user. We know that Vue Material tables have a great layout, but we need to care about the usability of your screens. Fixed headers will make it easier to interact with the table by keeping all options always visible:</p>
       <code-example title="Fixed headers" :component="examples['table-fixed']" />
     </div>
 
@@ -85,13 +85,13 @@
     <div class="page-container-section">
       <h2>Selection</h2>
 
-      <p>When dealing with large data sets, when may want to have quick actions over our data, whether to remove or make some bulk change. Tables have inner selection in two ways: Single and Multiple.</p>
+      <p>When dealing with large data sets, you may want to have quick actions over our data, like whether to remove or make some bulk change. Tables have inner selection in two ways: Single and Multiple.</p>
       <p>The single selection is really great to highlight a particular item. Maybe, by clicking on a table row, will show the details of the item. With single selections you'll have access to the selected item and the table will do the rest. You can use the primary and accent hue colors to give more appealing highlight colors:</p>
       <code-example title="Single" :component="examples['table-single']" />
     </div>
 
     <div class="page-container-section">
-      <p>Multiple selections great for bulk changes and you can use the alternate header to hold the options that you can call when there are options selected. Note that if you click in the checkbox or on the entire row will do the same action, due to <code>md-auto-select</code> option. Really handy:</p>
+      <p>Multiple selections great for bulk changes and you can use the alternate header to hold the options that you can call when there are options selected. Note that if you click on the checkbox or on the entire row, it will do the same action due to <code>md-auto-select</code> option. Really handy:</p>
       <code-example title="Multiple" :component="examples['table-multiple']" />
     </div>
 

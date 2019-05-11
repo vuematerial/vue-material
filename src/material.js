@@ -17,6 +17,9 @@ const init = () => {
       shortMonths: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
       shorterMonths: ['J', 'F', 'M', 'A', 'M', 'Ju', 'Ju', 'A', 'Se', 'O', 'N', 'D'],
       firstDayOfAWeek: 0
+    },
+    router: {
+      linkActiveClass: 'router-link-active'
     }
   })
 

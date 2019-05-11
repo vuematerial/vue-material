@@ -51,6 +51,17 @@ $md-current-theme: null;
 
 
 /**
+ * Store the newly registered theme name for comparison, used for checking just called md-register-theme's theme name
+ * ---
+ * @access private
+ * @type string
+ * @group themes
+ */
+
+$md-theme-name: null;
+
+
+/**
  * The color contrast values
  * ---
  * @access private

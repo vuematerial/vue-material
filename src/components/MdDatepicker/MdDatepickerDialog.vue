@@ -89,20 +89,19 @@
 </template>
 
 <script>
-  import addMonths from 'date-fns/add_months'
-  import startOfMonth from 'date-fns/start_of_month'
-  import subMonths from 'date-fns/sub_months'
-  import getDate from 'date-fns/get_date'
-  import getDay from 'date-fns/get_day'
-  import getDaysInMonth from 'date-fns/get_days_in_month'
-  import getMonth from 'date-fns/get_month'
-  import getYear from 'date-fns/get_year'
-  import isEqual from 'date-fns/is_equal'
-  import isSameDay from 'date-fns/is_same_day'
-  import isToday from 'date-fns/is_today'
-  import setDate from 'date-fns/set_date'
-  import setMonth from 'date-fns/set_month'
-  import setYear from 'date-fns/set_year'
+  import addMonths from 'date-fns/addMonths'
+  import startOfMonth from 'date-fns/startOfMonth'
+  import subMonths from 'date-fns/subMonths'
+  import getDate from 'date-fns/getDate'
+  import getDay from 'date-fns/getDay'
+  import getDaysInMonth from 'date-fns/getDaysInMonth'
+  import getMonth from 'date-fns/getMonth'
+  import getYear from 'date-fns/getYear'
+  import isEqual from 'date-fns/isEqual'
+  import isSameDay from 'date-fns/isSameDay'
+  import setDate from 'date-fns/setDate'
+  import setMonth from 'date-fns/setMonth'
+  import setYear from 'date-fns/setYear'
 
   import MdComponent from 'core/MdComponent'
   import MdPopover from 'components/MdPopover/MdPopover'
@@ -148,7 +147,7 @@
     computed: {
       firstDayOfAWeek () {
         // normalize
-        let firstDayOfAWeek = Number(this.$material.locale.firstDayOfAWeek)
+        let firstDayOfAWeek = Number(this.locale.firstDayOfAWeek)
         if (Number.isNaN(firstDayOfAWeek) || !Number.isFinite(firstDayOfAWeek)) {
           return 0
         }
@@ -157,7 +156,7 @@
         return firstDayOfAWeek
       },
       locale() {
-        return this.$material.locale;
+        return this.$material.locale
       },
       popperSettings () {
         return {
@@ -297,7 +296,7 @@
         return isEqual(this.selectedDate, setDate(this.currentDate, day))
       },
       isToday (day) {
-        return isToday(setDate(this.currentDate, day))
+        return isSameDay(new Date(), setDate(this.currentDate, day))
       },
       previousMonth () {
         this.monthAction = 'previous'

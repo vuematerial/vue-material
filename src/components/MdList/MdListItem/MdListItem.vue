@@ -2,6 +2,7 @@
   import MdInteractionEvents from 'core/utils/MdInteractionEvents'
   import MdRouterLinkProps from 'core/utils/MdRouterLinkProps'
   import MdListItemDefault from './MdListItemDefault'
+  import MdListItemFakeButton from './MdListItemFakeButton'
   import MdListItemButton from './MdListItemButton'
   import MdListItemLink from './MdListItemLink'
   import MdListItemRouter from './MdListItemRouter'
@@ -22,6 +23,10 @@
     }
   }
 
+  function hasChildrenButtons (childrens) {
+    return childrens.default.some(children => children.componentOptions && children.componentOptions.tag === 'md-button')
+  }
+
   function shouldRenderButtonWithListener (listeners) {
     let listenerNames = Object.keys(listeners)
     let shouldRender = false
@@ -39,7 +44,7 @@
     return parent && parent.$router && props.to
   }
 
-  function createListComponent (props, parent, listeners) {
+  function createListComponent (props, parent, listeners, children) {
     if (hasExpansion(props)) {
       return MdListItemExpand
     }
@@ -62,10 +67,17 @@
     }
 
     if (shouldRenderButtonWithListener(listeners)) {
-      return MdListItemButton
+      return renderButtonWithListener(children)
     }
 
     return MdListItemDefault
+  }
+
+  function renderButtonWithListener (children) {
+    if (hasChildrenButtons(children)) {
+      return MdListItemFakeButton
+    }
+    return MdListItemButton
   }
 
   export default {
@@ -76,7 +88,7 @@
     },
     render (createElement, { parent, props, listeners, data, slots }) {
       let children = slots()
-      let listComponent = createListComponent(props, parent, listeners)
+      let listComponent = createListComponent(props, parent, listeners, children)
       let staticClass = 'md-list-item'
 
       if (data.staticClass) {
@@ -127,8 +139,10 @@
     text-transform: none;
 
     &:not(.md-list-item-default):not([disabled]) {
-      user-select: none;
-      cursor: pointer;
+      > .md-list-item-content {
+        user-select: none;
+        cursor: pointer;
+      }
     }
 
     &.md-button-clean:hover {

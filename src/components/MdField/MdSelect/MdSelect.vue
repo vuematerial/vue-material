@@ -124,7 +124,10 @@
         handler (val) {
           this.setFieldContent()
           this.MdSelect.modelValue = this.localValue
-          this.emitSelected(val)
+
+          if (this.didMount) {
+            this.emitSelected(val)
+          }
         }
       },
       multiple: {
@@ -263,7 +266,7 @@
         return this.localValue !== undefined && this.localValue !== null
       },
       setLocalValueIfMultiple () {
-        if (isLocalValueSet()) {
+        if (this.isLocalValueSet()) {
           this.localValue = [this.localValue]
         } else {
           this.localValue = []

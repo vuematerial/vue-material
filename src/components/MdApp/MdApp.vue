@@ -14,22 +14,23 @@
     return componentOptions && componentTypes.includes(componentOptions.tag)
   }
 
-  function isRightDrawer ({ mdRight }) {
-    return mdRight === '' || !!mdRight
-  }
-
-  function createRightDrawer (isMdRight) {
-    if (isMdRight) {
-      const drawerRightPrevious = createElement(MdDrawerRightPrevious, { props: {...child.data.attrs}})
-      drawerRightPrevious.data.slot = 'md-app-drawer-right-previous'
-      slots.push(drawerRightPrevious)
-    }
+  function isRightDrawer (propsData) {
+    if (!propsData) return false
+    return propsData.mdRight === '' || !!propsData.mdRight
   }
 
   function shouldRenderSlot (data, componentOptions) {
     return (data && componentTypes.includes(data.slot)) || isValidChild(componentOptions)
   }
 
+  function generateAttrKeys (attrs) {
+    return JSON.stringify({
+      'persistent': attrs && attrs['md-persistent'],
+      'permanent': attrs && attrs['md-permanent']
+    })
+  }
+
+  /* eslint-disable complexity */
   function buildSlots (children, context, functionalContext, options, createElement) {
     let slots = []
 
@@ -41,9 +42,10 @@
         const componentOptions = child.componentOptions
 
         if (shouldRenderSlot(data, componentOptions)) {
-          child.data.slot = data.slot || componentOptions.tag
+          const slotName = data.slot || componentOptions.tag
+          child.data.slot = slotName
 
-          if (componentOptions.tag === 'md-app-drawer') {
+          if (slotName === 'md-app-drawer') {
             const isRight = isRightDrawer(componentOptions.propsData)
 
             if (hasDrawer) {
@@ -53,12 +55,13 @@
 
             hasDrawer = true
             child.data.slot += `-${isRight ? 'right' : 'left'}`
-            child.key = JSON.stringify({
-              'persistent': child.data.attrs['md-persistent'],
-              'permanent': child.data.attrs['md-permanent']
-            })
+            child.key = generateAttrKeys(data.attrs)
 
-            createRightDrawer(isRight)
+            if (isRight) {
+              const drawerRightPrevious = createElement(MdDrawerRightPrevious, { props: {...child.data.attrs}})
+              drawerRightPrevious.data.slot = 'md-app-drawer-right-previous'
+              slots.push(drawerRightPrevious)
+            }
           }
 
           child.data.provide = options.Ctor.options.provide
@@ -72,12 +75,13 @@
 
     return slots
   }
+  /* eslint-enable complexity */
 
   function getDrawers (children) {
     const drawerVnodes = children.filter(child => {
-      return child.componentOptions.tag === 'md-app-drawer'
+      const tag = child.data.slot || child.componentOptions.tag
+      return tag === 'md-app-drawer'
     })
-
     return drawerVnodes.length ? drawerVnodes : []
   }
 

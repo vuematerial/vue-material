@@ -2,6 +2,9 @@
   <div class="main-nav-content">
     <router-link to="/" exact>{{ $t('pages.home.title') }}</router-link>
     <router-link to="/getting-started">{{ $t('pages.gettingStarted.title') }}</router-link>
+    <div class="main-nav-level">
+      <router-link to="/configuration">{{ $t('pages.configuration.title') }}</router-link>
+    </div>
 
     <router-link to="/themes">{{ $t('pages.themes.title') }}</router-link>
     <div class="main-nav-level">
@@ -11,6 +14,8 @@
       <router-link to="/themes/advanced">{{ $t('pages.themeAdvanced.nav') }}</router-link>
       <router-link to="/#premium">{{ $t('pages.home.premium') }}</router-link>
     </div>
+
+    <router-link to="/with-router">{{ $t('pages.withRouter.title') }}</router-link>
 
     <router-link to="/ui-elements">{{ $t('pages.uiElements.title') }}</router-link>
     <div class="main-nav-level">

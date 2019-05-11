@@ -95,6 +95,10 @@
       },
       onInput () {
         this.setFieldValue()
+      }
+    },
+    watch: {
+      localValue() {
         this.applyStyles()
       }
     },

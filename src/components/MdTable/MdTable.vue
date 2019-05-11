@@ -113,14 +113,12 @@
             let isNumber = typeof aAttr === 'number'
 
             if (isNumber) {
-              return isAsc ? (bAttr - aAttr) : (aAttr - bAttr)
+              return isAsc ? (aAttr - bAttr) : (bAttr - aAttr)
             }
 
-            if (isAsc) {
-              return bAttr.localeCompare(aAttr)
-            }
-
-            return aAttr.localeCompare(bAttr)
+            return isAsc ?
+              aAttr.localeCompare(bAttr) :
+              bAttr.localeCompare(aAttr)
           })
         }
       },
@@ -259,6 +257,10 @@
       },
       mdSelectedValue () {
         this.syncSelectedValue()
+      },
+      value () {
+        this.syncSelectedValue()
+        this.setWidth()
       }
     },
     methods: {
@@ -322,7 +324,7 @@
         if (this.MdTable.selectedItems.includes(item)) {
           this.MdTable.selectedItems = this.MdTable.selectedItems.filter(target => target !== item)
         } else {
-          this.MdTable.selectedItems.push(item)
+          this.MdTable.selectedItems = this.MdTable.selectedItems.concat([item])
         }
       },
       sortTable () {
@@ -335,11 +337,13 @@
         this.$emit('md-selected', val)
       },
       syncSelectedValue () {
-        if (this.MdTable.selectingMode === 'single') {
-          this.MdTable.singleSelection = this.mdSelectedValue
-        } else if (this.MdTable.selectingMode === 'multiple') {
-          this.MdTable.selectedItems = this.mdSelectedValue || []
-        }
+        this.$nextTick().then(() => { // render the table first
+          if (this.MdTable.selectingMode === 'single') {
+            this.MdTable.singleSelection = this.mdSelectedValue
+          } else if (this.MdTable.selectingMode === 'multiple') {
+            this.MdTable.selectedItems = this.mdSelectedValue || []
+          }
+        })
       },
       setWidth () {
         if (this.mdFixedHeader) {
@@ -348,9 +352,11 @@
       }
     },
     created () {
-      this.$nextTick().then(() => {
-        this.syncSelectedValue()
-      })
+      if (this.mdSort) {
+        this.sortTable()
+      }
+
+      this.syncSelectedValue()
     },
     mounted () {
       this.setContentEl()

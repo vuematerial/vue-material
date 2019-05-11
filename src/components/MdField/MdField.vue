@@ -208,6 +208,7 @@
       font-family: inherit;
       font-size: 16px;
       line-height: $md-input-height;
+      box-shadow: 0px 0px transparent; // firefox required fix
 
       &[type="date"] {
         font-size: 16px;

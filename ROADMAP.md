@@ -222,10 +222,10 @@ I will point out those changes inside the migration guide.
 <small>Vue Material 2 will be released with the new Material Design guidelines landed on Google I/O 2018. Stay tuned!<small>
 
 ## But man! I need the ___________
-Have something in mind? Need a new components? Created something meaningful and think that this can fit inside the lib? Let's discuss? We have a [Slack Channel](https://join.slack.com/t/vuematerial/shared_invite/MTgzMzU2NDQ5ODkwLTE0OTQ4MDI3MDAtNWYyZjhkNzEzMA) and I'm online there almost everyday. Send me a message!
+Have something in mind? Need a new components? Created something meaningful and think that this can fit inside the lib? Let's discuss? We have a [Discord Channel](https://discord.gg/vuematerial) and I'm online there almost everyday. Send me a message!
 
 ## I want to help. What do you need?
-Well. All kind of help are welcome. If you want to contribute with the project, just send me a message and I will tell what you can do. We recently created a Slack Channel to share ideas and to keep all the comunication in one place.
+Well. All kind of help are welcome. If you want to contribute with the project, just send me a message and I will tell what you can do. We recently created a Discord Channel to share ideas and to keep all the communication in one place.
 
 ## Awesome! I want to pay you a coffee!
 Vue Material do not run under the umbrella of any company or something like that, and is an independent project created by me on spare time. It became one of the most used UI Libraries for Vue.js.
