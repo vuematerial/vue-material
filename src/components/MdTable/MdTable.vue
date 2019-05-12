@@ -112,6 +112,14 @@
             const isAsc = this.MdTable.sortOrder === 'asc'
             let isNumber = typeof aAttr === 'number'
 
+            if (!aAttr) {
+              return 1;
+            }
+
+            if(!bAttr) {
+              return -1
+            }
+
             if (isNumber) {
               return isAsc ? (aAttr - bAttr) : (bAttr - aAttr)
             }
