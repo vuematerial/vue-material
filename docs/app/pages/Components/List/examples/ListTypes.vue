@@ -33,8 +33,4 @@ export default {
     vertical-align: top;
     border: 1px solid rgba(#000, .12);
   }
-
-  .md-list .router-link-active {
-    text-shadow: 0 0 5px;
-  }
 </style>

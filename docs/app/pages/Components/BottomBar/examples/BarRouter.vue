@@ -41,8 +41,4 @@
     border: 1px solid rgba(#000, .26);
     background: rgba(#000, .06);
   }
-
-  .md-bottom-bar .md-bottom-bar-item.router-link-active {
-    text-shadow: 0 0 5px;
-  }
 </style>
