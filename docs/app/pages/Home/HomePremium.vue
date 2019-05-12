@@ -14,7 +14,7 @@
 
       <div class="md-layout md-gutter md-alignment-top-left">
         <div class="md-layout-item md-xsmall-size-100">
-          <md-card class="md-accent" md-with-hover @click.native="openLink('https://www.creative-tim.com/product/vue-material-dashboard-pro')">
+          <md-card class="md-accent" md-with-hover @click.native="openLink('https://www.creative-tim.com/product/vue-material-dashboard-pro?ref=vuematerial.io')">
             <md-ripple>
               <md-card-media>
                 <img src="/assets/premium/dashboard-pro.jpg" alt="Vue Material Dashboard PRO">
@@ -41,7 +41,7 @@
         </div>
 
         <div class="md-layout-item md-xsmall-size-100">
-          <md-card class="md-accent" md-with-hover @click.native="openLink('https://www.creative-tim.com/product/vue-material-dashboard')">
+          <md-card class="md-accent" md-with-hover @click.native="openLink('https://www.creative-tim.com/product/vue-material-dashboard?ref=vuematerial.io')">
             <md-ripple>
               <md-card-media>
                 <img src="/assets/premium/dashboard-pro.jpg" alt="Vue Material Dashboard PRO">
