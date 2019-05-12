@@ -12,8 +12,8 @@
 
     <transition name="md-input-action" appear>
       <md-button tabindex="-1" class="md-icon-button md-dense md-input-action md-toggle-password" @click="togglePassword" v-if="hasPasswordToggle">
-        <md-password-off-icon v-if="MdField.togglePassword" />
-        <md-password-on-icon v-else />
+        <md-password-on-icon v-if="MdField.togglePassword" />
+        <md-password-off-icon v-else />
       </md-button>
     </transition>
   </div>

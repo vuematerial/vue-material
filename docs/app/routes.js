@@ -45,7 +45,7 @@ export const routes = [
     page: 'Components/Datepicker/Datepicker.vue'
   },
   {
-    path: '/components/steppers/:optional?',
+    path: '/components/steppers/:optional?/:sub?',
     name: 'components/steppers',
     page: 'Components/Steppers/Steppers.vue'
   },
@@ -70,12 +70,12 @@ export const routes = [
     page: 'Components/Snackbar/Snackbar.vue'
   },
   {
-    path: '/components/tabs/:optional?',
+    path: '/components/tabs/:optional?/:sub?',
     name: 'components/tabs',
     page: 'Components/Tabs/Tabs.vue'
   },
   {
-    path: '/components/bottom-bar/:optional?',
+    path: '/components/bottom-bar/:optional?/:sub?',
     name: 'components/bottom-bar',
     page: 'Components/BottomBar/BottomBar.vue'
   },
@@ -113,6 +113,11 @@ export const routes = [
     path: '/getting-started',
     name: 'getting-started',
     page: 'GettingStarted.vue'
+  },
+  {
+    path: '/configuration',
+    name: 'configuration',
+    page: 'Configuration.vue'
   },
   {
     path: '/themes',
@@ -202,7 +207,7 @@ export const routes = [
     page: 'Components/File/File.vue'
   },
   {
-    path: '/components/list/:optional?',
+    path: '/components/list/:optional?/:sub?',
     name: 'components/list',
     page: 'Components/List/List.vue'
   },
@@ -258,6 +263,11 @@ export const routes = [
     page: 'UiElements/Typography/Typography.vue'
   },
   {
+    path: '/with-router',
+    name: 'with-router',
+    page: 'WithRouter.vue'
+  },
+  {
     path: '*',
     name: 'error',
     page: 'Error.vue'
@@ -269,7 +279,7 @@ export const mapRoutes = () => {
 
   routes.forEach(route => {
     if (!route.redirect && route.path !== '*') {
-      mappedRoutes.push(route.path.replace('/:optional?', ''))
+      mappedRoutes.push(route.path.replace('/:optional?/:sub?', ''))
     }
   })
 

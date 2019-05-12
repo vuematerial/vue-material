@@ -108,8 +108,7 @@
     }
 
     .md-button {
-      &:last-child,
-      + .md-button {
+      &:last-child {
         margin-right: 0;
       }
 

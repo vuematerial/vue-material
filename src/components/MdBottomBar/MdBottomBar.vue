@@ -25,13 +25,16 @@
         ...MdPropValidator('md-type', ['fixed', 'shift'])
       }
     },
-    data: () => ({
-      MdBottomBar: {
-        mouseEvent: null,
-        activeItem: null,
-        items: {}
+    data () {
+      return {
+        MdBottomBar: {
+          mouseEvent: null,
+          activeItem: null,
+          items: {},
+          syncRoute: this.mdSyncRoute
+        }
       }
-    }),
+    },
     provide () {
       return {
         MdBottomBar: this.MdBottomBar
@@ -50,21 +53,12 @@
     watch: {
       activeItem () {
         this.$emit('md-changed', this.activeItem)
+      },
+      mdSyncRoute () {
+        this.MdBottomBar.syncRoute = mdSyncRoute
       }
     },
     methods: {
-      setupWatchers () {
-        if (this.mdSyncRoute) {
-          this.$watch('$route', {
-            deep: true,
-            handler () {
-              if (this.mdSyncRoute) {
-                this.setActiveItemByRoute()
-              }
-            }
-          })
-        }
-      },
       hasActiveItem () {
         return this.MdBottomBar.activeItem || this.mdActiveItem
       },
@@ -84,31 +78,6 @@
         } else {
           this.MdBottomBar.activeItem = this.mdActiveItem
         }
-      },
-      setActiveItemByRoute () {
-        const { items, keys } = this.getItemsAndKeys()
-        let tabIndex = null
-
-        if (this.$router) {
-          keys.forEach((key, index) => {
-            const item = items[key]
-            const toProp = item.props.to
-
-            if (toProp && toProp === this.$route.path) {
-              tabIndex = index
-            }
-          })
-        }
-
-        if (!this.hasActiveItem()) {
-          if (keys[tabIndex]) {
-            this.MdBottomBar.activeItem = keys[tabIndex]
-          } else {
-            this.MdBottomBar.activeItem = keys[0]
-          }
-        } else if (keys[tabIndex]) {
-          this.MdBottomBar.activeItem = keys[tabIndex]
-        }
       }
     },
     created () {
@@ -116,15 +85,9 @@
     },
     mounted () {
       this.$nextTick().then(() => {
-        if (this.mdSyncRoute) {
-          this.setActiveItemByRoute()
-        } else {
+        if (!this.mdSyncRoute) {
           this.setActiveItemByIndex(0)
         }
-
-        window.setTimeout(() => {
-          this.setupWatchers()
-        }, 100)
       })
 
     }

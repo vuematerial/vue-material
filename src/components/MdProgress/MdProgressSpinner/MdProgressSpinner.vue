@@ -6,8 +6,8 @@
         preserveAspectRatio="xMidYMid meet"
         focusable="false"
         :viewBox="`0 0 ${mdDiameter} ${mdDiameter}`"
-        :style="svgStyles">
-        <circle class="md-progress-spinner-circle" cx="50%" cy="50%" :r="circleRadius" :style="circleStyles"></circle>
+        ref="md-progress-spinner-draw">
+        <circle class="md-progress-spinner-circle" cx="50%" cy="50%" :r="circleRadius" ref="md-progress-spinner-circle"></circle>
       </svg>
     </div>
   </transition>
@@ -16,7 +16,6 @@
 <script>
   import MdComponent from 'core/MdComponent'
   import MdPropValidator from 'core/utils/MdPropValidator'
-  import INDETERMINATE_ANIMATION_TEMPLATE from './MdProgressSpinnerAnimation'
 
   const MdProgressSpinner = {
     styleTag: null,
@@ -72,22 +71,6 @@
           ['md-' + this.mdMode]: true
         }
       },
-      svgStyles () {
-        const size = `${this.mdDiameter}px`
-
-        return {
-          width: size,
-          height: size
-        }
-      },
-      circleStyles () {
-        return {
-          'stroke-dashoffset': this.circleStrokeDashOffset,
-          'stroke-dasharray': this.circleStrokeDashArray,
-          'stroke-width': this.circleStrokeWidth,
-          'animation-name': 'md-progress-spinner-stroke-rotate-' + this.mdDiameter
-        }
-      },
       circleRadius () {
         return (this.mdDiameter - this.mdStroke) / 2
       },
@@ -113,41 +96,36 @@
       }
     },
     watch: {
+      mdValue () {
+        this.attachCircleStyle()
+      },
       mdDiameter () {
-        this.attachStyleTag()
+        this.attachSvgStyle()
+        this.attachCircleStyle()
+      },
+      mdStroke () {
+        this.attachCircleStyle()
       }
     },
     methods: {
-      getAnimationCSS () {
-        return INDETERMINATE_ANIMATION_TEMPLATE
-            .replace(/START_VALUE/g, `${0.95 * this.circleCircumference}`)
-            .replace(/END_VALUE/g, `${0.2 * this.circleCircumference}`)
-            .replace(/DIAMETER/g, `${this.mdDiameter}`);
+      attachSvgStyle () {
+        const svg = this.$refs['md-progress-spinner-draw']
+        const size = `${this.mdDiameter}px`
+        svg.style.width = size
+        svg.style.height = size
       },
-      attachStyleTag () {
-        let styleTag = MdProgressSpinner.styleTag
-
-        if (!styleTag) {
-          styleTag = document.getElementById('md-progress-spinner-styles')
-        }
-
-        if (!styleTag) {
-          styleTag = document.createElement('style')
-
-          styleTag.id = 'md-progress-spinner-styles'
-          document.head.appendChild(styleTag)
-          MdProgressSpinner.styleTag = styleTag
-        }
-
-        if (styleTag && styleTag.sheet) {
-          styleTag.sheet.insertRule(this.getAnimationCSS(), 0)
-        }
-
-        MdProgressSpinner.diameters.add(this.mdDiameter)
+      attachCircleStyle () {
+        const circle = this.$refs['md-progress-spinner-circle']
+        circle.style.strokeDashoffset = this.circleStrokeDashOffset
+        circle.style.strokeDasharray = this.circleStrokeDashArray
+        circle.style.strokeWidth = this.circleStrokeWidth;
+        circle.style.setProperty('--md-progress-spinner-start-value', 0.95 * this.circleCircumference)
+        circle.style.setProperty('--md-progress-spinner-end-value', 0.2 * this.circleCircumference)
       }
     },
     mounted () {
-      this.attachStyleTag()
+      this.attachSvgStyle()
+      this.attachCircleStyle()
     }
   })
 </script>
@@ -198,6 +176,88 @@
     }
   }
 
+  @keyframes md-progress-spinner-stroke-rotate {
+    0% {
+      stroke-dashoffset: var(--md-progress-spinner-start-value);
+      transform: rotate(0);
+    }
+
+    12.5% {
+      stroke-dashoffset: var(--md-progress-spinner-end-value);
+      transform: rotate(0);
+    }
+
+    12.51% {
+      stroke-dashoffset: var(--md-progress-spinner-end-value);
+      transform: rotateX(180deg) rotate(72.5deg);
+    }
+
+    25% {
+      stroke-dashoffset: var(--md-progress-spinner-start-value);
+      transform: rotateX(180deg) rotate(72.5deg);
+    }
+
+    25.1% {
+      stroke-dashoffset: var(--md-progress-spinner-start-value);
+      transform: rotate(270deg);
+    }
+
+    37.5% {
+      stroke-dashoffset: var(--md-progress-spinner-end-value);
+      transform: rotate(270deg);
+    }
+
+    37.51% {
+      stroke-dashoffset: var(--md-progress-spinner-end-value);
+      transform: rotateX(180deg) rotate(161.5deg);
+    }
+
+    50% {
+      stroke-dashoffset: var(--md-progress-spinner-start-value);
+      transform: rotateX(180deg) rotate(161.5deg);
+    }
+
+    50.01% {
+      stroke-dashoffset: var(--md-progress-spinner-start-value);
+      transform: rotate(180deg);
+    }
+
+    62.5% {
+      stroke-dashoffset: var(--md-progress-spinner-end-value);
+      transform: rotate(180deg);
+    }
+
+    62.51% {
+      stroke-dashoffset: var(--md-progress-spinner-end-value);
+      transform: rotateX(180deg) rotate(251.5deg);
+    }
+
+    75% {
+      stroke-dashoffset: var(--md-progress-spinner-start-value);
+      transform: rotateX(180deg) rotate(251.5deg);
+    }
+
+    75.01% {
+      stroke-dashoffset: var(--md-progress-spinner-start-value);
+      transform: rotate(90deg);
+    }
+
+    87.5% {
+      stroke-dashoffset: var(--md-progress-spinner-end-value);
+      transform: rotate(90deg);
+    }
+
+    87.51% {
+      stroke-dashoffset: var(--md-progress-spinner-end-value);
+      transform: rotateX(180deg) rotate(341.5deg);
+    }
+
+    100% {
+      stroke-dashoffset: var(--md-progress-spinner-start-value);
+      transform: rotateX(180deg) rotate(341.5deg);
+    }
+  }
+
   .md-progress-spinner {
     display: inline-flex;
     position: relative;
@@ -206,27 +266,39 @@
       animation: md-progress-spinner-rotate 2s linear infinite;
 
       &.md-progress-spinner-enter,
-      &.md-progress-spinner-leave-active {
-        transition-duration: .4s;
-
+      &.md-progress-spinner-leave-to {
         .md-progress-spinner-draw {
           opacity: 0;
           transform: scale(.1);
         }
       }
 
+      &.md-progress-spinner-enter-active,
+      &.md-progress-spinner-leave-active {
+        transition-duration: .4s;
+        animation: none;
+      }
+
       .md-progress-spinner-circle {
         animation: 4s infinite $md-transition-stand-timing;
+        animation-name: md-progress-spinner-stroke-rotate;
       }
     }
 
     &.md-determinate {
-      &.md-progress-spinner-enter-active,
-      &.md-progress-spinner-leave-active {
+      &.md-progress-spinner-enter-active {
         transition-duration: 2s;
 
         .md-progress-spinner-draw {
           animation: md-progress-spinner-initial-rotate 1.98s $md-transition-stand-timing forwards;
+        }
+      }
+
+      &.md-progress-spinner-leave-active {
+        transition-duration: 2s;
+
+        .md-progress-spinner-draw {
+          animation: md-progress-spinner-initial-rotate reverse 1.98s $md-transition-stand-timing forwards;
         }
       }
 

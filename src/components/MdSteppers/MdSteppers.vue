@@ -15,6 +15,7 @@
 <script>
   import MdComponent from 'core/MdComponent'
   import MdObserveElement from 'core/utils/MdObserveElement'
+  import MdThrottling from 'core/utils/MdThrottling'
   import MdStepHeader from './MdStepHeader'
 
   export default new MdComponent({
@@ -30,26 +31,26 @@
       mdAlternative: Boolean,
       mdActiveStep: [String, Number]
     },
-    data: () => ({
-      activeStepIndex: 0,
-      noTransition: true,
-      containerStyles: {},
-      contentStyles: {},
-      MdSteppers: {
-        activeStep: 0,
-        isLinear: false,
-        isVertical: false,
-        items: {}
+    data () {
+      return {
+        activeStepIndex: 0,
+        noTransition: true,
+        contentStyles: {},
+        activeButtonEl: null,
+        MdSteppers: {
+          activeStep: 0,
+          isLinear: false,
+          isVertical: false,
+          items: {},
+          syncRoute: this.mdSyncRoute,
+          getStepperNumber: this.getStepperNumber,
+          setActiveStep: this.setActiveStep,
+          isPreviousStepperDone: this.isPreviousStepperDone
+        }
       }
-    }),
+    },
     provide () {
-      let MdSteppers = this.MdSteppers
-
-      MdSteppers.getStepperNumber = this.getStepperNumber
-      MdSteppers.setActiveStep = this.setActiveStep
-      MdSteppers.isPreviousStepperDone = this.isPreviousStepperDone
-
-      return { MdSteppers }
+      return { MdSteppers: this.MdSteppers }
     },
     computed: {
       steppersClasses () {
@@ -63,6 +64,11 @@
       },
       activeIndex () {
         return this.MdSteppers.activeStep
+      },
+      containerStyles () {
+        return {
+          transform: !this.mdVertical && `translate3D(${-this.activeStepIndex * 100}%, 0, 0)`
+        }
       }
     },
     watch: {
@@ -77,10 +83,17 @@
         this.MdSteppers.isVertical = isVertical
       },
       activeIndex () {
-        this.$nextTick().then(() => {
-          this.setActiveStepIndex()
-          this.calculateStepperPos()
-        })
+        this.$nextTick(this.setActiveButtonEl)
+      },
+      activeStepIndex () {
+        this.onActiveStepIndex()
+        this.$nextTick(this.calculateStepperPos)
+      },
+      activeButtonEl (activeButton) {
+        this.activeStepIndex = activeButton ? [].indexOf.call(activeButton.parentNode.childNodes, activeButton) : 0
+      },
+      '$route' () {
+        this.$nextTick(this.setActiveButtonEl)
       }
     },
     methods: {
@@ -142,43 +155,14 @@
           this.MdSteppers.items[id].error = null
         }
       },
-      setActiveStepIndex () {
-        const activeButton = this.$el.querySelector('.md-button.md-active')
-
-        if (activeButton) {
-          this.activeStepIndex = [].indexOf.call(activeButton.parentNode.childNodes, activeButton)
-        }
+      setActiveButtonEl () {
+        this.activeButtonEl = this.$el.querySelector('.md-stepper-header.md-button.md-active')
       },
       setActiveStepByIndex (index) {
         const { keys } = this.getItemsAndKeys()
 
         if (!this.hasActiveStep()) {
           this.MdSteppers.activeStep = keys[index]
-        }
-      },
-      setActiveStepByRoute () {
-        const { items, keys } = this.getItemsAndKeys()
-        let stepperIndex = null
-
-        if (this.$router) {
-          keys.forEach((key, index) => {
-            const item = items[key]
-            const toProp = item.props.to
-
-            if (toProp && toProp === this.$route.path) {
-              stepperIndex = index
-            }
-          })
-        }
-
-        if (!this.hasActiveStep() && !stepperIndex) {
-          this.MdSteppers.activeStep = keys[0]
-        } else {
-          this.MdSteppers.activeStep = keys[stepperIndex]
-
-          for (let i = 0; i < stepperIndex; i++) {
-            this.setStepperAsDone(keys[i])
-          }
         }
       },
       setupObservers () {
@@ -206,45 +190,43 @@
           this.contentStyles = {
             height: `${stepperElement.offsetHeight}px`
           }
-
-          this.containerStyles = {
-            transform: `translate3D(${-this.activeStepIndex * 100}%, 0, 0)`
-          }
         }
       },
-      setupWatchers () {
-        if (this.mdSyncRoute) {
-          this.$watch('$route', {
-            deep: true,
-            handler () {
-              this.setActiveStepByRoute()
-            }
-          })
+      onActiveStepIndex () {
+        const { items, keys } = this.getItemsAndKeys()
+        if (!this.hasActiveStep() && !this.activeStepIndex) {
+          this.MdSteppers.activeStep = keys[0]
+        } else {
+          this.MdSteppers.activeStep = keys[this.activeStepIndex]
+
+          for (let i = 0; i < this.activeStepIndex; i++) {
+            this.setStepperAsDone(keys[i])
+          }
         }
       }
     },
     created () {
+      this.calculateStepperPos = MdThrottling(this.calculateStepperPos, 300)
       this.MdSteppers.activeStep = this.mdActiveStep
       this.MdSteppers.isLinear = this.mdLinear
       this.MdSteppers.isVertical = this.mdVertical
     },
     mounted () {
       this.$nextTick().then(() => {
-        if (this.mdSyncRoute) {
-          this.setActiveStepByRoute()
-        } else {
+        if (!this.mdSyncRoute) {
           this.setActiveStepByIndex(0)
+        } else {
+          this.onActiveStepIndex()
         }
 
         return this.$nextTick()
       }).then(() => {
-        this.setActiveStepIndex()
+        this.setActiveButtonEl()
         this.calculateStepperPos()
 
         window.setTimeout(() => {
           this.noTransition = false
           this.setupObservers()
-          this.setupWatchers()
         }, 100)
       })
     },

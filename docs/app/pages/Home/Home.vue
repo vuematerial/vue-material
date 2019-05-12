@@ -2,10 +2,12 @@
   <splash-container splash class="home-page">
     <div class="home-splash">
       <home-header />
+      <ad-manager />
       <home-features />
-      <md-icon class="home-icon-indicator" @click.native="scrollDown">keyboard_arrow_down</md-icon>
+      <md-icon class="home-icon-indicator" @click.native="scrollToEcosystem">keyboard_arrow_down</md-icon>
     </div>
 
+    <home-premium />
     <home-ecosystem />
     <home-sponsors />
   </splash-container>
@@ -15,27 +17,49 @@
   import HomeHeader from './HomeHeader'
   import HomeFeatures from './HomeFeatures'
   import HomeEcosystem from './HomeEcosystem'
+  import HomePremium from './HomePremium'
   import HomeSponsors from './HomeSponsors'
+  import AdManager from '../../components/AdManager'
 
   export default {
     name: 'Home',
     components: {
+      AdManager,
       HomeHeader,
       HomeFeatures,
       HomeEcosystem,
-      HomeSponsors
+      HomePremium,
+      HomeSponsors,
+      AdManager
     },
     methods: {
-      scrollDown () {
-        const targetEl = document.querySelector('.home-ecosystem, .home-sponsors')
+      scrollDown (target) {
+        window.scroll({
+          ...target,
+          behavior: 'smooth'
+        })
+      },
+      scrollToEcosystem () {
+        const targetEl = document.querySelector('#premium, .home-ecosystem, .home-sponsors')
 
         if (targetEl) {
-          window.scroll({
+          this.scrollDown({
             top: targetEl.offsetTop,
-            left: 0,
-            behavior: 'smooth'
+            left: 0
           })
         }
+      }
+    },
+    mounted () {
+      if (this.$route.hash === '#premium') {
+        const premiumEl = document.querySelector('#premium')
+
+        window.setTimeout(() => {
+          this.scrollDown({
+            top: premiumEl.offsetTop,
+            left: 0
+          })
+        }, 100)
       }
     }
   }
@@ -63,8 +87,7 @@
 
   .home-splash {
     max-width: 1312px;
-    min-height: calc(100vh - 80px);
-    padding-top: 24px;
+    padding: 24px 0;
     position: relative;
   }
 
@@ -92,10 +115,6 @@
 </style>
 
 <style lang="scss">
-  @import "~vue-material/components/MdAnimation/variables";
-  @import "~vue-material/components/MdIcon/mixins";
-  @import "~vue-material/components/MdLayout/mixins";
-
   .page-wrapper {
     max-width: 1344px;
     margin: 0 auto;
@@ -112,6 +131,32 @@
       top: 2px;
       bottom: 0;
       left: -48px;
+    }
+  }
+
+  .home-splash {
+    .ad-manager {
+      @media (max-width: 1690px) {
+        margin: 32px 0 !important;
+
+        .code-fund {
+          display: flex !important;
+          align-items: center;
+          flex-direction: row;
+
+          .code-fund-image {
+            max-width: 175px;
+          }
+
+          .code-fund-data {
+            margin-left: 8px;
+          }
+
+          a {
+            color: #fff !important;
+          }
+        }
+      }
     }
   }
 </style>

@@ -59,6 +59,12 @@
 
         <api-table :headings="tab.headings" :props="tab.props" slot="props" />
       </api-item>
+
+      <api-item title="API - Swipeable">
+        <p>The following options can be applied to any <code>md-tabs</code> component that is using <code>md-swipeable</code> prop.</p>
+
+        <api-table :headings="swipeable.props.headings" :props="swipeable.props.props" slot="props" />
+      </api-item>
     </div>
   </page-container>
 </template>
@@ -70,6 +76,31 @@
     name: 'DocTabs',
     mixins: [examples],
     data: () => ({
+      swipeable: {
+        props: {
+          headings: ['Name', 'Description', 'Default'],
+          props: [
+            {
+              name: 'md-swipe-threshold',
+              type: 'Number',
+              description: 'The minimal distance traveled to be considered swipe.',
+              defaults: '50'
+            },
+            {
+              name: 'md-swipe-restraint',
+              type: 'Number',
+              description: 'The maximum distance allowed at the same time in perpendicular direction.',
+              defaults: '100'
+            },
+            {
+              name: 'md-swipe-time',
+              type: 'Number',
+              description: 'The maximum time allowed to detect swipe.',
+              defaults: '400'
+            },
+          ]
+        }
+      },
       tabs: {
         props: {
           headings: ['Name', 'Description', 'Default'],
@@ -79,6 +110,12 @@
               type: 'String|Number',
               description: 'Set the current selected tab. Works by providing the id of the desired <code>md-tab</code>.',
               defaults: 'null'
+            },
+            {
+              name: 'md-swipeable',
+              type: 'Boolean',
+              description: 'Option used to enable touch support to move between tabs by swipe. For more option see  API - Swipeable',
+              defaults: 'false'
             },
             {
               name: 'md-sync-route',

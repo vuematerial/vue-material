@@ -64,7 +64,7 @@
 
     <div class="page-container-section">
       <h3 class="md-title">Default colors</h3>
-      <p>Vue Material have default theme colors:</p>
+      <p>Vue Material has default theme colors:</p>
       <ul>
         <li>Primary: <span style="background-color: #448aff; color: #fff">#448aff</span> => Blue A200</li>
         <li>Accent: <span style="background-color: #ff5252; color: #fff">#ff5252</span> => Red A200</li>
@@ -83,7 +83,7 @@
 
     <div class="page-container-section">
       <h3 class="md-title">Using your own colors</h3>
-      <p>Sometimes the colors of your brand do not match with the material ones. It is possible to pass your own colors, without using the Material Design Palette:</p>
+      <p>Sometimes the colors of your brand might not match with the material ones. It is possible to pass your own colors, without using the Material Design Palette:</p>
       <code-example label="SCSS" lang="scss">
         @import "~vue-material/dist/theme/engine"; // Import the theme engine
 
@@ -114,7 +114,7 @@
 
     <div class="page-container-section">
       <h3 class="md-title">Theming individual components</h3>
-      <p>You can theme individual components without effort, by calling the components one by one. This will make your final build size smaller and more performatic:</p>
+      <p>You can theme individual components effortlessly, by calling the components one by one. This will make your final build smaller in size and higher in performance:</p>
       <code-example label="SCSS" lang="scss">
         @import "~vue-material/dist/theme/engine"; // Import the theme engine
 

@@ -108,7 +108,7 @@
         return {
           ...this.$attrs,
           name: this.name,
-          id: this.id
+          id: undefined
         }
       },
       inputListeners () {
@@ -124,7 +124,10 @@
         handler (val) {
           this.setFieldContent()
           this.MdSelect.modelValue = this.localValue
-          this.emitSelected(val)
+
+          if (this.didMount) {
+            this.emitSelected(val)
+          }
         }
       },
       multiple: {
@@ -263,7 +266,7 @@
         return this.localValue !== undefined && this.localValue !== null
       },
       setLocalValueIfMultiple () {
-        if (isLocalValueSet()) {
+        if (this.isLocalValueSet()) {
           this.localValue = [this.localValue]
         } else {
           this.localValue = []
@@ -280,9 +283,9 @@
         let isArray = Array.isArray(this.localValue)
 
         if (this.multiple && !isArray) {
-          this.localValue = this.setLocalValueIfMultiple()
+          this.setLocalValueIfMultiple()
         } else if (!this.multiple && isArray) {
-          this.localValue = this.setLocalValueIfNotMultiple()
+          this.setLocalValueIfNotMultiple()
         }
       },
       emitSelected (value) {

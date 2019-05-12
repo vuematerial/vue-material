@@ -19,6 +19,7 @@
           <div class="author-card-links">
             <a href="https://github.com/marcosmoura" target="_blank" rel="noopener">GitHub</a>
             <a href="https://linkedin.com/in/marcosvmmoura" target="_blank" rel="noopener">Linkedin</a>
+            <a href="mailto:marcosvmmoura@gmail.com" target="_blank" rel="noopener">Email</a>
           </div>
         </div>
       </div>
@@ -43,13 +44,13 @@
     <section class="page-container-section">
       <h2 class="md-title">Want to contribute with the Project?</h2>
 
-      <p>Well. All kind of help are welcome. If you want to contribute with the project, just send me a message and I will tell what you can do. We have a <a href="https://join.slack.com/t/vuematerial/shared_invite/MTgzMzU2NDQ5ODkwLTE0OTQ4MDI3MDAtNWYyZjhkNzEzMA">Slack Channel</a> to share ideas and to keep all the comunication in one place.</p>
+      <p>Well. All kind of help are welcome. If you want to contribute with the project, just send me a message and I will tell what you can do. We have a <a href="https://discord.gg/vuematerial">Discord Server</a> to share ideas and to keep all the comunication in one place.</p>
     </section>
 
     <section class="page-container-section">
       <h2 class="md-title">Need extra help?</h2>
 
-      <p>I'm always online on our <a href="https://join.slack.com/t/vuematerial/shared_invite/MTgzMzU2NDQ5ODkwLTE0OTQ4MDI3MDAtNWYyZjhkNzEzMA">Slack channel</a>. If you need anything, fell free to ask me directly there. :)</p>
+      <p>I'm always online on our <a href="https://discord.gg/vuematerial">Discord server</a>. If you need anything, fell free to ask me directly there. :)</p>
     </section>
 
     <section class="page-container-section">
@@ -100,7 +101,18 @@
 
     .author-card-links {
       display: flex;
-      flex-direction: column;
+
+      a {
+        margin-right: 24px;
+        position: relative;
+
+        + a:before {
+          position: absolute;
+          top: 0;
+          left: -16px;
+          content: "- "
+        }
+      }
     }
   }
 

@@ -1,5 +1,5 @@
 <template>
-  <transition name="md-ripple" @after-enter="end">
+  <transition name="md-ripple" @after-enter="end" appear>
     <span v-if="animating" />
   </transition>
 </template>
@@ -10,16 +10,19 @@
     name: 'MdWave',
     data () {
       return {
-        animating: true
+        animating: false
       }
     },
     props: {
       waveClasses: null,
       waveStyles: null
     },
+    mounted: function() {
+      this.animating = true;
+    },
     methods: {
       end () {
-        this.animating = null
+        this.animating = false
         this.$emit('md-end')
       }
     }

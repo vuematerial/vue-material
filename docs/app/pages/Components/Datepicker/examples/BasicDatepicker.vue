@@ -9,6 +9,16 @@
       </md-select>
       <span class="md-helper-text">This config is global.</span>
     </md-field>
+    <md-field>
+      <label for="movie">Date format</label>
+      <md-select v-model="dateFormat">
+        <md-option value="yyyy-MM-dd">default</md-option>
+        <md-option value="yyyy/MM/dd">yyyy/MM/dd</md-option>
+        <md-option value="dd/MM/yyyy">dd/MM/yyyy</md-option>
+        <md-option value="MM/dd/yyyy">MM/dd/yyyy</md-option>
+      </md-select>
+      <span class="md-helper-text">This config is global.</span>
+    </md-field>
   </div>
 </template>
 
@@ -25,6 +35,14 @@
         },
         set (val) {
           this.$material.locale.firstDayOfAWeek = val
+        }
+      },
+      dateFormat: {
+        get () {
+          return this.$material.locale.dateFormat
+        },
+        set (val) {
+          this.$material.locale.dateFormat = val
         }
       }
     }

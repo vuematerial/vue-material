@@ -2,6 +2,9 @@
   <div class="main-nav-content">
     <router-link to="/" exact>{{ $t('pages.home.title') }}</router-link>
     <router-link to="/getting-started">{{ $t('pages.gettingStarted.title') }}</router-link>
+    <div class="main-nav-level">
+      <router-link to="/configuration">{{ $t('pages.configuration.title') }}</router-link>
+    </div>
 
     <router-link to="/themes">{{ $t('pages.themes.title') }}</router-link>
     <div class="main-nav-level">
@@ -9,7 +12,10 @@
       <router-link to="/themes/prebuilt">{{ $t('pages.themePrebuilt.nav') }}</router-link>
       <router-link to="/themes/configuration">{{ $t('pages.themeConfiguration.nav') }}</router-link>
       <router-link to="/themes/advanced">{{ $t('pages.themeAdvanced.nav') }}</router-link>
+      <router-link to="/#premium">{{ $t('pages.home.premium') }}</router-link>
     </div>
+
+    <router-link to="/with-router">{{ $t('pages.withRouter.title') }}</router-link>
 
     <router-link to="/ui-elements">{{ $t('pages.uiElements.title') }}</router-link>
     <div class="main-nav-level">
@@ -52,16 +58,12 @@
       <router-link to="/components/list">{{ $t('pages.list.title') }}</router-link>
       <router-link to="/components/menu">{{ $t('pages.menu.title') }}</router-link>
 
-      <!-- <router-link to="/components/pickers">{{ $t('pages.pickers.title') }}</router-link>
-      <div class="main-nav-level">
-        <router-link to="/components/datepicker">{{ $t('pages.datepicker.nav') }}</router-link>
-      </div> -->
-
       <router-link to="/components/progress">{{ $t('pages.progress.title') }}</router-link>
       <div class="main-nav-level">
         <router-link to="/components/progress-bar">{{ $t('pages.progressBar.nav') }}</router-link>
         <router-link to="/components/progress-spinner">{{ $t('pages.progressSpinner.nav') }}</router-link>
       </div>
+
       <router-link to="/components/snackbar">{{ $t('pages.snackbar.title') }}</router-link>
       <router-link to="/components/speed-dial">{{ $t('pages.speedDial.title') }}</router-link>
       <router-link to="/components/steppers">{{ $t('pages.steppers.title') }}</router-link>

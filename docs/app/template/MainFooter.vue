@@ -7,7 +7,9 @@
       </div>
 
       <div class="main-footer-section">
-        <a href="https://github.com/marcosmoura" target="_blank">{{ $t('madeWith') }} <span class="red">❤</span> {{ $t('by') }} Marcos Moura</a>
+        <a href="https://github.com/marcosmoura" target="_blank">
+          {{ $t('madeWith') }} <span class="red">❤</span> {{ $t('by') }} Marcos Moura
+        </a>
       </div>
     </div>
   </footer>

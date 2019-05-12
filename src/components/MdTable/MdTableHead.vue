@@ -130,7 +130,7 @@
     line-height: 16px;
     text-align: left;
 
-    &:last-child .md-table-head-label {
+    &:last-child:not(:first-child) .md-table-head-label {
       padding-right: 24px;
     }
 

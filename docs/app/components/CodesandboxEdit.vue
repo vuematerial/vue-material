@@ -49,7 +49,7 @@
   })
   `
 
-  import { getParameters } from "codesandbox/lib/api/define";
+  import { getParameters } from 'codesandbox/lib/api/define';
 
   export default {
     name: 'CodesandboxEdit',
@@ -64,29 +64,29 @@
       parameters () {
         return getParameters({
           files: {
-            "package.json": {
+            'package.json': {
               content: {
                 name: `Vue Material - ${this.title}`,
                 keywords: [
-                  "vue-material",
-                  "material-design",
-                  "vue"
+                  'vue-material',
+                  'material-design',
+                  'vue'
                 ],
                 dependencies: {
-                  vue: "latest",
-                  "vue-material": "latest"
+                  vue: 'latest',
+                  'vue-material': 'latest'
                 }
               }
             },
-            "index.js": {
+            'index.js': {
               content: index
             },
-            "index.html": {
+            'index.html': {
               content: html
             },
-            "App.vue": {
+            'App.vue': {
               content: this.source
-            },
+            }
           }
         })
       }

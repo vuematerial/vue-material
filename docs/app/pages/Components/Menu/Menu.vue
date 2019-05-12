@@ -14,7 +14,7 @@
     <div class="page-container-section">
       <h2>Directions</h2>
 
-      <p>The position of the menu content is calculated based of the contraints of the trigger element. Based on this you can set a position using X and Y axis.</p>
+      <p>The position of the menu content is calculated based on the contraints of the trigger element. Based on this you can set a position using X and Y axis.</p>
       <p>You can combine <code>top</code>/<code>bottom</code> with <code>start</code>/<code>end</code>:</p>
       <code-example title="Start and End" :component="examples['directions']" />
     </div>
@@ -29,7 +29,7 @@
     <div class="page-container-section">
       <h2>Sizes</h2>
 
-      <p><code>md-menu</code> have 4 different sizes and a auto mode:</p>
+      <p><code>md-menu</code> has 4 different sizes and an auto mode:</p>
       <code-example title="5 possible sizes" :component="examples['sizes']" />
       <note-block>The max-width of a menu is 280px.</note-block>
     </div>
