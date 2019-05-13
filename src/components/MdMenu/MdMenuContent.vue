@@ -208,7 +208,7 @@
           this.MdMenu.bodyClickObserver = new MdObserveEvent(document.body, 'click', $event => {
             $event.stopPropagation()
 
-            if (!this.isMenu($event) && (this.MdMenu.closeOnClick || this.isBackdropExpectMenu($event))) {
+            if (!this.isMenuContentEl($event) && (this.MdMenu.closeOnClick || this.isBackdropExpectMenu($event))) {
               this.MdMenu.active = false
               this.MdMenu.bodyClickObserver.destroy()
               this.MdMenu.windowResizeObserver.destroy()
