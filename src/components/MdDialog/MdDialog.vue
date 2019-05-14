@@ -149,6 +149,7 @@
 
     .md-tabs {
       flex: 1;
+      max-width: 100%;
     }
 
     .md-tabs-navigation {
