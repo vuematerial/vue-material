@@ -187,7 +187,7 @@
         }
       },
       onEnter() {
-          this.$emit('md-enter');
+        this.$emit('md-enter');
       },
       onInput (value) {
         this.$emit('input', value)
