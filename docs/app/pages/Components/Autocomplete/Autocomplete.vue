@@ -4,6 +4,7 @@
 <example src="./examples/AutocompleteBox.vue" />
 <example src="./examples/AutocompleteTemplate.vue" />
 <example src="./examples/AutocompleteAsync.vue" />
+<example src="./examples/AutocompleteEnter.vue" />
 
 <template>
   <page-container centered :title="$t('pages.autocomplete.title')">
@@ -25,6 +26,12 @@
 
       <p>By default the suggestions will appear along with a focus trigger. If you want something less intrusive, you can disable this behaviour by canceling the focus event. If this, the suggestions will appear right after a keystroke:</p>
       <code-example title="Focus vs Input" :component="examples['autocomplete-trigger']" />
+    </div>
+
+    <div class="page-container-section">
+      <h2>Keypress Enter</h2>
+
+      <code-example title="Keypress Enter" :component="examples['autocomplete-enter']"/>
     </div>
 
     <div class="page-container-section">
@@ -244,6 +251,11 @@
             {
               name: 'md-closed',
               description: 'Triggered when the options panel is closed',
+              value: 'null'
+            },
+            {
+              name: 'md-enter',
+              description: 'Triggered when user press the enter putton',
               value: 'null'
             }
           ]

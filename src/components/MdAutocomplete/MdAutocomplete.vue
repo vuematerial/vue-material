@@ -11,6 +11,7 @@
         @focus.stop="openOnFocus"
         @blur="hideOptions"
         @input="onInput"
+        @keypress.enter="onEnter"
         @click.stop.prevent="openOnFocus" />
 
       <md-menu-content :class="contentClasses" v-show="hasScopedEmptySlot || hasFilteredItems">
@@ -184,6 +185,9 @@
         if (this.mdOpenOnFocus) {
           this.showOptions()
         }
+      },
+      onEnter() {
+          this.$emit('md-enter');
       },
       onInput (value) {
         this.$emit('input', value)
