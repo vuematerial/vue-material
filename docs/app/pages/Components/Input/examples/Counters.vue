@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <form>
     <md-field>
       <label>Counter</label>
       <md-input v-model="regular" md-counter="30"></md-input>
@@ -24,7 +24,9 @@
       <label>Textarea</label>
       <md-textarea v-model="textarea" md-counter="80"></md-textarea>
     </md-field>
-  </div>
+
+    <md-button class="md-raised" type="reset">RESET</md-button>
+  </form>
 </template>
 
 <script>
