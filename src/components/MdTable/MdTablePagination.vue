@@ -61,7 +61,9 @@
         return ((this.currentPage - 1) * this.currentPageSize) + 1
       },
       currentPageCount () {
-        return this.currentPage * this.currentPageSize
+        let pageCount = this.currentPage * this.currentPageSize
+        if (pageCount > this.mdTotal) pageCount = this.mdTotal
+        return pageCount
       }
     },
     watch: {
