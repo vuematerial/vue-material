@@ -195,6 +195,9 @@ export default {
     title: 'Datepicker',
     nav: 'Date'
   },
+  datepickerInline: {
+    title: 'Datepicker inline',
+  },
   dialog: {
     title: 'Dialog'
   },

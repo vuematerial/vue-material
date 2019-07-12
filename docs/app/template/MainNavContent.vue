@@ -37,6 +37,7 @@
       <router-link to="/components/content">{{ $t('pages.content.title') }}</router-link>
 
       <router-link to="/components/datepicker">{{ $t('pages.datepicker.title') }}</router-link>
+      <router-link to="/components/datepicker-inline">{{ $t('pages.datepickerInline.title') }}</router-link>
       <router-link to="/components/dialog">{{ $t('pages.dialog.title') }}</router-link>
       <router-link to="/components/divider">{{ $t('pages.divider.title') }}</router-link>
       <router-link to="/components/drawer">{{ $t('pages.drawer.title') }}</router-link>

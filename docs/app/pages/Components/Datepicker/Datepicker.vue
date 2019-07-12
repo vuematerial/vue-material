@@ -8,7 +8,8 @@
 <template>
   <page-container centered :title="$t('pages.datepicker.title')">
     <div class="page-container-section">
-      <p>Datepickers use a dialog window and provide a simple way to select a single value from a pre-determined set. The component can have disabled dates and it's really easy to use.</p>
+      <p>Datepickers use a dialog window and provide a simple way to select a single value from a pre-determined set.
+        The component can have disabled dates and it's really easy to use.</p>
     </div>
 
     <div class="page-container-section">

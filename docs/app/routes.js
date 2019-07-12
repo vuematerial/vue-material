@@ -45,6 +45,11 @@ export const routes = [
     page: 'Components/Datepicker/Datepicker.vue'
   },
   {
+    path: '/components/datepicker-inline',
+    name: 'components/datepicker-inline',
+    page: 'Components/DatepickerInline/DatepickerInline.vue'
+  },
+  {
     path: '/components/steppers/:optional?/:sub?',
     name: 'components/steppers',
     page: 'Components/Steppers/Steppers.vue'
