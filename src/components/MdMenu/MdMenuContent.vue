@@ -1,5 +1,5 @@
 <template>
-  <md-popover :md-settings="popperSettings" :md-active="shouldRender">
+  <md-popover :md-settings="popperSettings" :md-active="shouldRender" @md-active="createObservers">
     <transition name="md-menu-content" :css="didMount" v-if="shouldRender" v-on="$listeners">
       <div
         :class="[menuClasses, mdContentClass, $mdActiveTheme]"
@@ -73,16 +73,12 @@
       }
     },
     watch: {
-      shouldRender (shouldRender) {
-        if (shouldRender) {
-          this.setPopperSettings()
-
-          this.$nextTick().then(() => {
-            this.setInitialHighlightIndex()
-            this.createClickEventObserver()
-            this.createResizeObserver()
-            this.createKeydownListener()
-          })
+      shouldRender: {
+        immediate: true,
+        handler (shouldRender) {
+          if (shouldRender) {
+            this.setPopperSettings()
+          }
         }
       }
     },
@@ -197,8 +193,8 @@
       isMenu ({ target }) {
         return this.MdMenu.$el ? this.MdMenu.$el.contains(target) : false
       },
-      isMenuContentEl ({ target }) {
-        return this.$refs.menu ? this.$refs.menu.contains(target) : false
+      isMenuContentEl ({ target, clientX, clientY }) {
+        return this.$refs.menu ? this.$refs.menu.contains(document.elementFromPoint(clientX, clientY)) : false
       },
       isBackdropExpectMenu ($event) {
         return !this.$el.contains($event.target) && !this.isMenu($event)
@@ -208,7 +204,7 @@
           this.MdMenu.bodyClickObserver = new MdObserveEvent(document.body, 'click', $event => {
             $event.stopPropagation()
 
-            if (!this.isMenu($event) && (this.MdMenu.closeOnClick || this.isBackdropExpectMenu($event))) {
+            if (!this.isMenuContentEl($event) || (this.MdMenu.closeOnClick && this.isBackdropExpectMenu($event))) {
               this.MdMenu.active = false
               this.MdMenu.bodyClickObserver.destroy()
               this.MdMenu.windowResizeObserver.destroy()
@@ -222,6 +218,12 @@
       },
       destroyKeyDownListener () {
         window.removeEventListener('keydown', this.keyNavigation)
+      },
+      createObservers() {
+        this.setInitialHighlightIndex()
+        this.createClickEventObserver()
+        this.createResizeObserver()
+        this.createKeydownListener()
       },
       keyNavigation (event) {
         switch (event.key) {
