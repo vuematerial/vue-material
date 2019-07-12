@@ -1,0 +1,100 @@
+@import "~components/MdLayout/mixins";
+
+$md-calendar-width: 320px;
+
+@mixin md-vertical-layout {
+  flex-direction: column;
+  width: $md-calendar-width;
+
+  .md-datepicker-dayname {
+    display: inline;
+  }
+}
+
+@mixin md-landscape-layout {
+  flex-direction: row;
+  width: auto;
+
+  .md-datepicker-body {
+    width: $md-calendar-width;
+    flex: 0 0 $md-calendar-width;
+  }
+
+  .md-datepicker-dayname {
+    display: block;
+  }
+}
+
+@mixin md-datepicker-layout {
+
+  @include md-landscape-layout;
+
+  &.md-landscape {
+    @include md-landscape-layout;
+  }
+
+  &.md-vertical {
+    @include md-vertical-layout;
+  }
+
+  &.md-landscape-xsmall {
+    @include md-layout-xsmall {
+      @include md-landscape-layout;
+    }
+  }
+
+  &.md-landscape-small {
+    @include md-layout-small {
+      @include md-landscape-layout;
+    }
+  }
+
+  &.md-landscape-medium {
+    @include md-layout-medium {
+      @include md-landscape-layout;
+    }
+  }
+
+  &.md-landscape-large {
+    @include md-layout-large {
+      @include md-landscape-layout;
+    }
+  }
+
+  &.md-landscape-xlarge {
+    @include md-layout-xlarge {
+      @include md-landscape-layout;
+    }
+  }
+
+  &.md-vertical-xsmall {
+    @include md-layout-xsmall {
+      @include md-vertical-layout;
+    }
+  }
+
+  &.md-vertical-small {
+    @include md-layout-small {
+      @include md-vertical-layout;
+    }
+  }
+
+  &.md-vertical-medium {
+    @include md-layout-medium {
+      @include md-vertical-layout;
+    }
+  }
+
+  &.md-vertical-large {
+    @include md-layout-large {
+      @include md-vertical-layout;
+    }
+  }
+
+  &.md-vertical-xlarge {
+    @include md-layout-xlarge {
+      @include md-vertical-layout;
+    }
+  }
+
+}
