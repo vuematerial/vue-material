@@ -379,6 +379,28 @@
       transform-origin: center center;
       position: fixed !important;
     }
+
+    .md-datepicker-month {
+      top: 8px;
+      bottom: auto;
+      flex-direction: column;
+      transition: .35s $md-transition-default-timing;
+      transition-property: transform, opacity;
+      will-change: transform, opacity;
+
+      @include md-layout-xsmall {
+        padding: 0 6px;
+      }
+
+      .md-datepicker-month-trigger {
+        min-height: 32px;
+        margin: 0 46px 10px;
+        flex: 1;
+        border-radius: 0;
+        transition: transform .45s $md-transition-default-timing;
+        will-change: transform;
+      }
+    }
   }
 
   .md-datepicker-dialog-leave-active {
@@ -556,28 +578,6 @@
       .md-datepicker-month-leave-active {
         transform: translate3D(-100%, 0, 0);
       }
-    }
-  }
-
-  .md-datepicker-month {
-    top: 8px;
-    bottom: auto;
-    flex-direction: column;
-    transition: .35s $md-transition-default-timing;
-    transition-property: transform, opacity;
-    will-change: transform, opacity;
-
-    @include md-layout-xsmall {
-      padding: 0 6px;
-    }
-
-    .md-datepicker-month-trigger {
-      min-height: 32px;
-      margin: 0 46px 10px;
-      flex: 1;
-      border-radius: 0;
-      transition: transform .45s $md-transition-default-timing;
-      will-change: transform;
     }
   }
 

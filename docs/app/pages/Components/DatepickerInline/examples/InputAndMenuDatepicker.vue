@@ -12,8 +12,8 @@
     <br/>
     <div>
       <div class="md-caption">Open on input focus</div>
-      <md-field class="md-has-datepicker">
-        <md-icon @click.native.stop="showMenu">
+      <md-field class="md-has-datepicker" @click.native.stop>
+        <md-icon @click="showMenu">
           date_range
         </md-icon>
         <label>Date</label>
