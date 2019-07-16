@@ -207,6 +207,11 @@
         return this.locale.shortMonths[getMonth(this.currentDate)]
       },
     },
+    watch: {
+      mdDate () {
+        this.resetDate();
+      }
+    },
     methods: {
       setView (view) {
         if (this.currentView !== view) {
@@ -283,7 +288,7 @@
         this.$emit('update:mdDate', new Date(this.currentDate.getTime()))
       },
       resetDate () {
-        this.currentDate = this.mdCurrentDate || new Date()
+        this.currentDate = this.mdDate || this.mdCurrentDate || new Date()
         this.setView('day')
       }
     },
