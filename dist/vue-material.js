@@ -3248,7 +3248,6 @@ exports.default = {
     },
     onEnter: function onEnter() {
       this.$emit('md-enter');
-      this.hideOptions();
     },
     onInput: function onInput(value) {
       this.$emit('input', value);

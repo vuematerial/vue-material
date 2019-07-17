@@ -188,7 +188,6 @@
       },
       onEnter() {
         this.$emit('md-enter');
-        this.hideOptions();
       },
       onInput (value) {
         this.$emit('input', value)
