@@ -1,5 +1,5 @@
 /*!
- * vue-material vv1.0.0-beta-12
+ * vue-material v1.0.0-beta-12-1
  * Made with <3 by marcosmoura 2019
  * Released under the MIT License.
  */
@@ -5935,6 +5935,10 @@ exports.default = {
     MdDebounce: {
       type: Number,
       default: 1000
+    },
+    mdHideIcon: {
+      type: Boolean,
+      default: false
     }
   },
   data: function data() {
@@ -27114,14 +27118,16 @@ var render = function() {
       attrs: { "md-clearable": "" }
     },
     [
-      _c("md-date-icon", {
-        staticClass: "md-date-icon",
-        nativeOn: {
-          click: function($event) {
-            return _vm.toggleDialog($event)
-          }
-        }
-      }),
+      !_vm.mdHideIcon
+        ? _c("md-date-icon", {
+            staticClass: "md-date-icon",
+            nativeOn: {
+              click: function($event) {
+                return _vm.toggleDialog($event)
+              }
+            }
+          })
+        : _vm._e(),
       _vm._v(" "),
       _c("md-input", {
         ref: "input",
