@@ -1,6 +1,6 @@
 <template>
   <md-field :class="['md-datepicker', { 'md-native': !this.mdOverrideNative }]" md-clearable>
-    <md-date-icon class="md-date-icon" @click.native="toggleDialog" />
+    <md-date-icon v-if="!mdHideIcon" class="md-date-icon" @click.native="toggleDialog" />
     <md-input :type="type" ref="input" v-model="inputDate" @focus.native="onFocus" :pattern="pattern" />
 
     <slot />
@@ -65,6 +65,10 @@
       MdDebounce: {
         type: Number,
         default: 1000
+      },
+      mdHideIcon:{
+        type: Boolean,
+        default: false
       }
     },
     data: () => ({
