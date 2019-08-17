@@ -34,7 +34,7 @@
     "new-component": "babel-node build/new-component.js",
     "github-release": "github-release",
     "commit": "git-cz",
-    "cypress:open": "cypress run"
+    "e2e-test": "cypress run"
   },
   "engines": {
     "node": ">= 7.0"
@@ -118,6 +118,7 @@
     "vuelidate": "^0.7.4",
     "vuex": "^3.1.1",
     "vuex-router-sync": "^5.0.0",
+    "wait-on": "^3.2.0",
     "webpack": "^3.12.0",
     "webpack-bundle-analyzer": "^2.13.1",
     "webpack-dev-middleware": "^2.0.6",
@@ -146,6 +147,10 @@
       "json",
       "vue"
     ],
+    "modulePathIgnorePatterns": [
+      "<rootDir>/cypress/"
+    ],
+    "testURL": "http://localhost/",
     "transform": {
       "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
       ".*\\.(vue)$": "<rootDir>/node_modules/jest-vue"
