@@ -51,10 +51,10 @@
     },
     watch: {
       mdActive (active) {
-        const isBoolean = typeof active === 'boolean'
-        const isEvent = active.constructor.toString().match(/function (\w*)/)[1].toLowerCase() === 'mouseevent'
+        const isBooleanOrObject = typeof active === 'boolean' || typeof active === 'object';
+        const isEvent = active.constructor.toString().match(/(function|object) (\w*)/)[2].toLowerCase() === 'mouseevent';
 
-        if (isBoolean && this.mdCentered && active) {
+        if (isBooleanOrObject && this.mdCentered && active) {
           this.startRipple({
             type: 'mousedown'
           })
