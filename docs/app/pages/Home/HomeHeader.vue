@@ -10,8 +10,16 @@
       <p>{{ $t('pages.home.slogan') }}</p>
 
       <div class="home-actions">
-        <md-button class="md-button-spaced md-plain md-raised" to="/getting-started">{{ $t('pages.gettingStarted.title') }}</md-button>
-        <md-button class="md-button-spaced md-plain md-raised" to="/components">{{ $t('pages.components.title') }}</md-button>
+        <md-button
+          class="md-button-spaced md-plain md-raised"
+          data-cy="gettingStarted"
+          to="/getting-started"
+        >{{ $t('pages.gettingStarted.title') }}</md-button>
+        <md-button
+          class="md-button-spaced md-plain md-raised"
+          data-cy="components"
+          to="/components"
+        >{{ $t('pages.components.title') }}</md-button>
       </div>
     </div>
   </header>
