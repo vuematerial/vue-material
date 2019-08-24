@@ -158,6 +158,7 @@
       "html"
     ]
   },
+  "testURL": "http://localhost:8080",
   "browserslist": [
     "> 1%"
   ]
