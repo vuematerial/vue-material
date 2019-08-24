@@ -1,12 +1,13 @@
 <template>
   <div>
-    <p>Check the console!</p>
+    <p>Check the browser console!</p>
 
     <md-autocomplete
       v-model="selectedEmployee"
       :md-options="employees"
       :md-open-on-focus="false"
       @md-enter="onEnter()"
+      @md-clear='onClear()'
     >
       <label>Employees</label>
     </md-autocomplete>
@@ -38,6 +39,9 @@ export default {
   methods: {
     onEnter() {
       console.log("enter button pressed");
+    },
+    onClear() {
+      console.log('clear event fired')
     }
   }
 };

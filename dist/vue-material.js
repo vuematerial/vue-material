@@ -1,5 +1,5 @@
 /*!
- * vue-material v1.0.0-beta-10.4
+ * vue-material v1.0.0-beta-10.5
  * Made with <3 by marcosmoura 2019
  * Released under the MIT License.
  */
@@ -3248,6 +3248,9 @@ exports.default = {
     },
     onEnter: function onEnter() {
       this.$emit('md-enter');
+    },
+    onClear: function onClear() {
+      this.$emit('md-clear');
     },
     onInput: function onInput(value) {
       this.$emit('input', value);
@@ -16280,7 +16283,8 @@ var render = function() {
     {
       staticClass: "md-autocomplete",
       class: _vm.fieldClasses,
-      attrs: { "md-clearable": "", "md-inline": _vm.isBoxLayout }
+      attrs: { "md-clearable": "", "md-inline": _vm.isBoxLayout },
+      on: { "md-clear": _vm.onClear }
     },
     [
       _c(

@@ -29,7 +29,7 @@
     </div>
 
     <div class="page-container-section">
-      <h2>Keypress Enter</h2>
+      <h2>Events: onEnter, onClear</h2>
 
       <code-example title="Keypress Enter" :component="examples['autocomplete-enter']"/>
     </div>
