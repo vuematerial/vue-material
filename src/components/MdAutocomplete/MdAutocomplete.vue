@@ -9,6 +9,7 @@
         :maxlength="mdInputMaxlength"
         :placeholder="mdInputPlaceholder"
         @focus.stop="openOnFocus"
+        :md-clearable='mdInputClearable'
         @blur="hideOptions"
         @input="onInput"
         @keypress.enter="onEnter"
@@ -72,6 +73,7 @@
         required: true
       },
       mdInputName: String,
+      mdInputClearable: {type: Boolean, default: true},
       mdInputId: String,
       mdInputMaxlength: [String, Number],
       mdInputPlaceholder: [String, Number]
