@@ -1,5 +1,5 @@
 /*!
- * vue-material v1.0.0-beta-10.5
+ * vue-material v1.0.0-beta-10.6
  * Made with <3 by marcosmoura 2019
  * Released under the MIT License.
  */
@@ -3083,6 +3083,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
+//
 
 var _fuzzysearch = __webpack_require__(213);
 
@@ -3123,6 +3124,7 @@ exports.default = {
       required: true
     },
     mdInputName: String,
+    mdInputClearable: { type: Boolean, default: true },
     mdInputId: String,
     mdInputMaxlength: [String, Number],
     mdInputPlaceholder: [String, Number]
@@ -16315,7 +16317,8 @@ var render = function() {
                   id: _vm.mdInputId,
                   name: _vm.mdInputName,
                   maxlength: _vm.mdInputMaxlength,
-                  placeholder: _vm.mdInputPlaceholder
+                  placeholder: _vm.mdInputPlaceholder,
+                  "md-clearable": _vm.mdInputClearable
                 },
                 on: {
                   focus: function($event) {
