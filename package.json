@@ -1,7 +1,7 @@
 {
   "name": "vue-material",
   "description": "Material Design for Vue.js",
-  "version": "1.0.0-beta-12-2",
+  "version": "1.0.0-beta-12-3",
   "license": "MIT",
   "author": {
     "name": "marcosmoura",
@@ -41,7 +41,9 @@
   "peerDependencies": {
     "vue": "^2.5.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "awesome-phonenumber": "^2.15.0"
+  },
   "devDependencies": {
     "autoprefixer": "^7.2.6",
     "avoriaz": "^6.3.0",

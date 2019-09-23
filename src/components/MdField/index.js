@@ -4,6 +4,7 @@ import MdSelect from './MdSelect'
 import MdField from './MdField'
 import MdFile from './MdFile/MdFile'
 import MdInput from './MdInput/MdInput'
+import MdPhone from './MdPhone/MdPhone'
 import MdTextarea from './MdTextarea/MdTextarea'
 
 export default Vue => {
@@ -14,4 +15,5 @@ export default Vue => {
   Vue.component(MdFile.name, MdFile)
   Vue.component(MdInput.name, MdInput)
   Vue.component(MdTextarea.name, MdTextarea)
+  Vue.component(MdPhone.name, MdPhone)
 }

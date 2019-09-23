@@ -30,6 +30,10 @@
       <label>Number</label>
       <md-input v-model="number" type="number"></md-input>
     </md-field>
+    <md-field class="md-phone-container">
+      <label>Phone Number</label>
+      <md-phone v-model="phone"></md-phone>
+    </md-field>
 
     <md-field>
       <label>Textarea</label>
@@ -49,6 +53,7 @@
 </template>
 
 <script>
+
   export default {
     name: 'TextFields',
     data: () => ({
@@ -57,6 +62,7 @@
       withLabel: null,
       inline: null,
       number: null,
+      phone: null,
       textarea: null,
       autogrow: null,
       disabled: null
