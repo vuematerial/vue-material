@@ -1,5 +1,5 @@
 /*!
- * vue-material v1.0.0-beta-12-3
+ * vue-material v1.0.0-beta-16-1
  * Made with <3 by marcosmoura 2019
  * Released under the MIT License.
  */
@@ -10208,9 +10208,6 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
-//
-//
-//
 
 var _MdComponent = __webpack_require__(1);
 
@@ -10243,6 +10240,7 @@ function getDefault(key) {
   }
   return value;
 }
+
 // Polyfill for Event.path in IE 11: https://stackoverflow.com/a/46093727
 function getParents(node, memo) {
   var parsedMemo = memo || [];
@@ -10303,10 +10301,6 @@ exports.default = new _MdComponent2.default({
       type: String,
       default: ''
     },
-    // placeholder: {
-    //   type: String,
-    //   default: () => getDefault('placeholder'),
-    // },
     disabledFetchingCountry: {
       type: Boolean,
       default: function _default() {
@@ -10447,10 +10441,6 @@ exports.default = new _MdComponent2.default({
         return getDefault('validCharactersOnly');
       }
     }
-    // dynamicPlaceholder: {
-    //   type: Boolean,
-    //   default: () => getDefault('dynamicPlaceholder'),
-    // },
   },
   data: function data() {
     return {
@@ -10471,17 +10461,6 @@ exports.default = new _MdComponent2.default({
       delete l.input;
       return l;
     },
-
-    //   parsedPlaceholder() {
-    //   if (!this.finishMounted) {
-    //     return '';
-    //   }
-    //   if (this.dynamicPlaceholder) {
-    //     const mode = this.mode || 'international';
-    //     return PhoneNumber.getExample(this.activeCountry.iso2, 'mobile').getNumber(mode);
-    //   }
-    //   return this.placeholder;
-    // },
     parsedMode: function parsedMode() {
       if (this.mode) {
         if (!['international', 'national'].includes(this.mode)) {

@@ -26,7 +26,7 @@
     ],
     "max-statements": [
       "error",
-      30
+      35
     ],
     "max-params": [
       "error",
@@ -39,7 +39,7 @@
     "complexity": [
       "error",
       {
-        "max": 6
+        "max": 12
       }
     ],
     "vue/valid-v-on": 0,
