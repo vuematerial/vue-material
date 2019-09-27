@@ -30,7 +30,7 @@
       <label>Number</label>
       <md-input v-model="number" type="number"></md-input>
     </md-field>
-    <md-field class="md-phone-container">
+    <md-field>
       <label>Phone Number</label>
       <md-phone v-model="phone"></md-phone>
     </md-field>
