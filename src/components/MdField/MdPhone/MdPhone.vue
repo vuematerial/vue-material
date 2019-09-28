@@ -563,8 +563,7 @@
 
 <style src="./assets/sprite.css"></style>
 <style lang="scss">
-.md-phone-container:not(.md-has-value) label,
-.md-phone-container:not(.md-focus) label{
+.md-phone-container:not(.md-has-value):not(.md-focus) label{
   padding-left: 41px !important; 
 }
 .md-phone-container .md-has-value label,
