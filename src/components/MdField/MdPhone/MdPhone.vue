@@ -563,9 +563,15 @@
 
 <style src="./assets/sprite.css"></style>
 <style lang="scss">
-.md-phone-container:not(.md-has-value) label{
-  padding-left: 57px !important; 
+.md-phone-container:not(.md-has-value) label,
+.md-phone-container:not(.md-focus) label{
+  padding-left: 41px !important; 
 }
+.md-phone-container .md-has-value label,
+.md-phone-container .md-focus label{
+  top:-4px;
+}
+
 
 .md-phone-container {
   li.last-preferred {
@@ -618,7 +624,7 @@
     align-content: center;
     justify-content: center;
     position: relative;
-    padding: 7px;
+    padding: 7px 0px;
     cursor: pointer;
   }
   /* .dropdown.open {
