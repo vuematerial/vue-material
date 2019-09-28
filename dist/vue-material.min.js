@@ -1,5 +1,5 @@
 /*!
- * vue-material v1.0.0-beta-16-10
+ * vue-material v1.0.0-beta-16-14
  * Made with <3 by marcosmoura 2019
  * Released under the MIT License.
  */
