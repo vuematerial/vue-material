@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueMaterial from './index'
-import mountTemplate from 'test/utils/mountTemplate'
 
 Vue.use(VueMaterial)
 
