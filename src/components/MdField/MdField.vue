@@ -102,7 +102,8 @@
           'md-has-password': this.MdField.password,
           'md-has-file': this.MdField.file,
           'md-has-select': this.MdField.select,
-          'md-autogrow': this.MdField.autogrow
+          'md-autogrow': this.MdField.autogrow,
+          'md-phone-container': this.MdField.phone
         }
       }
     },

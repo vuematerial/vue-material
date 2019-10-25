@@ -236,6 +236,7 @@
         typeToFindInput: '',
         typeToFindTimer: null,
         cursorPosition: 0,
+        skipCursorPosition: false
       };
     },
     computed: {
@@ -324,7 +325,7 @@
           }
         }
       // Reset the cursor to current position if it's not the last character.
-        if (this.cursorPosition < oldValue.length) {
+        if (!this.skipCursorPosition && this.cursorPosition < oldValue.length) {
           this.$nextTick(() => { setCaretPosition(this.$refs.input, this.cursorPosition); });
         }
       },
@@ -443,15 +444,24 @@
         this.$emit('onInput', this.phoneObject); // Deprecated
       // Keep the current cursor position just in case the input reformatted
       // and it gets moved to the last character.
-        if (e && e.target) {
+        if (!this.skipCursorPosition && e && e.target) {
           this.cursorPosition = e.target.selectionStart;
         }
+
       },
       onBlur() {
+        const result = PhoneNumber(this.phone, this.activeCountry.iso2).toJSON();
+        if(result != null && result.number != null && result.number.national != null)
+        {
+          this.skipCursorPosition = true;
+          this.phone = result.number.national
+        }
+        
         this.$emit('blur');
         this.$emit('onBlur'); // Deprecated
       },
       onEnter() {
+
         this.$emit('enter');
         this.$emit('onEnter'); // Deprecated
       },
@@ -537,6 +547,7 @@
     },
     mounted() {
       this.$parent.$el.className += " md-phone-container";
+      this.MdField.phone = true;
       this.initializeCountry()
       .then(() => {
         if (!this.phone
