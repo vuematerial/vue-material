@@ -1,0 +1,16 @@
+.md-drawer {
+  @include md-theme-component() {
+    @include md-theme-property(background-color, background);
+    @include md-theme-property(color, text-primary, background);
+
+    &.md-persistent-mini {
+      &.md-left {
+        @include md-theme-property(border-right-color, divider, background);
+      }
+
+      &.md-right {
+        @include md-theme-property(border-left-color, divider, background);
+      }
+    }
+  }
+}

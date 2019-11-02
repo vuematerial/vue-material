@@ -1,0 +1,31 @@
+@mixin md-empty-state-spec ($color) {
+  .md-empty-state-icon {
+    &.md-icon-image {
+      svg {
+        @include md-theme-property(fill, $color, background);
+      }
+    }
+
+    &.md-icon-font {
+      @include md-theme-property(color, $color, background);
+    }
+  }
+}
+
+.md-empty-state {
+  @include md-theme-component() {
+    @include md-empty-state-spec(disabled);
+
+    &.md-rounded {
+      @include md-theme-property(background-color, disabled, "", .06);
+    }
+
+    &.md-primary {
+      @include md-empty-state-spec(primary);
+    }
+
+    &.md-accent {
+      @include md-empty-state-spec(accent);
+    }
+  }
+}

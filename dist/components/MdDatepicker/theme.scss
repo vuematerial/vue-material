@@ -1,0 +1,66 @@
+.md-datepicker-dialog {
+  @include md-theme-component() {
+    @include md-theme-property(background-color, background);
+    @include md-theme-property(color, text-primary, background);
+
+    .md-datepicker-header {
+      @if md-get-theme-mode() == light {
+        @include md-theme-property(background-color, primary);
+        @include md-theme-property(color, text-primary, primary);
+      } @else {
+        @include md-theme-property(background-color, text-primary, '', .06);
+        @include md-theme-property(color, text-primary, background);
+      }
+    }
+
+    .md-datepicker-body-header {
+      &:after,
+      &:before {
+        @include md-theme-property(background-color, background);
+      }
+    }
+
+    .md-datepicker-body-footer {
+      @include md-theme-property(background-color, background);
+      @include md-theme-property(color, text-primary, background);
+    }
+
+    .md-datepicker-week {
+      @include md-theme-property(color, text-accent, background);
+    }
+
+    .md-datepicker-disabled {
+      @include md-theme-property(color, disabled, background);
+    }
+
+    .md-datepicker-today {
+      @include md-theme-property(color, primary, background);
+    }
+
+    .md-datepicker-day-button,
+    .md-datepicker-month-button,
+    .md-datepicker-year-button {
+      &:hover {
+        @include md-theme-property(background-color, divider);
+      }
+    }
+
+    .md-datepicker-day-button {
+      &.md-datepicker-selected {
+        @include md-theme-property(background-color, primary);
+        @include md-theme-property(color, text-primary, primary);
+      }
+    }
+
+    .md-datepicker-month-button,
+    .md-datepicker-year-button {
+      &.md-datepicker-selected {
+        @include md-theme-property(color, primary, background);
+      }
+    }
+
+    .md-datepicker-year-selector {
+      @include md-theme-property(border-bottom-color, divider, background);
+    }
+  }
+}

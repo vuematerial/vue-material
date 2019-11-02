@@ -1,0 +1,5 @@
+.md-divider {
+  @include md-theme-component() {
+    @include md-theme-property(background-color, divider);
+  }
+}

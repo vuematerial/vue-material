@@ -1,0 +1,67 @@
+@mixin md-tabs-spec ($primary, $indicator, $text) {
+  .md-tabs-navigation {
+    @include md-theme-property(background-color, $primary, background);
+
+    .md-button {
+      @if $text == text-primary {
+        @include md-theme-property(color, $text, $primary, .7);
+
+        &[disabled] {
+          @include md-theme-property(color, $text, $primary, .38);
+        }
+
+        .md-icon {
+          @include md-theme-property(color, $text, $primary, .7);
+
+          svg {
+            @include md-theme-property(fill, $text, $primary, .7);
+          }
+        }
+      } @else {
+        @include md-theme-property(color, text-primary, $primary, .7);
+
+        &[disabled] {
+          @include md-theme-property(color, text-primary, $primary, .38);
+        }
+
+        .md-icon {
+          @include md-theme-property(color, text-primary, $primary, .7);
+
+          svg {
+            @include md-theme-property(fill, text-primary, $primary, .7);
+          }
+        }
+      }
+
+      &.md-active {
+        @include md-theme-property(color, $text, $primary);
+
+        .md-icon {
+          @include md-theme-property(color, $text, $primary);
+
+          svg {
+            @include md-theme-property(fill, $text, $primary);
+          }
+        }
+      }
+    }
+  }
+
+  .md-tabs-indicator {
+    @include md-theme-property(background-color, $indicator, $primary);
+  }
+}
+
+.md-tabs {
+  @include md-theme-component() {
+    @include md-tabs-spec(background, primary, primary);
+
+    &.md-primary {
+      @include md-tabs-spec(primary, text-primary, text-primary);
+    }
+
+    &.md-accent {
+      @include md-tabs-spec(accent, text-primary, text-primary);
+    }
+  }
+}
