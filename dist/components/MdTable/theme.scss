@@ -1,0 +1,92 @@
+.md-table {
+  @include md-theme-component() {
+    .md-table-content,
+    .md-table-alternate-header {
+      @include md-theme-property(background-color, background);
+    }
+
+    .md-table-alternate-header .md-table-toolbar {
+      @include md-theme-property(color, text-primary, background);
+      @include md-theme-property(background-color, accent, null, .2);
+    }
+
+    .md-table-row {
+      &:hover:not(.md-header-row) .md-table-cell {
+        @include md-theme-property(background-color, highlight, background, .08);
+      }
+
+      &.md-selected,
+      &.md-selected-single {
+        @if md-get-theme-mode() == light {
+          @include md-theme-property-by-hue(background-color, grey, 100, row, background);
+        } @else {
+          @include md-theme-property-by-hue(background-color, grey, 700, row, background);
+        }
+
+        &.md-primary {
+          @include md-theme-property(background-color, primary, background);
+          @include md-theme-property(color, text-primary, primary);
+
+          .md-ripple {
+            color: #fff;
+          }
+
+          .md-checkbox-container {
+            background-color: #fff;
+            border-color: #fff;
+
+            &:after {
+              @include md-theme-property(border-color, primary);
+            }
+          }
+        }
+
+        &.md-accent {
+          @include md-theme-property(background-color, accent, background);
+          @include md-theme-property(color, text-primary, accent);
+
+          .md-ripple {
+            color: #fff;
+          }
+
+          .md-checkbox-container {
+            background-color: #fff;
+            border-color: #fff;
+
+            &:after {
+              @include md-theme-property(border-color, accent);
+            }
+          }
+        }
+      }
+
+      td {
+        @include md-theme-property(border-top-color, divider, background);
+      }
+    }
+
+    .md-table-head {
+      @include md-theme-property(color, text-accent, background);
+    }
+
+    .md-table-fixed-header-active {
+      @include md-theme-property(border-bottom-color, divider, background);
+    }
+
+    .md-sortable {
+      &:hover,
+      &.md-sorted {
+        @include md-theme-property(color, text-primary, background);
+
+        svg {
+          @include md-theme-property(color, text-primary, background);
+          @include md-theme-property(fill, text-primary, background);
+        }
+      }
+    }
+
+    .md-table-pagination {
+      @include md-theme-property(border-top-color, divider, background);
+    }
+  }
+}

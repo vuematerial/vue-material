@@ -1,0 +1,69 @@
+.md-switch {
+  @include md-theme-component() {
+    &.md-checked {
+      .md-switch-container {
+        @include md-theme-property(background-color, accent, null, .38);
+      }
+
+      .md-switch-thumb {
+        @include md-theme-property(background-color, accent);
+      }
+
+      .md-ripple {
+        @include md-theme-property(color, accent);
+      }
+    }
+
+    &.md-checked.md-primary {
+      .md-switch-container {
+        @include md-theme-property(background-color, primary, null, .38);
+      }
+
+      .md-switch-thumb {
+        @include md-theme-property(background-color, primary);
+      }
+
+      .md-ripple {
+        @include md-theme-property(color, primary);
+      }
+    }
+
+    @if md-get-theme-mode() == light {
+      .md-switch-container {
+        background-color: rgba(#000, .38);
+      }
+
+      .md-switch-thumb {
+        @include md-theme-property-by-hue(background-color, grey, 100, switch, thumb);
+      }
+
+      &.md-disabled {
+        .md-switch-container {
+          background-color: rgba(#000, .12);
+        }
+
+        .md-switch-thumb {
+          @include md-theme-property-by-hue(background-color, grey, 400, switch, thumb);
+        }
+      }
+    } @else {
+      .md-switch-container {
+        background-color: rgba(#fff, .3);
+      }
+
+      .md-switch-thumb {
+        @include md-theme-property-by-hue(background-color, grey, 400, switch, thumb);
+      }
+
+      &.md-disabled {
+        .md-switch-container {
+          background-color: rgba(#fff, .1);
+        }
+
+        .md-switch-thumb {
+          @include md-theme-property-by-hue(background-color, grey, 800, switch, thumb);
+        }
+      }
+    }
+  }
+}
