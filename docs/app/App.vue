@@ -93,7 +93,6 @@
     padding-top: 64px;
     display: flex;
     flex-direction: column;
-    font-family: "Roboto Mono", monospace;
     transition: $md-transition-default;
     transition-property: padding-top;
 
