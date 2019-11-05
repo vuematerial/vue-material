@@ -36,17 +36,24 @@
   $ad-responsive-small: 768px;
 
   .ad-manager {
-    width: calc(100% + 32px);
-    margin: 0 -16px -16px;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    z-index: 2000;
 
     @media (max-width: $ad-responsive-small) {
       display: flex;
     }
   }
 
+  .home-page .ad-manager{
+    background: #303030;
+  }
+
   .code-fund {
     max-width: 175px;
-    margin: 0 16px 24px 16px;
     padding: 8px;
     display: flex;
     flex-direction: column;
@@ -74,7 +81,7 @@
       @media (max-width: $ad-responsive-big) {
         max-width: 530px;
         min-height: 100px;
-        margin: 60px auto 8px;
+        margin: 0px auto 8px;
         float: none;
         background: none !important;
       }
