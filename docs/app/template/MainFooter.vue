@@ -10,7 +10,7 @@
             <router-link to="/license">{{ $t('pages.license.title') }}</router-link>
           </li>
           <li>
-            <router-link to="">Premium Themes</router-link>
+            <router-link to="/premium-themes">Premium Themes</router-link>
           </li>
           <li>
             <router-link to="/getting-started">Docs</router-link>
