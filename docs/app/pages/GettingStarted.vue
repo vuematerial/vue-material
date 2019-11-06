@@ -1,7 +1,6 @@
 <template>
   <page-container centered :title="$t('pages.gettingStarted.title')">
-    <note-block warning>Disclaimer: This is a beta version. The API is not going to change, but be careful to use it in production.</note-block>
-
+    
     <div class="page-container-section">
       <h2 class="md-headline">Introduction</h2>
 
