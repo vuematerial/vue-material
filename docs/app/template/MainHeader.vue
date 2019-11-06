@@ -65,9 +65,23 @@
           </md-menu>
         </div>
 
+        <md-button href="/getting-started">
+          Docs
+        </md-button>
+
+        <md-button href="/about">
+          About
+        </md-button>
+
+        <md-button href="/components/app">
+          Components
+        </md-button>
+
         <md-button href="http://github.com/vuematerial/vue-material" target="_blank" class="md-icon-button">
           <md-icon md-src="/assets/icon-github.svg" class="icon-github" />
         </md-button>
+
+
       </div>
     </div>
   </md-toolbar>
