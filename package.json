@@ -41,7 +41,9 @@
   "peerDependencies": {
     "vue": "^2.5.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "vue-github-buttons": "^3.1.0"
+  },
   "devDependencies": {
     "autoprefixer": "^7.2.6",
     "avoriaz": "^6.3.0",
