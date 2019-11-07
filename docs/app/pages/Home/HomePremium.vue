@@ -1,68 +1,98 @@
 <template>
   <md-content md-tag="section" md-theme="premium" class="home-premium md-primary" id="premium">
     <div class="page-wrapper">
-      <h2 class="home-title md-headline">
-        <md-icon>check</md-icon>
-        <span>{{ $t('pages.home.premium') }}</span>
-      </h2>
-
-      <p>
-        You can use some of our tools to make the development environment easier, more productive and with a better
-        integration with Vue Material. You can choose between a batteries-included webpack boilerplate, a SSR template
-        for premium.js and a Single HTML file to start with the framework:
-      </p>
 
       <div class="md-layout md-gutter md-alignment-top-left">
         <div class="md-layout-item md-xsmall-size-100">
-          <md-card class="md-accent" md-with-hover @click.native="openLink('https://www.creative-tim.com/product/vue-material-dashboard-pro?ref=vuematerial.io')">
-            <md-ripple>
-              <md-card-media>
-                <img src="/assets/premium/dashboard-pro.jpg" alt="Vue Material Dashboard PRO">
-              </md-card-media>
-            </md-ripple>
+          <md-card class="md-accent">
+
 
             <md-card-header>
               <md-card-header-text>
-                <div class="md-title">Vue Material Dashboard PRO</div>
-                <div class="md-subhead">Full-featured</div>
+                <div class="md-title">
+                  <md-icon class="md-size-1x">system_update_alt</md-icon>
+                  Installation
+                </div>
               </md-card-header-text>
             </md-card-header>
 
             <md-card-content>
-              Vue Material Dashboard PRO is a beautiful and full-featured resource built over Vue Material. It will help
-              you get started developing dashboards in no time.
+              You can install Vue Material through NPM or Yarn:
+              <code-example label="Shell" lang="shell">
+                $ npm install vue-material --save
+                $ yarn add vue-material
+              </code-example>
+              <p>It's optional, but to have the best experience possible, use Roboto and Google Icons from Google CDN:</p>
+              <code-example label="HTML" lang="html">
+                &lt;link rel=&quot;stylesheet&quot; href=&quot;//fonts.googleapis.com/css?family=Roboto:400,500,700,400italic|Material+Icons&quot;&gt;
+              </code-example>
+              <hr />
             </md-card-content>
 
             <md-card-actions md-alignment="space-between">
-              <md-chip class="md-primary" md-clickable>Just $59</md-chip>
-              <md-button class="md-primary">Buy now</md-button>
+              <md-button class="md-primary" to="/getting-started">Read installation</md-button>
             </md-card-actions>
           </md-card>
         </div>
 
         <div class="md-layout-item md-xsmall-size-100">
-          <md-card class="md-accent" md-with-hover @click.native="openLink('https://www.creative-tim.com/product/vue-material-dashboard?ref=vuematerial.io')">
-            <md-ripple>
-              <md-card-media>
-                <img src="/assets/premium/dashboard-pro.jpg" alt="Vue Material Dashboard PRO">
-              </md-card-media>
-            </md-ripple>
-
+          <md-card class="md-accent">
             <md-card-header>
               <md-card-header-text>
-                <div class="md-title">Vue Material Dashboard Free</div>
-                <div class="md-subhead">16 components</div>
+                <div class="md-title">
+                  <md-icon class="md-size-1x">pan_tool</md-icon>
+                  Usage
+                </div>
               </md-card-header-text>
             </md-card-header>
 
             <md-card-content>
-              Don't wanna spend money for now? Ok, then! Just download the free version! It's easy to use and if you
-              need more, you can always upgrade later to the Pro Version.
+              To use Vue Material in your application, you can import only the components
+              that you're really using.
+              <code-example>
+                import Vue from 'vue'
+                import { MdButton, MdContent, MdTabs } from 'vue-material/dist/components'
+                import 'vue-material/dist/vue-material.min.css'
+                import 'vue-material/dist/theme/default.css'
+
+                Vue.use(MdButton)
+                Vue.use(MdContent)
+                Vue.use(MdTabs)
+              </code-example>
+            <hr />
             </md-card-content>
 
             <md-card-actions md-alignment="space-between">
-              <md-chip class="md-primary" md-clickable>Free</md-chip>
-              <md-button class="md-primary">Download</md-button>
+              <md-button class="md-primary" to="/getting-started">Explore the docs</md-button>
+            </md-card-actions>
+          </md-card>
+        </div>
+
+        <div class="md-layout-item md-xsmall-size-100">
+          <md-card class="md-accent">
+
+
+            <md-card-header>
+              <md-card-header-text>
+                <div class="md-title">
+                  <md-icon class="md-size-1x">build</md-icon>
+                  Premium themes
+                </div>
+              </md-card-header-text>
+            </md-card-header>
+
+            <md-card-content>
+              Take Vue Material to the next level with premium themes from Creative Tim.
+
+              <img src="/assets/premium/premium-themes.png" alt="Vue Material Dashboard PRO">
+
+              <hr />
+
+            </md-card-content>
+
+
+            <md-card-actions md-alignment="space-between">
+              <md-button class="md-primary" to="/premium-themes">Browse Themes</md-button>
             </md-card-actions>
           </md-card>
         </div>
@@ -112,7 +142,7 @@
     }
 
     img {
-      margin-top: -50px;
+      margin-top: 30px;
     }
   }
 
@@ -123,6 +153,28 @@
 
     /deep/ .md-ripple {
       padding: 0 10px !important;
+    }
+  }
+
+  .md-card-header+.md-card-content{
+    padding-bottom: 0;
+  }
+
+  .code-block{
+    border-radius: 4px;
+  }
+
+  hr{
+    margin-top: 25px;
+    border-color: #e2e2e2;
+    border-style: solid;
+    border-width: 1px;
+  }
+
+  .md-xsmall-size-100{
+    width: 33%;
+    .md-card{
+      min-height: 540px;
     }
   }
 </style>
