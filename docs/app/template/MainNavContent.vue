@@ -12,7 +12,7 @@
       <router-link to="/themes/prebuilt">{{ $t('pages.themePrebuilt.nav') }}</router-link>
       <router-link to="/themes/configuration">{{ $t('pages.themeConfiguration.nav') }}</router-link>
       <router-link to="/themes/advanced">{{ $t('pages.themeAdvanced.nav') }}</router-link>
-      <router-link to="/#premium">{{ $t('pages.home.premium') }}</router-link>
+      <router-link to="/premium-themes">{{ $t('pages.home.premium') }}</router-link>
     </div>
 
     <router-link to="/with-router">{{ $t('pages.withRouter.title') }}</router-link>
