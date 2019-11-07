@@ -10,6 +10,9 @@
       <p>{{ $t('pages.home.slogan') }}</p>
 
       <div class="home-actions">
+        <gh-btns-star slug="vuematerial/vue-material" show-count></gh-btns-star>
+      </div>
+      <div class="home-actions">
         <md-button class="md-button-spaced md-plain md-raised" to="/getting-started">{{ $t('pages.gettingStarted.title') }}</md-button>
         <md-button class="md-button-spaced md-plain md-raised" to="/components">{{ $t('pages.components.title') }}</md-button>
       </div>

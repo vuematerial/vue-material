@@ -4,6 +4,9 @@ import Vue from 'vue'
 import ga from 'vue-ga'
 import { sync } from 'vuex-router-sync'
 import VueMaterial from 'vue-material'
+import VueGitHubButtons from 'vue-github-buttons'
+
+import 'vue-github-buttons/dist/vue-github-buttons.css';
 
 /* App */
 import App from './App'
@@ -14,6 +17,7 @@ import './components'
 
 Vue.config.productionTip = false
 Vue.use(VueMaterial)
+Vue.use(VueGitHubButtons)
 
 ga(router, 'UA-85823257-1')
 sync(store, router)
