@@ -11,6 +11,16 @@
 
       <div class="home-actions">
         <gh-btns-star slug="vuematerial/vue-material" show-count></gh-btns-star>
+        <br/>
+        <a href="https://www.npmjs.com/package/vue-material">
+          <img src="https://img.shields.io/npm/dt/vue-material.svg" alt="Downloads">
+        </a>
+        <a href="https://www.npmjs.com/package/vue-material">
+          <img src="https://img.shields.io/npm/l/vue-material.svg" alt="License">
+        </a>
+        <a href="https://discord.gg/vuematerial">
+          <img src="https://img.shields.io/discord/379653048798281729.svg?logo=discord&colorB=7289DA" alt="Chat">
+        </a>
       </div>
       <div class="home-actions">
         <md-button class="md-button-spaced md-plain md-raised" to="/getting-started">{{ $t('pages.gettingStarted.title') }}</md-button>
@@ -71,6 +81,9 @@
 
     .md-button {
       margin-left: 0;
+    }
+    a{
+      margin-left: 5px;
     }
   }
 </style>
