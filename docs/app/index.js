@@ -5,6 +5,9 @@ import ga from 'vue-ga'
 import { sync } from 'vuex-router-sync'
 import VueMaterial from 'vue-material'
 import VueGitHubButtons from 'vue-github-buttons'
+import VueToc from 'vue-toc'
+
+Vue.component('vue-toc', VueToc)
 
 import 'vue-github-buttons/dist/vue-github-buttons.css';
 

@@ -3,8 +3,11 @@
     <transition name="nav" appear>
       <md-content class="main-nav md-scrollbar" v-if="!isSplash">
         <main-nav-content />
+
       </md-content>
     </transition>
+
+    <vue-toc target=".page-container" class="toc" v-if="!isSplash"/>
 
     <md-drawer md-fixed :md-active.sync="isMenuVisible" @md-closed="hideMenu">
       <md-toolbar class="md-transparent" md-elevation="0">
@@ -125,4 +128,14 @@
     overflow: auto;
     border-top: 1px solid rgba(#000, .12);
   }
+
+  .toc{
+    top: 10%;
+    position: fixed;
+    right: 10px;
+    z-index: 999;
+  }
+
+
+
 </style>
