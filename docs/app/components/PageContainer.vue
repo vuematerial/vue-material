@@ -54,7 +54,7 @@
   @media(min-width:981px){
     .page-container.centered{
 
-      margin-right: 250px;
+      margin-right: 280px;
     }
 
   }

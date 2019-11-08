@@ -42,6 +42,7 @@
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
     z-index: 2000;
+    margin-bottom: 150px;
 
     @media (max-width: $ad-responsive-small) {
       display: flex;
