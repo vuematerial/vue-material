@@ -10,7 +10,7 @@
     </div>
 
     <div class="page-container-section">
-      <h2>Seamless integration with Vue Router</h2>
+      <h2 id="seamless">Seamless integration with Vue Router</h2>
 
       <p>The bottom bar is compatible with all Vue Router options. Just pass the values as parameters on <code>md-bottom-bar-item</code> component:</p>
       <code-example title="With default fixed style" :component="examples['bar-router']" />
@@ -18,21 +18,21 @@
     </div>
 
     <div class="page-container-section">
-      <h2>Shift effect</h2>
+      <h2 id="shift">Shift effect</h2>
 
       <p>You can also use the awesome shift effect on your bars. It is great to keep the focus of the active item and you can show up to 6 items at once:</p>
       <code-example title="With Primary and Accent colors" :component="examples['shift']" />
     </div>
 
     <div class="page-container-section">
-      <h2>Dynamic Themes</h2>
+      <h2 id="dynamic">Dynamic Themes</h2>
 
       <p>Sometimes each part of your application have it's own color theme, like in a social media app. You can change the theme dynamically to morph states creating an immersive experience:</p>
       <code-example title="Morphing States" :component="examples['changing-themes']" />
     </div>
 
     <div class="page-container-section">
-      <h2>Custom Template</h2>
+      <h2 id="custom">Custom Template</h2>
 
       <p>Maybe you want to show more informations inside a bottom bar item. With a simple and flexible default slot, you can make anything you want. Look at this unread notification example:</p>
       <note-block>If you pass anything inside the <code>&lt;md-bottom-bar-item&gt;</code>, the component will ignore the <code>md-label</code> and <code>md-icon</code>. Only use the content slot if you want to create a custom template.</note-block>
