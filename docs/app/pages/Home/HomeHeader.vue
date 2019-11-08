@@ -9,9 +9,11 @@
 
       <p>{{ $t('pages.home.slogan') }}</p>
 
+
       <div class="home-actions">
         <gh-btns-star slug="vuematerial/vue-material" show-count></gh-btns-star>
-        <br/>
+      </div>
+      <div class="home-actions">
         <a href="https://www.npmjs.com/package/vue-material">
           <img src="https://img.shields.io/npm/dt/vue-material.svg" alt="Downloads">
         </a>
