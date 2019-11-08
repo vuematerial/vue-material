@@ -48,6 +48,7 @@
     margin: 0 auto;
     padding: 16px;
     transition: .4s $md-transition-default-timing;
+    transition-property: width;
   }
 
   .page-container-leave-active {
