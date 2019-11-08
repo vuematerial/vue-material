@@ -51,6 +51,14 @@
     transition-property: width;
   }
 
+  @media(min-width:981px){
+    .page-container.centered{
+
+      margin-right: 250px;
+    }
+
+  }
+
   .page-container-leave-active {
     display: none;
   }

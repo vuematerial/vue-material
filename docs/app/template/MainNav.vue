@@ -129,6 +129,18 @@
     border-top: 1px solid rgba(#000, .12);
   }
 
+  @media(min-width:981px){
+    .toc{
+      display: block;
+    }
+  }
+
+  @media(max-width:980px){
+    .toc{
+      display: none;
+    }
+  }
+  
   .toc{
     top: 10%;
     position: fixed;
