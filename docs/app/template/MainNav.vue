@@ -146,6 +146,9 @@
     position: fixed;
     right: 10px;
     z-index: 999;
+    >>> ul {
+      list-style: none;
+    }
   }
 
 
