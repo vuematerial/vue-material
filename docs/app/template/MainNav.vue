@@ -7,7 +7,7 @@
       </md-content>
     </transition>
 
-    <vue-toc target=".page-container" class="toc" v-if="!isSplash"/>
+    <vue-toc target=".page-container" class="toc" :key="$route.fullPath" v-if="!isSplash"/>
 
     <md-drawer md-fixed :md-active.sync="isMenuVisible" @md-closed="hideMenu">
       <md-toolbar class="md-transparent" md-elevation="0">
@@ -140,7 +140,7 @@
       display: none;
     }
   }
-  
+
   .toc{
     top: 10%;
     position: fixed;
