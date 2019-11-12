@@ -137,7 +137,7 @@
   .home-splash {
     .ad-manager {
       @media (max-width: 1690px) {
-        margin: 32px 0 !important;
+        margin: 32px 0 0 0 !important;
 
         .code-fund {
           display: flex !important;

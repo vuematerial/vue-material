@@ -40,7 +40,6 @@
     right: 0;
     bottom: 0;
     border-top-left-radius: 4px;
-    border-bottom-left-radius: 4px;
     z-index: 2000;
     margin-bottom: 150px;
 
