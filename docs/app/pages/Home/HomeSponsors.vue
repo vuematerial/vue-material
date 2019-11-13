@@ -24,7 +24,7 @@
         </a>
 
 
-        <h2 class="home-title md-headline">
+        <!-- <h2 class="home-title md-headline">
           Contribuitors
         </h2>
 
@@ -32,7 +32,7 @@
           This project exists thanks to all the people who contribute.
           <a href="https://github.com/vuematerial/vue-material/contribuitors"><img src="https://opencollective.com/vuematerial/contributors.svg?width=890&button=false" /></a>
 
-        </div>
+        </div> -->
 
       </div>
     </div>
