@@ -15,7 +15,7 @@
         <img src="/assets/sponsors/codeinwp-logo.svg" class="home-sponsors-open-1">
         <img src="/assets/sponsors/creative-tim.png" class="home-sponsors-open-1">
 
-        <p>{{ $t('pages.home.beAPatron') }}:</p>
+        <p>{{ $t('pages.home.beACollective') }}:</p>
 
         <a href="" target="_blank" class="home-sponsors-open">
           <md-ripple>
