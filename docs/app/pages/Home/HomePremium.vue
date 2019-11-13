@@ -1,5 +1,5 @@
 <template>
-  <md-content md-tag="section" md-theme="dark" class="home-premium" id="premium">
+  <md-content md-tag="section" md-theme="black" class="home-premium" id="premium">
     <div class="page-wrapper">
 
       <div class="md-layout md-gutter md-alignment-top-left">
