@@ -107,4 +107,23 @@
       }
     }
   }
+
+  .ad-manager{
+    margin-bottom: 0 !important;
+    position: fixed;
+  }
+
+  @media(max-width: 960px){
+    .ad-manager{
+      position: relative;
+      >>>.code-fund{
+        float: none;
+        max-width: 300px;
+        margin: 0;
+        #cf{
+          width: 300px !important;
+        }
+      }
+    }
+  }
 </style>

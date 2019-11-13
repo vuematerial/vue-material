@@ -36,7 +36,6 @@
   $ad-responsive-small: 768px;
 
   .ad-manager {
-    position: fixed;
     right: 0;
     bottom: 0;
     border-top-left-radius: 4px;
