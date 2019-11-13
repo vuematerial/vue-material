@@ -1,5 +1,16 @@
 <template>
   <div class="main-nav-content">
+    <router-link to="/getting-started">
+      Docs
+    </router-link>
+
+    <router-link to="/about">
+      About
+    </router-link>
+
+    <router-link to="/components/app">
+      Components
+    </router-link>
     <router-link to="/" exact>{{ $t('pages.home.title') }}</router-link>
     <router-link to="/getting-started">{{ $t('pages.gettingStarted.title') }}</router-link>
     <div class="main-nav-level">
