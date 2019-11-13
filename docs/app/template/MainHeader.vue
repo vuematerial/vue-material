@@ -65,7 +65,7 @@
           </md-menu>
         </div>
 
-        <div class="md-xsmall-hide">
+        <div class="md-medium-hide">
           <md-button href="/getting-started">
             Docs
           </md-button>

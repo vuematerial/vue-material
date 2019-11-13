@@ -79,7 +79,6 @@
     overflow: hidden;
     position: relative;
     background-color: md-get-palette-color(grey, 900);
-    border-radius: 4px;
 
     ::selection {
       background-color: md-get-palette-color(grey, 400);

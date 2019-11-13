@@ -118,11 +118,8 @@
       position: relative;
       >>>.code-fund{
         float: none;
-        max-width: 300px;
         margin: 0;
-        #cf{
-          width: 300px !important;
-        }
+
       }
     }
   }
