@@ -1,14 +1,16 @@
  <template>
    <page-container centered>
-     <section class="page-container-section">
-       <h2 class="md-headline">Premium Themes</h2>
-       <h3>Creative Tim</h3>
-       <p>With the examples below built by our partners from
-          <a href="https://www.creative-tim.com/" target="_blank">Creative Tim</a> you can see how a real world application
-          is built, the technology stack behind it and how most
-          of the concepts you've learned so far apply in a real
-          world application.
-       </p>
+     <section class="page-container-section" centered>
+       <div class="md-header">
+         <h2 class="md-headline">Premium Themes</h2>
+         <h3>Creative Tim</h3>
+         <p>With the examples below built by our partners from
+            <a href="https://www.creative-tim.com/" target="_blank">Creative Tim</a> you can see how a real world application
+            is built, the technology stack behind it and how most
+            of the concepts you've learned so far apply in a real
+            world application.
+         </p>
+       </div>
 
          <md-card>
            <md-card-media>
@@ -85,6 +87,10 @@
    margin: 50px 0;
  }
 
+ .centered{
+   text-align: center;
+ }
+
  .md-card{
    width: 360px;
     margin: 25px 40px 0 0px;
@@ -106,6 +112,7 @@
 
  .md-card-content{
    padding-left: 0;
+   text-align: left;
    h3{
       margin: 0;
       &.d-flex{
@@ -123,6 +130,12 @@
    position: relative;
    margin-left: 5px;
    margin-top: 1px;
+ }
+
+ .md-header{
+   max-width: 800px;
+   text-align: left;
+   margin: auto;
  }
 
 

@@ -146,8 +146,13 @@
     position: fixed;
     right: 10px;
     z-index: 999;
+    border-left: 1px solid #e0e0e0;
     >>> ul {
       list-style: none;
+      padding-left: 20px;
+      li a{
+        color: #7d7d7d;
+      }
     }
   }
 
