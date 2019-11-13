@@ -3,7 +3,7 @@
     <div class="page-wrapper">
 
       <div class="md-layout md-gutter md-alignment-top-left">
-        <div class="md-layout-item md-xsmall-size-100">
+        <div class="md-layout-item md-small-size-100">
           <md-card class="md-accent">
 
 
@@ -35,7 +35,7 @@
           </md-card>
         </div>
 
-        <div class="md-layout-item md-xsmall-size-100">
+        <div class="md-layout-item md-small-size-100">
           <md-card class="md-accent">
             <md-card-header>
               <md-card-header-text>
@@ -68,7 +68,7 @@
           </md-card>
         </div>
 
-        <div class="md-layout-item md-xsmall-size-100">
+        <div class="md-layout-item md-small-size-100">
           <md-card class="md-accent">
 
 
@@ -84,7 +84,7 @@
             <md-card-content>
               Take Vue Material to the next level with premium themes from Creative Tim.
 
-              <img src="/assets/premium/premium-themes.png" alt="Vue Material Dashboard PRO">
+              <img src="/assets/premium/premium-themes.png" class="themes" alt="Vue Material Dashboard PRO">
 
               <hr />
 
@@ -141,8 +141,17 @@
       max-height: 250px;
     }
 
-    img {
+    .themes {
       margin-top: 30px;
+    }
+  }
+
+  .md-card{
+    background: #fff;
+    .md-title,
+    .md-icon,
+    .md-card-content{
+      color: #202020;
     }
   }
 
@@ -171,10 +180,12 @@
     border-width: 1px;
   }
 
-  .md-xsmall-size-100{
-    width: 33%;
-    .md-card{
-      min-height: 540px;
+  @media(min-width:961px){
+    .md-small-size-100{
+      width: 33%;
+      .md-card{
+        height: 640px;
+      }
     }
   }
 </style>
