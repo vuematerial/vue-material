@@ -24,7 +24,7 @@
           <img src="https://img.shields.io/discord/379653048798281729.svg?logo=discord&colorB=7289DA" alt="Chat">
         </a>
       </div>
-      <div class="home-actions">
+      <div class="home-actions mt-2">
         <md-button class="md-button-spaced md-plain md-raised" to="/getting-started">{{ $t('pages.gettingStarted.title') }}</md-button>
         <md-button class="md-button-spaced md-plain md-raised" to="/components">{{ $t('pages.components.title') }}</md-button>
       </div>
@@ -81,7 +81,7 @@
   }
 
   .home-actions {
-    margin-top: 24px;
+    margin-top: 10px;
     display: flex;
     justify-content: center;
 
@@ -104,6 +104,10 @@
       &:hover{
         color: #25292e;
       }
+    }
+
+    &.mt-2{
+      margin-top: 2rem;
     }
   }
 
