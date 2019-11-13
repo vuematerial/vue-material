@@ -52,6 +52,10 @@
     justify-content: center;
     align-items: center;
     position: relative;
+
+    @include md-layout-xsmall {
+      max-width: 100px;
+    }
   }
 
   .logo-vue-material {
@@ -87,5 +91,20 @@
     a{
       margin-left: 5px;
     }
+
+    >>>.gh-button{
+      color: #25292e;
+      &:hover{
+        color: #25292e;
+      }
+    }
+
+    >>>.social-count{
+      color: #25292e;
+      &:hover{
+        color: #25292e;
+      }
+    }
   }
+
 </style>
