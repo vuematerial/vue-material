@@ -180,11 +180,52 @@
     border-width: 1px;
   }
 
-  @media(min-width:961px){
+
+  @media(min-width:961px) and (max-width: 1199px){
     .md-small-size-100{
       width: 33%;
       .md-card{
-        height: 640px;
+        height: 530px;
+      }
+    }
+
+    >>>.code-block code{
+      font-size: 12px;
+    }
+
+    hr{
+      position: absolute;
+      width: 100%;
+      bottom: 10%;
+      left: 0;
+    }
+    .md-card-actions{
+      position: absolute;
+      width: 100%;
+      bottom: 1%;
+    }
+
+    .code-example{
+      margin: 15px 0 !important;
+    }
+  }
+
+  @media(min-width:1200px){
+    .md-small-size-100{
+      width: 33%;
+    }
+    .md-card{
+      height: 560px !important;
+      hr{
+        position: absolute;
+        width: 100%;
+        bottom: 10%;
+        left: 0;
+      }
+      .md-card-actions{
+        position: absolute;
+        width: 100%;
+        bottom: 1%;
       }
     }
   }
