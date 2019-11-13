@@ -150,6 +150,7 @@
     >>> ul {
       list-style: none;
       padding-left: 20px;
+      margin: 5px 0;
       li a{
         color: #7d7d7d;
       }
