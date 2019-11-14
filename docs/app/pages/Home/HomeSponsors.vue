@@ -15,13 +15,13 @@
         <img src="/assets/sponsors/codeinwp-logo.svg" class="home-sponsors-open-1">
         <img src="/assets/sponsors/creative-tim.png" class="home-sponsors-open-1">
 
-        <p>{{ $t('pages.home.beACollective') }}:</p>
-
+        <!-- <p>{{ $t('pages.home.beACollective') }}:</p> -->
+<!--
         <a href="" target="_blank" class="home-sponsors-open">
           <md-ripple>
             <img src="/assets/sponsors/opencollective.svg">
           </md-ripple>
-        </a>
+        </a> -->
 
 
         <!-- <h2 class="home-title md-headline">

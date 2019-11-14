@@ -4,9 +4,6 @@
       <div class="main-footer-section">
         <ul class="md-list">
           <li>
-            <router-link to="/about">{{ $t('aboutMaterial') }}</router-link>
-          </li>
-          <li>
             <router-link to="/license">{{ $t('pages.license.title') }}</router-link>
           </li>
           <li>
@@ -19,6 +16,9 @@
 
         <ul class="md-list">
           <li>
+            <router-link to="/about">{{ $t('aboutMaterial') }}</router-link>
+          </li>
+          <li>
             <router-link to="https://discordapp.com/invite/vuematerial">Discord</router-link>
           </li>
 
@@ -26,9 +26,9 @@
             <router-link to="https://github.com/vuematerial/vue-material">GitHub</router-link>
           </li>
 
-          <li>
+          <!-- <li>
             <router-link to="">Open Collective</router-link>
-          </li>
+          </li> -->
 
         </ul>
       </div>

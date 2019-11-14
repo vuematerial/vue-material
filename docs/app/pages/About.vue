@@ -32,13 +32,13 @@
       <p>This project started as a side project and became the library as it is today, one of the most used UI Libraries for Vue.js!</p>
     </section>
 
-    <section class="page-container-section">
+    <!-- <section class="page-container-section">
       <h2 class="md-title">Want to pay me a coffee?</h2>
 
       <a href="" target="_blank" class="about-collective">
         <img src="/assets/sponsors/opencollective.png">
       </a>
-    </section>
+    </section> -->
 
     <section class="page-container-section">
       <h2 class="md-title">Want to contribute with the Project?</h2>
