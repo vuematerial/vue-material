@@ -14,13 +14,13 @@
         <gh-btns-star slug="vuematerial/vue-material" show-count></gh-btns-star>
       </div>
       <div class="home-actions">
-        <a href="https://www.npmjs.com/package/vue-material">
+        <a href="https://www.npmjs.com/package/vue-material" target="_blank">
           <img src="https://img.shields.io/npm/dt/vue-material.svg" alt="Downloads">
         </a>
-        <a href="https://www.npmjs.com/package/vue-material">
+        <a href="https://www.npmjs.com/package/vue-material" target="_blank">
           <img src="https://img.shields.io/npm/l/vue-material.svg" alt="License">
         </a>
-        <a href="https://discord.gg/vuematerial">
+        <a href="https://discord.gg/vuematerial" target="_blank">
           <img src="https://img.shields.io/discord/379653048798281729.svg?logo=discord&colorB=7289DA" alt="Chat">
         </a>
       </div>
