@@ -75,7 +75,7 @@
   .home-sponsors-open-1 {
     max-width: 120px;
     &.logo-2{
-      margin-left: 10px;
+      margin-left: 11px;
       margin-top: 8px;
     }
   }
