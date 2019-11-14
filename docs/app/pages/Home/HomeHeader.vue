@@ -7,7 +7,7 @@
     <div class="home-call">
       <h1 class="home-name">Vue Material</h1>
 
-      <p>{{ $t('pages.home.slogan') }}</p>
+      <p class="mb-10">{{ $t('pages.home.slogan') }}</p>
 
 
       <div class="home-actions">
@@ -109,6 +109,10 @@
     &.mt-2{
       margin-top: 2rem;
     }
+  }
+
+  .mb-10{
+    margin-bottom: 10px;
   }
 
 </style>
