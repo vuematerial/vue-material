@@ -1,5 +1,18 @@
 <template>
   <div class="main-nav-content">
+    <div v-show="responsive">
+      <router-link to="/getting-started">
+        Docs
+      </router-link>
+
+      <router-link to="/about">
+        About
+      </router-link>
+
+      <router-link to="/components/app">
+        Components
+      </router-link>
+    </div>
     <router-link to="/" exact>{{ $t('pages.home.title') }}</router-link>
     <router-link to="/getting-started">{{ $t('pages.gettingStarted.title') }}</router-link>
     <div class="main-nav-level">
@@ -12,7 +25,9 @@
       <router-link to="/themes/prebuilt">{{ $t('pages.themePrebuilt.nav') }}</router-link>
       <router-link to="/themes/configuration">{{ $t('pages.themeConfiguration.nav') }}</router-link>
       <router-link to="/themes/advanced">{{ $t('pages.themeAdvanced.nav') }}</router-link>
-      <router-link to="/#premium">{{ $t('pages.home.premium') }}</router-link>
+      <router-link to="/premium-themes">{{ $t('pages.home.premium') }}</router-link>
+      <a href="https://www.binarcode.com/estimate-project/?ref=vuematarial.io" target="_blank">{{ $t('pages.home.custom') }}</a>
+
     </div>
 
     <router-link to="/with-router">{{ $t('pages.withRouter.title') }}</router-link>
@@ -83,10 +98,25 @@
 <script>
   export default {
     name: 'MainNavContent',
+    data(){
+      return{
+        responsive: false
+      }
+    },
     watch: {
       $router () {
         this.scrollActiveItemIntoView()
       }
+    },
+    mounted () {
+      this.$nextTick().then(() => {
+        window.setTimeout(this.scrollActiveItemIntoView, 700)
+      }),
+      this.responsiveLinks();
+      window.addEventListener("resize", this.responsiveLinks);
+    },
+    beforeDestroy() {
+      window.addEventListener("resize", this.responsiveLinks);
     },
     methods: {
       scrollActiveItemIntoView () {
@@ -99,12 +129,16 @@
             })
           }
         })
+      },
+      responsiveLinks(){
+        if (window.innerWidth < 601) {
+          this.responsive = true;
+          console.log('mai mic ');
+        } else {
+          this.responsive = false;
+          console.log('mai mare ');
+        }
       }
-    },
-    mounted () {
-      this.$nextTick().then(() => {
-        window.setTimeout(this.scrollActiveItemIntoView, 700)
-      })
     }
   }
 </script>

@@ -25,7 +25,7 @@
     </div>
 
     <div class="page-container-section">
-      <h2>{{ $t('pages.app.regular.title') }}</h2>
+      <h2 id="regular">{{ $t('pages.app.regular.title') }}</h2>
 
       <p>{{ $t('pages.app.regular.desc1') }}</p>
       <i18n tag="note-block" tip path="pages.app.regular.desc2">
@@ -35,35 +35,35 @@
     </div>
 
     <div class="page-container-section">
-      <h2>{{ $t('pages.app.fixed.title') }}</h2>
+      <h2 id="fixed">{{ $t('pages.app.fixed.title') }}</h2>
 
       <p>{{ $t('pages.app.fixed.desc') }}</p>
       <code-example :title="$t('pages.app.fixed.fixedWaterfall')" :component="examples['waterfall']" />
     </div>
 
     <div class="page-container-section">
-      <h2>{{ $t('pages.app.reveal.title') }}</h2>
+      <h2 id="reveal">{{ $t('pages.app.reveal.title') }}</h2>
 
       <p>{{ $t('pages.app.reveal.desc') }}</p>
       <code-example :title="$t('pages.app.reveal.reveal')" :component="examples['reveal']" />
     </div>
 
     <div class="page-container-section">
-      <h2>{{ $t('pages.app.flexible.title') }}</h2>
+      <h2 id="flexible">{{ $t('pages.app.flexible.title') }}</h2>
 
       <p>{{ $t('pages.app.flexible.desc') }}</p>
       <code-example :title="$t('pages.app.flexible.flexible')" :component="examples['flexible']" />
     </div>
 
     <div class="page-container-section">
-      <h2>{{ $t('pages.app.lastRow.title') }}</h2>
+      <h2 id="lastRow">{{ $t('pages.app.lastRow.title') }}</h2>
 
       <p>{{ $t('pages.app.lastRow.desc') }}</p>
       <code-example :title="$t('pages.app.lastRow.fixed')" :component="examples['last-row-fixed']" />
     </div>
 
     <div class="page-container-section">
-      <h2>{{ $t('pages.app.overlap.title') }}</h2>
+      <h2 id="overlap">{{ $t('pages.app.overlap.title') }}</h2>
 
       <p>{{ $t('pages.app.overlap.desc') }}</p>
       <code-example :title="$t('pages.app.overlap.content')" :component="examples['overlap']" />

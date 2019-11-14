@@ -13,7 +13,7 @@
     </div>
 
     <div class="page-container-section">
-      <h2>Regular Cards</h2>
+      <h2 id="regularCards">Regular Cards</h2>
 
       <p>The simplest card structure has a header, content area and action buttons, defined by <code>md-card-header</code>, <code>md-card-content</code> and <code>md-card-actions</code>, respectively. The header may contain a title and a subtitle <code>div</code> or <code>span</code> with classes <code>.md-title</code> and <code>.md-subhead</code>. In the content area, you may use any kind of text elements and for the actions, use at most two <code>md-buttons</code>.</p>
 
@@ -21,7 +21,7 @@
 
       <code-example title="Regular Cards" :component="examples['regular-cards']" />
 
-      <h2>Cards with Images</h2>
+      <h2 id="cardsWImages">Cards with Images</h2>
 
       <p>To add visual appeal to your cards, you can add images inside the <code>md-header</code> tag with a <code>md-card-media</code> wraping an <code>img</code> tag. It's possible to increase the image size to medium or big with the properties <code>md-medium</code> and <code>md-big</code>.</p>
 
@@ -43,20 +43,20 @@
       If there isn't sufficient contrast between background image and title, the latter won't be perfectly legible. To overcome that, apply a solid or gradient background to the text by using the <code>md-card-media-cover</code>'s properties <code>md-solid</code> or <code>md-text-scrim</code>, respectively.
 
       <code-example title="Card background with Aspect Ratio" :component="examples['media-cover']" />
-      
-      <h2>Themes</h2>
+
+      <h2 id="cardThemes">Themes</h2>
 
       <p>Your cards will stand out if you change their base color... And you can do it by applying themes! Just add a <code>.primary</code> or <code>accent</code> class on them. This will use the current theme. You can specify a custom one with the <code>md-theme</code> property.</p>
       <code-example title="Theme Colors" :component="examples['theme-colors']" />
 
-      <h2>Expansion Control</h2>
+      <h2 id="exapansionCard">Expansion Control</h2>
       <p>To avoid too much information inside a card, or keep its height from exceeding the maximum height, hide supplementary information inside a expansible area.</p>
 
       <p>It can be done with the <code>md-card-expand</code> component, that has a <code>md-card-action</code> with a <code>md-card-expand-trigger</code> that toggles a <code>md-card-expand-content</code>.</p>
 
       <code-example title="Expansion Control" :component="examples['card-expansion']" />
 
-      <h2>Different Layouts</h2>
+      <h2 id="differentCard">Different Layouts</h2>
       That's pretty much it. You can now combine these and other components in many distinct ways. Here are some examples:
 
       <code-example title="Different Layouts" :component="examples['layouts']" />

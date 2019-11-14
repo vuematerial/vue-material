@@ -17,7 +17,7 @@
     </div>
 
     <div class="page-container-section">
-      <h2>Simple tables</h2>
+      <h2 id="simple-table">Simple tables</h2>
 
       <p>To create a basic table, with simple data and without any advanced options, you have a really simple markup to use.</p>
       <p>There are some components that mimic the native table elements:</p>
@@ -50,7 +50,7 @@
     </div>
 
     <div class="page-container-section">
-      <h2>Advanced tables</h2>
+      <h2 id="advanced-table">Advanced tables</h2>
 
       <note-block alert>This section will assume that you have knowledge of <a href="https://vuejs.org/v2/guide/components.html#Scoped-Slots" target="_blank">Vue Scoped Slots</a>. You'll need them to create advanced tables.</note-block>
 
@@ -83,7 +83,7 @@
     </div>
 
     <div class="page-container-section">
-      <h2>Selection</h2>
+      <h2 id="selection">Selection</h2>
 
       <p>When dealing with large data sets, you may want to have quick actions over our data, like whether to remove or make some bulk change. Tables have inner selection in two ways: Single and Multiple.</p>
       <p>The single selection is really great to highlight a particular item. Maybe, by clicking on a table row, will show the details of the item. With single selections you'll have access to the selected item and the table will do the rest. You can use the primary and accent hue colors to give more appealing highlight colors:</p>

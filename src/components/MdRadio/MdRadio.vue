@@ -2,7 +2,7 @@
   <div class="md-radio" :class="[$mdActiveTheme, radioClasses]">
     <div class="md-radio-container" @click.stop="toggleCheck">
       <md-ripple md-centered :md-active.sync="rippleActive" :md-disabled="disabled">
-        <input type="radio" v-bind="{ id, name, disabled, required, value }">
+        <input type="radio" v-bind="{ id, name, disabled, required, value, checked: isSelected }">
       </md-ripple>
     </div>
 
