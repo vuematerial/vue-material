@@ -83,9 +83,9 @@
 
             <md-card-content>
               Take Vue Material to the next level with premium themes from Creative Tim.
-
-              <img src="/assets/premium/premium-themes.png" class="themes" alt="Vue Material Dashboard PRO">
-
+              <a href="/premium-themes">
+                <img src="/assets/premium/premium-themes.png" class="themes" alt="Vue Material Dashboard PRO">
+              </a>
               <hr />
 
             </md-card-content>
