@@ -2,14 +2,43 @@
   <footer class="main-footer">
     <div class="main-footer-container">
       <div class="main-footer-section">
-        <router-link to="/about">{{ $t('aboutMaterial') }}</router-link>
-        <router-link to="/license">{{ $t('pages.license.title') }}</router-link>
+        <ul class="md-list">
+          <li>
+            <router-link to="/license">{{ $t('pages.license.title') }}</router-link>
+          </li>
+          <li>
+            <router-link to="/premium-themes">Premium Themes</router-link>
+          </li>
+          <li>
+            <router-link to="/getting-started">Docs</router-link>
+          </li>
+        </ul>
+
+        <ul class="md-list">
+          <li>
+            <router-link to="/about">{{ $t('aboutMaterial') }}</router-link>
+          </li>
+          <li>
+            <router-link to="https://discordapp.com/invite/vuematerial">Discord</router-link>
+          </li>
+
+          <li>
+            <router-link to="https://github.com/vuematerial/vue-material">GitHub</router-link>
+          </li>
+
+          <!-- <li>
+            <router-link to="">Open Collective</router-link>
+          </li> -->
+
+        </ul>
       </div>
+
 
       <div class="main-footer-section">
         <a href="https://github.com/marcosmoura" target="_blank">
-          {{ $t('madeWith') }} <span class="red">❤</span> {{ $t('by') }} Marcos Moura
+          {{ $t('madeWith') }} <span class="red">❤</span> {{ $t('by') }} Marcos Moura.
         </a>
+        <a href="https://www.creative-tim.com/?ref=vuematerial.io" target="_blank" class="ml-0">Sponsored by Creative Tim</a>
       </div>
     </div>
   </footer>
@@ -33,8 +62,17 @@
   @import "~vue-material/components/MdLayout/mixins";
   @import "~vue-material/theme/engine";
 
+  .md-list{
+    display: inline-block;
+    margin: 10px 0;
+    + .md-list{
+      margin-left: 40px;
+    }
+    li{
+      margin: 5px 0;
+    }
+  }
   .main-footer {
-    height: 96px;
     padding: 0 16px;
     position: relative;
     z-index: 4;
@@ -76,6 +114,9 @@
 
       + a {
         margin-left: 32px;
+        &.ml-0{
+          margin-left: 0px;
+        }
       }
     }
   }

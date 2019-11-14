@@ -9,7 +9,7 @@
     </div>
 
     <div class="page-container-section">
-      <h2>Toolbars</h2>
+      <h2 id="toolbars">Toolbars</h2>
 
       <p>Toolbars adjusts its height dimensions based on the screen width to best fit the visible area on small devices. Try to resize your browser to see the difference:</p>
 
@@ -24,13 +24,13 @@
     </div>
 
     <div class="page-container-section">
-      <h2>Different Sizes</h2>
+      <h2 id="different-sizes">Different Sizes</h2>
 
       <code-example title="Sizes" :component="examples['toolbar-sizes']" />
     </div>
 
     <div class="page-container-section">
-      <h2>Content and Actions</h2>
+      <h2 id="content-and-actions">Content and Actions</h2>
       <p>As the Toolbars are mostly used to hold actions that affects the entire application, you can create rows or sections inside of it.</p>
       <p>Although those rows works on every toolbar, they were created to separate contents for large toolbars. This element is represented by the <code>md-toolbar-row</code> class. A row can also have a <code>md-toolbar-offset</code> to add a little space on the left of it. This is commonly used inside the second row of an large toolbar.</p>
       <p>The sections are used to split the content of the toolbar horizontally (or the row inside). You can apply them using two types of section: <code>md-toolbar-section-start</code> will be left-aligned and <code>md-toolbar-section-end</code> right-aligned.</p>

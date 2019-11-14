@@ -9,7 +9,7 @@
     </div>
 
     <div class="page-container-section">
-      <h2>Avatar</h2>
+      <h2 id="avatar">Avatar</h2>
 
       <p>Avatars can show a single image by default but can also display an icon (using the <code>md-icon</code> component):</p>
       <code-example title="Default" :component="examples['regular']" />
@@ -21,14 +21,14 @@
     </div>
 
     <div class="page-container-section">
-      <h2>Initial letter as a placeholder</h2>
+      <h2 id="initial">Initial letter as a placeholder</h2>
 
       <p>Let's assume that you want to show a list of contacts, but some of them do not have a picture in your database. You can use the initial letter of the contact name as a placeholder. It can even show 2 letters (for compound names) without problems:</p>
       <code-example title="Placeholder" :component="examples['placeholder']" />
     </div>
 
     <div class="page-container-section">
-      <h2>Multiple sizes</h2>
+      <h2 id="multipleSizes">Multiple sizes</h2>
 
       <p>You can specify three different sizes, if you want: Regular, Small or Large. By default the avatar have a regular size.</p>
       <code-example title="Sizes" :component="examples['sizes']" />

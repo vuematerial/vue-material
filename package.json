@@ -25,7 +25,7 @@
     "dev": "babel-node build/local",
     "build": "rm -rf dist/ && babel-node build/lib",
     "docs": "babel-node build/docs",
-    "lint": "eslint --ext .js,.vue docs src build test",
+    "lint": "eslint --ext .js,.vue docs src build test --fix",
     "test": "jest",
     "coverage": "yarn test --coverage",
     "githooks": "sh build/git-hooks/install.sh",
@@ -41,7 +41,10 @@
   "peerDependencies": {
     "vue": "^2.5.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "vue-github-buttons": "^3.1.0",
+    "vue-toc": "0.0.1"
+  },
   "devDependencies": {
     "autoprefixer": "^7.2.6",
     "avoriaz": "^6.3.0",

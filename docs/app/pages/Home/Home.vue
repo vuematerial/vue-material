@@ -4,7 +4,6 @@
       <home-header />
       <ad-manager />
       <home-features />
-      <md-icon class="home-icon-indicator" @click.native="scrollToEcosystem">keyboard_arrow_down</md-icon>
     </div>
 
     <home-premium />
@@ -38,16 +37,6 @@
           ...target,
           behavior: 'smooth'
         })
-      },
-      scrollToEcosystem () {
-        const targetEl = document.querySelector('#premium, .home-ecosystem, .home-sponsors')
-
-        if (targetEl) {
-          this.scrollDown({
-            top: targetEl.offsetTop,
-            left: 0
-          })
-        }
       }
     },
     mounted () {
@@ -137,7 +126,7 @@
   .home-splash {
     .ad-manager {
       @media (max-width: 1690px) {
-        margin: 32px 0 !important;
+        margin: 32px 0 0 0 !important;
 
         .code-fund {
           display: flex !important;

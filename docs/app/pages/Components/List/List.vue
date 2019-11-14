@@ -14,7 +14,7 @@
     </div>
 
     <div class="page-container-section">
-      <h2>List</h2>
+      <h2 id="list">List</h2>
 
       <p>Single line lists are really great for navigational elements, such as drawers. You can pass a icons, text and actions to them. They have also a dense layout, to accommodate more items on the screen:</p>
       <code-example title="Single Line" :component="examples['single-line']" />
@@ -31,7 +31,7 @@
     </div>
 
     <div class="page-container-section">
-      <h2>List Actions</h2>
+      <h2 id="list-actions">List Actions</h2>
 
       <p>List items will render different tags based on the interaction types given.</p>
       <p>If you pass one of those event, the item will automatically render a <code>button</code>:</p>

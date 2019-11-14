@@ -13,7 +13,7 @@
     </div>
 
     <div class="page-container-section">
-      <h2>Standalone Chip</h2>
+      <h2 id="standalone-chip">Standalone Chip</h2>
 
       <p>A chip can be used as standalone, without any connection with another chip. It can be used like a badge or a category of an entity in your application. You can specify if your chip can be deletable and clickable:</p>
       <code-example title="Single" :component="examples['single-chip']" />
@@ -27,42 +27,42 @@
     </div>
 
     <div class="page-container-section">
-      <h2>Editable model</h2>
+      <h2 id="editable-model">Editable model</h2>
 
       <p>Sometimes we need to edit the set of items on screen, for example, when editing tags, the user may need to remove/add tags. In this case you can use the editable chips, that is the default behaviour:</p>
       <code-example title="Editable" :component="examples['editable']" />
     </div>
 
     <div class="page-container-section">
-      <h2>Readonly</h2>
+      <h2 id="readonly">Readonly</h2>
 
       <p>Let's think in an entity that have tags. Sometimes you might need to show all of them in a single row, but not allow the user to edit them. You can achieve that using the <code>md-chips</code> component, with a static option:</p>
       <code-example title="Static" :component="examples['static']" />
     </div>
 
     <div class="page-container-section">
-      <h2>Custom Template</h2>
+      <h2 id="custom-template">Custom Template</h2>
 
       <p>Sometimes we need to show more information about a chip, so we want to have a custom HTML structure for the chip itself. To create that scenario we can use the template scope. In this case all you have to do is to create a slot with your custom template and you're good to go. Take a look at this example:</p>
       <code-example title="Scoped Slot" :component="examples['chip-custom-template']" />
     </div>
 
     <div class="page-container-section">
-      <h2>Duplicated Chip</h2>
+      <h2 id="duplicated-chip">Duplicated Chip</h2>
 
       <p>Chips would reject insertion if a chip is duplicated. You can customize feedback style of the duplicated chip:</p>
       <code-example title="Duplicated Feedback" :component="examples['duplicated-feedback']" />
     </div>
 
     <div class="page-container-section">
-      <h2>Formatter</h2>
+      <h2 id="formatter">Formatter</h2>
 
       <p>Sometimes you may need to format a chip value before adding it, and for this case you can use a custom formatter function. This function will receive the chip value and must return the formatted value.</p>
       <code-example title="Formatted chips" :component="examples['format']" />
     </div>
 
     <div class="page-container-section">
-      <h2>Hue Colors</h2>
+      <h2 id="hue-colors">Hue Colors</h2>
 
       <p>You can always use the hue modifiers in single chips:</p>
       <code-example title="Themed Chips" :component="examples['themed']" />
