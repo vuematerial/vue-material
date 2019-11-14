@@ -25,7 +25,7 @@
     "dev": "babel-node build/local",
     "build": "rm -rf dist/ && babel-node build/lib",
     "docs": "babel-node build/docs",
-    "lint": "eslint --ext .js,.vue docs src build test",
+    "lint": "eslint --ext .js,.vue docs src build test --fix",
     "test": "jest",
     "coverage": "yarn test --coverage",
     "githooks": "sh build/git-hooks/install.sh",
