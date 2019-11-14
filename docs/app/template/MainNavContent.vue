@@ -26,6 +26,8 @@
       <router-link to="/themes/configuration">{{ $t('pages.themeConfiguration.nav') }}</router-link>
       <router-link to="/themes/advanced">{{ $t('pages.themeAdvanced.nav') }}</router-link>
       <router-link to="/premium-themes">{{ $t('pages.home.premium') }}</router-link>
+      <a href="https://www.binarcode.com/estimate-project/?ref=vuematarial.io" target="_blank">{{ $t('pages.home.custom') }}</a>
+
     </div>
 
     <router-link to="/with-router">{{ $t('pages.withRouter.title') }}</router-link>
