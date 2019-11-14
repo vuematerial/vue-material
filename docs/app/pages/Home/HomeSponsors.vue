@@ -12,9 +12,14 @@
           <a href="https://www.github.com/marcosmoura" target="_blank">Marcos Moura</a>
         </i18n>
 
-        <img src="/assets/sponsors/codeinwp-logo.svg" class="home-sponsors-open-1">
-        <img src="/assets/sponsors/creative-tim.png" class="home-sponsors-open-1">
-
+        <div class="d-flex align-items-center">
+          <a href="https://www.codeinwp.com/?ref=vuematerial.io" target="_blank">
+            <img src="/assets/sponsors/codeinwp-logo.svg" class="home-sponsors-open-1">
+          </a>
+          <a href="https://www.creative-tim.com/?ref=vuematerial.io" target="_blank">
+            <img src="/assets/sponsors/creative-tim.png" class="home-sponsors-open-1 logo-2">
+          </a>
+        </div>
         <!-- <p>{{ $t('pages.home.beACollective') }}:</p> -->
 <!--
         <a href="" target="_blank" class="home-sponsors-open">
@@ -69,6 +74,10 @@
 
   .home-sponsors-open-1 {
     max-width: 120px;
+    &.logo-2{
+      margin-left: 10px;
+      margin-top: 8px;
+    }
   }
 
 
