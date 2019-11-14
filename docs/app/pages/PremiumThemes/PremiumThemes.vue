@@ -5,7 +5,7 @@
          <h2 class="md-headline">Premium Themes</h2>
          <h3>Creative Tim</h3>
          <p>With the examples below built by our partners from
-            <a href="https://www.creative-tim.com/" target="_blank">Creative Tim</a> you can see how a real world application
+            <a href="https://www.creative-tim.com/?ref=vuematerial.io" target="_blank">Creative Tim</a> you can see how a real world application
             is built, the technology stack behind it and how most
             of the concepts you've learned so far apply in a real
             world application.
@@ -14,7 +14,7 @@
 
          <md-card>
            <md-card-media>
-             <a href="https://www.creative-tim.com/product/vue-material-dashboard" target="_blank">
+             <a href="https://www.creative-tim.com/product/vue-material-dashboard?ref=vuematerial.io" target="_blank">
                <img src="https://s3.amazonaws.com/creativetim_bucket/products/81/original/opt_md_vue_thumbnail.jpg?1534938464">
              </a>
            </md-card-media>
@@ -28,7 +28,7 @@
 
          <md-card>
            <md-card-media>
-             <a href="https://www.creative-tim.com/product/vue-material-dashboard-pro" target="_blank">
+             <a href="https://www.creative-tim.com/product/vue-material-dashboard-pro?ref=vuematerial.io" target="_blank">
                <img src="https://s3.amazonaws.com/creativetim_bucket/products/87/original/opt_mdp_vue_thumbnail.jpg?1534938492">
              </a>
            </md-card-media>
@@ -44,7 +44,7 @@
 
          <md-card>
            <md-card-media>
-             <a href="https://www.creative-tim.com/product/vue-material-kit" target="_blank">
+             <a href="https://www.creative-tim.com/product/vue-material-kit?ref=vuematerial.io" target="_blank">
                <img src="https://s3.amazonaws.com/creativetim_bucket/products/97/original/opt_mk_vue_thumbnail.jpg?1538041206">
              </a>
            </md-card-media>
@@ -58,7 +58,7 @@
 
          <md-card>
            <md-card-media>
-             <a href="https://www.creative-tim.com/product/vue-material-kit-pro" target="_blank">
+             <a href="https://www.creative-tim.com/product/vue-material-kit-pro?ref=vuematerial.io" target="_blank">
                <img src="https://s3.amazonaws.com/creativetim_bucket/products/139/original/opt_mkp_vue_thumbnail.jpg?1547651786">
              </a>
            </md-card-media>
@@ -73,7 +73,7 @@
          </md-card>
     </section>
     <div class="align-center">
-       <md-button class="md-button-spaced md-primary md-raised" href="https://www.creative-tim.com/" target="_blank">See More Themes from Creative Tim</md-button>
+       <md-button class="md-button-spaced md-primary md-raised" href="https://www.creative-tim.com/?ref=vuematerial.io" target="_blank">See More Themes from Creative Tim</md-button>
      </div>
    </page-container>
 

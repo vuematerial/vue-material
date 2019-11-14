@@ -3,7 +3,7 @@
     <section class="page-container-section">
       <h2 class="md-title">The MIT License (MIT)</h2>
 
-      <p>Copyright (c) 2016 - {{ new Date().getFullYear() }} <a href="https://www.github.com/marcosmoura" target="_blank">Marcos Moura</a>. Supported by <a href="https://www.creative-tim.com/" target="_blank">Creative Tim.</a>
+      <p>Copyright (c) 2016 - {{ new Date().getFullYear() }} <a href="https://www.github.com/marcosmoura" target="_blank">Marcos Moura</a>. Supported by <a href="https://www.creative-tim.com/?ref=vuematerial.io" target="_blank">Creative Tim.</a>
       </p>
 
       <p>Permission is hereby granted, free of charge, to any person obtaining a copy

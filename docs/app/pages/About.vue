@@ -68,7 +68,7 @@
       <ul>
         <li><a href="https://github.com/elviskang" target="_blank">elviskang</a> for donating the npm package name!</li>
         <li><a href="https://github.com/brunocastro" target="_blank">Bruno Castro</a> for the awesome Vue Material Logo. <logo-vue-material animated /></li>
-        <li>Supported by <a href="https://www.creative-tim.com/" target="_blank">Creative Tim</a></li>
+        <li>Supported by <a href="https://www.creative-tim.com/?ref=vuematerial.io" target="_blank">Creative Tim</a></li>
       </ul>
     </section>
   </page-container>

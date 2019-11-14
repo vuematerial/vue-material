@@ -38,7 +38,7 @@
         <a href="https://github.com/marcosmoura" target="_blank">
           {{ $t('madeWith') }} <span class="red">❤</span> {{ $t('by') }} Marcos Moura.
         </a>
-        <a href="https://www.creative-tim.com/" target="_blank" class="ml-0">Sponsored by Creative Tim</a>
+        <a href="https://www.creative-tim.com/?ref=vuematerial.io" target="_blank" class="ml-0">Sponsored by Creative Tim</a>
       </div>
     </div>
   </footer>
