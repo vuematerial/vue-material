@@ -1,16 +1,18 @@
 <template>
   <div class="main-nav-content">
-    <router-link to="/getting-started">
-      Docs
-    </router-link>
+    <div v-show="responsive">
+      <router-link to="/getting-started">
+        Docs
+      </router-link>
 
-    <router-link to="/about">
-      About
-    </router-link>
+      <router-link to="/about">
+        About
+      </router-link>
 
-    <router-link to="/components/app">
-      Components
-    </router-link>
+      <router-link to="/components/app">
+        Components
+      </router-link>
+    </div>
     <router-link to="/" exact>{{ $t('pages.home.title') }}</router-link>
     <router-link to="/getting-started">{{ $t('pages.gettingStarted.title') }}</router-link>
     <div class="main-nav-level">
@@ -94,10 +96,25 @@
 <script>
   export default {
     name: 'MainNavContent',
+    data(){
+      return{
+        responsive: false
+      }
+    },
     watch: {
       $router () {
         this.scrollActiveItemIntoView()
       }
+    },
+    mounted () {
+      this.$nextTick().then(() => {
+        window.setTimeout(this.scrollActiveItemIntoView, 700)
+      }),
+      this.responsiveLinks();
+      window.addEventListener("resize", this.responsiveLinks);
+    },
+    beforeDestroy() {
+      window.addEventListener("resize", this.responsiveLinks);
     },
     methods: {
       scrollActiveItemIntoView () {
@@ -110,12 +127,16 @@
             })
           }
         })
+      },
+      responsiveLinks(){
+        if (window.innerWidth < 601) {
+           this.responsive = true;
+           console.log('mai mic ');
+         } else {
+           this.responsive = false;
+           console.log('mai mare ');
+         }
       }
-    },
-    mounted () {
-      this.$nextTick().then(() => {
-        window.setTimeout(this.scrollActiveItemIntoView, 700)
-      })
     }
   }
 </script>
