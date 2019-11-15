@@ -19,11 +19,11 @@
             <router-link to="/about">{{ $t('aboutMaterial') }}</router-link>
           </li>
           <li>
-            <router-link to="https://discordapp.com/invite/vuematerial">Discord</router-link>
+            <a href="https://discordapp.com/invite/vuematerial" target="_blank">Discord</a>
           </li>
 
           <li>
-            <router-link to="https://github.com/vuematerial/vue-material">GitHub</router-link>
+            <a href="https://github.com/vuematerial/vue-material" target="_blank">GitHub</a>
           </li>
 
           <!-- <li>
