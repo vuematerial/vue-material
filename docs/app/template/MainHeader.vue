@@ -70,10 +70,6 @@
             Docs
           </md-button>
 
-          <md-button href="/about">
-            About
-          </md-button>
-
           <md-button href="/components/app">
             Components
           </md-button>
@@ -81,6 +77,43 @@
           <md-button href="/premium-themes">
             Premium themes
           </md-button>
+          <md-menu md-size="medium" md-align-trigger>
+            <md-button md-menu-trigger>Ecosystem</md-button>
+            <md-menu-content>
+              <md-menu-item>
+                <router-link to="/about">
+                  About
+                </router-link>
+
+              </md-menu-item>
+              <md-menu-item>
+                <a href="https://www.binarcode.com/estimate-project/?ref=vuematarial.io" target="_blank">
+                  Custom development
+                </a>
+              </md-menu-item>
+              <md-menu-item>
+                <a href="https://github.com/vuematerial/webpack" target="_blank">
+                  Webpack SPA
+                </a>
+              </md-menu-item>
+              <md-menu-item>
+                <a href="https://github.com/vuematerial/nuxtjs" target="_blank">
+                  Nuxt.js
+                </a>
+              </md-menu-item>
+              <md-menu-item>
+                <router-link to="/getting-started">
+                  Getting started
+                </router-link>
+
+              </md-menu-item>
+              <md-menu-item>
+                <a href="https://codesandbox.io/s/github/vuematerial/examples/tree/master/examples/quick-start" target="_blank">
+                  Codesandbox
+                </a>
+              </md-menu-item>
+            </md-menu-content>
+          </md-menu>
         </div>
 
         <md-button href="http://github.com/vuematerial/vue-material" target="_blank" class="md-icon-button">
@@ -308,6 +341,20 @@
 
       .md-list-item-content {
         justify-content: flex-start;
+      }
+    }
+  }
+
+  .md-menu{
+    margin: 6px 8px;
+  }
+
+  .md-menu-content{
+    background: #303030;
+    z-index: 9999;
+    >>>.md-list-item-content {
+      a{
+        color: inherit;
       }
     }
   }
