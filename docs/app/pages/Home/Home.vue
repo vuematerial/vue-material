@@ -141,6 +141,13 @@
             margin-left: 8px;
           }
 
+          #cf{
+            width: 300px !important;
+            img{
+              float: left;
+              margin-right: 10px;
+            }
+          }
           a {
             color: #fff !important;
           }
