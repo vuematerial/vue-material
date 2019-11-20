@@ -156,4 +156,11 @@
       }
     }
   }
+
+  .main-footer {
+    margin-left: 0 !important;
+    h4, p{
+      color: #3a3a3a
+    }
+  }
 </style>

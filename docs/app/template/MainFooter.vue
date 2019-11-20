@@ -81,12 +81,13 @@
     h4{
       margin: 0 0 10px;
       padding-bottom: 5px;
-      border-bottom: 1px solid #dedede;
+      // border-bottom: 1px solid #dedede;
     }
 
   }
   .main-footer {
     padding: 0 16px;
+    margin-left: 230px;
     position: relative;
     z-index: 4;
     background-color: md-get-palette-color(grey, 200);
@@ -95,6 +96,9 @@
       height: 152px;
       flex-direction: column;
       justify-content: space-around;
+    }
+    p{
+      margin: 0;
     }
   }
 
