@@ -1,8 +1,13 @@
 <template>
   <footer class="main-footer">
     <div class="main-footer-container">
-      <div class="main-footer-section">
+      <div class="main-footer-section" center>
         <ul class="md-list">
+          <h4>About</h4>
+          <p>Vue Material is simple, lightweight and built exactly according to the Google Material Design specs.</p>
+        </ul>
+        <ul class="md-list">
+          <h4>Links</h4>
           <li>
             <router-link to="/license">{{ $t('pages.license.title') }}</router-link>
           </li>
@@ -15,6 +20,7 @@
         </ul>
 
         <ul class="md-list">
+          <h4>More information</h4>
           <li>
             <router-link to="/about">{{ $t('aboutMaterial') }}</router-link>
           </li>
@@ -63,14 +69,21 @@
   @import "~vue-material/theme/engine";
 
   .md-list{
-    display: inline-block;
+    display: inline-table;
     margin: 10px 0;
+    max-width: 180px;
     + .md-list{
       margin-left: 40px;
     }
     li{
       margin: 5px 0;
     }
+    h4{
+      margin: 0 0 10px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid #dedede;
+    }
+
   }
   .main-footer {
     padding: 0 16px;
