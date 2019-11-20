@@ -41,6 +41,8 @@
 
 
       <div class="main-footer-section">
+        <logo-vue-material :animated="isHome" />
+
         <a href="https://github.com/marcosmoura" target="_blank">
           {{ $t('madeWith') }} <span class="red">❤</span> {{ $t('by') }} Marcos Moura.
         </a>
@@ -86,16 +88,27 @@
 
   }
   .main-footer {
-    padding: 0 16px;
+    padding: 20px 16px;
     margin-left: 230px;
     position: relative;
+
     z-index: 4;
     background-color: md-get-palette-color(grey, 200);
 
+   @include md-layout-medium {
+      .md-list{
+        display: block;
+        margin-left: 0;
+      }
+    }
     @include md-layout-xsmall {
-      height: 152px;
       flex-direction: column;
       justify-content: space-around;
+      margin-left: 0;
+      .md-list{
+        display: block;
+        max-width: unset;
+      }
     }
     p{
       margin: 0;
@@ -142,6 +155,7 @@
     position: relative;
 
     + .main-footer-section {
+      text-align: center;
       @include md-layout-xsmall {
         &:after {
           width: 60px;
@@ -169,4 +183,15 @@
     color: md-get-palette-color(red, 500);
     transition: .3s $md-transition-default-timing;
   }
+
+  .md-svg-loader {
+    display: block;
+    z-index: 3000;
+    position: relative;
+    width: 15%;
+    margin: auto;
+    text-align: center;
+}
+
+
 </style>
