@@ -41,7 +41,7 @@
 
 
       <div class="main-footer-section">
-        <logo-vue-material :animated="isHome" />
+        <logo-vue-material />
 
         <a href="https://github.com/marcosmoura" target="_blank">
           {{ $t('madeWith') }} <span class="red">❤</span> {{ $t('by') }} Marcos Moura.
