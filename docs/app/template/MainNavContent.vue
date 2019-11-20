@@ -133,10 +133,8 @@
       responsiveLinks(){
         if (window.innerWidth < 601) {
           this.responsive = true;
-          console.log('mai mic ');
         } else {
           this.responsive = false;
-          console.log('mai mare ');
         }
       }
     }
