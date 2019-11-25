@@ -1,8 +1,13 @@
 <template>
   <footer class="main-footer">
     <div class="main-footer-container">
-      <div class="main-footer-section">
+      <div class="main-footer-section" center>
         <ul class="md-list">
+          <h4>About</h4>
+          <p>Vue Material is simple, lightweight and built exactly according to the Google Material Design specs.</p>
+        </ul>
+        <ul class="md-list">
+          <h4>Links</h4>
           <li>
             <router-link to="/license">{{ $t('pages.license.title') }}</router-link>
           </li>
@@ -15,6 +20,7 @@
         </ul>
 
         <ul class="md-list">
+          <h4>More information</h4>
           <li>
             <router-link to="/about">{{ $t('aboutMaterial') }}</router-link>
           </li>
@@ -35,6 +41,8 @@
 
 
       <div class="main-footer-section">
+        <logo-vue-material />
+
         <a href="https://github.com/marcosmoura" target="_blank">
           {{ $t('madeWith') }} <span class="red">❤</span> {{ $t('by') }} Marcos Moura.
         </a>
@@ -63,25 +71,47 @@
   @import "~vue-material/theme/engine";
 
   .md-list{
-    display: inline-block;
+    display: inline-table;
     margin: 10px 0;
+    max-width: 180px;
     + .md-list{
       margin-left: 40px;
     }
     li{
       margin: 5px 0;
     }
+    h4{
+      margin: 0 0 10px;
+      padding-bottom: 5px;
+      // border-bottom: 1px solid #dedede;
+    }
+
   }
   .main-footer {
-    padding: 0 16px;
+    padding: 20px 16px;
+    margin-left: 230px;
     position: relative;
+
     z-index: 4;
     background-color: md-get-palette-color(grey, 200);
 
-    @include md-layout-xsmall {
-      height: 152px;
+   @include md-layout-small {
+      .md-list{
+        display: block;
+        margin-left: 0;
+      }
+    }
+    @include md-layout-small {
       flex-direction: column;
       justify-content: space-around;
+      margin-left: 0;
+      .md-list{
+        display: block;
+        max-width: unset;
+      }
+    }
+    p{
+      margin: 0;
     }
   }
 
@@ -94,7 +124,7 @@
     transition: .3s $md-transition-default-timing;
     transition-property: max-width;
 
-    @include md-layout-xsmall {
+    @include md-layout-medium {
       flex-direction: column;
       justify-content: space-around;
     }
@@ -125,6 +155,7 @@
     position: relative;
 
     + .main-footer-section {
+      text-align: center;
       @include md-layout-xsmall {
         &:after {
           width: 60px;
@@ -152,4 +183,15 @@
     color: md-get-palette-color(red, 500);
     transition: .3s $md-transition-default-timing;
   }
+
+  .md-svg-loader {
+    display: block;
+    z-index: 3000;
+    position: relative;
+    width: 15%;
+    margin: auto;
+    text-align: center;
+}
+
+
 </style>

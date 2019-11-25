@@ -141,11 +141,26 @@
             margin-left: 8px;
           }
 
+          #cf{
+            width: 300px !important;
+            img{
+              float: left;
+              margin-right: 10px;
+              border-radius: 2px;
+            }
+          }
           a {
             color: #fff !important;
           }
         }
       }
+    }
+  }
+
+  .main-footer {
+    margin-left: 0 !important;
+    h4, p{
+      color: #3a3a3a
     }
   }
 </style>
