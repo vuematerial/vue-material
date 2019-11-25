@@ -95,13 +95,13 @@
     z-index: 4;
     background-color: md-get-palette-color(grey, 200);
 
-   @include md-layout-medium {
+   @include md-layout-small {
       .md-list{
         display: block;
         margin-left: 0;
       }
     }
-    @include md-layout-xsmall {
+    @include md-layout-small {
       flex-direction: column;
       justify-content: space-around;
       margin-left: 0;
@@ -124,7 +124,7 @@
     transition: .3s $md-transition-default-timing;
     transition-property: max-width;
 
-    @include md-layout-xsmall {
+    @include md-layout-medium {
       flex-direction: column;
       justify-content: space-around;
     }
