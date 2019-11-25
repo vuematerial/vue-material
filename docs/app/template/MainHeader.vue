@@ -78,7 +78,12 @@
             Premium themes
           </md-button>
           <md-menu md-size="medium" md-align-trigger>
-            <md-button md-menu-trigger>Ecosystem</md-button>
+            <md-button md-menu-trigger>
+              Ecosystem
+
+              <md-icon class="md-size-1x">arrow_drop_down</md-icon>
+
+            </md-button>
             <md-menu-content>
               <md-menu-item>
                 <router-link to="/about">
