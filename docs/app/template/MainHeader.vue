@@ -86,6 +86,12 @@
             </md-button>
             <md-menu-content>
               <md-menu-item>
+                <router-link to="/getting-started">
+                  Getting started
+                </router-link>
+
+              </md-menu-item>
+              <md-menu-item>
                 <router-link to="/about">
                   About
                 </router-link>
@@ -106,12 +112,7 @@
                   Nuxt.js
                 </a>
               </md-menu-item>
-              <md-menu-item>
-                <router-link to="/getting-started">
-                  Getting started
-                </router-link>
 
-              </md-menu-item>
               <md-menu-item>
                 <a href="https://codesandbox.io/s/github/vuematerial/examples/tree/master/examples/quick-start" target="_blank">
                   Codesandbox

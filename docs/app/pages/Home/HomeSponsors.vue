@@ -21,6 +21,8 @@
           </a>
           <a href="https://vuetifyjs.com/?ref=vuematerial.io" target="_blank">
             <img src="/assets/sponsors/vuetify-logo.webp" class="home-sponsors-open-1 logo-3">
+            <img src="/assets/sponsors/vuetify-name.webp" class="home-sponsors-open-1 logo-4">
+
           </a>
         </div>
         <!-- <p>{{ $t('pages.home.beACollective') }}:</p> -->
@@ -67,6 +69,12 @@
     width: calc(100% + 32px);
     margin: 0 -16px -16px;
     padding-bottom: 28px;
+    a{
+      &:hover{
+        color: transparent !important;
+        text-decoration: none;
+      }
+    }
   }
 
   .home-sponsors-open {
@@ -85,6 +93,16 @@
       margin-left: 11px;
       margin-top: 5px;
       width: 30px;
+    }
+    &.logo-4{
+      width: 45px;
+      margin-top: 10px;
+    }
+    @include md-layout-xsmall {
+      &.logo-3{
+        margin-top: 10px;
+        margin-left: 0px;
+      }
     }
   }
 
