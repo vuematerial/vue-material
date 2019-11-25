@@ -25,7 +25,7 @@
       <router-link to="/themes/prebuilt">{{ $t('pages.themePrebuilt.nav') }}</router-link>
       <router-link to="/themes/configuration">{{ $t('pages.themeConfiguration.nav') }}</router-link>
       <router-link to="/themes/advanced">{{ $t('pages.themeAdvanced.nav') }}</router-link>
-      <router-link to="/premium-themes">{{ $t('pages.home.premium') }}</router-link>
+      <router-link to="/premium-themes" class="premium-themes">{{ $t('pages.home.premium') }} <md-badge class="md-square" md-content="New" /></router-link>
       <a href="https://www.binarcode.com/estimate-project/?ref=vuematarial.io" target="_blank">{{ $t('pages.home.custom') }}</a>
 
     </div>
@@ -133,10 +133,8 @@
       responsiveLinks(){
         if (window.innerWidth < 601) {
           this.responsive = true;
-          console.log('mai mic ');
         } else {
           this.responsive = false;
-          console.log('mai mare ');
         }
       }
     }
@@ -145,6 +143,7 @@
 
 <style lang="scss" scoped>
   @import "~vue-material/theme/engine";
+  @import "~vue-material/components/MdLayout/mixins";
 
   .main-nav-content {
     a {
@@ -165,5 +164,19 @@
   .main-nav-level {
     margin-bottom: 16px;
     margin-left: 20px;
+  }
+
+  .premium-themes{
+    display: flex !important;
+    position: relative;
+  }
+  .md-badge{
+    background: green;
+    right: -15px;
+    top: 5px;
+    @include md-layout-xsmall {
+      left: 55%;
+      right: unset;
+    }
   }
 </style>

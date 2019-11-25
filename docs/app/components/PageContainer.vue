@@ -119,7 +119,15 @@
       >>>.code-fund{
         float: none;
         margin: 0;
-
+        display: flex;
+        #cf{
+          width: 300px !important;
+          img{
+            float: left;
+            margin-right: 10px;
+            border-radius: 2px;
+          }
+        }
       }
     }
   }
