@@ -251,10 +251,10 @@
 
         return this.$nextTick()
       }).then(() => {
-        this.setActiveButtonEl()
-        this.calculateTabPos()
-
         window.setTimeout(() => {
+          this.setActiveButtonEl();
+          this.activeTabIndex = [].indexOf.call(this.activeButtonEl.parentNode.childNodes, this.activeButtonEl);
+          this.callResizeFunctions();
           this.noTransition = false
           this.setupObservers()
         }, 100)
