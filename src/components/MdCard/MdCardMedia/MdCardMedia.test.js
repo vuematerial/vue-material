@@ -21,10 +21,10 @@ test('should render the card media with medium size', async () => {
     </md-card>
   `
   const wrapper = await mountTemplate(MdCard, template, cardComponents)
-  const media = wrapper.find(MdCardMedia)[0]
+  const media = wrapper.find(MdCardMedia)
 
-  expect(media.hasClass('md-card-media')).toBe(true)
-  expect(media.hasClass('md-medium')).toBe(true)
+  expect(media.classes('md-card-media')).toBe(true)
+  expect(media.classes('md-medium')).toBe(true)
 })
 
 test('should render the card media with big size', async () => {
@@ -35,73 +35,73 @@ test('should render the card media with big size', async () => {
     </md-card>
   `
   const wrapper = await mountTemplate(MdCard, template, cardComponents)
-  const media = wrapper.find(MdCardMedia)[0]
+  const media = wrapper.find(MdCardMedia)
 
-  expect(media.hasClass('md-card-media')).toBe(true)
-  expect(media.hasClass('md-big')).toBe(true)
+  expect(media.classes('md-card-media')).toBe(true)
+  expect(media.classes('md-big')).toBe(true)
 })
 
 test('should render the card media with correct ratio', async () => {
   const template = '<md-card-media md-ratio="16:9"></md-card-media>'
   const wrapper = await mountTemplate(MdCardMedia, template, cardComponents)
 
-  expect(wrapper.hasClass('md-ratio-16-9')).toBe(true)
+  expect(wrapper.classes('md-ratio-16-9')).toBe(true)
 })
 
 test('should render the card media with correct ratio', async () => {
   const template = '<md-card-media md-ratio="16-9"></md-card-media>'
   const wrapper = await mountTemplate(MdCardMedia, template, cardComponents)
 
-  expect(wrapper.hasClass('md-ratio-16-9')).toBe(true)
+  expect(wrapper.classes('md-ratio-16-9')).toBe(true)
 })
 
 test('should render the card media with correct ratio', async () => {
   const template = '<md-card-media md-ratio="16/9"></md-card-media>'
   const wrapper = await mountTemplate(MdCardMedia, template, cardComponents)
 
-  expect(wrapper.hasClass('md-ratio-16-9')).toBe(true)
+  expect(wrapper.classes('md-ratio-16-9')).toBe(true)
 })
 
 test('should render the card media with correct ratio', async () => {
   const template = '<md-card-media md-ratio="4:3"></md-card-media>'
   const wrapper = await mountTemplate(MdCardMedia, template, cardComponents)
 
-  expect(wrapper.hasClass('md-ratio-4-3')).toBe(true)
+  expect(wrapper.classes('md-ratio-4-3')).toBe(true)
 })
 
 test('should render the card media with correct ratio', async () => {
   const template = '<md-card-media md-ratio="4-3"></md-card-media>'
   const wrapper = await mountTemplate(MdCardMedia, template, cardComponents)
 
-  expect(wrapper.hasClass('md-ratio-4-3')).toBe(true)
+  expect(wrapper.classes('md-ratio-4-3')).toBe(true)
 })
 
 test('should render the card media with correct ratio', async () => {
   const template = '<md-card-media md-ratio="4/3"></md-card-media>'
   const wrapper = await mountTemplate(MdCardMedia, template, cardComponents)
 
-  expect(wrapper.hasClass('md-ratio-4-3')).toBe(true)
+  expect(wrapper.classes('md-ratio-4-3')).toBe(true)
 })
 
 test('should render the card media with correct ratio', async () => {
   const template = '<md-card-media md-ratio="1:1"></md-card-media>'
   const wrapper = await mountTemplate(MdCardMedia, template, cardComponents)
 
-  expect(wrapper.hasClass('md-ratio-1-1')).toBe(true)
+  expect(wrapper.classes('md-ratio-1-1')).toBe(true)
 })
 
 test('should render the card media with correct ratio', async () => {
   const template = '<md-card-media md-ratio="1-1"></md-card-media>'
   const wrapper = await mountTemplate(MdCardMedia, template, cardComponents)
 
-  expect(wrapper.hasClass('md-ratio-1-1')).toBe(true)
+  expect(wrapper.classes('md-ratio-1-1')).toBe(true)
 })
 
 test('should render the card media with correct ratio', async () => {
   const template = '<md-card-media md-ratio="1/1"></md-card-media>'
   const wrapper = await mountTemplate(MdCardMedia, template, cardComponents)
 
-  expect(wrapper.hasClass('md-ratio-1-1')).toBe(true)
+  expect(wrapper.classes('md-ratio-1-1')).toBe(true)
 })
 
 test('should fail with an unsupported ratio value', async () => {
@@ -127,9 +127,9 @@ test('should render the card media actions', async () => {
     </md-card>
   `
   const wrapper = await mountTemplate(MdCard, template, cardComponents)
-  const actions = wrapper.find(MdCardMediaActions)[0]
+  const actions = wrapper.find(MdCardMediaActions)
 
-  expect(actions.hasClass('md-card-media-actions')).toBe(true)
+  expect(actions.classes('md-card-media-actions')).toBe(true)
 })
 
 test('should render the card media cover', async () => {
@@ -139,10 +139,10 @@ test('should render the card media cover', async () => {
     </md-card>
   `
   const wrapper = await mountTemplate(MdCard, template, cardComponents)
-  const cover = wrapper.find(MdCardMediaCover)[0]
-  const backdrop = wrapper.find('.md-card-backdrop')[0]
+  const cover = wrapper.find(MdCardMediaCover)
+  const backdrop = wrapper.find('.md-card-backdrop')
 
-  expect(cover.hasClass('md-card-media-cover')).toBe(true)
+  expect(cover.classes('md-card-media-cover')).toBe(true)
 })
 
 test('should render the card media cover with text scrim', async () => {
@@ -152,12 +152,12 @@ test('should render the card media cover with text scrim', async () => {
     </md-card>
   `
   const wrapper = await mountTemplate(MdCard, template, cardComponents)
-  const cover = wrapper.find(MdCardMediaCover)[0]
-  const backdrop = wrapper.find('.md-card-backdrop')[0]
+  const cover = wrapper.find(MdCardMediaCover)
+  const backdrop = wrapper.find('.md-card-backdrop')
 
-  expect(cover.hasClass('md-card-media-cover')).toBe(true)
-  expect(cover.hasClass('md-text-scrim')).toBe(true)
-  expect(Boolean(backdrop)).toBe(true)
+  expect(cover.classes('md-card-media-cover')).toBe(true)
+  expect(cover.classes('md-text-scrim')).toBe(true)
+  expect(backdrop.exists()).toBe(true)
 })
 
 test('should render the card media cover with solid background', async () => {
@@ -167,10 +167,10 @@ test('should render the card media cover with solid background', async () => {
     </md-card>
   `
   const wrapper = await mountTemplate(MdCard, template, cardComponents)
-  const cover = wrapper.find(MdCardMediaCover)[0]
-  const backdrop = wrapper.find('.md-card-backdrop')[0]
-
-  expect(cover.hasClass('md-card-media-cover')).toBe(true)
-  expect(cover.hasClass('md-solid')).toBe(true)
-  expect(Boolean(backdrop)).toBe(false)
+  const cover = wrapper.find(MdCardMediaCover)
+  const backdrop = wrapper.find('.md-card-backdrop')
+  
+  expect(cover.classes('md-card-media-cover')).toBe(true)
+  expect(cover.classes('md-solid')).toBe(true)
+  expect(backdrop.exists()).toBe(false)
 })
