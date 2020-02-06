@@ -5,5 +5,5 @@ test('should render the datepicker', async () => {
   const template = '<md-datepicker>Lorem ipsum</md-datepicker>'
   const wrapper = await mountTemplate(MdDatepicker, template)
 
-  expect(wrapper.hasClass('md-datepicker')).toBe(true)
+  expect(wrapper.classes('md-datepicker')).toBe(true)
 })
