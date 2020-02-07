@@ -1,6 +1,6 @@
 import mockRequest from 'test/utils/mockRequest'
 import mockConsole from 'test/utils/mockConsole'
-import { mount } from 'avoriaz'
+import { mount } from '@vue/test-utils'
 import MdSvgLoader from './MdSvgLoader.vue'
 
 test('should gives an error when no mdSrc is present', async () => {
@@ -75,12 +75,12 @@ test('should change the current SVG to another', async () => {
     }
   })
 
-  wrapper.setProps({
+  await wrapper.setProps({
     mdSrc: svgUrl2
   })
 
   await mock2()
-
+  
   expect(wrapper.contains('svg')).toBe(true)
   expect(wrapper.vm.$props[prop]).toBe(svgUrl2)
   expect(wrapper.vm.$el.innerHTML).toBe(svgContent2)
