@@ -1,4 +1,4 @@
-import { mount } from 'avoriaz'
+import { mount, createLocalVue } from '@vue/test-utils'
 import mountTemplate from 'test/utils/mountTemplate'
 import MdPortal from './MdPortal'
 
@@ -8,6 +8,7 @@ test('should render the portal element inside body', async () => {
   const portalEl = wrapper.vm.$el
 
   expect(document.body.childNodes).toContain(portalEl)
+  wrapper.destroy()
 })
 
 test('should remove the portal element from destination before destroy', async () => {
@@ -32,13 +33,16 @@ test('should render on a custom target', async () => {
     </div>
   `
   await mountTemplate(MdPortal, targetTemplate, {
-    attachToDocument: true
+    attachToDocument: true,
   })
+ 
+  // debugger
+
   const targetEl = document.querySelector('.target')
   const portalWrapper = mount(MdPortal, {
     propsData: {
-      mdTarget: targetEl
-    }
+      mdTarget: targetEl,
+    },
   })
   const portalEl = portalWrapper.vm.$el
 
@@ -58,7 +62,7 @@ test('should re render after target change', async () => {
   `
   await mountTemplate(MdPortal, targetTemplate)
   const portalWrapper = mount(MdPortal, {
-    attachToDocument: true
+    attachToDocument: true,
   })
   const targetEl = document.querySelector('.target')
   const portalEl = portalWrapper.vm.$el
@@ -66,7 +70,7 @@ test('should re render after target change', async () => {
   expect(document.body.childNodes).toContain(portalEl)
 
   portalWrapper.setProps({
-    mdTarget: targetEl
+    mdTarget: targetEl,
   })
   portalWrapper.vm.$nextTick()
   expect(document.body.childNodes).not.toContain(portalEl)
