@@ -5,7 +5,7 @@ test('should render the overlay', async () => {
   const template = '<md-overlay md-active></md-overlay>'
   const wrapper = await mountTemplate(MdOverlay, template)
 
-  expect(wrapper.hasClass('md-overlay')).toBe(true)
+  expect(wrapper.classes('md-overlay')).toBe(true)
 })
 
 test('should render the overlay inside body tag', async () => {
@@ -17,7 +17,7 @@ test('should render the overlay inside body tag', async () => {
     </div>
   `
   const wrapper = await mountTemplate(MdOverlay, template)
-  const overlay = wrapper.find(MdOverlay)[0]
+  const overlay = wrapper.find(MdOverlay)
 
   expect(overlay.vm.$el.parentNode.tagName.toLowerCase()).toBe('body')
 })
@@ -31,7 +31,7 @@ test('should render the overlay inside parent element', async () => {
     </div>
   `
   const wrapper = await mountTemplate(MdOverlay, template)
-  const overlay = wrapper.find(MdOverlay)[0]
+  const overlay = wrapper.find(MdOverlay)
 
   expect(overlay.vm.$el.parentNode.getAttribute('class')).toBe('test-parent')
 })

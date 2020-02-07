@@ -1,13 +1,13 @@
 import mountTemplate from 'test/utils/mountTemplate'
 import mockRequest from 'test/utils/mockRequest'
-import { mount } from 'avoriaz'
+import { mount } from '@vue/test-utils'
 import MdIcon from './MdIcon.vue'
 
 test('should accept icon as ligature', async () => {
   const template = '<md-icon>menu</md-icon>'
   const wrapper = await mountTemplate(MdIcon, template)
 
-  expect(wrapper.hasClass('md-icon-font')).toBe(true)
+  expect(wrapper.classes('md-icon-font')).toBe(true)
   expect(wrapper.text()).toBe('menu')
 })
 
@@ -34,6 +34,6 @@ test('should render a external svg icon', async () => {
   await mock()
 
   expect(wrapper.vm.$props[prop]).toBe(svgUrl)
-  expect(wrapper.hasClass('md-icon-image')).toBe(true)
+  expect(wrapper.classes('md-icon-image')).toBe(true)
   expect(wrapper.contains('svg')).toBe(true)
 })
