@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { mount } from 'avoriaz'
+import { mount } from '@vue/test-utils'
 import mountTemplate from 'test/utils/mountTemplate'
 import MdField from './MdField.vue'
 import MdInput from './MdInput/MdInput.vue'
@@ -17,7 +17,7 @@ test('should render the field', async () => {
   const template = '<md-field>Lorem ipsum</md-field>'
   const wrapper = await mountTemplate(MdField, template)
 
-  expect(wrapper.hasClass('md-field')).toBe(true)
+  expect(wrapper.classes('md-field')).toBe(true)
   expect(wrapper.text().trim()).toBe('Lorem ipsum')
 })
 
@@ -25,7 +25,7 @@ test('should render the theme class', async () => {
   const template = '<md-field md-theme="alt">Lorem ipsum</md-field>'
   const wrapper = await mountTemplate(MdField, template)
 
-  expect(wrapper.hasClass('md-theme-alt')).toBe(true)
+  expect(wrapper.classes('md-theme-alt')).toBe(true)
 })
 
 /* test('should create a fallback id if not given', async () => {
@@ -46,17 +46,17 @@ test('should render the theme class', async () => {
   const inputId = input.vm.$props.id
   const textareaId = textarea.vm.$props.id
 
-  expect(input.hasAttribute('id')).toBe(true)
-  expect(input.getAttribute('id')).toBe(inputId)
+  expect(input.attributes()['id']).toBe(true)
+  expect(input.attributes().id).toBe(inputId)
 
-  expect(inputLabel.hasAttribute('for')).toBe(true)
-  expect(inputLabel.getAttribute('for')).toBe(inputId)
+  expect(inputLabel.attributes()['for']).toBe(true)
+  expect(inputLabel.attributes().for).toBe(inputId)
 
-  expect(textarea.hasAttribute('id')).toBe(true)
-  expect(textarea.getAttribute('id')).toBe(textareaId)
+  expect(textarea.attributes()['id']).toBe(true)
+  expect(textarea.attributes().id).toBe(textareaId)
 
-  expect(textareaLabel.hasAttribute('for')).toBe(true)
-  expect(textareaLabel.getAttribute('for')).toBe(textareaId)
+  expect(textareaLabel.attributes()['for']).toBe(true)
+  expect(textareaLabel.attributes().for).toBe(textareaId)
 }) */
 
 /* test('should bind id, name, disabled and required to the inner input', async () => {
@@ -73,11 +73,11 @@ test('should render the theme class', async () => {
   })
   const wrapper = await mountStringSlot(MdRadio, 'Label', {
   })
-  const input = wrapper.find('input')[0]
+  const input = wrapper.find('input')
 
-  expect(input.hasAttribute('id', 'test')).toBe(true)
-  expect(input.hasAttribute('name', 'test')).toBe(true)
-  expect(input.hasAttribute('disabled', 'disabled')).toBe(true)
-  expect(input.hasAttribute('required', 'required')).toBe(true)
+  expect(input.attributes()['id', 'test']).toBe(true)
+  expect(input.attributes()['name', 'test']).toBe(true)
+  expect(input.attributes()['disabled', 'disabled']).toBe(true)
+  expect(input.attributes()['required', 'required']).toBe(true)
 })
  */

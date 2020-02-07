@@ -87,7 +87,7 @@ export default {
         const label = this.$el.parentNode.querySelector('label')
 
         if (label) {
-          const forAttribute = label.getAttribute('for')
+          const forAttribute = label.attributes().for
 
           if (!forAttribute || forAttribute.indexOf('md-') >= 0) {
             label.setAttribute('for', this.id)

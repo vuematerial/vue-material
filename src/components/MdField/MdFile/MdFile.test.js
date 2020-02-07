@@ -9,6 +9,6 @@ test('should render the field', async () => {
   const template = '<md-field>Lorem ipsum</md-field>'
   const wrapper = await mountTemplate(MdField, template)
 
-  expect(wrapper.hasClass('md-field')).toBe(true)
+  expect(wrapper.classes('md-field')).toBe(true)
   expect(wrapper.text().trim()).toBe('Lorem ipsum')
 })
