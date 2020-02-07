@@ -45,7 +45,7 @@ test('should render the ${singleName}', async () => {
   const template = '<${compName}>Lorem ipsum</${compName}>'
   const wrapper = await mountTemplate(${name}, template)
 
-  expect(wrapper.hasClass('${compName}')).toBe(true)
+  expect(wrapper.classes('${compName}')).toBe(true)
   expect(wrapper.text()).toBe('Lorem ipsum')
 })
 
@@ -53,7 +53,7 @@ test('should render the theme class', async () => {
   const template = '<${compName} md-theme="alt">Lorem ipsum</${compName}>'
   const wrapper = await mountTemplate(${name}, template)
 
-  expect(wrapper.hasClass('md-theme-alt')).toBe(true)
+  expect(wrapper.classes('md-theme-alt')).toBe(true)
 })
 `.trim()
 }
