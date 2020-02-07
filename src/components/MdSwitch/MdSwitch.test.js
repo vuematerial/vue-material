@@ -6,41 +6,37 @@ test('should render the switch', async () => {
   const template = '<md-switch></md-switch>'
   const wrapper = await mountTemplate(MdSwitch, template)
 
-  expect(wrapper.hasClass('md-switch')).toBe(true)
+  expect(wrapper.classes('md-switch')).toBe(true)
 })
 
 test('should render the theme class', async () => {
   const template = '<md-switch md-theme="alt"></md-switch>'
   const wrapper = await mountTemplate(MdSwitch, template)
 
-  expect(wrapper.hasClass('md-theme-alt')).toBe(true)
+  expect(wrapper.classes('md-theme-alt')).toBe(true)
 })
 
 test('should add id and for on input and label', async () => {
   const myId = 'my-id'
   const template = `<md-switch id="${myId}">Label</md-switch>`
   const wrapper = await mountTemplate(MdSwitch, template)
-  const input = wrapper.find('input')[0]
-  const label = wrapper.find('label')[0]
+  const input = wrapper.find('input')
+  const label = wrapper.find('label')
 
-  expect(input.hasAttribute('id')).toBe(true)
-  expect(input.getAttribute('id')).toBe(myId)
+  expect(input.attributes().id).toBe(myId)
 
-  expect(label.hasAttribute('for')).toBe(true)
-  expect(label.getAttribute('for')).toBe(myId)
+  expect(label.attributes().for).toBe(myId)
 })
 
 test('should create a fallback id if not given', async () => {
   const wrapper = await mountStringSlot(MdSwitch, 'Label')
   const createdId = wrapper.vm.$props.id
-  const input = wrapper.find('input')[0]
-  const label = wrapper.find('label')[0]
+  const input = wrapper.find('input')
+  const label = wrapper.find('label')
 
-  expect(input.hasAttribute('id')).toBe(true)
-  expect(input.getAttribute('id')).toBe(createdId)
+  expect(input.attributes().id).toBe(createdId)
 
-  expect(label.hasAttribute('for')).toBe(true)
-  expect(label.getAttribute('for')).toBe(createdId)
+  expect(label.attributes().for).toBe(createdId)
 })
 
 test('should create disabled and required classes', async () => {
@@ -51,8 +47,8 @@ test('should create disabled and required classes', async () => {
     }
   })
 
-  expect(wrapper.hasClass('md-disabled')).toBe(true)
-  expect(wrapper.hasClass('md-required')).toBe(true)
+  expect(wrapper.classes('md-disabled')).toBe(true)
+  expect(wrapper.classes('md-required')).toBe(true)
 })
 
 test('should bind id, name, disabled and required to the inner input', async () => {
@@ -64,19 +60,15 @@ test('should bind id, name, disabled and required to the inner input', async () 
       required: true
     }
   })
-  const input = wrapper.find('input')[0]
+  const input = wrapper.find('input')
 
-  expect(input.hasAttribute('id')).toBe(true)
-  expect(input.getAttribute('id')).toBe('test')
+  expect(input.attributes().id).toBe('test')
 
-  expect(input.hasAttribute('name')).toBe(true)
-  expect(input.getAttribute('name')).toBe('test')
+  expect(input.attributes().name).toBe('test')
 
-  expect(input.hasAttribute('disabled')).toBe(true)
-  expect(input.getAttribute('disabled')).toBe('disabled')
+  expect(input.attributes().disabled).toBe('disabled')
 
-  expect(input.hasAttribute('required')).toBe(true)
-  expect(input.getAttribute('required')).toBe('required')
+  expect(input.attributes().required).toBe('required')
 })
 
 test('should add and remove a value from model when model is an array by clicking on container', async () => {
@@ -86,20 +78,27 @@ test('should add and remove a value from model when model is an array by clickin
     </div>
   `
   const wrapper = await mountTemplate(MdSwitch, template, {
-    data: {
-      model: ['1']
+    data() {
+      return {
+        model: ['1']
+      }
     }
   })
-  const toggle = wrapper.find(MdSwitch)[0]
-  const container = wrapper.find('.md-switch-container')[0]
-
-  container.trigger('click')
-  expect(toggle.vm.isSelected).toBe(true)
-  expect(wrapper.data().model).toEqual(['1', '2'])
-
-  container.trigger('click')
+  const toggle = wrapper.find(MdSwitch)
+  const container = wrapper.find('.md-switch-container')
   expect(toggle.vm.isSelected).toBe(false)
-  expect(wrapper.data().model).toEqual(['1'])
+  expect(wrapper.vm.model).toEqual(['1'])
+
+  container.trigger('click')
+  await wrapper.vm.$nextTick() 
+  expect(wrapper.vm.model).toEqual(['1', '2'])
+  expect(toggle.vm.isSelected).toBe(true)
+  expect(wrapper.vm.model).toEqual(['1', '2'])
+
+  container.trigger('click')
+  await wrapper.vm.$nextTick()
+  expect(toggle.vm.isSelected).toBe(false)
+  expect(wrapper.vm.model).toEqual(['1'])
 })
 
 test('should add and remove a value from model when model is an array by clicking on label', async () => {
@@ -109,17 +108,19 @@ test('should add and remove a value from model when model is an array by clickin
     </div>
   `
   const wrapper = await mountTemplate(MdSwitch, template, {
-    data: {
-      model: []
+    data() {
+      return {
+        model: []
+      }
     }
   })
-  const container = wrapper.find('.md-switch-container')[0]
+  const container = wrapper.find('.md-switch-container')
 
   container.trigger('click')
-  expect(wrapper.data().model).toEqual(['1'])
+  expect(wrapper.vm.model).toEqual(['1'])
 
   container.trigger('click')
-  expect(wrapper.data().model).toEqual([])
+  expect(wrapper.vm.model).toEqual([])
 })
 
 test('should toggle a checked class when checked', async () => {
@@ -129,18 +130,20 @@ test('should toggle a checked class when checked', async () => {
     </div>
   `
   const wrapper = await mountTemplate(MdSwitch, template, {
-    data: {
-      model: ['1']
+    data() {
+      return {
+        model: ['1']
+      }
     }
   })
-  const toggle = wrapper.find(MdSwitch)[0]
-  const container = wrapper.find('.md-switch-container')[0]
+  const toggle = wrapper.find(MdSwitch)
+  const container = wrapper.find('.md-switch-container')
 
-  expect(toggle.hasClass('md-checked')).toBe(true)
+  expect(toggle.classes('md-checked')).toBe(true)
 
   container.trigger('click')
   await toggle.vm.$nextTick()
-  expect(toggle.hasClass('md-checked')).toBe(false)
+  expect(toggle.classes('md-checked')).toBe(false)
 })
 
 test('should bind true / false when no value attribute is given', async () => {
@@ -150,22 +153,26 @@ test('should bind true / false when no value attribute is given', async () => {
     </div>
   `
   const wrapper = await mountTemplate(MdSwitch, template, {
-    data: {
-      model: null
+    data() {
+      return {
+        model: null
+      }
     }
   })
-  const toggle = wrapper.find(MdSwitch)[0]
-  const container = wrapper.find('.md-switch-container')[0]
+  const toggle = wrapper.find(MdSwitch)
+  const container = wrapper.find('.md-switch-container')
 
   expect(toggle.vm.isSelected).toBe(false)
 
   container.trigger('click')
+  await wrapper.vm.$nextTick()
   expect(toggle.vm.isSelected).toBe(true)
-  expect(wrapper.data().model).toBe(true)
+  expect(wrapper.vm.model).toBe(true)
 
   container.trigger('click')
+  await wrapper.vm.$nextTick()
   expect(toggle.vm.isSelected).toBe(false)
-  expect(wrapper.data().model).toBe(false)
+  expect(wrapper.vm.model).toBe(false)
 })
 
 test('true-value / false-value should works', async () => {
@@ -175,22 +182,26 @@ test('true-value / false-value should works', async () => {
     </div>
   `
   const wrapper = await mountTemplate(MdSwitch, template, {
-    data: {
-      model: null
+    data() {
+      return {
+        model: null
+      }
     }
   })
-  const toggle = wrapper.find(MdSwitch)[0]
-  const container = wrapper.find('.md-switch-container')[0]
+  const toggle = wrapper.find(MdSwitch)
+  const container = wrapper.find('.md-switch-container')
 
   expect(toggle.vm.isSelected).toBe(false)
 
   container.trigger('click')
+  await wrapper.vm.$nextTick()
   expect(toggle.vm.isSelected).toBe(true)
-  expect(wrapper.data().model).toBe('true')
+  expect(wrapper.vm.model).toBe('true')
 
   container.trigger('click')
+  await wrapper.vm.$nextTick()
   expect(toggle.vm.isSelected).toBe(false)
-  expect(wrapper.data().model).toBe('false')
+  expect(wrapper.vm.model).toBe('false')
 })
 
 test('should toggle string values on model', async () => {
@@ -200,22 +211,26 @@ test('should toggle string values on model', async () => {
     </div>
   `
   const wrapper = await mountTemplate(MdSwitch, template, {
-    data: {
-      model: '1'
+    data() {
+      return {
+        model: '1'
+      }
     }
   })
-  const toggle = wrapper.find(MdSwitch)[0]
-  const container = wrapper.find('.md-switch-container')[0]
+  const toggle = wrapper.find(MdSwitch)
+  const container = wrapper.find('.md-switch-container')
 
   expect(toggle.vm.isSelected).toBe(true)
 
   container.trigger('click')
+  await wrapper.vm.$nextTick()
   expect(toggle.vm.isSelected).toBe(false)
-  expect(wrapper.data().model).toBe(null)
+  expect(wrapper.vm.model).toBe(null)
 
   container.trigger('click')
+  await wrapper.vm.$nextTick()
   expect(toggle.vm.isSelected).toBe(true)
-  expect(wrapper.data().model).toBe('1')
+  expect(wrapper.vm.model).toBe('1')
 })
 
 test('should toggle boolean model when switch do not have a value', async () => {
@@ -225,24 +240,28 @@ test('should toggle boolean model when switch do not have a value', async () => 
     </div>
   `
   const wrapper = await mountTemplate(MdSwitch, template, {
-    data: {
-      model: false
+    data() {
+      return {
+        model: false
+      }
     }
   })
-  const toggle = wrapper.find(MdSwitch)[0]
-  const container = wrapper.find('.md-switch-container')[0]
+  const toggle = wrapper.find(MdSwitch)
+  const container = wrapper.find('.md-switch-container')
 
   await toggle.vm.$nextTick()
 
   expect(toggle.vm.isSelected).toBe(false)
 
   container.trigger('click')
+  await wrapper.vm.$nextTick()
   expect(toggle.vm.isSelected).toBe(true)
-  expect(wrapper.data().model).toBe(true)
+  expect(wrapper.vm.model).toBe(true)
 
   container.trigger('click')
+  await wrapper.vm.$nextTick()
   expect(toggle.vm.isSelected).toBe(false)
-  expect(wrapper.data().model).toBe(false)
+  expect(wrapper.vm.model).toBe(false)
 })
 
 test('should toggle null / value while checkbox has been set value', async () => {
@@ -252,22 +271,25 @@ test('should toggle null / value while checkbox has been set value', async () =>
     </div>
   `
   const wrapper = await mountTemplate(MdSwitch, template, {
-    data: {
-      model: false
+    data() {
+      return {
+        model: false
+      }
     }
   })
-  const toggle = wrapper.find(MdSwitch)[0]
-  const container = wrapper.find('.md-switch-container')[0]
+  const toggle = wrapper.find(MdSwitch)
+  const container = wrapper.find('.md-switch-container')
 
   await toggle.vm.$nextTick()
 
   expect(toggle.vm.isSelected).toBe(false)
 
   container.trigger('click')
+  await toggle.vm.$nextTick()
   expect(toggle.vm.isSelected).toBe(true)
-  expect(wrapper.data().model).toBe('val')
+  expect(wrapper.vm.model).toBe('val')
 
-  container.trigger('click')
+  await container.trigger('click')
   expect(toggle.vm.isSelected).toBe(false)
-  expect(wrapper.data().model).toBe(null)
+  expect(wrapper.vm.model).toBe(null)
 })
