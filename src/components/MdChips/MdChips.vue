@@ -1,6 +1,6 @@
 <template>
   <md-field class="md-chips" :class="[$mdActiveTheme, chipsClasses]">
-    <slot/>
+    <slot />
 
     <md-chip
       v-for="(chip, key) in value"
@@ -25,8 +25,7 @@
       @input="handleInput"
       @keydown.enter="insertChip"
       @keydown.8="handleBackRemove"
-      @focusout="handleFocusOut"
-    >
+      @focusout="handleFocusOut">
     </md-input>
   </md-field>
 </template>
@@ -74,17 +73,17 @@
       duplicatedChip: null
     }),
     computed: {
-      chipsClasses() {
+      chipsClasses () {
         return {
           'md-has-value': this.value && this.value.length
         }
       },
 
-      modelRespectLimit() {
+      modelRespectLimit () {
         return !this.mdLimit || this.value.length < this.mdLimit
       },
 
-      formattedInputValue() {
+      formattedInputValue () {
         if (!this.mdFormat) {
           return this.inputValue
         }
@@ -92,7 +91,7 @@
       }
     },
     methods: {
-      insertChip({target}) {
+      insertChip ({ target }) {
         let inputValue = this.formattedInputValue
 
         if (!inputValue || !this.modelRespectLimit) {
@@ -113,7 +112,7 @@
         this.$emit('md-insert', inputValue)
         this.inputValue = ''
       },
-      removeChip(chip) {
+      removeChip (chip) {
         const index = this.value.indexOf(chip)
 
         this.value.splice(index, 1)
@@ -121,19 +120,19 @@
         this.$emit('md-delete', chip, index)
         this.$nextTick(() => this.$refs.input.$el.focus())
       },
-      handleBackRemove() {
+      handleBackRemove () {
         if (!this.inputValue) {
           this.removeChip(this.value[this.value.length - 1])
         }
       },
-      handleInput() {
+      handleInput () {
         if (this.mdCheckDuplicated) {
           this.checkDuplicated()
         } else {
           this.duplicatedChip = null
         }
       },
-      handleFocusOut({target}) {
+      handleFocusOut({ target }) {
         if (this.mdAutoInsert) {
           this.insertChip(target)
         }
@@ -152,7 +151,7 @@
       }
     },
     watch: {
-      value() {
+      value () {
         this.checkDuplicated()
       }
     }
@@ -163,25 +162,25 @@
   @import "~components/MdAnimation/variables";
 
   .md-chips.md-field {
-    padding-top : 12px;
-    flex-wrap   : wrap;
+    padding-top: 12px;
+    flex-wrap: wrap;
 
     &.md-has-value {
       label {
-        top : -6px;
-        }
-      }
-
-    .md-chip {
-      margin-bottom : 4px;
-
-      &:last-of-type {
-        margin-right : 8px;
-        }
-      }
-
-    .md-input {
-      min-width : 128px;
+        top: -6px;
       }
     }
+
+    .md-chip {
+      margin-bottom: 4px;
+
+      &:last-of-type {
+        margin-right: 8px;
+      }
+    }
+
+    .md-input {
+      min-width: 128px;
+    }
+  }
 </style>
