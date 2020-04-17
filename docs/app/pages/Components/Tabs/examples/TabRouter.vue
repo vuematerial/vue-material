@@ -25,9 +25,3 @@
     name: 'TabRouter'
   }
 </script>
-
-<style lang="scss" scoped>
-  .md-tabs /deep/ .md-tabs-navigation .md-button.router-link-active {
-    text-shadow: 0 0 5px;
-  }
-</style>

@@ -9,11 +9,13 @@ export default {
     featured: 'Full-featured',
     featuredContent: 'Complete with dynamic themes, on-demand components and all with an easy-to-use API.',
     ecosystem: 'Ecosystem',
+    premium: 'Premium Themes',
+    custom: 'Custom Development',
     viewProject: 'View project',
     sponsors: 'Sponsors',
     backers: 'Backers',
     sponsorsDescription: 'Vue Material does not run under the umbrella of any company or anything like that. It is an independent project created by {0} in his spare time, which has become one of the most used UI Libraries for Vue.js. The development is active and we are working hard to release great things for you.',
-    beAPatron: 'If you think that this project helped you or your company in any way, you can consider becoming a backer/sponsor on Patreon'
+    beACollective: 'If you think that this project helped you or your company in any way, you can consider becoming a backer/sponsor on Open Collective'
   },
   about: {
     title: 'About'

@@ -2,8 +2,6 @@
   <transition name="splash-container">
     <div class="splash-container main-container" :class="{ centered }">
       <slot />
-
-      <ad-manager />
     </div>
   </transition>
 </template>
@@ -11,13 +9,9 @@
 <script>
   import * as types from 'store/mutation-types'
   import { mapActions, mapMutations, mapState } from 'vuex'
-  import AdManager from './AdManager'
 
   export default {
     name: 'SplashContainer',
-    components: {
-      AdManager
-    },
     props: {
       title: String,
       centered: Boolean

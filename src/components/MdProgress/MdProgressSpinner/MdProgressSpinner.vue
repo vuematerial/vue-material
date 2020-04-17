@@ -96,8 +96,14 @@
       }
     },
     watch: {
+      mdValue () {
+        this.attachCircleStyle()
+      },
       mdDiameter () {
         this.attachSvgStyle()
+        this.attachCircleStyle()
+      },
+      mdStroke () {
         this.attachCircleStyle()
       }
     },
@@ -169,7 +175,7 @@
       transform: rotate(4680deg)
     }
   }
-  
+
   @keyframes md-progress-spinner-stroke-rotate {
     0% {
       stroke-dashoffset: var(--md-progress-spinner-start-value);
@@ -260,13 +266,17 @@
       animation: md-progress-spinner-rotate 2s linear infinite;
 
       &.md-progress-spinner-enter,
-      &.md-progress-spinner-leave-active {
-        transition-duration: .4s;
-
+      &.md-progress-spinner-leave-to {
         .md-progress-spinner-draw {
           opacity: 0;
           transform: scale(.1);
         }
+      }
+
+      &.md-progress-spinner-enter-active,
+      &.md-progress-spinner-leave-active {
+        transition-duration: .4s;
+        animation: none;
       }
 
       .md-progress-spinner-circle {
@@ -276,12 +286,19 @@
     }
 
     &.md-determinate {
-      &.md-progress-spinner-enter-active,
-      &.md-progress-spinner-leave-active {
+      &.md-progress-spinner-enter-active {
         transition-duration: 2s;
 
         .md-progress-spinner-draw {
           animation: md-progress-spinner-initial-rotate 1.98s $md-transition-stand-timing forwards;
+        }
+      }
+
+      &.md-progress-spinner-leave-active {
+        transition-duration: 2s;
+
+        .md-progress-spinner-draw {
+          animation: md-progress-spinner-initial-rotate reverse 1.98s $md-transition-stand-timing forwards;
         }
       }
 

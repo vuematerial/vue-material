@@ -10,8 +10,12 @@
     'md-app-content'
   ]
 
+  function normilizeTagName (tagName) {
+    return tagName.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase()
+  }
+
   function isValidChild (componentOptions) {
-    return componentOptions && componentTypes.includes(componentOptions.tag)
+    return componentOptions && componentTypes.includes(normilizeTagName(componentOptions.tag))
   }
 
   function isRightDrawer (propsData) {
@@ -42,7 +46,7 @@
         const componentOptions = child.componentOptions
 
         if (shouldRenderSlot(data, componentOptions)) {
-          const slotName = data.slot || componentOptions.tag
+          const slotName = data.slot || normilizeTagName(componentOptions.tag)
           child.data.slot = slotName
 
           if (slotName === 'md-app-drawer') {
@@ -79,7 +83,7 @@
 
   function getDrawers (children) {
     const drawerVnodes = children.filter(child => {
-      const tag = child.data.slot || child.componentOptions.tag
+      const tag = child.data.slot || normilizeTagName(child.componentOptions.tag)
       return tag === 'md-app-drawer'
     })
     return drawerVnodes.length ? drawerVnodes : []
