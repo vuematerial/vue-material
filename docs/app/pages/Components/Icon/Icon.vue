@@ -9,7 +9,7 @@
     </div>
 
     <div class="page-container-section">
-      <h2>Material Icon Font</h2>
+      <h2 id="material-icon">Material Icon Font</h2>
       <p>By default the <code>md-icon</code> will assume that you are using the Material Icons Font. You have to pass the name of the icon with underscore instead of spaces. For example: <code>&#x3C;md-icon&#x3E;thumb_up&#x3C;/md-icon&#x3E;</code>.</p>
 
       <code-example title="Material Icons" :component="examples['material-icons']" />
@@ -23,14 +23,14 @@
     </div>
 
     <div class="page-container-section">
-      <h2>Custom Fonts</h2>
+      <h2 id="custom-fonts">Custom Fonts</h2>
       <p>Alternatevely you can load any custom fonts to be used with <code>md-icon</code>, like <a href="http://fontawesome.io/" target="_blank">Font Awesome</a> for example. Just use the Font Awesome (or any other) classes.</p>
 
       <code-example title="Font Awesome" :component="examples['font-awesome']" />
     </div>
 
     <div class="page-container-section">
-      <h2>SVG Source</h2>
+      <h2 id="svg-source">SVG Source</h2>
       <p>When loading an icon font, you will be able to use ALL of it's icons. This may hurt the performance of your application. Instead, you can use only the icons that you really need, loading them using svg.</p>
 
       <code-example title="SVG Assets" :component="examples['svg-assets']" />

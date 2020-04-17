@@ -15,13 +15,13 @@
     </div>
 
     <div class="page-container-section">
-      <h2>Breakpoints</h2>
+      <h2 id="breakpoints">Breakpoints</h2>
       <p>Vue Material layout uses breakpoints for responsiveness:</p>
       <api-table :headings="breakpoints.props.headings" :props="breakpoints.props.props" slot="props" />
     </div>
 
     <div class="page-container-section">
-      <h2>Column Layout</h2>
+      <h2 id="columnLayout">Column Layout</h2>
 
       <p>The layout system in Vue Material is essentially based on columns and makes use of the flexbox to be flexible enough and thereby gives you the best experience with a great and easy API.</p>
       <p>What you have to do to get started with layouts is to create a <code>md-layout</code> parent element, that will hold a list of <code>md-layout-item</code>. You can set up as many columns as you want using <code>md-layout-item</code>:</p>
