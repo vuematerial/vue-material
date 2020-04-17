@@ -32,14 +32,13 @@
       <p>This project started as a side project and became the library as it is today, one of the most used UI Libraries for Vue.js!</p>
     </section>
 
-    <section class="page-container-section">
+    <!-- <section class="page-container-section">
       <h2 class="md-title">Want to pay me a coffee?</h2>
 
-      <p>I don't drink coffee, but I can easily turn this into a strong and bold IPA beer... Or a burger... Or a Redbull! If you think that this project helped you or your company in any way, you can consider become a backer/sponsor on Patreon.</p>
-      <a href="https://www.patreon.com/bePatron?u=4832202" target="_blank" class="about-patreon">
-        <img src="/assets/sponsors/patreon.png">
+      <a href="" target="_blank" class="about-collective">
+        <img src="/assets/sponsors/opencollective.png">
       </a>
-    </section>
+    </section> -->
 
     <section class="page-container-section">
       <h2 class="md-title">Want to contribute with the Project?</h2>
@@ -69,6 +68,7 @@
       <ul>
         <li><a href="https://github.com/elviskang" target="_blank">elviskang</a> for donating the npm package name!</li>
         <li><a href="https://github.com/brunocastro" target="_blank">Bruno Castro</a> for the awesome Vue Material Logo. <logo-vue-material animated /></li>
+        <li>Supported by <a href="https://www.creative-tim.com/?ref=vuematerial.io" target="_blank">Creative Tim</a></li>
       </ul>
     </section>
   </page-container>
@@ -122,7 +122,7 @@
     vertical-align: middle;
   }
 
-  .about-patreon {
+  .about-collective {
     max-width: 180px;
     display: inline-block;
   }

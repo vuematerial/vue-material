@@ -13,35 +13,35 @@
     </div>
 
     <div class="page-container-section">
-      <h2>Navigational tabs</h2>
+      <h2 id="navigational-tabs">Navigational tabs</h2>
 
       <p>Sometimes you may need a tab to be the main navigational element of your application and you can do this. Tabs integrate with Vue Router by default and will be able to use single tab just like a regular button or link, by using the <code>router-link</code> props. The tabs will sync with the page URL and will produce effects when transitioning between tabs. <strong>AUTOMATIC</strong>!</p>
       <code-example title="Seamless integration with Vue Router" :component="examples['tab-router']" />
     </div>
 
     <div class="page-container-section">
-      <h2>Tab with inner content</h2>
+      <h2 id="tab-inner">Tab with inner content</h2>
 
       <p>In the previous example, the tabs worked just like navigation buttons, without content. With that you would need to render the content by yourself. Although this is not a hard thing, because you can use Vue Router, you can pass arbitrary content to your tabs. And it can also work syncing with router:</p>
       <code-example title="Content syncing with Router" :component="examples['tab-content']" />
     </div>
 
     <div class="page-container-section">
-      <h2>Alignments</h2>
+      <h2 id="tab-alignments">Alignments</h2>
 
       <p>Tabs have four types of alignments for the navigation buttons: Left, Center, Right and Fixed. You can use them with any tabs:</p>
       <code-example title="With different hue colors" :component="examples['tab-alignments']" />
     </div>
 
     <div class="page-container-section">
-      <h2>Icons</h2>
+      <h2 id="tab-icons">Icons</h2>
 
       <p>Tabs accept icons, to make it easier for your user to assimilate the contents of a tab:</p>
       <code-example title="With svg support" :component="examples['tab-icons']" />
     </div>
 
     <div class="page-container-section">
-      <h2>Custom Template</h2>
+      <h2 id="tab-custom-template">Custom Template</h2>
 
       <p>You can use a custom template for the navigation buttons. This will be applied to all navigation buttons and allows you to make updates on your tab, like this great example of unread/new content: Simple, uh?</p>
       <code-example title="Template Slot" :component="examples['tab-custom-template']" />

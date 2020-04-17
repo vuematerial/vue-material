@@ -14,28 +14,28 @@
     </div>
 
     <div class="page-container-section">
-      <h2>Static Data</h2>
+      <h2 id="staticData">Static Data</h2>
 
       <p>If you have a small amount of data or if it's static, you can pass the options to <code>md-autocomplete</code> in a simple and intuitive way:</p>
       <code-example title="Normal and Dense" :component="examples['autocomplete-static']" />
     </div>
 
     <div class="page-container-section">
-      <h2>Trigger</h2>
+      <h2 id="trigger">Trigger</h2>
 
       <p>By default the suggestions will appear along with a focus trigger. If you want something less intrusive, you can disable this behaviour by canceling the focus event. If this, the suggestions will appear right after a keystroke:</p>
       <code-example title="Focus vs Input" :component="examples['autocomplete-trigger']" />
     </div>
 
     <div class="page-container-section">
-      <h2>Box Layout</h2>
+      <h2 id="boxLayout">Box Layout</h2>
 
       <p>Autocomplete have types two layouts: Default with floating labels and a boxed layout with inline labels. The box layout will apply a boxed layout with a small elevation, that also works really great as search bar inside a toolbar. Gorgeous:</p>
       <code-example title="Works with dense variant too!" :component="examples['autocomplete-box']" />
     </div>
 
     <div class="page-container-section">
-      <h2>Custom Template</h2>
+      <h2 id="customTemplate">Custom Template</h2>
 
       <note-block alert>This section will assume that you have knowledge of <a href="https://vuejs.org/v2/guide/components.html#Scoped-Slots" target="_blank">Vue Scoped Slots</a>. This will allow you to customize the option list.</note-block>
       <p>Autocomplete also accepts a custom template, flexible to accept any HTML element and with an 'empty state' built in. You can also highlight the search term inside the matches, to give a feedback on why that item has been in the results. Awesome:</p>
@@ -44,7 +44,7 @@
     </div>
 
     <div class="page-container-section search-algorithms">
-      <h2>Search Algorithms</h2>
+      <h2 id="search-algorithms">Search Algorithms</h2>
 
       <p>Vue Material autocomplete comes with 2 ways of search: <a href="https://en.wikipedia.org/wiki/Approximate_string_matching" target="_blank">Fuzzy search</a> and search by whole term. The fuzzy search tries to match the results by approximation, finding patterns inside the available options. This will help with accidental type errors and improve the results. If you think that this may be confusing, you can disable this. Example:</p>
       <div class="md-layout md-gutter">
@@ -85,7 +85,7 @@
     </div>
 
     <div class="page-container-section">
-      <h2>Async Options</h2>
+      <h2 id="async-options">Async Options</h2>
 
       <p>Sometimes the options are inside a database in a remote server. Instead of giving a static data, we can provide a <code>Promise</code> that will resolve with the data from a backend servide, for example. This is great to save Bandwidth on the initial load and to improve the performance. Look at this example:</p>
       <code-example title="Spinner Loading" :component="examples['autocomplete-async']" />
