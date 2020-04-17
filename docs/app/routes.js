@@ -110,6 +110,11 @@ export const routes = [
     page: 'Home/Home.vue'
   },
   {
+    path: '/premium-themes',
+    name: 'Premium Themes',
+    page: 'PremiumThemes/PremiumThemes.vue'
+  },
+  {
     path: '/getting-started',
     name: 'getting-started',
     page: 'GettingStarted.vue'

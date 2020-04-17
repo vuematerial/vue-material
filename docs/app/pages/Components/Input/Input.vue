@@ -14,7 +14,7 @@
     </div>
 
     <div class="page-container-section">
-      <h2>Text Fields</h2>
+      <h2 id="text-fields">Text Fields</h2>
 
       <p>Fields mimic the HTML5 attributes to keep the same compatibility with native inputs, but has extra options. This allows Vue Material to accordingly setup the various <code>md-field</code> with its corresponding input options.</p>
       <p>You will be able to set the same properties of a regular <code>input</code> element on <code>md-input</code>. This is also valid for <code>textarea</code> and <code>select</code>. Take a look:</p>
@@ -22,35 +22,35 @@
     </div>
 
     <div class="page-container-section">
-      <h2>Errors and Messages</h2>
+      <h2 id="errors-messages">Errors and Messages</h2>
 
       <p>Vue Material has validation states to show error messages. You can use it along with other 3rd party Vue validation libraries, like Vuelidate or Vee-Validate:</p>
       <code-example title="Validation" :component="examples['errors-messages']" />
     </div>
 
     <div class="page-container-section">
-      <h2>Character count</h2>
+      <h2 id="character-count">Character count</h2>
 
       <p>You can use character counters where you need to limit the user input, like on Twitter's 280 character tweet:</p>
       <code-example title="Counter" :component="examples['counters']" />
     </div>
 
     <div class="page-container-section">
-      <h2>Icons</h2>
+      <h2 id="icons">Icons</h2>
 
       <p>Sometimes we may want to differentiate our inputs based on it content value:</p>
       <code-example title="Outside and inline icons" :component="examples['field-icons']" />
     </div>
 
     <div class="page-container-section">
-      <h2>Inline Actions</h2>
+      <h2 id="inline-actions">Inline Actions</h2>
 
       <p>Fields can have a clearable feature to make it easier for users to clear the value. To use passwords better we can show a toggle button to reveal the password. This is really useful for mobile applications:</p>
       <code-example title="Clear and password" :component="examples['inline-actions']" />
     </div>
 
     <div class="page-container-section">
-      <h2>Prefixes & suffixes</h2>
+      <h2 id="prefixes-suffixes">Prefixes & suffixes</h2>
 
       <p>Prefixes and suffixes can be used to clarify units or to add input in advance. Prefixes are left justified in the text field whereas suffixes are right justified. Text fields can have both prefixes and suffixes.</p>
       <code-example title="Prefixes & suffixes" :component="examples['fixes']" />

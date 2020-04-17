@@ -113,12 +113,12 @@ test('should add and remove a value from model when model is an array by clickin
       model: []
     }
   })
-  const label = wrapper.find('label')[0]
+  const container = wrapper.find('.md-switch-container')[0]
 
-  label.trigger('click')
+  container.trigger('click')
   expect(wrapper.data().model).toEqual(['1'])
 
-  label.trigger('click')
+  container.trigger('click')
   expect(wrapper.data().model).toEqual([])
 })
 
@@ -134,11 +134,11 @@ test('should toggle a checked class when checked', async () => {
     }
   })
   const toggle = wrapper.find(MdSwitch)[0]
-  const label = wrapper.find('label')[0]
+  const container = wrapper.find('.md-switch-container')[0]
 
   expect(toggle.hasClass('md-checked')).toBe(true)
 
-  label.trigger('click')
+  container.trigger('click')
   await toggle.vm.$nextTick()
   expect(toggle.hasClass('md-checked')).toBe(false)
 })

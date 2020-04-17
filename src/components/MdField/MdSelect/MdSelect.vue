@@ -108,7 +108,7 @@
         return {
           ...this.$attrs,
           name: this.name,
-          id: this.id
+          id: undefined
         }
       },
       inputListeners () {
@@ -283,9 +283,9 @@
         let isArray = Array.isArray(this.localValue)
 
         if (this.multiple && !isArray) {
-          this.localValue = this.setLocalValueIfMultiple()
+          this.setLocalValueIfMultiple()
         } else if (!this.multiple && isArray) {
-          this.localValue = this.setLocalValueIfNotMultiple()
+          this.setLocalValueIfNotMultiple()
         }
       },
       emitSelected (value) {
