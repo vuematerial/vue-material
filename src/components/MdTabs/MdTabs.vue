@@ -4,8 +4,9 @@
       <md-button
         v-for="({ label, props, icon, disabled, data, events }, index) in MdTabs.items"
         :key="index"
+        class="md-tab-nav-button"
         :class="{
-          'md-active': index === activeTab,
+          'md-active': (!mdSyncRoute && index === activeTab),
           'md-icon-label': icon && label
         }"
         :disabled="disabled"
@@ -40,6 +41,7 @@
   import MdAssetIcon from 'core/mixins/MdAssetIcon/MdAssetIcon'
   import MdPropValidator from 'core/utils/MdPropValidator'
   import MdObserveElement from 'core/utils/MdObserveElement'
+  import MdThrottling from 'core/utils/MdThrottling'
   import MdContent from 'components/MdContent/MdContent'
   import MdSwipeable from 'core/mixins/MdSwipeable/MdSwipeable'
 
@@ -77,7 +79,8 @@
       hasContent: false,
       MdTabs: {
         items: {}
-      }
+      },
+      activeButtonEl: null
     }),
     provide () {
       return {
@@ -106,16 +109,26 @@
           this.setHasContent()
         }
       },
-      activeTab () {
+      activeTab (index) {
+        this.$emit('md-changed', index)
         this.$nextTick().then(() => {
           this.setIndicatorStyles()
-          this.setActiveTabIndex()
-          this.calculateTabPos()
+          this.setActiveButtonEl()
         })
       },
       mdActiveTab (tab) {
         this.activeTab = tab
         this.$emit('md-changed', tab)
+      },
+      activeButtonEl (activeButtonEl) {
+        this.activeTabIndex = activeButtonEl ? [].indexOf.call(activeButtonEl.parentNode.childNodes, activeButtonEl) : -1
+      },
+      activeTabIndex (index) {
+        this.setIndicatorStyles()
+        this.calculateTabPos()
+      },
+      '$route' () {
+        this.$nextTick(this.setActiveButtonEl)
       },
       swiped (value) {
         const { keys } = this.getItemsAndKeys()
@@ -140,15 +153,12 @@
         }
       },
       setActiveTab (index) {
-        this.activeTab = index
-        this.$emit('md-changed', index)
-      },
-      setActiveTabIndex () {
-        const activeButton = this.$el.querySelector('.md-button.md-active')
-
-        if (activeButton) {
-          this.activeTabIndex = [].indexOf.call(activeButton.parentNode.childNodes, activeButton)
+        if (!this.mdSyncRoute) {
+          this.activeTab = index
         }
+      },
+      setActiveButtonEl () {
+        this.activeButtonEl = this.$refs.navigation.querySelector('.md-tab-nav-button.md-active')
       },
       setSwipeActiveTabByIndex (index) {
         const { keys } = this.getItemsAndKeys()
@@ -164,27 +174,6 @@
           this.activeTab = keys[index]
         }
       },
-      setActiveTabByRoute () {
-        const { items, keys } = this.getItemsAndKeys()
-        let tabIndex = null
-
-        if (this.$router) {
-          keys.forEach((key, index) => {
-            const item = items[key]
-            const toProp = item.props.to
-
-            if (toProp && toProp === this.$route.path) {
-              tabIndex = index
-            }
-          })
-        }
-
-        if (!this.hasActiveTab() && !tabIndex) {
-          this.activeTab = keys[0]
-        } else {
-          this.activeTab = keys[tabIndex]
-        }
-      },
       setHasContent () {
         const { items, keys } = this.getItemsAndKeys()
 
@@ -193,11 +182,10 @@
       setIndicatorStyles () {
         raf(() => {
           this.$nextTick().then(() => {
-            const activeButton = this.$el.querySelector('.md-button.md-active')
-
-            if (activeButton && this.$refs.indicator) {
-              const buttonWidth = activeButton.offsetWidth
-              const buttonLeft = activeButton.offsetLeft
+            // this.setActiveButtonEl()
+            if (this.activeButtonEl && this.$refs.indicator) {
+              const buttonWidth = this.activeButtonEl.offsetWidth
+              const buttonLeft = this.activeButtonEl.offsetLeft
               const indicatorLeft = this.$refs.indicator.offsetLeft
 
               if (indicatorLeft < buttonLeft) {
@@ -210,6 +198,11 @@
                 left: `${buttonLeft}px`,
                 right: `calc(100% - ${buttonWidth + buttonLeft}px)`
               }
+            } else {
+              this.indicatorStyles = {
+                left: '100%',
+                right: '100%'
+              }
             }
           })
         })
@@ -219,7 +212,7 @@
           const tabElement = this.$el.querySelector(`.md-tab:nth-child(${this.activeTabIndex + 1})`)
 
           this.contentStyles = {
-            height: `${tabElement.offsetHeight}px`
+            height: tabElement ? `${tabElement.offsetHeight}px` : 0
           }
 
           this.containerStyles = {
@@ -241,21 +234,10 @@
         })
 
         window.addEventListener('resize', this.callResizeFunctions)
-      },
-      setupWatchers () {
-        if (this.mdSyncRoute) {
-          this.$watch('$route', {
-            deep: true,
-            handler () {
-              if (this.mdSyncRoute) {
-                this.setActiveTabByRoute()
-              }
-            }
-          })
-        }
       }
     },
     created () {
+      this.setIndicatorStyles = MdThrottling(this.setIndicatorStyles, 300)
       this.setHasContent()
       this.activeTab = this.mdActiveTab
     },
@@ -263,20 +245,18 @@
       this.setupObservers()
 
       this.$nextTick().then(() => {
-        if (this.mdSyncRoute) {
-          this.setActiveTabByRoute()
-        } else {
+        if (!this.mdSyncRoute) {
           this.setActiveTabByIndex(0)
         }
 
         return this.$nextTick()
       }).then(() => {
-        this.setActiveTabIndex()
+        this.setActiveButtonEl()
         this.calculateTabPos()
 
         window.setTimeout(() => {
           this.noTransition = false
-          this.setupWatchers()
+          this.setupObservers()
         }, 100)
       })
 

@@ -84,7 +84,7 @@
           : 'date'
       },
       dateFormat () {
-        return this.locale.dateFormat || 'YYYY-MM-DD'
+        return this.locale.dateFormat || 'yyyy-MM-dd'
       },
       modelType () {
         if (this.isModelTypeString) {
@@ -120,12 +120,12 @@
         return parsedDate && isValid(parsedDate) ? parsedDate : null
       },
       pattern () {
-        return this.dateFormat.replace(/YYYY|MM|DD/g, match => {
+        return this.dateFormat.replace(/yyyy|MM|dd/g, match => {
           switch (match) {
-          case 'YYYY':
+          case 'yyyy':
             return '[0-9]{4}'
           case 'MM':
-          case 'DD':
+          case 'dd':
             return '[0-9]{2}'
           }
         })
@@ -172,7 +172,7 @@
       },
       dateFormat () {
         if (this.localDate) {
-          this.inputDate = format(this.inputDate, this.dateFormat)
+          this.inputDate = format(this.localDate, this.dateFormat)
         }
       }
     },

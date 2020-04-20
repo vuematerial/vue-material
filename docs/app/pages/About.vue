@@ -19,6 +19,7 @@
           <div class="author-card-links">
             <a href="https://github.com/marcosmoura" target="_blank" rel="noopener">GitHub</a>
             <a href="https://linkedin.com/in/marcosvmmoura" target="_blank" rel="noopener">Linkedin</a>
+            <a href="mailto:marcosvmmoura@gmail.com" target="_blank" rel="noopener">Email</a>
           </div>
         </div>
       </div>
@@ -31,25 +32,24 @@
       <p>This project started as a side project and became the library as it is today, one of the most used UI Libraries for Vue.js!</p>
     </section>
 
-    <section class="page-container-section">
+    <!-- <section class="page-container-section">
       <h2 class="md-title">Want to pay me a coffee?</h2>
 
-      <p>I don't drink coffee, but I can easily turn this into a strong and bold IPA beer... Or a burger... Or a Redbull! If you think that this project helped you or your company in any way, you can consider become a backer/sponsor on Patreon.</p>
-      <a href="https://www.patreon.com/bePatron?u=4832202" target="_blank" class="about-patreon">
-        <img src="/assets/sponsors/patreon.png">
+      <a href="" target="_blank" class="about-collective">
+        <img src="/assets/sponsors/opencollective.png">
       </a>
-    </section>
+    </section> -->
 
     <section class="page-container-section">
       <h2 class="md-title">Want to contribute with the Project?</h2>
 
-      <p>Well. All kind of help are welcome. If you want to contribute with the project, just send me a message and I will tell what you can do. We have a <a href="https://join.slack.com/t/vuematerial/shared_invite/MTgzMzU2NDQ5ODkwLTE0OTQ4MDI3MDAtNWYyZjhkNzEzMA">Slack Channel</a> to share ideas and to keep all the comunication in one place.</p>
+      <p>Well. All kind of help are welcome. If you want to contribute with the project, just send me a message and I will tell what you can do. We have a <a href="https://discord.gg/vuematerial">Discord Server</a> to share ideas and to keep all the comunication in one place.</p>
     </section>
 
     <section class="page-container-section">
       <h2 class="md-title">Need extra help?</h2>
 
-      <p>I'm always online on our <a href="https://join.slack.com/t/vuematerial/shared_invite/MTgzMzU2NDQ5ODkwLTE0OTQ4MDI3MDAtNWYyZjhkNzEzMA">Slack channel</a>. If you need anything, fell free to ask me directly there. :)</p>
+      <p>I'm always online on our <a href="https://discord.gg/vuematerial">Discord server</a>. If you need anything, fell free to ask me directly there. :)</p>
     </section>
 
     <section class="page-container-section">
@@ -68,6 +68,7 @@
       <ul>
         <li><a href="https://github.com/elviskang" target="_blank">elviskang</a> for donating the npm package name!</li>
         <li><a href="https://github.com/brunocastro" target="_blank">Bruno Castro</a> for the awesome Vue Material Logo. <logo-vue-material animated /></li>
+        <li>Supported by <a href="https://www.creative-tim.com/?ref=vuematerial.io" target="_blank">Creative Tim</a></li>
       </ul>
     </section>
   </page-container>
@@ -100,7 +101,18 @@
 
     .author-card-links {
       display: flex;
-      flex-direction: column;
+
+      a {
+        margin-right: 24px;
+        position: relative;
+
+        + a:before {
+          position: absolute;
+          top: 0;
+          left: -16px;
+          content: "- "
+        }
+      }
     }
   }
 
@@ -110,7 +122,7 @@
     vertical-align: middle;
   }
 
-  .about-patreon {
+  .about-collective {
     max-width: 180px;
     display: inline-block;
   }

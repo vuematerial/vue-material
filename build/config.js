@@ -8,11 +8,11 @@ export const resolvePath = (...args) => {
 }
 
 export const getRandomInt = (min, max) => {
-  const minNotAlowed = 8080
-  const maxNotAlowed = 8090
+  const minNotAllowed = 8080
+  const maxNotAllowed = 8090
   const generated = Math.floor(Math.random() * (max - min + 1)) + min
 
-  if (generated >= minNotAlowed && generated <= maxNotAlowed) {
+  if (generated >= minNotAllowed && generated <= maxNotAllowed) {
     return getRandomInt(min, max)
   }
 

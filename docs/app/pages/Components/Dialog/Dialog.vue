@@ -13,7 +13,7 @@
 
     </div>
     <div class="page-container-section">
-      <h2>Dialog</h2>
+      <h2 id="dialog">Dialog</h2>
 
       <p>The Dialog component can have any HTML markup inside. This allows you to create rich dialog content, like the details of a table row, for example:</p>
       <code-example title="Custom Dialog Markup" :component="examples['dialog-custom']" />
@@ -27,7 +27,7 @@
     </div>
 
     <div class="page-container-section">
-      <h2>Alerts</h2>
+      <h2 id="alerts">Alerts</h2>
 
       <code-example title="Accepts custom HTML too!" :component="examples['dialog-alert']" />
 
@@ -39,7 +39,7 @@
     </div>
 
     <div class="page-container-section">
-      <h2>Confirms</h2>
+      <h2 id="confirms">Confirms</h2>
 
       <code-example title="Accepts custom HTML too!" :component="examples['dialog-confirm']" />
 
@@ -52,7 +52,7 @@
     </div>
 
     <div class="page-container-section">
-      <h2>Prompts</h2>
+      <h2 id="prompts">Prompts</h2>
 
       <code-example title="Look at the character count!" :component="examples['dialog-prompt']" />
 

@@ -8,14 +8,14 @@
         import Vue from 'vue'
 
         // change single option
-        Vue.material.locale.dateFormat = 'DD/MM/YYYY'
+        Vue.material.locale.dateFormat = 'dd/MM/yyyy'
 
         // change multiple options
         Vue.material = {
           ...Vue.material,
           locale: {
             ...Vue.material.locale,
-            dateFormat: 'DD/MM/YYYY',
+            dateFormat: 'dd/MM/yyyy',
             firstDayOfAWeek: 1
           }
         }
@@ -51,7 +51,7 @@
             endYear: 2099,
 
             // date format for date picker
-            dateFormat: 'YYYY-MM-DD',
+            dateFormat: 'yyyy-MM-dd',
 
             // i18n strings
             days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],

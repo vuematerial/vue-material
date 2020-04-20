@@ -3,46 +3,47 @@
     <div class="page-wrapper">
       <h2 class="home-title md-headline">
         <md-icon>monetization_on</md-icon>
-        {{ $t('pages.home.sponsors') }} & {{ $t('pages.home.backers') }}
+        {{ $t('pages.home.sponsors') }} &amp; {{ $t('pages.home.backers') }}
       </h2>
+
 
       <div class="home-sponsors-description">
         <i18n path="pages.home.sponsorsDescription" tag="p">
           <a href="https://www.github.com/marcosmoura" target="_blank">Marcos Moura</a>
         </i18n>
-        <p>{{ $t('pages.home.beAPatron') }}:</p>
-        <a href="https://www.patreon.com/bePatron?u=4832202" target="_blank" class="home-sponsors-patreon">
-          <img src="/assets/sponsors/patreon.png">
-        </a>
-      </div>
 
-      <div class="home-sponsors-backers">
-        <h3 class="md-title">{{ $t('pages.home.sponsors') }}</h3>
-
-        <div class="home-sponsor-list md-layout md-layout-wrap">
-          <a class="home-sponsor" href="">
-            <md-ripple>
-              <img src="/assets/sponsors/yatima.png">
-            </md-ripple>
+        <div class="d-flex align-items-center">
+          <a href="https://www.codeinwp.com/?ref=vuematerial.io" target="_blank">
+            <img src="/assets/sponsors/codeinwp-logo.svg" class="home-sponsors-open-1">
           </a>
+          <a href="https://www.creative-tim.com/?ref=vuematerial.io" target="_blank">
+            <img src="/assets/sponsors/creative-tim.png" class="home-sponsors-open-1 logo-2">
+          </a>
+          <a href="https://vuetifyjs.com/?ref=vuematerial.io" target="_blank">
+            <img src="/assets/sponsors/vuetify-logo.webp" class="home-sponsors-open-1 logo-3">
+            <img src="/assets/sponsors/vuetify-name.webp" class="home-sponsors-open-1 logo-4">
 
-          <a class="home-sponsor" href="https://cs.berry.sh/c/bb9dade0-0207-4ab0-8c86-d00502d952f5" target="_blank">
-            <md-ripple>
-              <md-svg-loader md-src="/assets/sponsors/rollbar.svg" />
-            </md-ripple>
           </a>
         </div>
+        <!-- <p>{{ $t('pages.home.beACollective') }}:</p> -->
+<!--
+        <a href="" target="_blank" class="home-sponsors-open">
+          <md-ripple>
+            <img src="/assets/sponsors/opencollective.svg">
+          </md-ripple>
+        </a> -->
 
-        <h4 class="md-subheading">{{ $t('pages.home.backers') }}</h4>
 
-        <ul>
-          <li>Anthony Villena</li>
-          <li>Bobby McDonald</li>
-          <li>Ivo Benner</li>
-          <li>Nathanael Björkgård</li>
-          <li>Viktor Kuroljov</li>
-          <li>William Chong</li>
-        </ul>
+        <!-- <h2 class="home-title md-headline">
+          Contribuitors
+        </h2>
+
+        <div class="w-100 text-center" style="margin-bottom:50px;">
+          This project exists thanks to all the people who contribute.
+          <a href="https://github.com/vuematerial/vue-material/contribuitors"><img src="https://opencollective.com/vuematerial/contributors.svg?width=890&button=false" /></a>
+
+        </div> -->
+
       </div>
     </div>
   </md-content>
@@ -63,16 +64,48 @@
   @import "~vue-material/components/MdAnimation/variables";
   @import "~vue-material/components/MdLayout/mixins";
 
+
   .home-sponsors {
     width: calc(100% + 32px);
     margin: 0 -16px -16px;
     padding-bottom: 28px;
+    a{
+      &:hover{
+        color: transparent !important;
+        text-decoration: none;
+      }
+    }
   }
 
-  .home-sponsors-patreon {
+  .home-sponsors-open {
     max-width: 180px;
+    margin: 24px 0;
     display: inline-block;
   }
+
+  .home-sponsors-open-1 {
+    max-width: 120px;
+    &.logo-2{
+      margin-left: 11px;
+      margin-top: 8px;
+    }
+    &.logo-3{
+      margin-left: 11px;
+      margin-top: 5px;
+      width: 30px;
+    }
+    &.logo-4{
+      width: 45px;
+      margin-top: 10px;
+    }
+    @include md-layout-xsmall {
+      &.logo-3{
+        margin-top: 10px;
+        margin-left: 0px;
+      }
+    }
+  }
+
 
   .home-sponsors-backers {
     margin-top: 36px;
