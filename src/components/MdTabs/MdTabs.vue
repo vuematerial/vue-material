@@ -63,7 +63,8 @@
       },
       mdSyncRoute: Boolean,
       mdDynamicHeight: Boolean,
-      mdActiveTab: [String, Number]
+      mdActiveTab: [String, Number],
+      mdIsRtl: { type: Boolean, default: false }
     },
     data: () => ({
       resizeObserver: null,
@@ -214,9 +215,8 @@
           this.contentStyles = {
             height: tabElement ? `${tabElement.offsetHeight}px` : 0
           }
-
           this.containerStyles = {
-            transform: `translate3D(${-this.activeTabIndex * 100}%, 0, 0)`
+            transform: `translate3D(${this.mdIsRtl ? (this.activeTabIndex) * 100 : (-this.activeTabIndex) * 100}%, 0, 0)`
           }
         }
       },
