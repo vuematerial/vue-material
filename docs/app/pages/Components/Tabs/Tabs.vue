@@ -106,6 +106,12 @@
           headings: ['Name', 'Description', 'Default'],
           props: [
             {
+              name: 'md-is-rtl',
+              type: 'Boolean',
+              description: 'Set the RTL support',
+              defaults: 'false'
+            },
+            {
               name: 'md-active-tab',
               type: 'String|Number',
               description: 'Set the current selected tab. Works by providing the id of the desired <code>md-tab</code>.',
