@@ -1,6 +1,6 @@
 /*!
- * vue-material v1.0.0-beta-10.2
- * Made with <3 by marcosmoura 2019
+ * vue-material v1.0.0-beta-12
+ * Made with <3 by marcosmoura 2020
  * Released under the MIT License.
  */
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -9571,7 +9571,7 @@ exports.default = new _MdComponent2.default({
         this.MdMenu.bodyClickObserver = new _MdObserveEvent2.default(document.body, 'click', function ($event) {
           $event.stopPropagation();
 
-          if (!_this3.isMenu($event) && (_this3.MdMenu.closeOnClick || _this3.isBackdropExpectMenu($event))) {
+          if (!_this3.isMenuContentEl($event) && (_this3.MdMenu.closeOnClick || _this3.isBackdropExpectMenu($event))) {
             _this3.MdMenu.active = false;
             _this3.MdMenu.bodyClickObserver.destroy();
             _this3.MdMenu.windowResizeObserver.destroy();
@@ -14162,7 +14162,8 @@ exports.default = new _MdComponent2.default({
     },
     mdSyncRoute: Boolean,
     mdDynamicHeight: Boolean,
-    mdActiveTab: [String, Number]
+    mdActiveTab: [String, Number],
+    mdIsRtl: { type: Boolean, default: false }
   },
   data: function data() {
     return {
@@ -14326,9 +14327,8 @@ exports.default = new _MdComponent2.default({
         this.contentStyles = {
           height: tabElement ? tabElement.offsetHeight + 'px' : 0
         };
-
         this.containerStyles = {
-          transform: 'translate3D(' + -this.activeTabIndex * 100 + '%, 0, 0)'
+          transform: 'translate3D(' + (this.mdIsRtl ? this.activeTabIndex * 100 : -this.activeTabIndex * 100) + '%, 0, 0)'
         };
       }
     },
@@ -14367,10 +14367,10 @@ exports.default = new _MdComponent2.default({
 
       return _this4.$nextTick();
     }).then(function () {
-      _this4.setActiveButtonEl();
-      _this4.calculateTabPos();
-
       window.setTimeout(function () {
+        _this4.setActiveButtonEl();
+        _this4.activeTabIndex = [].indexOf.call(_this4.activeButtonEl.parentNode.childNodes, _this4.activeButtonEl);
+        _this4.callResizeFunctions();
         _this4.noTransition = false;
         _this4.setupObservers();
       }, 100);
@@ -31211,7 +31211,8 @@ var render = function() {
                     name: _vm.name,
                     disabled: _vm.disabled,
                     required: _vm.required,
-                    value: _vm.value
+                    value: _vm.value,
+                    checked: _vm.isSelected
                   },
                   false
                 )
