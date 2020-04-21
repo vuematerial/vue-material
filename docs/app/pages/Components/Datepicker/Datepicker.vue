@@ -1,5 +1,6 @@
 <example src="./examples/BasicDatepicker.vue" />
 <example src="./examples/LabeledDatepicker.vue" />
+<example src="./examples/MultiTypesDatepicker.vue" />
 <example src="./examples/CancelOpenDatepicker.vue" />
 <example src="./examples/CloseOnSelectDatepicker.vue" />
 <example src="./examples/DisabledDatesDatepicker.vue" />
@@ -11,7 +12,7 @@
     </div>
 
     <div class="page-container-section">
-      <h2>Datepicker</h2>
+      <h2 id="datepicker">Datepicker</h2>
 
       <code-example title="Basic Example" :component="examples['basic-datepicker']" />
 
@@ -19,19 +20,25 @@
     </div>
 
     <div class="page-container-section">
-      <h2>Cancel open on focus</h2>
+      <h2 id="datepickerModel">Model Types</h2>
+      <p>Vue Material datepicker supports multiple types of <code>v-model</code>, whiches default is <code>Date</code>. If you want to communicate with other services without timezone problems, you could use <code>String</code> to avoid them:</p>
+      <code-example title="With different type binding" :component="examples['multi-types-datepicker']" />
+    </div>
+
+    <div class="page-container-section">
+      <h2 id="cancelOpen">Cancel open on focus</h2>
       <p>By default Datepicker component open on focus to it's input. This will make the input useless and the user will not be able to type the date manually. You can disable this behavior:</p>
       <code-example title="With initial date selected" :component="examples['cancel-open-datepicker']" />
     </div>
 
     <div class="page-container-section">
-      <h2>Immediately selection</h2>
+      <h2 id="immediatelySelection">Immediately selection</h2>
       <p>The Datepicker dialog can be made to close instantly after a date is selected. The date will be selected immediately without any additional confirmation or user action:</p>
       <code-example title="Close dialog on select" :component="examples['close-on-select-datepicker']" />
     </div>
 
     <div class="page-container-section">
-      <h2>Disabled dates</h2>
+      <h2 id="disabledDates">Disabled dates</h2>
       <p>Sometimes you may need to disable certain dates from being selected. Let's suppose that you want to let the user select only week days:</p>
       <code-example title="No weekends available" :component="examples['disabled-dates-datepicker']" />
 
@@ -57,9 +64,15 @@
         props: [
           {
             name: 'v-model',
-            type: 'Date',
+            type: 'Date|Number|String',
             description: 'The model variable to bind the selected date',
             defaults: 'null'
+          },
+          {
+            name: 'md-model-type',
+            type: 'Constructor',
+            description: 'Model type. This props will be overwritten by <code>typeof v-model</code>. It could be <code>Date</code>, <code>Number</code> or <code>String</code>.',
+            defaults: 'Date'
           },
           {
             name: 'md-disabled-dates',

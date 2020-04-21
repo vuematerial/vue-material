@@ -2,7 +2,7 @@
   <div>
     <md-avatar>
       <img src="/assets/examples/avatar.png" alt="Avatar">
-      <md-tooltip :md-active.sync="tooltipActive">Top</md-tooltip>
+      <md-tooltip :md-active.sync="tooltipActive">Bottom</md-tooltip>
     </md-avatar>
 
     <md-button class="md-raised md-primary" @click="tooltipActive = !tooltipActive">Toggle Tooltip</md-button>

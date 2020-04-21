@@ -15,14 +15,14 @@
     </div>
 
     <div class="page-container-section">
-      <h2>Temporary</h2>
+      <h2 id="temporary">Temporary</h2>
 
       <p>Temporary navigation drawers are closed by default and opens temporarily above all other content until a section is selected. This is highly recommended for mobile devices. If you do not pass any options to drawer this will be the default preset:</p>
       <code-example title="Also works on the right side" :component="examples['temporary']" />
     </div>
 
     <div class="page-container-section">
-      <h2>Permanent</h2>
+      <h2 id="permanent">Permanent</h2>
 
       <p>Permanent navigation drawers are always visible and pinned to the left edge, at the same elevation as the content or background. They cannot be closed and are recommended default for desktop.</p>
       <p>They come with three sub-types: Full, Clipped and Card:</p>
@@ -40,7 +40,7 @@
     </div>
 
     <div class="page-container-section">
-      <h2>Persistent</h2>
+      <h2 id="persistent">Persistent</h2>
 
       <p>Persistent navigation drawers can toggle open or closed. The drawer sits on the same surface elevation as the content. It is closed by default and opens by selecting the menu icon, and stays open until closed by the user.</p>
       <p>They come with two sub-types: Full and Mini:</p>
@@ -57,6 +57,12 @@
       <api-table :headings="drawer.props.headings" :props="drawer.props.props" slot="props" />
       <api-table :headings="drawer.events.headings" :props="drawer.events.props" slot="events" />
     </api-item>
+
+    <api-item title="API - Swipeable">
+      <p>The following options can be applied to any <code>md-drawer</code> component that is using <code>md-swipeable</code> prop.</p>
+
+      <api-table :headings="swipeable.props.headings" :props="swipeable.props.props" slot="props" />
+    </api-item>
   </page-container>
 </template>
 
@@ -67,6 +73,31 @@
     name: 'DocDrawer',
     mixins: [examples],
     data: () => ({
+      swipeable: {
+        props: {
+          headings: ['Name', 'Description', 'Default'],
+          props: [
+            {
+              name: 'md-swipe-threshold',
+              type: 'Number',
+              description: 'The minimal distance traveled to be considered swipe.',
+              defaults: '50'
+            },
+            {
+              name: 'md-swipe-restraint',
+              type: 'Number',
+              description: 'The maximum distance allowed at the same time in perpendicular direction.',
+              defaults: '100'
+            },
+            {
+              name: 'md-swipe-time',
+              type: 'Number',
+              description: 'The maximum time allowed to detect swipe.',
+              defaults: '400'
+            },
+          ]
+        }
+      },
       drawer: {
         props: {
           headings: ['Name', 'Description', 'Default'],
@@ -75,6 +106,12 @@
               name: 'md-active',
               type: 'Boolean',
               description: 'Option used to trigger the drawer visibility. Should be used with the <code>.sync</code> modifier.',
+              defaults: 'false'
+            },
+            {
+              name: 'md-swipeable',
+              type: 'Boolean',
+              description: 'Option used to enable touch support to be opened/closed by swipe. For more option see  API - Swipeable',
               defaults: 'false'
             },
             {

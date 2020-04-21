@@ -13,35 +13,35 @@
     </div>
 
     <div class="page-container-section">
-      <h2>Navigational tabs</h2>
+      <h2 id="navigational-tabs">Navigational tabs</h2>
 
       <p>Sometimes you may need a tab to be the main navigational element of your application and you can do this. Tabs integrate with Vue Router by default and will be able to use single tab just like a regular button or link, by using the <code>router-link</code> props. The tabs will sync with the page URL and will produce effects when transitioning between tabs. <strong>AUTOMATIC</strong>!</p>
       <code-example title="Seamless integration with Vue Router" :component="examples['tab-router']" />
     </div>
 
     <div class="page-container-section">
-      <h2>Tab with inner content</h2>
+      <h2 id="tab-inner">Tab with inner content</h2>
 
       <p>In the previous example, the tabs worked just like navigation buttons, without content. With that you would need to render the content by yourself. Although this is not a hard thing, because you can use Vue Router, you can pass arbitrary content to your tabs. And it can also work syncing with router:</p>
       <code-example title="Content syncing with Router" :component="examples['tab-content']" />
     </div>
 
     <div class="page-container-section">
-      <h2>Alignments</h2>
+      <h2 id="tab-alignments">Alignments</h2>
 
       <p>Tabs have four types of alignments for the navigation buttons: Left, Center, Right and Fixed. You can use them with any tabs:</p>
       <code-example title="With different hue colors" :component="examples['tab-alignments']" />
     </div>
 
     <div class="page-container-section">
-      <h2>Icons</h2>
+      <h2 id="tab-icons">Icons</h2>
 
       <p>Tabs accept icons, to make it easier for your user to assimilate the contents of a tab:</p>
       <code-example title="With svg support" :component="examples['tab-icons']" />
     </div>
 
     <div class="page-container-section">
-      <h2>Custom Template</h2>
+      <h2 id="tab-custom-template">Custom Template</h2>
 
       <p>You can use a custom template for the navigation buttons. This will be applied to all navigation buttons and allows you to make updates on your tab, like this great example of unread/new content: Simple, uh?</p>
       <code-example title="Template Slot" :component="examples['tab-custom-template']" />
@@ -59,6 +59,12 @@
 
         <api-table :headings="tab.headings" :props="tab.props" slot="props" />
       </api-item>
+
+      <api-item title="API - Swipeable">
+        <p>The following options can be applied to any <code>md-tabs</code> component that is using <code>md-swipeable</code> prop.</p>
+
+        <api-table :headings="swipeable.props.headings" :props="swipeable.props.props" slot="props" />
+      </api-item>
     </div>
   </page-container>
 </template>
@@ -70,6 +76,31 @@
     name: 'DocTabs',
     mixins: [examples],
     data: () => ({
+      swipeable: {
+        props: {
+          headings: ['Name', 'Description', 'Default'],
+          props: [
+            {
+              name: 'md-swipe-threshold',
+              type: 'Number',
+              description: 'The minimal distance traveled to be considered swipe.',
+              defaults: '50'
+            },
+            {
+              name: 'md-swipe-restraint',
+              type: 'Number',
+              description: 'The maximum distance allowed at the same time in perpendicular direction.',
+              defaults: '100'
+            },
+            {
+              name: 'md-swipe-time',
+              type: 'Number',
+              description: 'The maximum time allowed to detect swipe.',
+              defaults: '400'
+            },
+          ]
+        }
+      },
       tabs: {
         props: {
           headings: ['Name', 'Description', 'Default'],
@@ -79,6 +110,12 @@
               type: 'String|Number',
               description: 'Set the current selected tab. Works by providing the id of the desired <code>md-tab</code>.',
               defaults: 'null'
+            },
+            {
+              name: 'md-swipeable',
+              type: 'Boolean',
+              description: 'Option used to enable touch support to move between tabs by swipe. For more option see  API - Swipeable',
+              defaults: 'false'
             },
             {
               name: 'md-sync-route',

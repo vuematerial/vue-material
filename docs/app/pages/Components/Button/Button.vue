@@ -11,7 +11,7 @@
     </div>
 
     <div class="page-container-section">
-      <h2>Flat and Raised</h2>
+      <h2 id="flat">Flat and Raised</h2>
       <p>The flat button is the default one. No classes or properties needs to be attached to it to make it flat. The raised button can be achieved with the <code>md-raised</code> class.</p>
 
       <code-example title="Regular Button" :component="examples['regular-buttons']" />
@@ -26,7 +26,7 @@
     </div>
 
     <div class="page-container-section">
-      <h2>Icons</h2>
+      <h2 id="icons">Icons</h2>
       <p>To display icons inside buttons you only need to add a class and you're good to go. And you can also combine it with the raised class.</p>
 
       <code-example title="Buttons with Icons" :component="examples['icon-buttons']" />
@@ -39,7 +39,7 @@
     </div>
 
     <div class="page-container-section">
-      <h2>Floating Action Buttons</h2>
+      <h2 id="floating">Floating Action Buttons</h2>
       <p>A Floating Action Button represents the primary action in an application and is used for a promoted action. FAB buttons can be regular sized or mini, with an accent color by default. This type of buttons can only have icons, so it should be used along with <code>&lt;md-icon&gt;</code>.</p>
       <note-block tip>Use only one FAB per page and only if the purpose of the button is to fire the main action of the screen. Otherwise use <code>md-icon-button</code>.</note-block>
 
@@ -53,14 +53,14 @@
     </div>
 
     <div class="page-container-section">
-      <h2>Link Vs Buttons</h2>
+      <h2 id="linkVSButtons">Link Vs Buttons</h2>
       <p>All buttons by default will output a <code>button</code> tag. If you want to change it to a <code>a</code> tag, just pass it a href:</p>
 
       <code-example title="Links and Buttons" :component="examples['button-vs-link']" />
     </div>
 
     <div class="page-container-section">
-      <h2>Vue Router</h2>
+      <h2 id="vueRouter">Vue Router</h2>
       <p><code>md-button</code> also supports Vue Router by default. All <a href="https://router.vuejs.org/en/api/router-link.html" target="_blank">options</a> of <code>router-link</code> could be simply used here.</p>
 
       <code-example title="router-link" :component="examples['button-router']" />
@@ -83,7 +83,7 @@ export default {
             {
               name: 'href',
               type: 'String',
-              description: 'Creates a anchor on the button. In this case the generated tag will be <a>.',
+              description: 'Creates a anchor on the button. In this case the generated tag will be <code>&lt;a&gt;</code>.',
               defaults: 'null'
             },
             {

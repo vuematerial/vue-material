@@ -31,7 +31,7 @@
             :md-id="getRowId(item, mdModelId)"
             :md-index="index"
             :md-item="item">
-            <slot name="md-table-row" :item="item" />
+            <slot name="md-table-row" :item="item,index" />
           </md-table-row-ghost>
         </tbody>
 
@@ -111,6 +111,14 @@
             const bAttr = getObjectAttribute(b, sortBy)
             const isAsc = this.MdTable.sortOrder === 'asc'
             let isNumber = typeof aAttr === 'number'
+
+            if (!aAttr) {
+              return 1;
+            }
+
+            if(!bAttr) {
+              return -1
+            }
 
             if (isNumber) {
               return isAsc ? (aAttr - bAttr) : (bAttr - aAttr)
@@ -257,6 +265,10 @@
       },
       mdSelectedValue () {
         this.syncSelectedValue()
+      },
+      value () {
+        this.syncSelectedValue()
+        this.setWidth()
       }
     },
     methods: {
@@ -333,11 +345,13 @@
         this.$emit('md-selected', val)
       },
       syncSelectedValue () {
-        if (this.MdTable.selectingMode === 'single') {
-          this.MdTable.singleSelection = this.mdSelectedValue
-        } else if (this.MdTable.selectingMode === 'multiple') {
-          this.MdTable.selectedItems = this.mdSelectedValue || []
-        }
+        this.$nextTick().then(() => { // render the table first
+          if (this.MdTable.selectingMode === 'single') {
+            this.MdTable.singleSelection = this.mdSelectedValue
+          } else if (this.MdTable.selectingMode === 'multiple') {
+            this.MdTable.selectedItems = this.mdSelectedValue || []
+          }
+        })
       },
       setWidth () {
         if (this.mdFixedHeader) {
@@ -350,9 +364,7 @@
         this.sortTable()
       }
 
-      this.$nextTick().then(() => {
-        this.syncSelectedValue()
-      })
+      this.syncSelectedValue()
     },
     mounted () {
       this.setContentEl()

@@ -1,17 +1,16 @@
 <template>
   <page-container centered :title="$t('pages.gettingStarted.title')">
-    <note-block warning>Disclaimer: This is a beta version. The API is not going to change, but be careful to use it in production.</note-block>
 
     <div class="page-container-section">
-      <h2 class="md-headline">Introduction</h2>
+      <h2 class="md-headline" id="introduction">Introduction</h2>
 
       <p>Vue Material is the best integration between Vue.js and Material Design specs! You can easily configure it to suit all your needs through an easy API.</p>
       <p>The documentation is divided by Themes, Components and UI Elements. The themes area is the definitive guide on how to theme your application (or write your own themes). The Components and UI Elements parts shows live examples, along with an API Table of each component/resource.</p>
-      <note-block>Vue Material Documentation assumes that you are confortable with Vue.js <strong>2.5+</strong>. If you are new to Vue.js, it might not be the best idea to learn from here as your first step - grasp the basics then come back. The <a href="https://vuejs.org/v2/guide/index.html">Vue.js website</a> is the greatest documentation source for you to start with.</note-block>
+      <note-block>Vue Material Documentation assumes that you are comfortable with Vue.js <strong>2.5+</strong>. If you are new to Vue.js, it might not be the best idea to learn from here as your first step - grasp the basics then come back. The <a href="https://vuejs.org/v2/guide/index.html">Vue.js website</a> is the greatest documentation source for you to start with.</note-block>
     </div>
 
     <div class="page-container-section">
-      <h2 class="md-headline">{{ $t('pages.gettingStarted.installation') }}</h2>
+      <h2 class="md-headline" id="installation">{{ $t('pages.gettingStarted.installation') }}</h2>
 
       <p>You can install Vue Material through NPM or Yarn:</p>
       <code-example :title="$t('pages.gettingStarted.npmOrYarn')" label="Shell" lang="shell">
@@ -27,13 +26,14 @@
     </div>
 
     <div class="page-container-section">
-      <h2 class="md-headline">Usage</h2>
+      <h2 class="md-headline" id="usage">Usage</h2>
 
       <p>To use Vue Material in your application, you can import only the components that you're really using. This will allow you to make your build way more compact than installing a full bundle.</p>
       <code-example title="Individual components">
         import Vue from 'vue'
         import { MdButton, MdContent, MdTabs } from 'vue-material/dist/components'
         import 'vue-material/dist/vue-material.min.css'
+        import 'vue-material/dist/theme/default.css'
 
         Vue.use(MdButton)
         Vue.use(MdContent)

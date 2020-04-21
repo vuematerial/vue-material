@@ -32,5 +32,5 @@ if (process.env.NODE_ENV === 'production') {
   console.log('%c        Made with%c ♥ %cby Marcos Moura', text, emoji, text)
   console.log('%c', spacer)
   console.log('%c', spacer)
-  console.log('%cLooking something specific? We can help you! Join us on discord: https://discord.gg/rgcmTtm', message)
+  console.log('%cLooking something specific? We can help you! Join us on discord: https://discord.gg/vuematerial', message)
 }

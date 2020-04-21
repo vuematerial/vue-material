@@ -1,13 +1,15 @@
 <template>
-  <div class="md-dialog-content">
+  <div :class="['md-dialog-content', $mdActiveTheme]">
     <slot />
   </div>
 </template>
 
 <script>
-export default {
-  name: 'MdDialogContent'
-}
+  import MdComponent from 'core/MdComponent'
+
+  export default new MdComponent({
+    name: 'MdDialogContent'
+  })
 </script>
 
 <style lang="scss">
