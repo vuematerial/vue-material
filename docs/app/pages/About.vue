@@ -49,7 +49,7 @@
     <section class="page-container-section">
       <h2 class="md-title">Need extra help?</h2>
 
-      <p>I'm always online on our <a href="https://discord.gg/vuematerial">Discord server</a>. If you need anything, fell free to ask me directly there. :)</p>
+      <p>I'm always online on our <a href="https://discord.gg/vuematerial">Discord server</a>. If you need anything, feel free to ask me directly there. :)</p>
     </section>
 
     <section class="page-container-section">

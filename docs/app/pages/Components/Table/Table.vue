@@ -12,7 +12,7 @@
 <template>
   <page-container centered :title="$t('pages.table.title')">
     <div class="page-container-section">
-      <p>Data tables display sets of raw data. They usually appear in desktop enterprise products. They are the component that have more features in all Vue Material ecosystem. There are a lot of options that you can tweak to change and impact the table layout.</p>
+      <p>Data tables display sets of raw data. They usually appear in desktop enterprise products. They have more features than any other component in the Vue Material ecosystem. There are a lot of options that you can tweak to change and impact the table layout.</p>
       <note-block warning>This component is still WIP. Right now you can use the core basic stuff, but soon we will release <strong>Pagination</strong>, <strong>Internal search</strong> and <strong>Edit options</strong>. The current API will not change during the beta phase (likely).</note-block>
     </div>
 

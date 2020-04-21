@@ -168,6 +168,12 @@
               type: 'Number',
               description: 'Add an elevation to tab navigation element.',
               defaults: '0'
+            },
+            {
+              name: 'md-is-rtl',
+              type: 'Boolean',
+              description: 'Set the RTL support',
+              defaults: 'false'
             }
           ]
         },

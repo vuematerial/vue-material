@@ -69,7 +69,7 @@ Vue.use(MdContent)
 Vue.use(MdTabs)
 ```
 
-Alternativelly you can <a href="https://github.com/vuematerial/vue-material/archive/master.zip" target="_blank" rel="noopener">download</a> and reference the script and the stylesheet in your HTML:
+Alternatively you can <a href="https://github.com/vuematerial/vue-material/archive/master.zip" target="_blank" rel="noopener">download</a> and reference the script and the stylesheet in your HTML:
 
 ``` html
 <link rel="stylesheet" href="path/to/vue-material.css">
