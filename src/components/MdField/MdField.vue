@@ -304,6 +304,7 @@
           left: 36px;
         }
 
+        .md-menu,
         .md-input,
         .md-textarea,
         .md-file {
