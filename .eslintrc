@@ -16,6 +16,7 @@
     "jest/globals": true
   },
   "rules": {
+    "semi": ["warn", "never"],
     "space-before-function-paren": ["warn"],
     "arrow-parens": 0,
     "generator-star-spacing": "off",
