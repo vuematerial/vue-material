@@ -1,5 +1,5 @@
 /*!
- * vue-material v1.0.0-beta-12
+ * vue-material v1.0.0-beta-13
  * Made with <3 by marcosmoura 2020
  * Released under the MIT License.
  */
@@ -2042,7 +2042,7 @@ function buildSlots(children, context, functionalContext, options, createElement
 function getDrawers(children) {
   var drawerVnodes = children.filter(function (child) {
     var tag = child.data.slot || normilizeTagName(child.componentOptions.tag);
-    return tag === 'md-app-drawer';
+    return ['md-app-drawer', 'md-app-drawer-right', 'md-app-drawer-left'].indexOf(tag) > -1;
   });
   return drawerVnodes.length ? drawerVnodes : [];
 }
@@ -7891,6 +7891,11 @@ exports.default = new _MdComponent2.default({
   computed: {
     dialogClasses: function dialogClasses() {
       return {
+        'md-active': this.mdActive
+      };
+    },
+    dialogContainerClasses: function dialogContainerClasses() {
+      return {
         'md-dialog-fullscreen': this.mdFullscreen
       };
     }
@@ -9327,10 +9332,6 @@ var _MdComponent = __webpack_require__(1);
 
 var _MdComponent2 = _interopRequireDefault(_MdComponent);
 
-var _MdPropValidator = __webpack_require__(4);
-
-var _MdPropValidator2 = _interopRequireDefault(_MdPropValidator);
-
 var _MdObserveEvent = __webpack_require__(118);
 
 var _MdObserveEvent2 = _interopRequireDefault(_MdObserveEvent);
@@ -9423,13 +9424,12 @@ exports.default = new _MdComponent2.default({
 
       if (_shouldRender) {
         this.setPopperSettings();
-
-        this.$nextTick().then(function () {
+        setTimeout(function () {
           _this.setInitialHighlightIndex();
           _this.createClickEventObserver();
           _this.createResizeObserver();
           _this.createKeydownListener();
-        });
+        }, 0);
       }
     }
   },
@@ -9570,8 +9570,7 @@ exports.default = new _MdComponent2.default({
       if (document) {
         this.MdMenu.bodyClickObserver = new _MdObserveEvent2.default(document.body, 'click', function ($event) {
           $event.stopPropagation();
-
-          if (!_this3.isMenuContentEl($event) && (_this3.MdMenu.closeOnClick || _this3.isBackdropExpectMenu($event))) {
+          if (!_this3.isMenu($event) && (_this3.MdMenu.closeOnClick || !_this3.isMenuContentEl($event))) {
             _this3.MdMenu.active = false;
             _this3.MdMenu.bodyClickObserver.destroy();
             _this3.MdMenu.windowResizeObserver.destroy();
@@ -26510,32 +26509,32 @@ var render = function() {
         _vm.mdActive
           ? _c(
               "div",
-              _vm._g(
-                {
-                  staticClass: "md-dialog",
-                  class: [_vm.dialogClasses, _vm.$mdActiveTheme],
-                  on: {
-                    keydown: function($event) {
-                      if (
-                        !$event.type.indexOf("key") &&
-                        _vm._k($event.keyCode, "esc", 27, $event.key, [
-                          "Esc",
-                          "Escape"
-                        ])
-                      ) {
-                        return null
-                      }
-                      return _vm.onEsc($event)
-                    }
-                  }
-                },
-                _vm.$listeners
-              ),
+              { staticClass: "md-dialog" },
               [
                 _c("md-focus-trap", [
                   _c(
                     "div",
-                    { staticClass: "md-dialog-container" },
+                    _vm._g(
+                      {
+                        staticClass: "md-dialog-container",
+                        class: [_vm.dialogContainerClasses, _vm.$mdActiveTheme],
+                        on: {
+                          keydown: function($event) {
+                            if (
+                              !$event.type.indexOf("key") &&
+                              _vm._k($event.keyCode, "esc", 27, $event.key, [
+                                "Esc",
+                                "Escape"
+                              ])
+                            ) {
+                              return null
+                            }
+                            return _vm.onEsc($event)
+                          }
+                        }
+                      },
+                      _vm.$listeners
+                    ),
                     [
                       _vm._t("default"),
                       _vm._v(" "),
