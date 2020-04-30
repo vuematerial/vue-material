@@ -1,13 +1,13 @@
 <template>
   <md-portal>
     <transition name="md-dialog">
-      <div class="md-dialog" :class="[dialogClasses, $mdActiveTheme]" v-on="$listeners" @keydown.esc="onEsc" v-if="mdActive">
+      <div class="md-dialog" v-if="mdActive">
         <md-focus-trap>
-          <div class="md-dialog-container">
-            <slot />
-
+          <div class="md-dialog-container" :class="[dialogContainerClasses, $mdActiveTheme]" v-on="$listeners"
+               @keydown.esc="onEsc">
+            <slot/>
             <keep-alive>
-              <md-overlay :class="mdBackdropClass" md-fixed :md-active="mdActive" @click="onClick" v-if="mdBackdrop" />
+              <md-overlay :class="mdBackdropClass" md-fixed :md-active="mdActive" @click="onClick" v-if="mdBackdrop"/>
             </keep-alive>
           </div>
         </md-focus-trap>
@@ -56,6 +56,11 @@
     computed: {
       dialogClasses () {
         return {
+          'md-active': this.mdActive
+        }
+      },
+      dialogContainerClasses () {
+        return {
           'md-dialog-fullscreen': this.mdFullscreen
         }
       }
@@ -95,7 +100,56 @@
   @import "~components/MdLayout/mixins";
   @import "~components/MdElevation/mixins";
 
+  $opacity-transition-duration: .15s;
+  $transform-transition-duration: .20s;
+  $max-duration: max($opacity-transition-duration, $transform-transition-duration);
+
   .md-dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    display: flex;
+    transition-duration: $max-duration;
+    z-index: 110;
+
+    &.md-dialog-leave,
+    &.md-dialog-enter-to {
+      .md-dialog-container {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      .md-dialog-fullscreen {
+        @include md-layout-xsmall {
+          opacity: 0;
+          transform: translate(0, 30%);
+        }
+      }
+    }
+
+    &.md-dialog-enter,
+    &.md-dialog-leave-to {
+      .md-dialog-container {
+        opacity: 0;
+        transform: scale(.9);
+      }
+
+      .md-dialog-fullscreen {
+        @include md-layout-xsmall {
+          opacity: 1;
+          transform: translate(0, 0);
+        }
+      }
+    }
+
+  }
+
+  .md-dialog-container {
     @include md-elevation(24);
     min-width: 280px;
     max-width: 80%;
@@ -103,52 +157,33 @@
     margin: auto;
     display: flex;
     flex-flow: column;
-    flex-direction: row;
     overflow: hidden;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    z-index: 110;
     border-radius: 2px;
     backface-visibility: hidden;
     pointer-events: auto;
-    transform: translate(-50%, -50%);
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
     transform-origin: center center;
-    transition: opacity .15s $md-transition-stand-timing,
-                transform .2s $md-transition-stand-timing;
-    will-change: opacity, transform, left, top;
+    transition: opacity $opacity-transition-duration $md-transition-stand-timing, transform $transform-transition-duration $md-transition-stand-timing;
+    will-change: opacity, transform;
 
-    > .md-dialog-tabs,
-    > .md-dialog-title,
-    > .md-dialog-content,
-    > .md-dialog-actions {
-      transition: opacity .3s $md-transition-default-timing,
-                  transform .25s $md-transition-default-timing;
-      will-change: opacity, transform;
+    &.md-dialog-leave,
+    &.md-dialog-enter-to {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
     }
-  }
 
-.md-dialog-enter-active,
-  .md-dialog-leave-active {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(.9);
-
-    > .md-dialog-tabs,
-    > .md-dialog-title,
-    > .md-dialog-content,
-    > .md-dialog-actions {
+    &.md-dialog-enter,
+    &.md-dialog-leave-to {
       opacity: 0;
-      transform: scale(.95) translate3D(0, 10%, 0);
+      transform: translate(-50%, -50%) scale(.9);
     }
   }
 
   .md-dialog-container {
-    display: flex;
-    flex-flow: column;
-    flex: 1;
-
     .md-tabs {
       flex: 1;
+      max-width: 100%;
     }
 
     .md-tabs-navigation {
@@ -164,23 +199,22 @@
 
   .md-dialog-fullscreen {
     @include md-layout-xsmall {
+      width: 100%;
+      height: 100%;
       max-width: 100%;
       max-height: 100%;
-      position: fixed;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
       border-radius: 0;
       transform: none;
 
-      &.md-dialog-enter {
+      &.md-dialog-enter,
+      &.md-dialog-leave-to {
         opacity: 0;
         transform: translate3D(0, 30%, 0);
       }
 
-      &.md-dialog-leave-active {
-        opacity: 0;
+      &.md-dialog-leave,
+      &.md-dialog-enter-to {
+        opacity: 1;
         transform: translate3D(0, 0, 0);
       }
     }
