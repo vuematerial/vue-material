@@ -31,7 +31,7 @@
             :md-id="getRowId(item, mdModelId)"
             :md-index="index"
             :md-item="item">
-            <slot name="md-table-row" :item="item,index" />
+            <slot name="md-table-row" :item="item" :index="index" />
           </md-table-row-ghost>
         </tbody>
 

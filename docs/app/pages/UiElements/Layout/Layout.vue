@@ -41,7 +41,7 @@
     </div>
 
     <div class="page-container-section">
-      <p>You can use layouts for almost anything in your app, even for small parts. To help you with that you can have different alignments for <code>md-layout</code> with various combinations of horizontal and vertical alignments to the <code>md-alignment-[horizontal]-[vertical]</code> class, e.g. <code>md-alignment-top-center</code>. The alignment works on the parent element and it will change the position of all the child items:</p>
+      <p>You can use layouts for almost anything on your app, even for small parts. To help you with that you can have differents alignments per <code>md-layout</code>, combining horizontal and vertical alignments, using the <code>md-alignment-[vertical]-[horizontal]</code> class, e.g. <code>md-alignment-top-center</code>. The alignment works on the parent element and will affect the position of all children items:</p>
       <code-example title="Alignments" :component="examples['layout-horizontal-alignment']" />
     </div>
 
@@ -155,8 +155,8 @@
             description: 'By default the layout items will always be wrapped under the parent layout. Use this class if you want to disable this behaviour, but the responsiveness will not work.'
           },
           {
-            name: 'md-alignment-<code>[x]</code>-<code>[y]</code>',
-            description: `Sets the alignment of all children based on a value per coordinate. The alignment only works if both x and y are present e.g. <code>md-alignment-top-center</code>. The possible values are: <br>
+            name: 'md-alignment-<code>[y]</code>-<code>[x]</code>',
+            description: `Sets the alignment of all children based on a value per coordinate. The alignment only works if both x and y is present e.g. <code>md-alignment-top-center</code>. The possible values are: <br>
               <ul>
                 <li>top</li>
                 <li>center</li>
