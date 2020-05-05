@@ -162,6 +162,7 @@
     backface-visibility: hidden;
     pointer-events: auto;
     opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
     transform-origin: center center;
     transition: opacity $opacity-transition-duration $md-transition-stand-timing, transform $transform-transition-duration $md-transition-stand-timing;
     will-change: opacity, transform;
