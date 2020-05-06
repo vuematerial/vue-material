@@ -22,6 +22,7 @@
   import MdPopover from 'components/MdPopover/MdPopover'
   import MdFocusTrap from 'components/MdFocusTrap/MdFocusTrap'
   import MdList from 'components/MdList/MdList'
+  import MdContains from 'core/utils/MdContains'
 
   export default new MdComponent({
     name: 'MdMenuContent',
@@ -193,19 +194,10 @@
         return Boolean(alignTrigger || offsetY || offsetX)
       },
       isMenu ({ target }) {
-        return this.MdMenu.$el ? this.MdMenu.$el.contains(target) : false
+        return this.MdMenu.$el ? MdContains(this.MdMenu.$el, target) : false
       },
       isMenuContentEl ({ target }) {
-        return this.$refs.menu ? this.$refs.menu.contains(target) : false
-      },
-      isBackdropExpectMenu ($event) {
-        const contains = (el, target) => {
-          if ('contains' in el) {
-            return el.contains(target)
-          }
-          return el.compareDocumentPosition(target) & 16
-        }
-        return !contains(this.$el, $event.target) && !this.isMenu($event)
+        return this.$refs.menu ? MdContains(this.$refs.menu, target) : false
       },
       createClickEventObserver () {
         if (document) {
