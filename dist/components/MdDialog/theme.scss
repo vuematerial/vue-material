@@ -1,4 +1,4 @@
-.md-dialog {
+.md-dialog-container {
   @include md-theme-component() {
     @include md-theme-property(background-color, background);
     @include md-theme-property(color, text-primary, background);

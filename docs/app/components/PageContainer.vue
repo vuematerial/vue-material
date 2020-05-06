@@ -48,6 +48,15 @@
     margin: 0 auto;
     padding: 16px;
     transition: .4s $md-transition-default-timing;
+    transition-property: width;
+  }
+
+  @media(min-width:981px){
+    .page-container.centered{
+
+      margin-right: 280px;
+    }
+
   }
 
   .page-container-leave-active {
@@ -95,6 +104,30 @@
     .md-layout-row {
       + .code-example {
         margin-top: 1em;
+      }
+    }
+  }
+
+  .ad-manager{
+    margin-bottom: 0 !important;
+    position: fixed;
+  }
+
+  @media(max-width: 960px){
+    .ad-manager{
+      position: relative;
+      >>>.code-fund{
+        float: none;
+        margin: 0;
+        display: flex;
+        #cf{
+          width: 300px !important;
+          img{
+            float: left;
+            margin-right: 10px;
+            border-radius: 2px;
+          }
+        }
       }
     }
   }

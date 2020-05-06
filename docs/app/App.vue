@@ -3,7 +3,7 @@
     <main-header />
 
     <div class="container-wrapper md-layout-row" :class="containerClass">
-      <main-nav />
+      <main-nav/>
 
       <div class="main-container" v-if="loading">
         <code-loading>Loading page...</code-loading>
@@ -93,7 +93,6 @@
     padding-top: 64px;
     display: flex;
     flex-direction: column;
-    font-family: "Roboto Mono", monospace;
     transition: $md-transition-default;
     transition-property: padding-top;
 

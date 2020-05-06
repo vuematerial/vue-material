@@ -22,7 +22,7 @@
     </div>
 
     <div class="page-container-section">
-      <h3 class="md-title">Available colors</h3>
+      <h3 class="md-title" id="availableColors">Available colors</h3>
       <p>Vue Material comes with the nice Material Design <a href="https://material.io/guidelines/style/color.html#color-color-palette" target="_blank">color palette</a>. You can fully use it to build your themes, using the available colors along with the color shade.</p>
       <p>The shades are based on color weight, that can be, 100, 200, 300, 400, 500, 600, 700, 800, 900, A100, A200, A400 or A700.</p>
       <p>All of those colors can be passed as an argument of <code>md-get-palette-color</code>:</p>
@@ -63,7 +63,7 @@
     </div>
 
     <div class="page-container-section">
-      <h3 class="md-title">Default colors</h3>
+      <h3 class="md-title" id="defaultColors">Default colors</h3>
       <p>Vue Material has default theme colors:</p>
       <ul>
         <li>Primary: <span style="background-color: #448aff; color: #fff">#448aff</span> => Blue A200</li>
@@ -82,7 +82,7 @@
     </div>
 
     <div class="page-container-section">
-      <h3 class="md-title">Using your own colors</h3>
+      <h3 class="md-title" id="ownColors">Using your own colors</h3>
       <p>Sometimes the colors of your brand might not match with the material ones. It is possible to pass your own colors, without using the Material Design Palette:</p>
       <code-example label="SCSS" lang="scss">
         @import "~vue-material/dist/theme/engine"; // Import the theme engine
@@ -97,7 +97,7 @@
     </div>
 
     <div class="page-container-section">
-      <h3 class="md-title">Dark Themes</h3>
+      <h3 class="md-title" id="datkThemes">Dark Themes</h3>
       <p>By default light colors will be used on backgrounds, but you can easily change this, by passing a <code>theme</code> attribute:</p>
       <code-example label="SCSS" lang="scss">
         @import "~vue-material/dist/theme/engine"; // Import the theme engine
@@ -113,7 +113,7 @@
     </div>
 
     <div class="page-container-section">
-      <h3 class="md-title">Theming individual components</h3>
+      <h3 class="md-title" id="theming">Theming individual components</h3>
       <p>You can theme individual components effortlessly, by calling the components one by one. This will make your final build smaller in size and higher in performance:</p>
       <code-example label="SCSS" lang="scss">
         @import "~vue-material/dist/theme/engine"; // Import the theme engine

@@ -52,6 +52,7 @@
   }
 
   $md-themes: $theme !global;
+  $md-theme-name: $name !global;
 
   @include md-base-theme;
 }
@@ -88,8 +89,10 @@
     $md-theme-palette: map-merge($md-theme-palette, $palette) !global;
     $md-current-theme: $theme !global;
 
-    &.md-theme-#{$theme} {
-      @content;
+    @if( $theme == $md-theme-name or $md-theme-name == 'all' ) {
+      &.md-theme-#{$theme} {
+        @content;
+      }
     }
   }
 }
@@ -112,8 +115,10 @@
     $md-theme-palette: map-merge($md-theme-palette, $palette) !global;
     $md-current-theme: $theme !global;
 
-    .md-theme-#{$theme} & {
-      @content;
+    @if( $theme == $md-theme-name or $md-theme-name == 'all' ) {
+      .md-theme-#{$theme} & {
+        @content;
+      }
     }
   }
 }
