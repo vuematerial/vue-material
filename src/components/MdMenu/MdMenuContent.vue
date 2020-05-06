@@ -17,7 +17,6 @@
 
 <script>
   import MdComponent from 'core/MdComponent'
-  import MdPropValidator from 'core/utils/MdPropValidator'
   import MdObserveEvent from 'core/utils/MdObserveEvent'
   import MdResizeObserver from 'core/utils/MdResizeObserver'
   import MdPopover from 'components/MdPopover/MdPopover'
@@ -76,13 +75,12 @@
       shouldRender (shouldRender) {
         if (shouldRender) {
           this.setPopperSettings()
-
-          this.$nextTick().then(() => {
+          setTimeout(() => {
             this.setInitialHighlightIndex()
             this.createClickEventObserver()
             this.createResizeObserver()
             this.createKeydownListener()
-          })
+          }, 0)
         }
       }
     },
@@ -207,8 +205,7 @@
         if (document) {
           this.MdMenu.bodyClickObserver = new MdObserveEvent(document.body, 'click', $event => {
             $event.stopPropagation()
-
-            if (!this.isMenuContentEl($event) && (this.MdMenu.closeOnClick || this.isBackdropExpectMenu($event))) {
+            if (!this.isMenu($event) && (this.MdMenu.closeOnClick || !this.isMenuContentEl($event))) {
               this.MdMenu.active = false
               this.MdMenu.bodyClickObserver.destroy()
               this.MdMenu.windowResizeObserver.destroy()

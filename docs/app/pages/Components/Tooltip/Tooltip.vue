@@ -10,20 +10,20 @@
     </div>
 
     <div class="page-container-section">
-      <h2>Direction</h2>
+      <h2 id="tooltip-direction">Direction</h2>
 
       <p>You can set the tooltip direction using the four available values - <code>top</code>, <code>right</code>, <code>bottom</code> and <code>left</code>:</p>
       <code-example title="Text position" :component="examples['direction']" />
     </div>
 
     <div class="page-container-section">
-      <h2>Delay</h2>
+      <h2 id="tooltip-delay">Delay</h2>
       <p>Sometimes you don't want to pop the tooltip right away. To achieve that you can use a custom delay in milliseconds to postpone the action:</p>
       <code-example title="Delay" :component="examples['delay']" />
     </div>
 
     <div class="page-container-section">
-      <h2>Dynamically show a tooltip</h2>
+      <h2 id="tooltip-dynamically">Dynamically show a tooltip</h2>
 
       <p>In some cases we may want to trigger the tooltip manually, to make sure that your user will understand and action. You can do it:</p>
       <code-example title="Trigger" :component="examples['dynamically']" />

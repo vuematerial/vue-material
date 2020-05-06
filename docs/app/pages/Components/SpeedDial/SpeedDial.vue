@@ -12,7 +12,7 @@
     </div>
 
     <div class="page-container-section">
-      <h2>Speed Dial positions</h2>
+      <h2 id="speedpositions">Speed Dial positions</h2>
       <p>You can specify any position that you want for you Speed Dial component. They can be top and bottom, and combined with left, center or right:</p>
 
       <code-example title="Positions and directions" :component="examples['position-direction']" />
@@ -20,13 +20,13 @@
     </div>
 
     <div class="page-container-section">
-      <h2>Effects</h2>
+      <h2 id="effects">Effects</h2>
       <p>The component can be displayed different animations for each scenario that you might want:</p>
       <code-example title="Animations types" :component="examples['animation-types']" />
     </div>
 
     <div class="page-container-section">
-      <h2>Triggers</h2>
+      <h2 id="triggers">Triggers</h2>
       <p>You can trigger the speed dial content using hover or click. Using this allows you to have a open/close feature or to hold a main action:</p>
       <code-example title="Event triggers" :component="examples['event-triggers']" />
       <note-block tip>For desktop environments it's better to have a hover effect. On mobile you can toggle the property to use click instead.</note-block>
@@ -38,7 +38,7 @@
     </div>
 
     <div class="page-container-section">
-      <h2>Icon Morph</h2>
+      <h2 id="iconMorph">Icon Morph</h2>
 
       <p>Sometimes you want the speed dial to have a cross icon to represent your close action after showing the content. This can be easily achieved with the morph icons.</p>
       <p>To create that, create two <code>md-icon</code> components inside the trigger and add a <code>md-morph-initial</code> in the one you would like it to be the initial state (or an open state) and a <code>md-morph-final</code> on the close state:</p>
