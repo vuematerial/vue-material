@@ -1,6 +1,7 @@
 import 'regenerator-runtime/runtime'
 import Vue from 'vue'
 import VueMaterial from 'src/material'
+import 'jest-localstorage-mock'
 
 Vue.config.productionTip = false
 Vue.config.devtools = false
@@ -26,4 +27,5 @@ function createAppEl () {
 
 createAppEl()
 
-process.on('unhandledRejection', () => {})
+process.on('unhandledRejection', () => {
+})
