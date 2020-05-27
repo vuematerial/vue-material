@@ -92,7 +92,7 @@
               <md-menu-item class="align-center" :class="getPrimaryClass('dark-green')" @click="setTheme('dark-green')"><md-avatar md-theme="dark-green" class="md-small md-primary"></md-avatar> Dark Green</md-menu-item>
             </md-menu-content>
           </md-menu>
-        </div>    
+        </div>
       </div>
     </div>
   </md-toolbar>
