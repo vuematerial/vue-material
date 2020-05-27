@@ -83,9 +83,6 @@
         <md-menu md-align-trigger>
           <md-button class="button-theme md-icon-button md-dense md-raised md-primary" md-menu-trigger>
             <md-icon class="icon-github">invert_colors</md-icon>
-
-
-
           </md-button>
           <md-menu-content class="fixed-theme-selector-items">
             <md-menu-item class="align-center" :class="getPrimaryClass('default')" @click="setTheme('default')"><md-avatar md-theme="default" class="md-small md-primary"></md-avatar> Light</md-menu-item>
@@ -94,8 +91,6 @@
             <md-menu-item class="align-center":class="getPrimaryClass('dark-green')" @click="setTheme('dark-green')"><md-avatar md-theme="dark-green" class="md-small md-primary"></md-avatar> Dark Green</md-menu-item>
           </md-menu-content>
         </md-menu>
-
-
       </div>
     </div>
   </md-toolbar>
