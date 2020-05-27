@@ -132,6 +132,9 @@
           display: flex !important;
           align-items: center;
           flex-direction: row;
+          max-width: none;
+          margin: 8px auto 16px;
+          float: none;
 
           .code-fund-image {
             max-width: 175px;

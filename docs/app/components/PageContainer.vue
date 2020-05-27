@@ -43,6 +43,8 @@
   @import "~vue-material/components/MdAnimation/variables";
   @import "~vue-material/theme/engine";
 
+  $ad-responsive-big: 1690px;
+
   .page-container.centered {
     max-width: 1100px;
     margin: 0 auto;
@@ -111,6 +113,16 @@
   .ad-manager{
     margin-bottom: 0 !important;
     position: fixed;
+  }
+
+  @media (min-width: $ad-responsive-big) {
+    .ad-manager >>> .code-fund {
+      margin: 0;
+      position: fixed;
+      bottom: 0;
+      right: 24px;
+      z-index: 1000;
+    }
   }
 
   @media(max-width: 960px){
