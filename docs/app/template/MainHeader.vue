@@ -88,7 +88,7 @@
             <md-menu-item class="align-center" :class="getPrimaryClass('default')" @click="setTheme('default')"><md-avatar md-theme="default" class="md-small md-primary"></md-avatar> Light</md-menu-item>
             <md-menu-item class="align-center" :class="getPrimaryClass('default-dark')" @click="setTheme('default-dark')"><md-avatar md-theme="default-dark" class="md-small md-primary"></md-avatar> Dark</md-menu-item>
             <md-menu-item class="align-center" :class="getPrimaryClass('light-green')" @click="setTheme('light-green')"><md-avatar md-theme="light-green" class="md-small md-primary"></md-avatar> Light Green</md-menu-item>
-            <md-menu-item class="align-center":class="getPrimaryClass('dark-green')" @click="setTheme('dark-green')"><md-avatar md-theme="dark-green" class="md-small md-primary"></md-avatar> Dark Green</md-menu-item>
+            <md-menu-item class="align-center" :class="getPrimaryClass('dark-green')" @click="setTheme('dark-green')"><md-avatar md-theme="dark-green" class="md-small md-primary"></md-avatar> Dark Green</md-menu-item>
           </md-menu-content>
         </md-menu>
       </div>
