@@ -5,6 +5,7 @@
 <example src="./examples/DuplicatedFeedback.vue" />
 <example src="./examples/Format.vue" />
 <example src="./examples/Themed.vue" />
+<example src="./examples/AutoInsert.vue" />
 
 <template>
   <page-container centered :title="$t('pages.chips.title')">
@@ -59,6 +60,13 @@
 
       <p>Sometimes you may need to format a chip value before adding it, and for this case you can use a custom formatter function. This function will receive the chip value and must return the formatted value.</p>
       <code-example title="Formatted chips" :component="examples['format']" />
+    </div>
+
+    <div class="page-container-section">
+      <h2 id="auto-insert">Auto insert</h2>
+
+      <p>Automatic value entry when focus is lost:</p>
+      <code-example title="Auto insert" :component="examples['auto-insert']" />
     </div>
 
     <div class="page-container-section">
