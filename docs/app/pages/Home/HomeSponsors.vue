@@ -19,11 +19,6 @@
           <a href="https://www.creative-tim.com/?ref=vuematerial.io" target="_blank">
             <img src="/assets/sponsors/creative-tim.png" class="home-sponsors-open-1 logo-2">
           </a>
-          <a href="https://vuetifyjs.com/?ref=vuematerial.io" target="_blank">
-            <img src="/assets/sponsors/vuetify-logo.webp" class="home-sponsors-open-1 logo-3">
-            <img src="/assets/sponsors/vuetify-name.webp" class="home-sponsors-open-1 logo-4">
-
-          </a>
         </div>
         <!-- <p>{{ $t('pages.home.beACollective') }}:</p> -->
 <!--
