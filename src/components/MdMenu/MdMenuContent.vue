@@ -199,13 +199,7 @@
         return this.$refs.menu ? this.$refs.menu.contains(target) : false
       },
       isBackdropExpectMenu ($event) {
-        const contains = (el, target) => {
-          if ('contains' in el) {
-            return el.contains(target)
-          }
-          return el.compareDocumentPosition(target) & 16
-        }
-        return !contains(this.$el, $event.target) && !this.isMenu($event)
+        return !this.$el.contains($event.target) && !this.isMenu($event)
       },
       createClickEventObserver () {
         if (document) {
