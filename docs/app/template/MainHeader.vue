@@ -76,11 +76,11 @@
           </md-menu>
         </div>
 
-        <div v-if="!isSplash">
-          <md-button href="http://github.com/vuematerial/vue-material" target="_blank" class="md-icon-button">
-            <md-icon md-src="/assets/icon-github.svg" class="icon-github" />
-          </md-button>
+        <md-button href="http://github.com/vuematerial/vue-material" target="_blank" class="md-icon-button">
+          <md-icon md-src="/assets/icon-github.svg" class="icon-github" />
+        </md-button>
 
+        <div v-if="!isSplash">
           <md-menu md-align-trigger>
             <md-button class="button-theme md-icon-button md-dense md-raised md-primary" md-menu-trigger>
               <md-icon class="icon-github">invert_colors</md-icon>
