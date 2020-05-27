@@ -19,52 +19,6 @@
       </div>
 
       <div class="md-toolbar-section-end">
-        <div v-if="!isSplash">
-          <div class="floating-theme-selector" :class="{ active: themeMenuActive }">
-            <div class="floating-theme-selector-items">
-              <md-list class="md-dense">
-                <md-list-item @click="themeMenuActive = !themeMenuActive">
-                  <md-avatar class="md-small md-primary"></md-avatar> Active Theme
-                </md-list-item>
-
-                <md-list-item :class="getPrimaryClass('default')" @click="setTheme('default')">
-                  <md-avatar md-theme="default" class="md-small md-primary"></md-avatar> Light
-                </md-list-item>
-
-                <md-list-item :class="getPrimaryClass('default-dark')" @click="setTheme('default-dark')">
-                  <md-avatar md-theme="default-dark" class="md-small md-primary"></md-avatar> Dark
-                </md-list-item>
-
-                <md-list-item :class="getPrimaryClass('light-green')" @click="setTheme('light-green')">
-                  <md-avatar md-theme="light-green" class="md-small md-primary"></md-avatar> Light Green
-                </md-list-item>
-
-                <md-list-item :class="getPrimaryClass('dark-green')" @click="setTheme('dark-green')">
-                  <md-avatar md-theme="dark-green" class="md-small md-primary"></md-avatar> Dark Green
-                </md-list-item>
-              </md-list>
-            </div>
-          </div>
-
-          <md-menu
-            class="fixed-theme-selector"
-            md-size="auto"
-            md-direction="bottom-end"
-            md-align-trigger>
-            <md-button :class="{ active: themeMenuActive }" md-menu-trigger>
-              <md-avatar class="md-small md-primary"></md-avatar>
-              <span>Theme</span>
-            </md-button>
-
-            <md-menu-content class="fixed-theme-selector-items">
-              <md-menu-item :class="getPrimaryClass('default')" @click="setTheme('default')">Light</md-menu-item>
-              <md-menu-item :class="getPrimaryClass('default-dark')" @click="setTheme('default-dark')">Dark</md-menu-item>
-              <md-menu-item :class="getPrimaryClass('light-green')" @click="setTheme('light-green')">Light Green</md-menu-item>
-              <md-menu-item :class="getPrimaryClass('dark-green')" @click="setTheme('dark-green')">Dark Green</md-menu-item>
-            </md-menu-content>
-          </md-menu>
-        </div>
-
         <div class="md-medium-hide">
           <md-button href="/getting-started">
             Docs
@@ -125,6 +79,21 @@
         <md-button href="http://github.com/vuematerial/vue-material" target="_blank" class="md-icon-button">
           <md-icon md-src="/assets/icon-github.svg" class="icon-github" />
         </md-button>
+
+        <md-menu md-align-trigger>
+          <md-button class="button-theme md-icon-button md-dense md-raised md-primary" md-menu-trigger>
+            <md-icon class="icon-github">invert_colors</md-icon>
+
+
+
+          </md-button>
+          <md-menu-content class="fixed-theme-selector-items">
+            <md-menu-item class="align-center" :class="getPrimaryClass('default')" @click="setTheme('default')"><md-avatar md-theme="default" class="md-small md-primary"></md-avatar> Light</md-menu-item>
+            <md-menu-item class="align-center" :class="getPrimaryClass('default-dark')" @click="setTheme('default-dark')"><md-avatar md-theme="default-dark" class="md-small md-primary"></md-avatar> Dark</md-menu-item>
+            <md-menu-item class="align-center" :class="getPrimaryClass('light-green')" @click="setTheme('light-green')"><md-avatar md-theme="light-green" class="md-small md-primary"></md-avatar> Light Green</md-menu-item>
+            <md-menu-item class="align-center":class="getPrimaryClass('dark-green')" @click="setTheme('dark-green')"><md-avatar md-theme="dark-green" class="md-small md-primary"></md-avatar> Dark Green</md-menu-item>
+          </md-menu-content>
+        </md-menu>
 
 
       </div>
@@ -199,6 +168,10 @@
   @import "~vue-material/components/MdAnimation/variables";
   @import "~vue-material/components/MdElevation/mixins";
   @import "~components/MdLayout/mixins";
+
+  .align-center >>> .md-list-item-content {
+    justify-content: flex-start;
+  }
 
   .main-header {
     margin: auto;
