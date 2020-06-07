@@ -138,10 +138,6 @@
             })
           }
         }
-      },
-
-      value (val) {
-        this.searchTerm = val
       }
     },
     methods: {
