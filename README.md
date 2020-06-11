@@ -109,7 +109,7 @@ Vue Material supports all [modern browsers](http://browserl.ist/?q=%3E%3D+1%25).
 
 Thank you to all our backers! 🙏 [[Become a backer](https://opencollective.com/vue-material)]
 
-<img src="https://opencollective.com/vue-material/tiers/backer.svg?avatarHeight=90" />
+<a href="https://opencollective.com/vue-material#backers" target="_blank"><img src="https://opencollective.com/vue-material/tiers/backer.svg?avatarHeight=90" /></a>
 
 ## Credits and Thanks
 
