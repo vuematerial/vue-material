@@ -43,6 +43,7 @@
   },
   "dependencies": {
     "vue-github-buttons": "^3.1.0",
+    "vue-github-button": "^1.2.0",
     "vue-toc": "0.0.1"
   },
   "devDependencies": {
