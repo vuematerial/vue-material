@@ -100,6 +100,11 @@ Vue Material supports all [modern browsers](http://browserl.ist/?q=%3E%3D+1%25).
 
 <small>May work in other browsers but it's untested.</small>
 
+## Become a part of the Vue Material community
+
+###  This project exists thanks to all the people who contribute
+<a class="contributors-image" href="https://github.com/vuematerial/vue-material/contributors"><img src="https://opencollective.com/vue-material/contributors.svg?width=1500&button=false" /></a>
+
 ## Credits and Thanks
 
 * <a href="https://github.com/elviskang" target="_blank">elviskang</a> for donating the npm package name!
