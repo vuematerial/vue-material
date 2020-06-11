@@ -13,6 +13,9 @@ export default {
     custom: 'Custom Development',
     viewProject: 'View project',
     sponsors: 'Sponsors',
+    contributors: "Become a part of the Vue Material community",
+    contributorsTitle: 'This project exists thanks to all the people who contribute',
+    backersTitle: 'Credits & Thanks',
     backers: 'Backers',
     sponsorsDescription: 'Vue Material does not run under the umbrella of any company or anything like that. It is an independent project created by {0} in his spare time, which has become one of the most used UI Libraries for Vue.js. The development is active and we are working hard to release great things for you.',
     beACollective: 'If you think that this project helped you or your company in any way, you can consider becoming a backer/sponsor on Open Collective'
