@@ -36,17 +36,23 @@
   $ad-responsive-small: 768px;
 
   .ad-manager {
-    width: calc(100% + 32px);
-    margin: 0 -16px -16px;
+    right: 0;
+    bottom: 0;
+    border-top-left-radius: 4px;
+    z-index: 2000;
+    margin-bottom: 150px;
 
     @media (max-width: $ad-responsive-small) {
       display: flex;
     }
   }
 
+  .home-page .ad-manager{
+    background: #303030;
+  }
+
   .code-fund {
     max-width: 175px;
-    margin: 0 16px 24px 16px;
     padding: 8px;
     display: flex;
     flex-direction: column;
@@ -56,28 +62,12 @@
     font-size: 12px;
     line-height: 1.5em;
 
-    @media (min-width: $ad-responsive-big) {
-      margin: 0;
-      position: fixed;
-      top: 80px;
-      right: 24px;
-      z-index: 1000;
-    }
-
-    @media (max-width: $ad-responsive-small) {
-      max-width: none;
-      margin: 8px auto 16px;
-      float: none;
-    }
-
     .splash-container & {
-      @media (max-width: $ad-responsive-big) {
-        max-width: 530px;
-        min-height: 100px;
-        margin: 60px auto 8px;
-        float: none;
-        background: none !important;
-      }
+      max-width: 530px;
+      min-height: 100px;
+      margin: 0px auto 8px;
+      float: none;
+      background: none !important;
     }
   }
 </style>

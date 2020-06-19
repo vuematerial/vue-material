@@ -69,7 +69,7 @@ Vue.use(MdContent)
 Vue.use(MdTabs)
 ```
 
-Alternativelly you can <a href="https://github.com/vuematerial/vue-material/archive/master.zip" target="_blank" rel="noopener">download</a> and reference the script and the stylesheet in your HTML:
+Alternatively you can <a href="https://github.com/vuematerial/vue-material/archive/master.zip" target="_blank" rel="noopener">download</a> and reference the script and the stylesheet in your HTML:
 
 ``` html
 <link rel="stylesheet" href="path/to/vue-material.css">
@@ -100,10 +100,24 @@ Vue Material supports all [modern browsers](http://browserl.ist/?q=%3E%3D+1%25).
 
 <small>May work in other browsers but it's untested.</small>
 
+## Become a part of the Vue Material community
+
+####  This project exists thanks to all the people who contribute
+<a class="contributors-image" href="https://github.com/vuematerial/vue-material/contributors"><img src="https://opencollective.com/vue-material/contributors.svg?width=1500&button=false" /></a>
+
+#### Sponsors & Backers
+
+Thank you to all our backers! 🙏 [[Become a backer](https://opencollective.com/vue-material)]
+
+<a href="https://opencollective.com/vue-material#backers" target="_blank"><img src="https://opencollective.com/vue-material/tiers/backer.svg?avatarHeight=90" /></a>
+
 ## Credits and Thanks
+
+Vue Material does not run under the umbrella of any company or anything like that. It is an independent project created by <a data-v-9248b2ee="" href="https://www.github.com/marcosmoura" target="_blank">Marcos Moura</a> in his spare time, which has become one of the most used UI Libraries for Vue.js. The development is active and we are working hard to release great things for you.
 
 * <a href="https://github.com/elviskang" target="_blank">elviskang</a> for donating the npm package name!
 * <a href="https://github.com/brunocastro" target="_blank">Bruno Castro</a> for the awesome Vue Material Logo.
+* Supported by <a href="https://www.creative-tim.com/?ref=vuematerial.io" target="_blank">Creative Tim</a>
 
 ## License
 

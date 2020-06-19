@@ -43,11 +43,22 @@
   @import "~vue-material/components/MdAnimation/variables";
   @import "~vue-material/theme/engine";
 
+  $ad-responsive-big: 1690px;
+
   .page-container.centered {
     max-width: 1100px;
     margin: 0 auto;
     padding: 16px;
     transition: .4s $md-transition-default-timing;
+    transition-property: width;
+  }
+
+  @media(min-width:981px){
+    .page-container.centered{
+
+      margin-right: 280px;
+    }
+
   }
 
   .page-container-leave-active {
@@ -95,6 +106,40 @@
     .md-layout-row {
       + .code-example {
         margin-top: 1em;
+      }
+    }
+  }
+
+  .ad-manager{
+    margin-bottom: 0 !important;
+    position: fixed;
+  }
+
+  @media (min-width: $ad-responsive-big) {
+    .ad-manager >>> .code-fund {
+      margin: 0;
+      position: fixed;
+      bottom: 0;
+      right: 24px;
+      z-index: 1000;
+    }
+  }
+
+  @media(max-width: 960px){
+    .ad-manager{
+      position: relative;
+      >>>.code-fund{
+        float: none;
+        margin: 0;
+        display: flex;
+        #cf{
+          width: 300px !important;
+          img{
+            float: left;
+            margin-right: 10px;
+            border-radius: 2px;
+          }
+        }
       }
     }
   }

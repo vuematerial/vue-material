@@ -17,12 +17,12 @@
 
 <script>
   import MdComponent from 'core/MdComponent'
-  import MdPropValidator from 'core/utils/MdPropValidator'
   import MdObserveEvent from 'core/utils/MdObserveEvent'
   import MdResizeObserver from 'core/utils/MdResizeObserver'
   import MdPopover from 'components/MdPopover/MdPopover'
   import MdFocusTrap from 'components/MdFocusTrap/MdFocusTrap'
   import MdList from 'components/MdList/MdList'
+  import MdContains from 'core/utils/MdContains'
 
   export default new MdComponent({
     name: 'MdMenuContent',
@@ -76,13 +76,12 @@
       shouldRender (shouldRender) {
         if (shouldRender) {
           this.setPopperSettings()
-
-          this.$nextTick().then(() => {
+          setTimeout(() => {
             this.setInitialHighlightIndex()
             this.createClickEventObserver()
             this.createResizeObserver()
             this.createKeydownListener()
-          })
+          }, 0)
         }
       }
     },
@@ -195,20 +194,16 @@
         return Boolean(alignTrigger || offsetY || offsetX)
       },
       isMenu ({ target }) {
-        return this.MdMenu.$el ? this.MdMenu.$el.contains(target) : false
+        return this.MdMenu.$el ? MdContains(this.MdMenu.$el, target) : false
       },
       isMenuContentEl ({ target }) {
-        return this.$refs.menu ? this.$refs.menu.contains(target) : false
-      },
-      isBackdropExpectMenu ($event) {
-        return !this.$el.contains($event.target) && !this.isMenu($event)
+        return this.$refs.menu ? MdContains(this.$refs.menu, target) : false
       },
       createClickEventObserver () {
         if (document) {
           this.MdMenu.bodyClickObserver = new MdObserveEvent(document.body, 'click', $event => {
             $event.stopPropagation()
-
-            if (!this.isMenuContentEl($event) && (this.MdMenu.closeOnClick || this.isBackdropExpectMenu($event))) {
+            if (!this.isMenu($event) && (this.MdMenu.closeOnClick || !this.isMenuContentEl($event))) {
               this.MdMenu.active = false
               this.MdMenu.bodyClickObserver.destroy()
               this.MdMenu.windowResizeObserver.destroy()

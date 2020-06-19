@@ -3,7 +3,7 @@
 <template>
   <page-container centered :title="$t('pages.typography.title')">
     <div class="page-container-section">
-      <h2>Typeface</h2>
+      <h2 id="typeface">Typeface</h2>
       <p>Roboto has been refined extensively to work across the wider set of supported platforms. It is slightly wider and rounder, giving it greater clarity and making it more optimistic. Vue Material use Roboto by default, with Noto Sans as a fallback. To get up and running with Roboto font, just install it from <a href="https://fonts.google.com/specimen/Roboto" target="_blank">Google Fonts</a>. Or install it from the following snippet:</p>
       <code-example title="Roboto Font" label="HTML" lang="xml">
         &lt;link rel=&quot;stylesheet&quot; href=&quot;//fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic&quot;&gt;
@@ -11,7 +11,7 @@
     </div>
 
     <div class="page-container-section">
-      <h2>Styles</h2>
+      <h2 id="styles">Styles</h2>
       <p>Too many type sizes and styles at once can wreck any layout. A typographic scale has a limited set of type sizes that work well together along with the layout grid.</p>
       <p>The <a href="https://material.io/guidelines/style/typography.html#typography-styles" target="_blank">sizes and styles</a> balance content density and reading comfort under typical usage conditions. They are all based on simple classes that gives the styles and works fine with dark themes. Look:</p>
       <note-block>The <code>a</code> tag create a link style and is the only that is affected globally. It will be automatically themed using the accent color.</note-block>

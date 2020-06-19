@@ -19,48 +19,59 @@
       </div>
 
       <div class="md-toolbar-section-end">
-        <div v-if="!isSplash">
-          <div class="floating-theme-selector" :class="{ active: themeMenuActive }">
-            <div class="floating-theme-selector-items">
-              <md-list class="md-dense">
-                <md-list-item @click="themeMenuActive = !themeMenuActive">
-                  <md-avatar class="md-small md-primary"></md-avatar> Active Theme
-                </md-list-item>
+        <div class="md-medium-hide">
+          <md-button href="/getting-started">
+            Docs
+          </md-button>
 
-                <md-list-item :class="getPrimaryClass('default')" @click="setTheme('default')">
-                  <md-avatar md-theme="default" class="md-small md-primary"></md-avatar> Light
-                </md-list-item>
+          <md-button href="/components/app">
+            Components
+          </md-button>
 
-                <md-list-item :class="getPrimaryClass('default-dark')" @click="setTheme('default-dark')">
-                  <md-avatar md-theme="default-dark" class="md-small md-primary"></md-avatar> Dark
-                </md-list-item>
+          <md-button href="/premium-themes">
+            Premium themes
+          </md-button>
+          <md-menu md-size="medium" md-align-trigger>
+            <md-button md-menu-trigger>
+              Ecosystem
 
-                <md-list-item :class="getPrimaryClass('light-green')" @click="setTheme('light-green')">
-                  <md-avatar md-theme="light-green" class="md-small md-primary"></md-avatar> Light Green
-                </md-list-item>
+              <md-icon class="md-size-1x">arrow_drop_down</md-icon>
 
-                <md-list-item :class="getPrimaryClass('dark-green')" @click="setTheme('dark-green')">
-                  <md-avatar md-theme="dark-green" class="md-small md-primary"></md-avatar> Dark Green
-                </md-list-item>
-              </md-list>
-            </div>
-          </div>
-
-          <md-menu
-            class="fixed-theme-selector"
-            md-size="auto"
-            md-direction="bottom-end"
-            md-align-trigger>
-            <md-button :class="{ active: themeMenuActive }" md-menu-trigger>
-              <md-avatar class="md-small md-primary"></md-avatar>
-              <span>Theme</span>
             </md-button>
+            <md-menu-content>
+              <md-menu-item>
+                <router-link to="/getting-started">
+                  Getting started
+                </router-link>
 
-            <md-menu-content class="fixed-theme-selector-items">
-              <md-menu-item :class="getPrimaryClass('default')" @click="setTheme('default')">Light</md-menu-item>
-              <md-menu-item :class="getPrimaryClass('default-dark')" @click="setTheme('default-dark')">Dark</md-menu-item>
-              <md-menu-item :class="getPrimaryClass('light-green')" @click="setTheme('light-green')">Light Green</md-menu-item>
-              <md-menu-item :class="getPrimaryClass('dark-green')" @click="setTheme('dark-green')">Dark Green</md-menu-item>
+              </md-menu-item>
+              <md-menu-item>
+                <router-link to="/about">
+                  About
+                </router-link>
+
+              </md-menu-item>
+              <md-menu-item>
+                <a href="https://www.binarcode.com/estimate-project/?ref=vuematarial.io" target="_blank">
+                  Custom development
+                </a>
+              </md-menu-item>
+              <md-menu-item>
+                <a href="https://github.com/vuematerial/webpack" target="_blank">
+                  Webpack SPA
+                </a>
+              </md-menu-item>
+              <md-menu-item>
+                <a href="https://github.com/vuematerial/nuxtjs" target="_blank">
+                  Nuxt.js
+                </a>
+              </md-menu-item>
+
+              <md-menu-item>
+                <a href="https://codesandbox.io/s/github/vuematerial/examples/tree/master/examples/quick-start" target="_blank">
+                  Codesandbox
+                </a>
+              </md-menu-item>
             </md-menu-content>
           </md-menu>
         </div>
@@ -68,6 +79,20 @@
         <md-button href="http://github.com/vuematerial/vue-material" target="_blank" class="md-icon-button">
           <md-icon md-src="/assets/icon-github.svg" class="icon-github" />
         </md-button>
+
+        <div v-if="!isSplash">
+          <md-menu md-align-trigger>
+            <md-button class="button-theme md-icon-button md-dense md-raised md-primary" md-menu-trigger>
+              <md-icon class="icon-github">invert_colors</md-icon>
+            </md-button>
+            <md-menu-content class="fixed-theme-selector-items">
+              <md-menu-item class="align-center" :class="getPrimaryClass('default')" @click="setTheme('default')"><md-avatar md-theme="default" class="md-small md-primary"></md-avatar> Light</md-menu-item>
+              <md-menu-item class="align-center" :class="getPrimaryClass('default-dark')" @click="setTheme('default-dark')"><md-avatar md-theme="default-dark" class="md-small md-primary"></md-avatar> Dark</md-menu-item>
+              <md-menu-item class="align-center" :class="getPrimaryClass('light-green')" @click="setTheme('light-green')"><md-avatar md-theme="light-green" class="md-small md-primary"></md-avatar> Light Green</md-menu-item>
+              <md-menu-item class="align-center" :class="getPrimaryClass('dark-green')" @click="setTheme('dark-green')"><md-avatar md-theme="dark-green" class="md-small md-primary"></md-avatar> Dark Green</md-menu-item>
+            </md-menu-content>
+          </md-menu>
+        </div>
       </div>
     </div>
   </md-toolbar>
@@ -140,6 +165,10 @@
   @import "~vue-material/components/MdAnimation/variables";
   @import "~vue-material/components/MdElevation/mixins";
   @import "~components/MdLayout/mixins";
+
+  .align-center >>> .md-list-item-content {
+    justify-content: flex-start;
+  }
 
   .main-header {
     margin: auto;
@@ -291,4 +320,20 @@
       }
     }
   }
+
+  .md-menu{
+    margin: 6px 8px;
+  }
+
+  .md-menu-content{
+    background: #303030;
+    z-index: 9999;
+    >>>.md-list-item-content {
+      a{
+        color: inherit;
+      }
+    }
+  }
+
+
 </style>
