@@ -1,13 +1,13 @@
-<example src="./examples/TableBasic.vue" />
-<example src="./examples/TableCard.vue" />
-<example src="./examples/TableTemplate.vue" />
-<example src="./examples/TableSort.vue" />
-<example src="./examples/TableCustomSort.vue" />
-<example src="./examples/TableFixed.vue" />
-<example src="./examples/TableSearch.vue" />
-<example src="./examples/TableSingle.vue" />
-<example src="./examples/TableMultiple.vue" />
-<example src="./examples/TablePaginationSoon.vue" />
+<example path="./examples/TableBasic.vue" />
+<example path="./examples/TableCard.vue" />
+<example path="./examples/TableTemplate.vue" />
+<example path="./examples/TableSort.vue" />
+<example path="./examples/TableCustomSort.vue" />
+<example path="./examples/TableFixed.vue" />
+<example path="./examples/TableSearch.vue" />
+<example path="./examples/TableSingle.vue" />
+<example path="./examples/TableMultiple.vue" />
+<example path="./examples/TablePaginationSoon.vue" />
 
 <template>
   <page-container centered :title="$t('pages.table.title')">

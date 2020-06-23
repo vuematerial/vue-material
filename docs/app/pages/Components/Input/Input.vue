@@ -1,9 +1,9 @@
-<example src="./examples/TextFields.vue" />
-<example src="./examples/ErrorsMessages.vue" />
-<example src="./examples/Counters.vue" />
-<example src="./examples/FieldIcons.vue" />
-<example src="./examples/InlineActions.vue" />
-<example src="./examples/Fixes.vue" />
+<example path="./examples/TextFields.vue" />
+<example path="./examples/ErrorsMessages.vue" />
+<example path="./examples/Counters.vue" />
+<example path="./examples/FieldIcons.vue" />
+<example path="./examples/InlineActions.vue" />
+<example path="./examples/Fixes.vue" />
 
 <template>
   <page-container centered :title="$t('pages.input.title')">

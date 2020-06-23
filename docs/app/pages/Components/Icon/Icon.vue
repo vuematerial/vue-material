@@ -1,6 +1,6 @@
-<example src="./examples/MaterialIcons.vue" />
-<example src="./examples/FontAwesome.vue" />
-<example src="./examples/SvgAssets.vue" />
+<example path="./examples/MaterialIcons.vue" />
+<example path="./examples/FontAwesome.vue" />
+<example path="./examples/SvgAssets.vue" />
 
 <template>
   <page-container centered :title="$t('pages.icon.title')">

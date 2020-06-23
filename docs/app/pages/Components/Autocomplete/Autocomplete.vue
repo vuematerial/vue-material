@@ -1,9 +1,9 @@
-<example src="./examples/AutocompleteStatic.vue" />
-<example src="./examples/AutocompleteTrigger.vue" />
-<example src="./examples/AutocompleteSearch.vue" />
-<example src="./examples/AutocompleteBox.vue" />
-<example src="./examples/AutocompleteTemplate.vue" />
-<example src="./examples/AutocompleteAsync.vue" />
+<example path="./examples/AutocompleteStatic.vue" />
+<example path="./examples/AutocompleteTrigger.vue" />
+<example path="./examples/AutocompleteSearch.vue" />
+<example path="./examples/AutocompleteBox.vue" />
+<example path="./examples/AutocompleteTemplate.vue" />
+<example path="./examples/AutocompleteAsync.vue" />
 
 <template>
   <page-container centered :title="$t('pages.autocomplete.title')">

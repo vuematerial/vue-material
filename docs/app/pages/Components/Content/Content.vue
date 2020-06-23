@@ -1,4 +1,4 @@
-<example src="./examples/PaperContent.vue" />
+<example path="./examples/PaperContent.vue" />
 
 <template>
   <page-container centered :title="$t('pages.content.title')">

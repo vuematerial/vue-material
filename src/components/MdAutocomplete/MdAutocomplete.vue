@@ -20,7 +20,12 @@
 
         <div class="md-autocomplete-items" v-if="hasFilteredItems">
           <md-menu-item v-for="(item, index) in getOptions()" :key="index" @click="selectItem(item, $event)">
-            <slot name="md-autocomplete-item" :item="item" :term="searchTerm" v-if="$scopedSlots['md-autocomplete-item']" />
+            <slot
+              name="md-autocomplete-item"
+              :item="item"
+              :term="searchTerm"
+              v-if="$scopedSlots['md-autocomplete-item']"
+            />
             <template v-else>{{ item }}</template>
           </md-menu-item>
         </div>
@@ -92,11 +97,13 @@
         if (this.isBoxLayout) {
           return 'md-autocomplete-box'
         }
+        return ''
       },
       contentClasses () {
         if (this.isBoxLayout) {
           return 'md-autocomplete-box-content'
         }
+        return ''
       },
       shouldFilter () {
         return this.mdOptions[0] && this.searchTerm

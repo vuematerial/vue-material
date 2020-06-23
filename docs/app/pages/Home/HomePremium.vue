@@ -189,7 +189,7 @@
       }
     }
 
-    >>>.code-block code{
+    /deep/.code-block code{
       font-size: 12px;
     }
 

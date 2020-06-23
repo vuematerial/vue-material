@@ -1,6 +1,6 @@
-<example src="./examples/ProgressSpinnerIndeterminate.vue" />
-<example src="./examples/ProgressSpinnerDeterminate.vue" />
-<example src="./examples/ProgressSpinnerSizes.vue" />
+<example path="./examples/ProgressSpinnerIndeterminate.vue" />
+<example path="./examples/ProgressSpinnerDeterminate.vue" />
+<example path="./examples/ProgressSpinnerSizes.vue" />
 
 <template>
   <page-container centered :title="$t('pages.progressSpinner.title')">

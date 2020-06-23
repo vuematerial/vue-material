@@ -1,8 +1,8 @@
-<example src="./examples/RegularButtons.vue" />
-<example src="./examples/IconButtons.vue" />
-<example src="./examples/FloatingButtons.vue" />
-<example src="./examples/ButtonVsLink.vue" />
-<example src="./examples/ButtonRouter.vue" />
+<example path="./examples/RegularButtons.vue" />
+<example path="./examples/IconButtons.vue" />
+<example path="./examples/FloatingButtons.vue" />
+<example path="./examples/ButtonVsLink.vue" />
+<example path="./examples/ButtonRouter.vue" />
 
 <template>
   <page-container centered :title="$t('pages.button.title')">

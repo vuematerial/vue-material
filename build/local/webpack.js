@@ -2,17 +2,15 @@ import webpack from 'webpack'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import FriendlyErrorsPlugin from 'friendly-errors-webpack-plugin'
 import { config, resolvePath } from '../config'
+import VueLoaderPlugin from 'vue-loader/lib/plugin'
 
 const componentExampleLoader = require.resolve('../loaders/component-example-loader')
-const cssLoaders = 'vue-style-loader!css-loader'
-const scssLoaders = 'vue-style-loader!css-loader!sass-loader?outputStyle=compressed'
-const babelLoader = 'babel-loader?cacheDirectory=true'
 
 export default {
+  mode: 'development',
   devtool: 'cheap-module-eval-source-map',
   entry: {
     docs: [
-      'babel-polyfill',
       './docs/app/index.js',
       './build/local/client'
     ]
@@ -30,32 +28,57 @@ export default {
   module: {
     rules: [
       {
-        test: /\.vue$/,
-        loader: 'vue-loader',
-        options: {
-          loaders: {
-            css: cssLoaders,
-            scss: scssLoaders,
-            js: babelLoader,
-            example: componentExampleLoader
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              cacheDirectory: true,
+            }
           }
-        }
+        ],
       },
       {
-        test: /\.js$/,
-        loader: babelLoader,
-        exclude: /node_modules/,
-        options: {
-          'cacheDirectory': true
-        }
+        test: /\.vue$/,
+        use: [
+          {
+            loader: 'vue-loader',
+          },
+        ],
+      },
+      {
+        resourceQuery: /blockType=example/,
+        use: [
+          {
+            loader: componentExampleLoader,
+          }
+        ],
       },
       {
         test: /\.css$/,
-        loader: cssLoaders
+        use: [
+          {
+            loader: 'vue-style-loader',
+          },
+          {
+            loader: 'css-loader',
+          },
+        ],
       },
       {
         test: /\.scss$/,
-        loader: scssLoaders
+        use: [
+          {
+            loader: 'vue-style-loader',
+          },
+          {
+            loader: 'css-loader',
+          },
+          {
+            loader: 'sass-loader',
+          },
+        ],
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
@@ -68,13 +91,13 @@ export default {
     ]
   },
   plugins: [
+    new VueLoaderPlugin(),
     new webpack.EnvironmentPlugin({
       NODE_ENV: 'development',
       DEBUG: false
     }),
     new webpack.WatchIgnorePlugin([resolvePath('node_modules')]),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin(),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'docs/index.html',

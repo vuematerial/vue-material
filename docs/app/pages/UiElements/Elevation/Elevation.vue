@@ -1,4 +1,4 @@
-<example src="./examples/ElevationExample.vue" />
+<example path="./examples/ElevationExample.vue" />
 
 <template>
   <page-container centered :title="$t('pages.elevation.title')">

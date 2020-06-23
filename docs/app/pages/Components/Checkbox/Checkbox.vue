@@ -1,6 +1,6 @@
-<example src="./examples/RegularCheckboxes.vue" />
-<example src="./examples/CheckboxHueColors.vue" />
-<example src="./examples/TrueFalseValue.vue" />
+<example path="./examples/RegularCheckboxes.vue" />
+<example path="./examples/CheckboxHueColors.vue" />
+<example path="./examples/TrueFalseValue.vue" />
 
 <template>
   <page-container centered :title="$t('pages.checkbox.title')">

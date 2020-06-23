@@ -76,7 +76,7 @@
       toggleTheme () {
         this.isThemeDark = !this.isThemeDark
       }
-    }
+    },
   }
 </script>
 

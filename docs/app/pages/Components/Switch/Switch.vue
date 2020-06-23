@@ -1,5 +1,5 @@
-<example src="./examples/RegularSwitch.vue" />
-<example src="./examples/SwitchHueColors.vue" />
+<example path="./examples/RegularSwitch.vue" />
+<example path="./examples/SwitchHueColors.vue" />
 
 <template>
   <page-container centered :title="$t('pages.switch.title')">

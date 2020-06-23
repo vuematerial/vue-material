@@ -1,7 +1,7 @@
-<example src="./examples/DialogCustom.vue" />
-<example src="./examples/DialogAlert.vue" />
-<example src="./examples/DialogConfirm.vue" />
-<example src="./examples/DialogPrompt.vue" />
+<example path="./examples/DialogCustom.vue" />
+<example path="./examples/DialogAlert.vue" />
+<example path="./examples/DialogConfirm.vue" />
+<example path="./examples/DialogPrompt.vue" />
 
 <template>
   <page-container centered :title="$t('pages.dialog.title')">

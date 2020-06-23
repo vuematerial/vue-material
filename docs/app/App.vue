@@ -69,20 +69,6 @@
   }
 </script>
 
-<style lang="scss">
-  @import "./themes/default";
-  @import "./themes/default-dark";
-  @import "./themes/light-green";
-  @import "./themes/dark-green";
-  @import "./themes/dark";
-  @import "./themes/demo";
-
-  body {
-    height: 100%;
-    overflow-x: hidden;
-  }
-</style>
-
 <style lang="scss" scoped>
   @import "~vue-material/components/MdAnimation/variables";
   @import "~vue-material/components/MdLayout/mixins";
@@ -104,7 +90,7 @@
       padding-top: 56px;
     }
 
-    &.splash >>> {
+    &.splash /deep/ {
       .main-header .md-toolbar-row,
       .main-footer-container {
         max-width: 1312px;

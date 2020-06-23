@@ -1,9 +1,9 @@
-<example src="./examples/Temporary.vue" />
-<example src="./examples/PermanentFull.vue" />
-<example src="./examples/PermanentClipped.vue" />
-<example src="./examples/PermanentCard.vue" />
-<example src="./examples/PersistentFull.vue" />
-<example src="./examples/PersistentMini.vue" />
+<example path="./examples/Temporary.vue" />
+<example path="./examples/PermanentFull.vue" />
+<example path="./examples/PermanentClipped.vue" />
+<example path="./examples/PermanentCard.vue" />
+<example path="./examples/PersistentFull.vue" />
+<example path="./examples/PersistentMini.vue" />
 
 <template>
   <page-container centered :title="$t('pages.drawer.title')">

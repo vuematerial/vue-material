@@ -1,4 +1,4 @@
-<example src="./examples/FormValidation.vue" />
+<example path="./examples/FormValidation.vue" />
 
 <template>
   <page-container centered :title="$t('pages.form.title')">

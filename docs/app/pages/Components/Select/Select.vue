@@ -1,8 +1,8 @@
-<example src="./examples/BasicSelect.vue" />
-<example src="./examples/DenseSelect.vue" />
-<example src="./examples/DisabledSelect.vue" />
-<example src="./examples/OptgroupSelect.vue" />
-<example src="./examples/MultipleSelect.vue" />
+<example path="./examples/BasicSelect.vue" />
+<example path="./examples/DenseSelect.vue" />
+<example path="./examples/DisabledSelect.vue" />
+<example path="./examples/OptgroupSelect.vue" />
+<example path="./examples/MultipleSelect.vue" />
 
 <template>
   <page-container centered :title="$t('pages.select.title')">

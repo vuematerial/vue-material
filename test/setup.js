@@ -13,6 +13,7 @@ Vue.component('transition', {
     if (defaultSlot) {
       return defaultSlot[0] && defaultSlot[0]
     }
+    return null;
   }
 })
 

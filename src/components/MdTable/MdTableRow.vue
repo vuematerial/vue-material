@@ -59,6 +59,7 @@
             'md-selected-single': this.isSingleSelected
           }
         }
+        return '';
       },
       isInSelectedItems () {
         return this.MdTable.selectedItems.includes(this.mdItem)

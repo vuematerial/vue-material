@@ -1,7 +1,7 @@
-<example src="./examples/ProgressBarIndeterminate.vue" />
-<example src="./examples/ProgressBarDeterminate.vue" />
-<example src="./examples/ProgressBarBuffer.vue" />
-<example src="./examples/ProgressBarQuery.vue" />
+<example path="./examples/ProgressBarIndeterminate.vue" />
+<example path="./examples/ProgressBarDeterminate.vue" />
+<example path="./examples/ProgressBarBuffer.vue" />
+<example path="./examples/ProgressBarQuery.vue" />
 
 <template>
   <page-container centered :title="$t('pages.progressBar.title')">

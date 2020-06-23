@@ -1,4 +1,4 @@
-<example src="./examples/TypographyExample.vue" />
+<example path="./examples/TypographyExample.vue" />
 
 <template>
   <page-container centered :title="$t('pages.typography.title')">

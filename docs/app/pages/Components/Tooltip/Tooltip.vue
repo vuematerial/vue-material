@@ -1,6 +1,6 @@
-<example src="./examples/Direction.vue" />
-<example src="./examples/Delay.vue" />
-<example src="./examples/Dynamically.vue" />
+<example path="./examples/Direction.vue" />
+<example path="./examples/Delay.vue" />
+<example path="./examples/Dynamically.vue" />
 
 <template>
   <page-container centered :title="$t('pages.tooltip.title')">

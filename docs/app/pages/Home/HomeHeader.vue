@@ -13,7 +13,9 @@
       <div class="home-actions">
         <gh-btns-star slug="vuematerial/vue-material" show-count></gh-btns-star>
         <!-- Place this tag where you want the button to render. -->
-        <github-button href="https://github.com/sponsors/vuematerial" data-icon="octicon-heart" data-size="large" aria-label="Sponsor @vuematerial on GitHub">Sponsor</github-button>
+        <github-button href="https://github.com/sponsors/vuematerial" data-icon="octicon-heart" data-size="large"
+                       aria-label="Sponsor @vuematerial on GitHub">Sponsor
+        </github-button>
       </div>
       <div class="home-actions">
         <a href="https://www.npmjs.com/package/vue-material" target="_blank">
@@ -30,15 +32,18 @@
         </a>
       </div>
       <div class="home-actions mt-2">
-        <md-button class="md-button-spaced md-plain md-raised" to="/getting-started">{{ $t('pages.gettingStarted.title') }}</md-button>
-        <md-button class="md-button-spaced md-plain md-raised" to="/components">{{ $t('pages.components.title') }}</md-button>
+        <md-button class="md-button-spaced md-plain md-raised" to="/getting-started">{{ $t('pages.gettingStarted.title')
+          }}
+        </md-button>
+        <md-button class="md-button-spaced md-plain md-raised" to="/components">{{ $t('pages.components.title') }}
+        </md-button>
       </div>
     </div>
   </header>
 </template>
 
 <script>
-import GithubButton from 'vue-github-button'
+  import GithubButton from 'vue-github-button'
 
   export default {
     name: 'HomeHeader',
@@ -98,30 +103,33 @@ import GithubButton from 'vue-github-button'
     .md-button {
       margin-left: 0;
     }
-    a{
+
+    a {
       margin-left: 5px;
     }
 
-    >>>.gh-button{
+    & /deep/ .gh-button {
       color: #25292e;
-      &:hover{
+
+      &:hover {
         color: #25292e;
       }
     }
 
-    >>>.social-count{
+    & /deep/ .social-count {
       color: #25292e;
-      &:hover{
+
+      &:hover {
         color: #25292e;
       }
     }
 
-    &.mt-2{
+    &.mt-2 {
       margin-top: 2rem;
     }
   }
 
-  .mb-10{
+  .mb-10 {
     margin-bottom: 10px;
   }
 

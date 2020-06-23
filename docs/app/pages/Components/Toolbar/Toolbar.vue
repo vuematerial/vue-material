@@ -1,6 +1,6 @@
-<example src="./examples/RegularToolbar.vue" />
-<example src="./examples/ToolbarSizes.vue" />
-<example src="./examples/ContentActions.vue" />
+<example path="./examples/RegularToolbar.vue" />
+<example path="./examples/ToolbarSizes.vue" />
+<example path="./examples/ContentActions.vue" />
 
 <template>
   <page-container centered :title="$t('pages.toolbar.title')">

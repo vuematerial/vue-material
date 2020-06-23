@@ -5,7 +5,15 @@
     @touchmove.passive="event => mdEventTrigger && touchMoveCheck(event)"
     @mousedown.passive="event => mdEventTrigger && startRipple(event)">
     <slot />
-    <md-wave v-for="ripple in ripples" :key="ripple.uuid" :class="['md-ripple-wave', waveClasses]" :style="ripple.waveStyles" @md-end="clearWave(ripple.uuid)" v-if="!isDisabled" />
+    <template v-if="!isDisabled">
+      <md-wave
+        v-for="ripple in ripples"
+        :key="ripple.uuid"
+        :class="['md-ripple-wave', waveClasses]"
+        :style="ripple.waveStyles"
+        @md-end="clearWave(ripple.uuid)"
+      />
+    </template>
   </div>
 </template>
 

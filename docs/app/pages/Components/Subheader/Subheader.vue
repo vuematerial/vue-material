@@ -1,4 +1,4 @@
-<example src="./examples/SubheaderExample.vue" />
+<example path="./examples/SubheaderExample.vue" />
 
 <template>
   <page-container centered :title="$t('pages.subheader.title')">

@@ -48,6 +48,7 @@
         if (this.MdTable.sort) {
           return this.MdTable.sort === this.sortBy
         }
+        return undefined;
       },
       isDescSorted () {
         return this.isSorted && this.MdTable.sortOrder === 'desc'
