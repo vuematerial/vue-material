@@ -1,6 +1,6 @@
-<example src="./examples/Regular.vue" />
-<example src="./examples/Sizes.vue" />
-<example src="./examples/Placeholder.vue" />
+<example path="./examples/Regular.vue" />
+<example path="./examples/Sizes.vue" />
+<example path="./examples/Placeholder.vue" />
 
 <template>
   <page-container centered :title="$t('pages.avatar.title')">

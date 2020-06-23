@@ -1,5 +1,4 @@
 /* Third Party */
-import 'regenerator-runtime/runtime'
 import Vue from 'vue'
 import ga from 'vue-ga'
 import { sync } from 'vuex-router-sync'
@@ -8,7 +7,7 @@ import VueGitHubButtons from 'vue-github-buttons'
 import VueToc from 'vue-toc'
 
 Vue.component('vue-toc', VueToc)
-
+import './themes.scss';
 import 'vue-github-buttons/dist/vue-github-buttons.css';
 
 /* App */

@@ -93,6 +93,7 @@
         case 'number':
           return Number
         }
+        return null;
       }
     },
     methods: {

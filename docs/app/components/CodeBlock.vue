@@ -11,7 +11,7 @@
 </template>
 
 <script>
-  import highlight from 'highlight.js/lib/highlight.js'
+  import highlight from 'highlight.js/lib/core'
   import highlightSCSS from 'highlight.js/lib/languages/scss'
   import highlightXML from 'highlight.js/lib/languages/xml'
   import highlightJavascript from 'highlight.js/lib/languages/javascript'

@@ -1,4 +1,4 @@
-<example src="./examples/SnackbarExample.vue" />
+<example path="./examples/SnackbarExample.vue" />
 
 <template>
   <page-container centered :title="$t('pages.snackbar.title')">

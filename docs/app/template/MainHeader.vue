@@ -166,7 +166,7 @@
   @import "~vue-material/components/MdElevation/mixins";
   @import "~components/MdLayout/mixins";
 
-  .align-center >>> .md-list-item-content {
+  .align-center /deep/ .md-list-item-content {
     justify-content: flex-start;
   }
 
@@ -214,12 +214,12 @@
       display: none;
     }
 
-    >>> .md-ripple {
+    /deep/ .md-ripple {
       padding: 0;
       overflow: visible;
     }
 
-    >>> .md-button-content {
+    /deep/ .md-button-content {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -275,7 +275,7 @@
       border-radius: 2px 0 0 2px;
       transform: translate3d(0, -50%, 0);
 
-      >>> .md-list {
+      /deep/ .md-list {
         padding: 4px 0;
         opacity: 1;
 
@@ -299,7 +299,7 @@
   }
 
   .floating-theme-selector-items {
-    >>> .md-list {
+    /deep/ .md-list {
       padding: 0;
       border-bottom-left-radius: 2px;
 
@@ -328,7 +328,7 @@
   .md-menu-content{
     background: #303030;
     z-index: 9999;
-    >>>.md-list-item-content {
+    /deep/ .md-list-item-content {
       a{
         color: inherit;
       }

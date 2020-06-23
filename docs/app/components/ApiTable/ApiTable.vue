@@ -114,14 +114,14 @@
     color: md-get-palette-color(red, A200);
     font-family: 'Roboto Mono', monospace;
 
-    >>> span {
+    /deep/ span {
       color: md-get-palette-color(blue, A200);
     }
   }
 
   .description,
   .prop-name {
-    >>> code {
+    /deep/ code {
       color: md-get-palette-color(red, A200);
       font-family: 'Roboto Mono', monospace;
     }

@@ -29,7 +29,10 @@
 
 <script>
   export default {
-    name: 'ElevationExample'
+    name: 'ElevationExample',
+    created () {
+      console.log('hi! i was created')
+    }
   }
 </script>
 

@@ -1,4 +1,4 @@
-<example src="./examples/SelectionExample.vue" />
+<example path="./examples/SelectionExample.vue" />
 
 <template>
   <page-container centered :title="$t('pages.textSelection.title')">

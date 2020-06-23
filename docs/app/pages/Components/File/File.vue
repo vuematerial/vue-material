@@ -1,4 +1,4 @@
-<example src="./examples/FileField.vue" />
+<example path="./examples/FileField.vue" />
 
 <template>
   <page-container centered :title="$t('pages.file.title')">

@@ -1,10 +1,10 @@
-<example src="./examples/LayoutHorizontalColumns.vue" />
-<example src="./examples/LayoutHorizontalGutter.vue" />
-<example src="./examples/LayoutHorizontalSizes.vue" />
-<example src="./examples/LayoutHorizontalAlignment.vue" />
-<example src="./examples/LayoutHorizontalResponsive.vue" />
-<example src="./examples/LayoutHorizontalHide.vue" />
-<example src="./examples/LayoutHorizontalNested.vue" />
+<example path="./examples/LayoutHorizontalColumns.vue" />
+<example path="./examples/LayoutHorizontalGutter.vue" />
+<example path="./examples/LayoutHorizontalSizes.vue" />
+<example path="./examples/LayoutHorizontalAlignment.vue" />
+<example path="./examples/LayoutHorizontalResponsive.vue" />
+<example path="./examples/LayoutHorizontalHide.vue" />
+<example path="./examples/LayoutHorizontalNested.vue" />
 
 <template>
   <page-container centered :title="$t('pages.layout.title')">

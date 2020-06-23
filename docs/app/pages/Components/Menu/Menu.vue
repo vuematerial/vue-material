@@ -1,8 +1,8 @@
-<example src="./examples/Directions.vue" />
-<example src="./examples/Sizes.vue" />
-<example src="./examples/MenuAlignments.vue" />
-<example src="./examples/AutoClose.vue" />
-<example src="./examples/MultipleContent.vue" />
+<example path="./examples/Directions.vue" />
+<example path="./examples/Sizes.vue" />
+<example path="./examples/MenuAlignments.vue" />
+<example path="./examples/AutoClose.vue" />
+<example path="./examples/MultipleContent.vue" />
 
 <template>
   <page-container centered :title="$t('pages.menu.title')">

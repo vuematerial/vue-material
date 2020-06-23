@@ -1,6 +1,6 @@
-<example src="./examples/Buttons.vue" />
-<example src="./examples/Lists.vue" />
-<example src="./examples/Dense.vue" />
+<example path="./examples/Buttons.vue" />
+<example path="./examples/Lists.vue" />
+<example path="./examples/Dense.vue" />
 
 <template>
   <page-container centered :title="$t('pages.badge.title')">

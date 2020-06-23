@@ -66,13 +66,9 @@
 </template>
 
 <script>
-  import MdSvgLoader from 'vue-material/components/MdSvgLoader/MdSvgLoader'
-
   export default {
     name: 'HomeSponsors',
-    components: {
-      MdSvgLoader
-    }
+    components: {}
   }
 </script>
 
@@ -169,7 +165,7 @@
     }
 
     img,
-    >>> svg,
+    /deep/ svg,
     .md-svg-loader {
       max-width: 256px;
       max-height: 96px;

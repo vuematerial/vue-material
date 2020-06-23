@@ -81,7 +81,7 @@
     transform: translate3d(0, 0, 0);
   }
 
-  >>> .page-container-section {
+  /deep/ .page-container-section {
     letter-spacing: .01em;
     line-height: 1.6em;
 
@@ -116,7 +116,7 @@
   }
 
   @media (min-width: $ad-responsive-big) {
-    .ad-manager >>> .code-fund {
+    .ad-manager /deep/ .code-fund {
       margin: 0;
       position: fixed;
       bottom: 0;
@@ -128,7 +128,7 @@
   @media(max-width: 960px){
     .ad-manager{
       position: relative;
-      >>>.code-fund{
+      /deep/.code-fund{
         float: none;
         margin: 0;
         display: flex;

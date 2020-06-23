@@ -1,6 +1,6 @@
-<example src="./examples/EmptyStateBasic.vue" />
-<example src="./examples/EmptyStateRounded.vue" />
-<example src="./examples/EmptyStateColors.vue" />
+<example path="./examples/EmptyStateBasic.vue" />
+<example path="./examples/EmptyStateRounded.vue" />
+<example path="./examples/EmptyStateColors.vue" />
 
 <template>
   <page-container centered :title="$t('pages.emptyState.title')">

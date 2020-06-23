@@ -1,7 +1,7 @@
-<example src="./examples/BarRouter.vue" />
-<example src="./examples/Shift.vue" />
-<example src="./examples/ChangingThemes.vue" />
-<example src="./examples/BarCustomTemplate.vue" />
+<example path="./examples/BarRouter.vue" />
+<example path="./examples/Shift.vue" />
+<example path="./examples/ChangingThemes.vue" />
+<example path="./examples/BarCustomTemplate.vue" />
 
 <template>
   <page-container centered :title="$t('pages.bottomBar.title')">

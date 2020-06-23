@@ -1,9 +1,9 @@
-<example src="./examples/BasicDatepicker.vue" />
-<example src="./examples/LabeledDatepicker.vue" />
-<example src="./examples/MultiTypesDatepicker.vue" />
-<example src="./examples/CancelOpenDatepicker.vue" />
-<example src="./examples/CloseOnSelectDatepicker.vue" />
-<example src="./examples/DisabledDatesDatepicker.vue" />
+<example path="./examples/BasicDatepicker.vue" />
+<example path="./examples/LabeledDatepicker.vue" />
+<example path="./examples/MultiTypesDatepicker.vue" />
+<example path="./examples/CancelOpenDatepicker.vue" />
+<example path="./examples/CloseOnSelectDatepicker.vue" />
+<example path="./examples/DisabledDatesDatepicker.vue" />
 
 <template>
   <page-container centered :title="$t('pages.datepicker.title')">

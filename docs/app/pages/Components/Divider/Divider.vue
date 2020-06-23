@@ -1,4 +1,4 @@
-<example src="./examples/Divider.vue" />
+<example path="./examples/Divider.vue" />
 
 <template>
   <page-container centered :title="$t('pages.divider.title')">

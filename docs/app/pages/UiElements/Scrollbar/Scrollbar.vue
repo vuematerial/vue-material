@@ -1,4 +1,4 @@
-<example src="./examples/ScrollbarExample.vue" />
+<example path="./examples/ScrollbarExample.vue" />
 
 <template>
   <page-container centered :title="$t('pages.scrollbar.title')">

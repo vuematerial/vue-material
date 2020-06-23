@@ -149,7 +149,7 @@
     border-left: 1px solid #e0e0e0;
     padding-right: 15px;
     max-width: 250px;
-    >>> ul {
+    /deep/ ul {
       list-style: none;
       padding-left: 20px;
       margin: 5px 0;

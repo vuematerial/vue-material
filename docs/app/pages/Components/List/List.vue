@@ -1,9 +1,9 @@
-<example src="./examples/SingleLine.vue" />
-<example src="./examples/DoubleLine.vue" />
-<example src="./examples/TripleLine.vue" />
-<example src="./examples/ListTypes.vue" />
-<example src="./examples/ListExpansion.vue" />
-<example src="./examples/Controls.vue" />
+<example path="./examples/SingleLine.vue" />
+<example path="./examples/DoubleLine.vue" />
+<example path="./examples/TripleLine.vue" />
+<example path="./examples/ListTypes.vue" />
+<example path="./examples/ListExpansion.vue" />
+<example path="./examples/Controls.vue" />
 
 <template>
   <page-container centered :title="$t('pages.list.title')">

@@ -1,7 +1,7 @@
-<example src="./examples/PositionDirection.vue" />
-<example src="./examples/AnimationTypes.vue" />
-<example src="./examples/EventTriggers.vue" />
-<example src="./examples/MorphingIcon.vue" />
+<example path="./examples/PositionDirection.vue" />
+<example path="./examples/AnimationTypes.vue" />
+<example path="./examples/EventTriggers.vue" />
+<example path="./examples/MorphingIcon.vue" />
 
 <template>
   <page-container centered :title="$t('pages.speedDial.title')">

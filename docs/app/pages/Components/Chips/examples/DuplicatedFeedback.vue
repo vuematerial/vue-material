@@ -43,7 +43,7 @@ export default {
 </style>
 
 <style lang="css" scoped>
-.pulse-on-error >>> .md-duplicated {
+.pulse-on-error /deep/ .md-duplicated {
   animation-name: pulse;
   animation-duration: 0.5s;
   animation-iteration-count: infinite;

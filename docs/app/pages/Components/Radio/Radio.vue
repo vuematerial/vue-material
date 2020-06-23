@@ -1,5 +1,5 @@
-<example src="./examples/RegularRadio.vue" />
-<example src="./examples/RadioHueColors.vue" />
+<example path="./examples/RegularRadio.vue" />
+<example path="./examples/RadioHueColors.vue" />
 
 <template>
   <page-container centered :title="$t('pages.radio.title')">

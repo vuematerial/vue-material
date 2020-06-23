@@ -1,13 +1,13 @@
-import Ora from 'ora'
+import ora from 'ora'
 import webpack from 'webpack'
 import webpackConfig from './webpack'
 import { pack } from '../config'
 import generateThemes from './themes'
 
-const spinner = new Ora({
+const spinner = ora({
   text: 'Building lib',
   color: 'green',
-  spinner: 'simpleDots'
+  spinner: 'simpleDots',
 })
 
 const entries = [
@@ -15,19 +15,16 @@ const entries = [
     libraryTarget: 'umd',
     filename: `${pack.name}.min.js`,
     compress: true,
-    css: true,
     analyze: true
   }),
   webpackConfig({
     libraryTarget: 'umd',
     filename: `${pack.name}.js`,
-    css: true
   }),
   webpackConfig({
     components: true,
     libraryTarget: 'umd',
     compress: true,
-    css: true
   })
 ]
 

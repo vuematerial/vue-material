@@ -1,8 +1,8 @@
-<example src="./examples/TabRouter.vue" />
-<example src="./examples/TabAlignments.vue" />
-<example src="./examples/TabContent.vue" />
-<example src="./examples/TabIcons.vue" />
-<example src="./examples/TabCustomTemplate.vue" />
+<example path="./examples/TabRouter.vue" />
+<example path="./examples/TabAlignments.vue" />
+<example path="./examples/TabContent.vue" />
+<example path="./examples/TabIcons.vue" />
+<example path="./examples/TabCustomTemplate.vue" />
 
 <template>
   <page-container centered :title="$t('pages.tabs.title')">

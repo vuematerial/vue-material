@@ -16,31 +16,36 @@
       </div>
     </div>
 
-    <md-content class="md-table-content md-scrollbar" :class="contentClasses" :style="contentStyles" @scroll="setScroll">
+    <md-content
+      class="md-table-content md-scrollbar"
+      :class="contentClasses"
+      :style="contentStyles"
+      @scroll="setScroll"
+    >
       <table ref="contentTable">
         <md-table-thead :class="headerClasses" v-if="!mdFixedHeader && $scopedSlots['md-table-row']" />
 
         <tbody v-if="!$scopedSlots['md-table-row']">
-          <slot />
+        <slot />
         </tbody>
 
         <tbody v-else-if="value.length">
-          <md-table-row-ghost
-            v-for="(item, index) in value"
-            :key="getRowId(item, mdModelId)"
-            :md-id="getRowId(item, mdModelId)"
-            :md-index="index"
-            :md-item="item">
-            <slot name="md-table-row" :item="item" :index="index" />
-          </md-table-row-ghost>
+        <md-table-row-ghost
+          v-for="(item, index) in value"
+          :key="getRowId(item, mdModelId)"
+          :md-id="getRowId(item, mdModelId)"
+          :md-index="index"
+          :md-item="item">
+          <slot name="md-table-row" :item="item" :index="index" />
+        </md-table-row-ghost>
         </tbody>
 
         <tbody v-else-if="$scopedSlots['md-table-empty-state']">
-          <tr>
-            <td :colspan="headerCount">
-              <slot name="md-table-empty-state" />
-            </td>
-          </tr>
+        <tr>
+          <td :colspan="headerCount">
+            <slot name="md-table-empty-state" />
+          </td>
+        </tr>
         </tbody>
       </table>
 
@@ -59,9 +64,7 @@
   import MdPropValidator from 'core/utils/MdPropValidator'
   import MdTableThead from './MdTableThead'
   import MdTableAlternateHeader from './MdTableAlternateHeader'
-  import MdTableRow from './MdTableRow'
   import MdTableRowGhost from './MdTableRowGhost'
-  import MdTableCellSelection from './MdTableCellSelection'
   import MdResizeObserver from 'core/utils/MdResizeObserver'
 
   const getObjectAttribute = (object, key) => {
@@ -80,9 +83,7 @@
       MdTagSwitcher,
       MdTableAlternateHeader,
       MdTableThead,
-      MdTableRow,
       MdTableRowGhost,
-      MdTableCellSelection
     },
     props: {
       value: [Array, Object],
@@ -113,10 +114,10 @@
             let isNumber = typeof aAttr === 'number'
 
             if (!aAttr) {
-              return 1;
+              return 1
             }
 
-            if(!bAttr) {
+            if (!bAttr) {
               return -1
             }
 
@@ -181,6 +182,7 @@
         if (this.mdFixedHeader) {
           return `padding-right: ${this.fixedHeaderPadding}px`
         }
+        return ''
       },
       hasValue () {
         return this.value && this.value.length !== 0
@@ -189,6 +191,7 @@
         if ((this.mdFixedHeader && this.hasContentScroll) || !this.hasValue) {
           return 'md-table-fixed-header-active'
         }
+        return ''
       },
       contentStyles () {
         if (this.mdFixedHeader) {
@@ -197,11 +200,13 @@
             : this.mdHeight
           return `height: ${height};max-height: ${height}`
         }
+        return ''
       },
       contentClasses () {
         if (this.mdFixedHeader && this.value.length === 0) {
           return `md-table-empty`
         }
+        return ''
       },
       fixedHeaderTableStyles () {
         return {

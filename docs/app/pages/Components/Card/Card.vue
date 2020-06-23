@@ -1,9 +1,9 @@
-<example src="./examples/RegularCards.vue" />
-<example src="./examples/ThemeColors.vue" />
-<example src="./examples/Media.vue" />
-<example src="./examples/MediaCover.vue" />
-<example src="./examples/Layouts.vue" />
-<example src="./examples/CardExpansion.vue" />
+<example path="./examples/RegularCards.vue" />
+<example path="./examples/ThemeColors.vue" />
+<example path="./examples/Media.vue" />
+<example path="./examples/MediaCover.vue" />
+<example path="./examples/Layouts.vue" />
+<example path="./examples/CardExpansion.vue" />
 
 <template>
   <page-container centered :title="$t('pages.card.title')">

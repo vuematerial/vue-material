@@ -1,9 +1,9 @@
-<example src="./examples/Normal.vue" />
-<example src="./examples/Waterfall.vue" />
-<example src="./examples/Reveal.vue" />
-<example src="./examples/Flexible.vue" />
-<example src="./examples/LastRowFixed.vue" />
-<example src="./examples/Overlap.vue" />
+<example path="./examples/Normal.vue" />
+<example path="./examples/Waterfall.vue" />
+<example path="./examples/Reveal.vue" />
+<example path="./examples/Flexible.vue" />
+<example path="./examples/LastRowFixed.vue" />
+<example path="./examples/Overlap.vue" />
 
 <template>
   <page-container centered :title="$t('pages.app.title')">

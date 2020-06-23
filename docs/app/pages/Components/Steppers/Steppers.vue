@@ -1,9 +1,9 @@
-<example src="./examples/StepperHorizontal.vue" />
-<example src="./examples/StepperAlternative.vue" />
-<example src="./examples/StepperLinear.vue" />
-<example src="./examples/StepperNonEditable.vue" />
-<example src="./examples/StepperVertical.vue" />
-<example src="./examples/StepperRoute.vue" />
+<example path="./examples/StepperHorizontal.vue" />
+<example path="./examples/StepperAlternative.vue" />
+<example path="./examples/StepperLinear.vue" />
+<example path="./examples/StepperNonEditable.vue" />
+<example path="./examples/StepperVertical.vue" />
+<example path="./examples/StepperRoute.vue" />
 
 <template>
   <page-container centered :title="$t('pages.steppers.title')">

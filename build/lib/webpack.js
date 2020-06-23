@@ -1,18 +1,19 @@
 /* eslint-disable complexity */
 
 import webpack from 'webpack'
-import { readdirSync, statSync, existsSync } from 'fs'
+import { existsSync, readdirSync, statSync } from 'fs'
 import { join } from 'path'
 import merge from 'webpack-merge'
 import autoprefixer from 'autoprefixer'
 import mediaPacker from 'css-mqpacker'
-import ExtractTextPlugin from 'extract-text-webpack-plugin'
 import CopyWebpackPlugin from 'copy-webpack-plugin'
-import OptimizeJsPlugin from 'optimize-js-plugin'
 import OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
-import { config, resolvePath, getRandomInt, pack } from '../config'
+import { config, getRandomInt, pack, resolvePath } from '../config'
 import banner from './banner'
+import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import TerserWebpackPlugin from 'terser-webpack-plugin'
+import VueLoaderPlugin from "vue-loader/lib/plugin"
 
 function toUpperCase (_, c) {
   return c ? c.toUpperCase() : ''
@@ -53,12 +54,14 @@ function getCopyPaths () {
     {
       context: resolvePath(basePath),
       from: '**/theme.scss',
-      to: resolvePath('dist/base')
+      to: resolvePath('dist/base'),
+      noErrorOnMissing: true,
     },
     {
       context: resolvePath(themePath),
       from: '**/*.scss',
-      to: resolvePath('dist/theme')
+      to: resolvePath('dist/theme'),
+      noErrorOnMissing: true,
     }
   ]
 
@@ -70,7 +73,8 @@ function getCopyPaths () {
         context: resolvePath(componentsPath, component),
         from: '**/theme.scss',
         to: resolvePath(`dist/components/${component}/theme.scss`),
-        toType: 'file'
+        toType: 'file',
+        noErrorOnMissing: true,
       })
     }
   })
@@ -112,6 +116,7 @@ export default entry => {
   }
 
   let webpackConfig = {
+    mode: 'production',
     output,
     entry: entries,
     resolve: {
@@ -134,139 +139,121 @@ export default entry => {
       rules: [
         {
           test: /\.js$/,
-          loader: 'babel-loader',
-          exclude: /node_modules/
-        }
+          exclude: /node_modules/,
+          use: [
+            {
+              loader: 'babel-loader',
+              options: {
+                cacheDirectory: true,
+              }
+            }
+          ],
+        },
+        {
+          test: /\.vue$/,
+          exclude: /node_modules/,
+          use: [
+            {
+              loader: 'vue-loader',
+            },
+          ],
+        },
+        {
+          test: /\.css$/,
+          exclude: /node_modules/,
+          use: [
+            {
+              loader: MiniCssExtractPlugin.loader,
+            },
+            {
+              loader: 'css-loader',
+            },
+            {
+              loader: 'postcss-loader',
+              options: {
+                ident: 'postcss',
+                plugins: [
+                  autoprefixer(),
+                  mediaPacker(),
+                ],
+              },
+            },
+          ],
+        },
+        {
+          test: /\.scss$/,
+          exclude: /node_modules/,
+          use: [
+            {
+              loader: MiniCssExtractPlugin.loader,
+            },
+            {
+              loader: 'css-loader',
+            },
+            {
+              loader: 'postcss-loader',
+              options: {
+                ident: 'postcss',
+                plugins: [
+                  autoprefixer(),
+                  mediaPacker(),
+                ],
+              },
+            },
+            {
+              loader: 'sass-loader',
+            },
+          ],
+        },
       ]
     },
     plugins: [
+      new VueLoaderPlugin(),
+      new MiniCssExtractPlugin(),
+      new OptimizeCssAssetsPlugin({
+        canPrint: false
+      }),
       new webpack.EnvironmentPlugin({
         NODE_ENV: 'production',
         DEBUG: false
       }),
-      new webpack.optimize.ModuleConcatenationPlugin()
-    ]
+    ],
+
   }
 
   if (entry.compress) {
     webpackConfig = merge({
-      plugins: [
-        new webpack.LoaderOptionsPlugin({
-          minimize: true,
-          debug: false
-        }),
-        new webpack.optimize.UglifyJsPlugin({
-          compress: {
-            screw_ie8: true,
-            warnings: false,
-            sequences: true,
-            properties: true,
-            dead_code: true,
-            drop_debugger: true,
-            unsafe: true,
-            conditionals: true,
-            comparisons: true,
-            evaluate: true,
-            booleans: true,
-            loops: true,
-            unused: true,
-            hoist_funs: true,
-            hoist_vars: true,
-            if_return: true,
-            join_vars: true,
-            cascade: true,
-            side_effects: true
-          },
-          output: {
-            comments: false
-          },
-          sourceMap: false
-        }),
-        new OptimizeJsPlugin({
-          sourceMap: false
-        })
-      ]
-    }, webpackConfig)
-  }
-
-  if (entry.css) {
-    const cssLoader = ExtractTextPlugin.extract({
-      use: 'css-loader',
-      fallback: 'vue-style-loader'
-    })
-
-    const scssLoader = ExtractTextPlugin.extract({
-      use: 'css-loader!sass-loader',
-      fallback: 'vue-style-loader'
-    })
-
-    webpackConfig = merge({
-      plugins: [
-        new ExtractTextPlugin({
-          allChunks: true,
-          filename: getExtractedCSSName(entry)
-        }),
-        new OptimizeCssAssetsPlugin({
-          canPrint: false
-        })
-      ],
-      module: {
-        rules: [
-          {
-            test: /\.vue$/,
-            loader: 'vue-loader',
-            options: {
-              extractCSS: true,
-              loaders: {
-                css: cssLoader,
-                scss: scssLoader
+      optimization: {
+        minimize: true,
+        minimizer: [
+          new TerserWebpackPlugin({
+            terserOptions: {
+              booleans: true,
+              cascade: true,
+              comparisons: true,
+              conditionals: true,
+              dead_code: true,
+              drop_debugger: true,
+              evaluate: true,
+              hoist_funs: true,
+              hoist_vars: true,
+              if_return: true,
+              join_vars: true,
+              loops: true,
+              properties: true,
+              screw_ie8: true,
+              sequences: true,
+              side_effects: true,
+              unsafe: true,
+              unused: true,
+              warnings: false,
+              output: {
+                comments: false,
               },
-              postcss: [
-                autoprefixer(),
-                mediaPacker()
-              ]
             },
-            exclude: /node_modules/
-          },
-          {
-            test: /\.css$/,
-            loader: cssLoader,
-            exclude: /node_modules/
-          },
-          {
-            test: /\.scss$/,
-            loader: scssLoader,
-            exclude: /node_modules/
-          }
-        ]
-      }
-    }, webpackConfig)
-  } else {
-    webpackConfig = merge({
-      module: {
-        rules: [
-          {
-            test: /\.vue$/,
-            loader: 'vue-loader',
-            options: {
-              loaders: {
-                css: 'vue-style-loader!css-loader',
-                scss: 'vue-style-loader!css-loader!sass-loader?outputStyle=compressed'
-              }
-            },
-            exclude: /node_modules/
-          },
-          {
-            test: /\.css$/,
-            use: ['vue-style-loader', 'css-loader'],
-            exclude: /node_modules/
-          },
-          {
-            test: /\.scss$/,
-            use: ['vue-style-loader', 'css-loader', 'sass-loader'],
-            exclude: /node_modules/
-          }
-        ]
+            sourceMap: false,
+          })
+        ],
       }
     }, webpackConfig)
   }
@@ -278,7 +265,6 @@ export default entry => {
         raw: true,
         entryOnly: true
       }),
-      new webpack.optimize.OccurrenceOrderPlugin()
     ]
   })
 
@@ -289,7 +275,7 @@ export default entry => {
   }
 
   if (entry.components) {
-    webpackConfig.plugins.push(new CopyWebpackPlugin(getCopyPaths()))
+    webpackConfig.plugins.push(new CopyWebpackPlugin({ patterns: getCopyPaths() }))
   }
 
   return webpackConfig
