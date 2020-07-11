@@ -84,6 +84,27 @@ test('should render the card media with correct ratio', async () => {
 })
 
 test('should render the card media with correct ratio', async () => {
+  const template = '<md-card-media md-ratio="3:2"></md-card-media>'
+  const wrapper = await mountTemplate(MdCardMedia, template, cardComponents)
+
+  expect(wrapper.hasClass('md-ratio-3-2')).toBe(true)
+})
+
+test('should render the card media with correct ratio', async () => {
+  const template = '<md-card-media md-ratio="3-2"></md-card-media>'
+  const wrapper = await mountTemplate(MdCardMedia, template, cardComponents)
+
+  expect(wrapper.hasClass('md-ratio-3-2')).toBe(true)
+})
+
+test('should render the card media with correct ratio', async () => {
+  const template = '<md-card-media md-ratio="3/2"></md-card-media>'
+  const wrapper = await mountTemplate(MdCardMedia, template, cardComponents)
+
+  expect(wrapper.hasClass('md-ratio-3-2')).toBe(true)
+})
+
+test('should render the card media with correct ratio', async () => {
   const template = '<md-card-media md-ratio="1:1"></md-card-media>'
   const wrapper = await mountTemplate(MdCardMedia, template, cardComponents)
 

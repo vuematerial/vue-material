@@ -4706,6 +4706,11 @@ gitconfiglocal@^1.0.0:
   dependencies:
     ini "^1.3.2"
 
+github-buttons@^2.8.0:
+  version "2.11.1"
+  resolved "https://registry.yarnpkg.com/github-buttons/-/github-buttons-2.11.1.tgz#0c7f3dc825297fc44f8c7403bdd30ac68f733e17"
+  integrity sha512-RMPwA6Zqqxu/P5jXeW02zuuPaChztG4ASHTKrzSlHgWiFg0crQQTp2E1kBRCGV+/9Bo99ziU+ggmVptLhu8k6A==
+
 github-release-cli@^0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/github-release-cli/-/github-release-cli-0.3.0.tgz#fcd8df4db3e41a76925e0b2842b456598e302e0a"
@@ -7654,6 +7659,11 @@ onetime@^2.0.0:
   integrity sha1-BnQoIw/WdEOyeUsiu6UotoZ5YtQ=
   dependencies:
     mimic-fn "^1.0.0"
+
+opencollective-postinstall@^2.0.2:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/opencollective-postinstall/-/opencollective-postinstall-2.0.3.tgz#7a0fff978f6dbfa4d006238fbac98ed4198c3259"
+  integrity sha512-8AV/sCtuzUeTo8gQK5qDZzARrulB3egtLzFgteqB2tcT4Mw7B8Kt7JcDHmltjz6FOAHsvTevk70gZEbhM4ZS9Q==
 
 opencollective@1.0.3:
   version "1.0.3"
@@ -10660,6 +10670,13 @@ vue-ga@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/vue-ga/-/vue-ga-1.1.0.tgz#366fea37afb953b5b115e56feb1005cc6bd1e20e"
   integrity sha512-cnwIW75CwsqGZP62dFZt7e4/k9vhKsos3pJBBKkREXJ4bk2ePVgJiOeynhjvAtvyRzEmfsASfYMwzt0Dra/cng==
+
+vue-github-button@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/vue-github-button/-/vue-github-button-1.2.0.tgz#5624a2807b16bdac61589f55503b8a492d2a9d5b"
+  integrity sha512-lvGrbQnHWX8bYovtBFz5uSgtbM+glXXQQq5VR79YDsZ+Fh5DBpLR+Ws5YLz9eSA+gNGi3xnXKjZDbUeQXOYh6A==
+  dependencies:
+    github-buttons "^2.8.0"
 
 vue-github-buttons@^3.1.0:
   version "3.1.0"
