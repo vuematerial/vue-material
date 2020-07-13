@@ -128,7 +128,7 @@
       @media (max-width: 1690px) {
         margin: 32px 0 0 0 !important;
 
-        .code-fund {
+        .carbon-ads {
           display: flex !important;
           align-items: center;
           flex-direction: row;
@@ -136,22 +136,6 @@
           margin: 8px auto 16px;
           float: none;
 
-          .code-fund-image {
-            max-width: 175px;
-          }
-
-          .code-fund-data {
-            margin-left: 8px;
-          }
-
-          #cf{
-            width: 300px !important;
-            img{
-              float: left;
-              margin-right: 10px;
-              border-radius: 2px;
-            }
-          }
           a {
             color: #fff !important;
           }

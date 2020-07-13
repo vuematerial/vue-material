@@ -116,7 +116,7 @@
   }
 
   @media (min-width: $ad-responsive-big) {
-    .ad-manager >>> .code-fund {
+    .ad-manager >>> .carbon-ads {
       margin: 0;
       position: fixed;
       bottom: 0;
@@ -128,7 +128,7 @@
   @media(max-width: 960px){
     .ad-manager{
       position: relative;
-      >>>.code-fund{
+      >>>.carbon-ads{
         float: none;
         margin: 0;
         display: flex;
