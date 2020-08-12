@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import Vue from 'vue'
+
 import MdPortal from "components/MdPortal/MdPortal";
 
 export default {
@@ -18,18 +18,7 @@ export default {
   props: {
     mdTarget: {
       type: null,
-      validator(value) {
-        if (HTMLElement && value && value instanceof HTMLElement) {
-          return true;
-        }
-
-        Vue.util.warn(
-          "The md-target-el prop is invalid. You should pass a valid HTMLElement.",
-          this
-        );
-
-        return false;
-      },
+      default:null
     },
     mdActive: Boolean,
     mdAttachToParent: Boolean,

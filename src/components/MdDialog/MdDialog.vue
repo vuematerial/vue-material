@@ -28,7 +28,6 @@
 </template>
 
 <script>
-import Vue from "vue";
 import MdComponent from "core/MdComponent";
 import MdPortal from "components/MdPortal/MdPortal";
 import MdOverlay from "components/MdOverlay/MdOverlay";
@@ -45,18 +44,7 @@ export default new MdComponent({
     mdActive: Boolean,
     mdTarget: {
       type: null,
-      validator(value) {
-        if (HTMLElement && value && value instanceof HTMLElement) {
-          return true;
-        }
-
-        Vue.util.warn(
-          "The md-target-el prop is invalid. You should pass a valid HTMLElement.",
-          this
-        );
-
-        return false;
-      },
+      default:null
     },
     mdBackdrop: {
       type: Boolean,
