@@ -56,7 +56,7 @@
         this.hideMenu()
         next()
       })
-    },
+    }
   }
 </script>
 
