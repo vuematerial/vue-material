@@ -151,34 +151,35 @@
     }
   }
 
-  #carbonads {
-    max-width: 300px;
+  #carbon-ads > div {
+    max-width: 320px;
+    background: unset !important;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
 
-  #carbonads > span {
+  #carbon-ads > div > span {
     position: relative;
     display: block;
     border-radius: 4px;
     background-color: rgba(255,255,255,.1);
   }
 
-   #carbonads > span {
+   #carbon-ads > div > span {
     margin-left: 0px;
     margin-bottom: 35px;
   }
 
-  #carbonads .carbon-wrap {
+  #carbon-ads > div .carbon-wrap {
     display: flex;
     position: relative;
   }
 
-  #carbonads .carbon-img {
+  #carbon-ads > div .carbon-img {
     margin-right: 10px;
     line-height: 1;
   }
 
-  #carbonads .carbon-text {
+  #carbon-ads > div .carbon-text {
     margin-bottom: 12px;
     text-decoration: none;
     font-size: 12px;
@@ -186,12 +187,12 @@
     text-align: left;
   }
 
-   #carbonads .carbon-text {
+   #carbon-ads > div .carbon-text {
     color: #2d3748;
     margin-top: 8px;
   }
 
-  #carbonads .carbon-poweredby {
+  #carbon-ads > div .carbon-poweredby {
     position: absolute;
     bottom: 10px;
     left: 142px;
@@ -203,22 +204,26 @@
     line-height: 1;
   }
 
-  #carbonads .carbon-poweredby {
+  #carbon-ads > div .carbon-poweredby {
     color: #2d3748;
   }
 
-  #carbonads{
+  #carbon-ads > div{
     margin: auto;
     margin-top: 15px;
   }
 
+  .carbon-img{
+    margin-bottom: 0;
+  }
+
   @media (max-width: 576px){
-    #carbonads{
+    #carbon-ads > div{
       margin: auto;
       margin-top: 30px;
     }
 
-    #carbonads .carbon-poweredby{
+    #carbon-ads > div .carbon-poweredby{
       left: 143px;
     }
   }
