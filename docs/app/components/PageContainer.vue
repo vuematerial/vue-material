@@ -115,8 +115,12 @@
     position: fixed;
   }
 
+  .ad-manager .carbon-ads{
+    background: red;
+  }
+
   @media (min-width: $ad-responsive-big) {
-    .ad-manager >>> .code-fund {
+    .ad-manager >>> .carbon-ads {
       margin: 0;
       position: fixed;
       bottom: 0;
@@ -128,7 +132,7 @@
   @media(max-width: 960px){
     .ad-manager{
       position: relative;
-      >>>.code-fund{
+      >>>.carbon-ads{
         float: none;
         margin: 0;
         display: flex;
@@ -143,4 +147,70 @@
       }
     }
   }
+</style>
+
+<style lang="scss">
+
+@media (min-width: 960px){
+  #carbonads{
+    margin-right: 30px;
+  }
+}
+
+#carbonads {
+  display: block;
+  overflow: hidden;
+  padding: 1em;
+  max-width: 170px;
+  background: #fff;
+  text-align: center;
+  font-size: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  line-height: 1.5;
+}
+
+#carbonads a {
+  color: inherit;
+  text-decoration: none;
+}
+
+#carbonads a:hover {
+  color: inherit;
+}
+
+#carbonads span {
+  display: block;
+  overflow: hidden;
+}
+
+.carbon-img {
+  display: block;
+  margin: 0 auto 8px;
+  line-height: 1;
+}
+
+.carbon-text {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.carbon-poweredby {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 10px;
+  line-height: 1;
+}
+
+@media (max-width: 576px){
+  #carbonads{
+    margin: auto;
+    margin-top: 30px;
+  }
+
+  #carbonads .carbon-poweredby{
+    left: 143px;
+  }
+
+}
 </style>

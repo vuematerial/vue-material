@@ -128,7 +128,7 @@
       @media (max-width: 1690px) {
         margin: 32px 0 0 0 !important;
 
-        .code-fund {
+        .carbon-ads {
           display: flex !important;
           align-items: center;
           flex-direction: row;
@@ -136,22 +136,6 @@
           margin: 8px auto 16px;
           float: none;
 
-          .code-fund-image {
-            max-width: 175px;
-          }
-
-          .code-fund-data {
-            margin-left: 8px;
-          }
-
-          #cf{
-            width: 300px !important;
-            img{
-              float: left;
-              margin-right: 10px;
-              border-radius: 2px;
-            }
-          }
           a {
             color: #fff !important;
           }
@@ -164,6 +148,78 @@
     margin-left: 0 !important;
     h4, p{
       color: #3a3a3a
+    }
+  }
+
+  #carbonads {
+    max-width: 300px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+  #carbonads > span {
+    position: relative;
+    display: block;
+    border-radius: 4px;
+    background-color: rgba(255,255,255,.1);
+  }
+
+   #carbonads > span {
+    margin-left: 0px;
+    margin-bottom: 35px;
+  }
+
+  #carbonads .carbon-wrap {
+    display: flex;
+    position: relative;
+  }
+
+  #carbonads .carbon-img {
+    margin-right: 10px;
+    line-height: 1;
+  }
+
+  #carbonads .carbon-text {
+    margin-bottom: 12px;
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 1.45;
+    text-align: left;
+  }
+
+   #carbonads .carbon-text {
+    color: #2d3748;
+    margin-top: 8px;
+  }
+
+  #carbonads .carbon-poweredby {
+    position: absolute;
+    bottom: 10px;
+    left: 142px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    font-weight: 500;
+    font-size: 8px;
+    line-height: 1;
+  }
+
+  #carbonads .carbon-poweredby {
+    color: #2d3748;
+  }
+
+  #carbonads{
+    margin: auto;
+    margin-top: 15px;
+  }
+
+  @media (max-width: 576px){
+    #carbonads{
+      margin: auto;
+      margin-top: 30px;
+    }
+
+    #carbonads .carbon-poweredby{
+      left: 143px;
     }
   }
 </style>
