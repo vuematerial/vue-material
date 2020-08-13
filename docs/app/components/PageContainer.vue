@@ -152,12 +152,12 @@
 <style lang="scss">
 
 @media (min-width: 960px){
-  #carbonads{
+  #carbon-ads > div{
     margin-right: 30px;
   }
 }
 
-#carbonads {
+#carbon-ads > div {
   display: block;
   overflow: hidden;
   padding: 1em;
@@ -169,16 +169,16 @@
   line-height: 1.5;
 }
 
-#carbonads a {
+#carbon-ads > div a {
   color: inherit;
   text-decoration: none;
 }
 
-#carbonads a:hover {
+#carbon-ads > div a:hover {
   color: inherit;
 }
 
-#carbonads span {
+#carbon-ads > div span {
   display: block;
   overflow: hidden;
 }
@@ -203,12 +203,12 @@
 }
 
 @media (max-width: 576px){
-  #carbonads{
+  #carbon-ads > div{
     margin: auto;
     margin-top: 30px;
   }
 
-  #carbonads .carbon-poweredby{
+  #carbon-ads > div .carbon-poweredby{
     left: 143px;
   }
 
