@@ -19,6 +19,9 @@
           '4-3',
           '4/3',
           '4:3',
+          '3-2',
+          '3/2',
+          '3:2',
           '1-1',
           '1/1',
           '1:1'
@@ -100,6 +103,9 @@
       @include md-image-aspect-ratio(4, 3);
     }
 
+    &.md-ratio-3-2 {
+      @include md-image-aspect-ratio(3, 2);
+    }
     &.md-ratio-1-1 {
       @include md-image-aspect-ratio(1, 1);
     }

@@ -4356,7 +4356,7 @@ exports.default = {
   props: {
     mdRatio: _extends({
       type: String
-    }, (0, _MdPropValidator2.default)('md-ratio', ['16-9', '16/9', '16:9', '4-3', '4/3', '4:3', '1-1', '1/1', '1:1'])),
+    }, (0, _MdPropValidator2.default)('md-ratio', ['16-9', '16/9', '16:9', '4-3', '4/3', '4:3', '3-2', '3/2', '3:2', '1-1', '1/1', '1:1'])),
     mdMedium: Boolean,
     mdBig: Boolean
   },

@@ -154,7 +154,7 @@ export default {
             {
               name: 'md-ratio',
               type: 'String',
-              description: 'Resizes or clip the image automatically based on the following options: 1:1 or 1/1, 4:3 or 4/3 and 16:9 or 16/9.',
+              description: 'Resizes or clip the image automatically based on the following options: 1:1 or 1/1, 3:2 or 3/2, 4:3 or 4/3 and 16:9 or 16/9.',
               defaults: 'null'
             },
             {
