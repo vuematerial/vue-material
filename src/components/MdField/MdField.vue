@@ -60,7 +60,8 @@
         password: null,
         togglePassword: false,
         clear: false,
-        file: false
+        file: false,
+        hasInvalidValue: false
       }
     }),
     provide () {
@@ -79,7 +80,7 @@
         return this.mdTogglePassword && this.MdField.password
       },
       hasValue () {
-        return this.stringValue && this.stringValue.length > 0
+        return (this.stringValue && this.stringValue.length > 0) || this.MdField.hasInvalidValue 
       },
       valueLength () {
         if (this.stringValue) {
