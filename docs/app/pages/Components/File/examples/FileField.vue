@@ -12,7 +12,7 @@
 
     <md-field>
       <label>Disabled</label>
-      <md-file v-model="disabled" disabled/>
+      <md-file v-model="disabled" disabled />
     </md-field>
 
     <md-field>

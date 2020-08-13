@@ -49,7 +49,7 @@
   })
   `
 
-  import { getParameters } from 'codesandbox/lib/api/define';
+  import { getParameters } from 'codesandbox/lib/api/define'
 
   export default {
     name: 'CodesandboxEdit',

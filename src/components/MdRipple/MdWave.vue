@@ -17,8 +17,8 @@
       waveClasses: null,
       waveStyles: null
     },
-    mounted: function() {
-      this.animating = true;
+    mounted: function () {
+      this.animating = true
     },
     methods: {
       end () {

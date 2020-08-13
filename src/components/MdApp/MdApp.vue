@@ -2,7 +2,7 @@
   import Vue from 'vue'
   import MdAppSideDrawer from './MdAppSideDrawer'
   import MdAppInternalDrawer from './MdAppInternalDrawer'
-  import MdDrawerRightPrevious from '../MdDrawer/MdDrawerRightPrevious';
+  import MdDrawerRightPrevious from '../MdDrawer/MdDrawerRightPrevious'
 
   const componentTypes = [
     'md-app-toolbar',
