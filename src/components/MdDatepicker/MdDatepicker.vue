@@ -1,5 +1,5 @@
 <template>
-  <md-field :class="['md-datepicker', { 'md-native': !this.mdOverrideNative }]" md-clearable>
+  <md-field :class="['md-datepicker', { 'md-native': !this.mdOverrideNative }]" :md-clearable="mdClearable" @md-clear="onClear">
     <md-date-icon class="md-date-icon" @click.native="toggleDialog" />
     <md-input :type="type" ref="input" v-model="inputDate" @focus.native="onFocus" :pattern="pattern" />
 
@@ -65,6 +65,10 @@
       MdDebounce: {
         type: Number,
         default: 1000
+      },
+      mdClearable: {
+        type: Boolean,
+        default: true
       }
     },
     data: () => ({
@@ -221,6 +225,9 @@
         } else {
           Vue.util.warn(`The datepicker value is not a valid date. Given value: ${this.value}`)
         }
+      },
+      onClear() {
+        this.$emit('md-clear')
       }
     },
     created () {

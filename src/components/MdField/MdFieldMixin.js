@@ -96,6 +96,23 @@ export default {
         }
       }
     },
+    setFormResetListener () {
+      if (!this.$el.form) {
+        return
+      }
+      const parentForm = this.$el.form
+      parentForm.addEventListener('reset', this.onParentFormReset)
+    },
+    removeFormResetListener () {
+      if (!this.$el.form) {
+        return
+      }
+      const parentForm = this.$el.form
+      parentForm.removeEventListener('reset', this.onParentFormReset)
+    },
+    onParentFormReset () {
+      this.clearField()
+    },
     isInvalidValue () {
       return this.$el.validity.badInput
     },
@@ -134,5 +151,9 @@ export default {
   },
   mounted () {
     this.setLabelFor()
+    this.setFormResetListener()
+  },
+  beforeDestroy () {
+    this.removeFormResetListener()
   }
 }

@@ -43,11 +43,22 @@
   @import "~vue-material/components/MdAnimation/variables";
   @import "~vue-material/theme/engine";
 
+  $ad-responsive-big: 1690px;
+
   .page-container.centered {
     max-width: 1100px;
     margin: 0 auto;
     padding: 16px;
     transition: .4s $md-transition-default-timing;
+    transition-property: width;
+  }
+
+  @media(min-width:981px){
+    .page-container.centered{
+
+      margin-right: 280px;
+    }
+
   }
 
   .page-container-leave-active {
@@ -98,4 +109,108 @@
       }
     }
   }
+
+  .ad-manager{
+    margin-bottom: 0 !important;
+    position: fixed;
+  }
+
+  .ad-manager .carbon-ads{
+    background: red;
+  }
+
+  @media (min-width: $ad-responsive-big) {
+    .ad-manager >>> .carbon-ads {
+      margin: 0;
+      position: fixed;
+      bottom: 0;
+      right: 24px;
+      z-index: 1000;
+    }
+  }
+
+  @media(max-width: 960px){
+    .ad-manager{
+      position: relative;
+      >>>.carbon-ads{
+        float: none;
+        margin: 0;
+        display: flex;
+        #cf{
+          width: 300px !important;
+          img{
+            float: left;
+            margin-right: 10px;
+            border-radius: 2px;
+          }
+        }
+      }
+    }
+  }
+</style>
+
+<style lang="scss">
+
+@media (min-width: 960px){
+  #carbonads{
+    margin-right: 30px;
+  }
+}
+
+#carbonads {
+  display: block;
+  overflow: hidden;
+  padding: 1em;
+  max-width: 170px;
+  background: #fff;
+  text-align: center;
+  font-size: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  line-height: 1.5;
+}
+
+#carbonads a {
+  color: inherit;
+  text-decoration: none;
+}
+
+#carbonads a:hover {
+  color: inherit;
+}
+
+#carbonads span {
+  display: block;
+  overflow: hidden;
+}
+
+.carbon-img {
+  display: block;
+  margin: 0 auto 8px;
+  line-height: 1;
+}
+
+.carbon-text {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.carbon-poweredby {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 10px;
+  line-height: 1;
+}
+
+@media (max-width: 576px){
+  #carbonads{
+    margin: auto;
+    margin-top: 30px;
+  }
+
+  #carbonads .carbon-poweredby{
+    left: 143px;
+  }
+
+}
 </style>

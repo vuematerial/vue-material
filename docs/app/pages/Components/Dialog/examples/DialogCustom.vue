@@ -44,7 +44,7 @@
 </script>
 
 <style lang="scss" scoped>
-  .md-dialog {
+  .md-dialog /deep/.md-dialog-container {
     max-width: 768px;
   }
 </style>
