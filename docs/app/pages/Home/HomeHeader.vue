@@ -12,6 +12,8 @@
 
       <div class="home-actions">
         <gh-btns-star slug="vuematerial/vue-material" show-count></gh-btns-star>
+        <!-- Place this tag where you want the button to render. -->
+        <github-button href="https://github.com/sponsors/vuematerial" data-icon="octicon-heart" data-size="large" aria-label="Sponsor @vuematerial on GitHub">Sponsor</github-button>
       </div>
       <div class="home-actions">
         <a href="https://www.npmjs.com/package/vue-material" target="_blank">
@@ -19,6 +21,9 @@
         </a>
         <a href="https://www.npmjs.com/package/vue-material" target="_blank">
           <img src="https://img.shields.io/npm/l/vue-material.svg" alt="License">
+        </a>
+        <a href="https://opencollective.com/vue-material" target="_blank">
+          <img src="https://opencollective.com/vue-material/tiers/backer/badge.svg?label=backer&color=brightgreen" />
         </a>
         <a href="https://discord.gg/vuematerial" target="_blank">
           <img src="https://img.shields.io/discord/379653048798281729.svg?logo=discord&colorB=7289DA" alt="Chat">
@@ -33,8 +38,13 @@
 </template>
 
 <script>
+import GithubButton from 'vue-github-button'
+
   export default {
-    name: 'HomeHeader'
+    name: 'HomeHeader',
+    components: {
+      GithubButton
+    },
   }
 </script>
 

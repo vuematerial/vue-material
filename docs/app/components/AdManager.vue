@@ -62,28 +62,12 @@
     font-size: 12px;
     line-height: 1.5em;
 
-    @media (min-width: $ad-responsive-big) {
-      margin: 0;
-      position: fixed;
-      top: 80px;
-      right: 24px;
-      z-index: 1000;
-    }
-
-    @media (max-width: $ad-responsive-small) {
-      max-width: none;
-      margin: 8px auto 16px;
-      float: none;
-    }
-
     .splash-container & {
-      @media (max-width: $ad-responsive-big) {
-        max-width: 530px;
-        min-height: 100px;
-        margin: 0px auto 8px;
-        float: none;
-        background: none !important;
-      }
+      max-width: 530px;
+      min-height: 100px;
+      margin: 0px auto 8px;
+      float: none;
+      background: none !important;
     }
   }
 </style>
