@@ -128,7 +128,7 @@
       @media (max-width: 1690px) {
         margin: 32px 0 0 0 !important;
 
-        .code-fund {
+        .carbon-ads {
           display: flex !important;
           align-items: center;
           flex-direction: row;
@@ -136,22 +136,6 @@
           margin: 8px auto 16px;
           float: none;
 
-          .code-fund-image {
-            max-width: 175px;
-          }
-
-          .code-fund-data {
-            margin-left: 8px;
-          }
-
-          #cf{
-            width: 300px !important;
-            img{
-              float: left;
-              margin-right: 10px;
-              border-radius: 2px;
-            }
-          }
           a {
             color: #fff !important;
           }
@@ -164,6 +148,83 @@
     margin-left: 0 !important;
     h4, p{
       color: #3a3a3a
+    }
+  }
+
+  #carbon-ads > div {
+    max-width: 320px;
+    background: unset !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+  #carbon-ads > div > span {
+    position: relative;
+    display: block;
+    border-radius: 4px;
+    background-color: rgba(255,255,255,.1);
+  }
+
+   #carbon-ads > div > span {
+    margin-left: 0px;
+    margin-bottom: 35px;
+  }
+
+  #carbon-ads > div .carbon-wrap {
+    display: flex;
+    position: relative;
+  }
+
+  #carbon-ads > div .carbon-img {
+    margin-right: 10px;
+    line-height: 1;
+  }
+
+  #carbon-ads > div .carbon-text {
+    margin-bottom: 12px;
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 1.45;
+    text-align: left;
+  }
+
+   #carbon-ads > div .carbon-text {
+    color: #2d3748;
+    margin-top: 8px;
+  }
+
+  #carbon-ads > div .carbon-poweredby {
+    position: absolute;
+    bottom: 10px;
+    left: 142px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    font-weight: 500;
+    font-size: 8px;
+    line-height: 1;
+  }
+
+  #carbon-ads > div .carbon-poweredby {
+    color: #2d3748;
+  }
+
+  #carbon-ads > div{
+    margin: auto;
+    margin-top: 15px;
+  }
+
+  .carbon-img{
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 576px){
+    #carbon-ads > div{
+      margin: auto;
+      margin-top: 30px;
+    }
+
+    #carbon-ads > div .carbon-poweredby{
+      left: 143px;
     }
   }
 </style>

@@ -62,7 +62,10 @@
             shorterMonths: ['J', 'F', 'M', 'A', 'M', 'Ju', 'Ju', 'A', 'Se', 'O', 'N', 'D'],
 
             // `0` stand for Sunday, `1` stand for Monday
-            firstDayOfAWeek: 0
+            firstDayOfAWeek: 0,
+
+            cancel: 'Cancel',
+            confirm: 'Ok'
           }
         }
       </code-example>

@@ -16,6 +16,8 @@
     "jest/globals": true
   },
   "rules": {
+    "semi": ["warn", "never"],
+    "space-before-function-paren": ["warn"],
     "arrow-parens": 0,
     "generator-star-spacing": "off",
     "indent": "off",
@@ -55,6 +57,7 @@
       "error",
       "PascalCase"
     ],
-    "vue/require-v-for-key": 0
+    "vue/require-v-for-key": 0,
+    "vue/html-closing-bracket-spacing": ["error"]
   }
 }
