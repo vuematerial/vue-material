@@ -107,6 +107,12 @@
                 type: 'Boolean',
                 description: 'The dialog will become fullscreen on mobile screens. This option can disable this behavior.',
                 defaults: 'true'
+			  },
+			  {
+                name: 'md-target',
+                type: 'HTMLElement',
+                description: 'The dialog will be attached inside of the specificied HTML element instead of the body tag. The HTMLElement needs to have position relative CSS property.',
+                defaults: 'null'
               }
             ]
           },
