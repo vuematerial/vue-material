@@ -132,12 +132,12 @@
           this.duplicatedChip = null
         }
       },
-      handleFocusOut({ target }) {
+      handleFocusOut ({ target }) {
         if (this.mdAutoInsert) {
           this.insertChip(target)
         }
       },
-      checkDuplicated() {
+      checkDuplicated () {
         if (!this.value.includes(this.formattedInputValue)) {
           this.duplicatedChip = null
           return false

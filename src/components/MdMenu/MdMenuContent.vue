@@ -259,7 +259,7 @@
           `
         }
       },
-      getBodyPosition() {
+      getBodyPosition () {
         const body = document.body
         const { top, left } = body.getBoundingClientRect()
 

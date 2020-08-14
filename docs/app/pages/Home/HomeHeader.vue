@@ -40,12 +40,12 @@
 <script>
 import GithubButton from 'vue-github-button'
 
-  export default {
-    name: 'HomeHeader',
-    components: {
-      GithubButton
-    },
-  }
+export default {
+  name: 'HomeHeader',
+  components: {
+    GithubButton
+  },
+}
 </script>
 
 <style lang="scss" scoped>
