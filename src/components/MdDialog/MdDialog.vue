@@ -13,6 +13,7 @@
             <keep-alive>
               <md-overlay
                 :class="mdBackdropClass"
+				:mdTarget="mdTarget"
                 :md-fixed=" mdTarget ? false : true "
                 :md-active="mdActive"
                 @click="onClick"
