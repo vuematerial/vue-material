@@ -118,7 +118,7 @@
         const circle = this.$refs['md-progress-spinner-circle']
         circle.style.strokeDashoffset = this.circleStrokeDashOffset
         circle.style.strokeDasharray = this.circleStrokeDashArray
-        circle.style.strokeWidth = this.circleStrokeWidth;
+        circle.style.strokeWidth = this.circleStrokeWidth
         circle.style.setProperty('--md-progress-spinner-start-value', 0.95 * this.circleCircumference)
         circle.style.setProperty('--md-progress-spinner-end-value', 0.2 * this.circleCircumference)
       }

@@ -113,7 +113,7 @@
             let isNumber = typeof aAttr === 'number'
 
             if (!aAttr) {
-              return 1;
+              return 1
             }
 
             if(!bAttr) {
