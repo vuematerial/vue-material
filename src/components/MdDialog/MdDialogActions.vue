@@ -5,9 +5,9 @@
 </template>
 
 <script>
-export default {
-  name: 'MdDialogActions'
-}
+	export default {
+		name: 'MdDialogActions'
+	}
 </script>
 
 <style lang="scss">
