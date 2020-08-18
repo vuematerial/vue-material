@@ -19,7 +19,9 @@ export default {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    position: relative;
+	position: relative;
+	backface-visibility: hidden;
+	
 
     &:before {
       height: 1px;
