@@ -155,7 +155,7 @@
         firstDayOfAWeek += firstDayOfAWeek < 0 ? daysInAWeek : 0
         return firstDayOfAWeek
       },
-      locale() {
+      locale () {
         return this.$material.locale
       },
       popperSettings () {

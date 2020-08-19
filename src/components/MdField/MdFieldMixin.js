@@ -24,7 +24,7 @@ export default {
         if (value.constructor.toString().match(/function (\w*)/)[1].toLowerCase() !== 'inputevent') {
           this.$nextTick(() => {
             this.localValue = value
-            this.MdField.hasInvalidValue = this.isInvalidValue();
+            this.MdField.hasInvalidValue = this.isInvalidValue()
           })
         }
       }

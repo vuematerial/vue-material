@@ -11,7 +11,7 @@ test('should render the badge', async () => {
   expect(badges.length).toBe(1)
   const badge = badges[0]
   expect(badge.hasClass('md-badge')).toBe(true)
-  const badgeContent = badge.text().trim();
+  const badgeContent = badge.text().trim()
   expect(badgeContent).toBe('3')
   const slotText = wrapper.text().replace(badgeContent, '').trim()
   expect(slotText).toBe('Lorem ipsum')

@@ -25,7 +25,7 @@
     },
     methods: {
       isSVG (mimetype) {
-        if (typeof mimetype !== 'string') return false;
+        if (typeof mimetype !== 'string') return false
         return mimetype.indexOf('svg') >= 0
       },
       setHtml (value) {

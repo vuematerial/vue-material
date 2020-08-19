@@ -10,14 +10,14 @@
     methods: {
       getSponsor () {
 
-        let carbonScript = document.createElement('script');
+        let carbonScript = document.createElement('script')
 
-        carbonScript.setAttribute('async', '');
-        carbonScript.setAttribute('type', 'text/javascript');
-        carbonScript.setAttribute('src', '//cdn.carbonads.com/carbon.js?serve=CKYIL2QW&placement=vuematerialio');
-        carbonScript.setAttribute('id', '_carbonads_js');
+        carbonScript.setAttribute('async', '')
+        carbonScript.setAttribute('type', 'text/javascript')
+        carbonScript.setAttribute('src', '//cdn.carbonads.com/carbon.js?serve=CKYIL2QW&placement=vuematerialio')
+        carbonScript.setAttribute('id', '_carbonads_js')
 
-        document.getElementById('carbon-ads').appendChild(carbonScript);
+        document.getElementById('carbon-ads').appendChild(carbonScript)
       }
     },
     mounted () {
