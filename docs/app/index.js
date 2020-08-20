@@ -9,7 +9,7 @@ import VueToc from 'vue-toc'
 
 Vue.component('vue-toc', VueToc)
 
-import 'vue-github-buttons/dist/vue-github-buttons.css';
+import 'vue-github-buttons/dist/vue-github-buttons.css'
 
 /* App */
 import App from './App'

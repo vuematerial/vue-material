@@ -5,9 +5,9 @@
         <md-focus-trap>
           <div class="md-dialog-container" :class="[dialogContainerClasses, $mdActiveTheme]" v-on="$listeners"
                @keydown.esc="onEsc">
-            <slot/>
+            <slot />
             <keep-alive>
-              <md-overlay :class="mdBackdropClass" md-fixed :md-active="mdActive" @click="onClick" v-if="mdBackdrop"/>
+              <md-overlay :class="mdBackdropClass" md-fixed :md-active="mdActive" @click="onClick" v-if="mdBackdrop" />
             </keep-alive>
           </div>
         </md-focus-trap>
@@ -84,7 +84,7 @@
         if (this.mdClickOutsideToClose) {
           this.closeDialog()
         }
-        this.$emit('md-clicked-outside');
+        this.$emit('md-clicked-outside')
       },
       onEsc () {
         if (this.mdCloseOnEsc) {

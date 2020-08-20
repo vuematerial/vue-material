@@ -157,7 +157,7 @@
       },
       value: {
         immediate: true,
-        handler() {
+        handler () {
           this.valueDateToLocalDate()
         }
       },
@@ -165,13 +165,13 @@
         switch (type) {
         case Date:
           this.$emit('input', this.localDate)
-          break;
+          break
         case String:
           this.$emit('input', this.localString)
-          break;
+          break
         case Number:
           this.$emit('input', this.localNumber)
-          break;
+          break
         }
       },
       dateFormat () {
@@ -226,7 +226,7 @@
           Vue.util.warn(`The datepicker value is not a valid date. Given value: ${this.value}`)
         }
       },
-      onClear() {
+      onClear () {
         this.$emit('md-clear')
       }
     },

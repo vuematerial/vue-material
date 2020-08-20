@@ -1,6 +1,6 @@
 <template>
   <md-content class="ad-manager" id="ad-manager" md-theme="docs-dark">
-    <div id="code-fund" class="code-fund"></div>
+    <div id="carbon-ads" class="carbon-ads"></div>
   </md-content>
 </template>
 
@@ -9,15 +9,15 @@
     name: 'AdManager',
     methods: {
       getSponsor () {
-        let sponsorUrl = 'https://api.codefund.app/properties/60/funder.html'
 
-        if (this.$route.name !== 'home') {
-          sponsorUrl += '?theme=light'
-        }
+        let carbonScript = document.createElement('script')
 
-        this.$http.get(sponsorUrl).then(({ data }) => {
-          document.getElementById('code-fund').innerHTML = data;
-        })
+        carbonScript.setAttribute('async', '')
+        carbonScript.setAttribute('type', 'text/javascript')
+        carbonScript.setAttribute('src', '//cdn.carbonads.com/carbon.js?serve=CKYIL2QW&placement=vuematerialio')
+        carbonScript.setAttribute('id', '_carbonads_js')
+
+        document.getElementById('carbon-ads').appendChild(carbonScript)
       }
     },
     mounted () {
@@ -51,23 +51,4 @@
     background: #303030;
   }
 
-  .code-fund {
-    max-width: 175px;
-    padding: 8px;
-    display: flex;
-    flex-direction: column;
-    float: right;
-    position: relative;
-    z-index: 10;
-    font-size: 12px;
-    line-height: 1.5em;
-
-    .splash-container & {
-      max-width: 530px;
-      min-height: 100px;
-      margin: 0px auto 8px;
-      float: none;
-      background: none !important;
-    }
-  }
 </style>

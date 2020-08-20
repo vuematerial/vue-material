@@ -1,7 +1,7 @@
 {
   "name": "vue-material",
   "description": "Material Design for Vue.js",
-  "version": "1.0.0-beta-14",
+  "version": "1.0.0-beta-15",
   "license": "MIT",
   "author": {
     "name": "marcosmoura",
@@ -96,6 +96,7 @@
     "is-promise": "^2.1.0",
     "jest": "^22.4.4",
     "jest-vue": "^0.8.2",
+    "jest-localstorage-mock": "^2.4.2",
     "node-sass": "^4.7.2",
     "offline-plugin": "^4.9.1",
     "optimize-css-assets-webpack-plugin": "^3.2.0",
