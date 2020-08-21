@@ -1,6 +1,6 @@
 <template>
   <splash-container splash class="home-page">
-    <div class="home-splash">
+    <div id="splash" class="home-splash">
       <home-header />
       <ad-manager />
       <home-features />
@@ -123,11 +123,11 @@
     }
   }
 
-  .home-splash .carbon-ads{
+  #splash .carbon-ads{
     margin: auto;
   }
 
-  .home-splash #carbon-ads div {
+  #splash #carbon-ads > div {
     display: block;
     margin: 10px auto;
     padding: 1em;
@@ -141,31 +141,31 @@
     background-color: hsl(0, 0%, 15%);
   }
 
-  .home-splash #carbonads:hover {
+  #splash #carbonads:hover {
     background-color: hsl(0, 0%, 13%);
   }
 
-  .home-splash #carbon-ads div a:hover {
+  #splash #carbon-ads > div > a:hover {
     text-decoration: none;
   }
 
-  .home-splash #carbon-ads div span {
+  #splash #carbon-ads > div span {
     display: block;
     position: relative;
 
     overflow: hidden;
   }
 
-  .home-splash .carbon-img {
+  #splash .carbon-img {
     float: left;
     margin-right: 1em;
   }
 
-  .home-splash .carbon-img img {
+  #splash .carbon-img img {
     display: block;
   }
 
-  .home-splash .carbon-text {
+  #splash .carbon-text {
     display: block;
     float: left;
     margin-bottom: 20px;
@@ -174,11 +174,23 @@
     text-align: left;
   }
 
-  .home-splash a.carbon-text{
+  #splash a.carbon-text{
     color: #fff;
   }
 
-  .home-splash .carbon-poweredby {
+  #splash .carbon-poweredby{
+    background: transparent;
+  }
+
+  #splash #carbon-ads>div a{
+    color: #fff;
+  }
+
+  #splash #carbon-ads>div a:hover{
+    color: #fff;
+  }
+
+  #splash .carbon-poweredby {
     display: block;
     position: absolute;
     bottom: 0;
@@ -189,7 +201,7 @@
     text-transform: uppercase;
   }
 
-  .home-splash a.carbon-poweredby {
+  #splash a.carbon-poweredby {
     color: #fff;
   }
 

@@ -151,7 +151,7 @@
 
 <style lang="scss">
 
-#docs #carbon-ads div {
+#docs #carbon-ads > div {
   display: flex;
   z-index: 100;
   margin: 0 20px 20px 0;
@@ -165,12 +165,12 @@
   box-shadow: 0 0 1px hsla(0, 0%, 0%, .15);
 }
 
-#docs #carbon-ads div a {
+#docs #carbon-ads > div a {
   text-decoration: none;
   color: #111;
 }
 
-#docs #carbon-ads div a:hover {
+#docs #carbon-ads > div a:hover {
   color: #111;
 }
 
@@ -214,7 +214,7 @@
 
 
 @media only screen and (min-width: 320px) and (max-width: 759px) {
-  #docs #carbon-ads div {
+  #docs #carbon-ads > div {
     float: none;
     position: relative;
     margin: 20px 0;
