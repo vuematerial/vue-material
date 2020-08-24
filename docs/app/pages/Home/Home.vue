@@ -1,6 +1,6 @@
 <template>
   <splash-container splash class="home-page">
-    <div class="home-splash">
+    <div id="splash" class="home-splash">
       <home-header />
       <ad-manager />
       <home-features />
@@ -123,25 +123,86 @@
     }
   }
 
-  .home-splash {
-    .ad-manager {
-      @media (max-width: 1690px) {
-        margin: 32px 0 0 0 !important;
+  #splash .carbon-ads{
+    margin: auto;
+  }
 
-        .carbon-ads {
-          display: flex !important;
-          align-items: center;
-          flex-direction: row;
-          max-width: none;
-          margin: 8px auto 16px;
-          float: none;
+  #splash #carbon-ads > div {
+    display: block;
+    margin: 10px auto;
+    padding: 1em;
 
-          a {
-            color: #fff !important;
-          }
-        }
-      }
-    }
+    font-size: 14px;
+    line-height: 1.35;
+    overflow: hidden;
+    max-width: 360px;
+    transition: background-color .2s ease-in-out;
+    border-radius: 5px;
+    background-color: hsl(0, 0%, 15%);
+  }
+
+  #splash #carbonads:hover {
+    background-color: hsl(0, 0%, 13%);
+  }
+
+  #splash #carbon-ads > div > a:hover {
+    text-decoration: none;
+  }
+
+  #splash #carbon-ads > div span {
+    display: block;
+    position: relative;
+
+    overflow: hidden;
+  }
+
+  #splash .carbon-img {
+    float: left;
+    margin-right: 1em;
+  }
+
+  #splash .carbon-img img {
+    display: block;
+  }
+
+  #splash .carbon-text {
+    display: block;
+    float: left;
+    margin-bottom: 20px;
+
+    max-width: calc(100% - 130px - 1em);
+    text-align: left;
+  }
+
+  #splash a.carbon-text{
+    color: #fff;
+  }
+
+  #splash .carbon-poweredby{
+    background: transparent;
+  }
+
+  #splash #carbon-ads>div a{
+    color: #fff;
+  }
+
+  #splash #carbon-ads>div a:hover{
+    color: #fff;
+  }
+
+  #splash .carbon-poweredby {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 144px;
+    font-size: 10px;
+    line-height: 1;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  #splash a.carbon-poweredby {
+    color: #fff;
   }
 
   .main-footer {
@@ -151,80 +212,4 @@
     }
   }
 
-  #carbon-ads > div {
-    max-width: 320px;
-    background: unset !important;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  }
-
-  #carbon-ads > div > span {
-    position: relative;
-    display: block;
-    border-radius: 4px;
-    background-color: rgba(255,255,255,.1);
-  }
-
-   #carbon-ads > div > span {
-    margin-left: 0px;
-    margin-bottom: 35px;
-  }
-
-  #carbon-ads > div .carbon-wrap {
-    display: flex;
-    position: relative;
-  }
-
-  #carbon-ads > div .carbon-img {
-    margin-right: 10px;
-    line-height: 1;
-  }
-
-  #carbon-ads > div .carbon-text {
-    margin-bottom: 12px;
-    text-decoration: none;
-    font-size: 12px;
-    line-height: 1.45;
-    text-align: left;
-  }
-
-   #carbon-ads > div .carbon-text {
-    color: #2d3748;
-    margin-top: 8px;
-  }
-
-  #carbon-ads > div .carbon-poweredby {
-    position: absolute;
-    bottom: 10px;
-    left: 142px;
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: .5px;
-    font-weight: 500;
-    font-size: 8px;
-    line-height: 1;
-  }
-
-  #carbon-ads > div .carbon-poweredby {
-    color: #2d3748;
-  }
-
-  #carbon-ads > div{
-    margin: auto;
-    margin-top: 15px;
-  }
-
-  .carbon-img{
-    margin-bottom: 0;
-  }
-
-  @media (max-width: 576px){
-    #carbon-ads > div{
-      margin: auto;
-      margin-top: 30px;
-    }
-
-    #carbon-ads > div .carbon-poweredby{
-      left: 143px;
-    }
-  }
 </style>
