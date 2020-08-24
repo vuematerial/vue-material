@@ -127,7 +127,7 @@
     margin: auto;
   }
 
-  #splash #carbon-ads > div {
+  #splash.home-splash #carbon-ads > div {
     display: block;
     margin: 10px auto;
     padding: 1em;
@@ -141,11 +141,11 @@
     background-color: hsl(0, 0%, 15%);
   }
 
-  #splash #carbonads:hover {
+  #splash.home-splash #carbonads:hover {
     background-color: hsl(0, 0%, 13%);
   }
 
-  #splash #carbon-ads > div > a:hover {
+  #splash.home-splash #carbon-ads > div > a:hover {
     text-decoration: none;
   }
 
@@ -165,11 +165,11 @@
     display: block;
   }
 
-  #splash .carbon-text {
+  #splash.home-splash .carbon-text {
     display: block;
     float: left;
     margin-bottom: 20px;
-
+    padding: 0;
     max-width: calc(100% - 130px - 1em);
     text-align: left;
   }
@@ -178,19 +178,20 @@
     color: #fff;
   }
 
-  #splash .carbon-poweredby{
+  #splash.home-splash .carbon-poweredby{
     background: transparent;
+    padding-left: 0;
   }
 
-  #splash #carbon-ads>div a{
+  #splash.home-splash #carbon-ads>div a{
     color: #fff;
   }
 
-  #splash #carbon-ads>div a:hover{
+  #splash.home-splash #carbon-ads>div a:hover{
     color: #fff;
   }
 
-  #splash .carbon-poweredby {
+  #splash.home-splash .carbon-poweredby {
     display: block;
     position: absolute;
     bottom: 0;
