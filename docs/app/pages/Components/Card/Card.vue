@@ -34,7 +34,7 @@
       <p>If you want the image to fill the whole card area, wrap the card content inside a <code>md-card-media-cover</code> component. Its basic structure comprises the following components:</p>
 
       <ul>
-        <li><code>md-card-media</code>, where you specify the imagine with an <code>img</code> tag. The image's aspect ratio can be specified with <code>md-card-media</code>'s <code>md-ratio</code> property;</li>
+        <li><code>md-card-media</code>, where you specify the image with an <code>img</code> tag. The image's aspect ratio can be specified with <code>md-card-media</code>'s <code>md-ratio</code> property;</li>
 
         <li><code>md-card-area</code>, where header (<code>md-header</code>) and actions (<code>md-card-actions</code>) are specified.</li>
       </ul>
