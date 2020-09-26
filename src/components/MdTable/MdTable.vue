@@ -109,6 +109,7 @@
           const isAsc = this.MdTable.sortOrder === 'asc'
           const multiplier = isAsc ? 1 : -1
 
+          /* eslint-disable complexity */
           const comparator = function(a, b) {
             const aAttr = getObjectAttribute(a, sortBy)
             const bAttr = getObjectAttribute(b, sortBy)
@@ -128,6 +129,7 @@
             // locale compare, negate if descending
             return String(aAttr).localeCompare(String(bAttr)) * multiplier
           }
+          /* eslint-enable complexity */
 
           return value.sort(comparator)
         }
