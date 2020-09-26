@@ -113,7 +113,7 @@
             const aAttr = getObjectAttribute(a, sortBy)
             const bAttr = getObjectAttribute(b, sortBy)
 
-            if (aAttr === bAttr) { // identical
+            if (aAttr === bAttr) {
               return 0
             } else if (aAttr === null || aAttr === undefined || Number.isNaN(aAttr)) {
               // a is last
