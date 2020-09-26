@@ -114,19 +114,19 @@
             const bAttr = getObjectAttribute(b, sortBy)
 
             if (aAttr === bAttr) { // identical
-              return 0;
+              return 0
             } else if (aAttr === null || aAttr === undefined || Number.isNaN(aAttr)) {
               // a is last
-              return 1;
+              return 1
             } else if (bAttr === null || bAttr === undefined || Number.isNaN(bAttr)) {
               // b is last
-              return -1;
+              return -1
             } else if (typeof aAttr === 'number' && typeof bAttr === 'number') {
               // numerical compare, negate if descending
-              return (aAttr - bAttr) * multiplier;
+              return (aAttr - bAttr) * multiplier
             }
             // locale compare, negate if descending
-            return String(aAttr).localeCompare(String(bAttr)) * multiplier;
+            return String(aAttr).localeCompare(String(bAttr)) * multiplier
           }
 
           return value.sort(comparator)
