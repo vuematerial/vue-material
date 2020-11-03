@@ -40,7 +40,7 @@
     return shouldRender
   }
 
-  function isRouterLink(parent, props) {
+  function isRouterLink (parent, props) {
     return parent && parent.$router && props.to
   }
 

@@ -98,7 +98,7 @@
 <script>
   export default {
     name: 'MainNavContent',
-    data(){
+    data (){
       return{
         responsive: false
       }
@@ -112,11 +112,11 @@
       this.$nextTick().then(() => {
         window.setTimeout(this.scrollActiveItemIntoView, 700)
       }),
-      this.responsiveLinks();
-      window.addEventListener("resize", this.responsiveLinks);
+      this.responsiveLinks()
+      window.addEventListener("resize", this.responsiveLinks)
     },
-    beforeDestroy() {
-      window.addEventListener("resize", this.responsiveLinks);
+    beforeDestroy () {
+      window.addEventListener("resize", this.responsiveLinks)
     },
     methods: {
       scrollActiveItemIntoView () {
@@ -130,11 +130,11 @@
           }
         })
       },
-      responsiveLinks(){
+      responsiveLinks (){
         if (window.innerWidth < 601) {
-          this.responsive = true;
+          this.responsive = true
         } else {
-          this.responsive = false;
+          this.responsive = false
         }
       }
     }

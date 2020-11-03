@@ -115,8 +115,12 @@
     position: fixed;
   }
 
+  .ad-manager .carbon-ads{
+    background: red;
+  }
+
   @media (min-width: $ad-responsive-big) {
-    .ad-manager >>> .code-fund {
+    .ad-manager >>> .carbon-ads {
       margin: 0;
       position: fixed;
       bottom: 0;
@@ -128,7 +132,7 @@
   @media(max-width: 960px){
     .ad-manager{
       position: relative;
-      >>>.code-fund{
+      >>>.carbon-ads{
         float: none;
         margin: 0;
         display: flex;
@@ -143,4 +147,105 @@
       }
     }
   }
+</style>
+
+<style lang="scss">
+
+#docs #carbon-ads > div {
+  display: flex;
+  z-index: 100;
+  margin: 0 20px 20px 0;
+
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu,
+  Cantarell, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 11px;
+  max-width: 130px;
+  border-radius: 3px;
+  background-color: hsl(0, 0%, 98%);
+  box-shadow: 0 0 1px hsla(0, 0%, 0%, .15);
+}
+
+#docs #carbon-ads > div a {
+  text-decoration: none;
+  color: #111;
+}
+
+#docs #carbon-ads > div a:hover {
+  color: #111;
+}
+
+#docs .carbon-img {
+  display: block;
+  margin-bottom: 8px;
+
+  line-height: 1;
+  max-width: 130px;
+}
+
+#docs .carbon-img img {
+  display: block;
+  margin: 0 auto;
+
+  width: 130px;
+  max-width: 130px;
+  height: auto;
+  border-radius: 3px 3px 0 0;
+}
+
+#docs .carbon-text {
+  display: block;
+  padding: 0 10px 8px;
+
+  line-height: 1.35;
+  text-align: left;
+}
+
+#docs .carbon-poweredby {
+  display: block;
+  padding: 10px;
+
+  font-size: 8px;
+  font-weight: 600;
+  line-height: 0;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  background: repeating-linear-gradient(-45deg, transparent, transparent 5px, hsla(0, 0%, 0%, .025) 5px, hsla(0, 0%, 0%, .025) 10px) hsla(203, 11%, 95%, .4);
+}
+
+
+@media only screen and (min-width: 320px) and (max-width: 759px) {
+  #docs #carbon-ads > div {
+    float: none;
+    position: relative;
+    margin: 20px 0;
+
+    max-width: 330px;
+  }
+
+  #docs .carbon-wrap {
+    display: flex;
+
+    flex-direction: row;
+  }
+
+  #docs .carbon-img {
+    margin: 0;
+  }
+
+  #docs .carbon-text {
+    padding: 10px 10px 0 10px;
+
+    font-size: 12px;
+  }
+
+  #docs .carbon-poweredby {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    text-align: center;
+    border-radius: 0;
+    border-top-left-radius: 3px;
+  }
+}
 </style>

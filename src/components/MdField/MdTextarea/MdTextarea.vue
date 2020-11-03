@@ -98,7 +98,7 @@
       }
     },
     watch: {
-      localValue() {
+      localValue () {
         this.applyStyles()
       }
     },

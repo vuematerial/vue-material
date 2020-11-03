@@ -1,5 +1,5 @@
 /*!
- * vue-material v1.0.0-beta-14
+ * vue-material v1.0.0-beta-15
  * Made with <3 by marcosmoura 2020
  * Released under the MIT License.
  */
@@ -269,7 +269,9 @@ var init = function init() {
       months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
       shortMonths: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
       shorterMonths: ['J', 'F', 'M', 'A', 'M', 'Ju', 'Ju', 'A', 'Se', 'O', 'N', 'D'],
-      firstDayOfAWeek: 0
+      firstDayOfAWeek: 0,
+      cancel: 'Cancel',
+      confirm: 'Ok'
     },
     router: {
       linkActiveClass: 'router-link-active'
@@ -966,6 +968,7 @@ exports.default = {
         if (value.constructor.toString().match(/function (\w*)/)[1].toLowerCase() !== 'inputevent') {
           this.$nextTick(function () {
             _this.localValue = value;
+            _this.MdField.hasInvalidValue = _this.isInvalidValue();
           });
         }
       }
@@ -1052,6 +1055,9 @@ exports.default = {
     },
     onParentFormReset: function onParentFormReset() {
       this.clearField();
+    },
+    isInvalidValue: function isInvalidValue() {
+      return this.$el.validity.badInput;
     },
     setFieldValue: function setFieldValue() {
       this.MdField.value = this.model;
@@ -5225,7 +5231,8 @@ exports.default = new _MdComponent2.default({
         password: null,
         togglePassword: false,
         clear: false,
-        file: false
+        file: false,
+        hasInvalidValue: false
       }
     };
   },
@@ -5246,7 +5253,7 @@ exports.default = new _MdComponent2.default({
       return this.mdTogglePassword && this.MdField.password;
     },
     hasValue: function hasValue() {
-      return this.stringValue && this.stringValue.length > 0;
+      return this.stringValue && this.stringValue.length > 0 || this.MdField.hasInvalidValue;
     },
     valueLength: function valueLength() {
       if (this.stringValue) {
@@ -9905,7 +9912,7 @@ exports.default = {
       return this.MdOptgroup.disabled || this.disabled;
     },
     key: function key() {
-      var isSet = this.value || this.value === 0 || this.value === false;
+      var isSet = this.value || this.value === 0 || this.value === false || this.value === '';
       return isSet ? this.value : this.uniqueId;
     },
     inputLabel: function inputLabel() {
@@ -26975,7 +26982,7 @@ var render = function() {
                           staticClass: "md-primary",
                           on: { click: _vm.onCancel }
                         },
-                        [_vm._v("Cancel")]
+                        [_vm._v(_vm._s(_vm.locale.cancel))]
                       ),
                       _vm._v(" "),
                       !_vm.mdImmediately
@@ -26985,7 +26992,7 @@ var render = function() {
                               staticClass: "md-primary",
                               on: { click: _vm.onConfirm }
                             },
-                            [_vm._v("Ok")]
+                            [_vm._v(_vm._s(_vm.locale.confirm))]
                           )
                         : _vm._e()
                     ],

@@ -1,6 +1,6 @@
 <template>
   <splash-container splash class="home-page">
-    <div class="home-splash">
+    <div id="splash" class="home-splash">
       <home-header />
       <ad-manager />
       <home-features />
@@ -123,41 +123,87 @@
     }
   }
 
-  .home-splash {
-    .ad-manager {
-      @media (max-width: 1690px) {
-        margin: 32px 0 0 0 !important;
+  #splash .carbon-ads{
+    margin: auto;
+  }
 
-        .code-fund {
-          display: flex !important;
-          align-items: center;
-          flex-direction: row;
-          max-width: none;
-          margin: 8px auto 16px;
-          float: none;
+  #splash.home-splash #carbon-ads > div {
+    display: block;
+    margin: 10px auto;
+    padding: 1em;
 
-          .code-fund-image {
-            max-width: 175px;
-          }
+    font-size: 14px;
+    line-height: 1.35;
+    overflow: hidden;
+    max-width: 360px;
+    transition: background-color .2s ease-in-out;
+    border-radius: 5px;
+    background-color: hsl(0, 0%, 15%);
+  }
 
-          .code-fund-data {
-            margin-left: 8px;
-          }
+  #splash.home-splash #carbonads:hover {
+    background-color: hsl(0, 0%, 13%);
+  }
 
-          #cf{
-            width: 300px !important;
-            img{
-              float: left;
-              margin-right: 10px;
-              border-radius: 2px;
-            }
-          }
-          a {
-            color: #fff !important;
-          }
-        }
-      }
-    }
+  #splash.home-splash #carbon-ads > div > a:hover {
+    text-decoration: none;
+  }
+
+  #splash #carbon-ads > div span {
+    display: block;
+    position: relative;
+
+    overflow: hidden;
+  }
+
+  #splash .carbon-img {
+    float: left;
+    margin-right: 1em;
+  }
+
+  #splash .carbon-img img {
+    display: block;
+  }
+
+  #splash.home-splash .carbon-text {
+    display: block;
+    float: left;
+    margin-bottom: 20px;
+    padding: 0;
+    max-width: calc(100% - 130px - 1em);
+    text-align: left;
+  }
+
+  #splash a.carbon-text{
+    color: #fff;
+  }
+
+  #splash.home-splash .carbon-poweredby{
+    background: transparent;
+    padding-left: 0;
+  }
+
+  #splash.home-splash #carbon-ads>div a{
+    color: #fff;
+  }
+
+  #splash.home-splash #carbon-ads>div a:hover{
+    color: #fff;
+  }
+
+  #splash.home-splash .carbon-poweredby {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 144px;
+    font-size: 10px;
+    line-height: 1;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  #splash a.carbon-poweredby {
+    color: #fff;
   }
 
   .main-footer {
@@ -166,4 +212,5 @@
       color: #3a3a3a
     }
   }
+
 </style>
