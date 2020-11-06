@@ -114,7 +114,7 @@ export default {
       this.clearField()
     },
     isInvalidValue () {
-      return this.$el.validity.badInput
+      return this.$el.validity ? this.$el.validity.badInput : false
     },
     setFieldValue () {
       this.MdField.value = this.model
