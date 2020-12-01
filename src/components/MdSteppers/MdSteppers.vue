@@ -67,7 +67,7 @@
       },
       containerStyles () {
         return {
-          transform: !this.mdVertical && `translate3D(${-this.activeStepIndex * 100}%, 0, 0)`
+          transform: !this.mdVertical && `translate3D(${this.activeStepIndex * 100}%, 0, 0)`
         }
       }
     },
