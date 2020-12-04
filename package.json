@@ -90,7 +90,7 @@
     "friendly-errors-webpack-plugin": "^1.6.1",
     "fuzzysearch": "^1.0.3",
     "github-release-cli": "^0.3.0",
-    "highlight.js": "^9.15.6",
+    "highlight.js": "^10.4.1",
     "html-webpack-plugin": "^2.30.1",
     "is-firefox": "^1.0.3",
     "is-promise": "^2.1.0",
