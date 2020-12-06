@@ -8,7 +8,7 @@
   <page-container centered :title="$t('pages.tabs.title')">
     <div class="page-container-section">
       <p>Tabs make it easy to explore, switch between different views and enable content organization at a high level, such as different data sets or functional aspects of an app.</p>
-      <p>Tabs are really powerfull and have deep integration with Vue Core features and router.</p>
+      <p>Tabs are really powerful and have deep integration with Vue Core features and router.</p>
       <note-block>More features for tabs will be come in the next weeks, like pagination scroll and touch events. :)</note-block>
     </div>
 
@@ -120,7 +120,7 @@
             {
               name: 'md-sync-route',
               type: 'Boolean',
-              description: 'Syncs the table selection with the current route, matching by the single tab <code>to</code> prop.',
+              description: 'Syncs the tab selection with the current route, matching by the single tab <code>to</code> prop.',
               defaults: 'false'
             },
             {
