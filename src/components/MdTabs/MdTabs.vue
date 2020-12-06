@@ -2,17 +2,17 @@
   <div class="md-tabs" :class="[tabsClasses, $mdActiveTheme]">
     <div class="md-tabs-navigation" :class="navigationClasses" ref="navigation">
       <md-button
-        v-for="({ label, props, icon, disabled, data, events }, index) in MdTabs.items"
+        v-for="({ id, label, props, icon, disabled, data, events }, index) in MdTabs.items"
         :key="index"
         class="md-tab-nav-button"
         :class="{
-          'md-active': (!mdSyncRoute && index === activeTab),
+          'md-active': (!mdSyncRoute && id === activeTab),
           'md-icon-label': icon && label
         }"
         :disabled="disabled"
         v-bind="props"
         v-on="events"
-        @click.native="setActiveTab(index)">
+        @click.native="setActiveTab(id)">
         <slot name="md-tab" :tab="{ label, icon, data }" v-if="$scopedSlots['md-tab']"></slot>
 
         <template v-else>
@@ -112,16 +112,16 @@
           this.setHasContent()
         }
       },
-      activeTab (index) {
-        this.$emit('md-changed', index)
+      activeTab (tabId) {
+        this.$emit('md-changed', tabId)
         this.$nextTick().then(() => {
           this.setIndicatorStyles()
           this.setActiveButtonEl()
         })
       },
-      mdActiveTab (tab) {
-        this.activeTab = tab
-        this.$emit('md-changed', tab)
+      mdActiveTab (tabId) {
+        this.activeTab = tabId
+        this.$emit('md-changed', tabId)
       },
       activeButtonEl (activeButtonEl) {
         this.activeTabIndex = activeButtonEl ? [].indexOf.call(activeButtonEl.parentNode.childNodes, activeButtonEl) : -1
@@ -155,9 +155,9 @@
           keys: Object.keys(items)
         }
       },
-      setActiveTab (index) {
+      setActiveTab (tabId) {
         if (!this.mdSyncRoute) {
-          this.activeTab = index
+          this.activeTab = tabId
         }
       },
       setActiveButtonEl () {

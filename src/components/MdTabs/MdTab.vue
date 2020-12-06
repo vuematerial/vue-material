@@ -50,6 +50,7 @@
       },
       setTabData () {
         this.$set(this.MdTabs.items, this.id, {
+          id: this.id,
           hasContent: !!this.$slots.default,
           label: this.mdLabel,
           icon: this.mdIcon,
