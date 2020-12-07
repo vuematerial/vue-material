@@ -7,7 +7,8 @@
 <example src="./examples/TableSearch.vue" />
 <example src="./examples/TableSingle.vue" />
 <example src="./examples/TableMultiple.vue" />
-<example src="./examples/TablePaginationSoon.vue" />
+<example src="./examples/TablePagination.vue" />
+<example src="./examples/TablePaginationRemote.vue" />
 
 <template>
   <page-container centered :title="$t('pages.table.title')">
@@ -96,13 +97,31 @@
     </div>
 
     <div class="page-container-section">
-      <p>The table pagination will create the mechanism to show contents through pages. This component will be available soon. :)</p>
-      <code-example title="Pagination" :component="examples['table-pagination-soon']" />
+      <p>The table pagination will create the mechanism to show contents through pages.</p>
+      <code-example title="Pagination" :component="examples['table-pagination']" />
+
+      <p>Here's an example of a table controlled remotely through ajax.</p>
+      <code-example title="Remote pagination" :component="examples['table-pagination-remote']" />
 
       <api-item title="API - md-table">
-        <p>Coming soon...</p>
+        <p>The following options can be applied to the md-table component:</p>
+        <api-table :headings="table.props.headings" :props="table.props.props" slot="props" />
+        <api-table :headings="table.events.headings" :props="table.events.props" slot="events" />
       </api-item>
+
+      <api-item title="API - md-table-head &amp; md-table-cell">
+        <p>The following options can be applied to the head and cell components:</p>
+        <api-table :headings="cell.props.headings" :props="cell.props.props" slot="props" />
+        <api-table :headings="cell.events.headings" :props="cell.events.props" slot="events" />
+      </api-item>
+
+      <api-item title="API - md-table-pagination">
+        <p>The following options can be applied to the pagination component:</p>
+        <api-table :headings="pagination.props.headings" :props="pagination.props.props" slot="props" />
+      </api-item>
+
     </div>
+
   </page-container>
 </template>
 
@@ -111,6 +130,128 @@
 
   export default {
     name: 'DocTable',
-    mixins: [examples]
+    mixins: [examples],
+    data: () => ({
+      table: {
+        props: {
+          headings: ['Name', 'Description', 'Default'],
+          props: [{
+            name: 'v-model',
+            type: 'Array',
+            description: 'The model variable to bind the input prompt value',
+            defaults: '[]'
+          }, {
+            name: 'md-model-id',
+            type: 'String',
+            description: 'Object property in the `v-model` array to use as :key',
+            defaults: 'id'
+          }, {
+            name: 'md-card',
+            type: 'Boolean',
+            description: 'Renders table as Card',
+            defaults: 'false'
+          }, {
+            name: 'md-sort',
+            type: 'String',
+            description: 'Lets you define a column to sort your data with',
+            defaults: 'null'
+          }, {
+            name: 'md-sort-order',
+            type: 'String',
+            description: 'Sort order',
+            defaults: 'asc'
+          }, {
+            name: 'md-sort-fn',
+            type: 'Function',
+            description: 'Custom sorting function',
+            defaults: 'String or Numeric sort depending on the column data'
+          }, {
+            name: 'md-height',
+            type: 'Number|String',
+            description: 'Sets the table height',
+            defaults: '400'
+          }, {
+            name: 'md-selected-value',
+            type: 'Array|Object',
+            description: 'Lets you provide a selected value. Eg. <pre>:md-selected-value.sync="selectedValue"</pre>',
+            defaults: 'null'
+          }],
+        },
+        events: {
+          headings: ['Name', 'Description', 'Default'],
+          props: [],
+        },
+      },
+      cell: {
+        props: {
+          headings: ['Name', 'Description', 'Default'],
+          props: [{
+            name: 'md-id',
+            type: 'String|Number',
+            description: 'You can define an id for the cell',
+            defaults: 'null'
+          }, {
+            name: 'md-label',
+            type: 'String',
+            description: 'Specifies the cell’s header',
+            defaults: 'null'
+          }, {
+            name: 'md-numeric',
+            type: 'Boolean',
+            description: 'Aligns text to right',
+            defaults: 'false'
+          }, {
+            name: 'md-tooltip',
+            type: 'String',
+            description: 'Specify a tooltip',
+            defaults: 'null'
+          }, {
+            name: 'md-sort-by',
+            type: 'String',
+            description: '&nbsp;',
+            defaults: 'null'
+          }],
+        },
+        events: {
+          headings: ['Name', 'Description', 'Default'],
+          props: [{
+            name: 'md-selected',
+            description: 'Triggered when the user selects one or more items',
+            value: 'Selected item or items'
+          }],
+        },
+      },
+      pagination: {
+        props: {
+          headings: ['Name', 'Description', 'Default'],
+          props: [{
+            name: 'md-page-size',
+            type: 'Number',
+            description: 'Selected page size',
+            defaults: '10',
+          }, {
+            name: 'md-page-options',
+            type: 'Array',
+            description: 'Number of items per page available',
+            defaults: '[5, 10, 25, 50, 100]',
+          }, {
+            name: 'md-update',
+            type: 'Function',
+            description: 'Provides an update of the current pagination status: page, pageSize, sort, sortOrder. If this function returns false it won’t update the component',
+            defaults: 'An empty function which returns true'
+          }, {
+            name: 'md-paginated-data',
+            type: 'Array',
+            description: 'Used in front end pagination, provides the paginated list of items. Please use as <pre>:md-paginated-data.sync="paginatedData"</pre>',
+            defaults: 'null',
+          }, {
+            name: 'md-data',
+            type: 'Array|Object',
+            description: 'If you need remote pagination please provide a structure like the following <pre>{\n  mdCount: null,\n  mdPage: null,\n  mdData: []\n}</pre> Otherwise, if you need local pagination just provide the full list of unpaginated data: <pre>[{...}, {...}, ...]</pre>',
+            defaults: 'null',
+          }],
+        },
+      },
+    }),
   }
 </script>
