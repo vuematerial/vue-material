@@ -42,6 +42,7 @@
   import MdPropValidator from 'core/utils/MdPropValidator'
   import MdObserveElement from 'core/utils/MdObserveElement'
   import MdThrottling from 'core/utils/MdThrottling'
+  import MdButton from '../MdButton/MdButton'
   import MdContent from 'components/MdContent/MdContent'
   import MdSwipeable from 'core/mixins/MdSwipeable/MdSwipeable'
 
@@ -49,6 +50,7 @@
     name: 'MdTabs',
     mixins: [MdAssetIcon, MdSwipeable],
     components: {
+      MdButton,
       MdContent
     },
     props: {
