@@ -138,7 +138,6 @@
       },
       mdActiveTab (tabId) {
         this.activeTab = tabId
-        this.$emit('md-changed', tabId)
       },
       activeButtonEl (activeButtonEl) {
         this.activeTabIndex = activeButtonEl ? [].indexOf.call(activeButtonEl.parentNode.childNodes, activeButtonEl) : -1
