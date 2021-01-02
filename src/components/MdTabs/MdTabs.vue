@@ -222,7 +222,8 @@
       },
       calculateTabPos () {
         if (this.hasContent) {
-          const tabElement = this.$el.querySelector(`.md-tab:nth-child(${this.activeTabIndex + 1})`)
+          const tabElements = this.ours(this.$refs.tabsContainer.querySelectorAll(`.md-tab:nth-child(${this.activeTabIndex + 1})`))
+          const tabElement = tabElements.length ? tabElements[0] : null
 
           this.contentStyles = {
             height: tabElement ? `${tabElement.offsetHeight}px` : 0
