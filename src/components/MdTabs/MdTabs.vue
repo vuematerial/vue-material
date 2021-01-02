@@ -129,14 +129,12 @@
         handler () {
           this.recomputeOrderedIds()
           this.setHasContent()
+          this.tryKeepCurrentTab()
         }
       },
       activeTab (tabId) {
         this.$emit('md-changed', tabId)
-        this.$nextTick().then(() => {
-          this.setIndicatorStyles()
-          this.setActiveButtonEl()
-        })
+        this.setActiveButtonElAndIndicatorStyles()
       },
       mdActiveTab (tabId) {
         this.activeTab = tabId
@@ -155,9 +153,9 @@
       swiped (value) {
         const max = this.orderedIds.length
         if (this.activeTabIndex < max && value === 'right') {
-          this.setSwipeActiveTabByIndex(this.activeTabIndex + 1)
+          this.setActiveTabByIndex(this.activeTabIndex + 1)
         } else if (this.activeTabIndex > 0 && value === 'left') {
-          this.setSwipeActiveTabByIndex(this.activeTabIndex - 1)
+          this.setActiveTabByIndex(this.activeTabIndex - 1)
         }
       }
     },
@@ -178,10 +176,39 @@
           this.activeTab = tabId
         }
       },
+      setActiveButtonElAndIndicatorStyles () {
+        this.$nextTick().then(() => {
+          this.setIndicatorStyles()
+          this.setActiveButtonEl()
+        })
+      },
+      tryKeepCurrentTab () {
+        if (this.mdSyncRoute) {
+          return
+        }
+
+        const newIndexOfCurrentTabId = this.orderedIds.indexOf(this.activeTab)
+        const canKeepCurrentTabId = newIndexOfCurrentTabId !== -1
+
+        const lastTabIndex = this.orderedIds.length - 1
+        const canKeepCurrentTabIndex = this.activeTabIndex >= 0 && this.activeTabIndex <= lastTabIndex
+
+        const hasAtLeastOneTab = lastTabIndex !== -1
+
+        if (canKeepCurrentTabId) {
+          this.setActiveButtonElAndIndicatorStyles() // Refresh the tab by its new location
+        } else if (canKeepCurrentTabIndex) {
+          this.setActiveTabByIndex(this.activeTabIndex)
+        } else if (hasAtLeastOneTab) {
+          this.setActiveTabByIndex(lastTabIndex)
+        } else {
+          this.activeTab = null
+        }
+      },
       setActiveButtonEl () {
         this.activeButtonEl = this.$refs.navigation.querySelector('.md-tab-nav-button.md-active')
       },
-      setSwipeActiveTabByIndex (index) {
+      setActiveTabByIndex (index) {
         this.activeTab = this.orderedIds[index]
       },
       ensureHasActiveTab () {
