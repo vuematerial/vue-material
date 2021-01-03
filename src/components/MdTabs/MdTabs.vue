@@ -2,7 +2,7 @@
   <div class="md-tabs" :class="[tabsClasses, $mdActiveTheme]">
     <div class="md-tabs-navigation" :class="navigationClasses" ref="navigation">
       <md-button
-        v-for="({ id, label, props, icon, disabled, data, events }, index) in MdTabs.items"
+        v-for="({ id, label, props, icon, disabled, data, events }, index) in orderedItems"
         :key="index"
         class="md-tab-nav-button"
         :class="{
@@ -28,7 +28,7 @@
     </div>
 
     <md-content ref="tabsContent" class="md-tabs-content" :style="contentStyles" v-show="hasContent">
-      <div class="md-tabs-container" :style="containerStyles">
+      <div ref="tabsContainer" class="md-tabs-container" :style="containerStyles">
         <slot />
       </div>
     </md-content>
@@ -45,6 +45,20 @@
   import MdButton from '../MdButton/MdButton'
   import MdContent from 'components/MdContent/MdContent'
   import MdSwipeable from 'core/mixins/MdSwipeable/MdSwipeable'
+
+  function areEqual (array1, array2) {
+    if (array1.length !== array2.length) {
+      return false
+    }
+
+    for (let i = 0; i < array1.length; i++) {
+      if (array1[i] !== array2[i]) {
+        return false
+      }
+    }
+
+    return true
+  }
 
   export default new MdComponent({
     name: 'MdTabs',
@@ -83,7 +97,8 @@
       MdTabs: {
         items: {}
       },
-      activeButtonEl: null
+      activeButtonEl: null,
+      orderedIds: []
     }),
     provide () {
       return {
@@ -91,6 +106,9 @@
       }
     },
     computed: {
+      orderedItems () {
+        return this.orderedIds.map(tabId => this.MdTabs.items[tabId])
+      },
       tabsClasses () {
         return {
           ['md-alignment-' + this.mdAlignment]: true,
@@ -109,6 +127,7 @@
       MdTabs: {
         deep: true,
         handler () {
+          this.recomputeOrderedIds()
           this.setHasContent()
         }
       },
@@ -134,8 +153,7 @@
         this.$nextTick(this.setActiveButtonEl)
       },
       swiped (value) {
-        const { keys } = this.getItemsAndKeys()
-        const max = keys.length || 0
+        const max = this.orderedIds.length
         if (this.activeTabIndex < max && value === 'right') {
           this.setSwipeActiveTabByIndex(this.activeTabIndex + 1)
         } else if (this.activeTabIndex > 0 && value === 'left') {
@@ -147,14 +165,6 @@
       hasActiveTab () {
         return this.activeTab || this.mdActiveTab
       },
-      getItemsAndKeys () {
-        const items = this.MdTabs.items
-
-        return {
-          items,
-          keys: Object.keys(items)
-        }
-      },
       setActiveTab (tabId) {
         if (!this.mdSyncRoute) {
           this.activeTab = tabId
@@ -164,23 +174,15 @@
         this.activeButtonEl = this.$refs.navigation.querySelector('.md-tab-nav-button.md-active')
       },
       setSwipeActiveTabByIndex (index) {
-        const { keys } = this.getItemsAndKeys()
-
-        if (keys) {
-          this.activeTab = keys[index]
-        }
+        this.activeTab = this.orderedIds[index]
       },
-      setActiveTabByIndex (index) {
-        const { keys } = this.getItemsAndKeys()
-
+      ensureHasActiveTab () {
         if (!this.hasActiveTab()) {
-          this.activeTab = keys[index]
+          this.activeTab = this.orderedIds[0]
         }
       },
       setHasContent () {
-        const { items, keys } = this.getItemsAndKeys()
-
-        this.hasContent = keys.some(key => items[key].hasContent)
+        this.hasContent = this.orderedItems.some(item => item.hasContent)
       },
       setIndicatorStyles () {
         raf(() => {
@@ -236,11 +238,26 @@
         })
 
         window.addEventListener('resize', this.callResizeFunctions)
+      },
+      recomputeOrderedIds () {
+        const orderedIds = this.ours(this.$refs.tabsContainer.querySelectorAll('.md-tab'))
+          .map(tabElement => tabElement.mdTabIdAsObject)
+
+        // Do not force VueJs to rerender the view and us to recompute everything if the change event was not about tabs
+        if (!areEqual(this.orderedIds, orderedIds)) {
+          this.orderedIds = orderedIds
+        }
+      },
+      /**
+       * querySelector/querySelectorAll return all descendant elements, even elements from nested md-tabs.
+       * @return only the md-tab elements that are owned by this md-tabs
+       */
+      ours (tabElements) {
+        return [].filter.call(tabElements, tabElement => tabElement.parentNode === this.$refs.tabsContainer)
       }
     },
     created () {
       this.setIndicatorStyles = MdThrottling(this.setIndicatorStyles, 300)
-      this.setHasContent()
       this.activeTab = this.mdActiveTab
     },
     mounted () {
@@ -248,7 +265,8 @@
 
       this.$nextTick().then(() => {
         if (!this.mdSyncRoute) {
-          this.setActiveTabByIndex(0)
+          this.recomputeOrderedIds()
+          this.ensureHasActiveTab()
         }
 
         return this.$nextTick()

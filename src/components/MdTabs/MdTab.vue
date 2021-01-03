@@ -49,6 +49,9 @@
         }, this.setTabContent)
       },
       setTabData () {
+        // MdTabs does not know the order of tabs, as tabs are in a slot: store IDs in the DOM: DOM elements are ordered
+        this.$el.mdTabIdAsObject = this.id
+
         this.$set(this.MdTabs.items, this.id, {
           id: this.id,
           hasContent: !!this.$slots.default,
