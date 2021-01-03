@@ -6,7 +6,7 @@
         :key="index"
         class="md-tab-nav-button"
         :class="{
-          'md-active': (!mdSyncRoute && id === activeTab),
+          'md-active': (!mdSyncRoute && isActiveTabId(id)),
           'md-icon-label': icon && label
         }"
         :disabled="disabled"
@@ -84,7 +84,7 @@
     },
     data: () => ({
       resizeObserver: null,
-      activeTab: 0,
+      activeTab: null,
       activeTabIndex: 0,
       indicatorStyles: {},
       indicatorClass: null,
@@ -95,7 +95,7 @@
       },
       hasContent: false,
       MdTabs: {
-        items: {}
+        items: new Map()
       },
       activeButtonEl: null,
       orderedIds: []
@@ -107,7 +107,7 @@
     },
     computed: {
       orderedItems () {
-        return this.orderedIds.map(tabId => this.MdTabs.items[tabId])
+        return this.orderedIds.map(tabId => this.MdTabs.items.get(tabId))
       },
       tabsClasses () {
         return {
@@ -145,7 +145,7 @@
       activeButtonEl (activeButtonEl) {
         this.activeTabIndex = activeButtonEl ? [].indexOf.call(activeButtonEl.parentNode.childNodes, activeButtonEl) : -1
       },
-      activeTabIndex (index) {
+      activeTabIndex () {
         this.setIndicatorStyles()
         this.calculateTabPos()
       },
@@ -162,8 +162,16 @@
       }
     },
     methods: {
+      isActiveTabId (id) {
+        // A tab ID could be NaN (this is a valid Number value), but NaN is not equal to itself
+        return (Number.isNaN(id) && Number.isNaN(this.activeTab)) || id === this.activeTab
+      },
       hasActiveTab () {
-        return this.activeTab || this.mdActiveTab
+        // Warning: a tab ID could be 0 (a falsy value),
+        // or it could be NaN (this is a valid Number value),
+        // but not null nor undefined (MdTabs.props.id is required):
+        // so we use `!=` and not `!==` for comparison
+        return this.activeTab != null || this.mdActiveTab != null
       },
       setActiveTab (tabId) {
         if (!this.mdSyncRoute) {

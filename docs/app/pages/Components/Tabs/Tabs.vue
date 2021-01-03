@@ -72,6 +72,8 @@
 <script>
   import examples from 'docs-mixins/docsExample'
 
+  const TAB_ID_TYPE = 'String|Number'
+
   export default {
     name: 'DocTabs',
     mixins: [examples],
@@ -107,7 +109,7 @@
           props: [
             {
               name: 'md-active-tab',
-              type: 'String|Number',
+              type: TAB_ID_TYPE,
               description: 'Set the current selected tab. Works by providing the id of the desired <code>md-tab</code>.',
               defaults: 'null'
             },
@@ -209,7 +211,7 @@
         props: [
           {
             name: 'id',
-            type: 'String',
+            type: TAB_ID_TYPE,
             description: 'The tab id. Used when changing the active tab dynamically',
             defaults: 'a random string'
           },

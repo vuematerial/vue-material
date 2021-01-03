@@ -9,7 +9,7 @@
     mixins: [MdRouterLink],
     props: {
       id: {
-        type: String,
+        type: [String, Number],
         default: () => 'md-tab-' + MdUuid()
       },
       href: [String, Number],
@@ -41,7 +41,7 @@
     },
     methods: {
       setTabContent () {
-        this.$set(this.MdTabs.items[this.id], 'hasContent', !!this.$slots.default)
+        this.$set(this.MdTabs.items.get(this.id), 'hasContent', !!this.$slots.default)
       },
       setupObserver () {
         this.observer = MdObserveElement(this.$el, {
@@ -52,7 +52,8 @@
         // MdTabs does not know the order of tabs, as tabs are in a slot: store IDs in the DOM: DOM elements are ordered
         this.$el.mdTabIdAsObject = this.id
 
-        this.$set(this.MdTabs.items, this.id, {
+        // new Map() because Map is not reactive in VueJs 2
+        this.MdTabs.items = new Map(this.MdTabs.items.set(this.id, {
           id: this.id,
           hasContent: !!this.$slots.default,
           label: this.mdLabel,
@@ -61,7 +62,7 @@
           data: this.mdTemplateData,
           props: this.getPropValues(),
           events: this.$listeners
-        })
+        }))
       },
       getPropValues () {
         const propNames = Object.keys(this.$options.props)
@@ -94,7 +95,8 @@
         this.observer.disconnect()
       }
 
-      this.$delete(this.MdTabs.items, this.id)
+      this.MdTabs.items.delete(this.id)
+      this.MdTabs.items = new Map(this.MdTabs.items) // new Map() because Map is not reactive in VueJs 2
     },
     render (createElement) {
       let tabAttrs = {
