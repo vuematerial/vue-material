@@ -79,6 +79,7 @@
     }
     li{
       margin: 5px 0;
+      list-style: none;
     }
     h4{
       margin: 0 0 10px;
