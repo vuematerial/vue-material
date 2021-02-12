@@ -47,7 +47,7 @@
       <slot name="md-table-pagination" />
     </md-content>
 
-    <slot v-if="!hasValue && $scopedSlots['md-table-row']" />
+    <slot v-if="!hasValue && $scopedSlots['md-table-pagination']" />
   </md-tag-switcher>
 </template>
 
@@ -67,7 +67,7 @@
   const getObjectAttribute = (object, key) => {
     let value = object
 
-    for (const attribute of key.split('.')) {
+    for (let attribute of key.split('.')) {
       value = value[attribute]
     }
 
@@ -105,29 +105,33 @@
       mdSortFn: {
         type: Function,
         default (value) {
-          return value.sort((a, b) => {
-            const sortBy = this.MdTable.sort
+          const sortBy = this.MdTable.sort
+          const isAsc = this.MdTable.sortOrder === 'asc'
+          const multiplier = isAsc ? 1 : -1
+
+          /* eslint-disable complexity */
+          const comparator = function(a, b) {
             const aAttr = getObjectAttribute(a, sortBy)
             const bAttr = getObjectAttribute(b, sortBy)
-            const isAsc = this.MdTable.sortOrder === 'asc'
-            let isNumber = typeof aAttr === 'number'
 
-            if (!aAttr) {
+            if (aAttr === bAttr) {
+              return 0
+            } else if (aAttr === null || aAttr === undefined || Number.isNaN(aAttr)) {
+              // a is last
               return 1
-            }
-
-            if(!bAttr) {
+            } else if (bAttr === null || bAttr === undefined || Number.isNaN(bAttr)) {
+              // b is last
               return -1
+            } else if (typeof aAttr === 'number' && typeof bAttr === 'number') {
+              // numerical compare, negate if descending
+              return (aAttr - bAttr) * multiplier
             }
+            // locale compare, negate if descending
+            return String(aAttr).localeCompare(String(bAttr)) * multiplier
+          }
+          /* eslint-enable complexity */
 
-            if (isNumber) {
-              return isAsc ? (aAttr - bAttr) : (bAttr - aAttr)
-            }
-
-            return isAsc ?
-              aAttr.localeCompare(bAttr) :
-              bAttr.localeCompare(aAttr)
-          })
+          return value.sort(comparator)
         }
       },
       mdSelectedValue: {
