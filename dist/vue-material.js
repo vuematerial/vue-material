@@ -1,6 +1,6 @@
 /*!
  * vue-material v1.0.0-beta-15
- * Made with <3 by marcosmoura 2020
+ * Made with <3 by marcosmoura 2021
  * Released under the MIT License.
  */
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -1057,7 +1057,7 @@ exports.default = {
       this.clearField();
     },
     isInvalidValue: function isInvalidValue() {
-      return this.$el.validity.badInput;
+      return this.$el.validity ? this.$el.validity.badInput : false;
     },
     setFieldValue: function setFieldValue() {
       this.MdField.value = this.model;
@@ -9052,6 +9052,9 @@ exports.default = {
     },
     emitSelected: function emitSelected(value) {
       this.$emit('md-selected', value);
+    },
+    isInvalidValue: function isInvalidValue() {
+      return this.$refs.selectEl.validity ? this.$refs.selectEl.validity.badInput : false;
     }
   },
   mounted: function mounted() {
@@ -12756,29 +12759,33 @@ exports.default = {
     mdSortFn: {
       type: Function,
       default: function _default(value) {
-        var _this = this;
+        var sortBy = this.MdTable.sort;
+        var isAsc = this.MdTable.sortOrder === 'asc';
+        var multiplier = isAsc ? 1 : -1;
 
-        return value.sort(function (a, b) {
-          var sortBy = _this.MdTable.sort;
+        /* eslint-disable complexity */
+        var comparator = function comparator(a, b) {
           var aAttr = getObjectAttribute(a, sortBy);
           var bAttr = getObjectAttribute(b, sortBy);
-          var isAsc = _this.MdTable.sortOrder === 'asc';
-          var isNumber = typeof aAttr === 'number';
 
-          if (!aAttr) {
+          if (aAttr === bAttr) {
+            return 0;
+          } else if (aAttr === null || aAttr === undefined || Number.isNaN(aAttr)) {
+            // a is last
             return 1;
-          }
-
-          if (!bAttr) {
+          } else if (bAttr === null || bAttr === undefined || Number.isNaN(bAttr)) {
+            // b is last
             return -1;
+          } else if (typeof aAttr === 'number' && typeof bAttr === 'number') {
+            // numerical compare, negate if descending
+            return (aAttr - bAttr) * multiplier;
           }
+          // locale compare, negate if descending
+          return String(aAttr).localeCompare(String(bAttr)) * multiplier;
+        };
+        /* eslint-enable complexity */
 
-          if (isNumber) {
-            return isAsc ? aAttr - bAttr : bAttr - aAttr;
-          }
-
-          return isAsc ? aAttr.localeCompare(bAttr) : bAttr.localeCompare(aAttr);
-        });
+        return value.sort(comparator);
       }
     },
     mdSelectedValue: {
@@ -12891,11 +12898,11 @@ exports.default = {
       }
     },
     'MdTable.selectedItems': function MdTableSelectedItems(val, old) {
-      var _this2 = this;
+      var _this = this;
 
       var changed = function () {
-        var isValEmpty = _this2.isEmpty(val);
-        var isOldEmpty = _this2.isEmpty(old);
+        var isValEmpty = _this.isEmpty(val);
+        var isOldEmpty = _this.isEmpty(old);
         var hasValues = isValEmpty && isOldEmpty;
 
         if (hasValues) {
@@ -12950,21 +12957,21 @@ exports.default = {
       return id;
     },
     setScroll: function setScroll($event) {
-      var _this3 = this;
+      var _this2 = this;
 
       (0, _raf2.default)(function () {
-        if (_this3.mdFixedHeader) {
-          _this3.$refs.fixedHeaderContainer.scrollLeft = $event.target.scrollLeft;
+        if (_this2.mdFixedHeader) {
+          _this2.$refs.fixedHeaderContainer.scrollLeft = $event.target.scrollLeft;
         }
 
-        _this3.hasContentScroll = $event.target.scrollTop > 0;
+        _this2.hasContentScroll = $event.target.scrollTop > 0;
       });
     },
     setHeaderScroll: function setHeaderScroll($event) {
-      var _this4 = this;
+      var _this3 = this;
 
       (0, _raf2.default)(function () {
-        _this4.MdTable.contentEl.scrollLeft = $event.target.scrollLeft;
+        _this3.MdTable.contentEl.scrollLeft = $event.target.scrollLeft;
       });
     },
     getContentEl: function getContentEl() {
@@ -13007,14 +13014,14 @@ exports.default = {
       this.$emit('md-selected', val);
     },
     syncSelectedValue: function syncSelectedValue() {
-      var _this5 = this;
+      var _this4 = this;
 
       this.$nextTick().then(function () {
         // render the table first
-        if (_this5.MdTable.selectingMode === 'single') {
-          _this5.MdTable.singleSelection = _this5.mdSelectedValue;
-        } else if (_this5.MdTable.selectingMode === 'multiple') {
-          _this5.MdTable.selectedItems = _this5.mdSelectedValue || [];
+        if (_this4.MdTable.selectingMode === 'single') {
+          _this4.MdTable.singleSelection = _this4.mdSelectedValue;
+        } else if (_this4.MdTable.selectingMode === 'multiple') {
+          _this4.MdTable.selectedItems = _this4.mdSelectedValue || [];
         }
       });
     },
@@ -14026,52 +14033,39 @@ exports.default = {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
+
+var getPageData = function getPageData(data, mdPage, mdPageSize) {
+  return data.slice((mdPage - 1) * mdPageSize, (mdPage - 1) * mdPageSize + mdPageSize);
+};
 exports.default = {
   name: 'MdTablePagination',
   inject: ['MdTable'],
   props: {
-    mdPageSize: {
-      type: [String, Number],
-      default: 10
+    mdData: {
+      type: [Array, Object]
     },
     mdPageOptions: {
-      type: Array,
+      type: [Array, Boolean],
       default: function _default() {
-        return [10, 25, 50, 100];
+        return [5, 10, 25, 50, 100];
       }
     },
-    mdPage: {
-      type: Number,
-      default: 1
+    mdPaginatedData: {
+      type: Array,
+      default: function _default() {
+        return [];
+      }
     },
-    mdTotal: {
-      type: [String, Number],
-      default: 'Many'
+    mdPageSize: {
+      type: Number,
+      default: 10
+    },
+    mdUpdate: {
+      type: Function,
+      default: function _default() {
+        return true;
+      }
     },
     mdLabel: {
       type: String,
@@ -14084,34 +14078,79 @@ exports.default = {
   },
   data: function data() {
     return {
+      mdPage: 0,
+      mdCount: 0,
       currentPageSize: 0
     };
   },
   computed: {
-    currentItemCount: function currentItemCount() {
-      return (this.mdPage - 1) * this.mdPageSize + 1;
+    pageCount: function pageCount() {
+      return this.getPageCount();
     },
-    currentPageCount: function currentPageCount() {
-      return this.mdPage * this.mdPageSize;
+    isExternalPagination: function isExternalPagination() {
+      return this.mdData && this.mdData.mdData;
     }
   },
   watch: {
+    mdData: {
+      immediate: true,
+      handler: function handler(mdData) {
+        this.mdData = mdData;
+        this.updatePage();
+      }
+    },
     mdPageSize: {
       immediate: true,
       handler: function handler(pageSize) {
-        this.currentPageSize = this.pageSize;
+        this.currentPageSize = pageSize;
+        this.updatePage();
+      }
+    },
+    currentPageSize: {
+      immediate: true,
+      handler: function handler(newValue, oldValue) {
+        if (this.mdUpdate(this.mdPage, this.currentPageSize, this.MdTable.sort, this.MdTable.sortOrder) !== false) {
+          this.updatePage();
+        }
       }
     }
   },
   methods: {
-    setPageSize: function setPageSize() {
-      this.$emit('update:mdPageSize', this.currentPageSize);
+    getPageCount: function getPageCount() {
+      return Math.ceil(this.mdCount / this.currentPageSize);
     },
-    goToPrevious: function goToPrevious() {},
-    goToNext: function goToNext() {}
-  },
-  created: function created() {
-    this.currentPageSize = this.mdPageSize;
+    setPage: function setPage(mdPage, mdCount) {
+      this.mdPage = mdCount > 0 ? mdPage > 0 ? mdPage : this.mdPage > 0 ? this.mdPage : 1 : 0;
+      var pageCount = this.getPageCount();
+      if (this.mdPage > pageCount) {
+        this.mdPage = pageCount;
+      }
+    },
+    updatePage: function updatePage() {
+      if (this.currentPageSize !== 0) {
+        if (this.isExternalPagination) {
+          this.mdCount = this.mdData.mdCount;
+          this.setPage(this.mdData.mdPage, this.mdCount);
+          this.$emit('update:mdPaginatedData', this.mdData.mdData);
+        } else {
+          this.mdCount = this.mdData.length;
+          this.setPage(this.mdPage, this.mdCount);
+          if (this.mdPage > 0) {
+            this.$emit('update:mdPaginatedData', getPageData(this.mdData, this.mdPage, this.currentPageSize));
+          } else {
+            this.$emit('update:mdPaginatedData', []);
+          }
+        }
+      }
+    },
+    changePage: function changePage(AddOrSubtract) {
+      if (this.mdUpdate(this.mdPage + AddOrSubtract, this.currentPageSize, this.MdTable.sort, this.MdTable.sortOrder) !== false) {
+        this.mdPage = this.mdPage + AddOrSubtract;
+        if (!this.isExternalPagination) {
+          this.$emit('update:mdPaginatedData', getPageData(this.mdData, this.mdPage, this.currentPageSize));
+        }
+      }
+    }
   }
 };
 
@@ -29017,6 +29056,7 @@ var render = function() {
                 expression: "model"
               }
             ],
+            ref: "selectEl",
             attrs: { readonly: "", tabindex: "-1" },
             on: {
               change: function($event) {
@@ -33930,7 +33970,7 @@ var render = function() {
         2
       ),
       _vm._v(" "),
-      !_vm.hasValue && _vm.$scopedSlots["md-table-row"]
+      !_vm.hasValue && _vm.$scopedSlots["md-table-pagination"]
         ? _vm._t("default")
         : _vm._e()
     ],
@@ -34360,7 +34400,6 @@ var render = function() {
                       "md-dense": "",
                       "md-class": "md-pagination-select"
                     },
-                    on: { changed: _vm.setPageSize },
                     model: {
                       value: _vm.currentPageSize,
                       callback: function($$v) {
@@ -34386,13 +34425,13 @@ var render = function() {
       _vm._v(" "),
       _c("span", [
         _vm._v(
-          _vm._s(_vm.currentItemCount) +
-            "-" +
-            _vm._s(_vm.currentPageCount) +
+          _vm._s((_vm.mdPage - 1) * _vm.currentPageSize + 1) +
+            "–" +
+            _vm._s(Math.min(_vm.mdPage * _vm.currentPageSize, _vm.mdCount)) +
             " " +
             _vm._s(_vm.mdSeparator) +
             " " +
-            _vm._s(_vm.mdTotal)
+            _vm._s(_vm.mdCount)
         )
       ]),
       _vm._v(" "),
@@ -34403,7 +34442,7 @@ var render = function() {
           attrs: { disabled: _vm.mdPage === 1 },
           on: {
             click: function($event) {
-              return _vm.goToPrevious()
+              return _vm.changePage(-1)
             }
           }
         },
@@ -34415,9 +34454,10 @@ var render = function() {
         "md-button",
         {
           staticClass: "md-icon-button md-table-pagination-next",
+          attrs: { disabled: _vm.mdPage === _vm.pageCount },
           on: {
             click: function($event) {
-              return _vm.goToNext()
+              return _vm.changePage(+1)
             }
           }
         },
