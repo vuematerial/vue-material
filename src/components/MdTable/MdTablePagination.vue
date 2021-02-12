@@ -4,44 +4,50 @@
       <span class="md-table-pagination-label">{{ mdLabel }}</span>
 
       <md-field>
-        <md-select v-model="currentPageSize" md-dense md-class="md-pagination-select" @changed="setPageSize">
+        <md-select v-model="currentPageSize" md-dense md-class="md-pagination-select">
           <md-option v-for="amount in mdPageOptions" :key="amount" :value="amount">{{ amount }}</md-option>
         </md-select>
       </md-field>
     </template>
 
-    <span>{{ currentItemCount }}-{{ currentPageCount }} {{ mdSeparator }} {{ mdTotal }}</span>
+    <span>{{ (mdPage - 1) * currentPageSize + 1 }}–{{ Math.min(mdPage * currentPageSize, mdCount) }} {{ mdSeparator }} {{ mdCount }}</span>
 
-    <md-button class="md-icon-button md-table-pagination-previous" @click="goToPrevious()" :disabled="mdPage === 1">
+    <md-button class="md-icon-button md-table-pagination-previous" @click="changePage(-1)" :disabled="mdPage === 1">
       <md-icon>keyboard_arrow_left</md-icon>
     </md-button>
 
-    <md-button class="md-icon-button md-table-pagination-next" @click="goToNext()">
+    <md-button class="md-icon-button md-table-pagination-next" @click="changePage(+1)" :disabled="mdPage === pageCount">
       <md-icon>keyboard_arrow_right</md-icon>
     </md-button>
   </div>
 </template>
 
-<script>
+<script lang="babel">
+  const getPageData = (data, mdPage, mdPageSize) => {
+    return data.slice((mdPage - 1) * mdPageSize, ((mdPage - 1) * mdPageSize) + mdPageSize)
+  }
   export default {
     name: 'MdTablePagination',
     inject: ['MdTable'],
     props: {
-      mdPageSize: {
-        type: [String, Number],
-        default: 10
+      mdData: {
+        type: [Array, Object]
       },
       mdPageOptions: {
+        type: [Array, Boolean],
+        default: () => [5, 10, 25, 50, 100]
+      },
+      mdPaginatedData: {
         type: Array,
-        default: () => [10, 25, 50, 100]
+        default: () => []
       },
-      mdPage: {
+      mdPageSize: {
         type: Number,
-        default: 1
+        default: 10
       },
-      mdTotal: {
-        type: [String, Number],
-        default: 'Many'
+      mdUpdate: {
+        type: Function,
+        default: () => true
       },
       mdLabel: {
         type: String,
@@ -53,37 +59,78 @@
       }
     },
     data: () => ({
+      mdPage: 0,
+      mdCount: 0,
       currentPageSize: 0
     }),
     computed: {
-      currentItemCount () {
-        return ((this.mdPage - 1) * this.mdPageSize) + 1
+      pageCount () {
+        return this.getPageCount()
       },
-      currentPageCount () {
-        return this.mdPage * this.mdPageSize
+      isExternalPagination () {
+        return this.mdData && this.mdData.mdData
       }
     },
     watch: {
+      mdData: {
+        immediate: true,
+        handler (mdData) {
+          this.mdData = mdData
+          this.updatePage()
+        }
+      },
       mdPageSize: {
         immediate: true,
         handler (pageSize) {
-          this.currentPageSize = this.pageSize
+          this.currentPageSize = pageSize
+          this.updatePage()
+        }
+      },
+      currentPageSize: {
+        immediate: true,
+        handler (newValue, oldValue) {
+          if (this.mdUpdate(this.mdPage, this.currentPageSize, this.MdTable.sort, this.MdTable.sortOrder) !== false) {
+            this.updatePage()
+          }
         }
       }
     },
     methods: {
-      setPageSize () {
-        this.$emit('update:mdPageSize', this.currentPageSize)
+      getPageCount () {
+        return Math.ceil(this.mdCount / this.currentPageSize);
       },
-      goToPrevious () {
-
+      setPage (mdPage, mdCount) {
+        this.mdPage = mdCount > 0 ? (mdPage > 0 ? mdPage : (this.mdPage > 0 ? this.mdPage : 1)) : 0
+        var pageCount = this.getPageCount()
+        if (this.mdPage > pageCount) {
+          this.mdPage = pageCount
+        }
       },
-      goToNext () {
-
+      updatePage () {
+        if (this.currentPageSize !== 0) {
+          if (this.isExternalPagination) {
+            this.mdCount = this.mdData.mdCount
+            this.setPage(this.mdData.mdPage, this.mdCount)
+            this.$emit('update:mdPaginatedData', this.mdData.mdData)
+          } else {
+            this.mdCount = this.mdData.length
+            this.setPage(this.mdPage, this.mdCount)
+            if (this.mdPage > 0) {
+              this.$emit('update:mdPaginatedData', getPageData(this.mdData, this.mdPage, this.currentPageSize))
+            } else {
+              this.$emit('update:mdPaginatedData', [])
+            }
+          }
+        }
+      },
+      changePage (AddOrSubtract) {
+        if (this.mdUpdate(this.mdPage + AddOrSubtract, this.currentPageSize, this.MdTable.sort, this.MdTable.sortOrder) !== false) {
+          this.mdPage = this.mdPage + AddOrSubtract
+          if (!this.isExternalPagination) {
+            this.$emit('update:mdPaginatedData', getPageData(this.mdData, this.mdPage, this.currentPageSize))
+          }
+        }
       }
-    },
-    created () {
-      this.currentPageSize = this.mdPageSize
     }
   }
 </script>
