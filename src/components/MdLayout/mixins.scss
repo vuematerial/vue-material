@@ -24,7 +24,7 @@
 }
 
 @mixin md-layout-large {
-  @media (max-width: #{$md-breakpoint-large - 17px}) {
+  @media (max-width: #{$md-breakpoint-large - 16px}) {
     @content;
   }
 }
