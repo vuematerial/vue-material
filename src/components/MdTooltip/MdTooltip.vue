@@ -32,7 +32,9 @@
     },
     data: () => ({
       shouldRender: false,
-      targetEl: null
+      targetEl: null,
+      observer: {},
+      mutated: null
     }),
     computed: {
       tooltipClasses () {
@@ -43,6 +45,7 @@
       },
       popperSettings () {
         return {
+          mutated: this.mutated,
           placement: this.mdDirection,
           modifiers: {
             offset: {
@@ -62,9 +65,14 @@
     },
     methods: {
       show () {
-        this.shouldRender = true
+        this.shouldRender = true;
+        this.$nextTick().then(() => {
+          this.observer = new MutationObserver(mutations => this.mutated = mutations);
+          this.observer.observe(this._vnode.componentInstance.$el, { attributes: false, childList: true, characterData: true, subtree: true });
+        });
       },
       hide () {
+        this.observer.disconnect();
         this.shouldRender = false
       }
     },
