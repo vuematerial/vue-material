@@ -10,6 +10,7 @@ const babelLoader = 'babel-loader?cacheDirectory=true'
 
 export default {
   devtool: 'cheap-module-eval-source-map',
+  mode: "development",
   entry: {
     docs: [
       'babel-polyfill',

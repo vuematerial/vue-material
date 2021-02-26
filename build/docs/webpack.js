@@ -27,6 +27,7 @@ const scssLoader = ExtractTextPlugin.extract({
 const babelLoader = 'babel-loader?cacheDirectory=true'
 const componentExampleLoader = require.resolve('../loaders/component-example-loader')
 const webpackConfig = {
+  mode: "production",
   entry: {
     app: [
       'babel-polyfill',

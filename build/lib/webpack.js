@@ -113,6 +113,7 @@ export default entry => {
 
   let webpackConfig = {
     output,
+    mode: "production",
     entry: entries,
     resolve: {
       extensions: config.resolve,
