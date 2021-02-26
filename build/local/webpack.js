@@ -11,6 +11,14 @@ const babelLoader = 'babel-loader?cacheDirectory=true'
 export default {
   devtool: 'cheap-module-eval-source-map',
   mode: "development",
+  optimization: {
+    namedModules: true,
+    splitChunks: {
+      name: 'vendor',
+      minChunks: 2
+    },
+    minimize: true
+  },
   entry: {
     docs: [
       'babel-polyfill',
@@ -75,7 +83,6 @@ export default {
     }),
     new webpack.WatchIgnorePlugin([resolvePath('node_modules')]),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin(),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'docs/index.html',

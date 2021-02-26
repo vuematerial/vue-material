@@ -28,6 +28,14 @@ const babelLoader = 'babel-loader?cacheDirectory=true'
 const componentExampleLoader = require.resolve('../loaders/component-example-loader')
 const webpackConfig = {
   mode: "production",
+  optimization: {
+    namedModules: true,
+    splitChunks: {
+      name: 'vendor',
+      minChunks: 2
+    },
+    minimize: true
+  },
   entry: {
     app: [
       'babel-polyfill',
@@ -87,39 +95,9 @@ const webpackConfig = {
         NODE_ENV: JSON.stringify('production')
       }
     }),
-    new webpack.optimize.ModuleConcatenationPlugin(),
-    new webpack.NamedModulesPlugin(),
     new webpack.LoaderOptionsPlugin({
       minimize: true,
       debug: false
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      minimize: true,
-      compress: {
-        booleans: true,
-        cascade: true,
-        comparisons: true,
-        conditionals: true,
-        dead_code: true,
-        drop_debugger: true,
-        evaluate: true,
-        hoist_funs: true,
-        hoist_vars: true,
-        if_return: true,
-        join_vars: true,
-        loops: true,
-        properties: true,
-        screw_ie8: true,
-        sequences: true,
-        side_effects: true,
-        unsafe: true,
-        unused: true,
-        warnings: false
-      },
-      output: {
-        comments: false
-      },
-      sourceMap: false
     }),
     new OptimizeJsPlugin({
       sourceMap: false
@@ -127,22 +105,6 @@ const webpackConfig = {
     new ExtractTextPlugin({
       allChunks: true,
       filename: '[name].[contenthash:8].css'
-    }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      minChunks (module) {
-        let resource = module.resource
-
-        if (resource && (/\.js$/).test(resource)) {
-          return resource.indexOf(config.nodePath) >= 0
-        }
-
-        return false
-      }
-    }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'manifest',
-      chunks: ['vendor']
     }),
     new webpack.BannerPlugin({
       banner,
