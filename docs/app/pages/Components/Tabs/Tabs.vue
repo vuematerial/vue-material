@@ -184,7 +184,7 @@
           props: [
             {
               name: 'md-changed',
-              description: 'Triggered when the active tab changes',
+              description: 'Triggered when the active tab changes (also triggered when the tabs component is mounted)',
               value: 'Tab ID'
             }
           ]
@@ -212,7 +212,14 @@
           {
             name: 'id',
             type: TAB_ID_TYPE,
-            description: 'The tab id. Used when changing the active tab dynamically',
+            description: 'The tab id. Used when changing the active tab dynamically. ' +
+              'Note: string representation of numbers are considered different than their number ids. ' +
+              'Eg. the id number 3 is different than the id string "3". ' +
+              'An id can also be NaN, as it is a valid number. ' +
+              'Tabs are kept in the order they appear in the HTML template. ' +
+              'Tabs can be dynamically show/hidden or added/removed: they will always be kept in the HTML template order. ' +
+              'When an active tab is reordered in the HTML template, it is kept active, at its new place. ' +
+              'When an active tab is removed or hidden, the following tab will be activated; or the preceding tab, if there is no following tab',
             defaults: 'a random string'
           },
           {
