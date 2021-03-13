@@ -2,17 +2,17 @@
   <div class="md-tabs" :class="[tabsClasses, $mdActiveTheme]">
     <div class="md-tabs-navigation" :class="navigationClasses" ref="navigation">
       <md-button
-        v-for="({ label, props, icon, disabled, data, events }, index) in MdTabs.items"
+        v-for="({ id, label, props, icon, disabled, data, events }, index) in orderedItems"
         :key="index"
         class="md-tab-nav-button"
         :class="{
-          'md-active': (!mdSyncRoute && index === activeTab),
+          'md-active': (!mdSyncRoute && isActiveTabId(id)),
           'md-icon-label': icon && label
         }"
         :disabled="disabled"
         v-bind="props"
         v-on="events"
-        @click.native="setActiveTab(index)">
+        @click.native="setActiveTab(id)">
         <slot name="md-tab" :tab="{ label, icon, data }" v-if="$scopedSlots['md-tab']"></slot>
 
         <template v-else>
@@ -28,7 +28,7 @@
     </div>
 
     <md-content ref="tabsContent" class="md-tabs-content" :style="contentStyles" v-show="hasContent">
-      <div class="md-tabs-container" :style="containerStyles">
+      <div ref="tabsContainer" class="md-tabs-container" :style="containerStyles">
         <slot />
       </div>
     </md-content>
@@ -42,13 +42,29 @@
   import MdPropValidator from 'core/utils/MdPropValidator'
   import MdObserveElement from 'core/utils/MdObserveElement'
   import MdThrottling from 'core/utils/MdThrottling'
+  import MdButton from '../MdButton/MdButton'
   import MdContent from 'components/MdContent/MdContent'
   import MdSwipeable from 'core/mixins/MdSwipeable/MdSwipeable'
+
+  function areEqual (array1, array2) {
+    if (array1.length !== array2.length) {
+      return false
+    }
+
+    for (let i = 0; i < array1.length; i++) {
+      if (array1[i] !== array2[i]) {
+        return false
+      }
+    }
+
+    return true
+  }
 
   export default new MdComponent({
     name: 'MdTabs',
     mixins: [MdAssetIcon, MdSwipeable],
     components: {
+      MdButton,
       MdContent
     },
     props: {
@@ -68,7 +84,7 @@
     },
     data: () => ({
       resizeObserver: null,
-      activeTab: 0,
+      activeTab: null,
       activeTabIndex: 0,
       indicatorStyles: {},
       indicatorClass: null,
@@ -79,9 +95,10 @@
       },
       hasContent: false,
       MdTabs: {
-        items: {}
+        items: new Map()
       },
-      activeButtonEl: null
+      activeButtonEl: null,
+      orderedIds: []
     }),
     provide () {
       return {
@@ -89,6 +106,9 @@
       }
     },
     computed: {
+      orderedItems () {
+        return this.orderedIds.map(tabId => this.MdTabs.items.get(tabId))
+      },
       tabsClasses () {
         return {
           ['md-alignment-' + this.mdAlignment]: true,
@@ -107,24 +127,22 @@
       MdTabs: {
         deep: true,
         handler () {
+          this.recomputeOrderedIds()
           this.setHasContent()
+          this.tryKeepCurrentTab()
         }
       },
-      activeTab (index) {
-        this.$emit('md-changed', index)
-        this.$nextTick().then(() => {
-          this.setIndicatorStyles()
-          this.setActiveButtonEl()
-        })
+      activeTab (tabId) {
+        this.$emit('md-changed', tabId)
+        this.setActiveButtonElAndIndicatorStyles()
       },
-      mdActiveTab (tab) {
-        this.activeTab = tab
-        this.$emit('md-changed', tab)
+      mdActiveTab (tabId) {
+        this.activeTab = tabId
       },
       activeButtonEl (activeButtonEl) {
         this.activeTabIndex = activeButtonEl ? [].indexOf.call(activeButtonEl.parentNode.childNodes, activeButtonEl) : -1
       },
-      activeTabIndex (index) {
+      activeTabIndex () {
         this.setIndicatorStyles()
         this.calculateTabPos()
       },
@@ -132,53 +150,73 @@
         this.$nextTick(this.setActiveButtonEl)
       },
       swiped (value) {
-        const { keys } = this.getItemsAndKeys()
-        const max = keys.length || 0
+        const max = this.orderedIds.length
         if (this.activeTabIndex < max && value === 'right') {
-          this.setSwipeActiveTabByIndex(this.activeTabIndex + 1)
+          this.setActiveTabByIndex(this.activeTabIndex + 1)
         } else if (this.activeTabIndex > 0 && value === 'left') {
-          this.setSwipeActiveTabByIndex(this.activeTabIndex - 1)
+          this.setActiveTabByIndex(this.activeTabIndex - 1)
         }
       }
     },
     methods: {
-      hasActiveTab () {
-        return this.activeTab || this.mdActiveTab
+      isActiveTabId (id) {
+        // A tab ID could be NaN (this is a valid Number value), but NaN is not equal to itself
+        return (Number.isNaN(id) && Number.isNaN(this.activeTab)) || id === this.activeTab
       },
-      getItemsAndKeys () {
-        const items = this.MdTabs.items
-
-        return {
-          items,
-          keys: Object.keys(items)
+      hasActiveTab () {
+        // Warning: a tab ID could be 0 (a falsy value),
+        // or it could be NaN (this is a valid Number value),
+        // but not null nor undefined (MdTabs.props.id is required):
+        // so we use `!=` and not `!==` for comparison
+        return this.activeTab != null || this.mdActiveTab != null
+      },
+      setActiveTab (tabId) {
+        if (!this.mdSyncRoute) {
+          this.activeTab = tabId
         }
       },
-      setActiveTab (index) {
-        if (!this.mdSyncRoute) {
-          this.activeTab = index
+      setActiveButtonElAndIndicatorStyles () {
+        this.$nextTick().then(() => {
+          this.setIndicatorStyles()
+          this.setActiveButtonEl()
+        })
+      },
+      tryKeepCurrentTab () {
+        if (this.mdSyncRoute) {
+          return
+        }
+
+        const newIndexOfCurrentTabId = this.orderedIds.indexOf(this.activeTab)
+        const canKeepCurrentTabId = newIndexOfCurrentTabId !== -1
+
+        const lastTabIndex = this.orderedIds.length - 1
+        const canKeepCurrentTabIndex = this.activeTabIndex >= 0 && this.activeTabIndex <= lastTabIndex
+
+        const hasAtLeastOneTab = lastTabIndex !== -1
+
+        if (canKeepCurrentTabId) {
+          this.setActiveButtonElAndIndicatorStyles() // Refresh the tab by its new location
+        } else if (canKeepCurrentTabIndex) {
+          this.setActiveTabByIndex(this.activeTabIndex)
+        } else if (hasAtLeastOneTab) {
+          this.setActiveTabByIndex(lastTabIndex)
+        } else {
+          this.activeTab = null
         }
       },
       setActiveButtonEl () {
         this.activeButtonEl = this.$refs.navigation.querySelector('.md-tab-nav-button.md-active')
       },
-      setSwipeActiveTabByIndex (index) {
-        const { keys } = this.getItemsAndKeys()
-
-        if (keys) {
-          this.activeTab = keys[index]
-        }
-      },
       setActiveTabByIndex (index) {
-        const { keys } = this.getItemsAndKeys()
-
+        this.activeTab = this.orderedIds[index]
+      },
+      ensureHasActiveTab () {
         if (!this.hasActiveTab()) {
-          this.activeTab = keys[index]
+          this.activeTab = this.orderedIds[0]
         }
       },
       setHasContent () {
-        const { items, keys } = this.getItemsAndKeys()
-
-        this.hasContent = keys.some(key => items[key].hasContent)
+        this.hasContent = this.orderedItems.some(item => item.hasContent)
       },
       setIndicatorStyles () {
         raf(() => {
@@ -210,7 +248,8 @@
       },
       calculateTabPos () {
         if (this.hasContent) {
-          const tabElement = this.$el.querySelector(`.md-tab:nth-child(${this.activeTabIndex + 1})`)
+          const tabElements = this.ours(this.$refs.tabsContainer.querySelectorAll(`.md-tab:nth-child(${this.activeTabIndex + 1})`))
+          const tabElement = tabElements.length ? tabElements[0] : null
 
           this.contentStyles = {
             height: tabElement ? `${tabElement.offsetHeight}px` : 0
@@ -234,11 +273,26 @@
         })
 
         window.addEventListener('resize', this.callResizeFunctions)
+      },
+      recomputeOrderedIds () {
+        const orderedIds = this.ours(this.$refs.tabsContainer.querySelectorAll('.md-tab'))
+          .map(tabElement => tabElement.mdTabIdAsObject)
+
+        // Do not force VueJs to rerender the view and us to recompute everything if the change event was not about tabs
+        if (!areEqual(this.orderedIds, orderedIds)) {
+          this.orderedIds = orderedIds
+        }
+      },
+      /**
+       * querySelector/querySelectorAll return all descendant elements, even elements from nested md-tabs.
+       * @return only the md-tab elements that are owned by this md-tabs
+       */
+      ours (tabElements) {
+        return [].filter.call(tabElements, tabElement => tabElement.parentNode === this.$refs.tabsContainer)
       }
     },
     created () {
       this.setIndicatorStyles = MdThrottling(this.setIndicatorStyles, 300)
-      this.setHasContent()
       this.activeTab = this.mdActiveTab
     },
     mounted () {
@@ -246,14 +300,14 @@
 
       this.$nextTick().then(() => {
         if (!this.mdSyncRoute) {
-          this.setActiveTabByIndex(0)
+          this.recomputeOrderedIds()
+          this.ensureHasActiveTab()
         }
 
         return this.$nextTick()
       }).then(() => {
         window.setTimeout(() => {
           this.setActiveButtonEl()
-          this.activeTabIndex = [].indexOf.call(this.activeButtonEl.parentNode.childNodes, this.activeButtonEl)
           this.callResizeFunctions()
           this.noTransition = false
           this.setupObservers()
