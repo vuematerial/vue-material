@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @import "./variables.scss";
 
 
@@ -77,7 +79,7 @@
 }
 
 @mixin md-layout-gutter($size: $md-gutter-large) {
-  $spacing: $size / 2;
+  $spacing: math.div($size, 2);
 
   &.md-gutter {
     margin-right: -$spacing;
