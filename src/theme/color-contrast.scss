@@ -1,3 +1,5 @@
+@use "sass:math";
+
 /**
  * Hightly based on: "Using Sass to automatically pick text colors"
  * https://medium.com/dev-channel/using-sass-to-automatically-pick-text-colors-4ba7645d2796
@@ -311,7 +313,7 @@ $md-linear-channel-values:
   $bgLum: md-check-luminance($bg) + .2;
   $fgLum: md-check-luminance($fg) + .2;
 
-  @return max($bgLum, $fgLum) / min($bgLum, $fgLum);
+  @return math.div(max($bgLum, $fgLum), min($bgLum, $fgLum));
 }
 
 
