@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="https://vuematerial.io/" target="_blank">
-    <img width="150" src="https://vuematerial.io/assets/logo-color.png">
+  <a href="https://www.creative-tim.com/vuematerial" target="_blank">
+    <img width="150" src="https://www.creative-tim.com/vuematerial/assets/logo-color.png">
   </a>
 </p>
 
@@ -30,11 +30,9 @@ Build well-designed apps that can fit on every screen with support to all modern
 
 ## Demo and Documentation
 
-<a href="https://vuematerial.io/" target="_blank">Documentation & demos</a>
+<a href="https://www.creative-tim.com/vuematerial" target="_blank">Documentation & demos</a>
 
 <a href="https://github.com/vuematerial/examples" target="_blank">Examples</a>
-
-If you are trying to find the documentation for previous versions, please go to <a href="https://vue-material-old.netlify.com">old website</a>.
 
 ## Installation and Usage
 
