@@ -11,7 +11,7 @@ The release strategy will be like this:
 - The current repository will be replaced with new one. I will give a small support for the 0.7.5 version to solve important issues only.
 - The stable version will be released with 1.0.0 number.
 - I will solve the issues after the stable release while I focus on the next 1.1.0 version, with the components the didn't entered on 1.0
-- Boilerplates, Next template and further guides will be created
+- Boilerplates, Nuxt template and further guides will be created
 
 ## Key Features
 - Automatic contrast ratio - YES! The theme factory will calculate the contrast between the background and text to give the correct black or white color.
@@ -183,7 +183,7 @@ I will point out those changes inside the migration guide.
 ### Projects
 - Official Boilerplate
   - SSR
-  - Next
+  - Nuxt
   - PWA
   - Simple
   - Third Party Component
