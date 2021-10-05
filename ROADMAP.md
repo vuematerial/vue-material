@@ -200,7 +200,7 @@ I will point out those changes inside the migration guide.
 - Touch Events
 - Scrolling
 - Optimized theme colors
-- Validate and Vee Validate integration
+- Vuelidate and Vee Validate integration
 
 ### Components
 - Content Discovery
