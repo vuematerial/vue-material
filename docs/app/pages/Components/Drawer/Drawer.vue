@@ -156,21 +156,21 @@
             {
               name: 'md-persistent',
               type: 'String',
-              description: 'Sets if the drawer will be persistent on the screen, always pusing the content when opened.',
+              description: 'Sets if the drawer will be persistent on the screen, always pushing the content when opened.',
               defaults: 'null'
             },
             {
               offset: true,
               name: 'md-persistent="full"',
               type: 'String',
-              description: 'Make the drawer with full height. This will make the drawer hidden when closed and and pusing the content when opened.',
+              description: 'Make the drawer with full height. This will make the drawer hidden when closed and and pushing the content when opened.',
               defaults: '-'
             },
             {
               offset: true,
               name: 'md-persistent="mini"',
               type: 'String',
-              description: 'Make the drawer with full height. This will make the drawer hidden when closed and and pusing the content when opened.',
+              description: 'Make the drawer with full height. This will make the drawer hidden when closed and and pushing the content when opened.',
               defaults: '-'
             },
           ]
