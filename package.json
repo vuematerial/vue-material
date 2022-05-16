@@ -103,7 +103,7 @@
     "optimize-js-plugin": "^0.0.4",
     "ora": "^1.4.0",
     "popper.js": "^1.15.0",
-    "postcss": "^6.0.23",
+    "postcss": "^7.0.36",
     "preload-webpack-plugin": "^2.3.0",
     "prerender-spa-plugin": "^2.1.0",
     "pretty": "^2.0.0",
