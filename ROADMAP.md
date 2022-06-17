@@ -14,7 +14,7 @@ The release strategy will be like this:
 - Boilerplates, Nuxt template and further guides will be created
 
 ## Key Features
-- Automatic constrast ratio - YES! The theme factory will calculate the contrast between the background and text to give the correct black or white color.
+- Automatic contrast ratio - YES! The theme factory will calculate the contrast between the background and text to give the correct black or white color.
 - On demand themes! Create themes only for the components that you're really using
 - Pre made theme colors
 - Dynamic themes
@@ -51,7 +51,7 @@ The release strategy will be like this:
 - [X] MdBottomBar
   - [X] Router integration - `NEW`
   - [X] Router Sync - `NEW`
-  - [X] Symple way to trigger active item
+  - [X] Simple way to trigger active item
 - [X] MdButton
   - [X] Router integration - `NEW`
 - [x] MdCard
@@ -64,7 +64,7 @@ The release strategy will be like this:
   - [X] String
 - [X] MdChips
   - [X] Editable
-  - [X] Detelable
+  - [X] Deletable
 - [X] MdContent - `NEW`
 - [x] MdDatepicker - `NEW`
   - [x] Documentation
@@ -150,7 +150,7 @@ The release strategy will be like this:
   - [X] Documentation
   - [X] Router integration - `NEW`
   - [X] Router Sync - `NEW`
-  - [X] Symple way to trigger active tab
+  - [X] Simple way to trigger active tab
 - [X] MdToolbar - `NEW API`
 - [X] MdTooltip
 
