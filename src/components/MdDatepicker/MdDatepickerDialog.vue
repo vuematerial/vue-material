@@ -133,6 +133,10 @@
       mdImmediately: {
         type: Boolean,
         default: false
+      },
+      mdPlacement: {
+        type: String,
+        default: 'bottom-start'
       }
     },
     data: () => ({
@@ -160,7 +164,7 @@
       },
       popperSettings () {
         return {
-          placement: 'bottom-start',
+          placement: this.mdPlacement,
           modifiers: {
             keepTogether: {
               enabled: true

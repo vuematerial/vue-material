@@ -12,6 +12,7 @@
         :md-disabled-dates="mdDisabledDates"
         :mdImmediately="mdImmediately"
         @md-closed="toggleDialog"
+        :md-placement="mdPlacement"
       />
     </keep-alive>
 
@@ -69,6 +70,10 @@
       mdClearable: {
         type: Boolean,
         default: true
+      },
+      mdPlacement: {
+        type: String,
+        default: 'bottom-start'
       }
     },
     data: () => ({
