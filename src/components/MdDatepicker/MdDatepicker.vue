@@ -1,7 +1,18 @@
 <template>
-  <md-field :class="['md-datepicker', { 'md-native': !mdOverrideNative }]" :md-clearable="mdClearable" @md-clear="onClear">
+  <md-field
+      :class="['md-datepicker', { 'md-native': !mdOverrideNative, 'md-disabled-input': mdDisabledInput }]"
+      :md-clearable="mdClearable"
+      @md-clear="onClear"
+    >
     <md-date-icon class="md-date-icon" @click.native="toggleDialog" />
-    <md-input :type="type" ref="input" v-model="inputDate" @focus.native="onFocus" :pattern="pattern" />
+    <md-input
+      :type="type"
+      ref="input"
+      v-model="inputDate"
+      @focus.native="onFocus"
+      :pattern="pattern"
+      :readonly="mdDisabledInput"
+    />
 
     <slot />
 
@@ -74,6 +85,10 @@
       mdPlacement: {
         type: String,
         default: 'bottom-start'
+      },
+      mdDisabledInput: {
+        type: Boolean,
+        default: false
       }
     },
     data: () => ({
@@ -257,6 +272,12 @@
     &.md-native {
       label {
         top: 0 !important;
+      }
+    }
+
+    &.md-disabled-input {
+      input {
+        cursor: pointer;
       }
     }
 
