@@ -4,7 +4,6 @@
 <example src="./examples/CancelOpenDatepicker.vue" />
 <example src="./examples/CloseOnSelectDatepicker.vue" />
 <example src="./examples/DisabledDatesDatepicker.vue" />
-<example src="./examples/DisabledInputDatepicker.vue" />
 
 <template>
   <page-container centered :title="$t('pages.datepicker.title')">
@@ -42,12 +41,6 @@
       <h2 id="disabledDates">Disabled dates</h2>
       <p>Sometimes you may need to disable certain dates from being selected. Let's suppose that you want to let the user select only week days:</p>
       <code-example title="No weekends available" :component="examples['disabled-dates-datepicker']" />
-
-      <div class="page-container-section">
-        <h2 id="disabledInput">Disabled input</h2>
-        <p>Forbid manual entering to input element. The only way to choose date is interacting with dialog:</p>
-        <code-example title="Disabled input" :component="examples['disabled-input-datepicker']" />
-      </div>
 
       <api-item title="API - md-datepicker">
         <p>All the following options can be applied to the md-datepicker component:</p>
@@ -110,12 +103,6 @@
             type: 'Number',
             description: 'Debounces the conversion of plaintext into a date object. Set to a longer time if your users type slowly, or shorter if your users type really fast.',
             defaults: 1000
-          },
-          {
-            name: 'md-disabled-input',
-            type: 'Boolean',
-            description: 'Forbid manual entering to input element. The only way to choose date is interacting with dialog.',
-            defaults: 'false'
           }
         ]
       },
