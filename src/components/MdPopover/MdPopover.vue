@@ -108,7 +108,6 @@
     },
     mounted () {
       this.resetPopper()
-      this.$emit('mounted', this)
     },
     render (createElement) {
       return createElement(MdPortal, {
