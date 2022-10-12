@@ -2,17 +2,17 @@ export default {
   name: 'MdDialogRender',
   abstract: true,
   props: {
-    value: {
+    mdValue: {
       type: Boolean,
       default: false,
     },
-    keepAlive: {
+    mdKeepAlive: {
       type: Boolean,
       default: false
     }
   },
   methods: {
-    // For elements that are hidden in the dom and have no height value
+    // For elements that are only hidden in the dom and because of it have no height value
     dispatchResizeEvent() {
       this.$nextTick(() => {
         window.dispatchEvent(new Event('resize'))
@@ -22,12 +22,12 @@ export default {
   render () {
     const defaultSlot = this.$slots.default
     if (defaultSlot && defaultSlot[0]) {
-      if (this.keepAlive) {
-        defaultSlot[0].data.directives = [{ name: 'show', value: this.value }]
-        if (this.value) this.dispatchResizeEvent()
+      if (this.mdKeepAlive) {
+        defaultSlot[0].data.directives = [{ name: 'show', value: this.mdValue }]
+        if (this.mdValue) this.dispatchResizeEvent()
         return defaultSlot[0]
       } else {
-        return this.value && defaultSlot[0]
+        return this.mdValue && defaultSlot[0]
       }
     }
   }

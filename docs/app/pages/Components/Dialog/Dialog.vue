@@ -107,6 +107,12 @@
                 type: 'Boolean',
                 description: 'The dialog will become fullscreen on mobile screens. This option can disable this behavior.',
                 defaults: 'true'
+              },
+              {
+                name: 'md-keep-alive',
+                type: 'Boolean',
+                description: 'The dialog will be displayed with the v-show directive. This option can enable this behavior.',
+                defaults: 'false'
               }
             ]
           },

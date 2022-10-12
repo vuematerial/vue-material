@@ -1,5 +1,5 @@
 <template>
-  <md-dialog-render :value="mdActive" :keep-alive="false">
+  <md-dialog-render :md-value="mdActive" :md-keep-alive="mdKeepAlive">
     <md-portal>
       <transition name="md-dialog">
         <div class="md-dialog">
@@ -55,7 +55,7 @@
         type: Boolean,
         default: true
       },
-      keepAlive: {
+      mdKeepAlive: {
         type: Boolean,
         default: false
       },
