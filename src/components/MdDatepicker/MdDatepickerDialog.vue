@@ -1,7 +1,7 @@
 <template>
   <md-popover :md-settings="popperSettings" md-active>
     <transition name="md-datepicker-dialog" appear @enter="setContentStyles" @after-leave="resetDate">
-      <div class="md-datepicker-dialog" :class="[$mdActiveTheme]">
+      <div tabindex="-1" class="md-datepicker-dialog" :class="[$mdActiveTheme]">
         <div class="md-datepicker-header">
           <span class="md-datepicker-year-select" :class="{ 'md-selected': currentView === 'year' }" @click="currentView = 'year'">{{ selectedYear }}</span>
           <div class="md-datepicker-date-select" :class="{ 'md-selected': currentView !== 'year' }" @click="currentView = 'day'">
