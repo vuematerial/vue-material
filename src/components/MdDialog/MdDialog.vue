@@ -1,19 +1,21 @@
 <template>
-  <md-portal>
-    <transition name="md-dialog">
-      <div class="md-dialog" v-if="mdActive">
-        <md-focus-trap>
-          <div class="md-dialog-container" :class="[dialogContainerClasses, $mdActiveTheme]" v-on="$listeners"
-               @keydown.esc="onEsc">
-            <slot />
-            <keep-alive>
-              <md-overlay :class="mdBackdropClass" md-fixed :md-active="mdActive" @click="onClick" v-if="mdBackdrop" />
-            </keep-alive>
-          </div>
-        </md-focus-trap>
-      </div>
-    </transition>
-  </md-portal>
+  <md-dialog-render :md-value="mdActive" :md-keep-alive="mdKeepAlive">
+    <md-portal>
+      <transition name="md-dialog">
+        <div class="md-dialog">
+          <md-focus-trap>
+            <div class="md-dialog-container" :class="[dialogContainerClasses, $mdActiveTheme]" v-on="$listeners"
+                @keydown.esc="onEsc">
+              <slot />
+              <keep-alive>
+                <md-overlay :class="mdBackdropClass" md-fixed :md-active="mdActive" @click="onClick" v-if="mdBackdrop" />
+              </keep-alive>
+            </div>
+          </md-focus-trap>
+        </div>
+      </transition>
+    </md-portal>
+  </md-dialog-render>
 </template>
 
 <script>
@@ -21,13 +23,15 @@
   import MdPortal from 'components/MdPortal/MdPortal'
   import MdOverlay from 'components/MdOverlay/MdOverlay'
   import MdFocusTrap from 'components/MdFocusTrap/MdFocusTrap'
+  import MdDialogRender from './MdDialogRender';
 
   export default new MdComponent({
     name: 'MdDialog',
     components: {
       MdPortal,
       MdOverlay,
-      MdFocusTrap
+      MdFocusTrap,
+      MdDialogRender
     },
     props: {
       mdActive: Boolean,
@@ -50,6 +54,10 @@
       mdFullscreen: {
         type: Boolean,
         default: true
+      },
+      mdKeepAlive: {
+        type: Boolean,
+        default: false
       },
       mdAnimateFromSource: Boolean
     },
