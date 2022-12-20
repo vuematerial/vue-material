@@ -121,9 +121,7 @@
         on: this.$listeners
       }
 
-      if (this.href) {
-        this.buttonProps = this.$options.props
-      } else if (this.$router && this.to) {
+      if (this.$router && this.to) {
         this.$options.props = MdRouterLinkProps(this, this.$options.props)
 
         stepperAttrs.props = this.$props

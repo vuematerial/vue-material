@@ -3,6 +3,7 @@
 <example src="./examples/TabContent.vue" />
 <example src="./examples/TabIcons.vue" />
 <example src="./examples/TabCustomTemplate.vue" />
+<example src="./examples/TabsOrdering.vue" />
 
 <template>
   <page-container centered :title="$t('pages.tabs.title')">
@@ -45,6 +46,19 @@
 
       <p>You can use a custom template for the navigation buttons. This will be applied to all navigation buttons and allows you to make updates on your tab, like this great example of unread/new content: Simple, uh?</p>
       <code-example title="Template Slot" :component="examples['tab-custom-template']" />
+    </div>
+
+    <div class="page-container-section">
+      <h2 id="tabs-ordering">Tabs ordering</h2>
+
+      <p>
+        Tabs are kept in the order they appear in the HTML template.<br>
+        Tabs can be dynamically shown/hidden or added/removed: they will always be kept in the HTML template order.<br>
+        When an active tab is reordered in the HTML template, it is kept active, at its new place.<br>
+        When an active tab is removed or hidden, the following tab will be activated; or the preceding tab, if there is no following tab.
+      </p>
+
+      <code-example title="Tabs are ordered by their HTML template positions" :component="examples['tabs-ordering']" />
 
       <api-item title="API - md-tabs">
         <p>The following options can be applied to any tabs:</p>
@@ -71,6 +85,8 @@
 
 <script>
   import examples from 'docs-mixins/docsExample'
+
+  const TAB_ID_TYPE = 'String|Number'
 
   export default {
     name: 'DocTabs',
@@ -107,7 +123,7 @@
           props: [
             {
               name: 'md-active-tab',
-              type: 'String|Number',
+              type: TAB_ID_TYPE,
               description: 'Set the current selected tab. Works by providing the id of the desired <code>md-tab</code>.',
               defaults: 'null'
             },
@@ -120,7 +136,7 @@
             {
               name: 'md-sync-route',
               type: 'Boolean',
-              description: 'Syncs the table selection with the current route, matching by the single tab <code>to</code> prop.',
+              description: 'Syncs the tab selection with the current route, matching by the single tab <code>to</code> prop.',
               defaults: 'false'
             },
             {
@@ -182,7 +198,7 @@
           props: [
             {
               name: 'md-changed',
-              description: 'Triggered when the active tab changes',
+              description: 'Triggered when the active tab changes (also triggered when the tabs component is mounted)',
               value: 'Tab ID'
             }
           ]
@@ -209,8 +225,11 @@
         props: [
           {
             name: 'id',
-            type: 'String',
-            description: 'The tab id. Used when changing the active tab dynamically',
+            type: TAB_ID_TYPE,
+            description: 'The tab id. Used when changing the active tab dynamically. ' +
+              'Note: string representation of numbers are considered different than their number ids. ' +
+              'Eg. the id number 3 is different than the id string "3". ' +
+              'An id can also be NaN, as it is a valid number',
             defaults: 'a random string'
           },
           {
