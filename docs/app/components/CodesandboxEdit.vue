@@ -48,7 +48,11 @@
     template: '<App/>'
   })
   `
-
+  const vueConfig = `module.exports = {
+      runtimeCompiler: true
+  };
+  `;
+  
   import { getParameters } from 'codesandbox/lib/api/define'
 
   export default {
