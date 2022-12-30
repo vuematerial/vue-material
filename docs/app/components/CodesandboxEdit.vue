@@ -68,20 +68,26 @@
       parameters () {
         return getParameters({
           files: {
-            'package.json': {
-              content: {
-                name: `Vue Material - ${this.title}`,
-                keywords: [
-                  'vue-material',
-                  'material-design',
-                  'vue'
-                ],
-                dependencies: {
-                  vue: 'latest',
-                  'vue-material': 'latest'
+            "package.json": {
+            content: {
+              name: `Vue Material - ${this.title}`,
+              keywords: ["vue-material", "material-design", "vue"],
+               "version": "0.0.1",
+                "private": true,
+                "scripts": {
+                  "serve": "vue-cli-service serve",
+                  "build": "vue-cli-service build",
+                  "lint": "vue-cli-service lint"
+                },
+                "dependencies": {
+                  "vue": "^2.6.11",
+                  "vue-material": "1.0.0-beta-15"
+                },
+                "devDependencies": {
+                  "@vue/cli-service": "~4.5.0",
                 }
-              }
-            },
+            }
+          },
             '/src/main.js': {
               content: index
             },
