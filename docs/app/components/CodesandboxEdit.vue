@@ -96,7 +96,10 @@
             },
             '/src/App.vue': {
               content: this.source
-            }
+            },
+          "vue.config.js": {
+            content: vueConfig
+          }
           }
         })
       }
