@@ -78,13 +78,13 @@
                 }
               }
             },
-            'index.js': {
+            '/src/main.js': {
               content: index
             },
-            'index.html': {
+            '/public/index.html': {
               content: html
             },
-            'App.vue': {
+            '/src/App.vue': {
               content: this.source
             }
           }
