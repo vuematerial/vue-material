@@ -105,7 +105,7 @@
     "popper.js": "^1.15.0",
     "postcss": "^6.0.23",
     "preload-webpack-plugin": "^2.3.0",
-    "prerender-spa-plugin": "^2.1.0",
+    "prerender-spa-plugin": "^3.4.0",
     "pretty": "^2.0.0",
     "raf": "^3.4.1",
     "sass-loader": "^6.0.7",
