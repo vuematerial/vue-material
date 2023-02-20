@@ -45,7 +45,7 @@
          <md-card>
            <md-card-media>
              <a href="https://www.creative-tim.com/product/vue-material-kit?ref=vuematerial.io" target="_blank">
-               <img src="https://s3.amazonaws.com/creativetim_bucket/products/97/original/opt_mk_vue_thumbnail.jpg?1538041206">
+               <img src="https://s3.amazonaws.com/creativetim_bucket/products/97/original/vue-material-kit-2.jpg">
              </a>
            </md-card-media>
            <md-card-content>
@@ -59,7 +59,7 @@
          <md-card>
            <md-card-media>
              <a href="https://www.creative-tim.com/product/vue-material-kit-pro?ref=vuematerial.io" target="_blank">
-               <img src="https://s3.amazonaws.com/creativetim_bucket/products/139/original/opt_mkp_vue_thumbnail.jpg?1547651786">
+               <img src="https://s3.amazonaws.com/creativetim_bucket/products/139/original/vue-material-kit-2-pro.jpg">
              </a>
            </md-card-media>
            <md-card-content>
