@@ -114,7 +114,7 @@
             },
             {
               name: 'xlarge',
-              description: 'Applicable to screens wider than 1920px. For huge desktop monitors or side-by-side screens.',
+              description: 'Applicable to screens that are 1920px and wider. For huge desktop monitors or side-by-side screens.',
               value: '>1920px'
             }
           ]

@@ -44,8 +44,8 @@
   },
   "dependencies": {
     "opencollective-postinstall": "^2.0.2",
-    "vue-github-buttons": "^3.1.0",
     "vue-github-button": "^1.2.0",
+    "vue-github-buttons": "^3.1.0",
     "vue-toc": "0.0.1"
   },
   "devDependencies": {
@@ -95,9 +95,9 @@
     "is-firefox": "^1.0.3",
     "is-promise": "^2.1.0",
     "jest": "^22.4.4",
-    "jest-vue": "^0.8.2",
     "jest-localstorage-mock": "^2.4.2",
-    "node-sass": "^4.7.2",
+    "jest-vue": "^0.8.2",
+    "node-sass": "^6.0.1",
     "offline-plugin": "^4.9.1",
     "optimize-css-assets-webpack-plugin": "^3.2.0",
     "optimize-js-plugin": "^0.0.4",
