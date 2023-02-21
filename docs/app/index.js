@@ -1,11 +1,11 @@
 /* Third Party */
 import 'regenerator-runtime/runtime'
 import Vue from 'vue'
-import ga from 'vue-ga'
 import { sync } from 'vuex-router-sync'
 import VueMaterial from 'vue-material'
 import VueGitHubButtons from 'vue-github-buttons'
 import VueToc from 'vue-toc'
+import VueGtag from "vue-gtag";
 
 Vue.component('vue-toc', VueToc)
 
@@ -21,8 +21,9 @@ import './components'
 Vue.config.productionTip = false
 Vue.use(VueMaterial)
 Vue.use(VueGitHubButtons)
-
-ga(router, 'UA-85823257-1')
+Vue.use(VueGtag, {
+  config: { id: "UA-85823257-1" }
+});
 sync(store, router)
 
 document.addEventListener('DOMContentLoaded', () => {

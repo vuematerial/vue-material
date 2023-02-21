@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import Axios from 'axios'
+import Axios from 'axios/dist/axios'
 import VueRouter from 'vue-router'
 import Vuei18n from 'vue-i18n'
 import i18nLocales from './i18n'
