@@ -37,11 +37,12 @@ module.exports = function (source) {
     const CodeLoading = require('docs/app/components/CodeLoading');
 
     module.exports = function(component) {
-      const asyncComponent = resolve => ({
+      const asyncComponent = function(resolve){
+        return {
         component: require(['${filePath}'], resolve),
         loading: CodeLoading,
         delay: 0
-      })
+      }}
 
       Vue.default.component('${fileName}', asyncComponent)
 
