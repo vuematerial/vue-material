@@ -26,7 +26,7 @@
       <router-link to="/themes/configuration">{{ $t('pages.themeConfiguration.nav') }}</router-link>
       <router-link to="/themes/advanced">{{ $t('pages.themeAdvanced.nav') }}</router-link>
       <router-link to="/premium-themes" class="premium-themes">{{ $t('pages.home.premium') }} <md-badge class="md-square" md-content="New" /></router-link>
-      <a href="https://www.binarcode.com/estimate-project/?ref=vuematarial.io" target="_blank">{{ $t('pages.home.custom') }}</a>
+      <a href="https://www.creative-tim.com/services/updivision?ref=vuematarial.io" target="_blank">{{ $t('pages.home.custom') }}</a>
 
     </div>
 
