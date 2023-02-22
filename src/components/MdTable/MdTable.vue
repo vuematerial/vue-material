@@ -110,7 +110,7 @@
           const multiplier = isAsc ? 1 : -1
 
           /* eslint-disable complexity */
-          const comparator = function(a, b) {
+          const comparator = function (a, b) {
             const aAttr = getObjectAttribute(a, sortBy)
             const bAttr = getObjectAttribute(b, sortBy)
 

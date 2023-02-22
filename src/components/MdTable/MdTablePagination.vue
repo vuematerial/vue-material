@@ -97,7 +97,7 @@
     },
     methods: {
       getPageCount () {
-        return Math.ceil(this.mdCount / this.currentPageSize);
+        return Math.ceil(this.mdCount / this.currentPageSize)
       },
       setPage (mdPage, mdCount) {
         this.mdPage = mdCount > 0 ? (mdPage > 0 ? mdPage : (this.mdPage > 0 ? this.mdPage : 1)) : 0
