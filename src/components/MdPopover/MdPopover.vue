@@ -29,6 +29,7 @@
         } else if (this.shouldRender) {
           return 'md-rendering'
         }
+        return ''
       }
     },
     watch: {

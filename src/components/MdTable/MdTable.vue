@@ -185,6 +185,7 @@
         if (this.mdFixedHeader) {
           return `padding-right: ${this.fixedHeaderPadding}px`
         }
+        return ''
       },
       hasValue () {
         return this.value && this.value.length !== 0
@@ -193,6 +194,7 @@
         if ((this.mdFixedHeader && this.hasContentScroll) || !this.hasValue) {
           return 'md-table-fixed-header-active'
         }
+        return ''
       },
       contentStyles () {
         if (this.mdFixedHeader) {
@@ -201,11 +203,13 @@
             : this.mdHeight
           return `height: ${height};max-height: ${height}`
         }
+        return ''
       },
       contentClasses () {
         if (this.mdFixedHeader && this.value.length === 0) {
           return `md-table-empty`
         }
+        return ''
       },
       fixedHeaderTableStyles () {
         return {
