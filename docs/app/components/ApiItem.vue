@@ -14,9 +14,10 @@
       </md-button>
     </div>
 
-    <div class="api-item-content" v-for="slot in slots" :key="slot" v-if="currentSlot === slot">
+    <div class="api-item-content" v-for="slot in filteredSlots" :key="slot">
       <slot :name="slot" />
     </div>
+
   </div>
 </template>
 
@@ -40,6 +41,9 @@
     computed: {
       slots () {
         return Object.keys(this.$slots).filter(slot => slot !== 'default')
+      },
+      filteredSlots () {
+        return this.slots.filter(slot => slot === this.currentSlot)
       }
     },
     created () {
