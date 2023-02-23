@@ -61,8 +61,7 @@
     data: () => ({
       mdPage: 0,
       mdCount: 0,
-      currentPageSize: 0,
-      localMdData: null
+      currentPageSize: 0
     }),
     computed: {
       pageCount () {
@@ -76,7 +75,7 @@
       mdData: {
         immediate: true,
         handler (mdData) {
-          this.localMdData = mdData
+          this.$emit('update:mdData', mdData)
           this.updatePage()
         }
       },
