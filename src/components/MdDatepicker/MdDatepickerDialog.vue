@@ -31,8 +31,7 @@
                   <md-button class="md-dense md-datepicker-month-trigger" @click="currentView = 'month'">{{ currentMonthName }} {{ currentYear }}</md-button>
 
                   <div class="md-datepicker-week">
-                    <span v-for="(day, index) in locale.shorterDays" :key="index" v-if="index >= firstDayOfAWeek">{{ day }}</span>
-                    <span v-for="(day, index) in locale.shorterDays" :key="index" v-if="index < firstDayOfAWeek">{{ day }}</span>
+                     <span v-for="(day, index) in filteredShorterDays" :key="index">{{ day }}</span>
                   </div>
 
                   <div class="md-datepicker-days">
@@ -158,6 +157,11 @@
         firstDayOfAWeek = Math.floor(firstDayOfAWeek) % daysInAWeek
         firstDayOfAWeek += firstDayOfAWeek < 0 ? daysInAWeek : 0
         return firstDayOfAWeek
+      },
+      filteredShorterDays () {
+        const days = this.locale.shorterDays
+        const first = this.firstDayOfAWeek
+        return [...days.slice(first), ...days.slice(0, first)]
       },
       locale () {
         return this.$material.locale
