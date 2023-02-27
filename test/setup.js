@@ -8,12 +8,13 @@ Vue.config.devtools = false
 Vue.use(VueMaterial)
 
 Vue.component('transition', {
-  render (createElement) {
+  render (createElement)  {
     const defaultSlot = this.$slots.default
 
     if (defaultSlot) {
       return defaultSlot[0] && defaultSlot[0]
     }
+    return null
   }
 })
 

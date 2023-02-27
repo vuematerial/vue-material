@@ -23,7 +23,7 @@
   import MdPortal from 'components/MdPortal/MdPortal'
   import MdOverlay from 'components/MdOverlay/MdOverlay'
   import MdFocusTrap from 'components/MdFocusTrap/MdFocusTrap'
-  import MdDialogRender from './MdDialogRender';
+  import MdDialogRender from './MdDialogRender'
 
   export default new MdComponent({
     name: 'MdDialog',

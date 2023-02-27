@@ -13,7 +13,7 @@ export default {
   },
   methods: {
     // For elements that are only hidden in the dom and because of it have no height value
-    dispatchResizeEvent() {
+    dispatchResizeEvent () {
       this.$nextTick(() => {
         window.dispatchEvent(new Event('resize'))
       })

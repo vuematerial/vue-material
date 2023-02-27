@@ -58,6 +58,7 @@
       "PascalCase"
     ],
     "vue/require-v-for-key": 0,
-    "vue/html-closing-bracket-spacing": ["error"]
+    "vue/html-closing-bracket-spacing": ["error"],
+    "vue/no-unused-components": "off"
   }
 }
