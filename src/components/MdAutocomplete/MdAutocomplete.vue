@@ -88,15 +88,17 @@
       isBoxLayout () {
         return this.mdLayout === 'box'
       },
-      fieldClasses () {
+      fieldClasses () : string {
         if (this.isBoxLayout) {
           return 'md-autocomplete-box'
         }
+        return ''
       },
       contentClasses () {
         if (this.isBoxLayout) {
           return 'md-autocomplete-box-content'
         }
+        return ''
       },
       shouldFilter () {
         return this.mdOptions[0] && this.searchTerm

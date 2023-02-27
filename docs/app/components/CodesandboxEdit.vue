@@ -33,7 +33,7 @@ const html = `
   </body>
 
   </html>
-  `;
+  `
 const index = `
   import Vue from 'vue'
   import App from './App'
@@ -53,13 +53,13 @@ const index = `
     components: { App },
     template: '<App/>'
   })
-  `;
+  `
 const vueConfig = `module.exports = {
       runtimeCompiler: true
   };
-  `;
+  `
 
-import { getParameters } from "codesandbox/lib/api/define";
+import { getParameters } from "codesandbox/lib/api/define"
 
 export default {
   name: "CodesandboxEdit",
@@ -68,13 +68,13 @@ export default {
     title: String
   },
   computed: {
-    source() {
+    source () {
       return this.component.source.replace(
         /src="\/assets/g,
         'src="https://vuematerial.io/assets'
-      );
+      )
     },
-    parameters() {
+    parameters () {
       return getParameters({
         files: {
           "package.json": {
@@ -110,10 +110,10 @@ export default {
             content: vueConfig
           }
         }
-      });
+      })
     }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

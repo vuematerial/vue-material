@@ -5,7 +5,7 @@ import { sync } from 'vuex-router-sync'
 import VueMaterial from 'vue-material'
 import VueGitHubButtons from 'vue-github-buttons'
 import VueToc from 'vue-toc'
-import VueGtag from "vue-gtag";
+import VueGtag from "vue-gtag"
 
 Vue.component('vue-toc', VueToc)
 
@@ -23,7 +23,7 @@ Vue.use(VueMaterial)
 Vue.use(VueGitHubButtons)
 Vue.use(VueGtag, {
   config: { id: "UA-85823257-1" }
-});
+})
 sync(store, router)
 
 document.addEventListener('DOMContentLoaded', () => {
