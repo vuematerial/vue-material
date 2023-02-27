@@ -1,5 +1,5 @@
 <template>
-  <md-popover :md-settings="popperSettings" md-active>
+  <md-popover :md-settings="popperSettings" md-active @mounted="OnPopoverMounted">
     <transition name="md-datepicker-dialog" appear @enter="setContentStyles" @after-leave="resetDate">
       <div tabindex="-1" class="md-datepicker-dialog" :class="[$mdActiveTheme]">
         <div class="md-datepicker-header">
@@ -145,7 +145,8 @@
       monthAction: null,
       currentView: 'day',
       contentStyles: {},
-      availableYears: null
+      availableYears: null,
+      popover: null
     }),
     computed: {
       firstDayOfAWeek () {
@@ -264,6 +265,9 @@
       }
     },
     methods: {
+      OnPopoverMounted(popover) {
+        this.popover = popover
+      },
       setContentStyles () {
         const months = getElements(this.$el, '.md-datepicker-month')
 
@@ -353,6 +357,11 @@
     created () {
       this.setAvailableYears()
       this.resetDate()
+    },
+    activated() {
+      if(this.popover && this.popover.popperInstance) {
+        this.$nextTick(() => this.popover.popperInstance.update())
+      }
     }
   })
 </script>
