@@ -90,7 +90,7 @@
       <api-item title="API - md-app-toolbar">
         <i18n path="pages.app.apiToolbar.desc" tag="p">
           <code>md-toolbar</code>
-          <router-link to="/components/toolbar">{{ $t('pages.app.apiToolbar.page') }}</router-link>
+          <router-link to="/vuematerial/components/toolbar">{{ $t('pages.app.apiToolbar.page') }}</router-link>
         </i18n>
       </api-item>
     </div>
@@ -99,7 +99,7 @@
       <api-item title="API - md-app-drawer">
         <i18n path="pages.app.apiDrawer.desc" tag="p">
           <code>md-drawer</code>
-          <router-link to="/components/drawer">{{ $t('pages.app.apiDrawer.page') }}</router-link>
+          <router-link to="/vuematerial/components/drawer">{{ $t('pages.app.apiDrawer.page') }}</router-link>
         </i18n>
       </api-item>
     </div>
@@ -108,7 +108,7 @@
       <api-item title="API - md-app-content">
         <i18n path="pages.app.apiContent.desc" tag="p">
           <code>md-content</code>
-          <router-link to="/components/content">{{ $t('pages.app.apiContent.page') }}</router-link>
+          <router-link to="/vuematerial/components/content">{{ $t('pages.app.apiContent.page') }}</router-link>
         </i18n>
       </api-item>
     </div>
