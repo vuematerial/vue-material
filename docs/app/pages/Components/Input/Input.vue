@@ -10,7 +10,7 @@
     <div class="page-container-section">
       <p>Text fields allow users to input, edit and select text typically inside forms. But they can appear in other places as well like dialog boxes and search.</p>
       <p>Vue Material fields work with a <code>md-field</code> wrapped around an input component, that can be <code>md-input</code>, <code>md-textarea</code> or even a <code>md-select</code>.</p>
-      <note-block tip><code>md-select</code> has its own <router-link to="/components/select">documentation page</router-link>, dedicated to show better examples on how to use it.</note-block>
+      <note-block tip><code>md-select</code> has its own <router-link to="/vuematerial/components/select">documentation page</router-link>, dedicated to show better examples on how to use it.</note-block>
     </div>
 
     <div class="page-container-section">
