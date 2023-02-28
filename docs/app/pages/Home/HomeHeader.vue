@@ -30,8 +30,9 @@
         </a>
       </div>
       <div class="home-actions mt-2">
-        <md-button class="md-button-spaced md-plain md-raised" to="/getting-started">{{ $t('pages.gettingStarted.title') }}</md-button>
-        <md-button class="md-button-spaced md-plain md-raised" to="/components">{{ $t('pages.components.title') }}</md-button>
+        <md-button class="md-button-spaced md-plain md-raised" to="/vuematerial/getting-started">{{ $t('pages.gettingStarted.title') }}</md-button>
+        <md-button class="md-button-spaced md-plain md-raised" to="/vuematerial/components">{{ $t('pages.components.title')
+          }}</md-button>
       </div>
     </div>
   </header>
