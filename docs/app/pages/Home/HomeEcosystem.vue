@@ -19,7 +19,7 @@
                 </md-card-header-text>
 
                 <md-card-media>
-                  <img src="/assets/boilerplates/webpack.png" alt="Webpack">
+                  <img src="/vuematerial/assets/boilerplates/webpack.png" alt="Webpack">
                 </md-card-media>
               </md-card-header>
 
@@ -40,7 +40,7 @@
                 </md-card-header-text>
 
                 <md-card-media>
-                  <img src="/assets/boilerplates/nuxt.png" alt="Nuxt">
+                  <img src="/vuematerial/assets/boilerplates/nuxt.png" alt="Nuxt">
                 </md-card-media>
               </md-card-header>
 
@@ -63,7 +63,7 @@
               </md-card-content>
 
               <div class="ecosystem-logo">
-                <img src="/assets/boilerplates/html5.png" alt="HTML File">
+                <img src="/vuematerial/assets/boilerplates/html5.png" alt="HTML File">
               </div>
             </md-ripple>
           </md-card>
@@ -79,7 +79,7 @@
               </md-card-content>
 
               <div class="ecosystem-logo">
-                <img src="/assets/boilerplates/codesandbox.png" alt="Codepen">
+                <img src="/vuematerial/assets/boilerplates/codesandbox.png" alt="Codepen">
               </div>
             </md-ripple>
           </md-card>

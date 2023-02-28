@@ -35,17 +35,17 @@
 
         <div class="d-flex align-items-center">
           <a href="https://www.codeinwp.com/?ref=vuematerial.io" target="_blank">
-            <img src="/assets/sponsors/codeinwp-logo.svg" class="home-sponsors-open-1">
+            <img src="/vuematerial/assets/sponsors/codeinwp-logo.svg" class="home-sponsors-open-1">
           </a>
           <a href="https://www.creative-tim.com/?ref=vuematerial.io" target="_blank">
-            <img src="/assets/sponsors/creative-tim.png" class="home-sponsors-open-1 logo-2">
+            <img src="/vuematerial/assets/sponsors/creative-tim.png" class="home-sponsors-open-1 logo-2">
           </a>
         </div>
         <!-- <p>{{ $t('pages.home.beACollective') }}:</p> -->
 <!--
         <a href="" target="_blank" class="home-sponsors-open">
           <md-ripple>
-            <img src="/assets/sponsors/opencollective.svg">
+            <img src="/vuematerial/assets/sponsors/opencollective.svg">
           </md-ripple>
         </a> -->
 

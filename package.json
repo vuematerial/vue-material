@@ -111,6 +111,7 @@
     "raf": "^3.4.1",
     "sass-loader": "6.0.7",
     "sinon": "^4.5.0",
+    "sitemap-webpack-plugin": "0.5.1",
     "url-loader": "0.6.2",
     "vue": "^2.7.14",
     "vue-i18n": "^8.28.2",

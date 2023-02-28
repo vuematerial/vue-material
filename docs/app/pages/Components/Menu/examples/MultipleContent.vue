@@ -8,7 +8,7 @@
       <md-menu-content>
         <div class="author-card">
           <md-avatar class="md-large">
-            <img src="/assets/examples/avatar.jpg" alt="Marcos Moura">
+            <img src="/vuematerial/assets/examples/avatar.jpg" alt="Marcos Moura">
           </md-avatar>
 
           <div class="author-card-info">

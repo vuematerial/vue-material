@@ -2,7 +2,7 @@
   <div>
     <div class="separator">
       <md-avatar class="md-small">
-        <img src="/assets/examples/avatar.png" alt="People">
+        <img src="/vuematerial/assets/examples/avatar.png" alt="People">
       </md-avatar>
 
       <md-avatar class="md-avatar-icon md-small">
@@ -20,7 +20,7 @@
 
     <div class="separator">
       <md-avatar>
-        <img src="/assets/examples/avatar.jpg" alt="Avatar">
+        <img src="/vuematerial/assets/examples/avatar.jpg" alt="Avatar">
       </md-avatar>
 
       <md-avatar class="md-avatar-icon">
@@ -38,7 +38,7 @@
 
     <div class="separator">
       <md-avatar class="md-large">
-        <img src="/assets/examples/avatar-2.jpg" alt="People">
+        <img src="/vuematerial/assets/examples/avatar-2.jpg" alt="People">
       </md-avatar>
 
       <md-avatar class="md-avatar-icon md-large">

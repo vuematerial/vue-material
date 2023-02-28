@@ -8,7 +8,7 @@
         </md-card-header-text>
 
         <md-card-media>
-          <img src="/assets/examples/avatar-2.jpg" alt="People">
+          <img src="/vuematerial/assets/examples/avatar-2.jpg" alt="People">
         </md-card-media>
       </md-card-header>
 
@@ -26,7 +26,7 @@
         </md-card-header-text>
 
         <md-card-media md-medium>
-          <img src="/assets/examples/card-weather.png" alt="People">
+          <img src="/vuematerial/assets/examples/card-weather.png" alt="People">
         </md-card-media>
       </md-card-header>
 
@@ -44,7 +44,7 @@
         </md-card-header-text>
 
         <md-card-media md-big>
-          <img src="/assets/examples/cover.png" alt="People">
+          <img src="/vuematerial/assets/examples/cover.png" alt="People">
         </md-card-media>
       </md-card-header>
 
@@ -57,7 +57,7 @@
     <md-card>
       <md-card-media-actions>
         <md-card-media>
-          <img src="/assets/examples/villains.png" alt="Cover">
+          <img src="/vuematerial/assets/examples/villains.png" alt="Cover">
         </md-card-media>
 
         <md-card-actions>

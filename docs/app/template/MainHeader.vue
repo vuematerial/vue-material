@@ -77,7 +77,7 @@
         </div>
 
         <md-button href="http://github.com/vuematerial/vue-material" target="_blank" class="md-icon-button">
-          <md-icon md-src="/assets/icon-github.svg" class="icon-github" />
+          <md-icon md-src="/vuematerial/assets/icon-github.svg" class="icon-github" />
         </md-button>
 
         <div v-if="!isSplash">

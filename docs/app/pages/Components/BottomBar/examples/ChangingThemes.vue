@@ -4,7 +4,7 @@
       <md-bottom-bar md-type="shift" :md-theme="'bottom-bar-' + theme">
         <md-bottom-bar-item md-label="Home" md-icon="home" @click="theme = 'teal'"></md-bottom-bar-item>
         <md-bottom-bar-item md-label="Pages" md-icon="pages" @click="theme = 'orange'"></md-bottom-bar-item>
-        <md-bottom-bar-item md-label="Posts" md-icon="/assets/icon-whatshot.svg" @click="theme = 'blue'"></md-bottom-bar-item>
+        <md-bottom-bar-item md-label="Posts" md-icon="/vuematerial/assets/icon-whatshot.svg" @click="theme = 'blue'"></md-bottom-bar-item>
         <md-bottom-bar-item md-label="Favorites" md-icon="favorite" @click="theme = 'red'"></md-bottom-bar-item>
       </md-bottom-bar>
     </div>

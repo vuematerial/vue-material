@@ -13,7 +13,10 @@ import mediaPacker from 'css-mqpacker'
 import OfflinePlugin from 'offline-plugin'
 import { config, resolvePath, getRandomInt } from '../config'
 import banner from '../lib/banner'
-import { mapRoutes } from '../../docs/app/routes'
+
+import { routes } from '../../docs/app/routes';
+const SitemapPlugin = require('sitemap-webpack-plugin').default;
+
 
 const cacheUpdateTime = process.env.CACHE_UPDATE_MINUTES || 10
 const cssLoader = ExtractTextPlugin.extract({
@@ -35,9 +38,9 @@ const webpackConfig = {
     ]
   },
   output: {
-    path: resolvePath(config.dist),
-    publicPath: '/',
     filename: '[name].[chunkhash:8].js',
+    path: resolvePath(config.dist),
+    publicPath: '/vuematerial/',
     chunkFilename: '[name].[chunkhash:8].js'
   },
   resolve: {
@@ -166,6 +169,7 @@ const webpackConfig = {
       template: 'docs/index.html',
       chunksSortMode: 'dependency',
       inject: 'head',
+      base: '/vuematerial/',
       minify: {
         collapseBooleanAttributes: true,
         collapseWhitespace: true,
@@ -195,7 +199,19 @@ const webpackConfig = {
     }),
     new OfflinePlugin({
       autoUpdate: +cacheUpdateTime * 60 * 1000
-    })
+    }),
+    new SitemapPlugin(
+      "https://www.creative-tim.com",
+      routes.filter(function(path) {
+        if (path.hasOwnProperty("redirect") || path.path == "*") {
+          return false; // skip
+        }
+        return true;
+      }).map(path => {
+          return path.path.replace("/:optional?/:sub?", "")
+      }), {skipgzip: true}
+    )
+
   ]
 }
 

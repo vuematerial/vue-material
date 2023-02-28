@@ -2,7 +2,7 @@
   <div class="card-expansion">
     <md-card>
       <md-card-media>
-        <img src="/assets/examples/card-image-1.jpg" alt="People">
+        <img src="/vuematerial/assets/examples/card-image-1.jpg" alt="People">
       </md-card-media>
 
       <md-card-header>
@@ -34,7 +34,7 @@
 
     <md-card>
       <md-card-media>
-        <img src="/assets/examples/card-image-1.jpg" alt="People">
+        <img src="/vuematerial/assets/examples/card-image-1.jpg" alt="People">
       </md-card-media>
 
       <md-card-header>

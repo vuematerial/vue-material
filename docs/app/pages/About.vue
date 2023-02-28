@@ -36,7 +36,7 @@
       <h2 class="md-title">Want to pay me a coffee?</h2>
 
       <a href="" target="_blank" class="about-collective">
-        <img src="/assets/sponsors/opencollective.png">
+        <img src="/vuematerial/assets/sponsors/opencollective.png">
       </a>
     </section> -->
 

@@ -23,7 +23,7 @@
     <div>
       <md-badge class="md-primary" md-content="12">
         <md-avatar>
-          <img src="/assets/examples/avatar.png" alt="Avatar">
+          <img src="/vuematerial/assets/examples/avatar.png" alt="Avatar">
         </md-avatar>
       </md-badge>
     </div>
