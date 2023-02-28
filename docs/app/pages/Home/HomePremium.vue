@@ -30,7 +30,7 @@
             </md-card-content>
 
             <md-card-actions md-alignment="space-between">
-              <md-button class="md-primary" to="/getting-started">Read installation</md-button>
+              <md-button class="md-primary" to="/vuematerial/getting-started">Read installation</md-button>
             </md-card-actions>
           </md-card>
         </div>
@@ -63,7 +63,7 @@
             </md-card-content>
 
             <md-card-actions md-alignment="space-between">
-              <md-button class="md-primary" to="/getting-started">Explore the docs</md-button>
+              <md-button class="md-primary" to="/vuematerial/getting-started">Explore the docs</md-button>
             </md-card-actions>
           </md-card>
         </div>
@@ -83,7 +83,7 @@
 
             <md-card-content>
               Take Vue Material to the next level with premium themes from Creative Tim.
-              <a href="/premium-themes">
+              <a href="/vuematerial/premium-themes">
                 <img src="/vuematerial/assets/premium/premium-themes.png" class="themes" alt="Vue Material Dashboard PRO">
               </a>
               <hr />
@@ -92,7 +92,7 @@
 
 
             <md-card-actions md-alignment="space-between">
-              <md-button class="md-primary" to="/premium-themes">Browse Themes</md-button>
+              <md-button class="md-primary" to="/vuematerial/premium-themes">Browse Themes</md-button>
             </md-card-actions>
           </md-card>
         </div>
