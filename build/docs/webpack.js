@@ -13,9 +13,12 @@ import mediaPacker from 'css-mqpacker'
 import OfflinePlugin from 'offline-plugin'
 import { config, resolvePath, getRandomInt } from '../config'
 import banner from '../lib/banner'
+import { mapRoutes } from '../../docs/app/routes'
+const Renderer = PrerenderSpaPlugin.PuppeteerRenderer
 
-import { routes } from '../../docs/app/routes';
-const SitemapPlugin = require('sitemap-webpack-plugin').default;
+
+import { routes } from '../../docs/app/routes'
+const SitemapPlugin = require('sitemap-webpack-plugin').default
 
 
 const cacheUpdateTime = process.env.CACHE_UPDATE_MINUTES || 10
@@ -195,20 +198,29 @@ const webpackConfig = {
       canPrint: false
     }),
     new PrerenderSpaPlugin({
-      staticDir: path.join(__dirname, '..', '..', config.dist)
+      // Required - The path to the webpack-outputted app to prerender.
+      staticDir: path.join(__dirname,'..', '..', config.dist),
+      // Required - Routes to render.
+      routes: mapRoutes(),
+      renderer: new Renderer({
+          timeout: 0,
+          maxConcurrentRoutes: 1,
+          renderAfterTime: 5000,
+          headless: false
+      })
     }),
     new OfflinePlugin({
       autoUpdate: +cacheUpdateTime * 60 * 1000
     }),
     new SitemapPlugin(
       "https://www.creative-tim.com",
-      routes.filter(function(path) {
+      routes.filter(function (path) {
         if (path.hasOwnProperty("redirect") || path.path == "*") {
-          return false; // skip
+          return false // skip
         }
-        return true;
+        return true
       }).map(path => {
-          return path.path.replace("/:optional?/:sub?", "")
+        return path.path.replace("/:optional?/:sub?", "")
       }), {skipgzip: true}
     )
 
