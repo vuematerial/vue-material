@@ -9,20 +9,20 @@
         <ul class="md-list">
           <h4>Links</h4>
           <li>
-            <router-link to="/license">{{ $t('pages.license.title') }}</router-link>
+            <router-link to="/vuematerial/license">{{ $t('pages.license.title') }}</router-link>
           </li>
           <li>
-            <router-link to="/premium-themes">Premium Themes</router-link>
+            <router-link to="/vuematerial/premium-themes">Premium Themes</router-link>
           </li>
           <li>
-            <router-link to="/getting-started">Docs</router-link>
+            <router-link to="/vuematerial/getting-started">Docs</router-link>
           </li>
         </ul>
 
         <ul class="md-list">
           <h4>More information</h4>
           <li>
-            <router-link to="/about">{{ $t('aboutMaterial') }}</router-link>
+            <router-link to="/vuematerial/about">{{ $t('aboutMaterial') }}</router-link>
           </li>
           <li>
             <a href="https://discordapp.com/invite/vuematerial" target="_blank">Discord</a>
