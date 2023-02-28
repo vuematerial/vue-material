@@ -2,7 +2,7 @@
   <md-toolbar class="main-header" :class="mainHeaderClasses" :md-elevation="mainHeaderElevation">
     <div class="md-toolbar-row">
       <div class="md-toolbar-section-start">
-        <md-button to="/" class="md-icon-button logo">
+        <md-button to="/vuematerial" class="md-icon-button logo">
           <logo-vue-material :animated="isHome" />
         </md-button>
 
@@ -15,20 +15,21 @@
           <span class="md-xsmall-hide" v-if="pageTitle"> - </span>
           <span v-if="isHome">{{ pageTitle }}</span>
           <h1 class="md-title" v-else>{{ pageTitle }}</h1>
+          <br><span class="md-body-2">by Creative Tim</span>
         </div>
       </div>
 
       <div class="md-toolbar-section-end">
         <div class="md-medium-hide">
-          <md-button href="/getting-started">
+          <md-button href="/vuematerial/getting-started">
             Docs
           </md-button>
 
-          <md-button href="/components/app">
+          <md-button href="/vuematerial/components/app">
             Components
           </md-button>
 
-          <md-button href="/premium-themes">
+          <md-button href="/vuematerial/premium-themes">
             Premium themes
           </md-button>
           <md-menu md-size="medium" md-align-trigger>
@@ -40,13 +41,13 @@
             </md-button>
             <md-menu-content>
               <md-menu-item>
-                <router-link to="/getting-started">
+                <router-link to="/vuematerial/getting-started">
                   Getting started
                 </router-link>
 
               </md-menu-item>
               <md-menu-item>
-                <router-link to="/about">
+                <router-link to="/vuematerial/about">
                   About
                 </router-link>
 
