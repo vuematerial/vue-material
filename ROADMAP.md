@@ -228,7 +228,7 @@ Have something in mind? Need a new components? Created something meaningful and 
 Well. All kind of help are welcome. If you want to contribute with the project, just send me a message and I will tell what you can do. We recently created a Discord Channel to share ideas and to keep all the communication in one place.
 
 ## Awesome! I want to pay you a coffee!
-Vue Material do not run under the umbrella of any company or something like that, and is an independent project created by me on spare time. It became one of the most used UI Libraries for Vue.js.
+Vue Material now runs under the umbrella of <a href="https://www.creative-tim.com/?ref=vuematerial.io" target="_blank">Creative Tim</a>. It is a project created by <a data-v-9248b2ee="" href="https://www.github.com/marcosmoura" target="_blank">Marcos Moura</a> in his spare time. It became one of the most used UI Libraries for Vue.js.
 
 If you think that this project helped you or your company in some way, you can consider become a backer/sponsor on Open Collective:
 <p>
