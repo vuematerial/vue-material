@@ -53,7 +53,7 @@
       </api-item>
 
       <api-item title="API - md-speed-dial-trigger">
-        <p>This component is just an alias of <code>md-button</code> with <code>md-fab</code> class. So every option of <router-link to="/components/button">Buttons</router-link> can be applied here, even the Vue Router options...</p>
+        <p>This component is just an alias of <code>md-button</code> with <code>md-fab</code> class. So every option of <router-link to="/vuematerial/components/button">Buttons</router-link> can be applied here, even the Vue Router options...</p>
       </api-item>
     </div>
   </page-container>
