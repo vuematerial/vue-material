@@ -68,7 +68,7 @@
     }),
     methods: {
       updatePagination (page, pageSize, sort, sortOrder) {
-        console.log('pagination has updated', page, pageSize, sort, sortOrder)
+        console.log('pagination has updated', page, pageSize, sort, sortOrder);
       }
     },
   }
