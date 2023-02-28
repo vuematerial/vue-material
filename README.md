@@ -111,7 +111,7 @@ Thank you to all our backers! 🙏 [[Become a backer](https://opencollective.com
 
 ## Credits and Thanks
 
-Vue Material does not run under the umbrella of any company or anything like that. It is an independent project created by <a data-v-9248b2ee="" href="https://www.github.com/marcosmoura" target="_blank">Marcos Moura</a> in his spare time, which has become one of the most used UI Libraries for Vue.js. The development is active and we are working hard to release great things for you.
+Vue Material now runs under the umbrella of <a href="https://www.creative-tim.com/?ref=vuematerial.io" target="_blank">Creative Tim</a>. It is a project created by <a data-v-9248b2ee="" href="https://www.github.com/marcosmoura" target="_blank">Marcos Moura</a> in his spare time, which has become one of the most used UI Libraries for Vue.js. The development is active and we are working hard to release great things for you.
 
 * <a href="https://github.com/elviskang" target="_blank">elviskang</a> for donating the npm package name!
 * <a href="https://github.com/brunocastro" target="_blank">Bruno Castro</a> for the awesome Vue Material Logo.
