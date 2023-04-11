@@ -268,10 +268,8 @@
         const months = getElements(this.$el, '.md-datepicker-month')
 
         if (months.length) {
-          const nextMonth = months[months.length - 1]
-
           this.contentStyles = {
-            height: nextMonth.offsetHeight + 10 + 'px'
+            height: '264px'
           }
         }
       },
